@@ -2,42 +2,51 @@
 <html>
     <head>
         <style>
-            h1 {text-align: center;}
-            p {text-align: center;}
-            div {text-align: center;}
+            div {color: springgreen;}
+            #username {color:gold;
+            text-align: center;
+            font-size: 50px;}            
+            .roominformation {color:salmon;
+            text-align: center;}
+            .hej {color:slateblue}
+            .dej {text-align: center;
+            font-size: 40px;}
+            .flex-container {
+  display: flex;
+  flex-wrap: nowrap;
+  background-color: DodgerBlue;
+}
+
+.flex-container > div {
+  background-color: #f1f1f1;
+  width: 100px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+}
+            
+            
             </style>
         <title>Alexanders page</title>
     </head>
+
+
     <body>
-        <h1>This is a deep poem</h1>
-        <p><b>I like to dig</b></p>
-        <p><i>Gustaf likes to dig</i></p>
-        <p><sub>Patrick</sub> and <sup>Tove</sup>likes to dig</p>
-        <p style="font-size:50px;">This poem is bad but it is deep</p>
-        <hr>
-            
-        <p>
-        <b>Now i can write in bold</b><i> and in italic in the same paragraph.</i> 
-        </p>
-
-        <div>What happends when you use differnt divs?</div>
-        <div>This is what happends</div>
-        <hr>
-        <h1 style="font-size:60px; background-color:Orange;"
-        >Very nice recipe of spaghetti and meatballs</h1>
-       
-        <p><i>Ingredients</i></p>
-        <p>Spaghetti</p>
-        <p>Meatballs</p>
-        <p>Kethcup</p>
-        <p>That is it</p>
-
-        <p><b>How to:</b></p>
-        <div>Cook your spaghetti according to instrcutions</div>
-        <div>Cook you meatballs according to instructions</div>
-        <div style="background-color:red;">Add ketphup</div>
-        <div><b>Please enjoy</b></div>
-
-        
+        <div id="username">Alexander</div>
+        <div class="roominformation">Blablabla</div>
+        <div class="hej dej">Hej hej Monica hej på dej Moinca</div>
+        <p>This is some <u>mispeled</u> text.</p>
+        <div class="flex-container">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>  
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>  
+            <div>7</div>
+            <div>8</div>
+          </div>
+          
     </body>
 </html>
