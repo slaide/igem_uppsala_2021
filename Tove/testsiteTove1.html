@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>This is iGEM 2020s real meat</title>
+        <meta charset="utf-8"/>
+        <style>
+
+            .top-container {
+                display: flex;
+                max-width: 100%;
+                height: 300px;
+                font-size: 15em;
+                
+                text-align: center;
+                margin-top: 16px;
+                background-color: darkred;
+                font-family: fantasy;
+            }
+
+            .bottom-left-container{
+                display:flex;
+                height:700px;
+                width:100px;
+                border-top: 1px solid black;
+                border-right: 1px solid black;
+                background-color: lightgreen;
+            }
+
+            .bottom-right-container{
+                display: flex;
+                height:1500px;
+                width:1370px;
+                flex-direction: column;
+                flex-grow: 3;
+
+            }
+            
+            .big-container{
+                display: flex;
+                
+                height: 1500px;
+                max-width: 100%;
+                flex-direction: row;
+            }
+            #intro {
+                display:flex;
+                height:700px;
+                background-color:darkslategrey;
+                font-family: fantasy;
+                flex-direction: column;
+                
+            }
+
+            #intro-title {
+                text-align: right;
+                font-size: 2em;
+            }
+            #team{
+                display:flex;
+                background-color: lawngreen;
+                font-family: fantasy;
+                font-size: 1em;
+                flex-direction: column;
+            }
+
+            #team-title{
+                text-align: right;
+                font-size: 2em;
+            }
+
+            #potraits{
+                display: grid;
+                grid-template-columns: repeat(3,1fr);
+                grid-template-rows:20em 20em;
+                grid-gap: 1vmin;
+                flex-wrap:wrap;
+                overflow:hidden;
+                width:100%;
+            }
+            
+            .team-portrait{
+                display: flex;
+                justify-content: end;
+                flex-direction: column;
+                text-align: center;
+                border: 1px solid black;
+                background-color: mediumseagreen;
+                border-radius: 2vmin;
+                
+            }
+
+            .team-portrait-image > img {
+            --padding: 4%;
+            width:calc(100% - 2*var(--padding));
+            height: auto;
+            
+            padding:var(--padding);
+            max-width:100%;
+            max-height:100%;
+            }
+
+            .team-portrait > .team-portrait-image{
+                flex: 4 0 0px;
+                width:100%;
+                display:flex;
+                justify-content: space-around;
+                flex-direction:column;
+                overflow:hidden;
+                
+                
+
+            }
+
+            .team-portrait-name{
+                height: auto;
+                font-size:1em;
+            }
+
+            .team-portrait-name > div{
+                position: relative;
+                width:auto;
+                height:auto;
+                top: 50%;
+                transform: translate(0%, -50%);
+            }
+
+            .team-portrait > div{
+                flex: 1 0 0px;
+            }
+            
+            body {
+                background-color: teal;
+                margin:0;
+                
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="top-container">
+         FGFUTURE   
+        </div>
+
+        <div class="big-container">
+          
+            <div class="bottom-left-container">
+                <ul>
+                    <li>
+                        intro
+                    </li>
+                    <li>
+                        team
+                    </li>
+                    <li>
+                        lab
+                    </li>
+                </ul>
+            </div>
+            
+                
+                    
+            <div class="bottom-right-container">
+                <div id="intro">
+                    <h1 id="intro-title">INTRO</h1>
+                    <div>
+                        <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas mattis ut orci ac tincidunt. Sed varius, metus id feugiat cursus, lorem ante molestie nisi, non accumsan lorem purus in massa. Sed tellus ipsum, laoreet sit amet feugiat non, tincidunt vel urna. Pellentesque fringilla pretium odio, vitae accumsan quam egestas nec. In lobortis imperdiet nulla in elementum. In sodales vehicula neque, ac pulvinar tellus vehicula sit amet. Cras non hendrerit urna. Nam hendrerit, est vel congue hendrerit, magna mi varius neque, nec dictum tellus sem in lectus. Mauris finibus est vel laoreet posuere. In efficitur eros augue, a dictum quam consequat in. Suspendisse orci diam, maximus eu nibh et, consectetur tempor arcu.
+                        </p>
+                        <p>
+                        Vestibulum hendrerit congue leo eget consectetur. Etiam lacinia, purus sit amet consectetur viverra, augue neque molestie lacus, sed finibus lorem mi eget turpis. Vivamus tincidunt mauris neque, ut gravida leo laoreet non. Aliquam scelerisque diam nec tempus pulvinar. Nullam tempus, nisl ac consequat fermentum, purus sapien accumsan dolor, vitae volutpat justo massa vitae nisi. Sed sodales commodo nisl, et accumsan nunc blandit at. Maecenas vitae purus elit. Ut sollicitudin est ac ipsum finibus, eu lobortis felis tincidunt. Aliquam bibendum, augue vel consequat pharetra, magna eros tempus lectus, a fringilla libero leo id purus.
+                        </p>
+                        <p>
+                        Phasellus id est eu tortor lobortis rhoncus imperdiet iaculis dui. Fusce ut vehicula dui, sed dapibus nisl. Pellentesque leo nulla, imperdiet ac pulvinar in, tempus eu ligula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam at interdum enim. Vestibulum gravida sit amet velit quis pretium. Nunc vel turpis vel tellus egestas tempor. Vivamus tristique sodales nibh, at sagittis mi sodales et. Nulla ultrices sapien est, eu gravida metus viverra sed. Aenean at blandit quam. Curabitur blandit mi at suscipit vulputate. Etiam magna quam, placerat quis erat et, commodo ultrices orci. Phasellus vitae molestie massa. Nam pharetra magna id hendrerit tincidunt.
+                        </p><p>
+                        Maecenas mattis imperdiet aliquet. Aliquam ut tortor iaculis, bibendum nunc efficitur, tristique augue. Phasellus fermentum est urna, a vestibulum nisl posuere a. Vestibulum porttitor facilisis dolor, eget eleifend urna mollis hendrerit. Curabitur sodales tortor quis velit fermentum, vitae vulputate nulla ultrices. Ut lacus lectus, malesuada eu convallis ac, dapibus blandit magna. Nam velit est, convallis nec euismod convallis, tincidunt eget augue. Duis ut tristique nunc. Etiam ornare finibus ultrices.
+                        </p><p>
+                        Ut fringilla erat at lobortis porta. Pellentesque facilisis venenatis mi, sit amet tincidunt felis. Maecenas sollicitudin facilisis dui vitae congue. In hac habitasse platea dictumst. Nam placerat ante et interdum condimentum. Morbi sit amet felis porta, consectetur sapien vitae, congue purus. Donec ut massa ut risus eleifend pretium et et diam. In suscipit sagittis consectetur. Phasellus non sollicitudin dui, eget tristique tortor.</p>
+
+
+                    </div>
+                </div>
+                <div id="team">
+                    <div id="team-title">TEAM</div>
+                    <div id="potraits">
+                        <div class="team-portrait">
+                            <div class="team-portrait-image">
+                                <img src="https://pingstkyrkankarlskrona.se/wp-content/uploads/2014/03/Shrek-1-e1494074245776.jpg">
+                            </div>
+                            <div class="team-portrait-name">
+                                <div>
+                                    Shrek
+                                </div> 
+                            </div>
+                        </div>
+                        <div class="team-portrait">
+                            <div class="team-portrait-image">
+                                <img src="https://wallpaperaccess.com/full/4084988.jpg">
+                            </div>
+                            <div class="team-portrait-name">
+                                <div>
+                                    Donkey
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-portrait">
+                            <div class="team-portrait-image">
+                                <img src="https://i.pinimg.com/originals/73/44/c6/7344c6eb343fb4c6ad415a579c35fd83.gif">
+                            </div>
+                            <div class="team-portrait-name">
+                                <div>
+                                    Cat
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-portrait">
+                            <div class="team-portrait-image">
+                                <img src="https://i.pinimg.com/originals/02/db/a3/02dba3e09295891ee5df76e19ebe7299.jpg">
+                            </div>
+                            <div class="team-portrait-name">
+                                <div>
+                                    Dragon
+                                </div>
+                            </div>
+                        </div>
+
+                        </div>
+                    </div>
+                </div>
+                
+
+            </div>
+
+        </div>
+
+        
+        
+        
+        
+        
+
+
+    </body>
+</html>
