@@ -2,27 +2,49 @@
 <html lang="en">
     <head>
         <title>
-            Igem Uppsala 2020
+            Alex website
         </title>
         <style>
-            body{margin:0}
+
+*           {
+                margin:0;
+                border:0;
+                padding:0;
+            }
+            body{
+                margin:0;
+                background-color:rgb(62, 70, 57);  
+            }
 
             h1{
-                font-size: 50px;
+                font-size: 80px;
                 text-align: center;
                 color: greenyellow;
+                text-decoration: underline;
+                background-color: black;
             }
 
             h2{
-                font-size: 40px;
+                font-size: 60px;
                 text-align: right;
                 color: greenyellow;
                 margin-right: 30px;
             }
+
+            h2 > span:hover{
+                color: darkorange;
+                padding-right: 40px;
+            }
+            h3{
+                font-size: 40px;
+                text-align: center;
+                text-decoration: underline;
+
+            }
             .head{
                 display: flex;
                 flex-wrap: wrap;
-                background-color: black;
+                background-color: rgb(37, 37, 37);
                 height: 16px;
             }
 
@@ -30,29 +52,39 @@
                 display: flex;
                 flex-wrap: wrap;
                 margin: 0;
+                height: 100%;
+                overflow: hidden;
             }
 
             .n1left{
                 display: flex;
                 flex-direction: column;
-                background-color: chocolate;
+                background-color:rgb(62, 70, 57);
                 margin: 0;
-                border: 5px solid black;
-                height: 600px;
+                border-top: 2px solid black;
+                border-right: 2px solid black;
+                height: 135vw;
                 padding: 5px;
                 text-align: center;
-                
-
+                overflow: hidden;
             }
 
-            #list{}
+
+            li{
+                padding-top: 10px;
+            }
+            li:hover{
+                color: darkorange;
+                padding-left: 15px;
+            }
 
             .n1right{
                 display: flex;
                 flex-direction: column;
                 flex-grow: 100;
-                background-color: cornflowerblue;
+                background-color: darkolivegreen;
                 margin: 0;
+                height: 100%;
 
             }
 
@@ -66,13 +98,75 @@
             }
 
             #intro{
-                height: 50%;
+                height: 45%;
                 width: 1200px;
                 text-align: center;
-                border-radius: 50px;
-                border: 5px solid black;
+                border: 5px dashed black;
 
             }
+
+            #lab{
+                height: 40%;
+                width: 1300px;
+                text-align: center;
+                border: 6px solid black;
+                overflow: auto;
+                padding: 0;
+
+            }
+
+            .gridsystem{
+                display:grid;
+                grid-template-columns: repeat(3,1fr);
+                grid-template-rows: 40em 40em;
+                grid-gap: 1vmin;
+                flex-wrap:wrap;
+                overflow:hidden;
+            }
+
+            .photosection{
+                display:flex;
+                justify-content: end;
+                flex-direction: column;
+                text-align: center;
+                border: 2px solid black;
+                background-color: rgb(53, 68, 48);
+                border-radius: 4vmin;
+            }
+
+            .photo{
+                border: 2px solid black;
+                border-top-right-radius: 4vmin;
+                border-top-left-radius: 4vmin;
+            }
+
+            .name{
+                font-size: 30px;
+                padding-top: 20px;
+                text-decoration: underline;
+            }
+
+            .name:hover{
+                color: darkorange;
+                font-style: italic;
+                font-size: 35px;
+            }
+
+            .parallax {
+            /* The image used */
+            background-image: url(https://www.europeanpharmaceuticalreview.com/wp-content/uploads/Lab-sustainability-600x500.jpg);
+
+            /* Set a specific height */
+            min-height: 300px; 
+
+            /* Create the parallax scrolling effect */
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            }
+            
+
 
         </style>    
       
@@ -85,7 +179,7 @@
         </div>
         
         <h1><i>FGFUTURE</i></h1>        
-
+        <div class="parallax"></div>
         
         <main>
             <div class="n1">
@@ -108,7 +202,7 @@
 
                 <div class="n1right">
                     <div class="n2">
-                        <h2>Intro</h2>
+                        <h2><span>INTRO</span></h2>
                         <div id="intro">  
                             
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sapien libero, venenatis non finibus venenatis, maximus sit amet arcu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean elementum pellentesque eros quis sollicitudin. Vestibulum congue ipsum vitae eros ultricies, id elementum libero molestie. Suspendisse faucibus vestibulum tellus egestas convallis. Suspendisse iaculis, ligula id pellentesque scelerisque, dui tellus consequat tortor, eu rutrum dui nulla ac orci. Nullam dolor diam, pulvinar vel orci vel, malesuada facilisis elit. Quisque quis facilisis felis. Aliquam malesuada turpis eu ipsum ultrices, id maximus nunc convallis. Aliquam pharetra, leo a mattis varius, eros turpis aliquam lorem, a dignissim dolor ipsum at felis. Nam non iaculis velit. Vestibulum efficitur diam ac accumsan tincidunt. Aenean tincidunt, justo eu tristique ultricies, nulla lorem scelerisque ante, in porta tortor urna nec urna. Sed lobortis tellus vitae nisl placerat blandit.
@@ -117,6 +211,78 @@
                             
                             Nunc viverra sapien sit amet sem laoreet, ac dapibus lorem gravida. Vivamus eu augue urna. Aliquam pretium sem quis orci consequat finibus. Maecenas lectus dui, efficitur non turpis tempor, congue efficitur lectus. Donec lacus magna, convallis lacinia pretium non, accumsan volutpat diam. Interdum et malesuada fames ac ante ipsum primis in faucibus. In non quam malesuada, lobortis elit at, mattis dolor. Mauris aliquam eu velit eu posuere. Maecenas sapien quam, imperdiet id porttitor at, ullamcorper vel mauris. Morbi et erat sed ligula venenatis pretium sagittis ut lorem. Sed finibus ante elit, et tempus mauris pellentesque sit amet. Mauris vulputate aliquet mattis. Cras eget sapien turpis. Etiam augue nisl, faucibus vel rhoncus at, fringilla vel elit. Morbi suscipit, tortor eu molestie ultrices, mi urna mattis nibh, hendrerit lacinia est ligula id odio.
                             
+                            
+
+                        </div>
+                        
+                        <div class="teamsection">
+                            <h2><span>TEAM</span></h2>
+
+                            <div class="gridsystem">
+                                <div class="photosection">
+                                    <div class=photo>
+                                        <img src="https://www.zooportraits.com/wp-content/uploads/2019/10/Pug-Canis-lupus-familiaris-1.jpg" width="400px" height="550px">
+                                    </div>
+                                    <div class="name">
+                                        Alex
+                                    </div>
+                                </div>
+
+                                <div class="photosection">
+                                    <div class=photo>
+                                        <img src="https://www.zooportraits.com/wp-content/uploads/2019/10/Domestic-pig-Sus-scrofa-domesticus.jpg" width="400px" height="550px">
+                                    </div>
+                                    <div class="name">
+                                        Gustaf
+                                    </div>
+
+                                </div>
+                                <div class="photosection">
+                                    <div class=photo>
+                                        <img src="https://www.zooportraits.com/wp-content/uploads/2019/10/Southern-Rockhopper-Penguin-Eudyptes-chrysocome.jpg" width="400px" height="550px">
+                                    </div>
+                                    <div class="name">
+                                        Tove
+                                    </div>
+                                </div>
+
+                                <div class="photosection">
+                                    <div class=photo>
+                                        <img src="https://www.zooportraits.com/wp-content/uploads/2019/10/Scottish-Highland-Bull-Highland-cattle.jpg" width="400px" height="550px">
+                                    </div>
+                                    <div class="name">
+                                        Patrick
+                                    </div>
+                                </div>
+
+                                <div class="photosection">
+                                    <div class=photo>
+                                        <img src="https://www.zooportraits.com/wp-content/uploads/2019/10/Tokay-gecko-Gekko-gecko.jpg" width="400px" height="550px">
+                                    </div>
+                                    <div class="name">
+                                        Emily
+                                    </div>
+                                </div>
+
+                                <div class="photosection">
+                                    <div class=photo>
+                                        <div class="tenor-gif-embed" data-postid="17332918" data-share-method="host" data-width="100%" data-aspect-ratio="0.8092369477911646"><a href="https://tenor.com/view/epic-sax-guy-music-saxophone-meme-dance-gif-17332918">Epic Sax Guy Music GIF</a> from <a href="https://tenor.com/search/epicsaxguy-gifs">Epicsaxguy GIFs</a></div><script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+                                        
+                                    </div>
+                                    <div class="name">
+                                        Epic sax guy
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                        <h2><span>LAB</span></h2>
+                        <div id="lab">   
+                            <img src="https://2021.igem.org/wiki/images/d/da/T--Uppsala--TEST_blackboard.jpg" width="100%" height="100%">
+                        </div>
+                        <h3>This is our awesome plan</h3>
 
                         </div>
 
