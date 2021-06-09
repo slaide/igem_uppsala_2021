@@ -45,22 +45,88 @@
             #intro {
                 display:flex;
                 height:700px;
-                
                 background-color:darkslategrey;
                 font-family: fantasy;
-                font-size: 1em;
+                flex-direction: column;
+                
             }
 
+            #intro-title {
+                text-align: right;
+                font-size: 2em;
+            }
             #team{
                 display:flex;
-                height:700px;
-                
                 background-color: lawngreen;
                 font-family: fantasy;
                 font-size: 1em;
+                flex-direction: column;
             }
+
+            #team-title{
+                text-align: right;
+                font-size: 2em;
+            }
+
+            #potraits{
+                display: grid;
+                grid-template-columns: repeat(3,1fr);
+                grid-template-rows:20em 20em;
+                grid-gap: 1vmin;
+                flex-wrap:wrap;
+                overflow:hidden;
+                width:100%;
+            }
+            
+            .team-portrait{
+                display: flex;
+                justify-content: end;
+                flex-direction: column;
+                text-align: center;
+                border: 1px solid black;
+                background-color: mediumseagreen;
+                border-radius: 2vmin;
+                
+            }
+
+            .team-portrait-image > img {
+            --padding: 4%;
+            width:calc(100% - 2*var(--padding));
+            height: auto;
+            
+            padding:var(--padding);
+            max-width:100%;
+            max-height:100%;
+            }
+
+            .team-portrait > .team-portrait-image{
+                flex: 4 0 0px;
+                width:100%;
+                display:flex;
+                justify-content: space-around;
+                flex-direction:column;
+                overflow:hidden;
                 
                 
+
+            }
+
+            .team-portrait-name{
+                height: auto;
+                font-size:1em;
+            }
+
+            .team-portrait-name > div{
+                position: relative;
+                width:auto;
+                height:auto;
+                top: 50%;
+                transform: translate(0%, -50%);
+            }
+
+            .team-portrait > div{
+                flex: 1 0 0px;
+            }
             
             body {
                 background-color: teal;
@@ -95,13 +161,58 @@
                     
             <div class="bottom-right-container">
                 <div id="intro">
-                    bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-                    <h1>INTRO</h1>
+                    <h1 id="intro-title">INTRO</h1>
+                    <div>balblablalbalblblalblbalbalbalablbalablablablbalablabalbalblablablab</div>
                 </div>
                 <div id="team">
-                    TEAM
+                    <div id="team-title">TEAM</div>
+                    <div id="potraits">
+                        <div class="team-portrait">
+                            <div class="team-portrait-image">
+                                <img src="https://pingstkyrkankarlskrona.se/wp-content/uploads/2014/03/Shrek-1-e1494074245776.jpg">
+                            </div>
+                            <div class="team-portrait-name">
+                                <div>
+                                    Shrek
+                                </div> 
+                            </div>
+                        </div>
+                        <div class="team-portrait">
+                            <div class="team-portrait-image">
+                                <img src="https://wallpaperaccess.com/full/4084988.jpg">
+                            </div>
+                            <div class="team-portrait-name">
+                                <div>
+                                    Donkey
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-portrait">
+                            <div class="team-portrait-image">
+                                <img src="https://i.pinimg.com/originals/73/44/c6/7344c6eb343fb4c6ad415a579c35fd83.gif">
+                            </div>
+                            <div class="team-portrait-name">
+                                <div>
+                                    Cat
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-portrait">
+                            <div class="team-portrait-image">
+                                <img src="https://i.pinimg.com/originals/02/db/a3/02dba3e09295891ee5df76e19ebe7299.jpg">
+                            </div>
+                            <div class="team-portrait-name">
+                                <div>
+                                    Dragon
+                                </div>
+                            </div>
+                        </div>
+
+                        </div>
+                    </div>
                 </div>
-                <div id="potraits"></div>
+                
+
             </div>
 
         </div>
