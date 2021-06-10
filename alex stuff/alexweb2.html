@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <title>
+            Alex website 2
+        </title>
+        <meta charset="utf8">
+
+        <style>
+
+            *{
+                margin:0;
+                border:0;
+                padding:0;
+            }
+            body, html{
+                height: 100%;
+                
+            }
+
+            .igem-login-bar{
+                height: 16px;
+                width:100%;
+                background-color: black;
+            }
+            h1{
+                text-align: center;
+                font-size: 6em;
+                text-decoration: underline;
+                font-style: italic;
+                background-color: transparent;
+                bottom: 50%;
+            }
+            .parallax1 {
+                background-image: url('https://www.europeanpharmaceuticalreview.com/wp-content/uploads/Lab-sustainability-600x500.jpg');
+                height: 20%;
+                background-attachment: fixed;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                overflow: hidden;
+            }
+            
+            .parallax2 {
+                background-image: url('https://www.europeanpharmaceuticalreview.com/wp-content/uploads/Lab-sustainability-600x500.jpg');
+                height: 250%;
+                background-attachment: fixed;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            } 
+            
+            .grid-container{
+                display: grid;
+                height: 80%;
+                grid-template-columns:repeat(4,1fr);
+                grid-template-rows: 33% 33% 33%;
+                background-color:transparent;
+                overflow: hidden;
+                padding-top: 10%;
+            }
+
+
+            .box {
+                background-color:#fff;
+                height: 100%;
+                width: 100%;
+                font-size: 150%;
+            }
+
+            .grid-container-menu{
+                display: grid;
+                height: 100%;
+                grid-template-columns:repeat(6, 1fr);
+                grid-template-rows: auto;
+            }
+
+
+            .square {
+                background-color:gray;
+                height: 20%;
+                width: 100%;
+                font-size: 80%;
+                border: 1px solid black;
+            }
+
+            .square > div{
+                grid-column: 1;
+                grid-row: 1 ;
+                text-align: center;
+                font-size: 2em;
+                color: darkgreen;
+            }
+
+            .square > div:hover{
+                font-style: italic;
+                font-size: 2.2 em;
+                color: black;
+            }
+
+
+            .a{
+                grid-column: 2 /span 2;
+                grid-row: 1 ;
+                text-align: center;
+                font-size: 4em;
+                background-color: blue;
+
+            }
+
+            .b{
+                grid-column: 2 /span 2;
+                grid-row: 2 ;
+                text-align: center;
+                font-size: 4em;
+                background-color: brown;
+            }
+
+            .c{
+                grid-column: 2 /span 2;
+                grid-row: 3 ;
+                text-align: center;
+                font-size: 4em;
+                background-color: chocolate;
+            }
+
+            .center{
+                margin: auto;
+                width: 49.5%;
+                height: 7%;
+                border: 3px solid black;
+                padding-top: 3%;
+                background-color: rgb(4, 180, 4);
+             }
+
+            .grid-text{
+                text-align: center;
+                font-style: italic;
+                text-decoration: underline;
+            }
+
+            .text-bottom{
+                text-align: center;
+                font-size: 2em;
+            }
+
+            .text-bottom > p{
+                padding: 5%;
+            }
+
+            .maintext{
+                margin: auto;
+                width: 100%;
+                height: 30%;
+                background-color: darkgreen;
+                border: 2px solid black;
+
+            }
+
+            .grid-container-main{
+                display: grid;
+                height: 100%;
+                width: 100%;
+                grid-template-columns:repeat(3, 1fr);
+                grid-template-rows: repeat(3, 1fr);
+            }
+
+
+            .circle{
+                background-color:chocolate;
+                height: 100%;
+                width: 100%;
+                font-size: 80%;
+                border: 2px solid black;
+                border-radius: 50%;
+            }
+
+
+
+        </style>    
+
+    </head>
+
+    <body>
+        <div class="igem-login-bar">
+        </div>
+            <div class="parallax1">
+                <div class="grid-container-menu">
+                    <div class="square">
+                        <div>Team</div>
+                    </div>
+
+                    <div class="square">
+                        <div>Team</div>
+                    </div>
+
+                    <div class="square">
+                        <div>Team</div>
+                    </div>
+
+                    <div class="square">
+                        <div>Team</div>
+                    </div>
+
+                    <div class="square">
+                        <div>Team</div>
+                    </div>
+
+                    <div class="square">
+                        <div>Team</div>
+                    </div>
+
+                </div>
+
+                
+            </div>
+            <div class="parallax2">
+                <h1>FGFUTURE</h1>
+                <div class="grid-container">
+                    
+                    <div class="box a">
+                        <div class = "grid-text">
+                            Modeling
+                        </div>
+                        <img src="https://www.zooportraits.com/wp-content/uploads/2019/10/Pug-Canis-lupus-familiaris-1.jpg" width="100%" height="100%">
+
+                    </div>
+                    <div class="box b">
+                        <div class = "grid-text">
+                            Human practice
+                        </div>
+                        <img src="https://www.zooportraits.com/wp-content/uploads/2019/10/Domestic-pig-Sus-scrofa-domesticus.jpg" width="100%" height="100%">
+                    </div>
+                    <div class="box c">
+                        <div class = "grid-text">
+                            Results
+                        </div>
+                        <img src="https://www.zooportraits.com/wp-content/uploads/2019/10/Southern-Rockhopper-Penguin-Eudyptes-chrysocome.jpg" width="100%" height="100%">
+                    </div>
+            </div>
+            <div class="parallax2">
+                <div class="center">
+                    <div class="text-bottom">
+                        <h2>Our sponsors</h2>
+                        <P>Lorem Impsum Lorem Impsum Lorem Impsum Lorem </P>
+                        <p>Lorem  Ipsum Lorem Ipsum Lorem Ipsum Lorem IpsumLorem Ipsum </p>
+
+                    </div>
+                </div>
+                <div class="maintext">
+                    <div class="grid-container-main">
+                        <div class="circle">
+                            hej
+                        </div>
+
+                        <div class="circle">
+                            walla
+                        </div>
+
+                        <div class="circle">
+                            abow
+                        </div>
+
+                        <div class="circle">
+                            tjena
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="parallax"2></div>
+                    
+                    </div>
+
+
+            </div>
+            
+        
+        
+        
+    </body>
+</html>
