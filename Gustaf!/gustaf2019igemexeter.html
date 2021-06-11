@@ -7,16 +7,30 @@
 .parallax {
   background-image: url("whale.jpeg");
   min-height: 500px; 
+  height:750px;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
 }
 
 html.body{
   height:100%;
-  background-color:grey
 }
+
+.infobox {
+position: absolute;
+top: 30%;
+width: 100%;
+text-align: center;
+font-size: 30px;
+color: rgba(0,0,0,1.00);
+}
+
+h1{text-align:center;
+color:skyblue;}
+
 
 </style>
 
@@ -27,10 +41,18 @@ designs som du gillar och försök göra html filer av minst 2.
 ex. 2019 team exeter
 -->
 
-<body>
+<body style="background-color: whitesmoke;">
+
 <div class="parallax">
 
 </div>
+
+<div class="infobox">
+<h1 style="color: white;">Protecting the oceans one wash at a time</h1>
+
+</div>
+
+
 
 <!-- vill ha text på bilden som åker upp 
 när jag scrollar.
@@ -39,18 +61,21 @@ vill veta hur man har en fixed bar där uppe
 även vid parallax
 vill ha 4 menyer nedanför all text som länkar till saker.-->
 
-<hr>
-
-<h1 style="text-align: center;">Laundry accounts for 35% of all micropalstic pollution.
+<hr style="margin-top: 50px;">
+<section>
+<h1>
+  Laundry accounts for 35% of all microplastic pollution.
 </h1>
 
-<h1 style="text-align: center;"><p>We are developing an enzyme-based filter to stop it reaching
+<h1><p>We are developing an enzyme-based filter to stop it reaching
     the ocean.
 </p></h1>
 
+</section>
+
 <hr>
 
-<!-- 4 menyer här med länkar-->
+<!-- 4 menyer här med länkar-fixa flexboxar-->
 <a href="https://www.w3schools.com">Visit W3Schools</a>
 <a href="https://www.youtube.com">Visit my youtube channel</a>
 
