@@ -15,6 +15,18 @@
 
 }
 
+.photosection{
+                display:flex;
+                justify-content: end;
+                flex-direction: row;
+                text-align: center;
+                border: 1px solid black;
+                margin-right:200px;
+                margin-left:200px;
+                padding:0px;
+    
+ }
+
 html.body{
   height:100%;
 }
@@ -54,15 +66,13 @@ ex. 2019 team exeter
 
 
 
-<!-- vill ha text på bilden som åker upp 
-när jag scrollar.
-
+<!-- 
+  kan man ha gif som parallax?!
 vill veta hur man har en fixed bar där uppe
 även vid parallax
 vill ha 4 menyer nedanför all text som länkar till saker.-->
 
 <hr style="margin-top: 50px;">
-<section>
 <h1>
   Laundry accounts for 35% of all microplastic pollution.
 </h1>
@@ -71,16 +81,20 @@ vill ha 4 menyer nedanför all text som länkar till saker.-->
     the ocean.
 </p></h1>
 
-</section>
-
 <hr>
 
-<!-- 4 menyer här med länkar-fixa flexboxar-->
-<a href="https://www.w3schools.com">Visit W3Schools</a>
-<a href="https://www.youtube.com">Visit my youtube channel</a>
+<div class="photosection">
 
-<iframe width="420" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY">
-</iframe>
+<!-- 4 menyer här med länkar-fixa flexboxar-->
+<a href="https://2019.igem.org/Team:Exeter/Human_Practices">Problem</a>
+
+<a href="https://2019.igem.org/Team:Exeter/Hardware">Solution</a>
+
+<a href="https://2019.igem.org/Team:Exeter/Design">Synthetic Biology</a>
+
+<a href="https://2019.igem.org/Team:Exeter/Human_Practices?human_practices">Human Practices</a>
+
+</div>
 
 </body>
 </html>
