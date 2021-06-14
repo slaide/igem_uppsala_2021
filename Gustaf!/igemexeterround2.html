@@ -12,8 +12,24 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  margin-left:150px;
 
 }
+
+.flex-containertop{ 
+            display: flex;
+            background-color:black;
+            height:16px;
+        }
+
+        #sidebar{
+    position:fixed;
+     left:0;
+     margin:0;
+     width:150px;
+     height:100%;
+     background:royalblue;
+            }
 
 .grid-container{ 
             display: grid;
@@ -65,7 +81,20 @@ color:skyblue;}
 
 <body style="background-color: whitesmoke;">
 
+  <div class="flex-containertop">
+    <p></p>
+    </div>
+
 <div class="parallax">
+
+  <div id="sidebar">
+    <ul>
+            <li><b><h2>Intro</h2></b></li>
+            <li><b><h2>Team</h2></b></li>
+            <li><b><h2>Lab</h2></b></li>
+        </ul>
+    </div>
+    
     <div class="infobox">
         <h1 style="color: white;">Protecting the oceans one wash at a time</h1>
         
