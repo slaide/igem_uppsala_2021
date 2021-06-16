@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Gustaf's try to mimic oceanhealthindex.org</title>
+<style>
+
+.parallax {
+  background-image: url("coral2.jpeg");
+  min-height: 500px; 
+  position:relative;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-left:15%;
+}
+
+.flex-containertop{ 
+            display: flex;
+            background-color:black;
+            height:16px;
+        }
+
+
+.photosection{
+                display:flex;
+                justify-content: end;
+                flex-direction: row;
+                text-align: center;
+                border: 1px solid black;
+                margin-right:200px;
+                margin-left:200px;
+                padding:0px;
+    
+        }
+     
+ 
+
+
+html,body{
+  height:100%;
+  margin:0;
+  padding:0;
+}
+
+.infobox {
+position: absolute;
+left: 0;
+top: 30%;
+width: 100%;
+text-align: center;
+font-size: 30px;
+color: rgba(0,0,0,1.00);
+}
+
+h1{text-decoration: underline;}
+
+
+.textbox1 {
+padding: 10px 30px;
+text-align: justify;
+width:50%;
+background-color:white;
+border: 1px solid black;
+}
+
+.textbox2 {
+padding: 10px 30px;
+text-align: left;
+width:50%;
+background-color: blue;
+border: 1px solid black;
+
+
+}
+section{text-align: center;
+margin-left:15%;
+}
+
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 15%;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+li a {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+li a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+li a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+
+</style>
+</head>
+
+
+<body style="background-color:navy">
+
+    <div class="flex-containertop">
+        <p></p>
+        </div>
+
+        <ul>
+            <li><a class="active" href="http://www.oceanhealthindex.org/">Home</a></li>
+            <li><a href="http://www.oceanhealthindex.org/region-scores">Global Scores</a></li>
+            <li><a href="http://www.oceanhealthindex.org/ohi-plus">OHI+</a></li>
+            <li><a href="http://www.oceanhealthindex.org/methodology">Methodology</a></li>
+            <li><a href="http://www.oceanhealthindex.org/news">News</a></li>
+          </ul>
+
+<div class="parallax">
+
+   
+
+    <div class="infobox">
+        <h1 style="color: yellow;">Ocean Health Index</h1>
+        <p style="color:yellow">A healthy ocean sustainably delivers a range of benefits to people now and in the future. The Ocean Health Index is the comprehensive framework used to measure ocean health from global to local scales.</p>
+        
+        </div>
+    </div>
+
+
+    <div class="parallax">
+        
+        <div class="photosection">
+        
+        <div class="textbox1">
+            <h2>GLOBAL ASSESSMENT</h2>
+            <p>A measure of ocean health across countries and high seas regions.</p>
+            <a href="http://www.oceanhealthindex.org/region-scores">GLOBAL SCORES</a>
+            </div>
+        
+        <div class="textbox2">
+            <h2>
+            INDEPENDENT ASSESSMENTS</h2>
+            <p>
+            OHI+ is an assessment tool customized by stakeholders to meet local mangament needs</p> 
+            
+                <a href="http://www.oceanhealthindex.org/ohi-plus">OHI+ ASSESSMENTS </a></p>
+            </div>
+        
+            </div>
+
+        </div>
+
+    <h2 style="text-align:center; margin-left:15%;
+    ">FOR UPDATES ON OCEAN HEALTH SIGN UP FOR OUR EMAIL NEWSLETTER</h2>
+
+
+    <section id="contact">
+    
+        <label for="firstname">First name</label><br>
+            <input type="text" id="firstname" name="fn" required="required" placeholder="First name"> </br>
+
+        <label for="lastname">Last name</label><br>
+            <input type="text" id="lastname" name="ln" required="required" placeholder="Last name"> </br>
+        
+        <label for="Email">Email</label><br>
+            <input type="text" id="Email" name="em" required="required" placeholder="Email"> </br>
+
+            <h4> Gender</h4>
+            
+                <label for="gender"></label><br>
+                
+                <select id="gender" name="gen">
+                    <option> Male</option>
+                    <option> Female</option>
+                    <option> Other</option>
+                
+                </select>
+                <p></p>
+
+        <input type="submit" value="Send">
+    </section>
+
+
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Gustaf's challenge from tove for a 
+        website
+    </title>
+<style>
+
+.parallax {
+  background-image: url("bananapeanut.jpeg");
+  min-height: 500px; 
+  position:relative;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-left:0%;
+}
+
+#igemloginbar{ 
+            width:100%;
+            background-color:grey;
+            height:16px;
+            text-align:center;
+        }
+
+.grid-container{ 
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 300px 300px;
+            margin-left:10px;
+            grid-gap: 1vmin;
+            flex-wrap:wrap;
+            overflow:hidden;
+}
+
+.photosection{
+                display:flex;
+                justify-content: end;
+                flex-direction: column;
+                text-align: center;
+                border: 1px solid black;
+                background-color: yellow;
+                border-radius: 2vmin;
+                margin-bottom:30px;
+                margin-right:50px;
+                margin-left:50px;
+                padding:30px;
+}
+
+html,body{
+  height:100%;
+  margin:0;
+  padding:0;
+}
+
+h1{text-decoration: underline;
+margin-left:15px;}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding:0;
+  overflow: hidden;
+  background-color: black;
+  text-align:center;
+}
+
+li {
+  float: left;
+  border:1px solid white;
+  width:19.86%;
+
+}
+
+li a, .dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.active {
+  background-color: #04AA6D;
+}
+
+hr{border: 1px solid black;}
+
+section{margin-right:20%;
+margin-left:20%;
+margin-top:30px;
+}
+
+img.sticky {
+  position: fixed;
+  margin-left:91%;
+  top: 550px;
+  width: 80px;
+  border-radius:50%;
+}
+img.sticky2{ position: relative;
+  margin-left:25%;
+  top: 455px;
+  width: 80px;
+  border-radius:50%;}
+
+  img.sticky3{position: relative;
+  margin-left:28%;
+  top: 455px;
+  width: 70px;
+  border-radius:50%;}
+
+</style>
+</head>
+
+
+<body style="background-color:bisque">
+
+    <div id="igemloginbar">
+        IGEM LOGIN BAR
+    </div>
+
+          <ul>
+            <li><a href="#P&B">P & B</a></li>
+            <li><a href="https://webportal.fruitguys.com/all-products?_ga=2.249423431.1104124382.1623847584-1444614516.1623847584">Buy</a></li>
+            <li><a href="https://fruitguys.com/almanac/">Info</a></li>
+            <li><a href="https://foodworksfund.wedid.it/">F & Q</a></li>
+            
+            <li class="dropdown">
+              <a href="javascript:void(0)" class="team">Team</a>
+              <div class="dropdown-content">
+                <a href="#">Team members</a>
+                <a href="#">Team photos</a>
+                <a href="#">Team background</a>
+              </div>
+            </li>
+          </ul>
+
+<div class="parallax">   
+</div>
+
+<!-- måste fixa sticky topbar (som funkar med parallax)-->
+
+<hr style="margin-top:0;">
+
+<h1>Buy</h1>
+
+<img class="sticky" src="peanutlogo.jpeg" alt="peanutlogo">
+
+<img class="sticky2" src="50off.jpeg" alt="50logo">
+
+<img class="sticky3" src="70off.jpeg" alt="70logo">
+
+</p>
+
+<div class="grid-container">
+
+    <div class='photosection'>
+
+<div> <img src="peanuts.jpeg" width="250px"  height="170px" >  <p>200g peanuts for only 25kr</p></div>
+
+</div>
+
+<div class='photosection'>
+
+<div> <img src="bananas.jpeg" width="250px"  height="170px"> <p>Bananas for 18kr/kg</p></div>
+
+</div>
+
+<div class='photosection'>
+
+<div> <img src="peanutbutter.jpeg" width="250px" height="170px" >  <p>1 jar of peanut butter for 40kr</p></div>
+
+
+</div>
+</div>
+
+
+<hr>
+
+<h1>Sale</h1>
+
+<div class="grid-container">
+
+    <div class='photosection'>
+
+<div> <img src="peanuts.jpeg" width="250px"  height="170px" >  <p>500g peanuts for only 40kr</p></div>
+
+</div>
+
+<div class='photosection'>
+
+<div> <img src="peanuts.jpeg" width="250px"  height="170px"> <p>1kg peanuts for the low cost of 60kr</p></div>
+
+</div>
+</div>
+
+
+<hr>
+
+<h1>Our mission</h2>
+
+<p style="font-size:large";>Since 1998, The FruitGuys has been on a mission to support American farms and combat hunger. Buying your fruit from The FruitGuys helps our family-owned and operated B Corp business sustain the small independent farmers we support and source from and the hunger-relief non-profits we donate to through our GoodWorks programs. </p>
+
+<p style="font-size:large";>In 2019, we became B Corp certified in recognition of our consistent values and practices to use business as a force for good.</p>
+
+<p style="font-size:large";>We donate all visually imperfect and excess fresh fruit to local food banks and charities in the communities we serve. Your business with us helps support our weekly fresh fruit donations to hunger-relief organizations across the country. Since our business began in 1998, we’ve donated more than 17 million servings of food to community partners across the country.</p>
+
+<hr>
+
+<section>
+<div class="tenor-gif-embed" data-postid="4899294" data-share-method="host" data-width="100%" data-aspect-ratio="1.329479768786127"><a href="https://tenor.com/view/family-guy-peter-griffin-brian-griffin-its-peanut-butter-jelly-time-dance-gif-4899294">Family Guy Peter Griffin GIF</a> from <a href="https://tenor.com/search/familyguy-gifs">Familyguy GIFs</a></div><script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+
+</section>
+
+</body>
+</html>
