@@ -12,7 +12,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  margin-left:15%;
+  margin-left:0%;
 }
 
 .flex-containertop{ 
@@ -33,9 +33,6 @@
                 padding:0px;
     
         }
-     
- 
-
 
 html,body{
   height:100%;
@@ -74,39 +71,40 @@ border: 1px solid black;
 
 }
 section{text-align: center;
-margin-left:15%;
+margin-left:0%;
 }
-
-
 
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  width: 15%;
-  background-color: #f1f1f1;
-  position: fixed;
-  height: 100%;
-  overflow: auto;
+  overflow: hidden;
+  background-color: #333;
+  position:-webkit-sticky;
+  position:sticky;
+  top:0;
+}
+
+li {
+  float: left;
 }
 
 li a {
   display: block;
-  color: #000;
-  padding: 8px 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
   text-decoration: none;
 }
 
-li a.active {
+li a:hover {
+  background-color: red;
+}
+
+
+.active {
   background-color: #04AA6D;
-  color: white;
 }
-
-li a:hover:not(.active) {
-  background-color: #555;
-  color: white;
-}
-
 
 </style>
 </head>
@@ -124,6 +122,7 @@ li a:hover:not(.active) {
             <li><a href="http://www.oceanhealthindex.org/ohi-plus">OHI+</a></li>
             <li><a href="http://www.oceanhealthindex.org/methodology">Methodology</a></li>
             <li><a href="http://www.oceanhealthindex.org/news">News</a></li>
+
           </ul>
 
 <div class="parallax">
