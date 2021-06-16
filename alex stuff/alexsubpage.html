@@ -6,9 +6,9 @@
     </title>
     <style>
         *{
-             margin:0;
+            margin:0;
             border:0;
-             padding:0;
+            padding:0;
         }
         body, html{
                 height: 100%;        
@@ -49,6 +49,23 @@
             margin-right: 8%;
 
         }
+        button{
+            background-color: greenyellow;
+            border: 2px solid black;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        button:hover{
+            background-color: grey;
+            font-style: italic;
+            text-decoration: underline;
+        }
+
         .parallaxtop {
             background-image: url('https://www.europeanpharmaceuticalreview.com/wp-content/uploads/Lab-sustainability-600x500.jpg');
             height: 40%;
@@ -167,7 +184,12 @@
             text-align: center;
         }
 
-
+        .mainbox4{
+            text-align: center;
+            font-size: 2em;
+            margin-top: 5%;
+            text-decoration: underline;
+        }
 
         .grid-container-bottom{
             display: grid;
@@ -223,7 +245,15 @@
             text-align: center;
             overflow: hidden;
         }
-
+        #myDIV {
+            width: 80%;
+            height: 120%;
+            text-align: center;
+            margin-top: 20px;
+            display: none;
+            margin: auto;
+            font-style:italic
+        }
 
     </style>    
       
@@ -299,8 +329,43 @@
             <h2>
                 Dry labs
             </h2>
+            <div class="mainbox4">
+                <button onclick="myFunction()">See FGF2</button>
 
+                <div id="myDIV">
+                <p>This is FGF2</p>
+                <img src="fgfpymol.png" width="90%" height="60%">
+                <p>The protein we optimized</p>
+                </div>
 
+                <script>
+                function myFunction() {
+                var x = document.getElementById("myDIV");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+                }
+                </script>
+            </div>
+            
+            <!--<div class="mainbox4">
+                <p><button onclick="myFunction()">Click Me</button></p>
+                <div id="swapper">This is how we labbed</div>
+
+                <script>
+                    function myFunction() {
+                        var x = document.getElementById("swapper");
+                            if (x.innerHTML === "This is how we labbed") {
+                                x.innerHTML = "Very cool yes";
+                            } 
+                            else {
+                                x.innerHTML = "This is how we labbed";
+                            }
+                    }
+                </script>
+            </div>-->
         </div>
 
         <div class="box5">
