@@ -15,11 +15,15 @@
   margin-left:0%;
 }
 
-.flex-containertop{ 
-            display: flex;
-            background-color:black;
+#igemloginbar{ 
+            width:100%;
+            background-color:grey;
             height:16px;
-        }
+            top:0;
+            z-index:1;
+            position:fixed;
+            text-align:center;
+}
 
 
 .photosection{
@@ -79,9 +83,6 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
-  position:-webkit-sticky;
-  position:sticky;
   top:0;
 }
 
@@ -105,25 +106,91 @@ li a:hover {
 .active {
   background-color: #04AA6D;
 }
+#menu{
+transition:0.5s;
+width:100%;
+position:fixed;
+overflow:hidden;
+background-color: #333;
+margin-top:16px;
+z-index:1;
+height:6%;
+}
+
+
+#menu:hover{overflow:visible;}
+
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
 </style>
+
+<script>
+
+  window.onscroll=function(){myFunction()};
+
+function myFunction(){
+  if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400){
+  document.getElementById("menu").style.width = "0px";
+  }
+  else {
+    document.getElementById("menu").style.width = "100%";
+  }
+}
+</script>
+
+
 </head>
 
 
 <body style="background-color:navy">
 
-    <div class="flex-containertop">
-        <p></p>
-        </div>
-
+  <div id="igemloginbar">
+    IGEM LOGIN BAR
+</div>
+<div id="menu">
         <ul>
             <li><a class="active" href="http://www.oceanhealthindex.org/">Home</a></li>
             <li><a href="http://www.oceanhealthindex.org/region-scores">Global Scores</a></li>
             <li><a href="http://www.oceanhealthindex.org/ohi-plus">OHI+</a></li>
             <li><a href="http://www.oceanhealthindex.org/methodology">Methodology</a></li>
-            <li><a href="http://www.oceanhealthindex.org/news">News</a></li>
+            <li class="dropdown">
+              <a href="javascript:void(0)" class="team">News</a>
+              <div class="dropdown-content">
+                <a href="http://www.oceanhealthindex.org/news">Daily news</a>
+                <a href="#">Weekly news</a>
+                <a href="#">Yearly news</a>
+              </div>
+            </li>
 
           </ul>
+
+        </div>
 
 <div class="parallax">
 
