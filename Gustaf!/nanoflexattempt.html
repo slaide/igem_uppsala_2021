@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Gustaf's attempt on nanoflex uppsala 2020</title>
+<style>
+
+.parallax {
+  background-image: url("labmeat2.jpeg");
+  min-height: 500px; 
+  position:relative;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-left:0%;
+}
+
+#igemloginbar{ 
+            width:100%;
+            background-color:slategrey;
+            height:16px;
+            top:0;
+            z-index:1;
+            position:fixed;
+            text-align:center;
+}
+
+
+.photosection{
+                display:flex;
+                justify-content: end;
+                flex-direction: row;
+                text-align: center;
+                border: 1px solid black;
+                margin-right:200px;
+                margin-left:200px;
+                padding:0px;
+    
+        }
+
+html,body{
+  height:100%;
+  margin:0;
+  padding:0;
+}
+
+.infobox {
+position: absolute;
+left: 0;
+top: 30%;
+width: 100%;
+text-align: center;
+font-size: 30px;
+color: rgba(0,0,0,1.00);
+}
+
+.textbox1 {
+padding: 10px 30px;
+text-align: justify;
+width:50%;
+background-color:white;
+border: 1px solid black;
+}
+
+.textbox2 {
+padding: 10px 30px;
+text-align: left;
+width:50%;
+background-color: blue;
+border: 1px solid black;
+
+
+}
+section{font-size:larger;
+margin-left:10%;
+margin-right:10%;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  top:0;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: red;
+}
+
+#menu{
+transition:0.5s;
+width:100%;
+position:fixed;
+overflow:hidden;
+background-color: black;
+margin-top:16px;
+z-index:1;
+height:10%;
+}
+
+
+#menu:hover{overflow:visible;}
+
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+h1{text-align:center;}
+
+</style>
+
+<script>
+
+  window.onscroll=function(){myFunction()};
+
+function myFunction(){
+  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300){
+  document.getElementById("menu").style.width = "0px";
+  }
+  else {
+    document.getElementById("menu").style.width = "100%";
+  }
+}
+</script>
+
+
+</head>
+
+
+<body style="background-color:#426968">
+
+  <div id="igemloginbar">
+    IGEM LOGIN BAR
+</div>
+<div id="menu">
+        <ul>
+            <li><a href="http://www.oceanhealthindex.org/">Project</a></li>
+            <li><a href="http://www.oceanhealthindex.org/region-scores">Lab</a></li>
+            <li><a href="http://www.oceanhealthindex.org/ohi-plus">Parts</a></li>
+            <li><a href="http://www.oceanhealthindex.org/methodology">Future</a></li>
+            <li class="dropdown">
+              <a href="javascript:void(0)" class="team">Human Practices</a>
+              <div class="dropdown-content">
+                <a href="http://www.oceanhealthindex.org/news">Daily news</a>
+                <a href="#">Weekly news</a>
+                <a href="#">Yearly news</a>
+              </div>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="team">Safety</a>
+                <div class="dropdown-content">
+                  <a href="http://www.oceanhealthindex.org/news">Daily news</a>
+                  <a href="#">Weekly news</a>
+                  <a href="#">Yearly news</a>
+                </div>
+              </li>
+              <li class="dropdown">
+                <a href="javascript:void(0)" class="team">Team</a>
+                <div class="dropdown-content">
+                  <a href="http://www.oceanhealthindex.org/news">Daily news</a>
+                  <a href="#">Weekly news</a>
+                  <a href="#">Yearly news</a>
+                </div>
+              </li>
+              <li><a href="http://www.oceanhealthindex.org/methodology">Awards</a></li>
+            <li class="dropdown">
+
+          </ul>
+
+        </div>
+
+<div class="parallax">
+
+
+    <div class="infobox">
+        <h1 style="color: #6d1d23 ;">FGFUTURE</h1>
+        <h3 style="color:#6d1d23 ">The optimized protein that will enable high level cellular agriculture</h3>
+        
+        </div>
+    </div>
+
+
+   <h1 style="color:#6d1d23";>FGFUTURE: Thermostable, stronger binding, cheaper and futuristic.</h1>
+
+  <hr style="border:1px solid black;">
+  <section>
+ <p>NANOFLEX is a cellular biosensor adaptable to detect your analyte of choice and generate a colorimetric output, visible by the naked eye. The First Generation of NANOFLEX achieves this through using modified DNA binding domains (DBDs) fused to nanobodies that bind specifically to an analyte of choice, binding a specific promoter, pCadBA, which induces a reporter gene. The proof of concept of the First Generation of NANOFLEX uses anti-caffeine nanobody and mRFP1 as the reporter gene, showing the system's sensitivity at low concentrations of analyte in both analytically clean and crude samples. This was also reassured by a stochastic model predicting the same pattern for the signal in different caffeine concentrations.</p>
+
+ <p>The Next Generation of NANOFLEX focuses on improving the signal by amplifying it and removing the background noise. Signal amplification and noise reduction modules employ Qβ viral replicase and T7 RNA polymerase systems respectively. A switch towards an enzymatic reporter, β-galactosidase, is explored for faster and stronger signals as well.</p>
+
+ <p>Further focus lays on enabling detection of larger analytes that cannot cross the membrane of our biosensor cell Escherichia coli (E. coli), for example proteins. Firstly, the avenue of outer cell wall deficient E. coli was explored. Secondly, modified NarX-NarL, two-component system from E. coli, fused to nanobodies was explored as the system is rewired for a gram positive host, Bacillus subtilis. This will allow detection in the extracellular media, as this organism only has a single membrane.
+</p>
+
+<p>Protein detection was explored in several ways. A guideline on creating new nanobodies was compiled and a Molecular Dynamics (MD) pipeline was created in order to study nanobody affinity in silico. We explored detection of HSP16.3 protein, a biomarker for tuberculosis, as a potential application of NANOFLEX. An anti-HSP16.3 nanobody was run through the MD pipeline and practical implementation information was gathered via interviews with experts in the field.</p>
+
+<p>NANOFLEX's potential lays within an easy-to-use format of a cellular biosensor. In order to envision potential distribution, a prototype of a distribution kit was developed and biosensing was tested after lyophilization. Read more here.
+
+</p>
+</section>
+
+<!-- BORDE HA ETT GRID HÄR OCKSÅ!!!!-->
+        
+        <div class="photosection">
+        
+        <div class="textbox1">
+            <h2>GLOBAL ASSESSMENT</h2>
+            <p>A measure of ocean health across countries and high seas regions.</p>
+            <a href="http://www.oceanhealthindex.org/region-scores">GLOBAL SCORES</a>
+            </div>
+        
+        <div class="textbox2">
+            <h2>
+            INDEPENDENT ASSESSMENTS</h2>
+            <p>
+            OHI+ is an assessment tool customized by stakeholders to meet local mangament needs</p> 
+            
+                <a href="http://www.oceanhealthindex.org/ohi-plus">OHI+ ASSESSMENTS </a></p>
+            </div>
+
+            <div class="textbox2">
+                <h2>
+                INDEPENDENT ASSESSMENTS</h2>
+                <p>
+                OHI+ is an assessment tool customized by stakeholders to meet local mangament needs</p> 
+                
+                    <a href="http://www.oceanhealthindex.org/ohi-plus">OHI+ ASSESSMENTS </a></p>
+                </div>
+
+
+                <div class="textbox2">
+                    <h2>
+                    INDEPENDENT ASSESSMENTS</h2>
+                    <p>
+                    OHI+ is an assessment tool customized by stakeholders to meet local mangament needs</p> 
+                    
+                        <a href="http://www.oceanhealthindex.org/ohi-plus">OHI+ ASSESSMENTS </a></p>
+                    </div>
+        
+            </div>
+
+    
+
+    
+
+</body>
+</html>
