@@ -25,6 +25,17 @@
             text-align:center;
 }
 
+.grid-container{ 
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 400px 400px;
+            margin:0px;
+            width:100%;
+            grid-gap: 1vmin;
+            flex-wrap:wrap;
+            overflow:hidden;
+        }
+
 
 .photosection{
                 display:flex;
@@ -32,8 +43,10 @@
                 flex-direction: row;
                 text-align: center;
                 border: 1px solid black;
-                margin-right:200px;
-                margin-left:200px;
+                margin-right:20px;
+                margin-left:20px;
+                margin-top:0px;
+                margin-bottom:0px;
                 padding:0px;
     
         }
@@ -56,21 +69,13 @@ color: rgba(0,0,0,1.00);
 
 .textbox1 {
 padding: 10px 30px;
-text-align: justify;
-width:50%;
-background-color:white;
+text-align: center;
+width:100%;
+background-color:grey;
 border: 1px solid black;
 }
 
-.textbox2 {
-padding: 10px 30px;
-text-align: left;
-width:50%;
-background-color: blue;
-border: 1px solid black;
 
-
-}
 section{font-size:larger;
 margin-left:10%;
 margin-right:10%;
@@ -169,38 +174,56 @@ function myFunction(){
   <div id="igemloginbar">
     IGEM LOGIN BAR
 </div>
+
+<!-- EJ FÖR PARTS, safety och awards (ha dropdown)-->
 <div id="menu">
         <ul>
-            <li><a href="http://www.oceanhealthindex.org/">Project</a></li>
-            <li><a href="http://www.oceanhealthindex.org/region-scores">Lab</a></li>
-            <li><a href="http://www.oceanhealthindex.org/ohi-plus">Parts</a></li>
-            <li><a href="http://www.oceanhealthindex.org/methodology">Future</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="team">Project</a>
+                <div class="dropdown-content">
+                  <a href="https://2020.igem.org/Team:UofUppsala/Description">Description</a>
+                  <a href="https://2020.igem.org/Team:UofUppsala/Design">Design</a>
+                  <a href="https://2020.igem.org/Team:UofUppsala/Engineering">Engineering success</a>
+                  <a href="https://2020.igem.org/Team:UofUppsala/Proof_Of_Concept">Proof of concept</a>
+                </div>
+              </li>
+            
+              <li class="dropdown">
+                <a href="javascript:void(0)" class="team">Lab</a>
+                <div class="dropdown-content">
+                  <a href="https://2020.igem.org/Team:UofUppsala/Results">Wet lab</a>
+                  <a href="https://2020.igem.org/Team:UofUppsala/Model">Dry</a>
+                </div>
+              </li>
+
+            <li><a href="https://2020.igem.org/Team:UofUppsala/Parts">Parts</a></li>
+            
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="team">Future</a>
+                <div class="dropdown-content">
+                  <a href="https://2020.igem.org/Team:UofUppsala/Implementation">Implementation</a>
+                  <a href="https://2020.igem.org/Team:UofUppsala/Contribution">Contributions</a>
+                </div>
+              </li>
+
             <li class="dropdown">
               <a href="javascript:void(0)" class="team">Human Practices</a>
               <div class="dropdown-content">
-                <a href="http://www.oceanhealthindex.org/news">Daily news</a>
-                <a href="#">Weekly news</a>
-                <a href="#">Yearly news</a>
+                <a href="https://2020.igem.org/Team:UofUppsala/Human_Practices">Integrated Human Practices</a>
+                <a href="https://2020.igem.org/Team:UofUppsala/Education">Education</a>
+                <a href="https://2020.igem.org/Team:UofUppsala/Collaborations">Collaborations</a>
               </div>
             </li>
-            <li class="dropdown">
-                <a href="javascript:void(0)" class="team">Safety</a>
-                <div class="dropdown-content">
-                  <a href="http://www.oceanhealthindex.org/news">Daily news</a>
-                  <a href="#">Weekly news</a>
-                  <a href="#">Yearly news</a>
-                </div>
+            <li><a href="https://2020.igem.org/Team:UofUppsala/Safety">Safety</a></li>
               </li>
               <li class="dropdown">
                 <a href="javascript:void(0)" class="team">Team</a>
                 <div class="dropdown-content">
-                  <a href="http://www.oceanhealthindex.org/news">Daily news</a>
-                  <a href="#">Weekly news</a>
-                  <a href="#">Yearly news</a>
+                  <a href="https://2020.igem.org/Team:UofUppsala/Team">Meet the Team</a>
+                  <a href="https://2020.igem.org/Team:UofUppsala/Attributions">Attributions</a>
                 </div>
               </li>
-              <li><a href="http://www.oceanhealthindex.org/methodology">Awards</a></li>
-            <li class="dropdown">
+              <li><a href="https://2020.igem.org/Team:UofUppsala/Awards">Awards</a></li>
 
           </ul>
 
@@ -235,45 +258,58 @@ function myFunction(){
 </p>
 </section>
 
-<!-- BORDE HA ETT GRID HÄR OCKSÅ!!!!-->
+<div class="grid-container">
         
         <div class="photosection">
         
         <div class="textbox1">
-            <h2>GLOBAL ASSESSMENT</h2>
-            <p>A measure of ocean health across countries and high seas regions.</p>
-            <a href="http://www.oceanhealthindex.org/region-scores">GLOBAL SCORES</a>
-            </div>
-        
-        <div class="textbox2">
-            <h2>
-            INDEPENDENT ASSESSMENTS</h2>
-            <p>
-            OHI+ is an assessment tool customized by stakeholders to meet local mangament needs</p> 
-            
-                <a href="http://www.oceanhealthindex.org/ohi-plus">OHI+ ASSESSMENTS </a></p>
+            <h2>In the Lab</h2>
+            <p>In parallel to the development of our sensor, a lot of effort this year went to the “Development of Type IIS cloning Standard”, which allows a higher degree of modularity for NANOFLEX.</p>
+            <hr style="border:1px solid black;">
+            <a href="https://2020.igem.org/Team:UofUppsala/Results" style="color:blue;">Read more</a>
             </div>
 
-            <div class="textbox2">
+            </div>
+
+            <div class="photosection">
+        <div class="textbox1">
+            <h2>
+            Computational Modelling</h2>
+            <p>
+                Our modelling approach is two-fold, a python based stochastic model for expression of detection proteins and a molecular dynamics pipeline for modifying the nanobody component of our sensor.</p> 
+                <hr style="border:1px solid black;">
+                <a href="https://2020.igem.org/Team:UofUppsala/Model" style="color:red;;">Read more </a></p>
+            </div>
+
+            </div>
+
+            <div class="photosection">
+
+            <div class="textbox1">
                 <h2>
-                INDEPENDENT ASSESSMENTS</h2>
+                Outreach</h2>
                 <p>
-                OHI+ is an assessment tool customized by stakeholders to meet local mangament needs</p> 
-                
-                    <a href="http://www.oceanhealthindex.org/ohi-plus">OHI+ ASSESSMENTS </a></p>
+                    Informed decision-making is the motto of our project. From early on, we have been contacting experts and professors for their inputs. We have also organized education and collaborations programs directed to the iGEM community, but also to the general public.</p> 
+                    <hr style="border:1px solid black;">
+                    <a href="https://2020.igem.org/Team:UofUppsala/Human_Practices" style="color:blue;">Read more </a></p>
                 </div>
 
+                </div>
 
-                <div class="textbox2">
+                <div class="photosection">
+                <div class="textbox1">
                     <h2>
-                    INDEPENDENT ASSESSMENTS</h2>
+                    Team</h2>
                     <p>
-                    OHI+ is an assessment tool customized by stakeholders to meet local mangament needs</p> 
-                    
-                        <a href="http://www.oceanhealthindex.org/ohi-plus">OHI+ ASSESSMENTS </a></p>
+                        We are the team of Uppsala University (Sweden) for the complicated year of 2020. With different education backgrounds and from all over the world, we are 25 students that decided to enrol in the iGEM adventure.</p> 
+                        <hr style="border:1px solid black;">
+                        <a href="https://2020.igem.org/Team:UofUppsala/Team" style="color:red;">Read more </a></p>
                     </div>
+                
         
             </div>
+
+        </div>
 
     
 
