@@ -13,6 +13,14 @@
         body, html{
             height: 100%;        
         }
+        hr {
+            border: 0;
+            clear:both;
+            display:block;
+            width: 100%;               
+            background-color:#070707;
+            height: 1px;
+        }
 
         .igem-head-bar{
             height: 16px;
@@ -22,16 +30,21 @@
             text-align: center;
             color: white;
         }
-        .menu{
-            padding-top: 16px;
+        #menu{
+            margin-top: 16px;
             position: fixed;
             width: 100%;
+            background-color: #333;
+            transition: all 0.5s;
+            overflow: hidden;
+            height: 5%;
+        }
+        #menu:hover{
+            overflow: visible;
         }
 
         ul {
             list-style-type: none;
-            overflow: hidden;
-            background-color: #333;
         }
         
         li {
@@ -134,8 +147,8 @@
         .grid-container{
             display: grid;
             height: 200%;
-            grid-template-columns:repeat(20,1fr);
-            grid-template-rows:repeat(20,1fr);
+            grid-template-columns:repeat(50,1fr);
+            grid-template-rows:repeat(50,1fr);
             overflow: hidden;
             background-color: rgb(36, 175, 36);
             /*column-gap: 10px;
@@ -146,46 +159,109 @@
 
 
         .box1 {
-            height: 100%;
-            width: 100%;
-            grid-column: 1 /span 5;
-            grid-row: 2 /span 5;
+            height: 80%;
+            width: 80%;
+            grid-column: 7 /span 8;
+            grid-row: 5 /span 14;
             text-align: center;
             border: 4px solid black;
             overflow: hidden;
             background-color: red;
+            transition: all 0.5s;
+            margin: auto;
+            border-radius: 7%;
+        }
+        .box1:hover{
+            height: 100%;
+            width: 100%;
+            background-color: violet;
         }
 
         .box2 {
-            height: 100%;
-            width: 100%;
-            grid-column: 6/span 3;
-            grid-row: 3/span 7;
+            height: 80%;
+            width: 80%;
+            grid-column:17/span 8;
+            grid-row: 5/span 14;
             text-align: center;
             border: 4px solid black;
             overflow: hidden;
             background-color:blue;
+            margin: auto;
+            transition: all 0.5s;
+            border-radius: 7%;
+        }
+        .box2:hover{
+            height: 100%;
+            width: 100%;
+            background-color: violet;
         }
 
 
         .box3 {
-            height: 100%;
-            width: 100%;
-            grid-column: 5 /span 16;
-            grid-row: 12 /span 15;
+            height: 80%;
+            width: 80%;
+            grid-column: 27 /span 8;
+            grid-row: 5 /span 14;
             text-align: center;
             border: 4px solid black;
             overflow: hidden;
             background-color: chocolate;
+            margin: auto;
+            transition: all 0.5s;
+            border-radius: 7%;
+        }
+        .box3:hover{
+            height: 100%;
+            width: 100%;
+            background-color: violet;
         }
 
+        .box4 {
+            height: 80%;
+            width: 80%;
+            grid-column: 37 /span 8;
+            grid-row: 5 /span 14;
+            text-align: center;
+            border: 4px solid black;
+            overflow: hidden;
+            background-color: rgb(210, 30, 150);
+            margin: auto;
+            transition: all 0.5s;
+            border-radius: 7%;
+        }
+        .box4:hover{
+            height: 100%;
+            width: 100%;
+            background-color: violet;
+        }
+
+        .boxtext{
+            width: 85%;
+            margin: auto;
+
+        }
+
+
     </style>
+    <script>
+        window.onscroll = function() {myFunction()};
+
+        function myFunction() {
+          if (document.body.scrollTop > 400|| document.documentElement.scrollTop > 400) {
+            document.getElementById("menu").style.width = "0px";
+          } else {
+            document.getElementById("menu").style.width = "100%";
+          }
+        }
+        
+
+    </script>
 </head>
 <body>
     <div class="igem-head-bar">
         IGEM BAR
     </div>
-    <div class="menu">
+    <div id="menu">
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#news">Uppsala</a></li>
@@ -225,12 +301,35 @@
     </div>
     <div class="grid-container">        
         <div class="box1">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/96/UEFA_Euro_2020_Logo.svg/800px-UEFA_Euro_2020_Logo.svg.png" width="50%" height="30%">
+            <h2>In the Lab</h2>
+            <div class="boxtext">
+                In parallel to the <br> development of our <br> sensor, a lot of effort this <br> year went to the <br> 
+                “Development of Type <br> IIS cloning Standard”, <br> which allows <br> a higher degree of <br> modularity for <br> NANOFLEX.
+            </div>
+            <hr>
         </div>
         <div class="box2">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/96/UEFA_Euro_2020_Logo.svg/800px-UEFA_Euro_2020_Logo.svg.png" width="50%" height="30%">
+            <h2>Computational Modelling</h2>
+            <div class="boxtext">
+                Our modelling approach<br> is two-fold, a python <br>based stochastic model<br> for expression of<br> detection proteins and a<br> molecular dynamics<br> pipeline for modifying<br> the nanobody component<br> of our sensor.
+            </div>
+            <hr>
         </div>
 
         <div class="box3">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/96/UEFA_Euro_2020_Logo.svg/800px-UEFA_Euro_2020_Logo.svg.png" width="50%" height="30%">
+            <h2>Outreach</h2>
+            <div class="boxtext">
+                Informed decision-<br>making is the motto of<br> our project. From early<br> on, we have been<br> contacting experts and<br> professors for their<br> inputs. We have also<br> organized education and<br> collaborations programs<br> directed to the iGEM<br> community, but also to the general public.
+            </div>
+            <hr>
 
+
+        </div>
+        <div class="box4">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/96/UEFA_Euro_2020_Logo.svg/800px-UEFA_Euro_2020_Logo.svg.png" width="50%" height="30%">
 
         </div>
     </div>
