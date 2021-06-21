@@ -250,12 +250,16 @@
             height: 120%;
             text-align: center;
             margin-top: 20px;
-            display: none;
+            display:block;
+            opacity: 0;
             margin: auto;
-            font-style:italic
+            font-style:italic;
+            transition:all 0.4s;
         }
 
-    </style>    
+    </style>   
+    <script>console.log("Hello")
+    </script> 
       
 </head>
 
@@ -333,20 +337,21 @@
                 <button onclick="myFunction()">See FGF2</button>
 
                 <div id="myDIV">
-                <p>This is FGF2</p>
-                <img src="fgfpymol.png" width="90%" height="60%">
-                <p>The protein we optimized</p>
+                    <p>This is FGF2</p>
+                    <img src="fgfpymol.png" width="90%" height="60%">
+                    <p>The protein we optimized</p>
                 </div>
 
                 <script>
-                function myFunction() {
-                var x = document.getElementById("myDIV");
-                if (x.style.display === "none") {
-                    x.style.display = "block";
-                } else {
-                    x.style.display = "none";
-                }
-                }
+                    function myFunction() {
+                        var x = document.getElementById("myDIV");
+                        if (x.style.opacity == "0") {
+                            x.style.opacity = "1";
+                        } 
+                        else {
+                            x.style.opacity = "0";
+                        }
+                    }
                 </script>
             </div>
             

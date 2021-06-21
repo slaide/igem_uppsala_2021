@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Javafun
+    </title>
+    <style>
+
+        body, html{
+            height: 100%;        
+        }
+
+        ul {
+            list-style-type: none;
+            overflow: hidden;
+
+        }
+        
+        li {
+            float: left;
+        }
+
+        li a, .dropbtn {
+            display: inline-block;
+            color:black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        
+        li a:hover, .dropdown-1:hover .dropbtn {
+            background-color: red;
+        }
+        
+        li.dropdown-1 {
+            display: inline-block;
+        }
+        
+        .dropdown-content-1{
+            display: none;
+            position: absolute;
+            background-color: green;
+            min-width: 160px;
+            z-index: 1;
+        }
+        
+        .dropdown-content-1 a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        #menu{
+            background-color: violet;
+            transition: all 0.5s;
+            height: 10%;
+            overflow: hidden;
+        }
+        
+        .dropdown-content-1 a:hover {background-color: #f1f1f1;}
+    </style>
+
+    <script>
+        window.onscroll = function() {myFunction()};
+
+        function myFunction() {
+        if (document.body.scrollTop > 10|| document.documentElement.scrollTop > 10) {
+            document.getElementById("menu").style.width = "0px";
+          } else {
+            document.getElementById("menu").style.width = "100%";
+          }
+        }
+
+
+        </script>
+</head>
+<body>
+
+<p>Scroll down this page</p>
+
+<div id="menu">
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#news">Uppsala</a></li>
+        <li><a href="#news">Uppsala</a></li>
+        <li><a href="#news">Uppsala</a></li>
+        <li><a href="#news">Uppsala</a></li>
+        <li><a href="#news">Uppsala</a></li>
+        <li><a href="#news">Uppsala</a></li>
+
+
+        <li class="dropdown-1">
+        <a href="javascript:void(0)" class="dropbtn">Modeling</a>
+        <div class="dropdown-content-1">
+            <a href="#">FGF2</a>
+            <a href="#">Schrödinger</a>
+            <a href="#">QresFEP</a>
+            <a href="#">BMC</a>
+    </ul>
+</div>
+
+
+</body>
+</html>
