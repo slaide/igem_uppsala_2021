@@ -31,6 +31,7 @@
             grid-auto-rows: 400px 400px;
             margin:0px;
             width:80%;
+            height:90%;
             grid-gap: 1vmin;
             overflow:hidden;
             margin-left:10%;
@@ -43,7 +44,8 @@
                 justify-content: end;
                 flex-direction: row;
                 text-align: center;
-                border: 1px solid black;
+                /*border: 1px solid black;
+                */
                 margin-right:2%;
                 margin-left:2%;
                 margin-top:0px;
@@ -72,9 +74,28 @@ color: rgba(0,0,0,1.00);
 .textbox1 {
 padding: 10px 30px;
 text-align: center;
-width:100%;
+
+width:60%;
+height:85%;
+margin:auto;
+
 background-color:grey;
 border: 1px solid black;
+transition: all 2s, padding 0s;
+/* nu funkar det men blir problem när man slutar hovra
+*/
+
+/*
+transition: all 2s;
+*/
+/*
+transition:width 2s;
+transition:height 2s;
+transition:padding 2s;
+transition: background-color 2s;
+*/
+/* blir fel vill ha 0 s på padding */
+
 }
 
 
@@ -106,6 +127,21 @@ li a {
 li a:hover {
   background-color: red;
 }
+
+.textbox1:hover{background-color:yellow;
+width:100%;
+height:100%;
+
+padding-left:20%;
+padding-right:20%;
+
+padding-top:7.5%;
+padding-bottom:7.5%;
+
+}
+
+/* width var 60% och height 85% innan 
+med ingne margin*/
 
 #menu{
 transition:0.5s;
@@ -180,7 +216,11 @@ function myFunction(){
 <!-- nu fixa hover så den blir större+färg
 sen också fixa loggor på "In the lab " osv. samt sponsorer 
 längs ner. Sen också knappen så det scrollas ner!
-Kanske fixed logga upp till vänster -->
+Kanske fixed logga upp till vänster .
+skulle kunna fixa igem login så det finns alternativ.
+hur flyttar man texten på den ?? aligna på olika sätt?
+sidebaren (på toppen)kanske lägga till en trekant så man vet
+att det är flera alternativ där -->
 <!-- command r för att refresha nya versionen!
 -->
 <div id="menu">
@@ -309,7 +349,8 @@ Kanske fixed logga upp till vänster -->
                     Team</h2>
                     <p>
                         We are the team of Uppsala University (Sweden) for the complicated year of 2020. With different education backgrounds and from all over the world, we are 25 students that decided to enrol in the iGEM adventure.</p> 
-                        <hr style="border:1px solid black;">
+                        <hr style="border:1px solid black; margin-left: 0%;
+                        margin-right:0%;">
                         <a href="https://2020.igem.org/Team:UofUppsala/Team" style="color:red;">Read more </a></p>
                     </div>
                 
