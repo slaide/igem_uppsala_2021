@@ -1,0 +1,193 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <meta charset="utf8">
+        <style>
+            #igem_login_bar{
+                height: 16px;
+                width:100%;
+                background-color: grey;
+            }
+
+            #repeatable_background{
+                width:100%;
+                height:1600px;
+                background-repeat: repeat;
+                background-image: url("https://www.netclipart.com/pp/m/111-1114400_fish-and-pinterest-sunday-school-under-the-sea.png");
+                display: flex;
+                flex-direction: column;
+            }
+
+            #title{
+                width:100%;
+                padding:auto;
+            }
+
+            #animated{
+                padding:25px;
+            }
+            h1{
+                text-align: center;
+                font-size: 6em;
+            }
+
+
+
+            .center{
+                display:block;
+                margin-left:auto;
+                margin-right: auto;
+                height:400px;
+                width:auto;
+            }
+
+            #main_body{
+                width:100%;
+                display: flex;
+                flex-direction: row;
+            }
+
+            #sticky_menu{
+                overflow: hidden;
+                background-color: steelblue;
+                display:flex;
+                border-top: 1px solid black;
+                border-right: 1px solid black;
+                border-bottom: 1px solud black;
+                width:fit-content;
+                height: fit-content;
+                padding:2.5%;
+                flex-direction: column;
+            }
+
+            #mini_title{
+                margin:0;
+            }
+
+            #list{
+                margin:0;
+            }
+
+            #sticky_menu a {
+                float:left;
+                display: block;
+                color:#f2f2f2;
+                text-align: center;
+            }
+
+            #sticky_menu a:hover{
+                background-color: #ddd;
+                color: black;
+            }
+
+            #sticky_menu a.active{
+                background-color: #6d1d23;
+                color: white;
+            }
+
+            .sticky {
+                position: fixed;
+                top: 0;
+                width:100%;
+            }
+
+            #text_box{
+                display:flex;
+                width:15%;
+                border-radius: 20%;
+                text-align: center;
+                padding:2.5%;
+                border: 1px solid black;
+                display:block;
+                margin-left: 50%;
+                height:fit-content;
+                margin-top: 5%;
+
+            }
+            
+
+
+            #text{
+                overflow: auto;
+            }
+            
+            body{
+                margin:0%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="igem_login_bar">
+            IGEM MENU
+        </div>
+
+        <div id="repeatable_background">
+            <div id="title">
+               <h1>FGFUTURE</h1> 
+            </div>
+            
+            <div id="animated">
+                <img src="/Users/tovejonsson/Desktop/igem_uppsala_2021/ezgif.com-gif-maker.gif", class="center">
+            </div>
+
+            <div id="main_body">
+                <div id="sticky_menu">
+                    <h3 id="mini_title">Menu</h3>
+                    <ul id="list">
+                        <li>
+                            <h5>
+                                <a class="active" href="javascript:void(0)">Home</a>
+                            </h5>
+                        </li>
+                        <li>
+                            <h5>
+                                <a href="javascript:void(0)">Team Members</a>
+                            </h5>
+                        </li>
+                        <li>
+                            <h5>
+                                <a href="javascript:void(0)">Lab Work</a>
+                            </h5>
+                        </li>
+                        <li>
+                            <h5>
+                                <a href="javascript:void(0)">Human Practice</a>
+                            </h5>
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="text_box">
+                    <div id="text">
+                        CowCowCowCowCow
+                        <p></p>
+                        CowCowCowCowCow
+                        <p></p>
+                        CowCowCowCowCow
+                        <p></p>
+                        CowCowCowCowCow
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <script>
+            window.onscroll = function() {myFunction()};
+            
+            var sticky_menu = document.getElementById("sticky_menu");
+            var sticky = sticky_menu.offsetTop;
+            
+            function myFunction() {
+              if (window.pageYOffset >= sticky) {
+                sticky_menu.classList.add("sticky")
+              } else {
+                sticky_menu.classList.remove("sticky");
+              }
+            }
+        </script>
+
+    </body>
+</html>
