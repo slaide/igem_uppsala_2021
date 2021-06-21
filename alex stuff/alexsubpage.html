@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <title>
+        Alex subpage
+    </title>
+    <style>
+        *{
+            margin:0;
+            border:0;
+            padding:0;
+        }
+        body, html{
+                height: 100%;        
+         }
+
+        .igem-head-bar{
+            height: 16px;
+            width:100%;
+            background-color: black;
+            position: fixed;
+        }
+        #header{
+            margin: auto;
+            width: 30%;
+            margin-top: 5%;
+        }
+        h1{
+            font-size: 6em;
+            font-style: italic;
+            text-decoration: underline;
+            text-align: center;
+        }
+        h2{
+            font-size: 3em;
+            font-style: italic;
+            text-decoration: underline;
+            text-align: center;
+            margin-top: 0;
+        }
+        h3{
+            text-align: center;
+            font-size: 2em;
+            font-style: italic;
+        }
+        p{
+            padding-bottom: 8%;
+            margin-left: 8%;
+            margin-right: 8%;
+
+        }
+        button{
+            background-color: greenyellow;
+            border: 2px solid black;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        button:hover{
+            background-color: grey;
+            font-style: italic;
+            text-decoration: underline;
+        }
+
+        .parallaxtop {
+            background-image: url('https://www.europeanpharmaceuticalreview.com/wp-content/uploads/Lab-sustainability-600x500.jpg');
+            height: 40%;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            overflow: hidden;
+        }
+        .grid-container{
+            display: grid;
+            height: 200%;
+            grid-template-columns:repeat(6,1fr);
+            grid-template-rows:repeat(6,1fr);
+            overflow: hidden;
+            background-color: rgb(36, 175, 36);
+        }
+
+
+        .box1 {
+            height: 100%;
+            width: 100%;
+            grid-column: 1;
+            grid-row: 1 /span 3;
+            text-align: center;
+            border: 4px solid black;
+            overflow: hidden;
+        }
+
+        .box2 {
+            height: 100%;
+            width: 100%;
+            grid-column: 2/span 3;
+            grid-row: 1/span all;
+            text-align: center;
+            border: 4px solid black;
+            overflow: hidden;
+        }
+
+
+        .box3 {
+            height: 100%;
+            width: 100%;
+            grid-column: 5 /span all;
+            grid-row: 1 /span 3;
+            text-align: center;
+            border: 4px solid black;
+            overflow: hidden;
+        }
+        .centered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+
+        .box4 {
+            height: 100%;
+            width: 100%;
+            grid-column: 5 /span all;
+            grid-row: 4 /span all;
+            text-align: center;
+            border: 4px solid black;
+            overflow: hidden;
+        }
+
+        .box5 {
+            font-size: 2em;
+            height: 100%;
+            width: 100%;
+            grid-column: 1;
+            grid-row: 4 /span all;
+            text-align: center;
+            overflow: hidden;
+            margin-right: 0;
+            border-top: 4px solid black;
+            border-left: 4px solid black;
+            border-right: 4px solid black;
+        }
+
+        .box5 > p{
+            padding-top: 10%;
+            padding-bottom: 0;
+        }
+
+        .box5> p:hover{
+            color:chocolate;
+            font-style: italic;
+            text-decoration: underline;
+        }
+    
+
+        #list{
+            text-align: center;
+            font-size: 2em;
+        }
+
+        #list > p{
+            margin: 10%;
+            padding: 0;
+        }
+        #list > p:hover{
+            color:chocolate;
+            font-style: italic;
+            text-decoration: underline;
+        }
+
+        #maintext{
+            text-align: center;
+            color: black;
+            height: auto;
+        }
+
+        #graph{
+            text-align: center;
+        }
+
+        .mainbox4{
+            text-align: center;
+            font-size: 2em;
+            margin-top: 5%;
+            text-decoration: underline;
+        }
+
+        .grid-container-bottom{
+            display: grid;
+            height: 20%;
+            grid-template-columns:repeat(4,1fr);
+            grid-template-rows:repeat(3,1fr);
+            overflow: hidden;
+            background-color: gray;
+            border: 4px solid black;
+        }
+
+        .box6 {
+            height: 100%;
+            width: 100%;
+            grid-column: 1 /span all;
+            grid-row: 1;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .box7 {
+            height: 100%;
+            width: 100%;
+            grid-column: 1;
+            grid-row: 2 /span all;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .box8 {
+            height: 100%;
+            width: 100%;
+            grid-column: 2;
+            grid-row: 2 /span all;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .box9 {
+            height: 100%;
+            width: 100%;
+            grid-column: 3;
+            grid-row: 2 /span all;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .box10 {
+            height: 100%;
+            width: 100%;
+            grid-column: 4;
+            grid-row: 2 /span all;
+            text-align: center;
+            overflow: hidden;
+        }
+        #myDIV {
+            width: 80%;
+            height: 120%;
+            text-align: center;
+            margin-top: 20px;
+            display: none;
+            margin: auto;
+            font-style:italic
+        }
+
+    </style>    
+      
+</head>
+
+<body>
+    <div class="igem-head-bar">
+    </div>
+    <div class=parallaxtop>
+        <div id="header">
+            <h1>
+                Modeling
+            </h1>
+        </div>
+    </div>
+    <div class="grid-container">        
+        <div class="box1">
+            <div id=list>
+                <p><b><u>List of content</u></b></p>
+                <p>Home page</p>
+                <p>Team</p>
+                <p>Sponsors</p>
+                <p>Lorem ipsum</p>
+                <p>Lorem ipsum</p>
+                <p>Lorem ipsum</p>
+                <p>Lorem ipsum</p>
+            </div>
+        </div>
+        <div class="box2">
+            <div class="main">
+                    <div id="main-header">
+                        <h2>
+                            The procedure
+                        </h2>
+                    </div>
+                    <div id="maintext">
+                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc fermentum nec enim in tristique. Phasellus egestas, leo non tincidunt elementum, sem tellus mollis est, sed pharetra mauris ipsum id quam. Duis dictum sapien nec tortor consequat, id euismod erat sagittis. Nam aliquam nunc sed tortor pretium tristique.</p>
+
+                         <p>Aliquam vulputate tortor sit amet quam blandit, luctus fringilla est pretium. Mauris risus justo, ornare vel lobortis non, luctus nec est. Maecenas blandit enim at erat vestibulum, a tristique lacus blandit. Ut sit amet mollis leo. Cras semper eros quis quam pulvinar finibus sed a risus.</p>
+
+                        <div id="graph">
+                            <h3>Chosing the correct mutation</h3>
+                            <img src="https://i.redd.it/i6twv5gk3i751.png" width="90%" height="60%">
+                            <p>Figure 1. How we chose the specific mutations.</p>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc fermentum nec enim in tristique. Phasellus egestas, leo non tincidunt elementum, sem tellus mollis est, sed pharetra mauris ipsum id quam. Duis dictum sapien nec tortor consequat, id euismod erat sagittis. Nam aliquam nunc sed tortor pretium tristique.</p>
+
+                        <p>Aliquam vulputate tortor sit amet quam blandit, luctus fringilla est pretium. Mauris risus justo, ornare vel lobortis non, luctus nec est. Maecenas blandit enim at erat vestibulum, a tristique lacus blandit. Ut sit amet mollis leo. Cras semper eros quis quam pulvinar finibus sed a risus.</p>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc fermentum nec enim in tristique. Phasellus egestas, leo non tincidunt elementum, sem tellus mollis est, sed pharetra mauris ipsum id quam. Duis dictum sapien nec tortor consequat, id euismod erat sagittis. Nam aliquam nunc sed tortor pretium tristique.</p>
+
+                    </div>
+            </div>
+
+        </div>
+
+        <div class="box3">
+            <h2>
+                The Modeling Team
+            </h2>
+            <img src="https://www.zooportraits.com/wp-content/uploads/2019/10/Pug-Canis-lupus-familiaris-1.jpg" width="40%" height="45%">
+            <img src="https://www.zooportraits.com/wp-content/uploads/2019/10/Domestic-pig-Sus-scrofa-domesticus.jpg" width="40%"height="45%" >
+            <img src="https://www.zooportraits.com/wp-content/uploads/2019/10/Southern-Rockhopper-Penguin-Eudyptes-chrysocome.jpg" width="40%" height="45%">
+            <img src="https://www.zooportraits.com/wp-content/uploads/2019/10/Tokay-gecko-Gekko-gecko.jpg" width="40%" height="45%">
+
+
+
+
+
+        </div>
+
+        <div class="box4">
+            <h2>
+                Dry labs
+            </h2>
+            <div class="mainbox4">
+                <button onclick="myFunction()">See FGF2</button>
+
+                <div id="myDIV">
+                <p>This is FGF2</p>
+                <img src="fgfpymol.png" width="90%" height="60%">
+                <p>The protein we optimized</p>
+                </div>
+
+                <script>
+                function myFunction() {
+                var x = document.getElementById("myDIV");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+                }
+                </script>
+            </div>
+            
+            <!--<div class="mainbox4">
+                <p><button onclick="myFunction()">Click Me</button></p>
+                <div id="swapper">This is how we labbed</div>
+
+                <script>
+                    function myFunction() {
+                        var x = document.getElementById("swapper");
+                            if (x.innerHTML === "This is how we labbed") {
+                                x.innerHTML = "Very cool yes";
+                            } 
+                            else {
+                                x.innerHTML = "This is how we labbed";
+                            }
+                    }
+                </script>
+            </div>-->
+        </div>
+
+        <div class="box5">
+            <p><b><u>Social media</u></b></p>
+            <p>Facebook</p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png" width="30%" height="10%">
+            <p>Snapchat</p>
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c4/Snapchat_logo.svg/1024px-Snapchat_logo.svg.png" width="30%" height="10%">
+            <p>Instagram</p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/1024px-Instagram_logo_2016.svg.png" width="30%" height="10%">
+            <p>Tiktok?</p>
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a9/TikTok_logo.svg/1920px-TikTok_logo.svg.png" width="60%" height="10%">
+        </div>
+
+    </div>
+    <div class="grid-container-bottom">
+        <div class="box6">
+            <h3><u></u>Our sponsors</u></h3>
+
+        </div>
+
+        <div class="box7">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png" width="30%" height="100%">
+
+
+        </div>
+
+        <div class="box8">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c4/Snapchat_logo.svg/1024px-Snapchat_logo.svg.png" width="30%" height="100%">
+        </div>
+
+        <div class="box9">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/1024px-Instagram_logo_2016.svg.png" width="30%" height="100%">
+        </div>
+
+        <div class="box10">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a9/TikTok_logo.svg/1920px-TikTok_logo.svg.png" width="60%" height="100%">
+        </div>
+
+    </div>
+    
+
+</body>
+</html>
