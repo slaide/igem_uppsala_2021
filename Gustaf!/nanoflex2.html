@@ -3,10 +3,21 @@
 <head>
     <title> Gustaf's attempt on nanoflex uppsala 2020</title>
 <style>
+/*
+*{
+            margin:0;
+            border:0;
+            padding:0;
+        }
+        */
+
+        html {
+  scroll-behavior: smooth;
+}
 
 .parallax {
   background-image: url("labmeat2.jpeg");
-  min-height: 500px; 
+  min-height: 600px; 
   position:relative;
   background-attachment: fixed;
   background-position: center;
@@ -52,6 +63,7 @@
                 overflow:hidden;
                 margin-bottom:0px;
                 padding:0px;
+                border-radius:0%;
     
         }
 
@@ -80,21 +92,7 @@ margin:auto;
 
 background-color:grey;
 border: 1px solid black;
-transition: all 2s;
-/* nu funkar det men blir problem när man slutar hovra
-*/
-
-/*
-transition: all 2s;
-*/
-/*
-transition:width 2s;
-transition:height 2s;
-transition:padding 2s;
-transition: background-color 2s;
-*/
-/* blir fel vill ha 0 s på padding */
-
+transition: all 0.5s;
 }
 
 
@@ -136,6 +134,12 @@ img.picture1{
   border-radius:50%;
   width: 150px;
   height: 150px;
+}
+
+img.picture2{
+  border-radius:50%;
+  width: 70px;
+  height: 70px;
 }
 
 /* width var 60% och height 85% innan 
@@ -185,6 +189,69 @@ li.dropdown {
 
 h1{text-align:center;}
 
+.grid-container-bottom{
+            display: grid;
+            height: 20%;
+            grid-template-columns:repeat(4,1fr);
+            grid-template-rows:repeat(3,1fr);
+            overflow: hidden;
+            background-color: gray;
+            border: 4px solid black;
+        }
+
+        .boxb1 {
+            height: 100%;
+            width: 100%;
+            grid-column: 1 /span all;
+            grid-row: 1;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .boxb2 {
+            height: 100%;
+            width: 100%;
+            grid-column: 1;
+            grid-row: 2 /span all;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .boxb3 {
+            height: 100%;
+            width: 100%;
+            grid-column: 2;
+            grid-row: 2 /span all;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .boxb4 {
+            height: 100%;
+            width: 100%;
+            grid-column: 3;
+            grid-row: 2 /span all;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .boxb5 {
+            height: 100%;
+            width: 100%;
+            grid-column: 4;
+            grid-row: 2 /span all;
+            text-align: center;
+            overflow: hidden;
+        }
+  
+  #section1{
+    height:1px;
+  }
+
+  #section2{height:1px;
+}
+
+
 </style>
 
 <script>
@@ -211,9 +278,7 @@ function myFunction(){
     IGEM LOGIN BAR
 </div>
 
-<!-- nu fixa hover så den blir större+färg
-sen också fixa loggor på "In the lab " osv. samt sponsorer 
-längs ner. Sen också knappen så det scrollas ner!
+<!-- 
 Kanske fixed logga upp till vänster .
 skulle kunna fixa igem login så det finns alternativ.
 hur flyttar man texten på den ?? aligna på olika sätt?
@@ -281,14 +346,25 @@ att det är flera alternativ där -->
         <h1 style="color: #6d1d23 ;">FGFUTURE</h1>
         <h3 style="color:#6d1d23 ">The optimized protein that will enable high level cellular agriculture</h3>
         
+        <p></p>
+        <p></p>
+        <div class="main" id="section1">
+          <a href="#section2"><img class="picture2" src="triangle.png" alt="trianglelogo">
+        </div>
+
         </div>
     </div>
 
+    <div class="main" id="section2">
+      <a href="#section1"></a>
+    </div>
 
    <h1 style="color:#6d1d23";>FGFUTURE: Thermostable, stronger binding, cheaper and futuristic.</h1>
+   
 
   <hr style="border:1px solid black;">
   <section>
+    
 
  <p>NANOFLEX is a cellular biosensor adaptable to detect your analyte of choice and generate a colorimetric output, visible by the naked eye. The First Generation of NANOFLEX achieves this through using modified DNA binding domains (DBDs) fused to nanobodies that bind specifically to an analyte of choice, binding a specific promoter, pCadBA, which induces a reporter gene. The proof of concept of the First Generation of NANOFLEX uses anti-caffeine nanobody and mRFP1 as the reporter gene, showing the system's sensitivity at low concentrations of analyte in both analytically clean and crude samples. This was also reassured by a stochastic model predicting the same pattern for the signal in different caffeine concentrations.</p>
 
@@ -301,6 +377,7 @@ att det är flera alternativ där -->
 
 <p>NANOFLEX's potential lays within an easy-to-use format of a cellular biosensor. In order to envision potential distribution, a prototype of a distribution kit was developed and biosensing was tested after lyophilization. Read more <a href="https://2020.igem.org/Team:UofUppsala/Description" style="color:red;">here</a>.
 
+
 </p>
 </section>
 
@@ -310,26 +387,32 @@ att det är flera alternativ där -->
         
         <div class="textbox1">
 
-          <img class="picture1" src="peanutlogo.jpeg" alt="peanutlogo">
+          <img class="picture1" src="coral.jpeg" alt="corallogo">
 
             <h2>In the Lab</h2>
             <p>In parallel to the<br>  development of our sensor,<br>a lot of effort this year went<br> to the “Development of Type<br> IIS cloning Standard”, which<br> allows a higher degree of<br> modularity for NANOFLEX.</p>
-            <hr style="border:1px solid black;">
+
+            <hr style="border:1px solid black; margin-right:-15%; margin-left:-15%;">
             <a href="https://2020.igem.org/Team:UofUppsala/Results" style="color:blue;">Read more</a>
+            
             </div>
 
+            
+
             </div>
+
+            
 
             <div class="photosection">
         <div class="textbox1">
 
-          <img class="picture1" src="peanutlogo.jpeg" alt="peanutlogo">
+          <img class="picture1" src="coral2.jpeg" alt="coral2logo">
 
             <h2>
             Computational Modelling</h2>
             <p>
                 Our modelling approach is<br> two-fold, a python based <br>stochastic model for <br>expression of detection<br> proteins and a molecular<br> dynamics pipeline for<br> modifying the nanobody<br> component of our sensor.</p> 
-                <hr style="border:1px solid black;">
+                <hr style="border:1px solid black; margin-right:-15%; margin-left:-15%;">
                 <a href="https://2020.igem.org/Team:UofUppsala/Model" style="color:red;;">Read more </a></p>
             </div>
 
@@ -340,15 +423,13 @@ att det är flera alternativ där -->
 
             <div class="textbox1">
 
-    
-
-            <img class="picture1" src="peanutlogo.jpeg" alt="peanutlogo">
+            <img class="picture1" src="whale.jpeg" alt="whalelogo">
 
                 <h2>
                 Outreach</h2>
                 <p>
                     Informed decision-making is<br> the motto of our project.<br> From early on, we have been<br> contacting experts and<br> professors for their inputs.<br> We have also organized <br>education and collaborations<br> programs directed to the <br>iGEM community, but also <br>to the general public.</p> 
-                    <hr style="border:1px solid black;">
+                    <hr style="border:1px solid black; margin-right:-15%; margin-left:-15%;">
                     <a href="https://2020.igem.org/Team:UofUppsala/Human_Practices" style="color:blue;">Read more </a></p>
                 </div>
 
@@ -357,26 +438,46 @@ att det är flera alternativ där -->
                 <div class="photosection">
                 <div class="textbox1">
 
-                  <img class="picture1" src="peanutlogo.jpeg" alt="peanutlogo">
+                  <img class="picture1" src="washingmachine.jpeg" alt="washingmachineogo">
 
                     <h2>
                     Team</h2>
                     <p>
                         We are the team of Uppsala <br>University (Sweden) for the <br>complicated year of 2020. <br>
                         With different education <br>backgrounds and from all<br> over the world, we are 25<br> students that decided to enrol<br> in the iGEM adventure.</p> 
-                        <hr style="border:1px solid black; margin-left: 0%;
-                        margin-right:0%;">
+                        <hr style="border:1px solid black; margin-right:-15%; margin-left:-15%;">
+
                         <a href="https://2020.igem.org/Team:UofUppsala/Team" style="color:red;">Read more </a></p>
                     </div>
                 
-        
             </div>
 
         </div>
-
-    
-
-    
+      
+        <div class="grid-container-bottom">
+          <div class="boxb1">
+              <h2><u></u>Our sponsors</u></h2>
+  
+          </div>
+  
+          <div class="boxb2">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png" width="30%" height="100%">
+  
+          </div>
+  
+          <div class="boxb3">
+              <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c4/Snapchat_logo.svg/1024px-Snapchat_logo.svg.png" width="30%" height="100%">
+          </div>
+  
+          <div class="boxb4">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/1024px-Instagram_logo_2016.svg.png" width="30%" height="100%">
+          </div>
+  
+          <div class="boxb5">
+              <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a9/TikTok_logo.svg/1920px-TikTok_logo.svg.png" width="60%" height="100%">
+          </div>
+  
+      </div>
 
 </body>
 </html>
