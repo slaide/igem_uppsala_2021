@@ -1,149 +1,193 @@
 <!DOCTYPE html>
-<html>
- 
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title>
-        Change Image Dynamically
-        when User Scrolls
+     <title>
+        Alex scroll page
     </title>
     <style>
+        *{
+            margin:0;
+            border:0;
+            padding:0;
+        }
         body, html{
             height: 100%;        
         }
-        body {
-            text-align: center;
+
+
+
+        .bigbox{
+            height: 200%;
+            width: 100%;
+            background-color: yellow;
         }
-        h1 {
-            color: green;
+
+        .paddingleftinteractive{
+                padding-left:var(--pl);
         }
-        img {
-            position: absolute;
-            left: 300px;
+
+        .paddingtopinteractive{
+                padding-top:var(--pt);
+                z-index: 1;
+        }   
+
+        #lab{
+            height: 50%;
+            width: 50%;
+            margin: auto;
+            margin-top: -50%;
+            position: relative;
+            z-index: 1;
+        }
+
+        #imgl{
+            z-index: 1;
+            position: relative;
+        }
+
+
+        #reactor{
+            height: 100%;
+            width: 100%;
+            margin: auto;
+            z-index: 2;
+            position: relative;
+        }
+
+        #imgr{
+            z-index: 2;
+            position: relative;
+        }
+
+        .imgholder{
+            height: 20%;
+            width: 40%;
+            margin: auto;
+            position: relative;
         }
     </style>
     <script>
-        window.onload = function() {
-      
-            // Index of current image
-            // which is on display
-            var imageIndex = 0;
-      
-            // Object array of all the
-            // images of class test
-            var images =
-                document.getElementsByClassName('test');
-      
-            // This tells us if mouse if over
-            // image or not, We only change
-            // image if mouse if over it
-            var isMouseOverImage = false;
-      
-            // Object of parent element
-            // containing all images
-            var scrollImages =
-                document.getElementById('scroll-image');
-      
-            // Stores the current scoll co-ordinates
-            // so that the window don't scroll down
-            // while scrolling the images
-            var x, y;
-      
-            // This function sets the scroll to x, y
-            function noScroll() {
-                window.scrollTo(x, y);
-            }
-      
-            // The following event id fired once when
-            // We hover mouse over the images
-            scrollImages.addEventListener(
-                    "mouseenter", function() {
-      
-                // We store the current page
-                // offset to x,y
-                x = window.pageXOffset;
-                y = window.pageYOffset;
-      
-                // We add the following event to
-                // window object, so if we scroll
-                // down after mouse is over the
-                // image we can avoid scrolling
-                // the window
-                window.addEventListener("scroll", noScroll);
-                 
-                // We set isMouseOverImage to
-                // true, this means Mouse is
-                // now over the image
-                isMouseOverImage = true;
-            });
-      
-            // The following function is fired
-            // when mouse is no longer over
-            // the images
-            scrollImages.addEventListener(
-                    "mouseleave", function() {
-      
-                // We set isMouseOverImage to
-                // false, this means mouse is
-                // not over the image
-                isMouseOverImage = false;
-      
-                // We remove the event we previously
-                // added because we are no longer
-                // over the image, the scroll will
-                // now scroll the window
-                window.removeEventListener(
-                            "scroll", noScroll);
-            });
-      
-            // The following function is called
-            // when we move mouse wheel over
-            // the images
-            scrollImages.addEventListener(
-                        "wheel", function(e) {
-                                 
-                // We check if we are over
-                // image or not
-                if (isMouseOverImage) {
-                    var nextImageIndex;
-      
-                    // The following condition
-                    // finds the next image
-                    // index depending if we
-                    // scroll up or scroll down
-                    if (e.deltaY > 0)
-                        nextImageIndex = (imageIndex + 1)
-                                         % images.length;
-                    else
-                        nextImageIndex =
-                                (imageIndex - 1
-                                + images.length)
-                                % images.length;
-      
-                    // We set the z index of current
-                    // image to 0
-                    images[imageIndex].style.zIndex = "0";
-                         
-                    // We set the z index of next
-                    // image to 1, this makes
-                    // The new image appear on top
-                    // of old image
-                    images[nextImageIndex].style.zIndex = "1";
-                    imageIndex = nextImageIndex;
+        function min(a,b){return (a<b?a:b)}
+        function max(a,b){return (a>b?a:b)}
+            var observeViewEnter=new IntersectionObserver(function(entries){
+                if(entries[0].isIntersecting===true){
+                    //window.alert("entered view")
+                    entries[0].target.classList.add("paddingtopinteractive")
+                    window.addEventListener("scroll",function(){
+                        var target=document.getElementById("lab")
+                        var top=target.getBoundingClientRect().top
+                        var max_scroll=document.documentElement.scrollHeight-window.innerHeight;
+                        var height=window.innerHeight
+                        var scroll_height=(height-top)/height;
+                        console.log(scroll_height)
+                        scroll_height=min(max(scroll_height,0),1.0)
+                        console.log(scroll_height)
+                        target.style.setProperty("--pt",(scroll_height)*70+"vh")
+                    })
                 }
-            });
-        }
+            },{threshold:[1.0]});
+            var observeViewLeave=new IntersectionObserver(function(entries){
+                if(entries[0].isIntersecting!==true){
+                    entries[0].target.classList.remove("paddingtopinteractive")
+                    //window.alert("left view")
+                }
+            },{threshold:[0.0]});
+            function onload_function(){
+                observeViewEnter.observe(document.getElementById("lab"))
+                observeViewLeave.observe(document.getElementById("lab"))
+            }
     </script>
 </head>
- 
-<body>
-<h1>GeeksforGeeks</h1>
-<b>A Computer Science Portal for Geeks</b>
-    <div id="scroll-image">
-        <img src="logo.png" class="test" width="500px" height="500px" />
-        <img src="tophat.png" class="test" width="500px" height="500px" />
-        <img src="cow.jpg" class="test" width="500px" height="500px" />
+<body onload="onload_function()">
+    <div class="bigbox">
     </div>
+    <div class="bigbox">
+        <div class="imgholder">
+            <div id="reactor">
+                <img id="imgr" src="https://neutronbytes.files.wordpress.com/2020/07/wec-lfr.png?w=640" width="100%" height="100%">
+            </div>
+            <div id="lab">
+                <img id="imgl" src="logo.png" width="100%" height="100%">    
+            </div>
+
+        </div>
+    </div>
+
 </body>
- 
-</html>     
+</html>
+
+<!--
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <title>
+        Alex clolud page
+    </title>
+    <style>
+        *{
+            margin:0;
+            border:0;
+            padding:0;
+        }
+        body, html{
+            height: 100%;        
+        }
+
+        .bigbox{
+            height: 100%;
+            width: 100%;
+            background-color: yellow;
+            margin-left: 10%;
+            border: 2px solid black;
+        }
+
+        .paddingleftinteractive{
+                padding-left:var(--pl);
+        }
+    </style>
+    <script>
+        function min(a,b){return (a<b?a:b)}
+            function max(a,b){return (a>b?a:b)}
+            var observeViewEnter=new IntersectionObserver(function(entries){
+                if(entries[0].isIntersecting===true){
+                    //window.alert("entered view")
+                    entries[0].target.classList.add("paddingleftinteractive")
+                    window.addEventListener("scroll",function(){
+                        var target=document.getElementById("lab")
+                        var top=target.getBoundingClientRect().top
+                        var max_scroll=document.documentElement.scrollHeight-window.innerHeight;
+                        var height=window.innerHeight
+                        var scroll_height=(height-top)/height;
+                        console.log(scroll_height)
+                        scroll_height=min(max(scroll_height,0),1.0)
+                        console.log(scroll_height)
+                        target.style.setProperty("--pl",(1-scroll_height)*100+"vw")
+                    })
+                }
+            },{threshold:[0.0]});
+            var observeViewLeave=new IntersectionObserver(function(entries){
+                if(entries[0].isIntersecting!==true){
+                    entries[0].target.classList.remove("paddingleftinteractive")
+                    //window.alert("left view")
+                }
+            },{threshold:[0.0]});
+            function onload_function(){
+                observeViewEnter.observe(document.getElementById("lab"))
+                observeViewLeave.observe(document.getElementById("lab"))
+            }
+    </script>
+</head>
+<body onload="onload_function()">
+    <div class="bigbox">
+    </div>
+    <div class="bigbox">
+        <div id="lab">
+            Lab
+        </div>
+    </div>
+
+</body>
+</html>
+
+-->
