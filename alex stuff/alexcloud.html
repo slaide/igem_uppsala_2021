@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
      <title>
-        Alex menu page
+        Alex clolud page
     </title>
     <style>
         *{
@@ -122,8 +122,8 @@
         }
 
         .parallaxtop {
-            background-image: url('https://www.stardots.se/media/2018/01/uppsala-universitet-logo-new.png.jpg');
-            height: 50%;
+            background-image: url(coow-grass-cloud.png);
+            height: 100%;
             background-attachment: fixed;
             background-position: center;
             background-repeat: no-repeat;
@@ -135,22 +135,28 @@
         #header{
             margin: auto;
             width: 60%;
-            margin-top: 5%;
+            margin-top: 15%;
+            animation-name: fadein;
+            animation-duration: 2s;
+        }
+        @keyframes fadein{
+            from {opacity: 0;}
+            to{opacity: 1;}
         }
         h1{
             font-size: 6em;
             font-style: italic;
             text-align: center;
-            color: white;
+            color:black;
         }
 
         .grid-container{
             display: grid;
-            height: 200%;
+            height: 100%;
             grid-template-columns:repeat(50,1fr);
             grid-template-rows:repeat(50,1fr);
             overflow: hidden;
-            background-color: rgb(36, 175, 36);
+            background-color: #426968;
             /*column-gap: 10px;
             row-gap: 10px;*/
             border-bottom: 5px solid black;
@@ -159,102 +165,163 @@
 
 
         .box1 {
-            height: 80%;
-            width: 80%;
-            grid-column: 7 /span 8;
-            grid-row: 5 /span 16;
+            height: 100%;
+            width: 100%;
+            background-image: url(https://www.vippng.com/png/detail/72-725880_clip-black-and-white-stock-beef-drawing-raw.png);
+            grid-column: 10 /span 30;
+            grid-row: 5 /span 30;
             text-align: center;
             border: 4px solid black;
             overflow: hidden;
-            background-color: red;
             transition: all 0.5s;
             margin: auto;
             border-radius: 7%;
         }
-        .box1:hover{
-            height: 100%;
-            width: 100%;
-            background-color: violet;
-        }
 
 
+       
 
 
         .box2 {
-            height: 80%;
-            width: 80%;
-            grid-column:17/span 8;
-            grid-row: 5/span 16;
+            height: 100%;
+            width: 100%;
+            grid-column:7/span 8;
+            grid-row: 27/span 16;
             text-align: center;
             border: 4px solid black;
             overflow: hidden;
-            background-color: #6d1d23;
+            background-image: url(https://cdn4.vectorstock.com/i/thumb-large/54/73/syringe-drawing-isolated-design-vector-31955473.jpg);
             margin: auto;
             transition: all 0.5s;
-            border-radius: 7%;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .box2text{
+            opacity:0;
+            margin-top: 30%;
+            text-align: center;
+            font-size: 1.5em;
+            transition: all 0.5s;
         }
         .box2:hover{
-            height: 100%;
-            width: 100%;
-            background-color: violet;
+            border:4px solid chocolate;
+        }
+
+        .box2:hover .box2text{
+            opacity: 1;
         }
 
 
         .box3 {
-            height: 80%;
-            width: 80%;
-            grid-column: 27 /span 8;
-            grid-row: 5 /span 16;
+            height: 100%;
+            width: 100%;
+            background-image: url(https://ak.picdn.net/shutterstock/videos/1067259439/thumb/1.jpg?ip=x480);
+            background-repeat: repeat;
+            grid-column:35/span 8;
+            grid-row: 27/span 16;
+            text-align: center;
+            border: 4px solid black;
+            overflow: hidden;
+            margin: auto;
+            transition: all 0.5s;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+
+        .box3text{
+            opacity:0;
+            margin-top: 30%;
+            text-align: center;
+            font-size: 1.5em;
+            transition: all 0.5s;
+        }
+        .box3:hover{
+            border:4px solid chocolate;
+        }
+
+        .box3:hover .box3text{
+            opacity: 1;
+        }
+
+
+
+        .box4 {
+            height: 100%;
+            width: 100%;
+            grid-column: 35 /span 8;
+            grid-row: 2 /span 16;
+            text-align: center;
+            border: 4px solid black;
+            overflow: hidden;
+            background-image: url(grass.jpg);
+            margin: auto;
+            transition: all 0.5s;
+            border-radius: 50%;
+        }
+
+        .box4:hover{
+            border:4px solid chocolate;
+        }
+
+        .box4:hover ~ .box5{
+            opacity: 1;
+        }
+
+
+        .box5 {
+            height: 100%;
+            width: 100%;
+            grid-column: 45 /span 5;
+            grid-row: 2 /span 16;
             text-align: center;
             border: 4px solid black;
             overflow: hidden;
             background-color: #dce1de;
+            font-size: 1.5em;
             margin: auto;
-            transition: all 0.5s;
-            border-radius: 7%;
-        }
-        .box3:hover{
-            height: 100%;
-            width: 100%;
-            background-color: violet;
+            opacity: 0;
+            transition: all 0.5s;   
         }
 
-        .box4 {
-            height: 80%;
-            width: 80%;
-            grid-column: 37 /span 8;
-            grid-row: 5 /span 16;
+        .box6 {
+            height: 100%;
+            width: 100%;
+            grid-column: 7 /span 8;
+            grid-row: 2 /span 16;
             text-align: center;
             border: 4px solid black;
             overflow: hidden;
-            background-color: #426968;
+            background-image: url(https://image.shutterstock.com/image-vector/cute-cow-cartoon-character-vector-260nw-1291370593.jpg);
             margin: auto;
             transition: all 0.5s;
-            border-radius: 7%;
+            border-radius: 50%;
+        }
+
+        .box6:hover{
+            border:4px solid chocolate;
+        }
+
+        .box6:hover ~ .box7{
+            opacity: 1;
         }
 
 
-
-
-        .box4:hover{
+        .box7 {
             height: 100%;
             width: 100%;
-            background-color: violet;
-        }
-
-        .boxtext{
-            width: 85%;
-            margin: auto;
-        }
-        .readmore{
-            margin-top: 3%;
-            color: black;
+            grid-column: 1 /span 5;
+            grid-row: 2 /span 16;
             text-align: center;
-            font-style: italic;
+            border: 4px solid black;
+            overflow: hidden;
+            background-color: #dce1de;
+            font-size: 1.5em;
+            margin: auto;
+            opacity: 0;
+            transition: all 0.5s;   
         }
-
-
-
     </style>
     <script>
         window.onscroll = function() {myFunction()};
@@ -265,9 +332,7 @@
           } else {
             document.getElementById("menu").style.width = "100%";
           }
-        }
-        
-
+        }        
     </script>
 </head>
 <body>
@@ -276,33 +341,33 @@
     </div>
     <div id="menu">
         <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#news">Uppsala</a></li>
-
-
+            <li><a href="#home">Project</a></li>
+            <li><a href="#news">Parts</a></li>
             <li class="dropdown-1">
-            <a href="javascript:void(0)" class="dropbtn">Modeling</a>
-            <div class="dropdown-content-1">
-                <a href="#">FGF2</a>
-                <a href="#">Schrödinger</a>
-                <a href="#">QresFEP</a>
-                <a href="#">BMC</a>
-
-            </div>
+                <a href="javascript:void(0)" class="dropbtn">Lab</a>
+                <div class="dropdown-content-1">
+                    <a href="#">FGF2</a>
+                    <a href="#">Schrödinger</a>
+                    <a href="#">QresFEP</a>
+                    <a href="#">Wet lab</a>
+                </div>
 
             </li>   
 
             <li class="dropdown-2">
-            <a href="javascript:void(0)" class="dropbtn">Team</a>
-            <div class="dropdown-content-2">
-                <a href="#">PM</a>
-                <a href="#">Modeling</a>
-                <a href="#">Wiki</a>
-                <a href="#">Sponsor</a>
-                <a href="#">GD</a>
-                <a href="#">Social media</a>
-            </div>
+                <a href="javascript:void(0)" class="dropbtn">Team</a>
+                <div class="dropdown-content-2">
+                    <a href="#">PM</a>
+                    <a href="#">Modeling</a>
+                    <a href="#">Wiki</a>
+                    <a href="#">Sponsor</a>
+                    <a href="#">GD</a>
+                    <a href="#">Social media</a>
+                </div>
             </li>
+            <li><a href="#home">Future</a></li>
+            <li><a href="#news">Human practice</a></li>
+            <li><a href="#news">Awards</a></li>
         </ul>
     </div>
     <div class=parallaxtop>
@@ -314,48 +379,30 @@
     </div>
     <div class="grid-container">        
         <div class="box1">
-            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/96/UEFA_Euro_2020_Logo.svg/800px-UEFA_Euro_2020_Logo.svg.png" width="50%" height="30%">
-            <h2>In the Lab</h2>
-            <div class="boxtext">
-                In parallel to the <br> development of our <br> sensor, a lot of effort this <br> year went to the <br> 
-                “Development of Type <br> IIS cloning Standard”, <br> which allows <br> a higher degree of <br> modularity for <br> NANOFLEX.
-            </div>
-            <hr>
-            <div class="readmore">
-                <span>READ MORE</span>
-            </div>
         </div>
         <div class="box2">
-            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/96/UEFA_Euro_2020_Logo.svg/800px-UEFA_Euro_2020_Logo.svg.png" width="50%" height="30%">
-            <h2>Computational Modelling</h2>
-            <div class="boxtext">
-                Our modelling approach<br> is two-fold, a python <br>based stochastic model<br> for expression of<br> detection proteins and a<br> molecular dynamics<br> pipeline for modifying<br> the nanobody component<br> of our sensor.
-            </div>
-            <hr>
-            <div class="readmore">
-                <span>READ MORE</span>
+            <div class ="box2text">
+               <b>Antibiotics are bad,<br> by growing meat in the lab we can minimize the use.</b>
             </div>
         </div>
         <div class="box3">
-            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/96/UEFA_Euro_2020_Logo.svg/800px-UEFA_Euro_2020_Logo.svg.png" width="50%" height="30%">
-            <h2>Outreach</h2>
-            <div class="boxtext">
-                Informed decision-<br>making is the motto of<br> our project. From early<br> on, we have been<br> contacting experts and<br> professors for their<br> inputs. We have also<br> organized education and<br> collaborations programs<br> directed to the iGEM<br> community, but also to.
-            </div>
-            <hr>
-            <div class="readmore">
-                <span>READ MORE</span>
-            </div>
+            <div class ="box3text">
+                <b>Carbon dioxide are bad, lab grown<br> meat minimizes the emission.</b>
+             </div>
         </div>
         <div class="box4">
-            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/96/UEFA_Euro_2020_Logo.svg/800px-UEFA_Euro_2020_Logo.svg.png" width="50%" height="30%">
-            <h2>Team</h2>
-            <div class="boxtext">
-                We are the team of<br> Uppsala University<br> (Sweden) for the<br> complicated year of<br> 2020. With different<br> education backgrounds<br> and from all over the<br> world, we are 25 students<br> that decided to enrol in <br>the iGEM adventure.
+        </div>
+        <div class="box5">
+            <div class="box5text">
+            The land use will minimize with 99% if we switch from traditional agriculture to cellular agriculture.
             </div>
-            <hr>
-            <div class="readmore">
-                <span>READ MORE</span>
+        </div>
+
+        <div class="box6">
+        </div>
+        <div class="box7">
+            <div class="box7text">
+            You would not kill and eat a dog! Why would you kill and eat a cute cow then! Cellular agriculture saves lifes!
             </div>
         </div>
     </div>
