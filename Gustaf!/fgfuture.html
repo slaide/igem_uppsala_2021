@@ -247,61 +247,11 @@
             transition: all 0.5s;
         }
 
-.bioreaktor{
-            background-image: url(bioreactor.jpeg);
-            height: 100%;
-            width: 100%;
-            grid-column: 15 /span 10;
-            grid-row: 20 /span 12;
-            text-align: center;
-            border: 4px solid black;
-            overflow: hidden;
-            background-repeat: no-repeat;
-            background-size:cover;
-            border-radius:50%;
-            transition: all 0.5s;
-            z-index:1;
-            margin:auto;
-}
-
-.cow{
-            background-image: url(cowkompis.jpeg);
-            height: 100%;
-            width: 100%;
-            grid-column: 5 /span 7;
-            grid-row: 5 /span 12;
-            text-align: center;
-            border: 4px solid black;
-            overflow: hidden;
-            background-repeat: no-repeat;
-            background-size:cover;
-            border-radius:50%;
-            transition: all 0.5s;
-            z-index:1;
-            margin:auto;
-}
-
-.protein{
-            height: 100%;
-            width: 100%;
-            grid-column: 30 /span 7;
-            grid-row: 5 /span 12;
-            text-align: center;
-            border: 4px solid black;
-            overflow: hidden;
-            background-image: url(fgf2.png);
-            background-repeat: no-repeat;
-            background-size:cover;
-            border-radius:50%;
-            transition: all 0.5s;
-            z-index:1;
-            margin:auto;
-}
-
 html,body{
   height:100%;
   margin:0;
   padding:0;
+  background-color:#426968;
 }
 
 .infobox {
@@ -526,6 +476,97 @@ li.dropdown {
   transform-origin: bottom center;
   /*border: 1px solid red;  Only for seeing trick */
 }
+/* for page 4 */
+/* to the scrollingfunction*/
+
+.bigbackground{
+            height: 100%;
+            margin-top:7%;
+            width: 100%;
+            background-color:  #426968;
+        }
+
+        /*
+          #426968 (main)
+#dce1de (background)
+#6d1d23 (highlight)
+-
+Other colors:
+#4f899e
+#694256
+#555849
+*/
+
+.paddingtopinteractive{
+                padding-top:var(--pt);
+                z-index: 1;
+        }
+
+        #steakdiv{
+            height: 50%;
+            width: 50%;
+            margin: auto;
+            margin-top: -60%;
+            position: relative;
+            z-index: 1;
+        }
+
+        #imgs{
+            z-index: 1;
+            position: relative;
+        }
+
+
+        #reactordiv{
+            height: 100%;
+            width: 100%;
+            margin: auto;
+            z-index: 2;
+            position: relative;
+        }
+
+        #imgr{
+            z-index: 2;
+            position: relative;
+        }
+
+        .imgholder{
+            height: 50%;
+            width: 40%;
+            margin: auto;
+            position: relative;
+        }
+
+        #proteindiv{height: 100%;
+            width: 100%;
+            margin: auto;
+           }
+
+        #cowdiv{height: 100%;
+            width: 100%;
+            margin: auto;
+        }
+
+
+        img.stickyprotein{ position: relative;
+  margin-left:15%;
+  top: -800px;
+  width: 150px;
+  border-radius:50%;}
+
+  img.stickycow{position: relative;
+  margin-left:52%;
+  top: -800px;
+  width: 150px;
+  border-radius:5%;}
+
+  /* page 5 */
+  .bigsecondbox{
+            height: 100%;
+            margin-top:0%;
+            width: 100%;
+            background-color:  #6d1d23;
+        }
 
 </style>
 
@@ -541,11 +582,45 @@ function myFunction(){
     document.getElementById("menu").style.width = "100%";
   }
 }
+
+
+
+/* Patrick's scrollfunction with alex's changes
+*/
+        function min(a,b){return (a<b?a:b)}
+        function max(a,b){return (a>b?a:b)}
+            var observeViewEnter=new IntersectionObserver(function(entries){
+                if(entries[0].isIntersecting===true){
+                    //window.alert("entered view")
+                    entries[0].target.classList.add("paddingtopinteractive")
+                    window.addEventListener("scroll",function(){
+                        var target=document.getElementById("steakdiv")
+                        var top=target.getBoundingClientRect().top
+                        var max_scroll=document.documentElement.scrollHeight-window.innerHeight;
+                        var height=window.innerHeight
+                        var scroll_height=(height-top)/height;
+                        console.log(scroll_height)
+                        scroll_height=min(max(scroll_height,0),1.0)
+                        console.log(scroll_height)
+                        target.style.setProperty("--pt",(scroll_height)*50+"vh")
+                    })
+                }
+            },{threshold:[1.0]});
+            var observeViewLeave=new IntersectionObserver(function(entries){
+                if(entries[0].isIntersecting!==true){
+                    entries[0].target.classList.remove("paddingtopinteractive")
+                    //window.alert("left view")
+                }
+            },{threshold:[0.0]});
+            function onload_function(){
+                observeViewEnter.observe(document.getElementById("steakdiv"))
+                observeViewLeave.observe(document.getElementById("steakdiv"))
+            }
 </script>
 
 </head>
 
-<body style="background-color:#426968">
+<body onload="onload_function()">
 
   <div id="igemloginbar">
     IGEM LOGIN BAR
@@ -708,22 +783,32 @@ När jag är klar tänk på design av topbar!
 </div>
 </section>
 
-  <!-- Page 4 now-->
-<p>Bioreaktor delen med kosample+fgf2 som blir en steak (sid 4)</p>
+  <!-- Page 4 now-->  <!-- lägg nu till ko till vänster och fgf2 till höger (uppe)-->
+<div class="bigbackground">
+    <div class="imgholder">
+        <div id="reactordiv">
+            <img id="imgr" src="bioreactor.jpeg" width="100%" height="100%">
+        </div>
+        <div id="steakdiv">
+            <img id="imgs" src="steak.jpeg" width="100%" height="100%">    
+        </div>
 
-<div class="grid-container">
-
-<div class="bioreaktor"></div>
-
-<div class="cow"></div>
-
-<div class="protein"></div>
-
+    </div>
 
 </div>
 
+<img class="stickyprotein" src="fgf2.png" alt="fgf2">
+
+<img class="stickycow" src="cowkompis.jpeg" alt="cowkompis">
+    
+
 <!-- Page 5 now (out of 5 pages)-->
-<p> Not sure what should be here on page 5.</p>
+<div class="bigsecondbox">
+    <p> Not sure what should be here on page 5.</p>
+<p>Logo, steak moving to the side.?</p>
+
+<img src="cow_logo.png">
+</div>
 
   <!-- Nu sponsordelen! -->
       
