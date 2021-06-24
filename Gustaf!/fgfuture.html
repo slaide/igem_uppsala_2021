@@ -399,6 +399,82 @@ li.dropdown {
             padding-bottom:10px;
         }
 
+
+/* estrellas delen är för att få text som är curved */
+  .estrellas {
+  position: relative;
+  width: 520px;
+  height:300px;
+  margin: 0 auto;
+  font-size: 70px;
+}
+.estrellas span {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 70px;
+  height: 300px;
+  margin-left: -35px;
+  line-height: 530px; /* height*2 - font-size */
+  text-align: center;
+  transform-origin: top center;
+
+}
+  .estrellas span:nth-of-type(1)  {
+  transform: rotate(75deg);
+}
+.estrellas span:nth-of-type(2)  {
+  transform: rotate(65deg);
+}
+.estrellas span:nth-of-type(3)  {
+  transform: rotate(54deg);
+}
+.estrellas span:nth-of-type(4)  {
+  transform: rotate(39deg);
+}
+.estrellas span:nth-of-type(5)  {
+  transform: rotate(29deg);
+}
+.estrellas span:nth-of-type(6)  {
+  transform: rotate(19deg);
+}
+.estrellas span:nth-of-type(7)  {
+  transform: rotate(7deg);}
+
+  .estrellas span:nth-of-type(8)  {
+  transform: rotate(-4deg);
+}
+.estrellas span:nth-of-type(9)  {
+  transform: rotate(-14deg);
+}
+.estrellas span:nth-of-type(10)  {
+  transform: rotate(-24deg);
+}
+.estrellas span:nth-of-type(11)  {
+  transform: rotate(-34deg);
+}
+.estrellas span:nth-of-type(12)  {
+  transform: rotate(-44deg);
+}
+.estrellas span:nth-of-type(13)  {
+  transform: rotate(-54deg);
+}
+.estrellas span:nth-of-type(14)  {
+  transform: rotate(-64deg);}
+
+.estrellas span:nth-of-type(15)  {
+  transform: rotate(-75deg);
+}
+/* Reverse mode */
+.inverso {
+  font-weight: bold;
+}
+.inverso span {
+  line-height: 70px;
+  transform-origin: bottom center;
+  /*border: 1px solid red;  Only for seeing trick */
+}
+
 </style>
 
 <script>
@@ -513,6 +589,8 @@ När jag är klar tänk på design av topbar!
               <li><a href="https://2020.igem.org/Team:UofUppsala/Awards">Awards</a></li>
           </ul>
         </div>
+        
+<!-- Page 1 -->
 
 <div class="parallax">
 
@@ -521,6 +599,7 @@ När jag är klar tänk på design av topbar!
         </div>
     </div>
 
+<!-- Page 2-->
     <div class="grid-container">
 
     <div class="boxsteak">
@@ -552,19 +631,34 @@ När jag är klar tänk på design av topbar!
             <div class="box6text">Animal agriculture is not ethical!</div>
         </div>
 
-        <!-- Box 1 är uppe vänster, box3 uppe höger
-        box 2 nere vänster, box 4 nere höger
-    Box1 och box3 ska öppna text direkt.
-box 2 och box 4 ska öppna nya boxar med text i.-->
-
+       
 </div>
-
+<!-- Page 3 now-->
 <section>
   <h3><i>There is a better way.....</i></h3>
-  <h1>CULTIVATED MEAT</h1>
-  
-</section>
+  <div class="estrellas inverso">
+  <span>T</span>
+  <span>A</span>
+  <span>E</span>
+  <span>M</span>
+  <span></span>
+  <span>D</span>
+  <span>E</span>
+  <span>T</span>
+  <span>A</span>
+  <span>V</span>
+  <span>I</span>
+  <span>T</span>
+  <span>L</span>
+  <span>U</span>
+  <span>C</span>
 
+</div>
+  <!-- Page 4 now-->
+</section>
+<p>Bioreaktor delen med kosample+fgf2 som blir en steak</p>
+
+<!-- Page 5 now (out of 5 pages)-->
   <!-- Nu sponsordelen! -->
       
         <div class="grid-container-bottom">
