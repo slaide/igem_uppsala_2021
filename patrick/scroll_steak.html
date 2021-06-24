@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+    <head>
+        <style>
+            *{
+                margin:0;
+                padding:0;
+                border:0;
+            }
+            #outer{
+                height:400vh;
+                width:100vh;
+            }
+            #reactor{
+                position:absolute;
+                top:90vh;
+                left:50vw;
+                transform:translateX(-50%);
+                height:200px;
+                width:200px;
+                background-color:red;
+                z-index:1;
+            }
+            #steak{
+                position:absolute;
+                top:90vh;
+                width:100px;
+                height:100px;
+                left:50vw;
+                transform:translateX(-50%);
+                background-color:black;
+            }
+            #steak.sticky_center{
+                position:fixed;
+                top:50vh;
+                left:50vw;
+                transform:translateY(-50%) translateX(-50%);
+            }
+        </style>
+        <script>
+            const max=(a,b)=>a>b?a:b
+            window.addEventListener("scroll",function(){
+                let steak=document.getElementById("steak");
+                
+                let scroll_y=document.documentElement.scrollTop;
+                let max_scroll=window.innerHeight;
+
+                let reactor_top=document.getElementById("reactor").getBoundingClientRect().top;
+
+                if(scroll_y>=(scroll_y+reactor_top-(window.innerHeight/2)+50)){
+                    if(!steak.classList.contains("sticky_center"))
+                        steak.classList.add("sticky_center");
+                }else{
+                    steak.classList.remove("sticky_center");
+                }
+            })
+        </script>
+    </head>
+    <body>
+        <div id="outer">
+            <div id="reactor">
+
+            </div>
+            <div id="steak">
+
+            </div>
+        </div>
+    </body>
+</html>
