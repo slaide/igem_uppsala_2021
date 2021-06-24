@@ -322,6 +322,16 @@
             opacity: 0;
             transition: all 0.5s;   
         }
+        .bigbox{
+            height: 100%;
+            width: 100%;
+            background-color: yellow;
+            margin-left: 10%;
+        }
+
+        .paddingleftinteractive{
+                padding-left:var(--pl);
+        }
     </style>
     <script>
         window.onscroll = function() {myFunction()};
@@ -332,10 +342,42 @@
           } else {
             document.getElementById("menu").style.width = "100%";
           }
-        }        
+        }
+        
+        
+
+        function min(a,b){return (a<b?a:b)}
+            function max(a,b){return (a>b?a:b)}
+            var observeViewEnter=new IntersectionObserver(function(entries){
+                if(entries[0].isIntersecting===true){
+                    //window.alert("entered view")
+                    entries[0].target.classList.add("paddingleftinteractive")
+                    window.addEventListener("scroll",function(){
+                        var target=document.getElementById("lab")
+                        var top=target.getBoundingClientRect().top
+                        var max_scroll=document.documentElement.scrollHeight-window.innerHeight;
+                        var height=window.innerHeight
+                        var scroll_height=(height-top)/height;
+                        console.log(scroll_height)
+                        scroll_height=min(max(scroll_height,0),1.0)
+                        console.log(scroll_height)
+                        target.style.setProperty("--pl",(1-scroll_height)*100+"vw")
+                    })
+                }
+            },{threshold:[0.0]});
+            var observeViewLeave=new IntersectionObserver(function(entries){
+                if(entries[0].isIntersecting!==true){
+                    entries[0].target.classList.remove("paddingleftinteractive")
+                    //window.alert("left view")
+                }
+            },{threshold:[0.0]});
+            function onload_function(){
+                observeViewEnter.observe(document.getElementById("lab"))
+                observeViewLeave.observe(document.getElementById("lab"))
+            }
     </script>
 </head>
-<body>
+<body onload="onload_function()">
     <div class="igem-head-bar">
         IGEM BAR
     </div>
@@ -406,8 +448,11 @@
             </div>
         </div>
     </div>
-
-
+    <div class="bigbox">
+        <div id="lab">
+            Lab
+        </div>
+    </div>
 
 </body>
 </html>
