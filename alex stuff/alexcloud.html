@@ -151,6 +151,11 @@
             color:black;
         }
 
+
+
+
+
+
         .grid-container{
             display: grid;
             height: 100%;
@@ -178,10 +183,6 @@
             margin: auto;
             border-radius: 7%;
         }
-
-
-       
-
 
         .box2 {
             height: 100%;
@@ -212,7 +213,6 @@
         .box2:hover .box2text{
             opacity: 1;
         }
-
 
         .box3 {
             height: 100%;
@@ -246,8 +246,6 @@
             opacity: 1;
         }
 
-
-
         .box4 {
             height: 100%;
             width: 100%;
@@ -269,7 +267,6 @@
         .box4:hover ~ .box5{
             opacity: 1;
         }
-
 
         .box5 {
             height: 100%;
@@ -308,7 +305,6 @@
             opacity: 1;
         }
 
-
         .box7 {
             height: 100%;
             width: 100%;
@@ -323,10 +319,98 @@
             opacity: 0;
             transition: all 0.5s;   
         }
+
+        .textcircle{
+            background-color: #426968;
+            text-align: center;
+            border-bottom: 4px solid black;
+        }
+
+
+
+
+        .estrellas {
+        position: relative;
+        width: 520px;
+        height:300px;
+        margin: 0 auto;
+        font-size: 70px;
+        }
+        .estrellas span {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 70px;
+        height: 300px;
+        margin-left: -35px;
+        line-height: 530px; /* height*2 - font-size */
+        text-align: center;
+        transform-origin: top center;
+
+        }
+        .estrellas span:nth-of-type(1)  {
+        transform: rotate(75deg);
+        }
+        .estrellas span:nth-of-type(2)  {
+        transform: rotate(65deg);
+        }
+        .estrellas span:nth-of-type(3)  {
+        transform: rotate(54deg);
+        }
+        .estrellas span:nth-of-type(4)  {
+        transform: rotate(39deg);
+        }
+        .estrellas span:nth-of-type(5)  {
+        transform: rotate(29deg);
+        }
+        .estrellas span:nth-of-type(6)  {
+        transform: rotate(19deg);
+        }
+        .estrellas span:nth-of-type(7)  {
+        transform: rotate(7deg);}
+
+        .estrellas span:nth-of-type(8)  {
+        transform: rotate(-4deg);
+        }
+        .estrellas span:nth-of-type(9)  {
+        transform: rotate(-14deg);
+        }
+        .estrellas span:nth-of-type(10)  {
+        transform: rotate(-24deg);
+        }
+        .estrellas span:nth-of-type(11)  {
+        transform: rotate(-34deg);
+        }
+        .estrellas span:nth-of-type(12)  {
+        transform: rotate(-44deg);
+        }
+        .estrellas span:nth-of-type(13)  {
+        transform: rotate(-54deg);
+        }
+        .estrellas span:nth-of-type(14)  {
+        transform: rotate(-64deg);}
+
+        .estrellas span:nth-of-type(15)  {
+        transform: rotate(-75deg);
+        }
+        /* Reverse mode */
+        .inverso {
+        font-weight: bold;
+        }
+        .inverso span {
+        line-height: 70px;
+        transform-origin: bottom center;
+        /*border: 1px solid red;  Only for seeing trick */
+        }
+
+
+
+
+
         .bigbox{
             height: 100%;
             width: 100%;
-            background-color: yellow;
+            background-color: #426968;
         }
 
         .paddingtopinteractive{
@@ -346,6 +430,7 @@
         #imgs{
             z-index: 1;
             position: relative;
+            border-radius: 50%;
         }
 
 
@@ -360,6 +445,7 @@
         #imgr{
             z-index: 2;
             position: relative;
+            border-radius: 10%;
         }
 
         .imgholder{
@@ -455,6 +541,7 @@
             </h1>
         </div>
     </div>
+    <!--End intro, start steak with facts-->
     <div class="grid-container">        
         <div class="box1">
         </div>
@@ -484,7 +571,29 @@
             </div>
         </div>
     </div>
+    <!--End steak with facts, start circle text-->
+    <div class="textcircle">
+        <h3><i>There is a better way.....</i></h3>
+        <div class="estrellas inverso">
+            <span>T</span>
+            <span>A</span>
+            <span>E</span>
+            <span>M</span>
+            <span></span>
+            <span>D</span>
+            <span>E</span>
+            <span>T</span>
+            <span>A</span>
+            <span>V</span>
+            <span>I</span>
+            <span>T</span>
+            <span>L</span>
+            <span>U</span>
+            <span>C</span>
+        </div>
+    </div>
 
+    <!--Endcircle text, start reactor-->
     <div class="bigbox">
         <div class="imgholder">
             <div id="reactordiv">
