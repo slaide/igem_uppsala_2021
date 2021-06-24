@@ -68,6 +68,24 @@
             .paddingleftinteractive{
                 padding-left:var(--pl);
             }
+            #navbar{
+                position:fixed;
+                width:100%;
+                background-color: white;
+                z-index: 2;
+            }
+            #scroll_progress{
+                display:inline-block;
+                width:var(--scroll_progress);
+                height: 2vh;
+                background-color: black;
+            }
+            span{
+                position:relative;
+            }
+            .red{
+                background-color: red;
+            }
         </style>
         <script>
             function min(a,b){return (a<b?a:b)}
@@ -76,17 +94,6 @@
                 if(entries[0].isIntersecting===true){
                     //window.alert("entered view")
                     entries[0].target.classList.add("paddingleftinteractive")
-                    window.addEventListener("scroll",function(){
-                        var target=document.getElementById("lab")
-                        var top=target.getBoundingClientRect().top
-                        var max_scroll=document.documentElement.scrollHeight-window.innerHeight;
-                        var height=window.innerHeight
-                        var scroll_height=(height-top)/height;
-                        console.log(scroll_height)
-                        scroll_height=min(max(scroll_height,0),1.0)
-                        console.log(scroll_height)
-                        target.style.setProperty("--pl",(1-scroll_height)*100+"vw")
-                    })
                 }
             },{threshold:[0.0]});
             var observeViewLeave=new IntersectionObserver(function(entries){
@@ -98,6 +105,15 @@
             function onload_function(){
                 observeViewEnter.observe(document.getElementById("lab"))
                 observeViewLeave.observe(document.getElementById("lab"))
+                window.addEventListener("scroll",function(){
+                    var max_scroll=document.documentElement.scrollHeight-window.innerHeight;
+                    let scroll_progress=window.scrollY/max_scroll*100
+                    const section_len=document.getElementById("navbar").children[0].children.length
+                    console.log(100/section_len)
+
+                    scroll_progress=scroll_progress+"%"
+                    document.getElementById("navbar").style.setProperty("--scroll_progress",scroll_progress)
+                })
             }
         </script>
     </head>
@@ -106,6 +122,22 @@
             <div onclick="document.getElementById('project').scrollIntoView({inline:'start',behavior:'smooth'})">Project</div>
             <div onclick="document.getElementById('team').scrollIntoView({inline:'start',behavior:'smooth'})">Team</div>
             <div onclick="document.getElementById('lab').scrollIntoView({inline:'start',behavior:'smooth'})">Lab</div>
+        </div>
+        <div id="navbar">
+            <div>
+                <span>Project</span><span>Team</span><span>Lab</span>
+            </div>
+           <script>
+               var navbar=document.getElementById("navbar")
+               var i=0
+               for (child of navbar.children[0].children){
+                   child.style.left=i*(100/navbar.children[0].children.length)+"%"
+                   i++
+               }
+           </script> 
+            <span id="scroll_progress">
+
+            </span>
         </div>
         <main>
             <div>
