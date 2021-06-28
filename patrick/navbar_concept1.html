@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf8">
+        <style>
+            *{
+                margin:0;
+                border:0;
+                padding:0;
+            }
+            #body{
+                height:100vh;
+                width:100vw;
+            }
+            #navbar{
+                width:100%;
+                height:5vh;
+                background-color:greenyellow;
+                display:grid;
+                grid-template-columns: 5vh repeat(4,1fr);
+            }
+            .navbar_block{
+                cursor: pointer;
+            }
+            .navbar_block > span{
+                display:block;
+                width:auto;
+                position:relative;
+                ttext-align: center;
+                top:50%;
+                transform:translateY(-50%);
+                font-size:2.5vh;
+            }
+            #logo{
+                width:5vh;
+            }
+            #navbar_extended{
+                height:95vh;
+                width:100vw;
+                background-color:#E0E0E0;
+                position:fixed;
+                top:5vh;
+                float:left;
+                display:grid;
+                grid-template-columns: 5vh repeat(4,1fr);
+                transition: opacity 0.13s;
+            }
+            .invisible{
+                opacity:0;
+            }
+            .navbar_extended_section{
+                font-size:2vh;
+            }
+            .fat_text > .extended_section_entry{
+                font-weight: bold;
+            }
+        </style>
+        <script>
+            function onload(){
+                document.getElementById("navbar_extended").classList.add("invisible")
+
+                let navbar=document.getElementById("navbar")
+                let navbar_extended=document.getElementById("navbar_extended")
+
+                navbar.addEventListener("mouseenter",function(){
+                    navbar_extended.classList.remove("invisible")
+                })
+                navbar.addEventListener("mouseleave",function(){
+                    navbar_extended.classList.add("invisible")
+                })
+
+                for (index in navbar.children){
+                    let child=navbar.children[index]
+                    child.setAttribute("index",index)
+                    child.addEventListener("mouseenter",function(ev){
+                        for (child of navbar_extended.children){
+                            child.classList.remove("fat_text")
+                        }
+                        ev.target.classList.add("fat_text")
+                        navbar_extended.children[ev.target.getAttribute("index")].classList.add("fat_text")
+                    })
+                }
+            }
+        </script>
+    </head>
+    <body onload="onload()">
+        <div id="body">
+            <div id="navbar">
+                <div id="logo">Logo</div>
+                <div class="navbar_block">
+                    <span>Intro</span>
+                </div>
+                <div class="navbar_block">
+                    <span>Team</span>
+                </div>
+                <div class="navbar_block">
+                    <span>Dry Lab</span>
+                </div>
+                <div class="navbar_block">
+                    <span>Wet Lab</span>
+                </div>
+            </div>
+            <div id="navbar_extended">
+                <span emptyspace></span>
+                <div class="navbar_extended_section">
+                    <div class="extended_section_entry">hi</div>
+                    <div class="extended_section_entry">hi</div>
+                    <div class="extended_section_entry">hi</div>
+                    <div class="extended_section_entry">hi</div>
+                </div>
+                <div class="navbar_extended_section">
+                    <div class="extended_section_entry">hi</div>
+                    <div class="extended_section_entry">hi</div>
+                    <div class="extended_section_entry">hi</div>
+                    <div class="extended_section_entry">hi</div>
+                </div>
+                <div class="navbar_extended_section">
+                    <div class="extended_section_entry">hi</div>
+                    <div class="extended_section_entry">hi</div>
+                    <div class="extended_section_entry">hi</div>
+                    <div class="extended_section_entry">hi</div>
+                </div>
+                <div class="navbar_extended_section">
+                    <div class="extended_section_entry">hi</div>
+                    <div class="extended_section_entry">hi</div>
+                    <div class="extended_section_entry">hi</div>
+                    <div class="extended_section_entry">hi</div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
