@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Gustaf's try on the best topbar </title>
+<style>
+/*
+*{
+            margin:0;
+            border:0;
+            padding:0;
+        }
+        */
+
+        #igemloginbar{ 
+            width:100%;
+            background-color:#dce1de;
+            height:16px;
+            top:0;
+            z-index:3;
+            position:fixed;
+            text-align:center;
+}
+html,body{
+  height:100%;
+  margin:0;
+  padding:0;
+  /* background-color:blueviolet; */
+  /*
+  background: url(coral.jpeg) left top no-repeat, url(antibiotics.jpeg) right bottom no-repeat, url(adamsandler.jpeg) left top repeat;
+  */
+  background-color:blueviolet;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  top:0;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: #6d1d23;
+  text-align: center;
+  /*padding: 14px 16px; */
+  padding: 20px 16px;
+  margin-left:0px;
+
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: red;
+}
+
+#menu{
+transition:0.5s;
+width:100%;
+position:fixed;
+overflow:hidden;
+background-color: #426968;
+margin-top:16px;
+z-index:1;
+height:10%;
+}
+
+#menu:hover{overflow:visible;}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #4f899e;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/*
+          #426968 (main)
+#dce1de (background)
+#6d1d23 (highlight)
+-
+Other colors:
+#4f899e
+#694256 mörkröd typ
+#555849
+*/
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* till topbaren */
+.logotype{
+    float:left;
+    margin:15px;
+    width:10%;
+    height:50px;
+    padding-top:10px;
+    padding-bottom:0px;
+    padding-left:0px;
+    padding-right:0px;
+    margin:0px;
+    /* har overflow bilden är större än topbaren... */
+}
+
+</style>
+
+<script>
+
+    window.onscroll=function(){myFunction()};
+  
+  function myFunction(){
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300){
+    document.getElementById("menu").style.width = "0px";
+    }
+    else {
+      document.getElementById("menu").style.width = "100%";
+    }
+  }
+
+</script>
+
+<head>
+
+<!-- 
+Kanske fixed logga upp till vänster .
+skulle kunna fixa igem login så det finns alternativ.
+hur flyttar man texten på den ?? aligna på olika sätt?
+sidebaren (på toppen)kanske lägga till en trekant så man vet
+att det är flera alternativ där -->
+
+<!-- TOPBAR IDEER:
+kanske ha hover på texten i topbar (som nanoflex) och ej 
+på själva bakgrunden runtom.
+
+Ha loggan till vänster på ett bra sätt.
+
+Slidea till sidan (klart)
+
+Osäker på färgkombinationerna-vill nog ha annan färg i dropdown
+
+Vill ha triangle bredvid de som har dropdown
+
+Kanske transition på hover-dock väldigt kort 
+
+Kanske en logga bredvid alla rubriker som SDU denmark 2020-tveksamt dock
+
+Vill ha hover ej klick på drowndown!
+
+TU_darmstadt 2020 har rubrik över topbar sedan är topbar
+sticky på toppen vid scroll
+
+Vill nog ha lite mellanrum mellan loggan vänster-texten och sedan
+plats över till höger! 
+
+Kanske ha border vid dropdown så den blir snyggare (https://2019.igem.org/Team:Wageningen_UR)-->
+
+<!-- skulle kunna länka till hemsidorna för sponsorerna
+samt kanske länka till facebook insta nere vid sponsorerna-->
+
+<div id="igemloginbar">
+    IGEM LOGIN BAR
+</div>
+
+<div id="menu">
+    <ul>
+    <img class="logotype" src="cow_logo.png" alt="Cow-logotype">
+   
+
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="team">Project</a>
+            <div class="dropdown-content">
+              <a href="https://2020.igem.org/Team:UofUppsala/Description">Description</a>
+              <a href="https://2020.igem.org/Team:UofUppsala/Design">Design</a>
+              <a href="https://2020.igem.org/Team:UofUppsala/Engineering">Engineering success</a>
+              <a href="https://2020.igem.org/Team:UofUppsala/Proof_Of_Concept">Proof of concept</a>
+            </div>
+          </li>
+        
+          <li class="dropdown">
+            <a href="javascript:void(0)" class="team">Lab</a>
+            <div class="dropdown-content">
+              <a href="https://2020.igem.org/Team:UofUppsala/Results">Wet lab</a>
+              <a href="https://2020.igem.org/Team:UofUppsala/Model">Dry</a>
+            </div>
+          </li>
+
+        <li><a href="https://2020.igem.org/Team:UofUppsala/Parts">Parts</a></li>
+        
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="team">Future</a>
+            <div class="dropdown-content">
+              <a href="https://2020.igem.org/Team:UofUppsala/Implementation">Implementation</a>
+              <a href="https://2020.igem.org/Team:UofUppsala/Contribution">Contributions</a>
+            </div>
+          </li>
+
+        <li class="dropdown">
+          <a href="javascript:void(0)" class="team">Human Practices</a>
+          <div class="dropdown-content">
+            <a href="https://2020.igem.org/Team:UofUppsala/Human_Practices">Integrated Human Practices</a>
+            <a href="https://2020.igem.org/Team:UofUppsala/Education">Education</a>
+            <a href="https://2020.igem.org/Team:UofUppsala/Collaborations">Collaborations</a>
+          </div>
+        </li>
+        <li><a href="https://2020.igem.org/Team:UofUppsala/Safety">Safety</a></li>
+          </li>
+          <li class="dropdown">
+            <a href="javascript:void(0)" class="team">Team</a>
+            <div class="dropdown-content">
+              <a href="https://2020.igem.org/Team:UofUppsala/Team">Meet the Team</a>
+              <a href="https://2020.igem.org/Team:UofUppsala/Attributions">Attributions</a>
+            </div>
+          </li>
+          <li><a href="https://2020.igem.org/Team:UofUppsala/Awards">Awards</a></li>
+      </ul>
+    </div>
+
+<!-- only to make the page longer to see the scrollfunction-->
+    <img src="deforest.jpeg">
+    <img src="cowkompis.jpeg">
+    <img src="cownew.jpeg">
+    <img src="amazonas.jpeg">
+    <img src="cow_logo.png" style="background-color:red; height:500px;">
+
+
+
+
+</head>
+
+</html>
