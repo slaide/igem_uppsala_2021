@@ -33,15 +33,10 @@
             background-color:#dce1de;
             height:16px;
             top:0;
-            z-index:1;
+            z-index:3;
             position:fixed;
             text-align:center;
 }
-/*
-#4f899e
-#694256
-#555849
-*/
 
 .grid-container{
             display: grid;
@@ -118,7 +113,6 @@
             transition: all 0.5s;
             margin:auto;
             }
-
           
         .box2:hover{
             border:4px solid chocolate;
@@ -127,7 +121,6 @@
         .box2:hover ~.box5{
             opacity: 1;
         }
-
 
 .box3{
     height: 100%;
@@ -145,7 +138,6 @@
             z-index:1;
             margin:auto;
 }
-        
 
             .box3text{
             opacity:0;
@@ -474,7 +466,6 @@ li.dropdown {
 .inverso span {
   line-height: 70px;
   transform-origin: bottom center;
-  /*border: 1px solid red;  Only for seeing trick */
 }
 /* for page 4 */
 /* to the scrollingfunction*/
@@ -547,26 +538,95 @@ Other colors:
             margin: auto;
         }
 
-
         img.stickyprotein{ position: relative;
-  margin-left:15%;
-  top: -800px;
+  margin-left:8%;
+  top: -810px;
   width: 150px;
   border-radius:50%;}
 
   img.stickycow{position: relative;
-  margin-left:52%;
-  top: -800px;
+  margin-left:63%;
+  top: -820px;
   width: 150px;
-  border-radius:5%;}
+  border-radius:50%;}
 
-  /* page 5 */
-  .bigsecondbox{
+  /* make an arrow */
+  .arrow1 {
+  width: 120px;
+  float:left;
+  margin-left:220px;
+  margin-right:0px;
+  margin-top:100px;
+  margin-bottom:0px;
+}
+
+.line1 {
+  margin-top: 14px;
+  width: 90px;
+  background: #6d1d23;
+  height: 10px;
+  float: left;
+}
+
+.point1 {
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 30px solid #6d1d23;
+  float: right;
+}
+
+/* make an arrow */
+.arrow2 {
+  width: 120px;
+  float:right;
+  margin-left:0px;
+  margin-right:220px;
+  margin-top:50px;
+  margin-bottom:0px;
+}
+
+.line2 {
+  margin-top: 60px;
+  width:90px;
+  background: #6d1d23;
+  height: 10px;
+  float: right;
+  margin-left:50px;
+  margin-bottom:50px;
+}
+
+.point2 {
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-right:30px solid #6d1d23;
+  float: left;
+  margin-top:-75px;
+}
+
+/* page 5 */
+.boxp5{
             height: 100%;
-            margin-top:0%;
             width: 100%;
-            background-color:  #6d1d23;
-        }
+            grid-column: 11 /span 29;
+            grid-row: 6 /span 30;
+            text-align: center;
+            border: 0px solid black;
+            overflow: hidden;
+            background-image: url(cow_logo.png);
+            background-size:contain;
+            background-repeat:no-repeat;
+            border-radius:0%;
+            transition: all 0.5s;
+            z-index:1;
+            margin:auto;
+}
+/* ta bort border och flyttar i sidled pga orginialbilden
+är ej centrerad (skulle också kunna croppa i paint) */
+
 
 </style>
 
@@ -636,7 +696,6 @@ Other colors:
 #694256
 #555849
 -->
-
 <!-- 
 Kanske fixed logga upp till vänster .
 skulle kunna fixa igem login så det finns alternativ.
@@ -645,7 +704,6 @@ sidebaren (på toppen)kanske lägga till en trekant så man vet
 att det är flera alternativ där -->
 <!-- command r för att refresha nya versionen!
 -->
-
 
 <!-- UPPGIFTER FRÅN PATRICK:
     1.
@@ -783,8 +841,23 @@ När jag är klar tänk på design av topbar!
 </div>
 </section>
 
-  <!-- Page 4 now-->  <!-- lägg nu till ko till vänster och fgf2 till höger (uppe)-->
+  <!-- Page 4 now --> 
+
 <div class="bigbackground">
+
+    <!-- gör en pil! -->
+<div class="arrow1">
+    <div class="line1"></div>
+    <div class="point1"></div>
+  </div>  
+  
+  <!-- En till pil! -->
+<div class="arrow2">
+    <div class="line2"></div>
+    <div class="point2"></div>
+  </div>    
+
+  
     <div class="imgholder">
         <div id="reactordiv">
             <img id="imgr" src="bioreactor.jpeg" width="100%" height="100%">
@@ -800,15 +873,20 @@ När jag är klar tänk på design av topbar!
 <img class="stickyprotein" src="fgf2.png" alt="fgf2">
 
 <img class="stickycow" src="cowkompis.jpeg" alt="cowkompis">
-    
 
 <!-- Page 5 now (out of 5 pages)-->
-<div class="bigsecondbox">
-    <p> Not sure what should be here on page 5.</p>
-<p>Logo, steak moving to the side.?</p>
 
-<img src="cow_logo.png">
+<div class="grid-container" style="background-color:#6d1d23;">
+    <div class="boxp5">
+    </div>
 </div>
+
+<!-- GÅR ATT GÖRA PILAR MED DESSA KODER!!!
+     https://www.howtocodeschool.com/2020/09/diagonal-arrows-symbols.html
+    https://www.toptal.com/designers/htmlarrows/arrows/
+
+<p>I will display &#8592;</p>
+-->
 
   <!-- Nu sponsordelen! -->
       
