@@ -50,11 +50,13 @@ li a {
   /*padding: 14px 16px; */
   padding: 20px 18px;
   text-decoration: none;
+  margin-right:20px;
 }
 
 li a:hover {
   color: #426968;
 }
+li a:hover .triangle{border-top: 7.5px solid #426968;}
 
 #menu{
 transition:0.5s;
@@ -119,6 +121,17 @@ Other colors:
     går ej att ha denna bild+denna topbar färg.... */
 }
 
+.triangle {
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+  float:right;
+  border-top: 7.5px solid white;
+  border-bottom:0;
+  margin-left:6px;
+  margin-top:5px;
+}
+
 </style>
 
 <script>
@@ -179,12 +192,12 @@ samt kanske länka till facebook insta nere vid sponsorerna-->
 </div>
 
 <div id="menu">
-    <ul>
-    <img class="logotype" src="cow_logo.png" alt="Cow-logotype">
-   
-
+    <ul> <!-- clickable bild -->
+      <a href='https:\\www.google.com'>
+        <img class="logotype" src="cow_logo.png">
+    </a>
         <li class="dropdown">
-            <a href="javascript:void(0)" class="team">Project</a>
+            <a href="javascript:void(0)" class="team">Project<div class="triangle"></div></a>
             <div class="dropdown-content">
               <a href="https://2020.igem.org/Team:UofUppsala/Description">Description</a>
               <a href="https://2020.igem.org/Team:UofUppsala/Design">Design</a>
@@ -194,7 +207,12 @@ samt kanske länka till facebook insta nere vid sponsorerna-->
           </li>
         
           <li class="dropdown">
-            <a href="javascript:void(0)" class="team">Lab</a>
+            <a href="javascript:void(0)" class="team">Lab<div class="triangle"></div>
+
+            </a>
+          
+             
+
             <div class="dropdown-content">
               <a href="https://2020.igem.org/Team:UofUppsala/Results">Wet lab</a>
               <a href="https://2020.igem.org/Team:UofUppsala/Model">Dry</a>
@@ -204,7 +222,7 @@ samt kanske länka till facebook insta nere vid sponsorerna-->
         <li><a href="https://2020.igem.org/Team:UofUppsala/Parts">Parts</a></li>
         
         <li class="dropdown">
-            <a href="javascript:void(0)" class="team">Future</a>
+            <a href="javascript:void(0)" class="team">Future<div class="triangle"></div></a>
             <div class="dropdown-content">
               <a href="https://2020.igem.org/Team:UofUppsala/Implementation">Implementation</a>
               <a href="https://2020.igem.org/Team:UofUppsala/Contribution">Contributions</a>
@@ -212,7 +230,7 @@ samt kanske länka till facebook insta nere vid sponsorerna-->
           </li>
 
         <li class="dropdown">
-          <a href="javascript:void(0)" class="team">Human Practices</a>
+          <a href="javascript:void(0)" class="team">Human Practices<div class="triangle"></div></a>
           <div class="dropdown-content">
             <a href="https://2020.igem.org/Team:UofUppsala/Human_Practices">Integrated Human Practices</a>
             <a href="https://2020.igem.org/Team:UofUppsala/Education">Education</a>
@@ -222,7 +240,7 @@ samt kanske länka till facebook insta nere vid sponsorerna-->
         <li><a href="https://2020.igem.org/Team:UofUppsala/Safety">Safety</a></li>
           </li>
           <li class="dropdown">
-            <a href="javascript:void(0)" class="team">Team</a>
+            <a href="javascript:void(0)" class="team">Team<div class="triangle"></div></a>
             <div class="dropdown-content">
               <a href="https://2020.igem.org/Team:UofUppsala/Team">Meet the Team</a>
               <a href="https://2020.igem.org/Team:UofUppsala/Attributions">Attributions</a>
@@ -234,6 +252,7 @@ samt kanske länka till facebook insta nere vid sponsorerna-->
 
 <!-- only to make the page longer to see the scrollfunction-->
     <img src="deforest.jpeg">
+    <h1> THIS IS PART1</h1>
     <img src="cowkompis.jpeg">
     <img src="cownew.jpeg">
     <img src="amazonas.jpeg">
@@ -241,8 +260,7 @@ samt kanske länka till facebook insta nere vid sponsorerna-->
     <img src="fgfuturereal.png" style="height:500px;">
     <img src="fundpage.png" style="height:500px;">
 
-    <h1> THIS IS PART2</h1>
-
+    <h1> THIS IS PART1</h1>
 
 
 
