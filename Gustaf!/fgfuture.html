@@ -84,7 +84,7 @@
 
 .box1text{
             opacity:0;
-            margin-top: 20%;
+            margin-top: -50px;
             margin-left:3px;
             margin-right:3px;
             text-align: center;
@@ -94,8 +94,11 @@
         .box1:hover{
             border:4px solid red;
         }
+    .box1btext{opacity:1;
+    transition:all 0.5s;}
 
        .box1:hover .box1text{opacity:1;}
+       .box1:hover .box1btext{opacity:0;}
 
 .box2{
     height: 100%;
@@ -141,13 +144,18 @@
 
             .box3text{
             opacity:0;
-            margin-top: 30%;
-            margin-left:3px;
-            margin-right:3px;
+            margin-top: -50px;
+            margin-left:6px;
+            margin-right:6px;
             text-align: center;
             font-size: 1.5em;
             transition: all 0.5s;
         }
+        .box3btext{opacity:1;
+    transition:all 0.5s;}
+
+       .box3:hover .box3btext{opacity:0;}
+
         .box3:hover{
             border:4px solid red;
         }
@@ -819,20 +827,30 @@ När jag är klar tänk på design av topbar!
     </div>
 
         <div class="box1">
+            <div class="box1btext">
+            <h1 style="padding-top:30px; color:#6d1d23">Meat fact 1</h1>
+        </div>
 <div class="box1text">51% of worldwide greenhouse emissions
     are from livestock!
+    
 </div>
+ 
         </div>
 
         <div class="box2">
+           <h1 style="padding-top:30px; color:black">Meat fact 3</h1> 
         </div>
         
         <div class="box3">
+            <div class="box3btext">
+                <h1 style="padding-top:30px; color:#6d1d23">Meat fact 2</h1>
+            </div>
             <div class="box3text">70% of all the antibiotics
                 used in the U.S are for agriculture! </div>
         </div>
 
         <div class="box4">
+            <h1 style="padding-top:30px;color:black">Meat fact 4</h1> 
         </div>
 
         <div class="box5">
