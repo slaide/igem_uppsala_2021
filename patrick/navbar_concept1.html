@@ -54,6 +54,9 @@
             .fat_text > .extended_section_entry{
                 font-weight: bold;
             }
+            .fat_text > span{
+                font-weight: bold;
+            }
         </style>
         <script>
             function onload(){
@@ -69,15 +72,27 @@
                     navbar_extended.classList.add("invisible")
                 })
 
-                for (index in navbar.children){
+                for (index=0;index<navbar.children.length;index++){
                     let child=navbar.children[index]
                     child.setAttribute("index",index)
+                    
                     child.addEventListener("mouseenter",function(ev){
                         for (child of navbar_extended.children){
                             child.classList.remove("fat_text")
                         }
+                        for (child of ev.target.parentNode.children){
+                            child.classList.remove("fat_text")
+                        }
                         ev.target.classList.add("fat_text")
                         navbar_extended.children[ev.target.getAttribute("index")].classList.add("fat_text")
+                    })
+                    child.addEventListener("mouseleave",function(ev){
+                        for (child of navbar_extended.children){
+                            child.classList.remove("fat_text")
+                        }
+                        for (child of ev.target.parentNode.children){
+                            child.classList.remove("fat_text")
+                        }
                     })
                 }
             }
