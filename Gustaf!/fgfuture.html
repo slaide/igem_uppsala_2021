@@ -84,7 +84,7 @@
 
 .box1text{
             opacity:0;
-            margin-top: 20%;
+            margin-top: -50px;
             margin-left:3px;
             margin-right:3px;
             text-align: center;
@@ -94,8 +94,11 @@
         .box1:hover{
             border:4px solid red;
         }
+    .box1btext{opacity:1;
+    transition:all 0.5s;}
 
        .box1:hover .box1text{opacity:1;}
+       .box1:hover .box1btext{opacity:0;}
 
 .box2{
     height: 100%;
@@ -113,10 +116,14 @@
             transition: all 0.5s;
             margin:auto;
             }
+
+        .box2btext{opacity:1;
+        transition:all 0.5s;}
           
         .box2:hover{
             border:4px solid chocolate;
         }
+        .box2:hover .box2btext{opacity:0;}
 
         .box2:hover ~.box5{
             opacity: 1;
@@ -141,13 +148,18 @@
 
             .box3text{
             opacity:0;
-            margin-top: 30%;
-            margin-left:3px;
-            margin-right:3px;
+            margin-top: -50px;
+            margin-left:6px;
+            margin-right:6px;
             text-align: center;
             font-size: 1.5em;
             transition: all 0.5s;
         }
+        .box3btext{opacity:1;
+    transition:all 0.5s;}
+
+       .box3:hover .box3btext{opacity:0;}
+
         .box3:hover{
             border:4px solid red;
         }
@@ -155,7 +167,6 @@
         .box3:hover .box3text{
             opacity: 1;
         }
-
 
 .box4{
     height: 100%;
@@ -173,6 +184,12 @@
             z-index:1;
             margin:auto;
             }
+
+        .box4btext{opacity:1;
+        transition:all 0.5s;}
+
+        .box4:hover .box4btext{opacity:0;
+        }
         .box4:hover{
             border:4px solid chocolate;
         }
@@ -180,7 +197,6 @@
         .box4:hover ~.box6{
             opacity: 1;
         }
-
             /* column sidled, rad uppåt */
 
             .box5{
@@ -199,7 +215,6 @@
             z-index:1;
             opacity:0;
             margin:auto;
-
             }
 
             .box5text{
@@ -294,8 +309,10 @@ li a {
 }
 
 li a:hover {
-  background-color: red;
+  color: red;
 }
+li a:hover .triangle{border-top: 7.5px solid red;}
+
 
 #menu{
 transition:0.5s;
@@ -627,6 +644,32 @@ Other colors:
 /* ta bort border och flyttar i sidled pga orginialbilden
 är ej centrerad (skulle också kunna croppa i paint) */
 
+/* till topbaren */
+.logotype{
+    float:left;
+    width:12%;
+    height:65px;
+    padding-top:5px;
+    padding-right:0px;
+    
+    /* background-color:black; */
+    /* har overflow bilden är större än topbaren...
+    går ej att ha denna bild+denna topbar färg.... */
+    /*background-color:red; */
+   /* background-blend-mode: */
+    /*background-blend-mode:darken;*/
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+  float:right;
+  border-top: 7.5px solid #6d1d23;
+  border-bottom:0;
+  margin-left:6px;
+  margin-top:5px;
+}
 
 </style>
 
@@ -642,8 +685,6 @@ function myFunction(){
     document.getElementById("menu").style.width = "100%";
   }
 }
-
-
 
 /* Patrick's scrollfunction with alex's changes
 */
@@ -725,9 +766,14 @@ När jag är klar tänk på design av topbar!
 -->
 
 <div id="menu">
+     <!-- clickable bild -->
+        <a href='https:\\www.google.com'>
+          <img class="logotype" src="fgfuturereal.png">
+          <!-- cow_logo.png-->
+      </a>
         <ul>
             <li class="dropdown">
-                <a href="javascript:void(0)" class="team">Project</a>
+                <a href="javascript:void(0)" class="team">Project<div class="triangle"></div></a>
                 <div class="dropdown-content">
                   <a href="https://2020.igem.org/Team:UofUppsala/Description">Description</a>
                   <a href="https://2020.igem.org/Team:UofUppsala/Design">Design</a>
@@ -737,7 +783,7 @@ När jag är klar tänk på design av topbar!
               </li>
             
               <li class="dropdown">
-                <a href="javascript:void(0)" class="team">Lab</a>
+                <a href="javascript:void(0)" class="team">Lab<div class="triangle"></div></a>
                 <div class="dropdown-content">
                   <a href="https://2020.igem.org/Team:UofUppsala/Results">Wet lab</a>
                   <a href="https://2020.igem.org/Team:UofUppsala/Model">Dry</a>
@@ -747,7 +793,7 @@ När jag är klar tänk på design av topbar!
             <li><a href="https://2020.igem.org/Team:UofUppsala/Parts">Parts</a></li>
             
             <li class="dropdown">
-                <a href="javascript:void(0)" class="team">Future</a>
+                <a href="javascript:void(0)" class="team">Future<div class="triangle"></div></a>
                 <div class="dropdown-content">
                   <a href="https://2020.igem.org/Team:UofUppsala/Implementation">Implementation</a>
                   <a href="https://2020.igem.org/Team:UofUppsala/Contribution">Contributions</a>
@@ -755,7 +801,7 @@ När jag är klar tänk på design av topbar!
               </li>
 
             <li class="dropdown">
-              <a href="javascript:void(0)" class="team">Human Practices</a>
+              <a href="javascript:void(0)" class="team">Human Practices<div class="triangle"></div></a>
               <div class="dropdown-content">
                 <a href="https://2020.igem.org/Team:UofUppsala/Human_Practices">Integrated Human Practices</a>
                 <a href="https://2020.igem.org/Team:UofUppsala/Education">Education</a>
@@ -765,7 +811,7 @@ När jag är klar tänk på design av topbar!
             <li><a href="https://2020.igem.org/Team:UofUppsala/Safety">Safety</a></li>
               </li>
               <li class="dropdown">
-                <a href="javascript:void(0)" class="team">Team</a>
+                <a href="javascript:void(0)" class="team">Team<div class="triangle"></div></a>
                 <div class="dropdown-content">
                   <a href="https://2020.igem.org/Team:UofUppsala/Team">Meet the Team</a>
                   <a href="https://2020.igem.org/Team:UofUppsala/Attributions">Attributions</a>
@@ -791,20 +837,34 @@ När jag är klar tänk på design av topbar!
     </div>
 
         <div class="box1">
+            <div class="box1btext">
+            <h1 style="padding-top:30px; color:#6d1d23">Meat fact 1</h1>
+        </div>
 <div class="box1text">51% of worldwide greenhouse emissions
     are from livestock!
+    
 </div>
+ 
         </div>
 
         <div class="box2">
+            <div class="box2btext">
+           <h1 style="padding-top:30px; color:black">Meat fact 3</h1>
+        </div> 
         </div>
         
         <div class="box3">
+            <div class="box3btext">
+                <h1 style="padding-top:30px; color:#6d1d23">Meat fact 2</h1>
+            </div>
             <div class="box3text">70% of all the antibiotics
                 used in the U.S are for agriculture! </div>
         </div>
 
         <div class="box4">
+            <div class="box4btext">
+            <h1 style="padding-top:30px;color:black">Meat fact 4</h1>
+        </div> 
         </div>
 
         <div class="box5">
@@ -839,6 +899,9 @@ När jag är klar tänk på design av topbar!
   <span>C</span>
 
 </div>
+
+<img src="labmeat2.jpeg" style="margin-top:-210px; border-radius:50%; height:60%;">
+
 </section>
 
   <!-- Page 4 now --> 
@@ -857,7 +920,6 @@ När jag är klar tänk på design av topbar!
     <div class="point2"></div>
   </div>    
 
-  
     <div class="imgholder">
         <div id="reactordiv">
             <img id="imgr" src="bioreactor.jpeg" width="100%" height="100%">
@@ -883,8 +945,7 @@ När jag är klar tänk på design av topbar!
 
 <!-- GÅR ATT GÖRA PILAR MED DESSA KODER!!!
      https://www.howtocodeschool.com/2020/09/diagonal-arrows-symbols.html
-    https://www.toptal.com/designers/htmlarrows/arrows/
-
+    https://www.toptal.com/designers/htmlarrows/arrows/ 
 <p>I will display &#8592;</p>
 -->
 
@@ -896,19 +957,26 @@ När jag är klar tänk på design av topbar!
           </div>
   
           <div class="boxb2">
-              <img src="redbull.png" width="30%" height="100%">
+              <a href='https://www.redbull.com/se-en/?rbcid=9444236839&utm_source=Adwords&utm_medium=g&utm_campaign=9444236839&utm_content=419793811365&gclid=CjwKCAjwieuGBhAsEiwA1Ly_nch21qFzsnXwxTP5fBozk4fvFx-4zEaBpOiom2i6jgP4xa5Nf3NlxhoCFzEQAvD_BwE'>
+                <img src="redbull.png" width="30%" height="100%">
           </div>
   
           <div class="boxb3">
-              <img src="absolut.png" width="40%" height="100%">
+              
+              <a href='https://www.absolut.com/en/'>
+                <img src="absolut.png" width="40%" height="100%">
           </div>
   
           <div class="boxb4">
-              <img src="shot.png" width="30%" height="100%">
+              <a href='https://shotluckan.se/'>
+                <img src="shot.png" width="30%" height="100%">
           </div>
   
           <div class="boxb5">
-              <img src="systemet.png" width="40%" height="100%">
+             <!-- <img src="systemet.png" width="40%" height="100%">
+-->
+              <a href='https://www.systembolaget.se/'>
+                <img src="systemet.png" width="30%" height="100%">
           </div>
   
       </div>
