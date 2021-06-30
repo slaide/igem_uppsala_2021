@@ -34,16 +34,18 @@
             #logo{
                 width:5vh;
             }
-            #navbar_extended{
+            #navbar_background{
                 height:95vh;
                 width:100vw;
                 background-color:#E0E0E0;
                 position:fixed;
                 top:5vh;
                 float:left;
+                transition: opacity 0.13s;
+            }
+            #navbar_extended{
                 display:grid;
                 grid-template-columns: 5vh repeat(4,1fr);
-                transition: opacity 0.13s;
             }
             .invisible{
                 opacity:0;
@@ -60,16 +62,28 @@
         </style>
         <script>
             function onload(){
-                document.getElementById("navbar_extended").classList.add("invisible")
-
                 let navbar=document.getElementById("navbar")
                 let navbar_extended=document.getElementById("navbar_extended")
+                let navbar_background=document.getElementById("navbar_background")
 
-                navbar.addEventListener("mouseenter",function(){
-                    navbar_extended.classList.remove("invisible")
-                })
-                navbar.addEventListener("mouseleave",function(){
-                    navbar_extended.classList.add("invisible")
+                navbar_background.classList.add("invisible")
+
+                function add_invisible(){
+                    navbar_background.classList.add("invisible")
+                }
+                function remove_invisible(){
+                    navbar_background.classList.remove("invisible")
+                }
+
+                //make extended navbar visible when mouse enters navbar
+                navbar.addEventListener("mouseenter",remove_invisible)
+                //make extended navbar invisible when mouse leaves navbar
+                navbar.addEventListener("mouseleave",add_invisible)
+
+                //when mouse leaves extended navbar, make it invisible and remove the callback that makes it visible when the mouse enters its area
+                navbar_extended.addEventListener("mouseleave",function(){
+                    navbar_extended.removeEventListener("mouseenter",remove_invisible)
+                    add_invisible()
                 })
 
                 for (index=0;index<navbar.children.length;index++){
@@ -85,6 +99,10 @@
                         }
                         ev.target.classList.add("fat_text")
                         navbar_extended.children[ev.target.getAttribute("index")].classList.add("fat_text")
+
+                        //when mouse leaves navbar area, add event listener to make extended navbar visible when mouse enters that area
+                        //(effectively keep extended navbar open while someone navigates the menu after hovering over the navbar)
+                        navbar_extended.addEventListener("mouseenter",remove_invisible)
                     })
                     child.addEventListener("mouseleave",function(ev){
                         for (child of navbar_extended.children){
@@ -115,31 +133,33 @@
                     <span>Wet Lab</span>
                 </div>
             </div>
-            <div id="navbar_extended">
-                <span emptyspace></span>
-                <div class="navbar_extended_section">
-                    <div class="extended_section_entry">hi</div>
-                    <div class="extended_section_entry">hi</div>
-                    <div class="extended_section_entry">hi</div>
-                    <div class="extended_section_entry">hi</div>
-                </div>
-                <div class="navbar_extended_section">
-                    <div class="extended_section_entry">hi</div>
-                    <div class="extended_section_entry">hi</div>
-                    <div class="extended_section_entry">hi</div>
-                    <div class="extended_section_entry">hi</div>
-                </div>
-                <div class="navbar_extended_section">
-                    <div class="extended_section_entry">hi</div>
-                    <div class="extended_section_entry">hi</div>
-                    <div class="extended_section_entry">hi</div>
-                    <div class="extended_section_entry">hi</div>
-                </div>
-                <div class="navbar_extended_section">
-                    <div class="extended_section_entry">hi</div>
-                    <div class="extended_section_entry">hi</div>
-                    <div class="extended_section_entry">hi</div>
-                    <div class="extended_section_entry">hi</div>
+            <div id="navbar_background">
+                <div id="navbar_extended">
+                    <span emptyspace></span>
+                    <div class="navbar_extended_section">
+                        <div class="extended_section_entry">hi</div>
+                        <div class="extended_section_entry">hi</div>
+                        <div class="extended_section_entry">hi</div>
+                        <div class="extended_section_entry">hi</div>
+                    </div>
+                    <div class="navbar_extended_section">
+                        <div class="extended_section_entry">hi</div>
+                        <div class="extended_section_entry">hi</div>
+                        <div class="extended_section_entry">hi</div>
+                        <div class="extended_section_entry">hi</div>
+                    </div>
+                    <div class="navbar_extended_section">
+                        <div class="extended_section_entry">hi</div>
+                        <div class="extended_section_entry">hi</div>
+                        <div class="extended_section_entry">hi</div>
+                        <div class="extended_section_entry">hi</div>
+                    </div>
+                    <div class="navbar_extended_section">
+                        <div class="extended_section_entry">hi</div>
+                        <div class="extended_section_entry">hi</div>
+                        <div class="extended_section_entry">hi</div>
+                        <div class="extended_section_entry">hi</div>
+                    </div>
                 </div>
             </div>
         </div>
