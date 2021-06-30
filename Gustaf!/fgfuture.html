@@ -116,10 +116,14 @@
             transition: all 0.5s;
             margin:auto;
             }
+
+        .box2btext{opacity:1;
+        transition:all 0.5s;}
           
         .box2:hover{
             border:4px solid chocolate;
         }
+        .box2:hover .box2btext{opacity:0;}
 
         .box2:hover ~.box5{
             opacity: 1;
@@ -180,6 +184,12 @@
             z-index:1;
             margin:auto;
             }
+
+        .box4btext{opacity:1;
+        transition:all 0.5s;}
+        
+        .box4:hover .box4btext{opacity:0;
+        }
         .box4:hover{
             border:4px solid chocolate;
         }
@@ -838,7 +848,9 @@ När jag är klar tänk på design av topbar!
         </div>
 
         <div class="box2">
-           <h1 style="padding-top:30px; color:black">Meat fact 3</h1> 
+            <div class="box2btext">
+           <h1 style="padding-top:30px; color:black">Meat fact 3</h1>
+        </div> 
         </div>
         
         <div class="box3">
@@ -850,7 +862,9 @@ När jag är klar tänk på design av topbar!
         </div>
 
         <div class="box4">
-            <h1 style="padding-top:30px;color:black">Meat fact 4</h1> 
+            <div class="box4btext">
+            <h1 style="padding-top:30px;color:black">Meat fact 4</h1>
+        </div> 
         </div>
 
         <div class="box5">
