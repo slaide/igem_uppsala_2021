@@ -269,7 +269,8 @@ position: absolute;
 text-decoration:none;
 color:#6d1d23;
 top: 30%;
-width: 100%;
+width: 30%;
+margin-left:35%;
 text-align: center;
 font-size: 30px;
 animation-name:hej;
@@ -282,12 +283,25 @@ transition:transform 0.2s;
     from {opacity:0;}
     to {opacity:1;}
 }
-/* <i><h1><span>GFUTURE</span>F</h1></i> */
-/*
+
+
 .infobox:hover{
     transform:scale(1,3);
 }
+
+
+/*
+i>h1:hover{
+i>h1>span:hover ~ infobox{transform:scale(1,3);}
+span:hover ~ .infobox{transform:scale(1,3);
+color:yellow;
+background-color:yellow;}
+
+span:hover + .infobox{transform:scale(1,3);
+color:yellow;
+background-color:yellow;}
 */
+
 
 section{
 margin:0px;
@@ -742,7 +756,7 @@ section>h3>i {
     .flexparentright{
     height:50%;
     display:flex;
-    margin-right:50px;
+    margin-left:-50px;
     margin-top:50px;
     flex-direction:column;
     background-color:#426968;
@@ -750,23 +764,31 @@ section>h3>i {
     
     .flexlefttop{
         width:100%;
-        margin-bottom:100px;
+        margin-bottom:-20px;
+        margin-left:50px;
     }
+
+    .arrowontheleft{
+            margin-left:-80px;}
 
     .flexleftbottom{
         width:100%;
+        margin-top:50px;
         margin-left:70px;
         }
 
     .flexrighttop{
         width:100%;
-        margin-bottom:100px;
+        margin-bottom:0px;
         margin-right:0px;
         }
 
+    .arrowontheright{
+            margin-left:0px;}
+
     .flexrightbottom{
         width:100%;
-        margin-left:-70px;
+        margin-left:0px;
         }
 
 </style>
@@ -921,7 +943,7 @@ Other colors:
 <div class="parallax">
 
     <div class="infobox">
-        <i><h1>FGFUTURE</h1></i>
+        <i><h1><span>FGFUTURE</span></h1></i>
         </div>
     </div>
 
@@ -1008,6 +1030,12 @@ Other colors:
          <div class="flexlefttop">
         <img class="stickycow" src="cowkompis.jpeg" alt="cowkompis">
     </div>
+    <div class="arrowontheleft">
+    <div class="arrow1">
+        <div class="line1"></div>
+        <div class="point1"></div>
+      </div> 
+    </div>
 
      <div class="flexleftbottom">
         <img class="stickycell" src="https://biobeat.nigms.nih.gov/wp-content/uploads/2020/11/cell-moving-in-time.jpg" alt="stickycells">
@@ -1019,6 +1047,12 @@ Other colors:
 
             <div class="flexrighttop">
             <img class="stickyprotein" src="fgf2.png" alt="fgf2">
+        </div>
+<div class="arrowontheright">
+        <div class="arrow2">
+            <div class="line2"></div>
+            <div class="point2"></div>
+          </div>  
         </div>
 
         <div class="flexrightbottom">
