@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
      <title>
-        Alex clolud page
+        Alex cloud page
     </title>
     <style>
         *{
@@ -22,6 +22,8 @@
             height: 1px;
         }
 
+
+
         .igem-head-bar{
             height: 16px;
             width:100%;
@@ -35,7 +37,7 @@
             margin-top: 16px;
             position: fixed;
             width: 100%;
-            background-color: #333;
+            background-color: #426968;
             transition: all 0.5s;
             overflow: hidden;
             height: 5%;
@@ -61,7 +63,7 @@
         }
         
         li a:hover, .dropdown-1:hover .dropbtn {
-            background-color: red;
+            color: #6d1d23;
         }
         
         li.dropdown-1 {
@@ -71,7 +73,7 @@
         .dropdown-content-1{
             display: none;
             position: absolute;
-            background-color: #f9f9f9;
+            background-color: #426968;
             min-width: 160px;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             z-index: 1;
@@ -85,14 +87,14 @@
             text-align: left;
         }
         
-        .dropdown-content-1 a:hover {background-color: #f1f1f1;}
+        .dropdown-content-1 a:hover {color: #6d1d23;}
         
         .dropdown-1:hover .dropdown-content-1 {
             display: block;
         }
 
         li a:hover, .dropdown-2:hover .dropbtn {
-            background-color: red;
+            color: #6d1d23;
         }
         
         li.dropdown-2 {
@@ -102,7 +104,7 @@
         .dropdown-content-2{
             display: none;
             position: absolute;
-            background-color: #f9f9f9;
+            background-color: #426968;
             min-width: 160px;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             z-index: 1;
@@ -116,7 +118,9 @@
             text-align: left;
         }
         
-        .dropdown-content-2 a:hover {background-color: #f1f1f1;}
+        .dropdown-content-2 a:hover {
+            color:#6d1d23;
+            }
         
         .dropdown-2:hover .dropdown-content-2 {
             display: block;
@@ -139,16 +143,14 @@
             margin-top: 15%;
             animation-name: fadein;
             animation-duration: 2s;
+            text-align: center;
+            font-size: 6em;
+            color: #6d1d23;
+            font-style: italic;
         }
         @keyframes fadein{
             from {opacity: 0;}
             to{opacity: 1;}
-        }
-        h1{
-            font-size: 6em;
-            font-style: italic;
-            text-align: center;
-            color:black;
         }
 
 
@@ -308,20 +310,22 @@
         .box7 {
             height: 100%;
             width: 100%;
-            grid-column: 1 /span 5;
+            grid-column: 2 /span 4;
             grid-row: 2 /span 16;
             text-align: center;
             border: 4px solid black;
             overflow: hidden;
-            background-color: #dce1de;
+            /*background-color: #dce1de;*/
+            background-image: url(https://image.shutterstock.com/image-vector/illustration-cute-cow-260nw-347317901.jpg);
             font-size: 1.5em;
             margin: auto;
             opacity: 0;
-            transition: all 0.5s;   
+            transition: all 0.5s;
+            color:green;
         }
 
-        .textcircle{
-            background-color: #426968;
+        .textcirclesection{
+            background-color: #6d1d23;
             text-align: center;
             border-bottom: 4px solid black;
         }
@@ -403,6 +407,12 @@
         /*border: 1px solid red;  Only for seeing trick */
         }
 
+        .textcirclesectionimg{
+            margin:auto;
+            border-radius: 50%;
+            margin-top: -250px;
+
+        }
 
 
 
@@ -453,6 +463,23 @@
             width: 40%;
             margin: auto;
             position: relative;
+        }
+
+
+
+
+        .grid-container-sponsors{
+            display: grid;
+            height: 20%;
+            grid-template-columns:repeat(4,1fr);
+            grid-template-rows:repeat(3,1fr);
+            overflow: hidden;
+            background-color: #6d1d23;
+            border: 4px solid black;
+        }
+
+        .sponsorheading{
+            text-align: center;
         }
     </style>
     <script>
@@ -536,9 +563,7 @@
     </div>
     <div class=parallaxtop>
         <div id="header">
-            <h1>
-                FGFGUTURE
-            </h1>
+                FGFGUTURE   
         </div>
     </div>
     <!--End intro, start steak with facts-->
@@ -567,12 +592,12 @@
         </div>
         <div class="box7">
             <div class="box7text">
-            You would not kill and eat a dog! Why would you kill and eat a cute cow then! Cellular agriculture saves lifes!
+            <b>You would not kill and eat a dog! Why would you kill and eat a cute cow then! Cellular agriculture saves lifes!</b>
             </div>
         </div>
     </div>
     <!--End steak with facts, start circle text-->
-    <div class="textcircle">
+    <div class="textcirclesection">
         <h3><i>There is a better way.....</i></h3>
         <div class="estrellas inverso">
             <span>T</span>
@@ -591,6 +616,9 @@
             <span>U</span>
             <span>C</span>
         </div>
+        <div class="textcirclesectionimg">
+            <img src="https://shotluckan.se/wp-content/uploads/2020/09/shotluckan-logo-tansparent.png" width="30%" height="20%">
+        </div>
     </div>
 
     <!--Endcircle text, start reactor-->
@@ -604,6 +632,29 @@
             </div>
 
         </div>
+    </div>
+    <div class="grid-container-sponsors">
+        <div class="sponsorheading">
+            <h3><u></u>Our sponsors</u></h3>
+
+        </div>
+
+        <div class="sponsor1">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png" width="30%" height="100%">
+        </div>
+
+        <div class="sponsor2">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c4/Snapchat_logo.svg/1024px-Snapchat_logo.svg.png" width="30%" height="100%">
+        </div>
+
+        <div class="sponsor3">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/1024px-Instagram_logo_2016.svg.png" width="30%" height="100%">
+        </div>
+
+        <div class="sponsor4">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a9/TikTok_logo.svg/1920px-TikTok_logo.svg.png" width="60%" height="100%">
+        </div>
+
     </div>
 
 </body>
