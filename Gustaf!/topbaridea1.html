@@ -50,7 +50,8 @@ li a {
   /*padding: 14px 16px; */
   padding: 20px 18px;
   text-decoration: none;
-  margin-right:20px;
+  margin-right:50px;
+  margin-left:0px;
 }
 
 li a:hover {
@@ -73,15 +74,18 @@ height:10%;
 
 li.dropdown {
   display: inline-block;
+  margin-right:30px;
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
   background-color: #4f899e;
-  min-width: 160px;
+  min-width: 100px;
+  max-width:170px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+  margin-top:16px;
 }
 
 /*
@@ -105,7 +109,7 @@ Other colors:
 
 .dropdown-content a:hover {background-color: #f1f1f1;}
 
-.dropdown:hover .dropdown-content {
+#menu:hover .dropdown-content {
   display: block;
 }
 
@@ -131,6 +135,39 @@ Other colors:
   margin-left:6px;
   margin-top:5px;
 }
+
+/* fancy stuff https://codepen.io/denic/pen/GRoOxbM */
+.wrapper {
+  height: 100vh;
+  /*This part is important for centering*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.typing-demo {
+  width: 22ch;
+  animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: monospace;
+  font-size: 2em;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+}
+    
+@keyframes blink {
+  50% {
+    border-color: transparent
+  }
+}
+
+
 
 </style>
 
@@ -184,8 +221,7 @@ plats över till höger!
 
 Kanske ha border vid dropdown så den blir snyggare (https://2019.igem.org/Team:Wageningen_UR)-->
 
-<!-- skulle kunna länka till hemsidorna för sponsorerna
-samt kanske länka till facebook insta nere vid sponsorerna-->
+
 
 <div id="igemloginbar">
     IGEM LOGIN BAR
@@ -210,7 +246,6 @@ samt kanske länka till facebook insta nere vid sponsorerna-->
             <a href="javascript:void(0)" class="team">Lab<div class="triangle"></div>
 
             </a>
-          
              
 
             <div class="dropdown-content">
@@ -251,8 +286,18 @@ samt kanske länka till facebook insta nere vid sponsorerna-->
     </div>
 
 <!-- only to make the page longer to see the scrollfunction-->
-    <img src="deforest.jpeg">
+
+
+  <!-- för första fancy grejen-->
+  <div class="wrapper">
+    <div class="typing-demo">
+      This is a typing demo.
+    </div>
+
+</div>
+<img src="deforest.jpeg">
     <h1> THIS IS PART1</h1>
+
     <img src="cowkompis.jpeg">
     <img src="cownew.jpeg">
     <img src="amazonas.jpeg">
