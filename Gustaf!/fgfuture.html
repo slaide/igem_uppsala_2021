@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title> Gustaf's attempt on the prototype of the fgfuture wiki
     </title>
+
+<meta charset=utf-8>
+
 <style>
 /*
 *{
@@ -30,7 +33,7 @@
 
 #igemloginbar{ 
             width:100%;
-            background-color:#dce1de;
+            background-color:grey;
             height:16px;
             top:0;
             z-index:3;
@@ -263,21 +266,28 @@ html,body{
 
 .infobox {
 position: absolute;
-left: 0;
+text-decoration:none;
+color:#6d1d23;
 top: 30%;
 width: 100%;
 text-align: center;
 font-size: 30px;
-color: rgba(0,0,0,1.00);
 animation-name:hej;
 animation-duration:3s;
 animation-delay:0;
+transition:transform 0.2s;
 }
 
 @keyframes hej {
     from {opacity:0;}
     to {opacity:1;}
 }
+/* <i><h1><span>GFUTURE</span>F</h1></i> */
+/*
+.infobox:hover{
+    transform:scale(1,3);
+}
+*/
 
 section{
 margin:0px;
@@ -304,7 +314,7 @@ li a {
   display: block;
   color: #6d1d23;
   text-align: center;
-  padding: 14px 16px;
+  padding: 20px 18px;
   text-decoration: none;
 }
 
@@ -641,7 +651,6 @@ Other colors:
   margin-top:-75px;
 }
 
-
 /* page 5 */
 .boxp5{
             height: 100%;
@@ -658,25 +667,54 @@ Other colors:
             transition: all 0.5s;
             z-index:1;
             margin:auto;
+
+            animation: swing 1s linear infinite alternate;
+
 }
+
+@keyframes swing {
+    0% {
+   opacity:1;
+   }
+
+    25% {
+       
+        opacity:0.875
+       }
+
+    50% {
+        opacity:0.75;}
+
+    75% {
+        opacity:0.625}
+
+    100% {
+        opacity:0.5;
+        }
+}
+
+
 /* ta bort border och flyttar i sidled pga orginialbilden
 är ej centrerad (skulle också kunna croppa i paint) */
 
 /* till topbaren */
 .logotype{
     float:left;
-    width:12%;
-    height:65px;
-    padding-top:5px;
+    width:8%;
+    height:60px;
+    padding-top:0px;
     padding-right:0px;
-    
-    /* background-color:black; */
     /* har overflow bilden är större än topbaren...
     går ej att ha denna bild+denna topbar färg.... */
     /*background-color:red; */
    /* background-blend-mode: */
     /*background-blend-mode:darken;*/
+    transition:all 1s;
+    
 }
+/*
+.logotype:hover{transform:rotateZ(360deg);}
+*/
 
 .triangle {
   width: 0;
@@ -779,17 +817,16 @@ css-animation delay!-transition delay.-klart!
 3.The animations for the steak on page2 -place 4 rectangles on the page
 then just when you hover over the rectangle-make the rectangle do something.
 (not about clicking)
-
-När jag är klar tänk på design av topbar!
 -->
 
 <div id="menu">
      <!-- clickable bild -->
-        <a href='https:\\www.google.com'>
-          <img class="logotype" src="fgfuturereal.png">
+     <ul>
+        <a href='https://2020.igem.org/Team:UofUppsala'>
+          <img class="logotype" src="fundpage.png">
           <!-- cow_logo.png-->
       </a>
-        <ul>
+        
             <li class="dropdown">
                 <a href="javascript:void(0)" class="team">Project<div class="triangle"></div></a>
                 <div class="dropdown-content">
@@ -840,13 +877,13 @@ När jag är klar tänk på design av topbar!
         </div>
 
 <!-- Page 1 -->
-
 <div class="parallax">
 
     <div class="infobox">
-        <h1 style="color: #6d1d23 ;">FGFUTURE</h1>
+        <i><h1>FGFUTURE</h1></i>
         </div>
     </div>
+
 
 <!-- Page 2-->
     <div class="grid-container">
@@ -862,7 +899,6 @@ När jag är klar tänk på design av topbar!
     are from livestock!
     
 </div>
- 
         </div>
 
         <div class="box2">
@@ -923,14 +959,12 @@ När jag är klar tänk på design av topbar!
 </section>
 
   <!-- Page 4 now --> 
-
 <div class="bigbackground">
     <img class="stickycow" src="cowkompis.jpeg" alt="cowkompis">
     
     <img class="stickycell" src="https://biobeat.nigms.nih.gov/wp-content/uploads/2020/11/cell-moving-in-time.jpg" alt="stickycells">
 
     <!-- gör en pil! -->
-
 <div class="arrow1">
     <div class="line1"></div>
     <div class="point1"></div>
@@ -941,13 +975,6 @@ När jag är klar tänk på design av topbar!
     <div class="line2"></div>
     <div class="point2"></div>
   </div>   
-  
-<!--
-<h1>I will display
-    &#x2198
-    &#x2199
-    ;</h1>
-    --> 
 
     <div class="imgholder">
         <div id="reactordiv">
@@ -959,7 +986,6 @@ När jag är klar tänk på design av topbar!
 
     </div>
 
-
 </div>
 
 <img class="stickyprotein" src="fgf2.png" alt="fgf2">
@@ -968,6 +994,7 @@ När jag är klar tänk på design av topbar!
 <!-- Page 5 now (out of 5 pages)-->
 
 <div class="grid-container" style="background-color:#6d1d23;">
+    
     <div class="boxp5">
     </div>
 </div>
@@ -977,8 +1004,6 @@ När jag är klar tänk på design av topbar!
     https://www.toptal.com/designers/htmlarrows/arrows/ 
 <p>I will display &#8592;</p>
 -->
-
-
   <!-- Nu sponsordelen! -->
       
         <div class="grid-container-bottom">
@@ -1003,12 +1028,9 @@ När jag är klar tänk på design av topbar!
           </div>
   
           <div class="boxb5">
-             <!-- <img src="systemet.png" width="40%" height="100%">
--->
               <a href='https://www.systembolaget.se/'>
                 <img src="systemet.png" width="30%" height="100%">
           </div>
-  
       </div>
 </body>
 </html>
