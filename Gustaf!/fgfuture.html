@@ -57,6 +57,8 @@
             background-repeat: no-repeat;
             background-image: url(steak2.jpeg);
             /*background-size:contain; */
+            background-color:darkred;
+            background-blend-mode:screen;
             background-size:cover;
             grid-column: 9 /span 24;
             grid-row: 5 /span 28;
@@ -141,6 +143,8 @@
             border: 4px solid black;
             overflow: hidden;
             background-image: url(antibiotics.jpeg);
+            background-color:gray;
+            background-blend-mode:normal;
             background-repeat: no-repeat;
             background-size:cover;
             border-radius:50%;
@@ -510,37 +514,71 @@ li.dropdown {
   transform-origin: bottom center;
 }
 
-img.stickyprotein{ position: relative;
-  margin-left:0%;
+img.stickyprotein{
+  margin-left:19%;
   top: 0px;
   width: 120px;
-  border-radius:50%;}
+  border-radius:50%;
+  animation:spin 10s linear infinite;
+  animation-play-state:running;}
+
+  @keyframes spin{
+     100%{ transform:rotate(360deg);}
+  }
 
   img.stickyagar{
-  margin-left:0%;
+  margin-left:12%;
   position: relative;
   margin-top:0px;
   top: 0px;
   width: 90px;
   border-radius:50%;
+  animation: growing2 10s linear infinite;
+  animation-direction:alternate;
+  animation-play-state:running;
+  }
+
+  @keyframes growing2{
+    0%{width:100px;}
+      100%{width:140px;}
   }
 
 img.stickycow{position: relative;
   margin-left:0px;
   top: 0px;
   width: 150px;
-  border-radius:50%;}
+  border-radius:50%;
+  animation:moving 3s linear 10;
+  animation-direction:alternate;
+  animation-play-state:running;
+  animation-fill-mode:forwards;
+  }
 
+  @keyframes moving{
+      0%{left:0px;}
+      100%{left:100px;
+      }
+  }
+
+  img.stickycow:hover{animation-play-state:paused;}
+  
 img.stickycell{
     position: relative;
   margin-left:0%;
   top: 0px;
   width: 140px;
   border-radius:50%;
+  animation:growing 10s linear infinite;
+  animation-play-state:running;
+  animation-direction:alternate;
+  }
+
+  @keyframes growing{
+      0%{width:100px;}
+      100%{width:170px;}
   }
 
  
-
   /* make an arrow */
   .arrow1 {
   width: 120px;
@@ -841,7 +879,7 @@ function myFunction(){
 
             */ 
 
-           /* new better scrollfunction form patrick */
+           /* new better scrollfunction from patrick */
             const max=(a,b)=>a>b?a:b
             window.addEventListener("scroll",function(){
                 let steak=document.getElementById("steak");
