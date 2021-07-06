@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> Gustaf's fgfuture sidepages (not main) for fgfuture
+    </title>
+
+<meta charset=utf-8>
+
+<style>
+/*
+*{
+            margin:0;
+            border:0;
+            padding:0;
+        }
+        */
+
+:root {
+    --f-primary: "For sponsoring",Verdana;
+    --clr-neutral-900: #222c2a;
+}
+
+        html {
+  scroll-behavior: smooth;
+}
+
+.parallax {
+  background-image: url("twoverynicecows.jpeg");
+  min-height: 600px; 
+  height:1000px;
+  position:relative;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-left:0%;
+}
+
+#igemloginbar{ 
+            width:100%;
+            background-color:grey;
+            height:16px;
+            top:0;
+            z-index:3;
+            position:fixed;
+            text-align:center;
+}
+
+.grid-container{
+            display: grid;
+            height: 100%;
+            grid-template-columns:repeat(40,1fr);
+            grid-template-rows:repeat(40,1fr);
+            overflow: hidden;
+            background-color: #426968;
+            border-top: 4px solid black;
+        }
+
+    .boxsteak{
+            height: 100%;
+            width: 100%;
+            background-repeat: no-repeat;
+            background-image: url(steak2.jpeg);
+            /*background-size:contain; */
+            background-color:darkred;
+            background-blend-mode:screen;
+            background-size:cover;
+            grid-column: 9 /span 24;
+            grid-row: 5 /span 28;
+            margin:0;
+            text-align: center;
+            border: 4x solid black;
+            overflow:hidden;
+            border-radius:7%;
+            transition: all 1s;
+            
+    }
+
+html,body{
+  height:100%;
+  margin:0;
+  padding:0;
+  background-color:#426968;
+}
+
+.infobox {
+position: absolute;
+text-decoration:none;
+color:#6d1d23;
+top: 30%;
+width: 30%;
+margin-left:35%;
+text-align: center;
+font-size: 30px;
+animation-name:hej;
+animation-duration:3s;
+animation-delay:0;
+transition:transform 0.2s;
+}
+
+@keyframes hej {
+    from {opacity:0;}
+    to {opacity:1;}
+}
+.infobox:hover{
+    transform:scale(1,3);
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  top:0;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: #6d1d23;
+  text-align: center;
+  padding: 20px 18px;
+  text-decoration: none;
+}
+
+li a:hover {
+  color: red;
+}
+li a:hover .triangle{border-top: 7.5px solid red;}
+
+
+#menu{
+transition:0.5s;
+width:100%;
+position:fixed;
+overflow:hidden;
+background-color: #426968;
+margin-top:16px;
+z-index:1;
+height:10%;
+}
+
+#menu:hover{overflow:visible;}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  margin-top:16px;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.grid-container-bottom{
+            display: grid;
+            height: 20%;
+            grid-template-columns:repeat(4,1fr);
+            grid-template-rows:repeat(3,1fr);
+            overflow: hidden;
+            background-color: gray;
+            border: 2px solid black;
+        }
+
+
+/* page 5 */
+.boxp5{
+            height: 100%;
+            width: 100%;
+            grid-column: 11 /span 29;
+            grid-row: 6 /span 30;
+            text-align: center;
+            border: 0px solid black;
+            overflow: hidden;
+            background-image: url(cow_logo.png);
+            background-size:contain;
+            background-repeat:no-repeat;
+            border-radius:0%;
+            transition: all 0.5s;
+            z-index:1;
+            margin:auto;
+            animation: swing 1s linear infinite alternate;
+
+}
+
+@keyframes swing {
+    0% {
+   opacity:1;
+   }
+
+    25% {
+       
+        opacity:0.875
+       }
+
+    50% {
+        opacity:0.75;}
+
+    75% {
+        opacity:0.625}
+
+    100% {
+        opacity:0.5;
+        }
+}
+
+
+/* ta bort border och flyttar i sidled pga orginialbilden
+är ej centrerad (skulle också kunna croppa i paint) */
+
+/* till topbaren */
+.logotype{
+    float:left;
+    width:8%;
+    height:60px;
+    padding-top:0px;
+    padding-right:0px;
+    /* har overflow bilden är större än topbaren...
+    går ej att ha denna bild+denna topbar färg.... */
+    /*background-color:red; */
+   /* background-blend-mode: */
+    /*background-blend-mode:darken;*/
+    transition:all 1s;
+    
+}
+/*
+.logotype:hover{transform:rotateZ(360deg);}
+*/
+
+.triangle {
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+  float:right;
+  border-top: 7.5px solid #6d1d23;
+  border-bottom:0;
+  margin-left:6px;
+  margin-top:5px;
+}
+
+.boxb1 {
+            height: 100%;
+            width: 100%;
+            grid-column: 1 /span all;
+            grid-row: 1;
+            text-align: center;
+            overflow: hidden;
+
+            font-family:var(--f-primary);
+            /*background-color:var(--clr-neutral-900); */
+            /*font-weight:400;
+            font-size:1.3125rem;
+            line-height:1;
+            */
+        }
+
+        .boxb2 {
+            height: 100%;
+            width: 100%;
+            grid-column: 1;
+            grid-row: 2 /span all;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .boxb3 {
+            height: 100%;
+            width: 100%;
+            grid-column: 2;
+            grid-row: 2 /span all;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .boxb4 {
+            height: 100%;
+            width: 100%;
+            grid-column: 3;
+            grid-row: 2 /span all;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .boxb5 {
+            height: 100%;
+            width: 100%;
+            grid-column: 4;
+            grid-row: 2 /span all;
+            text-align: center;
+            overflow: hidden;
+            padding-bottom:10px;
+        }
+
+
+</style>
+
+<script>
+/* function for the navigation bar to go away after scroll */
+  window.onscroll=function(){myFunction()};
+
+function myFunction(){
+  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300){
+  document.getElementById("menu").style.width = "0px";
+  }
+  else {
+    document.getElementById("menu").style.width = "100%";
+  }
+}
+
+           /* new better scrollfunction from patrick */
+            const max=(a,b)=>a>b?a:b
+            window.addEventListener("scroll",function(){
+                let steak=document.getElementById("steak");
+                
+                let scroll_y=document.documentElement.scrollTop;
+                let max_scroll=window.innerHeight;
+
+                let reactor_top=document.getElementById("reactor").getBoundingClientRect().top;
+
+                if(scroll_y>=(scroll_y+reactor_top-(window.innerHeight/2)+50)){
+                    if(!steak.classList.contains("sticky_center"))
+                        steak.classList.add("sticky_center");
+                }else{
+                    steak.classList.remove("sticky_center");
+                }
+            })
+</script>
+
+</head>
+
+<body onload="onload_function()">
+
+  <div id="igemloginbar">
+    IGEM LOGIN BAR
+</div>
+
+      <!-- Best colors:
+      #426968 (main)
+#dce1de (background)
+#6d1d23 (highlight)
+-
+Other colors:
+#4f899e
+#694256
+#555849
+-->
+<!-- command r för att refresha nya versionen!
+-->
+
+
+<div id="menu">
+     <!-- clickable bild -->
+     <ul>
+        <a href='https://2020.igem.org/Team:UofUppsala'>
+          <img class="logotype" src="fundpage.png">
+          <!-- cow_logo.png-->
+      </a>
+        
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="team">Project<div class="triangle"></div></a>
+                <div class="dropdown-content">
+                  <a href="https://2020.igem.org/Team:UofUppsala/Description">Description</a>
+                  <a href="https://2020.igem.org/Team:UofUppsala/Design">Design</a>
+                  <a href="https://2020.igem.org/Team:UofUppsala/Engineering">Engineering success</a>
+                  <a href="https://2020.igem.org/Team:UofUppsala/Proof_Of_Concept">Proof of concept</a>
+                </div>
+              </li>
+            
+              <li class="dropdown">
+                <a href="javascript:void(0)" class="team">Lab<div class="triangle"></div></a>
+                <div class="dropdown-content">
+                  <a href="https://2020.igem.org/Team:UofUppsala/Results">Wet lab</a>
+                  <a href="https://2020.igem.org/Team:UofUppsala/Model">Dry</a>
+                </div>
+              </li>
+
+            <li><a href="https://2020.igem.org/Team:UofUppsala/Parts">Parts</a></li>
+            
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="team">Future<div class="triangle"></div></a>
+                <div class="dropdown-content">
+                  <a href="https://2020.igem.org/Team:UofUppsala/Implementation">Implementation</a>
+                  <a href="https://2020.igem.org/Team:UofUppsala/Contribution">Contributions</a>
+                </div>
+              </li>
+
+            <li class="dropdown">
+              <a href="javascript:void(0)" class="team">Human Practices<div class="triangle"></div></a>
+              <div class="dropdown-content">
+                <a href="https://2020.igem.org/Team:UofUppsala/Human_Practices">Integrated Human Practices</a>
+                <a href="https://2020.igem.org/Team:UofUppsala/Education">Education</a>
+                <a href="https://2020.igem.org/Team:UofUppsala/Collaborations">Collaborations</a>
+              </div>
+            </li>
+            <li><a href="https://2020.igem.org/Team:UofUppsala/Safety">Safety</a></li>
+              </li>
+              <li class="dropdown">
+                <a href="javascript:void(0)" class="team">Team<div class="triangle"></div></a>
+                <div class="dropdown-content">
+                  <a href="https://2020.igem.org/Team:UofUppsala/Team">Meet the Team</a>
+                  <a href="https://2020.igem.org/Team:UofUppsala/Attributions">Attributions</a>
+                </div>
+              </li>
+              <li><a href="https://2020.igem.org/Team:UofUppsala/Awards">Awards</a></li>
+          </ul>
+        </div>
+
+<!-- Page 1 -->
+<div class="parallax">
+
+    <div class="infobox">
+        <i><h1><span>FGFUTURE</span></h1></i>
+        </div>
+    </div>
+
+
+
+
+     
+
+    <!-- gör en pil! --> 
+<!--
+<div class="arrow1">
+    <div class="line1"></div>
+    <div class="point1"></div>
+  </div>  
+  -->
+
+  <!-- En till pil! -->
+  <!--
+<div class="arrow2">
+    <div class="line2"></div>
+    <div class="point2"></div>
+  </div>   
+
+-->
+
+<!-- GÅR ATT GÖRA PILAR MED DESSA KODER!!!
+     https://www.howtocodeschool.com/2020/09/diagonal-arrows-symbols.html
+    https://www.toptal.com/designers/htmlarrows/arrows/ 
+<p>I will display &#8592;</p>
+-->
+  <!-- Nu sponsordelen! -->
+      
+        <div class="grid-container-bottom">
+          <div class="boxb1">
+              <h2 style="text-decoration: underline;"><u></u>Our sponsors</u></h2>
+          </div>
+  
+          <div class="boxb2">
+              <a href='https://www.redbull.com/se-en/?rbcid=9444236839&utm_source=Adwords&utm_medium=g&utm_campaign=9444236839&utm_content=419793811365&gclid=CjwKCAjwieuGBhAsEiwA1Ly_nch21qFzsnXwxTP5fBozk4fvFx-4zEaBpOiom2i6jgP4xa5Nf3NlxhoCFzEQAvD_BwE'>
+                <img src="redbull.png" width="30%" height="100%">
+          </div>
+  
+          <div class="boxb3">
+              
+              <a href='https://www.absolut.com/en/'>
+                <img src="absolut.png" width="40%" height="100%">
+          </div>
+  
+          <div class="boxb4">
+              <a href='https://shotluckan.se/'>
+                <img src="shot.png" width="30%" height="100%">
+          </div>
+  
+          <div class="boxb5">
+              <a href='https://www.systembolaget.se/'>
+                <img src="systemet.png" width="30%" height="100%">
+          </div>
+      </div>
+</body>
+</html>
