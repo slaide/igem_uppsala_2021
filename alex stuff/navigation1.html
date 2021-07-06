@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <title>
+        Alex navigation page 1
+    </title>
+    
+    <style>
+        /* comments
+        
+        DTU-denmark-> bad -> back to top takes up the whole left side. Rest standard nice, i like the arrowas that indicates which menus expand on hover
+
+
+        */
+        *{
+            margin:0;
+            border:0;
+            padding:0;
+        }
+        body, html{
+            height: 100%;        
+        }
+        hr {
+            border: 0;
+            clear:both;
+            display:block;
+            width: 100%;               
+            background-color:#070707;
+            height: 1px;
+        }
+
+
+
+        .igem-head-bar{
+            height: 16px;
+            width:100%;
+            background-color: black;
+            position: fixed;
+            text-align: center;
+            color: white;
+            z-index: 1000;
+        }
+        #menu{
+            margin-top: 16px;
+            position: fixed;
+            width: 100%;
+            background-color: #426968;
+            transition: all 0.5s;
+            overflow: hidden;
+            height: 5%;
+            height: 8.5%;
+        }
+        #menu:hover{
+            overflow: visible;
+        }
+
+        .logotype{
+            float:left;
+            width:12%;
+            height:65px;
+            padding-right:0px;
+            width: 5%;
+            
+        }
+
+        .triangle {
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            float:right;
+            border-top: 7.5px solid white;
+            border-bottom:0;
+            margin-left:6px;
+            margin-top:6.5px;
+
+        }
+
+        ul {
+            list-style-type: none;           
+        }
+        
+        li {
+            float: left;
+            padding-right: 87px;
+            padding-top: 8px;
+        }
+
+        li a, .dropbtn {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        
+        li a:hover, .dropdown-1:hover .dropbtn {
+            color: #6d1d23;
+        }
+
+        .dropdown-1:hover .triangle {
+            border-top: 7.5px solid #6d1d23;
+        }
+
+        .dropdown-2:hover .triangle {
+            border-top: 7.5px solid #6d1d23;
+        }
+
+/*        li a:hover, .dropdown-1:hover .triangle {
+            border-top: 7.5px solid #6d1d23;
+        }*/
+        
+        li.dropdown-1 {
+            display: inline-block;
+        }
+        
+        .dropdown-content-1{
+            display: none;
+            position: absolute;
+            background-color: #426968;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        
+        .dropdown-content-1 a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        
+        .dropdown-content-1 a:hover {color: #6d1d23;}
+        
+        #menu:hover .dropdown-content-1 {
+            display: block;
+        }
+
+        li a:hover, .dropdown-2:hover .dropbtn {
+            color: #6d1d23;
+        }
+        
+        li.dropdown-2 {
+            display: inline-block;
+        }
+        
+        .dropdown-content-2{
+            display: none;
+            position: absolute;
+            background-color: #426968;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        
+        .dropdown-content-2 a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        
+        .dropdown-content-2 a:hover {
+            color:#6d1d23;
+            }
+        
+        #menu:hover .dropdown-content-2 {
+            display: block;
+        }
+
+        .parallaxtop {
+            background-image: url(coow-grass-cloud.png);
+            height: 100%;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            overflow: hidden;
+            padding-top: 5%;
+        }
+
+        #header{
+            margin: auto;
+            width: 60%;
+            margin-top: 15%;
+            animation-name: fadein;
+            animation-duration: 2s;
+            text-align: center;
+            font-size: 6em;
+            color: #6d1d23;
+            font-style: italic;
+        }
+        @keyframes fadein{
+            from {opacity: 0;}
+            to{opacity: 1;}
+        }
+
+
+
+
+
+
+        .grid-container{
+            display: grid;
+            height: 100%;
+            grid-template-columns:repeat(50,1fr);
+            grid-template-rows:repeat(50,1fr);
+            overflow: hidden;
+            background-color: #426968;
+            /*column-gap: 10px;
+            row-gap: 10px;*/
+            border-bottom: 5px solid black;
+            border-top: 5px solid black;
+        }
+
+
+        .box1 {
+            height: 100%;
+            width: 100%;
+            background-image: url(https://www.vippng.com/png/detail/72-725880_clip-black-and-white-stock-beef-drawing-raw.png);
+            grid-column: 10 /span 30;
+            grid-row: 5 /span 30;
+            text-align: center;
+            border: 4px solid black;
+            overflow: hidden;
+            transition: all 0.5s;
+            margin: auto;
+            border-radius: 7%;
+        }        
+        
+    </style>
+    <script>
+        window.onscroll = function() {myFunction()};
+
+        function myFunction() {
+          if (document.body.scrollTop > 400|| document.documentElement.scrollTop > 400) {
+            document.getElementById("menu").style.width = "0px";
+          } else {
+            document.getElementById("menu").style.width = "100%";
+          }
+        }
+        
+        
+
+        function min(a,b){return (a<b?a:b)}
+        function max(a,b){return (a>b?a:b)}
+            var observeViewEnter=new IntersectionObserver(function(entries){
+                if(entries[0].isIntersecting===true){
+                    //window.alert("entered view")
+                    entries[0].target.classList.add("paddingtopinteractive")
+                    window.addEventListener("scroll",function(){
+                        var target=document.getElementById("steakdiv")
+                        var top=target.getBoundingClientRect().top
+                        var max_scroll=document.documentElement.scrollHeight-window.innerHeight;
+                        var height=window.innerHeight
+                        var scroll_height=(height-top)/height;
+                        console.log(scroll_height)
+                        scroll_height=min(max(scroll_height,0),1.0)
+                        console.log(scroll_height)
+                        target.style.setProperty("--pt",(scroll_height)*50+"vh")
+                    })
+                }
+            },{threshold:[1.0]});
+            var observeViewLeave=new IntersectionObserver(function(entries){
+                if(entries[0].isIntersecting!==true){
+                    entries[0].target.classList.remove("paddingtopinteractive")
+                    //window.alert("left view")
+                }
+            },{threshold:[0.0]});
+            function onload_function(){
+                observeViewEnter.observe(document.getElementById("steakdiv"))
+                observeViewLeave.observe(document.getElementById("steakdiv"))
+            }
+    </script>
+</head>
+<body onload="onload_function()">
+    <div class="igem-head-bar">
+        IGEM BAR
+    </div>
+    <div id="menu">
+        <a href='https:\\www.google.com'>
+            <img class="logotype" src="fgfuturereal.png">
+            <!-- cow_logo.png-->
+        </a>
+        <ul>
+            <li><a href="#home">Project</a></li>
+            <li><a href="#news">Parts</a></li>
+            <li class="dropdown-1">
+                <a href="javascript:void(0)" class="dropbtn">Lab<div class="triangle"></div></a>
+                <div class="dropdown-content-1">
+                    <a href="#">FGF2</a>
+                    <a href="#">Schrödinger</a>
+                    <a href="#">QresFEP</a>
+                    <a href="#">Wet lab</a>
+                </div>
+
+            </li>   
+
+            <li class="dropdown-2">
+                <a href="javascript:void(0)" class="dropbtn">Team<div class="triangle"></div></a>
+                <div class="dropdown-content-2">
+                    <a href="#">PM</a>
+                    <a href="#">Modeling</a>
+                    <a href="#">Wiki</a>
+                    <a href="#">Sponsor</a>
+                    <a href="#">GD</a>
+                    <a href="#">Social media</a>
+                </div>
+            </li>
+            <li><a href="#home">Future</a></li>
+            <li><a href="#news">Human practice</a></li>
+            <li><a href="#news">Awards</a></li>
+        </ul>
+    </div>
+    <div class=parallaxtop>
+        <div id="header">
+                FGFGUTURE   
+        </div>
+    </div>
+    <!--End intro, start steak with facts-->
+    <div class="grid-container">        
+        <div class="box1">
+        </div>
+    </div>
+
+    
+</body>
+</html>
