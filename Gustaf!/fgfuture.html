@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title> Gustaf's attempt on the prototype of the fgfuture wiki
     </title>
+
+<meta charset=utf-8>
+
 <style>
 /*
 *{
@@ -11,6 +14,11 @@
             padding:0;
         }
         */
+
+:root {
+    --f-primary: "For sponsoring",Verdana;
+    --clr-neutral-900: #222c2a;
+}
 
         html {
   scroll-behavior: smooth;
@@ -30,7 +38,7 @@
 
 #igemloginbar{ 
             width:100%;
-            background-color:#dce1de;
+            background-color:grey;
             height:16px;
             top:0;
             z-index:3;
@@ -54,6 +62,8 @@
             background-repeat: no-repeat;
             background-image: url(steak2.jpeg);
             /*background-size:contain; */
+            background-color:darkred;
+            background-blend-mode:screen;
             background-size:cover;
             grid-column: 9 /span 24;
             grid-row: 5 /span 28;
@@ -65,6 +75,9 @@
             transition: all 1s;
             
     }
+    
+    .boxsteak:hover{background-blend-mode:screen;
+    background-color:blue;}
 
 .box1{
     height: 100%;
@@ -138,6 +151,8 @@
             border: 4px solid black;
             overflow: hidden;
             background-image: url(antibiotics.jpeg);
+            background-color:gray;
+            background-blend-mode:normal;
             background-repeat: no-repeat;
             background-size:cover;
             border-radius:50%;
@@ -263,21 +278,42 @@ html,body{
 
 .infobox {
 position: absolute;
-left: 0;
+text-decoration:none;
+color:#6d1d23;
 top: 30%;
-width: 100%;
+width: 30%;
+margin-left:35%;
 text-align: center;
 font-size: 30px;
-color: rgba(0,0,0,1.00);
 animation-name:hej;
 animation-duration:3s;
 animation-delay:0;
+transition:transform 0.2s;
 }
 
 @keyframes hej {
     from {opacity:0;}
     to {opacity:1;}
 }
+
+
+.infobox:hover{
+    transform:scale(1,3);
+}
+
+
+/*
+i>h1:hover{
+i>h1>span:hover ~ infobox{transform:scale(1,3);}
+span:hover ~ .infobox{transform:scale(1,3);
+color:yellow;
+background-color:yellow;}
+
+span:hover + .infobox{transform:scale(1,3);
+color:yellow;
+background-color:yellow;}
+*/
+
 
 section{
 margin:0px;
@@ -304,7 +340,7 @@ li a {
   display: block;
   color: #6d1d23;
   text-align: center;
-  padding: 14px 16px;
+  padding: 20px 18px;
   text-decoration: none;
 }
 
@@ -338,6 +374,7 @@ li.dropdown {
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+  margin-top:16px;
 }
 
 .dropdown-content a {
@@ -371,6 +408,13 @@ li.dropdown {
             grid-row: 1;
             text-align: center;
             overflow: hidden;
+
+            font-family:var(--f-primary);
+            /*background-color:var(--clr-neutral-900); */
+            /*font-weight:400;
+            font-size:1.3125rem;
+            line-height:1;
+            */
         }
 
         .boxb2 {
@@ -484,106 +528,72 @@ li.dropdown {
   line-height: 70px;
   transform-origin: bottom center;
 }
-/* for page 4 */
-/* to the scrollingfunction*/
 
-.bigbackground{
-            height: 100%;
-            margin-top:7%;
-            width: 100%;
-            background-color:  #426968;
-        }
-
-        /*
-          #426968 (main)
-#dce1de (background)
-#6d1d23 (highlight)
--
-Other colors:
-#4f899e
-#694256
-#555849
-*/
-
-.paddingtopinteractive{
-                padding-top:var(--pt);
-                z-index: 1;
-        }
-
-        #steakdiv{
-            height: 50%;
-            width: 50%;
-            margin: auto;
-            margin-top: -60%;
-            position: relative;
-            z-index: 1;
-        }
-
-        #imgs{
-            z-index: 1;
-            position: relative;
-        }
-
-
-        #reactordiv{
-            height: 100%;
-            width: 100%;
-            margin: auto;
-            z-index: 2;
-            position: relative;
-        }
-
-        #imgr{
-            z-index: 2;
-            position: relative;
-        }
-
-        .imgholder{
-            height: 50%;
-            width: 40%;
-            margin: auto;
-            position: relative;
-        }
-
-        #proteindiv{height: 100%;
-            width: 100%;
-            margin: auto;
-           }
-
-        #cowdiv{height: 100%;
-            width: 100%;
-            margin: auto;
-        }
-
-    img.stickyprotein{ position: relative;
-  margin-left:87%;
-  top: -830px;
+img.stickyprotein{
+  margin-left:19%;
+  top: 0px;
   width: 120px;
-  border-radius:50%;}
+  border-radius:50%;
+  animation:spin 10s linear infinite;
+  animation-play-state:running;}
+
+  @keyframes spin{
+     100%{ transform:rotate(360deg);}
+  }
 
   img.stickyagar{
-  margin-left:83%;
+  margin-left:12%;
   position: relative;
-  margin-top:90px;
-  top: -940px;
+  margin-top:0px;
+  top: 0px;
   width: 90px;
   border-radius:50%;
+  animation: growing2 10s linear infinite;
+  animation-direction:alternate;
+  animation-play-state:running;
   }
 
-  img.stickycow{position: relative;
-  margin-left:-300px;
-  top: -80px;
-  width: 150px;
-  border-radius:50%;}
+  @keyframes growing2{
+    0%{width:100px;}
+      100%{width:140px;}
+  }
 
-  img.stickycell{
+img.stickycow{position: relative;
+  margin-left:0px;
+  top: 0px;
+  width: 150px;
+  border-radius:50%;
+  animation:moving 3s linear 10;
+  animation-direction:alternate;
+  animation-play-state:running;
+  animation-fill-mode:forwards;
+  }
+
+  @keyframes moving{
+      0%{left:0px;}
+      100%{left:100px;
+      }
+  }
+
+  img.stickycow:hover{animation-play-state:paused;}
+  
+img.stickycell{
     position: relative;
-  margin-left:-8%;
-  top: 15px;
+  margin-left:0%;
+  top: 0px;
   width: 140px;
   border-radius:50%;
+  animation:growing 10s linear infinite;
+  animation-play-state:running;
+  animation-direction:alternate;
   }
 
+  @keyframes growing{
+      0%{width:100px;}
+      100%{width:170px;}
+  }
+
+ 
   /* make an arrow */
   .arrow1 {
   width: 120px;
@@ -641,7 +651,6 @@ Other colors:
   margin-top:-75px;
 }
 
-
 /* page 5 */
 .boxp5{
             height: 100%;
@@ -658,25 +667,53 @@ Other colors:
             transition: all 0.5s;
             z-index:1;
             margin:auto;
+            animation: swing 1s linear infinite alternate;
+
 }
+
+@keyframes swing {
+    0% {
+   opacity:1;
+   }
+
+    25% {
+       
+        opacity:0.875
+       }
+
+    50% {
+        opacity:0.75;}
+
+    75% {
+        opacity:0.625}
+
+    100% {
+        opacity:0.5;
+        }
+}
+
+
 /* ta bort border och flyttar i sidled pga orginialbilden
 är ej centrerad (skulle också kunna croppa i paint) */
 
 /* till topbaren */
 .logotype{
     float:left;
-    width:12%;
-    height:65px;
-    padding-top:5px;
+    width:8%;
+    height:60px;
+    padding-top:0px;
     padding-right:0px;
-    
-    /* background-color:black; */
     /* har overflow bilden är större än topbaren...
     går ej att ha denna bild+denna topbar färg.... */
     /*background-color:red; */
    /* background-blend-mode: */
     /*background-blend-mode:darken;*/
+    transition:all 1s;
+    
 }
+/*
+.logotype:hover{transform:rotateZ(360deg);}
+*/
 
 .triangle {
   width: 0;
@@ -689,10 +726,128 @@ Other colors:
   margin-top:5px;
 }
 
+/* en till fancy sak https://codepen.io/grohit/pen/mdJqEzK */
+
+section>h3>i {
+  font-weight: 700;
+  text-align: center;
+  font-size: 40px;
+  font-family: Hack, sans-serif;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #000, #fff, #000);
+  letter-spacing: 5px;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: shine 5s linear infinite;
+  position: relative;
+}
+
+@keyframes shine {
+  0% {
+    background-position-x: -500%;
+  }
+  100% {
+    background-position-x: 500%;
+  }
+}
+
+/* copy here from patrick */
+#outer{
+    height:30vh;
+    width:100vh;
+}
+#reactor{
+        position:absolute;
+        top:320vh;
+        left:55.5vw;
+        transform:translateX(-50%);
+        height:320px;
+        width:33%;
+        background-image:url(bioreactor.jpeg);
+        background-size:contain;
+        background-repeat:no-repeat;
+        z-index:1;
+    }
+    #steak{
+        position:absolute;
+        top:320vh;
+        width:200px;
+        height:200px;
+        left:50vw;
+        transform:translateX(-50%);
+        background-image:url(steak2.jpeg);
+        background-size:contain;
+        background-repeat:no-repeat;
+    }
+    #steak.sticky_center{
+        position:fixed;
+        top:70vh;
+        left:50vw;
+        transform:translateY(-50%) translateX(-50%);
+    }
+/* for the logos around the reactor */
+    .bigbackground{
+    width:100%;
+    display:flex;
+    justify-content: space-between;
+    flex-direction:row;
+    background-color:#426968;
+    height:60%;}
+
+    .flexparentleft{
+    height:50%;
+    display:flex;
+    margin-left:50px;
+    margin-top:50px;
+    flex-direction:column;
+    background-color:#426968;
+    height:100px;}
+
+    .flexparentright{
+    height:50%;
+    display:flex;
+    margin-left:-50px;
+    margin-top:50px;
+    flex-direction:column;
+    background-color:#426968;
+    height:100px;}
+    
+    .flexlefttop{
+        width:100%;
+        margin-bottom:-20px;
+        margin-left:50px;
+    }
+
+    .arrowontheleft{
+            margin-left:-80px;}
+
+    .flexleftbottom{
+        width:100%;
+        margin-top:50px;
+        margin-left:70px;
+        }
+
+    .flexrighttop{
+        width:100%;
+        margin-bottom:0px;
+        margin-right:0px;
+        }
+
+    .arrowontheright{
+            margin-left:0px;}
+
+    .flexrightbottom{
+        width:100%;
+        margin-left:0px;
+        }
+
 </style>
 
 <script>
-
+/* function for the navigation bar to go away after scroll */
   window.onscroll=function(){myFunction()};
 
 function myFunction(){
@@ -704,8 +859,9 @@ function myFunction(){
   }
 }
 
-/* Patrick's scrollfunction with alex's changes
+/* Patrick's scrollfunction with alex's changes (old now)
 */
+/*
         function min(a,b){return (a<b?a:b)}
         function max(a,b){return (a>b?a:b)}
             var observeViewEnter=new IntersectionObserver(function(entries){
@@ -735,6 +891,26 @@ function myFunction(){
                 observeViewEnter.observe(document.getElementById("steakdiv"))
                 observeViewLeave.observe(document.getElementById("steakdiv"))
             }
+
+            */ 
+
+           /* new better scrollfunction from patrick */
+            const max=(a,b)=>a>b?a:b
+            window.addEventListener("scroll",function(){
+                let steak=document.getElementById("steak");
+                
+                let scroll_y=document.documentElement.scrollTop;
+                let max_scroll=window.innerHeight;
+
+                let reactor_top=document.getElementById("reactor").getBoundingClientRect().top;
+
+                if(scroll_y>=(scroll_y+reactor_top-(window.innerHeight/2)+50)){
+                    if(!steak.classList.contains("sticky_center"))
+                        steak.classList.add("sticky_center");
+                }else{
+                    steak.classList.remove("sticky_center");
+                }
+            })
 </script>
 
 </head>
@@ -755,41 +931,18 @@ Other colors:
 #694256
 #555849
 -->
-<!-- 
-Kanske fixed logga upp till vänster .
-skulle kunna fixa igem login så det finns alternativ.
-hur flyttar man texten på den ?? aligna på olika sätt?
-sidebaren (på toppen)kanske lägga till en trekant så man vet
-att det är flera alternativ där -->
 <!-- command r för att refresha nya versionen!
 -->
 
-<!-- UPPGIFTER FRÅN PATRICK:
-    1.
-    FIXA JAVASCRIPT så köttet scrollar ned från bioreaktorn.
-när bioreaktorn är i mitten av skärmen så kommer köttet upp och den ska
-då stanna kvar på bilden! Dock ska 
-den sitta bakom bioreaktorn (z-index) (högre z -index displayas
-ovanför)
-
-2. Headline FGFUTURE ska fadea in efter 1 sekund! går med css och JS
-JS=settimeout (after number of seconds 1), eller css animations!
-css-animation delay!-transition delay.-klart!
-
-3.The animations for the steak on page2 -place 4 rectangles on the page
-then just when you hover over the rectangle-make the rectangle do something.
-(not about clicking)
-
-När jag är klar tänk på design av topbar!
--->
 
 <div id="menu">
      <!-- clickable bild -->
-        <a href='https:\\www.google.com'>
-          <img class="logotype" src="fgfuturereal.png">
+     <ul>
+        <a href='https://2020.igem.org/Team:UofUppsala'>
+          <img class="logotype" src="fundpage.png">
           <!-- cow_logo.png-->
       </a>
-        <ul>
+        
             <li class="dropdown">
                 <a href="javascript:void(0)" class="team">Project<div class="triangle"></div></a>
                 <div class="dropdown-content">
@@ -840,13 +993,13 @@ När jag är klar tänk på design av topbar!
         </div>
 
 <!-- Page 1 -->
-
 <div class="parallax">
 
     <div class="infobox">
-        <h1 style="color: #6d1d23 ;">FGFUTURE</h1>
+        <i><h1><span>FGFUTURE</span></h1></i>
         </div>
     </div>
+
 
 <!-- Page 2-->
     <div class="grid-container">
@@ -862,7 +1015,6 @@ När jag är klar tänk på design av topbar!
     are from livestock!
     
 </div>
- 
         </div>
 
         <div class="box2">
@@ -923,51 +1075,76 @@ När jag är klar tänk på design av topbar!
 </section>
 
   <!-- Page 4 now --> 
-
+  
 <div class="bigbackground">
-    <img class="stickycow" src="cowkompis.jpeg" alt="cowkompis">
-    
-    <img class="stickycell" src="https://biobeat.nigms.nih.gov/wp-content/uploads/2020/11/cell-moving-in-time.jpg" alt="stickycells">
 
-    <!-- gör en pil! -->
+     <div class="flexparentleft">
 
+         <div class="flexlefttop">
+        <img class="stickycow" src="cowkompis.jpeg" alt="cowkompis">
+    </div>
+    <div class="arrowontheleft">
+    <div class="arrow1">
+        <div class="line1"></div>
+        <div class="point1"></div>
+      </div> 
+    </div>
+
+     <div class="flexleftbottom">
+        <img class="stickycell" src="https://biobeat.nigms.nih.gov/wp-content/uploads/2020/11/cell-moving-in-time.jpg" alt="stickycells">
+    </div>
+
+     </div>
+
+        <div class="flexparentright">
+
+            <div class="flexrighttop">
+            <img class="stickyprotein" src="fgf2.png" alt="fgf2">
+        </div>
+<div class="arrowontheright">
+        <div class="arrow2">
+            <div class="line2"></div>
+            <div class="point2"></div>
+          </div>  
+        </div>
+
+        <div class="flexrightbottom">
+            <img class="stickyagar" src="petridish.jpeg" alt="petridish"> 
+        </div>
+    </div>
+
+    </div>
+
+    <div id="outer">
+        <div id="reactor">
+        </div>
+        <div id="steak">
+        </div>
+        </div>
+
+     
+
+    <!-- gör en pil! --> 
+<!--
 <div class="arrow1">
     <div class="line1"></div>
     <div class="point1"></div>
   </div>  
-  
+  -->
+
   <!-- En till pil! -->
+  <!--
 <div class="arrow2">
     <div class="line2"></div>
     <div class="point2"></div>
   </div>   
-  
-<!--
-<h1>I will display
-    &#x2198
-    &#x2199
-    ;</h1>
-    --> 
 
-    <div class="imgholder">
-        <div id="reactordiv">
-            <img id="imgr" src="bioreactor.jpeg" width="100%" height="100%">
-        </div>
-        <div id="steakdiv">
-            <img id="imgs" src="steak.jpeg" width="100%" height="100%">    
-        </div>
-
-    </div>
-
-
-</div>
-
-<img class="stickyprotein" src="fgf2.png" alt="fgf2">
-    <img class="stickyagar" src="petridish.jpeg" alt="petridish"> 
+-->
 
 <!-- Page 5 now (out of 5 pages)-->
 
 <div class="grid-container" style="background-color:#6d1d23;">
+    
     <div class="boxp5">
     </div>
 </div>
@@ -977,8 +1154,6 @@ När jag är klar tänk på design av topbar!
     https://www.toptal.com/designers/htmlarrows/arrows/ 
 <p>I will display &#8592;</p>
 -->
-
-
   <!-- Nu sponsordelen! -->
       
         <div class="grid-container-bottom">
@@ -1003,12 +1178,9 @@ När jag är klar tänk på design av topbar!
           </div>
   
           <div class="boxb5">
-             <!-- <img src="systemet.png" width="40%" height="100%">
--->
               <a href='https://www.systembolaget.se/'>
                 <img src="systemet.png" width="30%" height="100%">
           </div>
-  
       </div>
 </body>
 </html>

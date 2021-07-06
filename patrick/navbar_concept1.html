@@ -11,13 +11,15 @@
             #body{
                 height:100vh;
                 width:100vw;
+                --navbar-empty-left: 10vw;
+                --navbar-empty-right: 40vw;
             }
             #navbar{
                 width:100%;
                 height:5vh;
                 background-color:greenyellow;
                 display:grid;
-                grid-template-columns: 5vh repeat(4,1fr);
+                grid-template-columns: var(--navbar-empty-left) 0.5fr repeat(3,1fr) var(--navbar-empty-right);
             }
             .navbar_block{
                 cursor: pointer;
@@ -45,7 +47,7 @@
             }
             #navbar_extended{
                 display:grid;
-                grid-template-columns: 5vh repeat(4,1fr);
+                grid-template-columns: var(--navbar-empty-left) 0.5fr repeat(3,1fr) var(--navbar-empty-right);
             }
             .invisible{
                 opacity:0;
@@ -58,6 +60,9 @@
             }
             .fat_text > span{
                 font-weight: bold;
+            }
+            .extended_section_entry{
+                padding: 0.6vmin;
             }
         </style>
         <script>
@@ -127,10 +132,10 @@
                     <span>Team</span>
                 </div>
                 <div class="navbar_block">
-                    <span>Dry Lab</span>
+                    <span>Project</span>
                 </div>
                 <div class="navbar_block">
-                    <span>Wet Lab</span>
+                    <span>Parts</span>
                 </div>
             </div>
             <div id="navbar_background">
@@ -143,22 +148,26 @@
                         <div class="extended_section_entry">hi</div>
                     </div>
                     <div class="navbar_extended_section">
-                        <div class="extended_section_entry">hi</div>
-                        <div class="extended_section_entry">hi</div>
-                        <div class="extended_section_entry">hi</div>
-                        <div class="extended_section_entry">hi</div>
+                        <div class="extended_section_entry">Team</div>
+                        <div class="extended_section_entry">Attributions</div>
+                        <div class="extended_section_entry">Collaborations</div>
                     </div>
                     <div class="navbar_extended_section">
-                        <div class="extended_section_entry">hi</div>
-                        <div class="extended_section_entry">hi</div>
-                        <div class="extended_section_entry">hi</div>
-                        <div class="extended_section_entry">hi</div>
+                        <div class="extended_section_entry">Communication</div>
+                        <div class="extended_section_entry">Contribution</div>
+                        <div class="extended_section_entry">Description</div>
+                        <div class="extended_section_entry">Enginerring</div>
+                        <div class="extended_section_entry">Experiments</div>
+                        <div class="extended_section_entry">Implementation</div>
+                        <div class="extended_section_entry">Notebook</div>
+                        <div class="extended_section_entry">Partnership</div>
+                        <div class="extended_section_entry">Proof of Concept</div>
+                        <div class="extended_section_entry">Results</div>
                     </div>
                     <div class="navbar_extended_section">
-                        <div class="extended_section_entry">hi</div>
-                        <div class="extended_section_entry">hi</div>
-                        <div class="extended_section_entry">hi</div>
-                        <div class="extended_section_entry">hi</div>
+                        <div class="extended_section_entry">Part Collection</div>
+                        <div class="extended_section_entry">Parts</div>
+                        <div class="extended_section_entry">Improve</div>
                     </div>
                 </div>
             </div>

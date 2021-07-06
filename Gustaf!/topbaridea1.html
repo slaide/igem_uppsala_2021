@@ -3,14 +3,14 @@
 <head>
     <title> Gustaf's try on the best topbar </title>
 <style>
-/*
+
 *{
             margin:0;
             border:0;
             padding:0;
+            box-sizing:border-box;
         }
-        */
-
+  
         #igemloginbar{ 
             width:100%;
             background-color:#dce1de;
@@ -50,7 +50,8 @@ li a {
   /*padding: 14px 16px; */
   padding: 20px 18px;
   text-decoration: none;
-  margin-right:20px;
+  margin-right:50px;
+  margin-left:0px;
 }
 
 li a:hover {
@@ -73,15 +74,18 @@ height:10%;
 
 li.dropdown {
   display: inline-block;
+  margin-right:30px;
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
   background-color: #4f899e;
-  min-width: 160px;
+  min-width: 100px;
+  max-width:170px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+  margin-top:16px;
 }
 
 /*
@@ -105,7 +109,7 @@ Other colors:
 
 .dropdown-content a:hover {background-color: #f1f1f1;}
 
-.dropdown:hover .dropdown-content {
+#menu:hover .dropdown-content {
   display: block;
 }
 
@@ -132,6 +136,132 @@ Other colors:
   margin-top:5px;
 }
 
+/* fancy stuff https://codepen.io/denic/pen/GRoOxbM */
+.wrapper {
+  height: 30vh;
+  /*This part is important for centering*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size:cover;
+  position:relative;
+  overflow:hidden;
+}
+
+.typing-demo {
+  width: 22ch;
+  animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: monospace;
+  font-size: 2em;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+}
+    
+@keyframes blink {
+  50% {
+    border-color: transparent
+  }
+}
+
+/* for bg.jpg och splash.jpg */
+section{
+  position:relative;
+  width:100%;
+  min-height:100vh;
+  background: url(bg.jpg);
+  background-size:cover;
+  /*box-sizing:border-box; */
+}
+
+section:before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:url(splash.jpg);
+  background-size:100%;
+  background-position:center;
+  mix-blend-mode:screen; /*makes the picture visible */ 
+  
+}
+
+.bakgrundssak{
+  width:100%;
+  height:100vh;
+  background-image:url(background.png);
+  background-size:cover;
+  background-position:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.bubbles img{
+  width:50px;
+animation:bubbles 7s linear infinite;
+opacity:0;}
+
+.bubbles{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-around;
+  position:absolute;
+  bottom:0px;
+}
+
+@keyframes bubbles{
+  0% {transform:translateY(0);
+  opacity:0;}
+  
+  50% {opacity:1;}
+
+  70% {opacity:1;}
+
+  100% {transform:translateY(-80vh);
+  opacity:0;}
+}
+
+.bubbles img:nth-child(1){
+  animation-delay: 2s;
+  width:25px;
+}
+
+.bubbles img:nth-child(2){
+  animation-delay: 1s;
+}
+
+.bubbles img:nth-child(3){
+  animation-delay: 3s;
+  width:25px;
+}
+
+.bubbles img:nth-child(4){
+  animation-delay: 4.5s;
+}
+
+.bubbles img:nth-child(5){
+  animation-delay: 3s;
+}
+
+.bubbles img:nth-child(6){
+  animation-delay: 6s;
+  width:20px;
+}
+
+.bubbles img:nth-child(7){
+  animation-delay: 7s;
+  width:35px;
+}
+
 </style>
 
 <script>
@@ -149,7 +279,13 @@ Other colors:
 
 </script>
 
-<head>
+</head>
+<body>
+
+<!-- https://www.youtube.com/watch?v=lBK_kh4iCAQ&ab_channel=OnlineTutorials
+denna ska jag härma med bakgrund och splash
+bg.jpg
+splash.jpg-->
 
 <!-- 
 Kanske fixed logga upp till vänster .
@@ -184,8 +320,9 @@ plats över till höger!
 
 Kanske ha border vid dropdown så den blir snyggare (https://2019.igem.org/Team:Wageningen_UR)-->
 
-<!-- skulle kunna länka till hemsidorna för sponsorerna
-samt kanske länka till facebook insta nere vid sponsorerna-->
+<!-- Perfect centering like this:
+https://www.w3schools.com/css/tryit.asp?filename=trycss3_flexbox_margin2
+-->
 
 <div id="igemloginbar">
     IGEM LOGIN BAR
@@ -210,8 +347,6 @@ samt kanske länka till facebook insta nere vid sponsorerna-->
             <a href="javascript:void(0)" class="team">Lab<div class="triangle"></div>
 
             </a>
-          
-             
 
             <div class="dropdown-content">
               <a href="https://2020.igem.org/Team:UofUppsala/Results">Wet lab</a>
@@ -251,8 +386,40 @@ samt kanske länka till facebook insta nere vid sponsorerna-->
     </div>
 
 <!-- only to make the page longer to see the scrollfunction-->
-    <img src="deforest.jpeg">
+
+
+
+<div class="bakgrundssak">
+  <!-- från https://www.youtube.com/watch?v=CZTCciHE72I&ab_channel=EasyTutorials-->
+  <div class="bubbles">
+    <img src="bubble.png">
+    <img src="bubble.png">
+    <img src="bubble.png">
+    <img src="bubble.png">
+    <img src="bubble.png">
+    <img src="bubble.png">
+    <img src="bubble.png">
+  </div>
+
+</div>
+    
+<!-- for the splash thing!-->
+<section>
+
+</section>
+
+ <!-- för första fancy grejen-->
+ <div class="wrapper">
+  <div class="typing-demo">
+    This is a typing demo.
+
+  </div>
+
+</div>
+
+<img src="deforest.jpeg">
     <h1> THIS IS PART1</h1>
+
     <img src="cowkompis.jpeg">
     <img src="cownew.jpeg">
     <img src="amazonas.jpeg">
@@ -262,8 +429,6 @@ samt kanske länka till facebook insta nere vid sponsorerna-->
 
     <h1> THIS IS PART1</h1>
 
-
-
-</head>
+</body>
 
 </html>

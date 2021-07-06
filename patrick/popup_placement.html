@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf8">
+        <style> 
+            * {
+                border:0;
+                margin:0;
+                padding:0;
+            }
+            #main{
+                height:100vh;
+                width:100vw;
+            }
+            #steak{
+                height:100%;
+            }
+            .steak_issue{
+                position:absolute;
+                width:150px;
+                height:150px;
+                transition: width 0.2s, height 0.2s, background-size 0.2s;
+                background-image: url("steak.jpg");
+                background-position: center center;
+                background-size: 250px 250px;
+                transform:translateX(-50%) translateY(-50%);
+                border-radius: 10%;
+            }
+            .increase_view_size{
+                width:350px;
+                height:350px;
+                background-size: 350px 350px;
+                border-radius: 0%;
+            }
+            .centered{
+                position:absolute;
+                left:50%;
+                top:50%;
+                transform:translateX(-50%) translateY(-50%);
+            }
+        </style>
+        <script>
+            function onload(){
+                let steak=document.getElementById("steak").children[0]
+
+                var scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+                var scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft
+
+                let steak_left=scrollLeft+steak.getBoundingClientRect().left
+                let steak_top=scrollTop+steak.getBoundingClientRect().top
+
+                let steak_width=800
+                let steak_height=800
+
+                for (element of document.getElementsByClassName("steak_issue")){
+                    //-150/2 because width and height are 150px, and the coordinates given should represent the center of the image
+                    let top=Number(element.attributes.getNamedItem("top").nodeValue)*steak_height
+                    let left=Number(element.attributes.getNamedItem("left").nodeValue)*steak_width
+
+                    top=steak_top+top+"px"
+                    left=steak_left+left+"px"
+
+                    element.style.top=top
+                    element.style.left=left
+
+                    element.addEventListener("mouseenter",function(ev){
+                        ev.target.classList.add("increase_view_size")
+                        ev.target.classList.add("increase_view_size")
+                    })
+                    element.addEventListener("mouseleave",function(ev){
+                        ev.target.classList.add("increase_view_size")
+                        ev.target.classList.remove("increase_view_size")
+                    })
+                }
+            }
+        </script>
+    </head>
+    <body onload="onload()" onresize="onload()">
+        <div id="main">
+            <div id="steak">
+                <img src="steak.jpg" alt="picture of a juicy steak" width="800" height="800" class="centered">
+                <span id="syringe" class="steak_issue" top=0.2 left=0.7></span>
+                <span id="deforestation" class="steak_issue" top=0.8 left=0.2></span>
+            </div>
+        </div>
+    </body>
+</html>

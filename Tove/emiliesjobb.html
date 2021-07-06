@@ -11,6 +11,13 @@
                 height: 16px;
                 width:100%;
                 background-color: grey;
+                z-index: 1000;
+                position: fixed;
+            }
+
+            #block{
+                width: 100%;
+                height: 100px;
             }
 
             #repeatable_background{
@@ -25,12 +32,14 @@
             #navbar {
                 overflow: hidden;
                 background-color: #f1f1f1;
-                padding: 90px 10px;    /* Large padding which will shrink on scroll (using JS) */
+                padding: 25px 5px;    /* Large padding which will shrink on scroll (using JS) */
                 transition: 0.4s;     /* Adds a transition effect when the padding is decreased */
                 position: fixed;     /* sticky/fixed navbar */
                 width: 100%;    
                 top: 0;      /* at the top */
                 z-index: 99;
+                border: 2px solid black;
+                
             }
 
             /* style the navbar links */
@@ -47,7 +56,7 @@
 
             /* style the logo */
             #navbar #logo {
-                font-size: 35px;
+                
                 font-weight: bold;
                 transition: 0.4s;
             }
@@ -67,32 +76,34 @@
             /* Display some links to the right */
             #navbar-right{
                 float: right;
+                margin-top: 20px;
             }
-            
 
-            #title{
-                width:100%;
-                padding:auto;
+            /* Add responsiveness - on screens less than 580px wide, display the navbar vertically instead on horizontally */
+            @media screen and (max-width: 80px) {
+                #navbar {
+                    padding: 10px 5px !important; /*Use !important to amek sure that Javascript doesnt override the padding on small screens */
+                }
+
+            }
+
+            #navbar-right {
+                float: none;
             }
 
 
             #animated{
                 padding:25px;
+                margin-top: 20%;
             }
-            h1{
-                text-align: center;
-                font-size: 6em;
-            }
-
 
 
             .center{
                 display:block;
-                margin-left:auto;
-                margin-right: auto;
-                height:400px;
-                width:auto;
+                height:70px;
+                width:auto; 
             }
+
 
             #main_body{
                 width:100%;
@@ -100,32 +111,54 @@
                 flex-direction: row;
             }
 
+
+            #main_body > img{
+                width:100%;
+                height: auto;
+            }
+
+
+            #meat_pic{
+                display: grid;
+                height:100%;
+                grid-template-columns: repeat(50,1fr);
+                grid-template-rows: repeat(50,1fr);
+                overflow: hidden;
+                
+            }
+
+
+            #meat_slab{
+                height: auto;
+                width: auto;
+                grid-column: 13/ span 27 ;
+                grid-row: 10/ span 25;
+                border: 2px solid black;
+                overflow: hidden;
+                border-radius:5%;
+                background-color:#f1f1f1;
+            }
+
+
+            #meat_slab > img{
+                width:100%;
+                height:100%;
+            }
+
+            #antibio{
+                height:100%;
+                width:100%;
+                grid-column: 10/ span 5 ;
+                grid-row: 9/ span 10;
+                border: 2px solid black;
+                overflow:hidden;
+                border-radius: 5%;
+                background-color: #f1f1f1;
             
-
-           
-
-            
-
-            #text_box{
-                display:flex;
-                width:15%;
-                border-radius: 20%;
-                text-align: center;
-                padding:2.5%;
-                border: 1px solid black;
-                display:block;
-                margin-left: 50%;
-                height:fit-content;
-                margin-top: 5%;
 
             }
             
 
-
-            #text{
-                overflow: auto;
-            }
-            
             body{
                 margin:0%;
             }
@@ -136,39 +169,36 @@
             IGEM MENU
         </div>
 
+        
+
         <div id="navbar">
-            <a href="#default" id="logo">Company Logo</a>
+            <a href="#default" id="logo">
+                <img src="/Users/tovejonsson/Desktop/ezgif.com-gif-maker.gif", class="center">
+            </a>
             <div id="navbar-right">
-                <a class="active" href="#home">Home</a>
-                <a href="#contact">Contact</a>
-                <a href="#about">About</a>
+                <a class="active" href="#home">Project</a>
+                <a href="#contact">Team</a>
+                <a href="#about">Lab</a>
             </div>
         </div>
 
+        <div id="block" ></div>
+
         <div id="repeatable_background">
-            <div id="title">
-               <h1>FGFUTURE</h1> 
-            </div>
             
-            <div id="animated">
-                <img src="/Users/tovejonsson/Desktop/igem_uppsala_2021/ezgif.com-gif-maker.gif", class="center">
-            </div>
+            
 
             <div id="main_body">
-                
-                
+                <img src="/Users/tovejonsson/Desktop/Screenshot 2021-07-01 at 09.17.01.png">
+            </div>
 
-                <div id="text_box">
-                    <div id="text">
-                        CowCowCowCowCow
-                        <p></p>
-                        CowCowCowCowCow
-                        <p></p>
-                        CowCowCowCowCow
-                        <p></p>
-                        CowCowCowCowCow
+            <div id="meat_pic">
+                <div id="meat_slab">
+                    <img src="/Users/tovejonsson/Desktop/Raw-Meat-Free-PNG-Image.png">
                 </div>
+                <div id="antibio">
 
+                </div>
             </div>
 
         </div>
@@ -176,6 +206,17 @@
 
 
         <script>
+            window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+    document.getElementById("navbar").style.padding = "5px 3px";
+    document.getElementById("logo").style.fontSize = "3px";
+  } else {
+    document.getElementById("navbar").style.padding = "30px 10px";
+    document.getElementById("logo").style.fontSize = "25px";
+  }
+}
             
         </script>
 

@@ -83,6 +83,7 @@ li.dropdown {
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+  margin-top:16px;
 }
 
 /*
@@ -133,6 +134,55 @@ Other colors:
   margin-top:5px;
 }
 
+.infobox {
+position: absolute;
+text-decoration:none;
+color:#6d1d23;
+top: 30%;
+width: 100%;
+text-align: center;
+font-size: 30px;
+animation-name:hej;
+animation-duration:3s;
+animation-delay:0;
+transition:transform 0.2s;
+}
+
+@keyframes hej {
+    from {opacity:0;}
+    to {opacity:1;}
+}
+
+/*  fancy sak https://codepen.io/grohit/pen/mdJqEzK */
+
+section>p {
+  font-weight: 700;
+  text-align: center;
+  font-size: 40px;
+  font-family: Hack, sans-serif;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #000, #fff, #000);
+  letter-spacing: 5px;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: shine 5s linear infinite;
+  position: relative;
+}
+
+@keyframes shine {
+  0% {
+    background-position-x: -500%;
+  }
+  100% {
+    background-position-x: 500%;
+  }
+}
+
+
+
 </style>
 
 <script>
@@ -150,47 +200,13 @@ Other colors:
 
 </script>
 
-<head>
+</head>
 
-<!-- 
-Kanske fixed logga upp till vänster .
-skulle kunna fixa igem login så det finns alternativ.
-hur flyttar man texten på den ?? aligna på olika sätt?
-sidebaren (på toppen)kanske lägga till en trekant så man vet
-att det är flera alternativ där -->
-
-<!-- TOPBAR IDEER:
-kanske ha hover på texten i topbar (som nanoflex) och ej 
-på själva bakgrunden runtom.
-
-Ha loggan till vänster på ett bra sätt.
-
-Slidea till sidan (klart)
-
-Osäker på färgkombinationerna-vill nog ha annan färg i dropdown
-
-Vill ha triangle bredvid de som har dropdown
-
-Kanske transition på hover-dock väldigt kort 
-
-Kanske en logga bredvid alla rubriker som SDU denmark 2020-tveksamt dock
-
-Vill ha hover ej klick på drowndown!
-
-TU_darmstadt 2020 har rubrik över topbar sedan är topbar
-sticky på toppen vid scroll
-
-Vill nog ha lite mellanrum mellan loggan vänster-texten och sedan
-plats över till höger! 
-
-Kanske ha border vid dropdown så den blir snyggare (https://2019.igem.org/Team:Wageningen_UR)-->
-
-<!-- skulle kunna länka till hemsidorna för sponsorerna
-samt kanske länka till facebook insta nere vid sponsorerna-->
 
 <div id="igemloginbar">
     IGEM LOGIN BAR
 </div>
+
 
 <div id="menu">
     <ul> <!-- gör bilden clickable-->
@@ -250,20 +266,55 @@ samt kanske länka till facebook insta nere vid sponsorerna-->
     </div>
 
 <!-- only to make the page longer to see the scrollfunction-->
+
+
+
 <img src="cownew.jpeg">
+
+<!-- för andra fancy grejen-->
+
+<section>
+
+    <p> Welcome to my codepen profile</p>
+  </section>
+  <!-- slut på fancy-->
+
     <h1> THIS IS PART2</h1>
+    <h2> hitta hemsidor med bra navigationbars och bad</h2>
+    <h2>also find pros and cons och why I think so </h2>
+
+    <!-- https://2019.igem.org/Team:Vilnius-Lithuania# dont like!
+    Also dont like when the title is above the navigationbar (and then it sticks) like this almost: https://2020.igem.org/Team:Toulouse_INSA-UPS
+
+    DONT LIKE THIS TRANSITION ON HOVER ON THE NAV BAR: https://2020.igem.org/Team:GreatBay_SCIE
+    https://2020.igem.org/Team:TU_Darmstadt
+
+    ALSO PREFER HOVER OVER CLICK. 
+    I LIKE LOGO WITH CLICK (ON THE LEFT)
+    PREF TOPBAR OVER SIDEBAR
+    DONT LIKE WHEN YOU CAN GET TO SOMEWHERE WHEN YOU PRESS THE WORD
+    DESCRIBING A DROPDOWN MENU
+
+    REALLY DONT LIKE: http://2017.igem.org/Team:Georgia_State
+
+    LIKE TRIANGLE NEXT TO DROPDOWN
+
+    Dont really like the idea of hover and everything shows
+    Crowded also problem with the dropdowns overlapping
+-->
+  
     <img src="cowkompis.jpeg">
+    <div class="infobox">
+        <i><h1>FGFUTURE</h1></i>
+        </div>
+    </div>
     <img src="deforest.jpeg">
+
     <img src="amazonas.jpeg">
     <img src="cow_logo.png" style="background-color:red; height:500px;">
     <img src="fgfuturereal.png" style="height:500px;">
     <img src="fundpage.png" style="height:500px;">
     <h1> THIS IS PART2</h1>
-
-
-
-
-
 
 </head>
 
