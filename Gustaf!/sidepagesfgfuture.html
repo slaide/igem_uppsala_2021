@@ -69,7 +69,7 @@ html,body{
 position: absolute;
 text-decoration:none;
 color:#6d1d23;
-top: 30%;
+top: 15%;
 width: 30%;
 margin-left:35%;
 text-align: center;
@@ -77,12 +77,19 @@ font-size: 30px;
 animation-name:hej;
 animation-duration:3s;
 animation-delay:0;
-transition:transform 0.2s;
+transition: 0.2s;
+animation: hej 3s linear, hejigen 1s linear 3s;
+animation-fill-mode:forwards;
 }
 
 @keyframes hej {
     from {opacity:0;}
     to {opacity:1;}
+}
+
+@keyframes hejigen {
+    0%{top:15%;}
+    100%{top:30%;}
 }
 .infobox:hover{
     transform:scale(1,3);
@@ -172,17 +179,8 @@ li.dropdown {
     height:60px;
     padding-top:0px;
     padding-right:0px;
-    /* har overflow bilden är större än topbaren...
-    går ej att ha denna bild+denna topbar färg.... */
-    /*background-color:red; */
-   /* background-blend-mode: */
-    /*background-blend-mode:darken;*/
-    transition:all 1s;
-    
+    transition:all 1s; 
 }
-/*
-.logotype:hover{transform:rotateZ(360deg);}
-*/
 
 .triangle {
   width: 0;
@@ -249,20 +247,33 @@ li.dropdown {
             padding-bottom:10px;
         }
 
-/*
-.myullist{list-style-type: none;
+.myullist{
   margin-top: 0px;
-  left:0px;
-  top:450px;
-  padding: 0;
-  width: 20%;
+  padding:0;
+  width: 100%;
   background-color: #f1f1f1;
-  height: 20%;
-  overflow: auto;}
+  height: 100%;
+  overflow: auto;
+  }
 
-  .myli2{height:100%;}
-  */
+  .myli2{
+      color:black;
+      padding:15px 30px;
+      display:block;
+      width:100%;
+      }
 
+    .myli2:hover{color:orange;}
+
+    .myli2big{
+      color:black;
+      padding:15px 10px;
+      display:block;
+      width:100%;
+      background-color:lightgray;
+      font-size:25px;
+      font-weight: bold;
+      }
 
   .wrapper {
   display: flex;
@@ -277,30 +288,44 @@ li.dropdown {
 }
 
 .main >p{font-weight:normal;
-font-size:17px;
+font-size:15px;
 font-family:verdana;
 color:black;
 line-height:normal;
 letter-spacing:0.03em;
+margin-bottom:10px;
+margin-top:20px;
 }
 
 .main > h1 {
     font-size: 1.5em;
     font-weight: bold;
     margin-bottom: 5px;
-    letter-spacing: .05em
+    letter-spacing: .05em;
+    margin-bottom:30px;
+    margin-top:30px;
 }
 
 .sidebar3 {
-  width: 20%;
-  height: 22vh;
+  width: 22%;
+  height:50%;
   position:sticky;
   margin-top:25px;
   top:12%;
   left:0px;
   border: 1px solid transparent;
-  padding: 15px;
+  padding: 0px;
   background-color: lightgrey;
+}
+
+.circle{
+    border-radius:50%;
+    width:10px;
+    height:10px;
+    border:1px solid transparent;
+    display:inline;
+    float:left;
+    margin-right:10px;
 }
 
 </style>
@@ -422,22 +447,26 @@ Other colors:
         <i><h1><span>Safety</span></h1></i>
         </div>
     </div>
-
 </div>
-
-
-
             <div class="wrapper">
 
                 <div class="sidebar3">
-                    <p>hej</p>
-                    <p>hallå</p>
-                    <p>ohwaow</p>
+
+                    <ul class="myullist">
+                        <li class="myli2big">Index</li>
+                        
+
+                        <li class="myli2"><div class="circle" style="background-color:lightblue;"></div>Lab Safety</li>
+
+                        <li class="myli2"><div class="circle" style="background-color:orange;"></div>Ethics and Risks of GMOs</li>
+
+                        <li class="myli2"><div class="circle" style="background-color:red;"></div>COVID-19 Measures</li>
+
+                    </ul>
                   </div>
 
                 <div class="main">
                   
-                
                     <p>Safety while working in the lab is an important key player. Read about how the Uppsala 2020 team dealt with it.
                     </p>
              
@@ -458,9 +487,8 @@ Other colors:
                  </p>
              
                  <p>Lab work is often coupled with long and stressful days, which can be a potential hazard on their own. Therefore we made sure to communicate any errors in our routines during group meetings and to remind each other our responsibilities. A special lab-question communication channel in slack was accessible for any questions and concerns. To keep the lab in order, different lab groups rotated between responsibility of cleaning the lab, i.e. taking care of used glassware.
-             
                  </p>
-             
+                 
                  <h1>Ethics and Risks of GMOs</h1>
              <hr style="border: 1px solid black;">
              
@@ -484,10 +512,7 @@ Other colors:
 
                 </div>
 
-                    
-
 </div>
-
 
   <!-- Nu sponsordelen! -->
       
