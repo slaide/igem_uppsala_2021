@@ -56,7 +56,29 @@ li a:hover {
   color: red;
 }
 
+
 li a:hover .triangle{border-top: 7.5px solid red;}
+
+
+/*
+HOVER RULES
+If the cube is directly inside the container:
+
+#container:hover > #cube { background-color: yellow; }
+
+If cube is next to (after containers closing tag) the container:
+
+#container:hover + #cube { background-color: yellow; }
+
+If the cube is somewhere inside the container:
+
+#container:hover #cube { background-color: yellow; }
+
+If the cube is a sibling of the container:
+
+#container:hover ~ #cube { background-color: yellow; }
+
+*/
 
 
 #menu{
@@ -74,6 +96,7 @@ height:10%;
 
 li.dropdown {
   display: inline-block;
+  height:100px;
 }
 
 .dropdown-content {
@@ -106,6 +129,7 @@ Other colors:
 }
 
 .dropdown-content a:hover {background-color: #f1f1f1;}
+
 
 .dropdown:hover .dropdown-content {
   display: block;
