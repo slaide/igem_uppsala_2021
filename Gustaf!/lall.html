@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title> Gustaf's fgfuture sidepages (not main) for fgfuture
-         template
+    <title> playaroundwebsite
     </title>
 
 <meta charset=utf-8>
@@ -25,8 +24,9 @@
   scroll-behavior: smooth;
 }
 
+/* start of parallax */
 .parallax {
-  background-image: url("biohazard.jpeg");
+  background-image: url("adamsandler.jpeg");
   min-height: 300px; 
   height:450px;
   position:relative;
@@ -34,36 +34,19 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  padding-top:10%;
   margin-left:0%;
 }
-
-#igemloginbar{ 
-            width:100%;
-            background-color:grey;
-            height:16px;
-            top:0;
-            z-index:3;
-            position:fixed;
-            text-align:center;
-}
-
-.grid-container{
-            display: grid;
-            height: 100%;
-            grid-template-columns:repeat(40,1fr);
-            grid-template-rows:repeat(40,1fr);
-            overflow: hidden;
-            background-color: #426968;
-            border-top: 4px solid black;
-        }
+/* want to do an advanced parallax thing with moving parts */
+/* Source from youtube: https://www.youtube.com/watch?v=mgk_2d4lhm8&t=407s&ab_channel=OnlineTutorials
+*/
 
 
-html,body{
-  height:100%;
-  margin:0;
-  padding:0;
-  background-color:white;
-}
+
+
+
+/* end of parallax */
+
 
 .infobox {
 position: absolute;
@@ -94,6 +77,36 @@ animation-fill-mode:forwards;
 .infobox:hover{
     transform:scale(1,3);
 }
+/* end of infobox (that is inside of the parallax) */
+
+#igemloginbar{ 
+            width:100%;
+            background-color:grey;
+            height:16px;
+            top:0;
+            z-index:3;
+            position:fixed;
+            text-align:center;
+}
+
+.grid-container{
+            display: grid;
+            height: 100%;
+            grid-template-columns:repeat(40,1fr);
+            grid-template-rows:repeat(40,1fr);
+            overflow: hidden;
+            background-color: #426968;
+            border-top: 4px solid black;
+        }
+
+
+html,body{
+  height:100%;
+  margin:0;
+  padding:0;
+  background-color:pink;
+}
+
 
 ul {
   list-style-type: none;
@@ -169,7 +182,7 @@ li.dropdown {
             grid-template-columns:repeat(4,1fr);
             grid-template-rows:repeat(3,1fr);
             overflow: hidden;
-            background-color: #426968;
+            background-color: red;
             border: 2px solid transparent;
         }
 
@@ -365,15 +378,6 @@ https://www.youtube.com/watch?v=mgk_2d4lhm8&t=407s&ab_channel=OnlineTutorials
     
 }
 
-/* for making sidebar clickable */
-#section1{height:1px;
-                    }
-#section2{height:1px;
-                    }
-
-#section3{height:1px;
-                    }
-
 </style>
 
 <script>
@@ -390,6 +394,7 @@ function myFunction(){
 }
 
            /* new better scrollfunction from patrick */
+           /*
             const max=(a,b)=>a>b?a:b
             window.addEventListener("scroll",function(){
                 let steak=document.getElementById("steak");
@@ -406,6 +411,40 @@ function myFunction(){
                     steak.classList.remove("sticky_center");
                 }
             })
+            */
+
+/* script for the moving parts in the parallax 
+https://www.youtube.com/watch?v=mgk_2d4lhm8&t=407s&ab_channel=OnlineTutorials
+*/
+
+Let text = document.getElementById('text');
+Let bird1 = document.getElementById('bird1');
+Let bird2 = document.getElementById('bird2');
+Let btn = document.getElementById('btn');
+Let rocks = document.getElementById('rocks');
+Let forest = document.getElementById('forest');
+Let water = document.getElementById('water');
+Let header = document.getElementById('header');
+
+window.addEventListener('scroll', function(){
+    Let value = window.scrollY;
+
+
+text.style.top = 50 + value * -0.5 + '%';
+
+bird1.style.top = value * -1.5 + 'px';
+bird1.style.left = value * 2 +'px';
+
+bird2.style.top = value * -1.5 + 'px';
+bird2.style.left = value * -5 + 'px';
+
+btn.style.marginTop = value * 1.5 + 'px';
+
+rocks.style.top = value * -0.12 + 'px';
+
+})
+/* slut på parallax scriptet */
+           
 </script>
 
 </head>
@@ -428,10 +467,6 @@ Other colors:
 -->
 
 <!-- TO DO FÖR DENNA SIDA
-
-fixa länkarna i texten
-
-gör en knapp
 
 gör sponsordelen snyggare med typ fb länk från bild och instagram med.
 
@@ -495,12 +530,11 @@ gör sponsordelen snyggare med typ fb länk från bild och instagram med.
         </div>
 
 
-
 <!-- Page 1 -->
 <div class="parallax">
 
     <div class="infobox">
-        <i><h1><span>Safety</span></h1></i>
+        <i><h1><span>Lall-hemsida</span></h1></i>
         </div>
     </div>
 </div>
@@ -512,13 +546,11 @@ gör sponsordelen snyggare med typ fb länk från bild och instagram med.
                         <li class="myli2big">Index</li>
                         
 
-                        <a href="#section1"><li class="myli2"><div class="circle" style="background-color:lightblue;"></div>Lab Safety</li></a>
+                        <li class="myli2"><div class="circle" style="background-color:lightblue;"></div>Lab Safety</li>
 
-                    <a href="#section2">
-                        <li class="myli2"><div class="circle" style="background-color:orange;"></div>Ethics and Risks of GMOs</li></a>
+                        <li class="myli2"><div class="circle" style="background-color:orange;"></div>Ethics and Risks of GMOs</li>
 
-                        <a href="#section3">
-                        <li class="myli2"><div class="circle" style="background-color:red;"></div>COVID-19 Measures</li></a>
+                        <li class="myli2"><div class="circle" style="background-color:red;"></div>COVID-19 Measures</li>
 
                     </ul>
                   </div>
@@ -527,10 +559,8 @@ gör sponsordelen snyggare med typ fb länk från bild och instagram med.
                   
                     <p>Safety while working in the lab is an important key player. Read about how the Uppsala 2020 team dealt with it.
                     </p>
-                    <div id="section1"></div>
+             
                     <h1> Lab Safety</h1>
-                    
-                
              
                     <hr style="border: 1px solid black;">
              
@@ -549,7 +579,6 @@ gör sponsordelen snyggare med typ fb länk från bild och instagram med.
                  <p>Lab work is often coupled with long and stressful days, which can be a potential hazard on their own. Therefore we made sure to communicate any errors in our routines during group meetings and to remind each other our responsibilities. A special lab-question communication channel in slack was accessible for any questions and concerns. To keep the lab in order, different lab groups rotated between responsibility of cleaning the lab, i.e. taking care of used glassware.
                  </p>
                  
-                 <div id="section2"></div>
                  <h1>Ethics and Risks of GMOs</h1>
              <hr style="border: 1px solid black;">
              
@@ -561,7 +590,6 @@ gör sponsordelen snyggare med typ fb länk från bild och instagram med.
              
                  <p>For the whole project we have taken special care regarding ethics concerns in research, by attributing every contribution to its author, either inside or outside the team, as well as asking for permission and double-checking the content before its publication for the latter.</p>
              
-                 <div id="section3"></div>
                  <h1>COVID-19 measures</h1>
              <hr style="border: 1px solid black;">
              
@@ -575,7 +603,6 @@ gör sponsordelen snyggare med typ fb länk från bild och instagram med.
 
                 </div>
 
-               
              
                  <p>For the autumn months, physical meetings were partially allowed on average 2h twice a week. Since physical meetings were restored students were encouraged to stay at home if they felt any minimum symptom and to work individually as much as possible. In addition, digital participation in the meetings and discussions was always offered.
                  </p>
