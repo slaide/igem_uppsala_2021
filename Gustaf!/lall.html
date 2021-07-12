@@ -12,7 +12,7 @@
             margin:0;
             border:0;
             padding:0;
-            font-family:'Poppins', sans-serif;
+            font-family:sans-serif;
         }
         
 
@@ -69,6 +69,7 @@ header .logo
     color:#094b65;
     font-weight:700;
     text-decoration:none;
+    font-size:170%;
 }
 
 #header ul {
@@ -85,7 +86,6 @@ header .logo
     margin-left:20px;
 
 }
-
 
 #header ul li a {
     text-decoration:none;
@@ -146,7 +146,7 @@ section #text span{
     font-size: 0.20em;
     letter-spacing:2px;
     font-weight:400;
-    font-family:'Poppins', sans-serif;
+    font-family:sans-serif;
 }
 
 #btn{
@@ -180,9 +180,6 @@ section #text span{
     margin-bottom:10px;
     color: #fff;
 }
-
-
-
 
 /* end of parallax */
 /*
@@ -564,44 +561,53 @@ function myFunction(){
 /* script for the moving parts in the parallax 
 https://www.youtube.com/watch?v=mgk_2d4lhm8&t=407s&ab_channel=OnlineTutorials
 */
-/*
-Let text = document.getElementById('text');
-Let bird1 = document.getElementById('bird1');
-Let bird2 = document.getElementById('bird2');
-Let btn = document.getElementById('btn');
-Let rocks = document.getElementById('rocks');
-Let forest = document.getElementById('forest');
-Let water = document.getElementById('water');
-Let header = document.getElementById('header');
+function somefunction(){
+let text = document.getElementById('text');
+let bird1 = document.getElementById('bird1');
+let bird2 = document.getElementById('bird2');
+let btn = document.getElementById('btn');
+let rocks = document.getElementById('rocks');
+let forest = document.getElementById('forest');
+let water = document.getElementById('water');
+let header = document.getElementById('header');
+
+
 
 window.addEventListener('scroll', function(){
-    Let value = window.scrollY;
+    let value = window.scrollY;
 
 
-text.style.top = 50 + value * -0.5 + '%';
+text.style.top = 50 + value * -0.25 + '%';
 
-bird1.style.top = value * -1.5 + 'px';
-bird1.style.left = value * 2 +'px';
+bird1.style.top = value * -0.75 + 'px';
+bird1.style.left = value * 1 +'px';
 
-bird2.style.top = value * -1.5 + 'px';
-bird2.style.left = value * -5 + 'px';
+bird2.style.top = value * -0.75 + 'px';
+bird2.style.left = value * -2.5 + 'px';
 
-btn.style.marginTop = value * 1.5 + 'px';
+btn.style.marginTop = value * 0.75 + 'px';
 
-rocks.style.top = value * -0.12 + 'px';
+rocks.style.top = value * -0.06 + 'px';
 
-forest.style.top = value * 0.25 + 'px';
+forest.style.top = value * 0.125 + 'px';
 
-header.style.top = value * -0.5 + 'px';
+header.style.top = value * -0.25 + 'px';
+
+
+
 
 })
-*/
+}
+
 /* slut på parallax scriptet */
            
 </script>
 
 </head>
+<!--
 <body>
+    -->
+<body onload="somefunction()">
 <!--
 <body onload="onload_function()">
 
@@ -679,8 +685,6 @@ Other colors:
 #4f899e
 #694256
 #555849
-
-
 
 <div id="menu">
     -->
@@ -861,6 +865,5 @@ Other colors:
       </div>
 
       -->
-
 </body>
 </html>
