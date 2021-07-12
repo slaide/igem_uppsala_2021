@@ -84,6 +84,11 @@ body {
   transform: rotate(45deg) translate(-8px, -8px);
 }
 
+.overlay .closebtn{
+    margin-top: -37px;
+    margin-left: -45px;
+}
+
 
 
 </style>
@@ -92,7 +97,7 @@ body {
 
 <div id="myNav" class="overlay">
 <a href="javascript:void(0)" class="closebtn" onclick="Nav()">
-        <div class="container" onclick="myFunction(this)">
+        <div class="container" onclick="myFunction()">
             <div class="bar1"></div>
             <div class="bar2"></div>
             <div class="bar3"></div>
@@ -108,7 +113,7 @@ body {
 
 <div class="closebtn">
 <span style="font-size:30px;cursor:pointer" onclick="Nav()">
-    <div class="container" onclick="myFunction(this)">
+    <div class="container" onclick="myFunction()">
         <div class="bar1"></div>
         <div class="bar2"></div>
         <div class="bar3"></div>
@@ -136,12 +141,15 @@ function Nav() {
 
 
 
-/* blabla*/
+/* blabla
 function myFunction(x) {
-  x.classList.toggle("change");
+    x.classList.toggle("change");
+} */
+
+function myFunction() {
+   var element = document.getElementsByClassName(".container");
+   element.classList.toggle(".container.change");
 }
-
-
 
 </script>
      
