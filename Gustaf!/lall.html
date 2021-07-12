@@ -7,13 +7,14 @@
 <meta charset=utf-8>
 
 <style>
-/*
+
 *{
             margin:0;
             border:0;
             padding:0;
+            font-family:'Poppins', sans-serif;
         }
-        */
+        
 
 :root {
     --f-primary: "For sponsoring",Verdana;
@@ -25,6 +26,7 @@
 }
 
 /* start of parallax */
+/*
 .parallax {
   background-image: url("adamsandler.jpeg");
   min-height: 300px; 
@@ -37,16 +39,153 @@
   padding-top:10%;
   margin-left:0%;
 }
+*/
 /* want to do an advanced parallax thing with moving parts */
 /* Source from youtube: https://www.youtube.com/watch?v=mgk_2d4lhm8&t=407s&ab_channel=OnlineTutorials
 */
 
+#header{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    padding:30px 100px;
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    z-index:100;
+}
+
+body{
+  min-height:100vh;
+  margin:0;
+  padding:0;
+  background-color:#fff;
+  overflow-x:hidden;
+}
+
+header .logo
+{
+    color:#094b65;
+    font-weight:700;
+    text-decoration:none;
+}
+
+#header ul {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:50%;
+}
+
+
+#header ul li 
+{
+    list-style:none;
+    margin-left:20px;
+
+}
+
+
+#header ul li a {
+    text-decoration:none;
+    padding: 6px 15px;
+    color: #094b65;
+    border-radius: 20px;
+}
+
+#header ul li a:hover, 
+#header ul li a.active
+{
+    background: #094b65;
+    color:#fff;
+}
+
+section{
+    position:relative;
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+section::before{
+    content: '';
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:100px;
+    background: linear-gradient(to top, #094b65,transparent);
+    z-index:10;
+}
+
+section img{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    pointer-events:none;
+}
+
+section #text
+{
+    position:absolute;
+    color:#094b65;
+    font-size:10vw;
+    text-align:center;
+    line-height: 0.55em;
+    font-family:geneva;
+    transform:translateY(-50%);
+}
+
+section #text span{
+    font-size: 0.20em;
+    letter-spacing:2px;
+    font-weight:400;
+    font-family:'Poppins', sans-serif;
+}
+
+#btn{
+    text-decoration:none;
+    display:inline-block;
+    padding: 8px 30px;
+    background: #fff;
+    color: #094b65;
+    font-size: 1.2em;
+    font-weight:500;
+    letter-spacing: 2px;
+    border-radius:40px;
+    transform: translateY(110px);
+
+}
+
+.sec{
+    position:relative;
+    padding:100px;
+    background: #094b65;
+}
+
+.sec h2{
+    font-size:3.5em;
+    color:#fff;
+    margin-bottom:10px;
+}
+
+.sec p {
+    font-size: 1em;
+    margin-bottom:10px;
+    color: #fff;
+}
 
 
 
 
 /* end of parallax */
-
+/*
 
 .infobox {
 position: absolute;
@@ -78,7 +217,7 @@ animation-fill-mode:forwards;
     transform:scale(1,3);
 }
 /* end of infobox (that is inside of the parallax) */
-
+/*
 #igemloginbar{ 
             width:100%;
             background-color:grey;
@@ -101,10 +240,11 @@ animation-fill-mode:forwards;
 
 
 html,body{
-  height:100%;
+  min-height:100vh;
   margin:0;
   padding:0;
   background-color:pink;
+  overflow-x:hidden;
 }
 
 
@@ -187,6 +327,7 @@ li.dropdown {
         }
 
 /* till topbaren */
+/*
 .logotype{
     float:left;
     width:8%;
@@ -208,6 +349,7 @@ li.dropdown {
 }
 
 /* for the sponsoring part */
+/*
 .boxb1 {
             height: 100%;
             width: 100%;
@@ -221,9 +363,10 @@ li.dropdown {
             /*font-weight:400;
             font-size:1.3125rem;
             line-height:1;
+            }
             */
-        }
-
+        
+/*
         .boxb2 {
             height: 100%;
             width: 100%;
@@ -363,7 +506,7 @@ parallax mask tips
 /* annan parallax video
 https://www.youtube.com/watch?v=mgk_2d4lhm8&t=407s&ab_channel=OnlineTutorials
 */
-
+/*
 .buttoncontainer{
     height:80px;
     position:relative;
@@ -377,11 +520,15 @@ https://www.youtube.com/watch?v=mgk_2d4lhm8&t=407s&ab_channel=OnlineTutorials
     transform:translate(-50%, -50%);
     
 }
+*/
 
 </style>
 
 <script>
+    
 /* function for the navigation bar to go away after scroll */
+
+/*
   window.onscroll=function(){myFunction()};
 
 function myFunction(){
@@ -392,6 +539,7 @@ function myFunction(){
     document.getElementById("menu").style.width = "100%";
   }
 }
+*/
 
            /* new better scrollfunction from patrick */
            /*
@@ -416,7 +564,7 @@ function myFunction(){
 /* script for the moving parts in the parallax 
 https://www.youtube.com/watch?v=mgk_2d4lhm8&t=407s&ab_channel=OnlineTutorials
 */
-
+/*
 Let text = document.getElementById('text');
 Let bird1 = document.getElementById('bird1');
 Let bird2 = document.getElementById('bird2');
@@ -442,20 +590,87 @@ btn.style.marginTop = value * 1.5 + 'px';
 
 rocks.style.top = value * -0.12 + 'px';
 
+forest.style.top = value * 0.25 + 'px';
+
+header.style.top = value * -0.5 + 'px';
+
 })
+*/
 /* slut på parallax scriptet */
            
 </script>
 
 </head>
-
+<body>
+<!--
 <body onload="onload_function()">
 
   <div id="igemloginbar">
     IGEM LOGIN BAR
 </div>
 
-      <!-- Best colors:
+-->
+     
+
+<header id="header">
+<a href="#" class="logo"> Jungle</a>
+<ul>
+    <li><a href="#" class="active">Home </a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Destination </a></li>
+    <li><a href="#">Contact</a></li>
+</ul>
+</header>
+
+<section>
+    <h2 id="text"><span>It's time for a new </span><br>Adventure</h2>
+    <img src="bird1.png" id="bird1">
+    <img src="bird2.png" id="bird2">
+    <img src="forest.png" id="forest">
+    <a href="#" id="btn">Explore</a>
+
+    <img src="rocks.png" id="rocks">
+    <img src="water.png" id="water">
+</section>
+
+<div class="sec">
+
+    <h2>Parallax Scrolling Effect</h2>
+    
+    <p>Sharing is caring, especially when it comes to safety knowledge. To make sure that everyone understood and followed the rules needed for a safe-laboratory environment, we organized an introductory week before entering the lab, where the whole team participated in three mandatory activities, a laboratory safety round, a biosafety workshop and a waste disposal course. For the first, fire extinguishers, first aid kits and showers were introduced, as well as emergency exits and chemical room organization. For the second, Good Laboratory Practices (GLP) were explained, along with a practical demonstration of pipetting and safe glove removal techniques.
+    </p>
+
+    <p>The waste disposal course was held by the safety officer on our campus. The course was composed of a tour around the waste disposal facilities in Uppsala University and a detailed demonstration about the correct labelling and transportations measures for laboratory waste-bins and chemical waste containers. At the end of the tour, each participant was given a diploma allowing them to handle all waste products that were produced in the lab.
+ </p>
+
+ <p>Lab leaders attended an introduction for the handling of the autoclave and the dishwasher. Additionally, the most experienced students organized lessons showing the basic techniques in synthetic biology, as gel casting or working safely under the flame.</p>
+
+ <p>Our wet lab work was carried in a BSL-1 (Biosafety Level 1) laboratory. Basic PPE (Personal Protective Equipment), including a laboratory coat, protective eyewear and gloves according to indications were enforced. Gloves were discarded immediately after use. For our experiments we used Escherichia coli (Strains DH5α, BL21(DE3)) and Bacillus subtilis w168, all included in the iGEM white-list and suited to be handled safely in our installations, without the need of extra protective equipment. Dangerous chemicals were handled in a fume hood.
+ </p>
+
+ <p>Lab work is often coupled with long and stressful days, which can be a potential hazard on their own. Therefore we made sure to communicate any errors in our routines during group meetings and to remind each other our responsibilities. A special lab-question communication channel in slack was accessible for any questions and concerns. To keep the lab in order, different lab groups rotated between responsibility of cleaning the lab, i.e. taking care of used glassware.
+ </p>
+
+ <p>Our goal is to modify first the Gram-negative bacteria Escherichia coli and second the Gram-positive Bacillus subtilis so they express the different parts composing the biosensor fusion proteins containing the nanobodies for detection, T7 promoter amplification loop and β-galactosidase as output signal.</p>
+
+ <p>When designing the prototype we kept in mind the user and the potential risks leading to releases of the organisms to the environment in mind. Accidents and/or mistakes could happen during the research and development, production, distribution, usage and discard of our biosensor. According to that, we have developed our prototype (see > Kit design) and worked accordingly guidelines of our universities regarding safety preconditions in the lab. For our case study “Tuberculosis disease” we have also taken into account possible social concerns and conflicts that could arise upon a stigmatised disease/infection being easily detected (see  Human practice).</p>
+
+ <p>We have assessed the risk of our genetically modified bacteria (GMO) reaching the environment and deem it as relatively low. The proteins and other elements included in the bacteria are naturally occurring, and the fitness cost of carrying all this extra genetic material is likely to lead to bacterial death outside a controlled environment. The antibiotic-resistant genes included in the genome of our bacteria are standard for this kind of research. Further development of the biosensor would entail integrating a kill switch (see Future). Upon actual product development necessary evaluations and risk assessment aimed for different user groups should be carried out.</p>
+
+ <p>For the whole project we have taken special care regarding ethics concerns in research, by attributing every contribution to its author, either inside or outside the team, as well as asking for permission and double-checking the content before its publication for the latter.</p>
+
+ 
+ <p>During the spring period of 2020, all our activities were switched to a digital format. Later, during the summer months, we got an exemption from digital education after presenting an action plan with extra safety measures to contain potential outbreaks. The plan included social distancing, extra cleaning stations, maximum number of people allowed per room and personal equipment like portable hand disinfectant or face shields. These measures were enforced not just in the lab but also in the lunchroom and group rooms. Team members suspecting any symptoms were encouraged to stay home. As one of the few courses exempted from the distance studies during summer we shared our feedback and concerns with the Biological Education center, department that coordinates all bachelor's and master's education in biology at Uppsala University to help organize courses returning to campus during autumn 2020 in the settings of a pandemic.</p>
+
+</div>
+
+<!-- RESTEN NEDANFÖR ÄR GAMMALT FRÅN SIDEPAGESFGFTURUE.HTML-->
+
+<!--
+TO DO FÖR DENNA SIDA
+gör sponsordelen snyggare med typ fb länk från bild och instagram med.
+
+ Best colors:
       #426968 (main)
 #dce1de (background)
 #6d1d23 (highlight)
@@ -464,20 +679,20 @@ Other colors:
 #4f899e
 #694256
 #555849
--->
 
-<!-- TO DO FÖR DENNA SIDA
 
-gör sponsordelen snyggare med typ fb länk från bild och instagram med.
-
--->
 
 <div id="menu">
+    -->
      <!-- clickable bild -->
+     <!--
      <ul>
         <a href='https://2020.igem.org/Team:UofUppsala'>
           <img class="logotype" src="fundpage.png">
+          -->
           <!-- cow_logo.png-->
+
+          <!--
       </a>
         
             <li class="dropdown">
@@ -528,9 +743,10 @@ gör sponsordelen snyggare med typ fb länk från bild och instagram med.
               <li><a href="https://2020.igem.org/Team:UofUppsala/Awards">Awards</a></li>
           </ul>
         </div>
-
+-->
 
 <!-- Page 1 -->
+<!--
 <div class="parallax">
 
     <div class="infobox">
@@ -612,8 +828,10 @@ gör sponsordelen snyggare med typ fb länk från bild och instagram med.
                 </div>
 
 </div>
-
+-->
   <!-- Nu sponsordelen! -->
+
+  <!--
       
         <div class="grid-container-bottom">
           <div class="boxb1">
@@ -641,5 +859,8 @@ gör sponsordelen snyggare med typ fb länk från bild och instagram med.
                 <img src="systemet.png" width="30%" height="100%">
           </div>
       </div>
+
+      -->
+
 </body>
 </html>
