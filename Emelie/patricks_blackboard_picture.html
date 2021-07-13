@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>iGEM Uppsala 2021</title> 
+
+        <style>
+             *{
+            margin:0;
+            border:0;
+            padding:0;
+        }
+
+    body, html{
+        height: 100%;
+    }
+
+    body{
+        background-color:rgb(159, 187, 219);
+    }
+
+    .igem-head-bar{
+        height: 16px;
+        width:100%;
+        background-color: rgb(65, 65, 65);
+        position: fixed;
+        z-index: 7000;
+    }
+
+    h1{
+        text-align: center;
+        font-size: 10em;
+        color: chocolate;
+        animation: fadeIn linear 7s;
+}
+
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+    .container {
+        display: flex;
+        flex-direction: row;
+        margin: 20px;
+    }
+
+    .container > div {
+            width:100%;
+            height: 100%;
+            margin: 10px;
+            text-align: center;
+            line-height: 75px;
+            font-size: 30px;
+            border-radius: 20px;
+            padding: 0px;
+    } 
+
+    .vertical-menu {
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 5;
+    }
+
+    .textboxes {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .pictures {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin:20px;
+    }
+
+
+    .intro_box {
+            padding: 10px;
+            border: 4px solid rgb(70, 112, 103); border-radius: 25px;
+            background-color: white;
+            margin: 50px;
+        }
+
+    .lab_box {
+            padding: 10px;
+            border: 4px solid rgb(70, 112, 103); border-radius: 25px;
+            background-color: white;    
+            margin: 50px;
+    }
+
+    .vertical-menu {
+        width: 200px;
+        }
+
+    .vertical-menu a {
+        background-color: #dce1de;
+        color: #426968;        
+        display: block; 
+        text-align: center;
+        padding: 24px;
+        text-decoration: none; 
+        }
+
+    .vertical-menu a:hover {
+        background-color: #ccc; 
+        }
+
+    .vertical-menu a.active {
+        background-color: #6d1d23;
+        color:#dce1de;
+        }
+
+    .steakbox {
+        margin: 250px;
+    }
+
+    .steak {
+      position: relative;
+      z-index: 1;
+      top: 0;
+      left: 0;
+    }
+
+    .syringe {
+      position: absolute;
+      z-index: 2;
+      top: 10px;
+      left: 500px;
+    }
+
+    .syringetext {
+        opacity: 0;
+        border:4px solid rgb(255, 255, 255); border-radius: 25px;
+        text-align: center;
+        font-size: 1em;
+        transition: all 0.5s;
+        position: absolute;
+        top: 10px;
+        left: 650px;
+    }
+
+    .syringe:hover ~  .syringetext {
+        opacity: 1;
+    }
+
+    .fire {
+        position: absolute;
+        z-index: 2;
+        top: 320px;
+        left: 70px;
+    }
+
+    .fire:hover {
+        border-radius: 50%;
+        transition: all 0.25s;
+    }
+
+    .emission {
+        position: absolute;
+        z-index: 2;
+        top: 10px;
+        left: 70px;
+    }
+
+    .emissiontext {
+        opacity: 0;
+        border:4px solid rgb(255, 255, 255); border-radius: 50px;
+        text-align: center;
+        font-size: 1em;
+        transition: all 0.5s;
+        position: absolute;
+        top: 10px;
+        left: 70px;
+    }
+
+    .emission:hover ~ .emissiontext {
+        opacity: 1;
+        z-index: 3;
+    }
+
+        </style>
+
+    </head>
+
+
+    <body>
+        <div class="igem-head-bar">
+        </div>
+
+        <h1>FGFuture</h1>
+
+        <div class="container">
+
+            <div class="vertical-menu">
+                <a href="#" class="active">Intro</a>
+                <a href="#">Team</a>
+                <a href="#">Lab</a>
+              </div>
+
+            <div class="textboxes">
+            
+            <div class="intro_box" style="padding: 20px;">
+                <h2 style="text-align: right;">INTRO</h2>
+                TEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXT
+                <br> TEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXT
+                <br> TEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXT
+                <br> TEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXT
+                
+            </div>
+
+            <div class="lab_box" style="padding: 20xp;">
+                <h2 style="text-align: right;">LAB</h2>
+                TEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXT
+                <br> TEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXT
+                <br> TEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXT
+                <br> TEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXT
+
+            </div>
+
+            <div class="pictures" style="margin: 20xp;">
+                <img src="cow_logo.png" width="200px" height="200px"> 
+                <img src="cow_logo.png" width="200px" height="200px"> 
+                <img src="cow_logo.png" width="200px" height="200px">
+                <img src="cow_logo.png" width="200px" height="200px">
+
+            </div>
+
+            <div class="steakbox" style="position: relative; left: 0; top: 0;">
+                <img src="steak.jpg" width="500px" height="400xp" class="steak">
+                <img src="syringe.jpg" width="100xp" height="100xp" class="syringe">
+                <img src="fire.jpg" width="100xp" height="100xp" class="fire">
+                <img src="gas emission.jpg" width="100xp" height="100xp" class="emission">
+                
+                <div class="syringetext">
+                    <p>Antibiotics blablabla</p>
+                </div>
+
+                <div class="emissiontext">
+                    <p> Cows</p>
+                 </div>
+                
+            </div>
+            
+            </div>
+       
+
+        </div>
+        
+
+
+    </body>
+
+
+</html>
