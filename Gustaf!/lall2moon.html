@@ -88,7 +88,6 @@ https://www.youtube.com/watch?v=TawH-AqHTXc&ab_channel=OnlineTutorials
     color: #fff;
 }
 
-
       /* NOW STUFF FOR THE COOL BOX TRICK from
       https://www.youtube.com/watch?v=jMbWDcc5oNc&ab_channel=OnlineTutorials
       */
@@ -134,7 +133,6 @@ align-items:center;
     background:linear-gradient(315deg, #00ccff, #0e1538,#d400d4);
 }
 
-
 .box span{
     position:absolute;
     top:0px;
@@ -161,7 +159,7 @@ background:#fff;
 display:flex;
 justify-content:center;
 align-items:center;
-transform:rotate(45deg);
+transform:rotate(30deg);
 }
 
 .box2::before{
@@ -184,7 +182,7 @@ transform:rotate(45deg);
     bottom:-4px;
     transform:skewX(-2deg) skewY(-4deg);
     filter:blur(100px);
-    background:linear-gradient(315deg, yellow, #0e1538,green);
+    background:linear-gradient(315deg, red, #0e1538,green);
 }
 
 .box2 span{
@@ -200,12 +198,131 @@ transform:rotate(45deg);
 .box2 h2{
     position:relative;
     z-index:11;
-    transform:rotate(-45deg);
+    transform:rotate(-30deg);
     color:transparent;
     background-image:url(adamsandler.jpeg);
     background-size:cover;
     font-size:10em;
 }
+
+/* trying to make another cool box */
+.box3{
+    position:relative;
+    width:300px;
+    height:400px;
+background:#fff;
+display:flex;
+justify-content:center;
+align-items:center;
+transform:rotate(40deg);
+}
+
+.box3::before{
+    content:'';
+    position:absolute;
+    top:-4px;
+    left:-4px;
+    right:-4px;
+    bottom:-4px;
+    transform:skewX(-2deg) skewY(-4deg);
+    background:linear-gradient(315deg, yellow, #0e1538,green);
+
+}
+
+.box3::after{
+    content:'';
+    position:absolute;
+    top:-4px;
+    left:-4px;
+    right:-4px;
+    bottom:-4px;
+    transform:skewX(-2deg) skewY(-4deg);
+    filter:blur(100px);
+background:linear-gradient(315deg, yellow, #0e1538,green);
+
+}
+
+.box3 span{
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100%;
+    background-image:url(adamsandler.jpeg);
+    background-size:cover;
+    
+    z-index:10;
+}
+/*
+.box3 h2{
+    position:relative;
+    z-index:11;
+    transform:rotate(-45deg);
+    color:gr;
+    font-size:10em;
+}
+*/
+
+/* for nightmode */
+
+.nightmode{
+    display:flex;
+    justify-content:center;
+align-items:center;
+    min-height:100vh;
+    box-sizing:border-box;
+}
+
+body.active{
+    background:#f8f8f8;
+
+}
+
+#toggle{
+    position:relative;
+    display:block;
+    width:320px;
+    height:160px;
+    cursor:pointer;
+    border-radius:160px;
+    background:#222;
+    transition:0.5s;
+    box-shadow:inset 0 8px 60px rgba(0,0,0,0.1),
+    inset 0 8px 8px rgba(0,0,0,0.1),
+    inset 0 8px 8px rgba(0,0,0,0.1),
+    inset 0 -4px 4px rgba(0,0,0,0.1);
+}
+
+#toggle.active{
+    background:#fff;
+    box-shadow: inset 0 2px 60px rgba(0,0,0,0.1),
+    inset 0 2px 8px rgba(0,0,0,0.1),
+    inset 0 -4px 4px rgba(0,0,0,0.05),
+}
+
+#toggle .indicator {
+    position:absolute;
+    left:0;
+    top:0;
+    width:160px;
+    height:160px;
+    background:linear-gradient(to bottom,#444,#222);
+    border-radius:50%;
+    transform:scale(0.9);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.5),
+    inset 0 4px 4px rgba(255,255,255,0.2),
+    inset 0 -4px 4px rgba(255,255,255,0.2);
+    transition:0.5s;
+}
+
+#toggle.active .indicator{
+    left:160px;
+    background:linear-gradient(to bottom,#eaeaea,#f9f9f9);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1),
+    inset 0 4px 4px rgba(255,255,255,1),
+    inset 0 -4px 4px rgba(255,255,255,1);
+}
+/* finished with the nightmode */
 
   </style>
 
@@ -279,37 +396,48 @@ https://www.youtube.com/watch?v=jMbWDcc5oNc&ab_channel=OnlineTutorials
 
     <div class="boxsection">
         
-<div class="box">
-    
-    <span></span>
-    <h2>01</h2>
-
-   
-</div>
-
-
-
-</div>
+         <div class="box">
+             <span></span>
+             <h2>01</h2>  
+        </div>
+    </div>
 <!-- another one -->
 
-<div class="boxsection">
-        
+<div class="boxsection">  
     <div class="box2">
-        
         <span></span>
         <h2>01</h2>
-    
-       
     </div>
     
-    
-    
-    </div>
+</div>
 
-
-
+    <!-- and another one  -->
+    <div class="boxsection">
         
+        <div class="box3"> 
+            <span></span>
+            <h2>05</h2>
+        </div>
+    </div>
 
+<!-- Nu nightmode grejen https://www.youtube.com/watch?v=gzCUq_VQ7Y8&ab_channel=OnlineTutorials
+-->
+<div class="nightmode">
+    <div id="toggle">
+        <i class="indicator"></i>
+    </div>
+
+</div>
+
+<script>
+    /* for the nightmode thing */
+    const body = document.querySelector('body');
+    const toggle = document.getElementById('toggle');
+    toggle.onclick = function(){
+        toggle.classList.toggle('active');
+        body.classList.toggle('active');
+    }
+</script>
 
   </body>
   </html>
