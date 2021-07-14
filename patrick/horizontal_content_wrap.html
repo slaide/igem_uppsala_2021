@@ -129,7 +129,7 @@
                             return `<h2 id='${content_name}' style='color:red;'>${content_data}</h2>`
                         }else if(content_type===images){
                             let content_data=content_type[content_name]
-                            return `<br><br><img src='${ content_data}' style="width:100%; height:auto;" width=${width} height=${image_sizes[content_name].height/(image_sizes[content_name].width/width)}><br><br>`
+                            return `</div><br><br><img src='${ content_data}' style="width:100%; height:auto;" width=${width} height=${image_sizes[content_name].height/(image_sizes[content_name].width/width)}><br><br><div>`
                         }
                         window.alert("unknown content_type:",in_el.split(":")[0])
                     }else{
@@ -142,13 +142,13 @@
 
                 //convenience function that combines a slice of the text array (whole text is split into sentences) into a block of text that includes puncutation only in relevant places
                 function get_text_until(last_index){
-                    let myinnertext=text.slice(0,last_index).map((el)=>{
+                    let myinnertext="<div>"+(text.slice(0,last_index).map((el)=>{
                         if (el.slice(el.length-1,el.length)==">"){
                             return el
                         }else{
                             return el+". "
                         }
-                    }).join("").replace(/\. \./g,".").replace(/\. \./g,".")
+                    }).join("").replace(/\. \./g,".").replace(/\. \./g,"."))+"</div>"
 
                     if (myinnertext[0]=="\n"){
                         myinnertext=myinnertext.slice(1)
@@ -157,8 +157,12 @@
                     return myinnertext
                 }
 
+                let current_column_index=0
+
                 //setup images covering two columns
                 let last_column_contains_wide_image=false
+                let last_image_top=0
+                let last_image_height=0
 
                 //while some sentences are left, create a new column and fill it with as much text as possible
                 while(last_fit_index<(text_slice_length+1)){
@@ -172,19 +176,72 @@
                     new_section.appendChild(new_section_inner)
                     actual_content.appendChild(new_section)
 
+                    if(!(actual_content.children.length==(current_column_index+1))){
+                        window.alert("motherfucker")
+                    }
+
+                    let fixed_inner_html=""
+
+                    let current_max_height=max_height
+
+                    function actual_height(el){
+                        return el.clientHeight+el.offsetTop
+                    }
+
+                    if(last_column_contains_wide_image){
+                        if(actual_content.children[current_column_index-1]
+                            .children[0].children[0].tagName=="DIV"
+                        ){
+                            current_max_height=Number(actual_content.children[current_column_index-1].children[0].children[0].clientHeight)
+                            console.log(actual_content.children[current_column_index-1].children[0].children[0])
+                        }else{
+                            current_max_height=0
+                        }
+                    }
+
                     //while the height of the content of the column has not reached the maximum height we set for all columns, add a sentence
-                    while(new_section.getBoundingClientRect().height<max_height && last_fit_index<(text_slice_length+1)){
+                    while(new_section.clientHeight<=current_max_height && last_fit_index<(text_slice_length+1)){
+                        if(last_column_contains_wide_image){
+                            console.log(new_section.clientHeight,current_max_height)
+                        }
                         last_fit_index+=1
                         new_section_inner.innerHTML=get_text_until(last_fit_index)
                     }
                     
                     //the last sentence we added has increased the height of the column to a value larger than what we actually want, so remove the last sentence
                     let inner_text=get_text_until(last_fit_index-1)
-                    new_section_inner.innerHTML=inner_text
 
                     //remove the used sentences from the sentence array
                     text=text.slice(last_fit_index-1)
                     text_slice_length=text.length
+
+                    if(last_column_contains_wide_image){
+                        let fixed_inner_html=inner_text
+
+                        //make sure at least one element precedes the empty space for the wide image
+                        new_section_inner.innerHTML+="<div style='display:none;'></div>"
+
+                        let self_height=actual_content.children[current_column_index-1].children[0].children[0].clientHeight+
+                        actual_content.children[current_column_index-1].children[0].children[1].clientHeight+
+                        actual_content.children[current_column_index-1].children[0].children[2].clientHeight+
+                        actual_content.children[current_column_index-1].children[0].children[3].clientHeight-new_section_inner.children[0].clientHeight
+
+                        fixed_inner_html+=`<div style="height:${self_height}px;background-color:green;"></div><br>`
+
+                        //run the loop from above again to add the second text block below the image
+                        last_fit_index=0
+                        while(new_section.clientHeight<=max_height && last_fit_index<(text_slice_length+1)){
+                            last_fit_index+=1
+                            new_section_inner.innerHTML=fixed_inner_html+get_text_until(last_fit_index)
+                        }
+                        inner_text=fixed_inner_html+get_text_until(last_fit_index-1)
+
+                        //remove the used sentences from the sentence array
+                        text=text.slice(last_fit_index-1)
+                        text_slice_length=text.length
+                    }
+
+                    new_section_inner.innerHTML=inner_text
 
                     //currently experimental code that will allow images to cover 2 columns in the future
                     if (last_column_contains_wide_image){
@@ -196,8 +253,15 @@
                         if(child.tagName=="IMG"){
                             new_section.style.setProperty("background-color","blue")
                             last_column_contains_wide_image=true
+
+                            last_image_top=child.offsetTop
+                            last_image_height=child.height
+
+                            break
                         }
                     }
+
+                    current_column_index+=1
                 }
 
                 //set width of inner column container to combined width of all columns manually
