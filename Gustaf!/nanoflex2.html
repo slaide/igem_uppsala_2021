@@ -31,7 +31,7 @@
             background-color:slategrey;
             height:16px;
             top:0;
-            z-index:1;
+            z-index:2;
             position:fixed;
             text-align:center;
 }
@@ -117,7 +117,7 @@ li a {
   display: block;
   color: white;
   text-align: center;
-  padding: 14px 16px;
+  padding: 20px 18px;
   text-decoration: none;
 }
 
@@ -152,7 +152,7 @@ position:fixed;
 overflow:hidden;
 background-color: black;
 margin-top:16px;
-z-index:1;
+z-index:2;
 height:10%;
 }
 
@@ -252,6 +252,33 @@ h1{text-align:center;}
   #section2{height:1px;
 }
 
+.logotype{
+    float:left;
+    width:8%;
+    height:60px;
+    padding-top:0px;
+    padding-right:0px;
+    /* har overflow bilden är större än topbaren...
+    går ej att ha denna bild+denna topbar färg.... */
+    /*background-color:red; */
+   /* background-blend-mode: */
+    /*background-blend-mode:darken;*/
+    transition:all 1s;
+    
+}
+
+.toplogosticky{
+  background-image:url(adamsandler.jpeg);
+  background-size:cover;
+width:50px;
+height:50px;
+top:25px;
+left:10px;
+position:fixed;
+z-index:1;
+border-radius:50%;
+cursor:pointer;}
+
 
 </style>
 
@@ -267,6 +294,12 @@ function myFunction(){
     document.getElementById("menu").style.width = "100%";
   }
 }
+
+/* SCRIPT FOR CLICKBAIT LOGO UPP LEFt */
+function clickerfunction(){
+  document.getElementById("menu").style.width = "100%";
+}
+
 </script>
 
 
@@ -289,6 +322,10 @@ att det är flera alternativ där -->
 -->
 <div id="menu">
         <ul>
+          <a href='https://2020.igem.org/Team:UofUppsala'>
+            <img class="logotype" src="fundpage.png">
+            <!-- cow_logo.png-->
+        </a>
             <li class="dropdown">
                 <a href="javascript:void(0)" class="team">Project</a>
                 <div class="dropdown-content">
@@ -339,6 +376,9 @@ att det är flera alternativ där -->
           </ul>
 
         </div>
+<!-- Logga uppe vänster-->
+<div class="toplogosticky" onclick="clickerfunction()">
+</div>
 
 <div class="parallax">
 
