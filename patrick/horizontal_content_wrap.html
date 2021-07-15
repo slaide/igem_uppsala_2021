@@ -61,10 +61,14 @@
                 z-index:1;
             }
             sections > div{
-                padding:1.5vmin;
+                padding-top:1.5vmin;
+                padding-bottom:1.5vmin;
+                margin-left:1.5vmin;
+                margin-right:1.5vmin;
                 font-size: 1.6em;
                 cursor: pointer;
                 transition:padding 0.2s;
+                border-bottom: 1px solid black;
             }
             sections > div:hover{
                 padding-left:3.5vmin;
@@ -75,6 +79,29 @@
             }
         </style>
         <script>
+            let style_document=document.styleSheets[0].rules || document.styleSheets[0].cssRules
+
+            //(max) width of a column
+            let width=0
+            //max height of a column is 98vh, because the horizontal scrollbar at the bottom takes away some space, and 2vh works on my browsers. TODO check this on more browsers and screen sizes
+            let max_height=0
+            for (rule of style_document){
+                if(rule.selectorText=="content_slice"){
+                    width=window.innerWidth*rule.style.width.slice(0,-2)/100
+                    console.log(width)
+                }
+                if(rule.selectorText=="actualcontent"){
+                    max_height=window.innerHeight*rule.style.height.slice(0,-1)/100
+                    console.log(max_height)
+                }
+            }
+            if(width==0){
+                window.alert("max column width is 0!")
+            }
+            if(max_height==0){
+                window.alert("max column height is 0!")
+            }
+
             //horizontal scrolling does not work with <a> links, only with javascript
             function scroll_into_view_smooth(id){
                 let element=document.getElementById(id)
@@ -86,14 +113,10 @@
                 }
             }
 
-            //width of columns: 30vw
-            const width=window.innerWidth*0.30
-            //max height of a column is 98vh, because the horizontal scrollbar at the bottom takes away some space, and 2vh works on my browsers. TODO check this on more browsers and screen sizes
-            const max_height=window.innerHeight*0.98
 
             //the 3 structures below need to be filled with the relevant data to allow nice text formatting
             let headers={
-                HEADER1:"my very nice header",
+                HEADER1:"The first header",
             }
             let images={
                 PUPPIES:"https://wallpapercave.com/wp/R2Y75mP.jpg",
@@ -108,16 +131,28 @@
 
             //convert the text from the text template into nicely formatted columns
             function create_elements(){
+
                 //text template is contained in this element that is invisible on the actual page
                 let texttemplate=document.getElementsByTagName("texttemplate")[0]
 
                 //html element that is the column container
                 let actual_content=document.getElementsByTagName("actualcontent")[0]
 
+                //container of sidebar sections
+                let sections=document.getElementsByTagName("sections")[0]
+
+                //clear sections, actualcontent (only actually does something on resize)
+                while(actual_content.lastChild){
+                    actual_content.removeChild(actual_content.lastChild)
+                }
+                while(sections.lastChild){
+                    sections.removeChild(sections.lastChild)
+                }
+
                 //do some special formatting magic to create nice html code from e.g. image identifiers, headers etc.
                 let text=texttemplate.innerText.replace(/NEWLINE/g,"\n").split(". ").map((el)=>el.split("#").map((in_el,index)=>{
                     if (index%2!=0){
-                        //e.g. HEADER:HEADER1, or IMAGE:PUPPIES (also see tables above)
+                        //e.g. HEADER:HEADER1, or IMAGE:PUPPIES, or IMAGE:PUPPIES:LONG (also see tables above)
                         let el=in_el.split(":")
 
                         let content_type=el[0]
@@ -130,6 +165,14 @@
                         content_type=content_types[content_type]
                         if (content_type===headers){
                             let content_data=content_type[content_name]
+
+                            let sections_entry=document.createElement("div")
+                            sections_entry.innerText=content_data
+                            sections_entry.addEventListener("click",function(ev){
+                                scroll_into_view_smooth(content_name)
+                            })
+                            sections.appendChild(sections_entry)
+
                             return `<h2 id='${content_name}' style='color:red;'>${content_data}</h2>`
                         }else if(content_type===images){
                             let content_data=content_type[content_name]
@@ -274,7 +317,7 @@
             }
         </script>
     </head>
-    <body onload="create_elements()">
+    <body onload="create_elements()" onresize="create_elements()">
         <texttemplate>
             Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. NEWLINE
             At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. NEWLINE
@@ -282,7 +325,6 @@
         </texttemplate>
         <div id="lower_area">
             <sections>
-                <div onclick="scroll_into_view_smooth('HEADER1')">HEADER1</div>
             </sections> 
             <actualcontentwrapper>
                 <actualcontent>
