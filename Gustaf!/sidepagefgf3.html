@@ -47,16 +47,6 @@
             text-align:center;
 }
 
-.grid-container{
-            display: grid;
-            height: 100%;
-            grid-template-columns:repeat(40,1fr);
-            grid-template-rows:repeat(40,1fr);
-            overflow: hidden;
-            background-color: #426968;
-            border-top: 4px solid black;
-        }
-
 
 html,body{
   height:100%;
@@ -129,7 +119,7 @@ overflow:hidden;
 background-color: #426968;
 margin-top:16px;
 z-index:1;
-height:10%;
+height:10vh;
 }
 
 #menu:hover{overflow:visible;}
@@ -254,7 +244,7 @@ li.dropdown {
   width: 100%;
   background-color: #f1f1f1;
   height: 100%;
-  overflow: auto;
+  overflow: hidden;
   }
 
   .myli2{
@@ -312,16 +302,19 @@ margin-top:20px;
 
 texttemplate{
                 display:none;
+                margin-top:0%;
             }
             actualcontentwrapper{
                 height:100%;
+                margin-top:0px; /* 16 igem +74.3 topbar */
                 overflow-x:scroll;
                 display:block;
             }
             actualcontent{
-                height:98%;
+                height:80%;
+                margin-top:10%;
                 position:relative;
-                top:0;
+                top:0px;
                 display:block;
                 overflow:visible;
             }
@@ -351,6 +344,8 @@ texttemplate{
             
             sections{
                 width:100%;
+                height:85vh;
+                margin-top:90.3px;
                 border-right: 0.3vmin solid black;
                 z-index:1;
             }
@@ -379,7 +374,9 @@ texttemplate{
 </style>
 
 <script>
+    
 /* function for the navigation bar to go away after scroll */
+/*
   window.onscroll=function(){myFunction()};
 
 function myFunction(){
@@ -391,7 +388,9 @@ function myFunction(){
   }
 }
 
+*/
            /* new better scrollfunction from patrick */
+           /*
             const max=(a,b)=>a>b?a:b
             window.addEventListener("scroll",function(){
                 let steak=document.getElementById("steak");
@@ -408,6 +407,7 @@ function myFunction(){
                     steak.classList.remove("sticky_center");
                 }
             })
+            */
 </script>
 
 </head>
@@ -424,21 +424,6 @@ Other colors:
 #694256
 #555849
 -->
-
-<!-- TO DO FÖR DENNA SIDA
-
-fixa länkarna i texten
-
-gör en knapp
-
-gör sponsordelen snyggare med typ fb länk från bild och instagram med.
-
--->
-
-
-
-
-<!-- Page 1 -->
 
 <!-- PATRICKS SCRIPT-->
 <script>
@@ -686,7 +671,69 @@ gör sponsordelen snyggare med typ fb länk från bild och instagram med.
                   <!-- PATRICK -->
                   <body onload="create_elements()" onresize="create_elements()">
 
-                
+                    <!-- min igembar-->
+                    <div id="igemloginbar">
+                        IGEM LOGIN BAR
+                    </div>
+<!-- min navbar-->
+<div id="menu">
+    <!-- clickable bild -->
+    <ul>
+       <a href='https://2020.igem.org/Team:UofUppsala'>
+         <img class="logotype" src="fundpage.png">
+         <!-- cow_logo.png-->
+     </a>
+       
+           <li class="dropdown">
+               <a href="javascript:void(0)" class="team">Project<div class="triangle"></div></a>
+               <div class="dropdown-content">
+                 <a href="https://2020.igem.org/Team:UofUppsala/Description">Description</a>
+                 <a href="https://2020.igem.org/Team:UofUppsala/Design">Design</a>
+                 <a href="https://2020.igem.org/Team:UofUppsala/Engineering">Engineering success</a>
+                 <a href="https://2020.igem.org/Team:UofUppsala/Proof_Of_Concept">Proof of concept</a>
+               </div>
+             </li>
+           
+             <li class="dropdown">
+               <a href="javascript:void(0)" class="team">Lab<div class="triangle"></div></a>
+               <div class="dropdown-content">
+                 <a href="https://2020.igem.org/Team:UofUppsala/Results">Wet lab</a>
+                 <a href="https://2020.igem.org/Team:UofUppsala/Model">Dry</a>
+               </div>
+             </li>
+
+           <li><a href="https://2020.igem.org/Team:UofUppsala/Parts">Parts</a></li>
+           
+           <li class="dropdown">
+               <a href="javascript:void(0)" class="team">Future<div class="triangle"></div></a>
+               <div class="dropdown-content">
+                 <a href="https://2020.igem.org/Team:UofUppsala/Implementation">Implementation</a>
+                 <a href="https://2020.igem.org/Team:UofUppsala/Contribution">Contributions</a>
+               </div>
+             </li>
+
+           <li class="dropdown">
+             <a href="javascript:void(0)" class="team">Human Practices<div class="triangle"></div></a>
+             <div class="dropdown-content">
+               <a href="https://2020.igem.org/Team:UofUppsala/Human_Practices">Integrated Human Practices</a>
+               <a href="https://2020.igem.org/Team:UofUppsala/Education">Education</a>
+               <a href="https://2020.igem.org/Team:UofUppsala/Collaborations">Collaborations</a>
+             </div>
+           </li>
+           <li><a href="https://2020.igem.org/Team:UofUppsala/Safety">Safety</a></li>
+             </li>
+             <li class="dropdown">
+               <a href="javascript:void(0)" class="team">Team<div class="triangle"></div></a>
+               <div class="dropdown-content">
+                 <a href="https://2020.igem.org/Team:UofUppsala/Team">Meet the Team</a>
+                 <a href="https://2020.igem.org/Team:UofUppsala/Attributions">Attributions</a>
+               </div>
+             </li>
+             <li><a href="https://2020.igem.org/Team:UofUppsala/Awards">Awards</a></li>
+         </ul>
+       </div>
+
+                <!-- patricks del-->
                     <texttemplate>
                         Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh.Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. NEWLINE 
                         At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. NEWLINE
