@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <title>
+        Alex firewatch
+    </title>
+    <style>
+
+        body {
+            margin: 0;
+            font-family:Helvetica,Sans-serif;
+            overflow-x:hidden;
+        }
+        h1 {
+            text-align:center;
+        }
+        .page {
+            width:100vw;
+            height:100vh;
+            perspective:1px;
+            perspective-origin: center center;
+            overflow-x:hidden;
+        }
+        .overflow {
+            position:absolute;
+            width:100vw;
+            height:80vh;
+            top:100vh;
+            background-color:#FFF;
+        }
+        #parallax {
+            transform-style: preserve-3d;
+            height:120vh;
+        }
+        
+        .keyart_layer {
+            background-position: bottom center;
+            background-size: cover;
+            background-repeat: repeat-x;
+            position: absolute;
+            top:0;
+            right:0;
+            bottom:0;
+            left:0;
+        }
+        
+        #keyart-0 {
+            background-image: url('http://www.firewatchgame.com/images/parallax/parallax0.png');
+            background-color: #ffaf1b;
+            transform:translate3d(-11px,-46px,-1.3px) scale(2.3);
+        }
+        #keyart-1 {
+            background-image: url('http://www.firewatchgame.com/images/parallax/parallax1.png');
+            transform:translate3d(0,-47px,-.7px) scale(1.7);
+        }
+        #keyart-2 {
+            background-image: url('http://www.firewatchgame.com/images/parallax/parallax2.png');
+            transform:translate3d(0,-98px,-.4px) scale(1.6);
+        }
+        #keyart-3 {
+            background-image: url('http://www.firewatchgame.com/images/parallax/parallax3.png');
+            transform:translate3d(0,-2px,-.1px) scale(1.1);
+        }
+        #keyart-4 {
+            background-image: url('http://www.firewatchgame.com/images/parallax/parallax4.png');
+            transform:translate3d(0,35px,.1px) scale(.9);
+        }
+        #keyart-5 {
+            background-image: url('http://www.firewatchgame.com/images/parallax/parallax5.png');
+            transform:translate3d(0,84px,.2px) scale(.8);
+        }
+        #keyart-6 {
+            background-image: url('http://www.firewatchgame.com/images/parallax/parallax6.png');
+            transform:translate3d(0, 106px,.3px) scale(.7);
+        }
+        #keyart-7 {
+            background-image: url('http://www.firewatchgame.com/images/parallax/parallax7.png');
+            transform:translate3d(0,106px,.38px) scale(.65);
+        }
+        #keyart-8 {
+            background-image: url('http://www.firewatchgame.com/images/parallax/parallax7.png');
+            transform:translate3d(0, 111px,.45px) scale(.6);
+        }
+
+
+
+        .grid-container{
+            display: grid;
+            height: 100%;
+            grid-template-columns:repeat(4,1fr);
+            grid-template-rows:repeat(4,1fr);
+            overflow: hidden;
+            background-color: #426968;
+            border-top: 4px solid black;
+        }
+
+        
+        .boxsection{
+          background:#0e1538;
+          display:flex;
+          justify-content:center;
+          align-items:center;
+          min-height:100vh;
+        }
+
+        .box{
+            position:relative;
+            width:300px;
+            height:400px;
+            background:#fff;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .box::before{
+            content:'';
+            position:absolute;
+            top:-4px;
+            left:-4px;
+            right:-4px;
+            bottom:-4px;
+            transform:skewX(2deg) skewY(4deg);
+            background:linear-gradient(315deg, #6d1d23, #0e1538,#426968);
+        }
+
+        .box::after{
+            content:'';
+            position:absolute;
+            top:-4px;
+            left:-4px;
+            right:-4px;
+            bottom:-4px;
+            transform:skewX(2deg) skewY(4deg);
+            filter:blur(50px);
+            background:linear-gradient(315deg, #6d1d23, #0e1538,#426968);
+        }
+
+
+        .box span{
+            position:absolute;
+            top:0px;
+            left:0px;
+            width:100%;
+            height:100%;
+            background-image: url("https://i.pinimg.com/474x/23/4d/3f/234d3f3ad0c246f98e28b5872a6ab9e7.jpg");
+            background-repeat: no-repeat;
+            z-index:10;
+        }
+
+        .box h2{
+            position:relative;
+            z-index:11;
+            color:#fff;
+            font-size:10em;
+            margin-top: 700px;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="page">
+        <div class="keyart" id="parallax">
+            <div class="keyart_layer" id="keyart-8"></div>
+            <div class="keyart_layer" id="keyart-7"></div>
+            <div class="keyart_layer" id="keyart-6"></div>
+            <div class="keyart_layer" id="keyart-5"></div>
+            <div class="keyart_layer" id="keyart-4"></div>
+            <div class="keyart_layer" id="keyart-3"></div>
+            <div class="keyart_layer" id="keyart-2"></div>
+            <div class="keyart_layer" id="keyart-1"></div>
+            <div class="keyart_layer" id="keyart-0"></div>
+        </div>
+    </div>
+    <div class="grid-container">
+        <div class="boxsection">
+            <div class="box">
+                <span></span>
+                <h2>Alex</h2>
+            </div>
+        </div>
+        <div class="boxsection">
+            <div class="box">
+                <span></span>
+                <h2>Gura</h2>
+            </div>
+        </div>
+        <div class="boxsection">
+            <div class="box">
+                <span></span>
+                <h2>Tove</h2>
+            </div>
+        </div>
+        <div class="boxsection">
+            <div class="box">
+                <span></span>
+                <h2>Patr</h2>
+            </div>
+        </div>
+        <div class="boxsection">
+            <div class="box">
+                <span></span>
+                <h2>Team</h2>
+            </div>
+    </div>
+</body>
+</html>
