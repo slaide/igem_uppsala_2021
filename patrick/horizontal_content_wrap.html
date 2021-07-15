@@ -43,7 +43,8 @@
                 top:0;
                 display:block;
                 position:relative;
-                padding:2.5vmin;
+                --inner-content-slice-padding:2.5vmin;
+                padding:var(--inner-content-slice-padding);
                 font-size:1.3em;
                 text-align: justify;
             }
@@ -73,9 +74,53 @@
             sections > div:hover{
                 padding-left:3.5vmin;
             }
-            h2{
+            .expandable_image{
+                cursor:pointer;
+                z-index:1;
+            }
+            .narrow_image{
+                width:100%;
+                height:auto; /*this preserves the aspect ratio*/
+            }
+            .wide_image{
+                width:calc(200% + var(--inner-content-slice-padding)*2);
+                height:auto;
+            }
+            indent{
+                width:2ch;
+                display:inline-block;
+                margin:0;
+                padding:0;
+                border:0;
+            }
+            header{
+                font-size: 2em;
+                color:red;
                 padding-top:1em;
                 padding-bottom:1em;
+                font-weight: 600;
+            }
+            #image_overlay{
+                display:fixed;
+                left:0;
+                top:0;
+                height:100vh;
+                width:100vw;
+                float:left;
+                background-color:white;
+                background-blend-mode:multiply; /*for some reason, #lower_area has a height of 0 while this overlay is expanded, so this is useless*/
+                z-index:2;
+            }
+            .overlay_image{
+                width:70%;
+                height:auto;
+                left:50%;
+                top:50%;
+                position:relative;
+                transform:translateX(-50%) translateY(-50%);
+            }
+            .invisible{
+                display:none;
             }
         </style>
         <script>
@@ -129,6 +174,8 @@
                 'IMAGE':images
             }
 
+            const indent_code="<indent></indent>"
+
             //convert the text from the text template into nicely formatted columns
             function create_elements(){
 
@@ -150,7 +197,7 @@
                 }
 
                 //do some special formatting magic to create nice html code from e.g. image identifiers, headers etc.
-                let text=texttemplate.innerText.replace(/NEWLINE/g,"<br>").split(". ").map((el)=>el.split("#").map((in_el,index)=>{
+                let text=texttemplate.innerText.replace(/NEWLINE/g,`<br>${indent_code}`).split(". ").map((el)=>el.split("#").map((in_el,index)=>{
                     if (index%2!=0){
                         //e.g. HEADER:HEADER1, or IMAGE:PUPPIES, or IMAGE:PUPPIES:LONG (also see tables above)
                         let el=in_el.split(":")
@@ -173,14 +220,25 @@
                             })
                             sections.appendChild(sections_entry)
 
-                            return `<h2 id='${content_name}' style='color:red;'>${content_data}</h2>`
+                            return `
+                            <header id='${content_name}'>
+                                ${content_data}
+                            </header>${indent_code}`
                         }else if(content_type===images){
                             let content_data=content_type[content_name]
-                            if(content_additional){
-                                return `</div><br><br><img long=true src='${content_data}' style="width:calc(200% + 2.5vw); height:auto;" width=${width} height=${image_sizes[content_name].height/(image_sizes[content_name].width/width)}><br><br><div>`
-                            }else{
-                                return `</div><br><br><img src='${content_data}' style="width:100%; height:auto;" width=${width} height=${image_sizes[content_name].height/(image_sizes[content_name].width/width)}><br><br><div>`
-                            }
+                            let image_size=image_sizes[content_name]
+
+                            return `
+                            </div>
+                            <br><br>
+                            <img 
+                                class="expandable_image ${content_additional?"wide_image":"narrow_image"}" 
+                                src='${content_data}' 
+                                width=${image_size.width} height=${image_size.height}
+                                onclick="expand_image(event)"
+                            >
+                            <br><br>
+                            <div>${indent_code}`
                         }
                         window.alert("unknown content_type:",in_el.split(":")[0])
                     }else{
@@ -292,7 +350,7 @@
                     }
 
                     for(child of new_section_inner.children){
-                        if(child.tagName=="IMG" && child.getAttribute("long")){
+                        if(child.tagName=="IMG" && child.classList.contains("wide_image")){
                             last_column_contains_wide_image=true
 
                             last_image_top=child.offsetTop
@@ -315,6 +373,24 @@
                     actual_content.parentNode.scrollLeft += (ev.deltaY + ev.deltaX);
                 })
             }
+
+            function expand_image(ev){
+                let image_element=ev.target
+                let image_overlay=document.getElementById("image_overlay")
+                image_overlay.classList.remove("invisible")
+
+                if(image_overlay.children.length==2){
+                    image_overlay.removeChild(image_overlay.lastChild)
+                }
+
+                let big_image=document.createElement("img")
+                big_image.setAttribute("src",image_element.src)
+                big_image.classList.add("overlay_image")
+                image_overlay.appendChild(big_image)
+            }
+            function collapse_image(ev){
+                document.getElementById("image_overlay").classList.add("invisible")
+            }
         </script>
     </head>
     <body onload="create_elements()" onresize="create_elements()">
@@ -331,6 +407,9 @@
         
                 </actualcontent> 
             </actualcontentwrapper>
+        </div>
+        <div id="image_overlay" class="invisible">
+            <div style="height:100px;width:100px;background-color:red;float:right;" onclick="collapse_image()"></div>
         </div>
     </body>
 </html>
