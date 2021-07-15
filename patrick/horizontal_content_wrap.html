@@ -1,0 +1,294 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf8">
+        <style>
+            *{
+                margin:0;
+                padding:0;
+                border:0;
+            }
+            body{
+                height:100vh;
+                width:100vw;
+                overflow:hidden;
+                display:grid;
+                grid-template-rows: 1fr;
+                grid-template-columns: 1fr;
+                scroll-behavior: smooth;
+            }
+            texttemplate{
+                display:none;
+            }
+            actualcontentwrapper{
+                height:100%;
+                overflow-x:scroll;
+                display:block;
+            }
+            actualcontent{
+                height:98%;
+                position:relative;
+                top:0;
+                display:block;
+                overflow:visible;
+            }
+            content_slice{
+                top:0;
+                display:inline-block;
+                position:relative;
+                width: 30vw;
+                vertical-align: top;
+            }
+            content_slice_inner{
+                top:0;
+                display:block;
+                position:relative;
+                padding:2.5vmin;
+                font-size:1.3em;
+                text-align: justify;
+            }
+            #lower_area{
+                height:100%;
+                width:100%;
+                overflow:hidden;
+                display:grid;
+                grid-template-columns: 1.4fr 8fr;
+                grid-template-rows: 100%;
+            }
+            sections{
+                width:100%;
+                border-right: 0.3vmin solid black;
+                z-index:1;
+            }
+            sections > div{
+                padding:1.5vmin;
+                font-size: 1.6em;
+                cursor: pointer;
+                transition:padding 0.2s;
+            }
+            sections > div:hover{
+                padding-left:3.5vmin;
+            }
+            h2{
+                padding-top:1em;
+                padding-bottom:1em;
+            }
+        </style>
+        <script>
+            //horizontal scrolling does not work with <a> links, only with javascript
+            function scroll_into_view_smooth(id){
+                let element=document.getElementById(id)
+                //scroll smoothly, and jump directly (kinda scroll, but not really) on browsers that do not support scrolloptions (safari and internet explorer)
+                try{
+                    element.scrollIntoView({inline:'center',behavior:'smooth'})
+                }catch(e){
+                    element.scrollIntoView()
+                }
+            }
+
+            //width of columns: 30vw
+            const width=window.innerWidth*0.30
+            //max height of a column is 98vh, because the horizontal scrollbar at the bottom takes away some space, and 2vh works on my browsers. TODO check this on more browsers and screen sizes
+            const max_height=window.innerHeight*0.98
+
+            //the 3 structures below need to be filled with the relevant data to allow nice text formatting
+            let headers={
+                HEADER1:"my very nice header",
+            }
+            let images={
+                PUPPIES:"https://wallpapercave.com/wp/R2Y75mP.jpg",
+            }
+            let image_sizes={
+                PUPPIES:{width:1920,height:1080}
+            }
+            let content_types={
+                'HEADER':headers,
+                'IMAGE':images
+            }
+
+            //convert the text from the text template into nicely formatted columns
+            function create_elements(){
+                //text template is contained in this element that is invisible on the actual page
+                let texttemplate=document.getElementsByTagName("texttemplate")[0]
+
+                //html element that is the column container
+                let actual_content=document.getElementsByTagName("actualcontent")[0]
+
+                //do some special formatting magic to create nice html code from e.g. image identifiers, headers etc.
+                let text=texttemplate.innerText.replace(/NEWLINE/g,"\n").split(". ").map((el)=>el.split("#").map((in_el,index)=>{
+                    if (index%2!=0){
+                        //e.g. HEADER:HEADER1, or IMAGE:PUPPIES (also see tables above)
+                        let el=in_el.split(":")
+
+                        let content_type=el[0]
+                        let content_name=el[1]
+                        let content_additional=null
+                        if(el.length>2){
+                            content_additional=el[2]
+                        }
+
+                        content_type=content_types[content_type]
+                        if (content_type===headers){
+                            let content_data=content_type[content_name]
+                            return `<h2 id='${content_name}' style='color:red;'>${content_data}</h2>`
+                        }else if(content_type===images){
+                            let content_data=content_type[content_name]
+                            if(content_additional){
+                                return `</div><br><br><img long=true src='${content_data}' style="width:calc(200% + 2.5vw); height:auto;" width=${width} height=${image_sizes[content_name].height/(image_sizes[content_name].width/width)}><br><br><div>`
+                            }else{
+                                return `</div><br><br><img src='${content_data}' style="width:100%; height:auto;" width=${width} height=${image_sizes[content_name].height/(image_sizes[content_name].width/width)}><br><br><div>`
+                            }
+                        }
+                        window.alert("unknown content_type:",in_el.split(":")[0])
+                    }else{
+                        return in_el
+                    }
+                })).flat()
+
+                let text_slice_length=text.length
+                let last_fit_index=0
+
+                //convenience function that combines a slice of the text array (whole text is split into sentences) into a block of text that includes puncutation only in relevant places
+                function get_text_until(last_index){
+                    let myinnertext="<div>"+(text.slice(0,last_index).map((el)=>{
+                        if (el.slice(el.length-1,el.length)==">"){
+                            return el
+                        }else{
+                            return el+". "
+                        }
+                    }).join("").replace(/\. \./g,".").replace(/\. \./g,"."))+"</div>"
+
+                    if (myinnertext[0]=="\n"){
+                        myinnertext=myinnertext.slice(1)
+                    }
+
+                    return myinnertext
+                }
+
+                let current_column_index=0
+
+                //setup images covering two columns
+                let last_column_contains_wide_image=false
+                let last_image_top=0
+                let last_image_height=0
+
+                //while some sentences are left, create a new column and fill it with as much text as possible
+                while(last_fit_index<(text_slice_length+1)){
+                    last_fit_index=0
+
+                    //create html elements to contain the content
+                    let new_section=document.createElement("content_slice")
+                    let new_section_inner=document.createElement("content_slice_inner")
+
+                    //add them to the dom (document object model, basically the javascript representation of the html file)
+                    new_section.appendChild(new_section_inner)
+                    actual_content.appendChild(new_section)
+
+                    let fixed_inner_html=""
+
+                    let current_max_height=max_height
+
+                    if(last_column_contains_wide_image){
+                        current_max_height=actual_content.children[current_column_index-1].children[0].children[0].clientHeight
+                    }
+
+                    //while the height of the content of the column has not reached the maximum height we set for all columns, add a sentence
+                    new_section_inner.innerHTML=get_text_until(1)
+                    while(((last_column_contains_wide_image)?new_section_inner.children[0]:new_section_inner).clientHeight<=current_max_height && last_fit_index<(text_slice_length+1)){
+                        last_fit_index+=1
+                        new_section_inner.innerHTML=get_text_until(last_fit_index)
+                    }
+                    
+                    //the last sentence we added has increased the height of the column to a value larger than what we actually want, so remove the last sentence
+                    function max(a,b){
+                        if(a<b){
+                            return b
+                        }
+                        return a
+                    }
+                    let inner_text=get_text_until(max(last_fit_index-1,0))
+
+                    //remove the used sentences from the sentence array
+                    text=text.slice(last_fit_index-1)
+                    text_slice_length=text.length
+
+                    if(last_column_contains_wide_image){
+                        let fixed_inner_html=inner_text
+
+                        //make sure at least one element precedes the empty space for the wide image
+                        fixed_inner_html+="<div style='display:none;'></div>"
+
+                        new_section_inner.innerHTML=fixed_inner_html
+
+                        let self_height=actual_content.children[current_column_index-1].children[0].children[0].clientHeight+
+                        actual_content.children[current_column_index-1].children[0].children[1].clientHeight+
+                        actual_content.children[current_column_index-1].children[0].children[2].clientHeight+
+                        actual_content.children[current_column_index-1].children[0].children[3].clientHeight-new_section_inner.children[0].clientHeight
+
+                        //fixed_inner_html+=`<div style="height:${self_height}px;background-color:green;"></div><br>`
+                        fixed_inner_html+=`<div style="height:${self_height}px;"></div><br>`
+
+                        //run the loop from above again to add the second text block below the image
+                        last_fit_index=0
+                        while(new_section.clientHeight<=max_height && last_fit_index<(text_slice_length+1)){
+                            last_fit_index+=1
+                            new_section_inner.innerHTML=fixed_inner_html+get_text_until(last_fit_index)
+                        }
+                        inner_text=fixed_inner_html+get_text_until(last_fit_index-1)
+
+                        //remove the used sentences from the sentence array
+                        text=text.slice(last_fit_index-1)
+                        text_slice_length=text.length
+                    }
+
+                    new_section_inner.innerHTML=inner_text
+
+                    //currently experimental code that will allow images to cover 2 columns in the future
+                    if (last_column_contains_wide_image){
+                        last_column_contains_wide_image=false
+                    }
+
+                    for(child of new_section_inner.children){
+                        if(child.tagName=="IMG" && child.getAttribute("long")){
+                            last_column_contains_wide_image=true
+
+                            last_image_top=child.offsetTop
+                            last_image_height=child.height
+
+                            break
+                        }
+                    }
+
+                    current_column_index+=1
+                }
+
+                //set width of inner column container to combined width of all columns manually
+                let actual_content_width=actual_content.children.length*width+"px"
+                actual_content.style.setProperty("width",actual_content_width)
+
+                //convert vertical scroll motion into horizontal scroll
+                actual_content.parentNode.addEventListener('wheel', (ev) => {
+                    ev.preventDefault();
+                    actual_content.parentNode.scrollLeft += (ev.deltaY + ev.deltaX);
+                })
+            }
+        </script>
+    </head>
+    <body onload="create_elements()">
+        <texttemplate>
+            Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. NEWLINE
+            At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. NEWLINE
+            Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. #HEADER:HEADER1# At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. NEWLINE#IMAGE:PUPPIES# Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. #IMAGE:PUPPIES:LONG# Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor.
+        </texttemplate>
+        <div id="lower_area">
+            <sections>
+                <div onclick="scroll_into_view_smooth('HEADER1')">HEADER1</div>
+            </sections> 
+            <actualcontentwrapper>
+                <actualcontent>
+        
+                </actualcontent> 
+            </actualcontentwrapper>
+        </div>
+    </body>
+</html>
