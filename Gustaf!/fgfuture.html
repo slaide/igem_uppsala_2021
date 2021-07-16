@@ -357,7 +357,7 @@ position:fixed;
 overflow:hidden;
 background-color: #426968;
 margin-top:16px;
-z-index:1;
+z-index:2;
 height:10%;
 }
 
@@ -845,6 +845,20 @@ section>h3>i {
         margin-left:0px;
         }
 
+
+        .toplogosticky{
+  background-image:url(adamsandler.jpeg);
+  background-size:cover;
+width:50px;
+height:50px;
+top:25px;
+left:10px;
+position:fixed;
+z-index:1;
+border-radius:50%;
+cursor:pointer;}
+
+
 </style>
 
 <script>
@@ -858,6 +872,12 @@ function myFunction(){
   else {
     document.getElementById("menu").style.width = "100%";
   }
+}
+
+/* SCRIPT FOR CLICKBAIT LOGO UPP LEFt */
+function clickerfunction(){
+  document.getElementById("menu").style.width = "100%";
+
 }
 
 /* Patrick's scrollfunction with alex's changes (old now)
@@ -995,6 +1015,10 @@ Other colors:
               <li><a href="https://2020.igem.org/Team:UofUppsala/Awards">Awards</a></li>
           </ul>
         </div>
+
+<!-- Logga uppe vänster-->
+<div class="toplogosticky" onclick="clickerfunction()">
+</div>
 
 <!-- Page 1 -->
 <div class="parallax">
