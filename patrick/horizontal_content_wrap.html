@@ -55,6 +55,7 @@
                 display:grid;
                 grid-template-columns: 1.4fr 8fr;
                 grid-template-rows: 100%;
+                transition:filter 0.1s;
             }
             sections{
                 width:100%;
@@ -104,17 +105,27 @@
                 padding-bottom:1em;
                 font-weight: 600;
             }
+            /*the actual overlay panel*/
             #image_overlay{
-                display:fixed;
+                position:fixed;
+
                 left:0;
                 top:0;
                 height:100vh;
                 width:100vw;
+
                 float:left;
-                background-color:white;
-                background-blend-mode:multiply; /*for some reason, #lower_area has a height of 0 while this overlay is expanded, so this is useless*/
-                z-index:2;
+
+                background-color: rgba(255,255,255,0.0);
+                z-index: 2;
             }
+            #image_overlay:not(.invisible){
+                display:block; 
+            }
+            .blurred{
+                filter:blur(1em);
+            }
+            /*the image displayed within the overlay panel*/
             .overlay_image{
                 position:relative;
                 transform:translateX(-50%) translateY(-50%);
@@ -133,6 +144,9 @@
             }
             .invisible{
                 display:none;
+            }
+            .pseudo-invisible{
+                opacity:0.0;
             }
             @keyframes into_center{
                 from{
@@ -177,20 +191,8 @@
             let width=0
             //max height of a column is 98vh, because the horizontal scrollbar at the bottom takes away some space, and 2vh works on my browsers. TODO check this on more browsers and screen sizes
             let max_height=0
-            for (rule of style_document){
-                if(rule.selectorText=="content_slice"){
-                    width=window.innerWidth*rule.style.width.slice(0,-2)/100
-                }
-                if(rule.selectorText=="actualcontent"){
-                    max_height=window.innerHeight*rule.style.height.slice(0,-1)/100
-                }
-            }
-            if(width==0){
-                window.alert("max column width is 0!")
-            }
-            if(max_height==0){
-                window.alert("max column height is 0!")
-            }
+            //duration of image shrink animation is used to close the big image overlay exactly when the animation has finished
+            let image_shrink_duration=0
 
             //horizontal scrolling does not work with <a> links, only with javascript
             function scroll_into_view_smooth(id){
@@ -224,6 +226,27 @@
 
             //convert the text from the text template into nicely formatted columns
             function create_elements(){
+                //get these relevant values from the css style sheet
+                for (rule of style_document){
+                    if(rule.selectorText=="content_slice"){
+                        width=window.innerWidth*rule.style.width.slice(0,-2)/100
+                    }
+                    if(rule.selectorText=="actualcontent"){
+                        max_height=window.innerHeight*rule.style.height.slice(0,-1)/100
+                    }
+                    if(rule.selectorText==".image_shrink"){
+                        image_shrink_duration=rule.style.getPropertyValue("animation-duration").slice(0,-1)*1000
+                    }
+                }
+                if(width==0){
+                    window.alert("max column width is 0!")
+                }
+                if(max_height==0){
+                    window.alert("max column height is 0!")
+                }
+                if(image_shrink_duration==0){
+                    window.alert("image shrink duration is 0!")
+                }
 
                 //text template is contained in this element that is invisible on the actual page
                 let texttemplate=document.getElementsByTagName("texttemplate")[0]
@@ -479,6 +502,12 @@
                 big_image.style.setProperty("--overlay-height",final_height+"px")
 
                 big_image.classList.add("image_transition")
+
+                image_element.classList.toggle("pseudo-invisible")
+
+                image_overlay.image_element=image_element
+                
+                document.getElementById("lower_area").classList.toggle("blurred")
             }
             function collapse_image(ev){
                 let image_overlay=document.getElementById("image_overlay")
@@ -486,9 +515,12 @@
                 image_overlay.children[1].classList.remove("image_transition")
                 image_overlay.children[1].classList.add("image_shrink")
 
+                document.getElementById("lower_area").classList.toggle("blurred")
+
                 setTimeout(()=>{
                     document.getElementById("image_overlay").classList.add("invisible")
-                },400)
+                    image_overlay.image_element.classList.toggle("pseudo-invisible")
+                },image_shrink_duration)
             }
         </script>
     </head>
