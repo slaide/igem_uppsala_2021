@@ -184,7 +184,7 @@ li.dropdown {
 .grid-container-bottom{
             display: grid;
             height: 20%;
-            grid-template-columns:repeat(4,1fr);
+            grid-template-columns:repeat(5,1fr);
             grid-template-rows:repeat(3,1fr);
             overflow: hidden;
             background-color: #426968;
@@ -229,16 +229,17 @@ li.dropdown {
             */
         }
 
-        .boxb2 {
-            height: 100%;
-            width: 100%;
-            grid-column: 1;
+
+        .boxb12{
+          height:100%;
+          width:100%;
+          grid-column: 1;
             grid-row: 2 /span all;
             text-align: center;
             overflow: hidden;
         }
 
-        .boxb3 {
+        .boxb2 {
             height: 100%;
             width: 100%;
             grid-column: 2;
@@ -247,7 +248,7 @@ li.dropdown {
             overflow: hidden;
         }
 
-        .boxb4 {
+        .boxb3 {
             height: 100%;
             width: 100%;
             grid-column: 3;
@@ -256,10 +257,19 @@ li.dropdown {
             overflow: hidden;
         }
 
-        .boxb5 {
+        .boxb4 {
             height: 100%;
             width: 100%;
             grid-column: 4;
+            grid-row: 2 /span all;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .boxb5 {
+            height: 100%;
+            width: 100%;
+            grid-column: 5;
             grid-row: 2 /span all;
             text-align: center;
             overflow: hidden;
@@ -392,6 +402,20 @@ https://www.youtube.com/watch?v=mgk_2d4lhm8&t=407s&ab_channel=OnlineTutorials
 #section3{height:1px;
                     }
 
+/* top left logo */
+                    .toplogosticky{
+  background-image:url(adamsandler.jpeg);
+  background-size:cover;
+width:50px;
+height:50px;
+top:25px;
+left:10px;
+position:fixed;
+z-index:1;
+border-radius:50%;
+cursor:pointer;}
+
+
 </style>
 
 <script>
@@ -405,6 +429,12 @@ function myFunction(){
   else {
     document.getElementById("menu").style.width = "100%";
   }
+}
+
+/* SCRIPT FOR CLICKBAIT LOGO UPP LEFt */
+function clickerfunction(){
+  document.getElementById("menu").style.width = "100%";
+
 }
 
            /* new better scrollfunction from patrick */
@@ -509,6 +539,9 @@ gör sponsordelen snyggare med typ fb länk från bild och instagram med.
         </div>
 
 
+        <!-- Logga uppe vänster-->
+<div class="toplogosticky" onclick="clickerfunction()">
+</div>
 
 <!-- Page 1 -->
 <section>
@@ -630,6 +663,13 @@ gör sponsordelen snyggare med typ fb länk från bild och instagram med.
           <div class="boxb1">
               <h2 style="text-decoration: underline;"><u></u>Our sponsors</u></h2>
           </div>
+          
+
+          <div class="boxb12">
+            <a href="https://www.facebook.com/">
+              <img src="https://lh3.googleusercontent.com/proxy/0ZG_DCuM9gUtQL1htJnTF-K-7tbS1oQrtyOUIHprT7NhejZl58l_iLX_7Y4DXF1a5ZSgj8ednwtg949Xc4dw0Y_U6ZURp4I0d9OvGwoK7MruFX0ittf3B0jEfpgIqBLLDyi3_EAFNPKLm8TFHqiiehiqubmG" width="30%" height="100%">
+            </a>
+          </div>
   
           <div class="boxb2">
               <a href='https://www.redbull.com/se-en/?rbcid=9444236839&utm_source=Adwords&utm_medium=g&utm_campaign=9444236839&utm_content=419793811365&gclid=CjwKCAjwieuGBhAsEiwA1Ly_nch21qFzsnXwxTP5fBozk4fvFx-4zEaBpOiom2i6jgP4xa5Nf3NlxhoCFzEQAvD_BwE'>
@@ -651,6 +691,8 @@ gör sponsordelen snyggare med typ fb länk från bild och instagram med.
               <a href='https://www.systembolaget.se/'>
                 <img src="systemet.png" width="30%" height="100%">
           </div>
+
+      
       </div>
 </body>
 </html>
