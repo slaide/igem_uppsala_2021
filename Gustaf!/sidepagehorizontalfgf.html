@@ -8,13 +8,13 @@
 <meta charset=utf-8>
 
 <style>
-/*
+
 *{
             margin:0;
             border:0;
             padding:0;
         }
-        */
+
 
 :root {
     --f-primary: "For sponsoring",Verdana;
@@ -23,19 +23,14 @@
 
         html {
   scroll-behavior: smooth;
+  height:100vh;
+                width:100vw;
+                overflow:hidden;
+                display:grid;
+                grid-template-rows: 1fr;
+                grid-template-columns: 1fr;
 }
 
-.parallax {
-  background-image: url(fgf2.png);
-  min-height: 300px; 
-  height:450px;
-  position:relative;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin-left:0%;
-}
 
 #igemloginbar{ 
             width:100%;
@@ -47,43 +42,6 @@
             text-align:center;
 }
 
-
-html,body{
-  height:100%;
-  margin:0;
-  padding:0;
-  background-color:white;
-}
-
-.infobox {
-position: absolute;
-text-decoration:none;
-color:#6d1d23;
-top: 15%;
-width: 30%;
-margin-left:35%;
-text-align: center;
-font-size: 30px;
-animation-name:hej;
-animation-duration:3s;
-animation-delay:0;
-transition: 0.2s;
-animation: hej 3s linear, hejigen 1s linear 3s;
-animation-fill-mode:forwards;
-}
-
-@keyframes hej {
-    from {opacity:0;}
-    to {opacity:1;}
-}
-
-@keyframes hejigen {
-    0%{top:15%;}
-    100%{top:30%;}
-}
-.infobox:hover{
-    transform:scale(1,3);
-}
 
 ul {
   list-style-type: none;
@@ -118,7 +76,7 @@ position:fixed;
 overflow:hidden;
 background-color: #426968;
 margin-top:16px;
-z-index:1;
+z-index:2;
 height:10vh;
 }
 
@@ -127,6 +85,7 @@ height:10vh;
 li.dropdown {
   display: inline-block;
   height:100px;
+  z-index:1;
 }
 
 .dropdown-content {
@@ -238,71 +197,10 @@ li.dropdown {
             padding-bottom:10px;
         }
 
-.myullist{
-  margin-top: 0px;
-  padding:0;
-  width: 100%;
-  background-color: #f1f1f1;
-  height: 100%;
-  overflow: hidden;
-  }
-
-  .myli2{
-      color:black;
-      padding:15px 30px;
-      display:block;
-      width:100%;
-      }
-
-    .myli2:hover{color:orange;}
-
-    .myli2big{
-      color:black;
-      padding:15px 10px;
-      display:block;
-      width:100%;
-      background-color:lightgray;
-      font-size:25px;
-      font-weight: bold;
-      }
-
-  .wrapper {
-  display: flex;
-  justify-content: space-between;
-}
-
-
-.main {
-  width: 65%;
-  height: 100%;
-  margin-right:10%;
-}
-
-.main >p{font-weight:normal;
-font-size:15px;
-font-family:verdana;
-color:black;
-line-height:1.6;
-letter-spacing:0.03em;
-margin-bottom:10px;
-margin-top:20px;
-}
-
-.main > h1 {
-    font-size: 1.5em;
-    font-weight: bold;
-    margin-bottom: 5px;
-    letter-spacing: .05em;
-    margin-bottom:30px;
-    margin-top:30px;
-}
-
-
 /* patricks part */
 
 texttemplate{
                 display:none;
-                margin-top:0%;
             }
             actualcontentwrapper{
                 height:100%;
@@ -329,6 +227,8 @@ texttemplate{
                 top:0;
                 display:block;
                 position:relative;
+                --inner-content-slice-padding:2.5vmin;
+                padding:var(--inner-content-slice-padding);
                 padding:2.5vmin;
                 font-size:1.3em;
                 text-align: justify;
@@ -362,6 +262,9 @@ texttemplate{
             sections > div:hover{
                 padding-left:3.5vmin;
             }
+
+            /* FROM HERE PATRICK HAS ADDED A LOT WHICH  I HAVEN'T. */
+
             h2{
                 padding-top:1em;
                 padding-bottom:1em;
@@ -668,13 +571,16 @@ Other colors:
                       </script>
  
                   <!-- END OF PATRICKS SCRIPT-->
-                  <!-- PATRICK -->
+
                   <body onload="create_elements()" onresize="create_elements()">
 
                     <!-- min igembar-->
                     <div id="igemloginbar">
                         IGEM LOGIN BAR
                     </div>
+
+
+
 <!-- min navbar-->
 <div id="menu">
     <!-- clickable bild -->
@@ -735,6 +641,9 @@ Other colors:
 
                 <!-- patricks del-->
                     <texttemplate>
+                        
+                        Want to add a picture here but i can't.. How do we elevate the design, look at other websites with horizontal scroll such as Homesociete.ca or banila.studio . 
+                        Also I have some problems with too many dots (.) and also to add headers at the top of a new column. Another thing is that if the text is justified in this way there are a lot of gaps. Patrick has uploaded a newer version. #HEADER:HEADER1# 
                         Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh.Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. NEWLINE 
                         At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. NEWLINE
                         Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. #HEADER:HEADER1# At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. NEWLINE#IMAGE:PUPPIES# Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. #HEADER:HEADER2# Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. #IMAGE:PUPPIES:LONG# Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tellus at urna condimentum mattis pellentesque id nibh. Pharetra magna ac placerat vestibulum. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Felis imperdiet proin fermentum leo vel. Integer quis auctor elit sed vulputate mi sit. Accumsan in nisl nisi scelerisque. Lacus viverra vitae congue eu consequat ac felis donec et. Gravida cum sociis natoque penatibus. Vitae semper quis lectus nulla at volutpat diam. Tempor nec feugiat nisl pretium. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Urna duis convallis convallis tellus id interdum velit laoreet id. Nibh mauris cursus mattis molestie a iaculis. Ultrices eros in cursus turpis. Morbi quis commodo odio aenean. At urna condimentum mattis pellentesque id nibh tortor id aliquet. Dictumst quisque sagittis purus sit amet volutpat consequat. Risus quis varius quam quisque id. Gravida rutrum quisque non tellus orci ac auctor.
@@ -753,6 +662,8 @@ Other colors:
 
 
 <!-- end of patricks-->
+
+
 
 </body>
 </html>

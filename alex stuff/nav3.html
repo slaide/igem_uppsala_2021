@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <title>
+        Nav 3
+    </title>
+    
+    <style>
+        *{
+            margin:0;
+            border:0;
+            padding:0;
+        }
+        body, html{
+            height: 100%;        
+        }
+        hr {
+            border: 0;
+            clear:both;
+            display:block;
+            width: 100%;               
+            background-color:#070707;
+            height: 1px;
+        }
+
+
+        .igem-head-bar{
+            height: 16px;
+            width:100%;
+            background-color: rgb(134, 133, 133);
+            position: fixed;
+            text-align: center;
+            color: white;
+            z-index: 1000;
+        }
+
+
+        #menu{
+            display: block;
+            height: 100px;
+            width: 100%;
+            background-color: black;
+            position: fixed;
+            overflow: hidden;
+            margin-top: 16px;
+        }
+
+        #logotype{
+            float:left;
+            width:12%;
+            height:65px;
+            padding-right:0px;
+            width: 5%;
+            overflow: visible;
+            margin-top: 16px;        
+        }
+
+        #flexboxmenu{
+            display: flex;
+            width: 100%;
+            height: 100%;
+            background-color: blueviolet;
+            overflow: hidden;
+        }
+
+        .parallaxtop {
+            background-image: url(coow-grass-cloud.png);
+            height: 100%;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            overflow: hidden;
+            padding-top: 5%;
+        }
+
+        #header{
+            margin: auto;
+            width: 60%;
+            margin-top: 15%;
+            animation-name: fadein;
+            animation-duration: 2s;
+            text-align: center;
+            font-size: 6em;
+            color: #6d1d23;
+            font-style: italic;
+        }
+        @keyframes fadein{
+            from {opacity: 0;}
+            to{opacity: 1;}
+        }
+
+
+
+        .grid-container{
+            display: grid;
+            height: 100%;
+            grid-template-columns:repeat(50,1fr);
+            grid-template-rows:repeat(50,1fr);
+            overflow: hidden;
+            background-color: #426968;
+            border-bottom: 5px solid black;
+            border-top: 5px solid black;
+        }
+
+
+        .box1 {
+            height: 100%;
+            width: 100%;
+            background-image: url(https://www.vippng.com/png/detail/72-725880_clip-black-and-white-stock-beef-drawing-raw.png);
+            grid-column: 10 /span 30;
+            grid-row: 5 /span 30;
+            text-align: center;
+            border: 4px solid black;
+            overflow: hidden;
+            transition: all 0.5s;
+            margin: auto;
+            border-radius: 7%;
+        }        
+        
+    </style>
+    <script>
+        window.onscroll = function() {myFunction()};
+
+        function myFunction() {
+          if (document.body.scrollTop > 400|| document.documentElement.scrollTop > 400) {
+            document.getElementById("menu").style.opacity = "0";
+          } else {
+            document.getElementById("menu").style.opacity = "1";
+          }
+        }
+    </script>
+</head>
+<body>
+    <div class="igem-head-bar">
+        IGEM BAR
+    </div>
+    <div id="menu">
+        <a href='https:\\www.google.com'>
+            <div id="logotype">
+                <img src="fgfuturereal.png" alt="cow_logo" width="100%" height="100%">
+            </div>            
+        </a>
+        <div id="flexboxmenu">
+            <p>hello</p>
+        </div>
+    </div>
+
+    <div class=parallaxtop>
+        <div id="header">
+                FGFGUTURE   
+        </div>
+    </div>
+    <!--End intro, start steak with facts-->
+    <div class="grid-container">        
+        <div class="box1">
+        </div>
+    </div>
+
+    
+</body>
+</html>
