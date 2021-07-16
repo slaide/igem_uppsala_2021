@@ -49,6 +49,7 @@
             overflow: hidden;
             height: 5%;
             height: 8.5%;
+            z-index: 100;
         }
         #menu:hover{
             overflow: visible;
@@ -171,6 +172,17 @@
             display: block;
         }
 
+        #clickbox{
+            float:left;
+            width:12%;
+            height:65px;
+            padding-right:0px;
+            width: 5%;
+            background-color: blueviolet;
+            position: fixed;
+            z-index: 2;
+        }
+
         .parallaxtop {
             background-image: url(coow-grass-cloud.png);
             height: 100%;
@@ -243,6 +255,10 @@
           }
         }
         
+        function clickfunction(){
+            document.getElementById("menu").style.width = "100%";
+        }
+
         
 
         function min(a,b){return (a<b?a:b)}
@@ -314,6 +330,8 @@
             <li><a href="#news">Human practice</a></li>
             <li><a href="#news">Awards</a></li>
         </ul>
+    </div>
+    <div id="clickbox" onclick="clickfunction()">
     </div>
     <div class=parallaxtop>
         <div id="header">
