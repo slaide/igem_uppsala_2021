@@ -314,10 +314,18 @@ li.dropdown {
       padding:15px 30px;
       display:block;
       width:100%;
+      transition: all 0.2s;
       }
 
-    .myli2:hover{color:orange;
-    margin-left:10px;}
+      /* aspect-ratio: 1/1 ger lika höjd som bredd */
+      /* inset av 0 -> hela skärmen ('är short för top, bottom,left,right')
+      */
+
+      /* fixed+inset:0 och margin:auto ger centrering */
+      /*box shadow kan vara coolt+ kan skapa borders*/
+      
+.myli2 span:hover{color:orange;}
+
 
     .myli2big{
       color:black;
@@ -460,6 +468,24 @@ img.biohazard{
   width:50%;
   height:30%;
   animation: swing 2s linear infinite alternate;
+}
+
+.picturecontainer2{
+  float:left;
+  width:100%;
+  height:30%;
+}
+img.monalisa{
+  height:35vh;
+  aspect-ratio: 1/1; /* it works even if it is not colored */
+}
+
+/* https://www.pexels.com/sv-se/sok/fire/ har bra bilder */
+
+img.pandemic{
+  height:35vh;
+  aspect-ratio:1/1;
+  float:right;
 }
 
 @keyframes swing {
@@ -658,13 +684,13 @@ gör sponsordelen snyggare med typ fb länk från bild och instagram med.
                         <li class="myli2big">Index</li>
                         
 
-                        <a href="#section1"><li class="myli2"><div class="circle" style="background-color:lightblue;"></div>Lab Safety</li></a>
+                        <a href="#section1"><li class="myli2"><div class="circle" style="background-color:lightblue;"></div><span>Lab Safety</span></li></a>
 
                     <a href="#section2">
-                        <li class="myli2"><div class="circle" style="background-color:orange;"></div>Ethics and Risks of GMOs</li></a>
+                        <li class="myli2"><div class="circle" style="background-color:orange;"></div><span>Ethics and Risks of GMOs</span></li></a>
 
                         <a href="#section3">
-                        <li class="myli2"><div class="circle" style="background-color:red;"></div>COVID-19 Measures</li></a>
+                        <li class="myli2"><div class="circle" style="background-color:red;"></div><span>COVID-19 Measures</span></li></a>
 
                     </ul>
                   </div>
@@ -721,6 +747,11 @@ gör sponsordelen snyggare med typ fb länk från bild och instagram med.
              
                  <p>During the spring period of 2020, all our activities were switched to a digital format. Later, during the summer months, we got an exemption from digital education after presenting an action plan with extra safety measures to contain potential outbreaks. The plan included social distancing, extra cleaning stations, maximum number of people allowed per room and personal equipment like portable hand disinfectant or face shields. These measures were enforced not just in the lab but also in the lunchroom and group rooms. Team members suspecting any symptoms were encouraged to stay home. As one of the few courses exempted from the distance studies during summer we shared our feedback and concerns with the Biological Education center, department that coordinates all bachelor's and master's education in biology at Uppsala University to help organize courses returning to campus during autumn 2020 in the settings of a pandemic.</p>
             
+                 <div class="picturecontainer2">
+                  <img class="monalisa" src="monalisa.jpg">
+                  <img class="pandemic" src="pandemic.jpg">
+                </div>
+                
                 <div class="buttoncontainer">
 
                     <div class="centerbutton">
@@ -728,6 +759,7 @@ gör sponsordelen snyggare med typ fb länk från bild och instagram med.
                     </div>
 
                 </div>
+
 
                
              
