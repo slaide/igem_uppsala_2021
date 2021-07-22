@@ -43,6 +43,7 @@
             z-index: 10;
             font-family: 'Times New Roman', Times, serif;
             font-size: 1.2em;
+            border: 2px solid #6d1d23;
 
         }
         #menu:hover{
@@ -116,11 +117,16 @@
 
         
         #clickbox{
-            width: 5%;
+            width: 20vw;
+            border: 2px solid #6d1d23;
             height:65px;
             margin-top: 16px;
             position: fixed;
             z-index: 2;
+            background-color: #dce1de;
+            justify-content: center;
+            align-content: center;
+            display: flex;
         }
 
         /* parallax section*/
@@ -166,9 +172,9 @@
             top:10.7%;
             left:0px;
             margin-top:5vh;
-            border: 1px solid transparent;
+            border: 2px solid #6d1d23;
             padding: 0px;
-            background-color: #426968;
+            background-color: #6d1d23;
             text-align: center;
             font-size: 1.5em;
         }
@@ -177,7 +183,7 @@
             margin-top: 0px;
             padding:0;
             width: 100%;
-            background-color: #f1f1f1;
+            background-color: #dce1de;
             height: 100%;
             overflow: hidden;
         }
@@ -209,13 +215,16 @@
 
         /* Actual content */
         #midcontent{
-            background-color: #f1f1f1;
+            background-color: #dce1de;
             width: 64vw;
             height: 100vh;
             margin-left: 8vw;
             margin-top:5vh;
             height: 300%;
-            border: 2px solid #6d1d23;
+            border-left: 2px solid #6d1d23;
+            border-top: 2px solid #6d1d23;
+            border-right: 2px solid #6d1d23;
+            
         }
 
         .midcontenttext{
@@ -266,6 +275,57 @@
             margin-left: 2%;
             margin-right: 2%;
             
+        }
+
+        /* Sponsor part*/
+        .grid-container-sponsors{
+            display: grid;
+            height: 30%;
+            grid-template-columns:repeat(4,1fr);
+            grid-template-rows:repeat(3,1fr);
+            overflow: hidden;
+            background-color:#426968;
+            color: white;
+            border: 2px solid #6d1d23;
+        }
+
+        .sponsorheading{
+            text-align: center;
+            margin:auto;
+            font-size: 2em;
+            grid-column: 2 /span 2;
+            grid-row: 1 /span 1;
+        }
+
+        .sponsor1{
+            text-align: center;
+            margin:auto;
+            grid-column: 1 /span 1;
+            grid-row: 2 /span 1;
+        }
+
+        .sponsor2{
+            text-align: center;
+            margin:auto;
+            font-size: 3em;
+            grid-column: 2 /span 1;
+            grid-row: 2 /span 1;
+        }
+
+        .sponsor3{
+            text-align: center;
+            margin:auto;
+            font-size: 3em;
+            grid-column: 3 /span 1;
+            grid-row: 2 /span 1;
+        }
+
+        .sponsor4{
+            text-align: center;
+            margin:auto;
+            font-size: 3em;
+            grid-column: 4 /span 2;
+            grid-row: 2 /span 1;
         }
     </style>
     <script>
@@ -400,7 +460,7 @@
         </ul>
     </div>
     <div id="clickbox" onclick="clickfunction()">
-        <img src="fgfuturereal.png" height="100%" width="100%">
+        <img src="fgfuturereal.png" height="100%" width="30%">
     </div>
 
     <!-- Parallax-->
@@ -509,9 +569,28 @@
             </div>
               
         </div>
-        <!--Sponsors-->
     </div>
-          
-        
+    <!--Start sponsor-->
+    <div class="grid-container-sponsors">
+        <div class="sponsorheading">
+            <h3><u>Our sponsors</u></h3>
+        </div>
+        <div class="sponsor1">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png" width="30%" height="100%">
+        </div>
+
+        <div class="sponsor2">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c4/Snapchat_logo.svg/1024px-Snapchat_logo.svg.png" width="30%" height="100%">
+        </div>
+
+        <div class="sponsor3">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/1024px-Instagram_logo_2016.svg.png" width="30%" height="100%">
+        </div>
+
+        <div class="sponsor4">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a9/TikTok_logo.svg/1920px-TikTok_logo.svg.png" width="60%" height="100%">
+        </div>
+
+    </div>  
 </body>
 </html>
