@@ -4,6 +4,10 @@
         <title>page title</title>
         <meta charset="utf8">
         <style>
+            @font-face {
+                font-family: archive;
+                src: url(../Archive.otf);
+            }
             * {
                 margin:0;
                 padding:0;
@@ -28,10 +32,11 @@
             #main{
                 min-height: 95vh;
                 display:grid;
-                grid-template-columns: 1fr 4.5fr 1fr;
+                grid-template-columns: 1fr 2.8fr 1fr;
                 grid-template-rows: 100%;
             }
             #sidebar{
+                font-family: archive;
             }
             #innersidebar{
                 position:fixed;
@@ -49,10 +54,18 @@
             }
             #content{
                 overflow-x: hidden;
+                text-align: justify;
+                font-size: 1.4em;
+            }
+            #page_title{
+                font-size: 5em;
+                display:inline-block;
+                transform-origin: 0 0 ;
+                font-family: archive;
             }
             header{
+                font-family: archive;
                 font-size:4em;
-                font-weight: 600;
                 padding-top:5vmin;
                 padding-bottom:5vmin;
             }
@@ -61,11 +74,6 @@
                 padding-top: 1vmin;
                 padding-bottom: 1vmin;
                 font-size: 1.1em;
-            }
-            #page_title{
-                font-size: 5em;
-                display:inline-block;
-                transform-origin: 0 0 ;
             }
         </style>
         <script>
