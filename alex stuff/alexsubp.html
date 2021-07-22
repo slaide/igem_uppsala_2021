@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <title>
+        Alex sub page
+    </title>
+    <style>
+        *{
+            margin:0;
+            border:0;
+            padding:0;
+        }
+        body, html{
+            height: 100%;        
+        }
+
+        .igem-head-bar{
+            height: 16px;
+            width:100%;
+            background-color: black;
+            position: fixed;
+            text-align: center;
+            color: white;
+            z-index: 1000;
+        }
+        #menu{
+            margin-top: 16px;
+            position: fixed;
+            width: 100%;
+            background-color: #426968;
+            transition: all 0.5s;
+            overflow: hidden;
+            height: 5%;
+            height: 8.5%;
+            z-index: 10;
+
+        }
+        #menu:hover{
+            overflow: visible;
+        }
+
+        .logotype{
+            float:left;
+            width:12%;
+            height:65px;
+            padding-right:0px;
+            width: 5%;
+            
+        }
+
+        ul {
+            list-style-type: none;
+
+        }
+        
+        li {
+            float: left;
+        }
+
+        li a, .dropbtn {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        
+        li a:hover, .dropdown-1:hover .dropbtn {
+            color: #6d1d23;
+        }
+        
+        li.dropdown-1 {
+            display: inline-block;
+        }
+        
+        .dropdown-content-1{
+            display: none;
+            position: absolute;
+            background-color: #426968;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        
+        .dropdown-content-1 a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        
+        .dropdown-content-1 a:hover {
+            color: #6d1d23;
+        }
+        
+        .dropdown-1:hover .dropdown-content-1 {
+            display: block;
+        }
+
+        li a:hover, .dropdown-2:hover .dropbtn {
+            color: #6d1d23;
+        }
+        
+        li.dropdown-2 {
+            display: inline-block;
+        }
+        
+        .dropdown-content-2{
+            display: none;
+            position: absolute;
+            background-color: #426968;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        
+        .dropdown-content-2 a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        
+        .dropdown-content-2 a:hover {
+            color:#6d1d23;
+            }
+        
+        .dropdown-2:hover .dropdown-content-2 {
+            display: block;
+        }
+        #clickbox{
+            float:left;
+            width:12%;
+            height:65px;
+            padding-right:0px;
+            width: 5%;
+            background-color: blueviolet;
+            position: fixed;
+            z-index: 2;
+        }
+
+        .parallaxtop {
+            background-image: url(coow-grass-cloud.png);
+            height: 100%;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            overflow: hidden;
+            padding-top: 5%;
+        }
+
+        #header{
+            margin: auto;
+            width: 60%;
+            margin-top: 15%;
+            animation-name: fadein;
+            animation-duration: 2s;
+            text-align: center;
+            font-size: 6em;
+            color: #6d1d23;
+            font-style: italic;
+        }
+        @keyframes fadein{
+            from {opacity: 0;}
+            to{opacity: 1;}
+        }
+
+
+
+
+
+
+        .grid-container{
+            display: grid;
+            height: 100%;
+            grid-template-columns:repeat(50,1fr);
+            grid-template-rows:repeat(50,1fr);
+            overflow: hidden;
+            background-color: #426968;
+            /*column-gap: 10px;
+            row-gap: 10px;*/
+            border-bottom: 5px solid black;
+            border-top: 5px solid black;
+        }
+
+
+        .box1 {
+            height: 100%;
+            width: 100%;
+            background-image: url(https://www.vippng.com/png/detail/72-725880_clip-black-and-white-stock-beef-drawing-raw.png);
+            grid-column: 10 /span 30;
+            grid-row: 5 /span 30;
+            text-align: center;
+            border: 4px solid black;
+            overflow: hidden;
+            transition: all 0.5s;
+            margin: auto;
+            border-radius: 7%;
+        }
+
+        .box2 {
+            height: 100%;
+            width: 100%;
+            grid-column:7/span 8;
+            grid-row: 27/span 16;
+            text-align: center;
+            border: 4px solid black;
+            overflow: hidden;
+            background-image: url(https://cdn4.vectorstock.com/i/thumb-large/54/73/syringe-drawing-isolated-design-vector-31955473.jpg);
+            margin: auto;
+            transition: all 0.5s;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .box2text{
+            opacity:0;
+            margin-top: 30%;
+            text-align: center;
+            font-size: 1.5em;
+            transition: all 0.5s;
+        }
+        .box2:hover{
+            border:4px solid chocolate;
+        }
+
+        .box2:hover .box2text{
+            opacity: 1;
+        }
+
+        .box3 {
+            height: 100%;
+            width: 100%;
+            background-image: url(https://ak.picdn.net/shutterstock/videos/1067259439/thumb/1.jpg?ip=x480);
+            background-repeat: repeat;
+            grid-column:35/span 8;
+            grid-row: 27/span 16;
+            text-align: center;
+            border: 4px solid black;
+            overflow: hidden;
+            margin: auto;
+            transition: all 0.5s;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+
+        .box3text{
+            opacity:0;
+            margin-top: 30%;
+            text-align: center;
+            font-size: 1.5em;
+            transition: all 0.5s;
+        }
+        .box3:hover{
+            border:4px solid chocolate;
+        }
+
+        .box3:hover .box3text{
+            opacity: 1;
+        }
+
+        .box4 {
+            height: 100%;
+            width: 100%;
+            grid-column: 35 /span 8;
+            grid-row: 2 /span 16;
+            text-align: center;
+            border: 4px solid black;
+            overflow: hidden;
+            background-image: url(grass.jpg);
+            margin: auto;
+            transition: all 0.5s;
+            border-radius: 50%;
+        }
+
+        .box4:hover{
+            border:4px solid chocolate;
+        }
+
+        .box4:hover ~ .box5{
+            opacity: 1;
+        }
+
+        .box5 {
+            height: 100%;
+            width: 100%;
+            grid-column: 45 /span 5;
+            grid-row: 2 /span 16;
+            text-align: center;
+            border: 4px solid black;
+            overflow: hidden;
+            background-color: #dce1de;
+            font-size: 1.5em;
+            margin: auto;
+            opacity: 0;
+            transition: all 0.5s;   
+        }
+
+        .box6 {
+            height: 100%;
+            width: 100%;
+            grid-column: 7 /span 8;
+            grid-row: 2 /span 16;
+            text-align: center;
+            border: 4px solid black;
+            overflow: hidden;
+            background-image: url(https://image.shutterstock.com/image-vector/cute-cow-cartoon-character-vector-260nw-1291370593.jpg);
+            margin: auto;
+            transition: all 0.5s;
+            border-radius: 50%;
+        }
+
+        .box6:hover{
+            border:4px solid chocolate;
+        }
+
+        .box6:hover ~ .box7{
+            opacity: 1;
+        }
+
+        .box7 {
+            height: 100%;
+            width: 100%;
+            grid-column: 2 /span 4;
+            grid-row: 2 /span 16;
+            text-align: center;
+            border: 4px solid black;
+            overflow: hidden;
+            /*background-color: #dce1de;*/
+            background-image: url(https://image.shutterstock.com/image-vector/illustration-cute-cow-260nw-347317901.jpg);
+            font-size: 1.5em;
+            margin: auto;
+            opacity: 0;
+            transition: all 0.5s;
+            color:green;
+        }
+
+        .textcirclesection{
+            background-color: #6d1d23;
+            text-align: center;
+            border-bottom: 4px solid black;
+        }
+
+
+
+
+        .estrellas {
+        position: relative;
+        width: 520px;
+        height:300px;
+        margin: 0 auto;
+        font-size: 70px;
+        }
+        .estrellas span {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 70px;
+        height: 300px;
+        margin-left: -35px;
+        line-height: 530px; /* height*2 - font-size */
+        text-align: center;
+        transform-origin: top center;
+
+        }
+        .estrellas span:nth-of-type(1)  {
+        transform: rotate(75deg);
+        }
+        .estrellas span:nth-of-type(2)  {
+        transform: rotate(65deg);
+        }
+        .estrellas span:nth-of-type(3)  {
+        transform: rotate(54deg);
+        }
+        .estrellas span:nth-of-type(4)  {
+        transform: rotate(39deg);
+        }
+        .estrellas span:nth-of-type(5)  {
+        transform: rotate(29deg);
+        }
+        .estrellas span:nth-of-type(6)  {
+        transform: rotate(19deg);
+        }
+        .estrellas span:nth-of-type(7)  {
+        transform: rotate(7deg);}
+
+        .estrellas span:nth-of-type(8)  {
+        transform: rotate(-4deg);
+        }
+        .estrellas span:nth-of-type(9)  {
+        transform: rotate(-14deg);
+        }
+        .estrellas span:nth-of-type(10)  {
+        transform: rotate(-24deg);
+        }
+        .estrellas span:nth-of-type(11)  {
+        transform: rotate(-34deg);
+        }
+        .estrellas span:nth-of-type(12)  {
+        transform: rotate(-44deg);
+        }
+        .estrellas span:nth-of-type(13)  {
+        transform: rotate(-54deg);
+        }
+        .estrellas span:nth-of-type(14)  {
+        transform: rotate(-64deg);}
+
+        .estrellas span:nth-of-type(15)  {
+        transform: rotate(-75deg);
+        }
+        /* Reverse mode */
+        .inverso {
+        font-weight: bold;
+        }
+        .inverso span {
+        line-height: 70px;
+        transform-origin: bottom center;
+        /*border: 1px solid red;  Only for seeing trick */
+        }
+
+        .textcirclesectionimg{
+            margin:auto;
+            border-radius: 50%;
+            margin-top: -250px;
+
+        }
+
+
+        .bigbox{
+            height: 100%;
+            width: 100%;
+            background-color: #426968;
+            display: flex;
+            flex-direction: row;
+        }
+        #flexboxleft{
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            width: 33%;
+        }
+
+        #flexlefttop{
+            height: 33%;
+            justify-content: center;
+            display: flex;
+        }
+
+        #flexleftmid{
+            height: 34%;
+            justify-content: center;
+            display: flex;
+        }
+
+        #flexleftbot{
+            height: 33%;
+            justify-content: center;
+            display: flex;
+        }
+
+        #flexboxmiddle{
+            height: 100%;
+            width: 34%;
+        }
+        #flexboxright{
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            width: 33%;
+        }
+
+        #flexrighttop{
+            height: 33%;
+            justify-content: center;
+            display: flex;
+        }
+
+        #flexrightmid{
+            height: 34%;
+            justify-content: center;
+            display: flex;
+        }
+
+        #flexrightbot{
+            height: 33%;
+            justify-content: center;
+            display: flex;
+        }
+
+        .paddingtopinteractive{
+                padding-top:var(--pt);
+                z-index: 1;
+        }
+
+        #steakdiv{
+            height: 50%;
+            width: 50%;
+            margin: auto;
+            margin-top: -60%;
+            position: relative;
+            z-index: 1;
+        }
+
+        #imgs{
+            z-index: 1;
+            position: relative;
+            border-radius: 50%;
+        }
+
+
+        #reactordiv{
+            height: 100%;
+            width: 100%;
+            margin: auto;
+            z-index: 2;
+            position: relative;
+        }
+
+        #imgr{
+            z-index: 2;
+            position: relative;
+            border-radius: 10%;
+        }
+
+        .imgholder{
+            height: 50%;
+            width: 100%;
+            margin: auto;
+            position: relative;
+        }
+
+
+
+
+        .grid-container-sponsors{
+            display: grid;
+            height: 30%;
+            grid-template-columns:repeat(4,1fr);
+            grid-template-rows:repeat(3,1fr);
+            overflow: hidden;
+            background-color: #6d1d23;
+            border: 4px solid black;
+        }
+
+        .sponsorheading{
+            text-align: center;
+            margin:auto;
+            font-size: 3em;
+            grid-column: 2 /span 2;
+            grid-row: 1 /span 1;
+        }
+
+        .sponsor1{
+            text-align: center;
+            margin:auto;
+            grid-column: 1 /span 1;
+            grid-row: 2 /span 1;
+        }
+
+        .sponsor2{
+            text-align: center;
+            margin:auto;
+            font-size: 3em;
+            grid-column: 2 /span 1;
+            grid-row: 2 /span 1;
+        }
+
+        .sponsor3{
+            text-align: center;
+            margin:auto;
+            font-size: 3em;
+            grid-column: 3 /span 1;
+            grid-row: 2 /span 1;
+        }
+
+        .sponsor4{
+            text-align: center;
+            margin:auto;
+            font-size: 3em;
+            grid-column: 4 /span 2;
+            grid-row: 2 /span 1;
+        }
+    </style>
+    <script>
+        window.onscroll = function() {myFunction()};
+
+        function myFunction() {
+          if (document.body.scrollTop > 400|| document.documentElement.scrollTop > 400) {
+            document.getElementById("menu").style.width = "0px";
+            document.getElementById("menu").style.opacity = "0";
+          } else {
+            document.getElementById("menu").style.width = "100%";
+            document.getElementById("menu").style.opacity = "1";
+          }
+        }
+        
+        function clickfunction(){
+            document.getElementById("menu").style.width = "100%";
+            document.getElementById("menu").style.opacity = "1";
+            document.getElementById("menu").style.overflow  = "hidden";
+            setTimeout(function(){ document.getElementById("menu").style.overflow='visible'; }, 1000);
+        }
+
+        function min(a,b){return (a<b?a:b)}
+        function max(a,b){return (a>b?a:b)}
+            var observeViewEnter=new IntersectionObserver(function(entries){9
+                if(entries[0].isIntersecting===true){
+                    //window.alert("entered view")
+                    entries[0].target.classList.add("paddingtopinteractive")
+                    window.addEventListener("scroll",function(){
+                        var target=document.getElementById("steakdiv")
+                        var top=target.getBoundingClientRect().top
+                        var max_scroll=document.documentElement.scrollHeight-window.innerHeight;
+                        var height=window.innerHeight
+                        var scroll_height=(height-top)/height;
+                        console.log(scroll_height)
+                        scroll_height=min(max(scroll_height,0),1.0)
+                        console.log(scroll_height)
+                        target.style.setProperty("--pt",(scroll_height)*50+"vh")
+                    })
+                }
+            },{threshold:[1.0]});
+            var observeViewLeave=new IntersectionObserver(function(entries){
+                if(entries[0].isIntersecting!==true){
+                    entries[0].target.classList.remove("paddingtopinteractive")
+                    //window.alert("left view")
+                }
+            },{threshold:[0.0]});
+            function onload_function(){
+                observeViewEnter.observe(document.getElementById("steakdiv"))
+                observeViewLeave.observe(document.getElementById("steakdiv"))
+            }
+
+            
+    </script>
+</head>
+<body onload="onload_function()">
+    <div class="igem-head-bar">
+        IGEM BAR
+    </div>
+    <div id="menu">
+        <a href='https:\\www.google.com'>
+            <img class="logotype" src="fgfuturereal.png">
+            <!-- cow_logo.png-->
+        </a>
+        <ul>
+            <li><a href="#home">Project</a></li>
+            <li><a href="#news">Parts</a></li>
+            <li class="dropdown-1">
+                <a href="javascript:void(0)" class="dropbtn">Lab</a>
+                <div class="dropdown-content-1">
+                    <a href="#">FGF2</a>
+                    <a href="#">Schrödinger</a>
+                    <a href="#">QresFEP</a>
+                    <a href="#">Wet lab</a>
+                </div>
+
+            </li>   
+
+            <li class="dropdown-2">
+                <a href="javascript:void(0)" class="dropbtn">Team</a>
+                <div class="dropdown-content-2">
+                    <a href="#">PM</a>
+                    <a href="#">Modeling</a>
+                    <a href="#">Wiki</a>
+                    <a href="#">Sponsor</a>
+                    <a href="#">GD</a>
+                    <a href="#">Social media</a>
+                </div>
+            </li>
+            <li><a href="#home">Future</a></li>
+            <li><a href="#news">Human practice</a></li>
+            <li><a href="#news">Awards</a></li>
+        </ul>
+    </div>
+    <div id="clickbox" onclick="clickfunction()">
+    </div>
+    <div class=parallaxtop>
+        <div id="header">
+                FGFGUTURE   
+        </div>
+    </div>
+    <!--End intro, start steak with facts-->
+    <div class="grid-container">        
+        <div class="box1">
+        </div>
+        <div class="box2">
+            <div class ="box2text">
+               <b>Antibiotics are bad,<br> by growing meat in the lab we can minimize the use.</b>
+            </div>
+        </div>
+        <div class="box3">
+            <div class ="box3text">
+                <b>Carbon dioxide are bad, lab grown<br> meat minimizes the emission.</b>
+             </div>
+        </div>
+        <div class="box4">
+        </div>
+        <div class="box5">
+            <div class="box5text">
+            The land use will minimize with 99% if we switch from traditional agriculture to cellular agriculture.
+            </div>
+        </div>
+
+        <div class="box6">
+        </div>
+        <div class="box7">
+            <div class="box7text">
+            <b>You would not kill and eat a dog! Why would you kill and eat a cute cow then! Cellular agriculture saves lifes!</b>
+            </div>
+        </div>
+    </div>
+    <!--End steak with facts, start circle text-->
+    <div class="textcirclesection">
+        <h3><i>There is a better way.....</i></h3>
+        <div class="estrellas inverso">
+            <span>T</span>
+            <span>A</span>
+            <span>E</span>
+            <span>M</span>
+            <span></span>
+            <span>D</span>
+            <span>E</span>
+            <span>T</span>
+            <span>A</span>
+            <span>V</span>
+            <span>I</span>
+            <span>T</span>
+            <span>L</span>
+            <span>U</span>
+            <span>C</span>
+        </div>
+        <div class="textcirclesectionimg">
+            <img src="https://shotluckan.se/wp-content/uploads/2020/09/shotluckan-logo-tansparent.png" width="30%" height="20%">
+        </div>
+    </div>
+
+    <!--Endcircle text, start reactor-->
+    <div class="bigbox">
+        <div id="flexboxleft">
+            <div id="flexlefttop">
+                <img src="https://image.shutterstock.com/image-vector/illustration-cute-cow-260nw-347317901.jpg" width="50%" height="100%">
+            </div>
+            <div id="flexleftmid">
+                <img src="https://www.pikpng.com/pngl/m/567-5671147_cursor-arrow-comments-arrow-pointing-up-right-clipart.png" width="50%" height="100%">
+            </div>
+            <div id="flexleftbot">
+                <img src="https://cdn.w600.comps.canstockphoto.com/fibroblast-is-a-dermis-cell-structure-image_csp90223274.jpg" width="50%" height="100%">
+            </div>
+        </div>
+        <div id="flexboxmiddle">
+            <div class="imgholder">
+                <div id="reactordiv">
+                    <img id="imgr" src="https://neutronbytes.files.wordpress.com/2020/07/wec-lfr.png?w=640" width="100%" height="100%">
+                </div>
+                <div id="steakdiv">
+                    <img id="imgs" src="https://media.istockphoto.com/vectors/steak-mascot-showing-muscle-arms-vector-id464797200?k=6&m=464797200&s=612x612&w=0&h=3zAfGrHFyPNGqSwZDYpjoHiJr5JgCBlwbxZrBC52FoE=" width="100%" height="100%">    
+                </div>
+            </div>
+        </div>
+        <div id="flexboxright">
+            <div id="flexrighttop">
+                <img src="https://i.pinimg.com/originals/46/03/80/460380404916e43edc5a4fc7a5f97bf7.jpg" width="50%" height="100%">
+            </div>
+            <div id="flexrightmid">
+                <img src="https://www.nicepng.com/png/detail/273-2739649_arrow-pointing-up-left-vector-arrow-pointing-up.png" width="50%" height="100%">
+            </div>
+            <div id="flexrightbot">
+                <img src="https://biospot.eu/wp-content/uploads/2018/03/hyperstable-fibroblast-growth-factor-2-%E2%80%93-fgf2-stab.jpg" width="50%" height="100%">
+            </div>
+        </div>
+    </div>
+    <!--Start sponsor-->
+    <div class="grid-container-sponsors">
+        <div class="sponsorheading">
+            <h3><u>Our sponsors</u></h3>
+        </div>
+        <div class="sponsor1">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png" width="30%" height="100%">
+        </div>
+
+        <div class="sponsor2">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c4/Snapchat_logo.svg/1024px-Snapchat_logo.svg.png" width="30%" height="100%">
+        </div>
+
+        <div class="sponsor3">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/1024px-Instagram_logo_2016.svg.png" width="30%" height="100%">
+        </div>
+
+        <div class="sponsor4">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a9/TikTok_logo.svg/1920px-TikTok_logo.svg.png" width="60%" height="100%">
+        </div>
+
+    </div>
+
+</body>
+</html>

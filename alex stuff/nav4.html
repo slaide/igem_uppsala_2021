@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <title>
+        Alex nav 4
+    </title>
+    <style>
+        /* used for all pages */
+        *{
+            margin:0;
+            border:0;
+            padding:0;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        body, html{
+            height: 100%;
+            scroll-behavior: smooth;      
+        }
+
+        .igem-head-bar{
+            height: 16px;
+            width:100%;
+            background-color: black;
+            position: fixed;
+            text-align: center;
+            color: white;
+            z-index: 1000;
+        }
+
+        #section1, #section2, #section3{
+            height:0.1px;
+        }
+
+        /* menu with drop down */
+        #menu{
+            margin-top: 16px;
+            position: fixed;
+            width: 100%;
+            background-color: #426968;
+            transition: all 0.5s;
+            overflow: hidden;
+            height: 8.6%;
+            z-index: 10;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 1.2em;
+            border: 2px solid #6d1d23;
+
+        }
+        #menu:hover{
+            overflow: visible;
+        }
+
+        .logotype{
+            float:left;
+            width:12%;
+            height:65px;
+            padding-right:0px;
+            width: 5%;
+            
+        }
+
+        ul {
+            list-style-type: none;
+
+        }
+        
+        li {
+            float: left;
+            padding-right: 8.8%;
+        }
+
+        li a, .dropbtn {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+
+        }
+        
+        li a:hover, .dropdown-1:hover .dropbtn, .dropdown-2:hover .dropbtn , .dropdown-3:hover .dropbtn , .dropdown-4:hover .dropbtn , .dropdown-5:hover .dropbtn, .dropdown-6:hover .dropbtn {
+            color: #6d1d23;
+            font-style: italic;
+            text-decoration: underline;
+        }
+        
+        li.dropdown-1, li.dropdown-2, li.dropdown-3, li.dropdown-4, li.dropdown-5, li.dropdown-6{
+            display: inline-block;
+        }
+        
+        .dropdown-content-1, .dropdown-content-2, .dropdown-content-3, .dropdown-content-4, .dropdown-content-5, .dropdown-content-6{
+            display: none;
+            position: absolute;
+            background-color: #426968;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        
+        .dropdown-content-1 a, .dropdown-content-2 a, .dropdown-content-3 a, .dropdown-content-4 a, .dropdown-content-5 a, .dropdown-content-6 a{
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        
+        .dropdown-content-1 a:hover, .dropdown-content-2 a:hover, .dropdown-content-3 a:hover, .dropdown-content-4 a:hover, .dropdown-content-5 a:hover, .dropdown-content-6 a:hover{
+            color: #6d1d23;
+            font-style: italic;
+            text-decoration: underline;
+        }
+        
+        .dropdown-1:hover .dropdown-content-1,.dropdown-2:hover .dropdown-content-2, .dropdown-3:hover .dropdown-content-3, .dropdown-4:hover .dropdown-content-4, .dropdown-5:hover .dropdown-content-5, .dropdown-6:hover .dropdown-content-6 {
+            display: block;
+        }
+
+        
+        #clickbox{
+            width: 20vw;
+            border: 2px solid #6d1d23;
+            height:65px;
+            margin-top: 16px;
+            position: fixed;
+            z-index: 2;
+            background-color: #dce1de;
+            justify-content: center;
+            align-content: center;
+            display: flex;
+        }
+
+        /* parallax section*/
+
+        .parallaxtop {
+            background-image: url(https://image.shutterstock.com/image-photo/experiments-chemistry-lab-conducting-experiment-260nw-435738523.jpg);
+            height: 100%;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            overflow: hidden;
+            padding-top: 5%;
+        }
+
+        #header{
+            margin: auto;
+            width: 60%;
+            margin-top: 15%;
+            animation-name: fadein;
+            animation-duration: 2s;
+            text-align: center;
+            font-size: 6em;
+            color: #6d1d23;
+            font-style: italic;
+        }
+        @keyframes fadein{
+            from {opacity: 0;}
+            to{opacity: 1;}
+        }
+
+    
+        #content{
+            display: flex;
+            justify-content: left;
+        }
+
+        /* sidebar */
+        .sidebar3 {
+            width: 20vw;
+            height:30vh;
+            position:sticky;
+            top:10.7%;
+            left:0px;
+            margin-top:5vh;
+            border: 2px solid #6d1d23;
+            padding: 0px;
+            background-color: #6d1d23;
+            text-align: center;
+            font-size: 1.5em;
+        }
+
+        .listsidebar{
+            margin-top: 0px;
+            padding:0;
+            width: 100%;
+            background-color: #dce1de;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .listsections{
+            color:#426968;;
+            padding-top: 30px;
+            display:block;
+            width:100%;
+            transition: all 0.2s;
+        }
+
+      
+        .listsections span:hover{
+            color:#6d1d23;
+        }
+
+
+        .listheader{
+            color:white;
+            padding-top:3%;
+            display:block;
+            width:100%;
+            background-color:#426968;
+            font-size:1.6em;
+            font-weight: bold;
+            
+        }
+
+        /* Actual content */
+        #midcontent{
+            background-color: #dce1de;
+            width: 64vw;
+            height: 100vh;
+            margin-left: 8vw;
+            margin-top:5vh;
+            height: 300%;
+            border-left: 2px solid #6d1d23;
+            border-top: 2px solid #6d1d23;
+            border-right: 2px solid #6d1d23;
+            
+        }
+
+        .midcontenttext{
+            text-align: left;
+            font-size: 1.1em;
+        }
+
+        .midcontenttext > h1{
+            font-size: 2em;
+            font-style: italic;
+            color:#6d1d23;
+            text-align: center;
+            border-bottom: 1px solid #6d1d23;
+            margin: 2%;
+            margin-top: 1%;
+        }
+
+        .midcontenttext >p{
+            font-weight:normal;
+            font-size:1em;
+            font-family:'Times New Roman', Times, serif;
+            color:black;
+            line-height:1.8;
+            letter-spacing:0.05em;
+            margin:2%;
+        }
+
+        .midcontentpic{
+            display:flex;
+            align-items:center;
+            justify-content:space-evenly;
+            height:40%;
+            width: 100.4%;
+            background-color: #6d1d23;
+            transform: translateX(-2px)
+        }
+
+        .midcontentpictext >p{
+            font-weight:normal;
+            text-align: left;
+            font-size:0.75em;
+            font-family:'Times New Roman', Times, serif;
+            color:black;
+            line-height:1.2;
+            letter-spacing:0.05em;
+            margin-bottom:2%;
+            margin-top:0;
+            margin-left: 2%;
+            margin-right: 2%;
+            
+        }
+
+        /* Sponsor part*/
+        .grid-container-sponsors{
+            display: grid;
+            height: 30%;
+            grid-template-columns:repeat(4,1fr);
+            grid-template-rows:repeat(3,1fr);
+            overflow: hidden;
+            background-color:#426968;
+            color: white;
+            border: 2px solid #6d1d23;
+        }
+
+        .sponsorheading{
+            text-align: center;
+            margin:auto;
+            font-size: 2em;
+            grid-column: 2 /span 2;
+            grid-row: 1 /span 1;
+        }
+
+        .sponsor1{
+            text-align: center;
+            margin:auto;
+            grid-column: 1 /span 1;
+            grid-row: 2 /span 1;
+        }
+
+        .sponsor2{
+            text-align: center;
+            margin:auto;
+            font-size: 3em;
+            grid-column: 2 /span 1;
+            grid-row: 2 /span 1;
+        }
+
+        .sponsor3{
+            text-align: center;
+            margin:auto;
+            font-size: 3em;
+            grid-column: 3 /span 1;
+            grid-row: 2 /span 1;
+        }
+
+        .sponsor4{
+            text-align: center;
+            margin:auto;
+            font-size: 3em;
+            grid-column: 4 /span 2;
+            grid-row: 2 /span 1;
+        }
+    </style>
+    <script>
+        window.onscroll = function() {myFunction()};
+
+        function myFunction() {
+          if (document.body.scrollTop > 400|| document.documentElement.scrollTop > 400) {
+            document.getElementById("menu").style.width = "0px";
+            document.getElementById("menu").style.opacity = "0";
+          } else {
+            document.getElementById("menu").style.width = "100%";
+            document.getElementById("menu").style.opacity = "1";
+          }
+        }
+        
+        function clickfunction(){
+            document.getElementById("menu").style.width = "100%";
+            document.getElementById("menu").style.opacity = "1";
+            document.getElementById("menu").style.overflow  = "hidden";
+            setTimeout(function(){ document.getElementById("menu").style.overflow='visible'; }, 1000);
+        }
+
+        function min(a,b){return (a<b?a:b)}
+        function max(a,b){return (a>b?a:b)}
+            var observeViewEnter=new IntersectionObserver(function(entries){9
+                if(entries[0].isIntersecting===true){
+                    //window.alert("entered view")
+                    entries[0].target.classList.add("paddingtopinteractive")
+                    window.addEventListener("scroll",function(){
+                        var target=document.getElementById("steakdiv")
+                        var top=target.getBoundingClientRect().top
+                        var max_scroll=document.documentElement.scrollHeight-window.innerHeight;
+                        var height=window.innerHeight
+                        var scroll_height=(height-top)/height;
+                        console.log(scroll_height)
+                        scroll_height=min(max(scroll_height,0),1.0)
+                        console.log(scroll_height)
+                        target.style.setProperty("--pt",(scroll_height)*50+"vh")
+                    })
+                }
+            },{threshold:[1.0]});
+            var observeViewLeave=new IntersectionObserver(function(entries){
+                if(entries[0].isIntersecting!==true){
+                    entries[0].target.classList.remove("paddingtopinteractive")
+                    //window.alert("left view")
+                }
+            },{threshold:[0.0]});
+            function onload_function(){
+                observeViewEnter.observe(document.getElementById("steakdiv"))
+                observeViewLeave.observe(document.getElementById("steakdiv"))
+            }
+
+            
+    </script>
+</head>
+<body onload="onload_function()">
+
+    <div class="igem-head-bar">
+        IGEM BAR
+    </div>
+
+
+    <!--Menu with drop down-->
+    <div id="menu">
+        <a href='https:\\www.google.com'>
+            <img class="logotype" src="fgfuturereal.png">
+        </a>
+        <ul>
+            <li class="dropdown-1">
+                <a href="javascript:void(0)" class="dropbtn">Project</a>
+                <div class="dropdown-content-1">
+                    <a href="#">Description</a>
+                    <a href="#">Proof of Concept</a>
+                    <a href="#">Engineering Success</a>
+                    <a href="#">Contribution</a>
+                    <a href="#">Proposed Implementation</a>
+                    <a href="#">Poster</a>
+                </div>
+
+            </li>   
+
+            <li class="dropdown-2">
+                <a href="javascript:void(0)" class="dropbtn">Experiments</a>
+                <div class="dropdown-content-2">
+                    <a href="#">Results</a>
+                    <a href="#">Modeling</a>
+                    <a href="#">Notebook</a>
+                    <a href="#">Protocols</a>
+                    <a href="#">Parts</a>
+                    <a href="#">Safety</a>
+                </div>
+            </li>
+
+            <li class="dropdown-3">
+                <a href="javascript:void(0)" class="dropbtn">Human Practice</a>
+                <div class="dropdown-content-3">
+                    <a href="#">Integrated Human Practice</a>
+                    <a href="#">Education</a>
+                    <a href="#">Ethics</a>
+                    <a href="#">Inclusion</a>
+                </div>
+            </li>
+
+            <li class="dropdown-4">
+                <a href="javascript:void(0)" class="dropbtn">Team</a>
+                <div class="dropdown-content-4">
+                    <a href="#">Team</a>
+                    <a href="#">Collaboration</a>
+                    <a href="#">Attribution</a>
+                    <a href="#">Sponsors</a>
+                </div>
+            </li>
+
+            <li class="dropdown-5">
+                <a href="javascript:void(0)" class="dropbtn">Videos</a>
+                <div class="dropdown-content-5">
+                    <a href="#">Final Presentation</a>
+                    <a href="#">Promotional Video</a>
+                    <a href="#">Molecular Dynaics</a>
+                </div>
+            </li>
+
+            <li class="dropdown-6">
+                <a href="javascript:void(0)" class="dropbtn">Judging</a>
+                <div class="dropdown-content-6">
+                    <a href="#">Judging Form</a>
+                    <a href="#">Awards</a>
+                </div>
+            </li>
+
+
+        </ul>
+    </div>
+    <div id="clickbox" onclick="clickfunction()">
+        <img src="fgfuturereal.png" height="100%" width="30%">
+    </div>
+
+    <!-- Parallax-->
+    <div class=parallaxtop>
+        <div id="header">
+                Lab Saftey  
+        </div>
+    </div>
+
+    <div id="content">
+        <!--Sidebar-->
+        <div class="sidebar3">
+
+            <ul class="listsidebar">
+                <li class="listheader">
+                    Index
+                </li>
+                
+
+                <a href="#section1">
+                    <li class="listsections">
+                        <span>
+                            Lab Safety
+                        </span>
+                    </li>
+                </a>
+
+                <a href="#section2">
+                    <li class="listsections">
+                        <span>
+                            Ethics of cultivated meat
+                        </span>
+                    </li>
+                </a>
+
+                <a href="#section3">
+                    <li class="listsections">
+                        <span>
+                            COVID-19 Measures
+                        </span>
+                    </li>
+                </a>
+
+            </ul>
+        </div>
+        <!--Actual content-->
+        <div id="midcontent">
+            <div id="section1"></div>
+            <div class="midcontenttext">
+                <h1>Lab Safety</h1>
+                <p>
+                    Sharing is caring, especially when it comes to safety knowledge. To make sure that everyone understood and followed the rules needed for a safe-laboratory environment, we organized an introductory week before entering the lab, where the whole team participated in three mandatory activities, a laboratory safety round, a biosafety workshop and a waste disposal course. For the first, fire extinguishers, first aid kits and showers were introduced, as well as emergency exits and chemical room organization. For the second, Good Laboratory Practices (GLP) were explained, along with a practical demonstration of pipetting and safe glove removal techniques.
+                </p>
+                <p>
+                    The waste disposal course was held by the safety officer on our campus. The course was composed of a tour around the waste disposal facilities in Uppsala University and a detailed demonstration about the correct labelling and transportations measures for laboratory waste-bins and chemical waste containers. At the end of the tour, each participant was given a diploma allowing them to handle all waste products that were produced in the lab.
+                </p>
+            </div>
+            <div class="midcontentpic">
+                <img src="https://p0.pxfuel.com/preview/691/193/134/chemistry-flame-metals-salts.jpg" height="100%" width="20%">
+                <img src="https://www.statnews.com/wp-content/uploads/2019/05/IMG_20190510_181747-645x645.jpg" height="100%" width="30%">
+            </div>
+            <div class="midcontentpictext">
+                <p>
+                    Figure 1. Wow very cool photos, they are the best photos ever taken. This just some text used to fil the page with. I dont really feel like writing Lorem Ipsum for the hundreth time... Damn, need to write some more to see how the text would look lite on two seperate rows. FML.
+                </p>
+            </div>
+            <div class="midcontenttext">
+                <p>
+                    Lab leaders attended an introduction for the handling of the autoclave and the dishwasher. Additionally, the most experienced students organized lessons showing the basic techniques in synthetic biology, as gel casting or working safely under the flame.
+                </p>
+                <p>
+                    Our wet lab work was carried in a BSL-1 (Biosafety Level 1) laboratory. Basic PPE (Personal Protective Equipment), including a laboratory coat, protective eyewear and gloves according to indications were enforced. Gloves were discarded immediately after use. For our experiments we used Escherichia coli (Strains DH5α, BL21(DE3)) and Bacillus subtilis w168, all included in the iGEM white-list and suited to be handled safely in our installations, without the need of extra protective equipment. Dangerous chemicals were handled in a fume hood.
+                </p>
+                <p>
+                    Lab work is often coupled with long and stressful days, which can be a potential hazard on their own. Therefore we made sure to communicate any errors in our routines during group meetings and to remind each other our responsibilities. A special lab-question communication channel in slack was accessible for any questions and concerns. To keep the lab in order, different lab groups rotated between responsibility of cleaning the lab, i.e. taking care of used glassware.
+                </p>
+                <div id="section2"></div>
+                <h1>Ethics of cultivated meat</h1>
+                <p>
+                    Our goal is to modify first the Gram-negative bacteria Escherichia coli and second the Gram-positive Bacillus subtilis so they express the different parts composing the biosensor fusion proteins containing the nanobodies for detection, T7 promoter amplification loop and β-galactosidase as output signal.
+                </p>
+                <p>
+                    When designing the prototype we kept in mind the user and the potential risks leading to releases of the organisms to the environment in mind. Accidents and/or mistakes could happen during the research and development, production, distribution, usage and discard of our biosensor. According to that, we have developed our prototype (see Kit design) and worked accordingly guidelines of our universities regarding safety preconditions in the lab. For our case study “Tuberculosis disease” we have also taken into account possible social concerns and conflicts that could arise upon a stigmatised disease/infection being easily detected (see Human practice).
+                </p>
+            </div>
+            <div class="midcontentpic">
+                <img src="https://static.parade.com/wp-content/uploads/2018/01/cute-cow-FTR.jpg" height="100%" width="70%">
+            </div>
+            <div class="midcontentpictext">
+                <p>
+                    Figure 2. Wow very cool photos, they are the best photos ever taken. This just some text used to fil the page with. I dont really feel like writing Lorem Ipsum for the hundreth time... Damn, need to write some more to see how the text would look lite on two seperate rows. FML.
+                </p>
+            </div>
+            <div class="midcontenttext">
+                <p>
+                    We have assessed the risk of our genetically modified bacteria (GMO) reaching the environment and deem it as relatively low. The proteins and other elements included in the bacteria are naturally occurring, and the fitness cost of carrying all this extra genetic material is likely to lead to bacterial death outside a controlled environment. The antibiotic-resistant genes included in the genome of our bacteria are standard for this kind of research. Further development of the biosensor would entail integrating a kill switch (see Future). Upon actual product development necessary evaluations and risk assessment aimed for different user groups should be carried out.
+                </p>
+                <p>
+                    For the whole project we have taken special care regarding ethics concerns in research, by attributing every contribution to its author, either inside or outside the team, as well as asking for permission and double-checking the content before its publication for the latter.
+                </p>
+                <div id="section3"></div>
+                <h1>COVID-19 measures</h1>
+                <p>
+                    During the spring period of 2020, all our activities were switched to a digital format. Later, during the summer months, we got an exemption from digital education after presenting an action plan with extra safety measures to contain potential outbreaks. The plan included social distancing, extra cleaning stations, maximum number of people allowed per room and personal equipment like portable hand disinfectant or face shields. These measures were enforced not just in the lab but also in the lunchroom and group rooms. Team members suspecting any symptoms were encouraged to stay home. As one of the few courses exempted from the distance studies during summer we shared our feedback and concerns with the Biological Education center, department that coordinates all bachelor's and master's education in biology at Uppsala University to help organize courses returning to campus during autumn 2020 in the settings of a pandemic.
+                </p>
+            </div>
+              
+        </div>
+    </div>
+    <!--Start sponsor-->
+    <div class="grid-container-sponsors">
+        <div class="sponsorheading">
+            <h3><u>Our sponsors</u></h3>
+        </div>
+        <div class="sponsor1">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png" width="30%" height="100%">
+        </div>
+
+        <div class="sponsor2">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c4/Snapchat_logo.svg/1024px-Snapchat_logo.svg.png" width="30%" height="100%">
+        </div>
+
+        <div class="sponsor3">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/1024px-Instagram_logo_2016.svg.png" width="30%" height="100%">
+        </div>
+
+        <div class="sponsor4">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a9/TikTok_logo.svg/1920px-TikTok_logo.svg.png" width="60%" height="100%">
+        </div>
+
+    </div>  
+</body>
+</html>
