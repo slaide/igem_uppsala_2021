@@ -5,14 +5,20 @@
 <head>
    
    <style>
-    
+  
     *{
         padding:0;
         margin:0;
         border:0;
     }
 
-
+    .igem-head-bar{
+        height: 16px;
+        width:100%;
+        background-color: rgb(65, 65, 65);
+        position: fixed;
+        z-index: 100;
+    }
     
     .logo{
     width: 70px;
@@ -40,6 +46,7 @@
         width:100%;
         background-color: #333;
         position: fixed;
+        padding-top:17px;
     }
 
     .navbar .navbartext {
@@ -115,7 +122,60 @@
   display: block;
 }
 
+#labwork {
+  margin: auto;
+  width: 60%;
+  margin-top: 15%;
+  margin-bottom: 15%;
+}
 
+.heading {
+  background-image: url(lab2.jpg);
+  width: 100%;
+  height: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:cover;
+  overflow: hidden;
+  }
+
+
+h1 {
+  font-size: 50px;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  opacity: 100%; 
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+}
+
+.ul.sidebar {
+  position:sticky; 
+}
+
+.sidebar a {
+  background-color:transparent;
+  color: #426968;        
+  display: block; 
+  text-align: left;
+  padding: 5px;
+  text-decoration: none; 
+  font-weight: bold;
+  }
+      
+
+.plasmid {
+  padding-top: 150px;
+  padding-right: 50px;
+  height: 200px;
+  width: 200px;
+}
 
 </style>
 
@@ -123,7 +183,11 @@
 
 <body>
 
-    <div class="navbar">
+  <div class="igem-head-bar">
+
+  </div>
+
+    <div class="navbar" style="z-index: 10;">
         <a id="alogo" href="https://2021.igem.org/Team:Uppsala" style="scroll-padding:0;"><img src="cow_logo.png" class="logo"></a>
         <div class="navbartext">
 
@@ -139,7 +203,7 @@
 
             </div> 
             <div class="dropdown">
-                <button class="dropbtn">Lab
+                <button class="dropbtn">Lab Work
                     <i class="fa fa-caret-down"></i>
                   </button>
                   <div class="dropdown-content">
@@ -203,21 +267,57 @@
 
     </div>
 
-    <div class="container">
 
-   
+    <div class="heading" >
 
-    <div class="headingrow">
-
-
-
+      <div id="labwork">
+      <h1>Experiments</h1>
 
     </div>
-</div>
+    
+    </div>
+  
+    <div class="container">
+
+      <div class="ul.sidebar">
+        <ul class="sidebar">
+          <li class="sidebarlist" style="background-color:transparent; color: #426968;display: block; text-align: left; padding: 5px; text-decoration: none; font-weight: bold;">Page Content</li>
+          <a href="#section1">
+            <li class=list2>
+              BioBrick Assembly
+            </li>
+          </a>
+
+          <a href="#section2">
+            <li class=list2>
+              Mutageneis PCR
+            </li>
+          </a>
+
+          <a href="#section3">
+            <li class=list2>
+              Protein Expression
+            </li>
+          </a>
+
+          <a href="#section2">
+            <li class=list2>
+              Protein Puification
+            </li>
+          </a>
+
+          <a href="#section3">
+            <li class=list2>
+              Measuring Cell Growth
+            </li>
+          </a>
+
+        </ul>
+      </div>
 
 
-    <div class="content" style="font-size: 30px; padding:100px;">
-        <h3>Sticky Navigation Example</h3>
+      <div class="content" style="font-size: 20px; padding:100px;">
+        <h3>BioBrick Assembly</h3>
         <p>The navbar will stick to the top when you reach its scroll position.</p>
         <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
         <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
@@ -226,9 +326,29 @@
         <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
         <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
         <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+        <br>
+        <br>
+        <h3>Mutagenesis PCR</h3>
+        <p>The navbar will stick to the top when you reach its scroll position.</p>
+        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p> 
+    
+
+      </div>
+      
+      <div class="right margin">
+        <img class="plasmid" src="plasmid.jpg">
       </div>
 
-    
+    </div>
+
+   
+
 
 </body>
 
