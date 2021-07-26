@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
      <title>
-        Alex nav 4
+        Nav5
     </title>
     <style>
         /* used for all pages */
@@ -56,7 +56,6 @@
             height:65px;
             padding-right:0px;
             width: 5%;
-            
         }
 
         ul {
@@ -92,7 +91,7 @@
             position: absolute;
             background-color: #dce1de;
             min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
             z-index: 1;
         }
         
@@ -109,9 +108,21 @@
             font-style: italic;
             text-decoration: underline;
         }
+
+        .dropdown-background{
+            display: none;
+            position: absolute;
+            background-color: #dce1de;
+            width: 90%;
+            height: 420%;
+            z-index: 1;
+            margin-top: 4.2%;
+            margin-left: 5%;
+        }
+    
         
 
-        #menu:hover .dropdown-content-1, #menu:hover .dropdown-content-2, #menu:hover .dropdown-content-3, #menu:hover .dropdown-content-4, #menu:hover .dropdown-content-5, #menu:hover .dropdown-content-6 {
+        #menu:hover .dropdown-content-1, #menu:hover .dropdown-content-2, #menu:hover .dropdown-content-3, #menu:hover .dropdown-content-4, #menu:hover .dropdown-content-5, #menu:hover .dropdown-content-6, #menu:hover .dropdown-background{
             display: block;
         }
 
@@ -209,6 +220,7 @@
             background-color:#dce1de;
             font-size:1.6em;
             font-weight: bold;
+            border-bottom: 1px solid #426968;
             
         }
 
@@ -253,9 +265,8 @@
             align-items:center;
             justify-content:space-evenly;
             height:40%;
-            width: 100.4%;
+            width: 100%;
             background-color: #6d1d23;
-            transform: translateX(-2px)
         }
 
         .midcontentpictext >p{
@@ -325,35 +336,49 @@
     </style>
     <script>
         //Collpaseable menu
-        window.onscroll = function() {myFunction(), indexFunction1(), indexFunction2(), indexFunction3()};
+        window.onscroll = function() {myFunction(), indexFunction1(), indexFunction2(), indexFunction3(), collapseFunction()};
+        /*
         function myFunction() {
           if (document.body.scrollTop > 300|| document.documentElement.scrollTop > 300) {
             document.getElementById("menu").style.height = "0px";
             //document.getElementById("menu").style.opacity = "0";
           } else {
             document.getElementById("menu").style.height = "8.6%";
-            
             //document.getElementById("menu").style.opacity = "1";
           }
         }
+*/
+       /* var prevScrollpos = document.documentElement.scrollTop;
+        window.addEventListener("scroll", function() {
+        var currentScrollPos = document.documentElement.scrollTop;
+        if (prevScrollpos < currentScrollPos) {
+            document.getElementById("menu").style.height = "0%";
+        } else {
+            document.getElementById("menu").style.height = "8.6%";
+        }
+        prevScrollpos = currentScrollPos;
+        })
+
+*/
+
 
         //Bolding index
         function indexFunction1(){
-            if (document.documentElement.scrollTop > 750 && document.documentElement.scrollTop < 2000) {
+            if (document.documentElement.scrollTop > 400 && document.documentElement.scrollTop < 1700) {
                 document.getElementById("span1").style.fontWeight="bold";
             } else {
             document.getElementById("span1").style.fontWeight = "normal";
             }
         }
         function indexFunction2(){
-            if (document.documentElement.scrollTop > 2000 && document.documentElement.scrollTop < 3000) {
+            if (document.documentElement.scrollTop > 1700 && document.documentElement.scrollTop < 2700) {
                 document.getElementById("span2").style.fontWeight="bold";
             } else {
             document.getElementById("span2").style.fontWeight = "normal";
             }
         }
         function indexFunction3(){
-            if (document.documentElement.scrollTop > 3000) {
+            if (document.documentElement.scrollTop > 2700) {
                 document.getElementById("span3").style.fontWeight="bold";
             } else {
             document.getElementById("span3").style.fontWeight = "normal";
@@ -412,6 +437,7 @@
 
     <!--Menu with drop down-->
     <div id="menu">
+        <div class="dropdown-background"></div> 
         <a href='https:\\www.google.com'>
             <img class="logotype" src="fgfuturereal.png">
         </a>
@@ -427,7 +453,8 @@
                     <a href="#">Poster</a>
                 </div>
 
-            </li>   
+            </li>
+              
 
             <li class="dropdown-2">
                 <a href="javascript:void(0)" class="dropbtn">Experiments</a>
@@ -588,7 +615,12 @@
                 <p>
                     During the spring period of 2020, all our activities were switched to a digital format. Later, during the summer months, we got an exemption from digital education after presenting an action plan with extra safety measures to contain potential outbreaks. The plan included social distancing, extra cleaning stations, maximum number of people allowed per room and personal equipment like portable hand disinfectant or face shields. These measures were enforced not just in the lab but also in the lunchroom and group rooms. Team members suspecting any symptoms were encouraged to stay home. As one of the few courses exempted from the distance studies during summer we shared our feedback and concerns with the Biological Education center, department that coordinates all bachelor's and master's education in biology at Uppsala University to help organize courses returning to campus during autumn 2020 in the settings of a pandemic.
                 </p>
-                <h1>My favourite color</h1>
+            </div>
+            <div class="midcontentpic">
+                <img src="https://static.parade.com/wp-content/uploads/2018/01/cute-cow-FTR.jpg" height="100%" width="70%">
+            </div>
+            <div class="midcontentpictext">
+                <p>Fig.10 wow this explains all of our project.</p>
             </div>
               
         </div>
