@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Gustaf's almost final topbar </title>
+<style>
+
+*{
+            margin:0;
+            border:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+  
+        #igemloginbar{ 
+            width:100%;
+            background-color:#dce1de;
+            height:16px;
+            top:0;
+            z-index:3;
+            position:fixed;
+            text-align:center;
+}
+html,body{
+  height:100%;
+  margin:0;
+  padding:0;
+  /* background-color:blueviolet; */
+  /*
+  background: url(coral.jpeg) left top no-repeat, url(antibiotics.jpeg) right bottom no-repeat, url(adamsandler.jpeg) left top repeat;
+  */
+  background-color:blueviolet;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  top:0;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  /*padding: 14px 16px; */
+  padding: 20px 18px;
+  text-decoration: none;
+  margin-right:50px;
+  margin-left:0px;
+}
+
+li a:hover {
+  color: #426968;
+}
+li a:hover .triangle{border-top: 7.5px solid #426968;}
+
+#menu{
+transition:0.5s;
+width:100%;
+padding-left:80px;
+position:fixed;
+overflow:hidden;
+background-color: #6d1d23;
+margin-top:16px;
+z-index:1;
+height:10%;
+}
+
+.active {
+  background-color: #04AA6D;
+  height:10vh;
+}
+
+#menu:hover{overflow:visible;
+}
+
+#menu:hover ~ section{filter:blur(8px);}
+
+#menu:hover ~ .wrapper{filter:blur(8px);}
+
+/*
+#menu:hover body{filter:blur(8px);
+background-color:yellow;}
+*/
+
+li.dropdown {
+  display: inline-block;
+  margin-right:30px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #4f899e;
+  width:150px;
+  
+  height:25.5vh; /* vet ej om vi vill ha det så */
+  /* width beror på om alla är dorpdowns */
+  
+  /* om ej height specificeras ser de olika höga ut */
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  margin-top:16px;
+}
+
+/*
+          #426968 (main) green thing
+#dce1de (background) white thing
+#6d1d23 (highlight) red thing
+-
+Other colors:
+#4f899e
+#694256 mörkröd typ
+#555849
+*/
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  width:100%;
+  border-bottom: 1px solid black;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+#menu:hover .dropdown-content {
+  display: block;
+}
+
+/* till topbaren */
+.toplogocontainer{
+    width:5%;
+    height:10%;
+    background-color:#6d1d23;
+    top:16px;
+    left:0px;
+    position:fixed;
+    z-index:9999;
+}
+ 
+.toplogosticky{
+  background-image:url(fgfuturereal.png);
+  background-size:cover;
+  background-color:#6d1d23;
+width:50px;
+height:50px;
+top:25px;
+left:10px;
+position:fixed;
+z-index:10000;}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+  float:right;
+  border-top: 7.5px solid white;
+  border-bottom:0;
+  margin-left:6px;
+  margin-top:5px;
+}
+
+/* fancy stuff https://codepen.io/denic/pen/GRoOxbM */
+.wrapper {
+  height: 30vh;
+  /*This part is important for centering*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size:cover;
+  position:relative;
+  overflow:hidden;
+}
+
+.typing-demo {
+  width: 22ch;
+  animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: monospace;
+  font-size: 2em;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+}
+    
+@keyframes blink {
+  50% {
+    border-color: transparent
+  }
+}
+
+/* for bg.jpg och splash.jpg */
+section{
+  position:relative;
+  width:100%;
+  min-height:100vh;
+  background: url(bg.jpg);
+  background-size:cover;
+  /*box-sizing:border-box; */
+}
+
+section:before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:url(splash.jpg);
+  background-size:100%;
+  background-position:center;
+  mix-blend-mode:screen; /*makes the picture visible */ 
+  
+}
+
+
+</style>
+
+<script>
+
+    window.onscroll=function(){myFunction()};
+  
+  function myFunction(){
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300){
+    document.getElementById("menu").style.height = "0%";
+    }
+    else {
+      document.getElementById("menu").style.height = "10%";
+    }
+  }
+
+</script>
+
+</head>
+<body>
+
+<!-- https://www.youtube.com/watch?v=lBK_kh4iCAQ&ab_channel=OnlineTutorials
+denna ska jag härma med bakgrund och splash
+bg.jpg
+splash.jpg-->
+
+
+
+<!-- Perfect centering like this:
+https://www.w3schools.com/css/tryit.asp?filename=trycss3_flexbox_margin2
+-->
+
+<!-- NAVIGATIONSBAR THAT I LIKE!
+https://2020.igem.org/Team:UofUppsala
+-->
+
+<div id="igemloginbar">
+    IGEM LOGIN BAR
+</div>
+
+<div class="toplogocontainer">
+<div class="toplogosticky">
+</div>
+</div>
+
+
+
+<!-- 
+    fixa scroll åt sidan på navbar blir scroll uppåt- klart
+
+Fixa sidebar med index=namn på hemsidan och är en länk
+
+Fixa så att hemsidan man är på är active! -klart!
+
+Fixa så att den kmr tillbaka när man scrollar uppåt
+
+samt kmr tillbaka när man hovrar på toppne
+
+Also, all submenus expand together in a single big block covering the 
+entire width of all menus, and the background
+ (which is the actual page) is displayed around it, but blurred.-->
+
+<div id="menu">
+    <ul> <!-- clickable bild -->
+        <!--
+      <a href='https:\\www.google.com'>
+        <img class="logotype" src="cow_logo.png">
+    </a>
+    -->
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="team">Project<div class="triangle"></div></a>
+            <div class="dropdown-content">
+              <a href="https://2020.igem.org/Team:UofUppsala/Description" >Description</a>
+              
+              <a href="https://2020.igem.org/Team:UofUppsala/Design">Design</a>
+              <a href="https://2020.igem.org/Team:UofUppsala/Engineering">Engineering success</a>
+              <a href="https://2020.igem.org/Team:UofUppsala/Proof_Of_Concept">Proof of concept</a>
+            </div>
+          </li>
+        
+          <li class="dropdown">
+            <a href="javascript:void(0)" class="team">Lab<div class="triangle"></div>
+
+            </a>
+
+            <div class="dropdown-content">
+              <a href="https://2020.igem.org/Team:UofUppsala/Results">Wet lab</a>
+              <a href="https://2020.igem.org/Team:UofUppsala/Model">Dry</a>
+            </div>
+          </li>
+
+        <li><a href="https://2020.igem.org/Team:UofUppsala/Parts">Parts</a></li>
+        
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="team">Future<div class="triangle"></div></a>
+            <div class="dropdown-content">
+              <a href="https://2020.igem.org/Team:UofUppsala/Implementation">Implementation</a>
+              <a href="https://2020.igem.org/Team:UofUppsala/Contribution">Contributions</a>
+            </div>
+          </li>
+
+        <li class="dropdown">
+          <a href="javascript:void(0)" class="team">Human Practices<div class="triangle"></div></a>
+          <div class="dropdown-content">
+            <a href="https://2020.igem.org/Team:UofUppsala/Human_Practices">Integrated Human Practices</a>
+            <a href="https://2020.igem.org/Team:UofUppsala/Education">Education</a>
+            <a href="https://2020.igem.org/Team:UofUppsala/Collaborations">Collaborations</a>
+          </div>
+        </li>
+        <li><a class="active" href="https://2020.igem.org/Team:UofUppsala/Safety">Safety</a></li>
+          </li>
+          <li class="dropdown">
+            <a href="javascript:void(0)" class="team">Team<div class="triangle"></div></a>
+            <div class="dropdown-content">
+              <a href="https://2020.igem.org/Team:UofUppsala/Team">Meet the Team</a>
+              <a href="https://2020.igem.org/Team:UofUppsala/Attributions">Attributions</a>
+            </div>
+          </li>
+          <li><a href="https://2020.igem.org/Team:UofUppsala/Awards">Awards</a></li>
+      </ul>
+    </div>
+
+<!-- only to make the page longer to see the scrollfunction-->
+ <!-- för första fancy grejen-->
+ <div class="wrapper">
+    <div class="typing-demo">
+      Final topbar design.
+
+     
+  
+    </div>
+    
+  
+  </div>
+
+
+<!-- for the splash thing!-->
+
+<section>
+
+</section>
+
+
+
+<img src="deforest.jpeg">
+    <h1> THIS IS PART1</h1>
+
+    <img src="cowkompis.jpeg">
+    <img src="cownew.jpeg">
+    <img src="amazonas.jpeg">
+    <img src="cow_logo.png" style="background-color:red; height:500px;">
+    <img src="fgfuturereal.png" style="height:500px;">
+    <img src="fundpage.png" style="height:500px;">
+
+    <h1> THIS IS PART1</h1>
+
+</body>
+
+</html>

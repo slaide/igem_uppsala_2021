@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title> Gustaf's fgfuture sidepages (not main) for fgfuture
-         template
+    <title> Gustaf's real sidepage for the fgfuture
     </title>
 
 <meta charset=utf-8>
@@ -117,6 +116,7 @@ ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  padding-left:80px;
   overflow: hidden;
   top:0;
 }
@@ -131,6 +131,8 @@ li a {
   text-align: center;
   padding: 20px 18px;
   text-decoration: none;
+  margin-right:50px;
+  margin-left:0px;
 }
 
 li a:hover {
@@ -145,24 +147,36 @@ width:100%;
 position:fixed;
 overflow:hidden;
 background-color: #426968;
-margin-top:16px;
+margin-top:15px;
 z-index:1000;
 height:10%;
 }
 
 #menu:hover{overflow:visible;}
 
+#menu:hover ~ .wrapper, #menu:hover~ section, #menu:hover~ .grid-container-bottom{
+    filter:blur(10px);
+}
+
+/*
+.active {
+  background-color: #04AA6D;
+}
+*/
+
+
+
 li.dropdown {
   display: inline-block;
-  height:100px;
+  margin-right:30px;
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  background-color: #4f899e;
+  width: 150px;
+  height:25.5vh;
   z-index: 1;
   margin-top:16px;
 }
@@ -171,15 +185,33 @@ li.dropdown {
   color: black;
   padding: 12px 16px;
   text-decoration: none;
+  width:150px;
   display: block;
   text-align: left;
+}
+
+.dropdown-background{
+    display: none;
+    position: absolute;
+    background-color: #4f899e;
+    width: 90%;
+    height: 25.5vh;
+    z-index: 1;
+    margin-top: 10vh;
+    margin-left: 5%;
+    margin-right:5%;
 }
 
 .dropdown-content a:hover {background-color: #f1f1f1;}
 
 .dropdown:hover .dropdown-content {
+  text-decoration:underline;
+}
+
+#menu:hover .dropdown-content,#menu:hover .dropdown-background {
   display: block;
 }
+
 
 .grid-container-bottom{
             display: grid;
@@ -194,11 +226,12 @@ li.dropdown {
 /* till topbaren */
 .logotype{
     float:left;
-    width:8%;
-    height:60px;
-    padding-top:0px;
+    width:12%;
+    height:65px;
     padding-right:0px;
-    transition:all 1s; 
+    width: 5%;
+    position:fixed;
+    z-index:10;
 }
 
 .triangle {
@@ -316,6 +349,7 @@ li.dropdown {
       width:100%;
       transition: all 0.2s;
       }
+
 
       /* aspect-ratio: 1/1 ger lika höjd som bredd */
       /* inset av 0 -> hela skärmen ('är short för top, bottom,left,right')
@@ -524,14 +558,14 @@ height:30px;}
 
 <script>
 /* function for the navigation bar to go away after scroll */
-  window.onscroll=function(){myFunction()};
+  window.onscroll= window.onscroll = function() {myFunction(), indexFunction1(), indexFunction2(), indexFunction3()};
 
 function myFunction(){
   if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300){
-  document.getElementById("menu").style.width = "0px";
+  document.getElementById("menu").style.height = "0%";
   }
   else {
-    document.getElementById("menu").style.width = "100%";
+    document.getElementById("menu").style.height = "10%";
   }
 }
 
@@ -560,6 +594,36 @@ function clickerfunction(){
                 }
             })
             */
+
+    /* script for making text bold in the sidebar */
+
+
+        function indexFunction1(){
+            if (document.documentElement.scrollTop > 700 && document.documentElement.scrollTop < 1800) {
+                document.getElementById("span1").style.fontWeight="bold";
+            } else {
+            document.getElementById("span1").style.fontWeight = "normal";
+            }
+        }
+
+        function indexFunction2(){
+            if (document.documentElement.scrollTop > 1800 && document.documentElement.scrollTop < 2900) {
+                document.getElementById("span2").style.fontWeight="bold";
+            } else {
+            document.getElementById("span2").style.fontWeight = "normal";
+            }
+        }
+        function indexFunction3(){
+            if (document.documentElement.scrollTop > 2900) {
+                document.getElementById("span3").style.fontWeight="bold";
+            } else {
+            document.getElementById("span3").style.fontWeight = "normal";
+            }
+        }
+
+/* end of bold script */
+
+    
 </script>
 
 </head>
@@ -592,10 +656,11 @@ gör sponsordelen snyggare med typ fb länk från bild och instagram med.
 -->
 
 <div id="menu">
-     <!-- clickable bild -->
+     <div class="dropdown-background"></div>
+    <a href='https:\\www.google.com'>
+        <img class="logotype" src="fgfuturereal.png">
+    </a>
      <ul>
-        <a href='https://2020.igem.org/Team:UofUppsala'>
-          <img class="logotype" src="fundpage.png">
           <!-- cow_logo.png-->
       </a>
         
@@ -617,13 +682,11 @@ gör sponsordelen snyggare med typ fb länk från bild och instagram med.
                 </div>
               </li>
 
-            <li><a href="https://2020.igem.org/Team:UofUppsala/Parts">Parts</a></li>
-            
-            <li class="dropdown">
+              <li class="dropdown">
                 <a href="javascript:void(0)" class="team">Future<div class="triangle"></div></a>
                 <div class="dropdown-content">
-                  <a href="https://2020.igem.org/Team:UofUppsala/Implementation">Implementation</a>
-                  <a href="https://2020.igem.org/Team:UofUppsala/Contribution">Contributions</a>
+                  <a href="https://2020.igem.org/Team:UofUppsala/Results">Wet lab</a>
+                  <a href="https://2020.igem.org/Team:UofUppsala/Model">Dry</a>
                 </div>
               </li>
 
@@ -635,8 +698,6 @@ gör sponsordelen snyggare med typ fb länk från bild och instagram med.
                 <a href="https://2020.igem.org/Team:UofUppsala/Collaborations">Collaborations</a>
               </div>
             </li>
-            <li><a href="https://2020.igem.org/Team:UofUppsala/Safety">Safety</a></li>
-              </li>
               <li class="dropdown">
                 <a href="javascript:void(0)" class="team">Team<div class="triangle"></div></a>
                 <div class="dropdown-content">
@@ -644,7 +705,15 @@ gör sponsordelen snyggare med typ fb länk från bild och instagram med.
                   <a href="https://2020.igem.org/Team:UofUppsala/Attributions">Attributions</a>
                 </div>
               </li>
-              <li><a href="https://2020.igem.org/Team:UofUppsala/Awards">Awards</a></li>
+
+              <li class="dropdown">
+                <a href="javascript:void(0)" class="team">Videos<div class="triangle"></div></a>
+                <div class="dropdown-content">
+                  <a href="https://2020.igem.org/Team:UofUppsala/Team">Promotional Videos </a>
+                  <a href="https://2020.igem.org/Team:UofUppsala/Attributions">Molecular Dynamics</a>
+                </div>
+              </li>
+              
           </ul>
         </div>
 
@@ -659,7 +728,7 @@ gör sponsordelen snyggare med typ fb länk från bild och instagram med.
   <img src="moon.png" id="moon">
   <img src="mountain.png" id='mountain' >
   <img src="road.png" id="road">
-  <h2 id="text">Safety</h2>
+  <h2 id="text">Final Safety</h2>
 </section>
 
 
@@ -693,13 +762,13 @@ gör sponsordelen snyggare med typ fb länk från bild och instagram med.
                         <a href="#sectiontop"><li class="myli2big">Safety</li></a>
                         
 
-                        <a href="#section1"><li class="myli2"><div class="circle" style="background-color:lightblue;"></div><span>Lab Safety</span></li></a>
+                        <a href="#section1"><li class="myli2"><div class="circle" style="background-color:lightblue;"></div><span id="span1">Lab Safety</span></li></a>
 
                     <a href="#section2">
-                        <li class="myli2"><div class="circle" style="background-color:orange;"></div><span>Ethics and Risks of GMOs</span></li></a>
+                        <li class="myli2"><div class="circle" style="background-color:orange;"></div><span id="span2">Ethics and Risks of GMOs</span></li></a>
 
                         <a href="#section3">
-                        <li class="myli2"><div class="circle" style="background-color:red;"></div><span>COVID-19 Measures</span></li></a>
+                        <li class="myli2"><div class="circle" style="background-color:red;"></div><span id="span3">COVID-19 Measures</span></li></a>
 
                     </ul>
                   </div>
