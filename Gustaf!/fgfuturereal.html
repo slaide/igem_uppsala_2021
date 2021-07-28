@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf8">
+    <script src="https://cdn.jsdelivr.net/npm/warpjs@1.0.8/dist/warp.js"></script>
+        <script src="svg_landing_page_images.js"></script>
+    <title> Gustaf's fgfuture with real pictures
+    </title>
+
+<meta charset=utf-8>
+<style>
+
+*{
+                margin:0;
+                padding:0;
+                border:0;
+            }
+            main{
+                display:grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(5,1fr);
+                height:500vh;
+                width:100%;
+            }
+            .reference_image{
+                width:100%;
+                height:100%;
+            }
+            .panel > *{
+                position:absolute;
+                overflow:hidden;
+            }
+            .real{
+                background-color:#7ab9ce;
+                bbackground-color:red;
+                oopacity: 0.5;
+                width:100%;
+                height:100%;
+            }
+            #grass_front,#grass_middle,#grass_back{
+                position:absolute;
+
+                --grass-real-height:110.5px;
+                --grass-real-width:2035.42px;
+
+                --grass-height:calc(var(--grass-real-height) * var(--scale-factor));
+                --grass-width:calc(var(--grass-real-width) * var(--scale-factor));
+
+                width:calc( 100vw + 2 * var(--overflow-one-side));
+
+                height:var(--grass-height);
+
+                background-repeat: repeat-x;
+
+                background-size: var(--grass-width) var(--grass-height);
+            }
+            #grass_front_middle_fill,#grass_middle_back_fill{
+                position:absolute;
+                width:100%;
+                bottom:0;
+            }
+            #grass_front_svg{
+                position:relative;
+                z-index:8;
+                left:calc( -1 * var(--overflow-one-side));
+            }
+            #grass_front{
+                --scale-factor:1.2;
+
+                --overflow-one-side:1.8vw;
+
+                left:calc( var(--left-offset) -1 * var(--overflow-one-side));
+
+                bottom:0vh;
+
+                /* background-image: url("grass_front.svg"); */
+
+                z-index:8;
+                fill:#8cb29f;
+            }
+            #grass_front_middle_fill{
+                height:calc( 8vh + 1px);
+                z-index:7;
+                background-color:#5d8178;
+            }
+            #grass_middle{
+                --scale-factor:0.666;
+
+                --overflow-one-side:1.2vw;
+
+                /*shift to one side slightly*/
+                left:calc( 2vw - var(--overflow-one-side));
+
+                bottom:8vh;
+                
+                background-image: url("grass_middle.svg");
+
+                fill:#5d8178;
+                z-index:6;
+            }
+            #grass_middle_back_fill{
+                height:calc( 12vh + 1px);
+                z-index:4;
+                background-color:#416969;
+            }
+            #grass_back{
+                --scale-factor:0.5;
+
+                --overflow-one-side:1.5vw;
+
+                /*shift to one side slightly*/
+                left:calc( -2vw - var(--overflow-one-side));
+
+                bottom:12vh;
+
+                background-image: url("grass_back.svg");
+
+                z-index: 4;
+
+                fill:#416969;
+            }
+            #cow_left,#cow_right{
+                position:absolute;
+
+                --cow-height:887.78;
+                --cow-width:530.92;
+
+                height:calc(var(--width)*var(--cow-width)/var(--cow-height));
+                width:var(--width);
+
+                background-image: url("cow_eating.svg");
+            }
+            #cow_left{
+                --width:32vw;
+
+                left: 10vw;
+                bottom: 3vh;
+
+                z-index: 7;
+
+                transform: scaleX(-1);
+            }
+            #cow_right{
+                --width:20vw;
+
+                right: 14vw;
+                bottom: 9vh;
+
+                z-index: 5;
+            }
+            #mountain_back,#mountain_middle,#mountain_front{
+                position:absolute;
+                width:100%;
+                bottom:0;
+            }
+            #mountain_back{
+                z-index:0;
+                background-image:url("mountains_back.svg");
+                height:835.54px;
+                --width:1920px;
+            }
+            #mountain_middle{
+                z-index:1;
+                background-image:url("mountains_middle.svg");
+                height:574.74px;
+                --width:1920px;
+            }
+            #mountain_front{
+                z-index:2;
+                background-image:url("mountains_front.svg");
+                height:439px;
+                --width:1926px;
+            }
+            #grass_front>svg{
+                height:100%;
+            }
+
+
+            /* min egen del */
+            section{position:relative;
+      width:100%;
+      height:100vh;
+      overflow:hidden;
+      display:flex;
+      justify-content:center;
+      align-items:center;}
+
+      section:before{
+          content:'';
+          position:absolute;
+          bottom:0;
+          width:100%;
+          height:100px;
+          background:linear-gradient(to top, #0a2a43, transparent);
+          z-index:10000;
+      }
+
+      section:after{
+          content:'';
+          position:absolute;
+          top:0;
+          left:0;
+          width:100%;
+          height:100%;
+          z-index:10000;
+          background: #0a2a43;
+          mix-blend-mode:color;
+      }
+
+      section img{
+          position:absolute;
+          top:0;
+          left:0;
+          width:100%;
+          height:100%;
+          object-fit:cover;
+          pointer-events:none;
+      }
+
+      #text{
+          position:relative;
+          color:#fff;
+          font-size:10em;
+          z-index:1;
+      }
+
+      #road{
+          z-index:2;
+      }
+
+</style>
+
+</head>
+
+<body>
+<!-- my part-->
+<!--
+<section>
+    <img src="backg.jpg" id="backg">
+    <img src="moon.png" id="moon">
+    <img src="mountain.png" id="mountain">
+    <img src="road.png" id="road">
+    <h2 id="text">Moon light</h2>
+</section>
+-->
+<!-- yolo -->
+<section>
+    <img src="backg.jpg" id="backg">
+    <img src="moon.png" id="moon">
+    <img src="mountain.png" id="mountain">
+    <img src="road.png" id="road">
+    <h2 id="text">Moon light</h2>
+</section>
+
+
+<!-- now trying with the new pictures-->
+<main>
+<div class="panel">
+    <img class="reference_image" src="IMG_0968.PNG"/>
+    <div class="real">
+        <div id="grass_front"></div>
+        <div id="grass_front_middle_fill"></div>
+        <div id="cow_left"></div>
+        <div id="grass_middle"></div>
+        <div id="grass_middle_back_fill"></div>
+        <div id="cow_right"></div>
+        <div id="grass_back"></div>
+        <div id="mountain_back"></div>
+        <div id="mountain_middle"></div>
+        <div id="mountain_front"></div>
+    </div>
+</div>
+
+
+   <script>
+       /* SCRIPT FOR MOVING the parallax */
+    /* can have the function inside the body and it works or 
+    have the function in the header and have body onload and give the function
+    a name (see lall.html) */
+/*
+        let backg = document.getElementById('backg');
+        let moon = document.getElementById('moon');
+
+        let mountain_back = document.getElementById('mountain_back');
+        let mountain_middle = document.getElementById('mountain_middle');
+        let mountain_front = document.getElementById('mountain_front');
+
+        let cow_left = document.getElementById('cow_left');
+        let cow_right = document.getElementById('cow_right');
+        let text = document.getElementById('text');
+        
+        window.addEventListener('scroll', function(){
+        var value = window.scrollY;
+        
+        
+        moon.style.left = -value * 0.5 + 'px';
+
+        mountain_back.style.top = -value * 0.5 + 'px';
+        mountain_middle.style.top = -value * 0.15 + 'px';
+        mountain_front.style.top = -value * 0.15 + 'px';
+
+        cow_left.style.top = value * 0.15 + 'px';
+        cow_right.style.top = value * 0.15 + 'px';
+        text.style.top = value * 1 + 'px';
+        })
+        */
+
+        let backg = document.getElementById('backg');
+        let moon = document.getElementById('moon');
+        let mountain = document.getElementById('mountain');
+        let road = document.getElementById('road');
+        let text = document.getElementById('text');
+
+      
+        window.addEventListener('scroll', function(){
+        var value = window.scrollY;
+        
+        backg.style.top = value * 0.5 + 'px';
+        moon.style.left = -value * 0.5 + 'px';
+        mountain.style.top = -value * 0.15 + 'px';
+        road.style.top = value * 0.15 + 'px';
+        text.style.top = value * 1 + 'px';
+
+        })
+    </script>
+    
+    <div class="panel">
+        <img class="reference_image" src="IMG_0969.PNG"/>
+    </div>
+    <div class="panel">
+        <img class="reference_image" src="IMG_0970.PNG"/>
+    </div>
+    <div class="panel">
+        <img class="reference_image" src="IMG_0971.PNG"/>
+    </div>
+    <div class="panel">
+        <img class="reference_image" src="IMG_0972.PNG"/>
+    </div>
+</main>
+
+<script>
+    /* patricks script for the grass */
+    if(!grass_front_svg){
+                window.alert("front")
+            }
+            if(!grass_middle_svg){
+                window.alert("middle")
+            }
+            if(!grass_back_svg){
+                window.alert("back")
+            }
+
+            const cap_framerate=1000/20
+
+            let grass_front=document.getElementById('grass_front')
+            grass_front.innerHTML=grass_front_svg
+            const warp_front = new Warp(grass_front.children[0])
+            let offset_front = 0
+            function animate_front()
+            {
+                warp_front.transform(([ x, y ]) => [ x + 0.4*Math.sin(0.035*y+offset_front), y ])
+                offset_front += 0.25/4
+            }
+            setInterval(animate_front,cap_framerate)
+
+</script>
+
+</body>
+</html>
