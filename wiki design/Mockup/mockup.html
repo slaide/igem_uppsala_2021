@@ -70,7 +70,7 @@
             </div>
         </main>
         <script>
-            let disable_complex_animations=false
+            let disable_complex_animations=true
             const cap_framerate=30
 
             if(!grass_front_svg){
@@ -90,7 +90,7 @@
             }
             //animate once to set positions
             animate_front_grass()
-            setInterval(()=>disable_complex_animations?requestAnimationFrame(animate_front_grass):()=>{},1000/cap_framerate)
+            setInterval(()=>disable_complex_animations?()=>{}:requestAnimationFrame(animate_front_grass),1000/cap_framerate)
 
             let co_container=document.getElementById("co_bubble_container")
 
@@ -145,7 +145,7 @@
             }
             //animate once to set positions
             animate_co_bubbles()
-            setInterval(()=>disable_complex_animations?requestAnimationFrame(animate_co_bubbles):()=>{},1000/cap_framerate)
+            setInterval(()=>disable_complex_animations?()=>{}:requestAnimationFrame(animate_co_bubbles),1000/cap_framerate)
         </script>
     </body>
 </html>
