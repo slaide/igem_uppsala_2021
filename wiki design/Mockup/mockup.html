@@ -70,12 +70,10 @@
             </div>
         </main>
         <script>
-            let disable_complex_animations=true
-            const cap_framerate=30
+            let animation_functions=[]
+            let disable_complex_animations=false
+            const cap_framerate=60
 
-            if(!grass_front_svg){
-                window.alert("front grass is missing")
-            }
             let grass_front=document.getElementById('grass_front')
             grass_front.innerHTML=grass_front_svg
 
@@ -88,16 +86,14 @@
                 warp_front.transform(([ x, y ]) => [ x+amplitude*Math.sin(phase_multiplier*y+offset_front), y])
                 offset_front += offset_front_delta
             }
-            //animate once to set positions
-            animate_front_grass()
-            setInterval(()=>disable_complex_animations?()=>{}:requestAnimationFrame(animate_front_grass),1000/cap_framerate)
+            animation_functions.push(animate_front_grass)
 
             let co_container=document.getElementById("co_bubble_container")
 
             let path=document.createElementNS("http://www.w3.org/2000/svg","path")
             path.setAttribute("d","M342.18,931C286.5,916.5,210.5,861.5,229.5,786.5c22.35-88.21,147.26-65.91,161-125,10-43-34-87-44-111")
 
-            let offset_delta=0.004
+            let offset_delta=0.16/cap_framerate
 
             let offsets=[0.0,1/4,2/4,3/4]
             let offset_deltas=[offset_delta,offset_delta,offset_delta,offset_delta]
@@ -143,9 +139,19 @@
                     }
                 }
             }
-            //animate once to set positions
-            animate_co_bubbles()
-            setInterval(()=>disable_complex_animations?()=>{}:requestAnimationFrame(animate_co_bubbles),1000/cap_framerate)
+            animation_functions.push(animate_co_bubbles)
+
+
+            function animate_all(){
+                for(fun of animation_functions){
+                    fun()
+                }
+            }
+            if(!disable_complex_animations){
+                setInterval(animate_all,1000/cap_framerate)
+            }else{
+                animate_all()
+            }
         </script>
     </body>
 </html>

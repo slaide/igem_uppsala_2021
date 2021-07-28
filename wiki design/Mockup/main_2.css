@@ -145,6 +145,7 @@
     width:100px;
     height:100px;
     position:absolute;
+    transition:top 16ms linear, left 16ms linear, height 16ms linear, width 16ms linear;
 }
 .co_bubble_text{
     transition:opacity 0.3s;
