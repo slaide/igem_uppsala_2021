@@ -203,8 +203,10 @@
           width:100%;
           height:100%;
           z-index:10000;
-          background: #0a2a43;
+        
+          /*
           mix-blend-mode:color;
+          */
       }
 
       section img{
@@ -244,12 +246,44 @@
 </section>
 -->
 <!-- yolo -->
+<!--
 <section>
     <img src="backg.jpg" id="backg">
     <img src="moon.png" id="moon">
     <img src="mountain.png" id="mountain">
     <img src="road.png" id="road">
     <h2 id="text">Moon light</h2>
+</section>
+-->
+
+<section>
+    
+    <div id="grass_front"></div>
+    
+        <div id="grass_front_middle_fill"></div>
+        <div id="grass_back"></div>
+        <div id="grass_middle"></div>
+        <div id="grass_middle_back_fill"></div>
+        
+        <div id="cow_left"></div>
+        <div id="cow_right"></div>
+        
+<!-- RÖRLIGA DELEN-->
+        <img src="mountains_back.png" id="mountains_back">
+        
+        <img src="mountains_front.png" id="mountains_front">
+       
+        <img src="mountains_middle.png" id="mountains_middle">
+
+    
+        <img src="moon.png" id="moon">
+
+        <!--
+        <div id="mountain_back"></div>
+        <div id="mountain_middle"></div>
+        <div id="mountain_front"></div>
+    -->
+    <h2 id="text">FGFUTURE</h2>
 </section>
 
 
@@ -305,22 +339,40 @@
         })
         */
 
+        /*
         let backg = document.getElementById('backg');
         let moon = document.getElementById('moon');
         let mountain = document.getElementById('mountain');
         let road = document.getElementById('road');
         let text = document.getElementById('text');
+        */
 
-      
+        let moon = document.getElementById('moon');
+        let text = document.getElementById('text');
+
+       
+
+        let mountains_back = document.getElementById('mountains_back');
+        let mountains_middle = document.getElementById('mountains_middle');
+        let mountains_front = document.getElementById('mountains_front');
+
         window.addEventListener('scroll', function(){
         var value = window.scrollY;
         
+        /*
         backg.style.top = value * 0.5 + 'px';
-        moon.style.left = -value * 0.5 + 'px';
         mountain.style.top = -value * 0.15 + 'px';
         road.style.top = value * 0.15 + 'px';
-        text.style.top = value * 1 + 'px';
+         */
 
+        moon.style.left = -value * 0.5 + 'px';
+        
+        text.style.top = value * 1 + 'px';
+       
+        mountains_back.style.top = -value * 0.10 + 'px';
+
+        mountains_middle.style.top = -value * 0.30 + 'px';
+        mountains_front.style.top = -value * 0.50 + 'px';
         })
     </script>
     
