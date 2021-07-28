@@ -1,0 +1,151 @@
+
+#steak_big{
+    background-image: url("../2-meat-problems/steak.svg");
+
+    --steak-width:1073px;
+    --steak-height:580.06px;
+
+    position:absolute;
+
+    width: var(--steak-width);
+    height: var(--steak-height);
+
+    left:50%;
+    top:50%;
+    transform:translateX(-50%) translateY(-50%);
+}
+#co2_text,#antibiotic_text,#deforestation_text,#factory_text{
+    position:absolute;
+    width:auto;
+    height:auto;
+    font-size: 2em;
+}
+.text_top_left{
+    top:5vh;
+    left:5vh;
+}
+.text_top_right{
+    top:5vh;
+    right:5vh;
+}
+.text_bottom_left{
+    bottom:5vh;
+    left:5vh;
+}
+.text_bottom_right{
+    bottom:5vh;
+    right:5vh;
+}
+#syringe_container,#antibiotic_syringe_body,#antibiotic_syringe_top,#antibiotic_syringe_fluid{
+    --syringe-top-height:140.66px;
+    --syringe-top-width:629.17px;
+
+    --syringe-body-height:262.02px;
+    --syringe-body-width:1081.73px;
+
+    --scale-factor:0.2;
+
+    --scale-x:calc( -1 * var(--scale-factor));
+    --scale-y:var(--scale-factor);
+
+    position:absolute;
+}
+#syringe_container{
+    height:calc( var(--syringe-body-height) * var(--scale-factor));
+    width:calc( ( var(--syringe-body-width) + var(--syringe-top-width) ) * var(--scale-factor) );
+    left:60%;
+    top:30%;
+    transform-origin: 0 50%;
+    transform:rotate(-50deg);
+}
+#antibiotic_syringe_body{
+    background-image:url("../2-meat-problems/syringe_body.svg");
+
+    width: calc(var(--scale-factor)*var(--syringe-body-width));
+    height: calc(var(--scale-factor)*var(--syringe-body-height));
+
+    transform:scaleX(-1);
+
+    z-index:2;
+}
+#antibiotic_syringe_top,#antibiotic_syringe_fluid{
+    animation-duration:2s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+#antibiotic_syringe_top{
+    background-image:url("../2-meat-problems/syringe_stick.svg");
+
+    width: calc(var(--scale-factor)*var(--syringe-top-width));
+    height: calc(var(--scale-factor)*var(--syringe-top-height));
+
+    top:50%;
+    transform:translateY(-50%) scaleX(-1);
+
+    --left-full: 60%;
+    --left-empty: 26%;
+
+    --fraction-empty:0.093;
+    --fraction-full:0.993;
+
+    --fraction-empty:0.25;
+    --fraction-full:0.55;
+
+    left:calc( var(--left-empty) + ( var(--left-full) - var(--left-empty) ) * ( var(--injection-progress) ) );
+
+    animation-name:syringe-top-pump;
+
+    z-index:1;
+}
+@keyframes syringe-top-pump{
+    from{
+        left:calc( var(--left-empty) + ( var(--left-full) - var(--left-empty) ) * var(--fraction-empty) );
+    }
+    to{
+        left:calc( var(--left-empty) + ( var(--left-full) - var(--left-empty) ) * var(--fraction-full) );
+    }
+}
+#antibiotic_syringe_fluid{
+    background-image:url("../2-meat-problems/syringe_liquid.svg");
+
+    --height:calc(113.41px*var(--scale-factor));
+    --width:calc(232.48px*var(--scale-factor));
+
+    height:var(--height);
+    width:var(--width);
+
+    top:50%;
+
+    animation-name:fluid-stretch;
+
+    /*--length-stretch-empty:0.1; this is the actually empty state, but we do not want go quite that far because it looks not great*/
+    --length-stretch-empty:0.75;
+    /*--length-stretch-full:2.6;*/
+    --length-stretch-full:1.5;
+}
+@keyframes fluid-stretch {
+    from{
+        transform:translateY(-46%) scaleX(var(--length-stretch-empty));
+        left:calc(25% + (var(--width) * ( var(--length-stretch-empty) - 1 ) / 2));
+    }
+    to{
+        transform:translateY(-46%) scaleX(var(--length-stretch-full));
+        left:calc(25% + (var(--width) * ( var(--length-stretch-full) - 1 ) / 2));
+    }
+}
+#co_bubble_container{
+    width:300px;
+    height:300px;
+    left:20%;
+    top:15%;
+    position:absolute;
+}
+.co_bubble{
+    width:100px;
+    height:100px;
+    position:absolute;
+}
+.co_bubble_text{
+    transition:opacity 0.3s;
+}
