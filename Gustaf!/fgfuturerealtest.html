@@ -221,8 +221,9 @@
 
       #text{
           position:relative;
-          color:#fff;
+          color:#6d1d23;
           font-size:10em;
+          top:-200px;
           z-index:1;
       }
 
@@ -246,10 +247,10 @@
         <div id="grass_middle"></div>
         <div id="grass_middle_back_fill"></div>
         
+        <!-- RÖRLIGA DELEN-->
         <div id="cow_left"></div>
         <div id="cow_right"></div>
-        
-<!-- RÖRLIGA DELEN-->
+
 
 <div id="mountain_back"></div>
         <div id="mountain_middle"></div>
@@ -257,57 +258,10 @@
        
         <img src="moon.png" id="moon">
 
-        <!--
-             <img src="mountains_back.png" id="mountains_back">
-        
-        <img src="mountains_front.png" id="mountains_front">
-       
-        <img src="mountains_middle.png" id="mountains_middle">
-
-    
-        
-    -->
     <h2 id="text">FGFUTURE</h2>
 </section>
 
-
-<!-- now trying with the new pictures-->
-
-
    <script>
-       /* SCRIPT FOR MOVING the parallax */
-    /* can have the function inside the body and it works or 
-    have the function in the header and have body onload and give the function
-    a name (see lall.html) */
-/*
-        let backg = document.getElementById('backg');
-        let moon = document.getElementById('moon');
-
-        let mountain_back = document.getElementById('mountain_back');
-        let mountain_middle = document.getElementById('mountain_middle');
-        let mountain_front = document.getElementById('mountain_front');
-
-        let cow_left = document.getElementById('cow_left');
-        let cow_right = document.getElementById('cow_right');
-        let text = document.getElementById('text');
-        
-        window.addEventListener('scroll', function(){
-        var value = window.scrollY;
-        
-        
-        moon.style.left = -value * 0.5 + 'px';
-
-        mountain_back.style.top = -value * 0.5 + 'px';
-        mountain_middle.style.top = -value * 0.15 + 'px';
-        mountain_front.style.top = -value * 0.15 + 'px';
-
-        cow_left.style.top = value * 0.15 + 'px';
-        cow_right.style.top = value * 0.15 + 'px';
-        text.style.top = value * 1 + 'px';
-        })
-        */
-
-       
         let moon = document.getElementById('moon');
         let text = document.getElementById('text');
 
@@ -323,15 +277,15 @@
         
         moon.style.left = -value * 0.5 + 'px';
         
-        text.style.top = value * 1 + 'px';
+        text.style.top = value * 1 -200+'px';
       
         mountain_back.style.bottom = value * 0.15 + 'px';
-    
-
         mountain_middle.style.bottom = value * 0.20 + 'px';
         mountain_front.style.bottom = value * 0.30 + 'px';
 
-        cow_right.style.right =  value * 0.1 + 'vh';
+        cow_right.style.right =  value * 0.005 + 14+'vw';
+
+        cow_left.style.left =  value * 0.005 + 10+'vw';
         })
     </script>
     
