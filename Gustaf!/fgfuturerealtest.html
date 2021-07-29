@@ -203,8 +203,10 @@
           width:100%;
           height:100%;
           z-index:10000;
-          background: #0a2a43;
+        
+          /*
           mix-blend-mode:color;
+          */
       }
 
       section img{
@@ -233,43 +235,43 @@
 </head>
 
 <body>
-<!-- my part-->
-<!--
+    <main>
+
 <section>
-    <img src="backg.jpg" id="backg">
-    <img src="moon.png" id="moon">
-    <img src="mountain.png" id="mountain">
-    <img src="road.png" id="road">
-    <h2 id="text">Moon light</h2>
-</section>
--->
-<!-- yolo -->
-<section>
-    <img src="backg.jpg" id="backg">
-    <img src="moon.png" id="moon">
-    <img src="mountain.png" id="mountain">
-    <img src="road.png" id="road">
-    <h2 id="text">Moon light</h2>
+    
+    <div id="grass_front"></div>
+    
+        <div id="grass_front_middle_fill"></div>
+        <div id="grass_back"></div>
+        <div id="grass_middle"></div>
+        <div id="grass_middle_back_fill"></div>
+        
+        <div id="cow_left"></div>
+        <div id="cow_right"></div>
+        
+<!-- RÖRLIGA DELEN-->
+
+<div id="mountain_back"></div>
+        <div id="mountain_middle"></div>
+        <div id="mountain_front"></div>
+       
+        <img src="moon.png" id="moon">
+
+        <!--
+             <img src="mountains_back.png" id="mountains_back">
+        
+        <img src="mountains_front.png" id="mountains_front">
+       
+        <img src="mountains_middle.png" id="mountains_middle">
+
+    
+        
+    -->
+    <h2 id="text">FGFUTURE</h2>
 </section>
 
 
 <!-- now trying with the new pictures-->
-<main>
-<div class="panel">
-    <img class="reference_image" src="IMG_0968.PNG"/>
-    <div class="real">
-        <div id="grass_front"></div>
-        <div id="grass_front_middle_fill"></div>
-        <div id="cow_left"></div>
-        <div id="grass_middle"></div>
-        <div id="grass_middle_back_fill"></div>
-        <div id="cow_right"></div>
-        <div id="grass_back"></div>
-        <div id="mountain_back"></div>
-        <div id="mountain_middle"></div>
-        <div id="mountain_front"></div>
-    </div>
-</div>
 
 
    <script>
@@ -305,22 +307,31 @@
         })
         */
 
-        let backg = document.getElementById('backg');
+       
         let moon = document.getElementById('moon');
-        let mountain = document.getElementById('mountain');
-        let road = document.getElementById('road');
         let text = document.getElementById('text');
 
-      
+        let cow_left = document.getElementById('cow_left');
+        let cow_right = document.getElementById('cow_right');
+
+        let mountain_back = document.getElementById('mountain_back');
+        let mountain_middle = document.getElementById('mountain_middle');
+        let mountain_front = document.getElementById('mountain_front');
+
         window.addEventListener('scroll', function(){
         var value = window.scrollY;
         
-        backg.style.top = value * 0.5 + 'px';
         moon.style.left = -value * 0.5 + 'px';
-        mountain.style.top = -value * 0.15 + 'px';
-        road.style.top = value * 0.15 + 'px';
+        
         text.style.top = value * 1 + 'px';
+      
+        mountain_back.style.bottom = value * 0.15 + 'px';
+    
 
+        mountain_middle.style.bottom = value * 0.20 + 'px';
+        mountain_front.style.bottom = value * 0.30 + 'px';
+
+        cow_right.style.right =  value * 0.1 + 'vh';
         })
     </script>
     
@@ -336,7 +347,6 @@
     <div class="panel">
         <img class="reference_image" src="IMG_0972.PNG"/>
     </div>
-</main>
 
 <script>
     /* patricks script for the grass */
@@ -364,6 +374,6 @@
             setInterval(animate_front,cap_framerate)
 
 </script>
-
+</main>
 </body>
 </html>

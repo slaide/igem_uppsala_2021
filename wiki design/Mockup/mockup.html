@@ -31,19 +31,21 @@
                 <div class="real" style="oopacity:0.5;">
                     <div id="steak_big"></div>
 
-                    <div id="co2_text" class="text_top_left">CO2 emissions</div>
+                    <div id="co2_text" class="text_top_left">Greenhouse Gas emissions</div>
                     <div id="co_bubble_container">
-                        <div class="co_bubble">
-                            <img class="co_bubble_text" src='../2-meat-problems/co2_font.svg'>
-                        </div>
-                        <div class="co_bubble">
-                            <img class="co_bubble_text" src='../2-meat-problems/co4_font.svg'>
-                        </div>
-                        <div class="co_bubble">
-                            <img class="co_bubble_text" src='../2-meat-problems/co2_font.svg'>
-                        </div>
-                        <div class="co_bubble">
-                            <img class="co_bubble_text" src='../2-meat-problems/co2_font.svg'>
+                        <div id="co_bubble_path_container">
+                            <div class="co2_bubble" style="--delay:0s;">
+                                <img class="co_bubble_text" src='../2-meat-problems/co2_font.svg' style="--delay:0s;">
+                            </div>
+                            <div class="co4_bubble" style="--delay:1.5s;">
+                                <img class="co_bubble_text" src='../2-meat-problems/co4_font.svg' style="--delay:1.5s;">
+                            </div>
+                            <div class="co2_bubble" style="--delay:3s;">
+                                <img class="co_bubble_text" src='../2-meat-problems/co2_font.svg' style="--delay:3s;">
+                            </div>
+                            <div class="co4_bubble" style="--delay:4.5s;">
+                                <img class="co_bubble_text" src='../2-meat-problems/co4_font.svg' style="--delay:4.5s;">
+                            </div>
                         </div>
                     </div>
 
@@ -70,12 +72,10 @@
             </div>
         </main>
         <script>
-            let disable_complex_animations=false
-            const cap_framerate=30
+            let animation_functions=[]
+            let disable_complex_animations=true
+            const cap_framerate=60
 
-            if(!grass_front_svg){
-                window.alert("front grass is missing")
-            }
             let grass_front=document.getElementById('grass_front')
             grass_front.innerHTML=grass_front_svg
 
@@ -88,64 +88,18 @@
                 warp_front.transform(([ x, y ]) => [ x+amplitude*Math.sin(phase_multiplier*y+offset_front), y])
                 offset_front += offset_front_delta
             }
-            //animate once to set positions
-            animate_front_grass()
-            setInterval(()=>disable_complex_animations?requestAnimationFrame(animate_front_grass):()=>{},1000/cap_framerate)
+            animation_functions.push(animate_front_grass)
 
-            let co_container=document.getElementById("co_bubble_container")
-
-            let path=document.createElementNS("http://www.w3.org/2000/svg","path")
-            path.setAttribute("d","M342.18,931C286.5,916.5,210.5,861.5,229.5,786.5c22.35-88.21,147.26-65.91,161-125,10-43-34-87-44-111")
-
-            let offset_delta=0.004
-
-            let offsets=[0.0,1/4,2/4,3/4]
-            let offset_deltas=[offset_delta,offset_delta,offset_delta,offset_delta]
-            let cos=[2,4,2,4]
-            function min(a,b){return (a<b)?a:b}
-            function max(a,b){return (a>b)?a:b}
-            for (i=0;i<offsets.length;i++){
-                offsets[i]+=0.2
-                if(cos[i]==2){
-                    co_container.children[i].style.setProperty("background-image","url('../2-meat-problems/co2_no_font.svg')")
-                    co_container.children[i].innerHTML='<img class="co_bubble_text" src="../2-meat-problems/co2_font.svg">'
-                }else{
-                    co_container.children[i].style.setProperty("background-image","url('../2-meat-problems/co4_no_font.svg')")
-                    co_container.children[i].innerHTML='<img class="co_bubble_text" src="../2-meat-problems/co4_font.svg">'
+            function animate_all(){
+                for(fun of animation_functions){
+                    fun()
                 }
             }
-
-            function animate_co_bubbles(){
-                for (i=0;i<offsets.length;i++){
-                    const offset=offsets[i]
-
-                    const position=path.getPointAtLength(path.getTotalLength()*offset)
-
-                    offsets[i]+=offset_deltas[i]
-
-                    if(offset>1){
-                        offsets[i]=0
-                    }
-
-                    position.x-=166+50;
-                    position.y-=381+270;
-
-                    co_container.children[i].style.top=position.y*1.1+"px"
-                    co_container.children[i].style.left=position.x+"px"
-
-                    const scale=Math.sin(offset*(1-offset)*3.14)*1.4
-                    co_container.children[i].style.transform="scale("+scale*scale+")"
-
-                    if (offset>0.2 && offset<0.8){
-                        co_container.children[i].children[0].style.setProperty("opacity",1)
-                    }else{
-                        co_container.children[i].children[0].style.setProperty("opacity",0)
-                    }
-                }
+            if(!disable_complex_animations){
+                setInterval(animate_all,1000/cap_framerate)
+            }else{
+                animate_all()
             }
-            //animate once to set positions
-            animate_co_bubbles()
-            setInterval(()=>disable_complex_animations?requestAnimationFrame(animate_co_bubbles):()=>{},1000/cap_framerate)
         </script>
     </body>
 </html>
