@@ -28,7 +28,7 @@
             </div>
             <div class="panel">
                 <img class="reference_image" src="IMG_0969.PNG"/>
-                <div class="real" style="oopacity:0.5;">
+                <div class="real" style="oopacity:0.5; background-image: linear-gradient(#8cb29f,#CCE0DD);">
                     <div id="steak_big"></div>
 
                     <div id="co2_text" class="text_top_left">Greenhouse Gas emissions</div>
@@ -50,6 +50,14 @@
                     </div>
 
                     <div id="deforestation_text" class="text_bottom_left">Deforestation</div>
+                    <div id="forest_fire_container">
+                        <div class="tree_container">
+                            <div class="tree"></div>
+                            <div class="fire_back"></div>
+                            <div class="fire_front"></div>
+                            <div class="tree_front_branch"></div>
+                        </div>
+                    </div>
 
                     <div id="antibiotic_text" class="text_top_right">Antibiotic resistance</div>
                     <div id="syringe_container">
@@ -63,6 +71,9 @@
             </div>
             <div class="panel">
                 <img class="reference_image" src="IMG_0970.PNG"/>
+                <div class="real" style="background-color:#CCE0DD; opacity:0.5;border-top: 1px solid #CCE0DD;">
+
+                </div>
             </div>
             <div class="panel">
                 <img class="reference_image" src="IMG_0971.PNG"/>
@@ -79,6 +90,7 @@
             let grass_front=document.getElementById('grass_front')
             grass_front.innerHTML=grass_front_svg
 
+            /* maybe precompute equally spaced states and cache them instead of recalculating them every time */
             const warp_front = new Warp(grass_front.children[0])
             let offset_front = 0
             const offset_front_delta=1.25/cap_framerate
