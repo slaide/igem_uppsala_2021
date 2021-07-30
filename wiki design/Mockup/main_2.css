@@ -54,12 +54,12 @@
     height:calc( var(--syringe-body-height) * var(--scale-factor));
     width:calc( ( var(--syringe-body-width) + var(--syringe-top-width) ) * var(--scale-factor) );
 
-    left:60%;
+    left:30%;
     top:45%;
 
     transform-origin: left center;
 
-    transform:rotate(-50deg);
+    transform:rotate(calc(270deg - 20deg))
 }
 #antibiotic_syringe_body{
     background-image:url("../2-meat-problems/syringe_body.svg");
@@ -147,7 +147,7 @@
 #co_bubble_container{
     width:var(--container-width);
     height:var(--container-height);
-    left:20%;
+    left:65%;
     top:15%;
     position:absolute;
 }
@@ -194,7 +194,7 @@
     }
     50%{
         offset-distance:50%;
-        transform:scale(1.3);
+        transform:scale(1.6);
         --img-opacity:1;
     }
     70%{
@@ -234,8 +234,8 @@
 
     position:absolute;
 
-    left:15%;
-    top:65%;
+    left:20%;
+    bottom:5vh;
 }
 .tree{
     width:100%;
@@ -307,5 +307,59 @@
     }
     to{
         transform:rotate(7deg) translateY(5%) scale(1.15) scaleX(1) scaleY(1.3);
+    }
+}
+#factory_container{
+    --cow-head-scale:0.4;
+
+    --cow-head-width:calc( 202.82px * var(--cow-head-scale));
+    --cow-head-height:calc( 210.65px * var(--cow-head-scale));
+
+    width:calc( (4 * var(--cow-head-width))  );
+    height:calc( 3 * var(--cow-head-height) - (2 * 1.2vh));
+
+    position:absolute;
+
+    left:60%;
+    bottom:5vh;
+}
+.cow_head{
+    --cow-head-scale:0.4;
+
+    background-image:url("../2-meat-problems/factory_farming_single.svg");
+
+    --cow-head-width:calc( 202.82px * var(--cow-head-scale));
+    --cow-head-height:calc( 210.65px * var(--cow-head-scale));
+
+    width:var(--cow-head-width);
+    height:var(--cow-head-height);
+
+    position:absolute;
+
+    left:calc(var(--pos-x) * calc( var(--cow-head-width) + 0.3vh) );
+    top:calc(var(--pos-y) * calc( var(--cow-head-height) - 1.2vh) );
+
+    --delay:calc( ( var(--pos-x)  * -1.7 + var(--pos-y) * 2.3) * 1s);
+
+    animation: cow_head_wiggle 12s ease-in-out infinite var(--delay);
+}
+@keyframes cow_head_wiggle{
+    25%{
+        transform:rotate(0deg);
+    }
+    36%{
+        transform:rotate(5deg);
+    }
+    37%{
+        transform:rotate(-10deg);
+    }
+    38%{
+        transform:rotate(5deg);
+    }
+    39%{
+        transform:rotate(-10deg);
+    }
+    40%{
+        transform:rotate(0deg);
     }
 }

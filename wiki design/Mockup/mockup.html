@@ -28,10 +28,10 @@
             </div>
             <div class="panel">
                 <img class="reference_image" src="IMG_0969.PNG"/>
-                <div class="real" style="oopacity:0.5; background-image: linear-gradient(#8cb29f,#CCE0DD);">
+                <div class="real" style="background-image: linear-gradient(#8cb29f,#CCE0DD);">
                     <div id="steak_big"></div>
 
-                    <div id="co2_text" class="text_top_left">Greenhouse Gas emissions</div>
+                    <div id="co2_text" class="text_top_right">Greenhouse Gas emissions</div>
                     <div id="co_bubble_container">
                         <div id="co_bubble_path_container">
                             <div class="co2_bubble" style="--delay:0s;">
@@ -59,7 +59,7 @@
                         </div>
                     </div>
 
-                    <div id="antibiotic_text" class="text_top_right">Antibiotic resistance</div>
+                    <div id="antibiotic_text" class="text_top_left">Antibiotic resistance</div>
                     <div id="syringe_container">
                         <div id="antibiotic_syringe_body"></div>
                         <div id="antibiotic_syringe_top"></div>
@@ -67,6 +67,20 @@
                     </div>
 
                     <div id="factory_text" class="text_bottom_right">Factory Farming</div>
+                    <div id="factory_container">
+                        <div class="cow_head" style="--pos-x:0;--pos-y:0;"></div>
+                        <div class="cow_head" style="--pos-x:1;--pos-y:0;"></div>
+                        <div class="cow_head" style="--pos-x:2;--pos-y:0;"></div>
+                        <div class="cow_head" style="--pos-x:3;--pos-y:0;"></div>
+                        <div class="cow_head" style="--pos-x:0;--pos-y:1;"></div>
+                        <div class="cow_head" style="--pos-x:1;--pos-y:1;"></div>
+                        <div class="cow_head" style="--pos-x:2;--pos-y:1;"></div>
+                        <div class="cow_head" style="--pos-x:3;--pos-y:1;"></div>
+                        <div class="cow_head" style="--pos-x:0;--pos-y:2;"></div>
+                        <div class="cow_head" style="--pos-x:1;--pos-y:2;"></div>
+                        <div class="cow_head" style="--pos-x:2;--pos-y:2;"></div>
+                        <div class="cow_head" style="--pos-x:3;--pos-y:2;"></div>
+                    </div>
                 </div>
             </div>
             <div class="panel">
@@ -113,5 +127,29 @@
                 animate_all()
             }
         </script>
+        <style>
+            circle {
+                fill: white;
+                stroke: black;
+                stroke-width: 80;
+                stroke-dasharray: 250;
+                stroke-dashoffset: 1000;
+                animation: rotate 5s linear infinite;
+            }
+
+            @keyframes rotate {
+                to {
+                    stroke-dashoffset: 0;
+                }
+            }
+            #loading_circle{
+                overflow:hidden;
+                border-radius:50%;
+            }
+
+        </style>
+        <svg height="100" width="100" id="loading_circle">
+            <circle cx="50" cy="50" r="40" />
+        </svg>
     </body>
 </html>
