@@ -15,17 +15,23 @@
                 padding:0;
                 border:0;
             }
+
+html {
+  scroll-behavior: smooth;
+}
             main{
                 display:grid;
                 grid-template-columns: 1fr;
                 grid-template-rows: repeat(5,1fr);
                 height:500vh;
                 width:100%;
+                background-color:#7ab9ce;
             }
             .reference_image{
                 width:100%;
                 height:100%;
             }
+
             .panel > *{
                 position:absolute;
                 overflow:hidden;
@@ -168,7 +174,7 @@
             #mountain_front{
                 z-index:2;
                 background-image:url("mountains_front.svg");
-                height:439px;
+                height:430px; /* changed a little */
                 --width:1926px;
             }
             #grass_front>svg{
@@ -231,6 +237,18 @@
           z-index:2;
       }
 
+      /*
+      Background color: dce1de
+Main (e.g. header): 426968
+Text: black
+Highlight: 6d1d23
+Additional 1: 4f899e
+Additional 2: 694256
+
+*/
+
+
+
 </style>
 
 </head>
@@ -255,14 +273,17 @@
 <div id="mountain_back"></div>
         <div id="mountain_middle"></div>
         <div id="mountain_front"></div>
-       
+       <!--
         <img src="moon.png" id="moon">
+        -->
 
     <h2 id="text">FGFUTURE</h2>
 </section>
 
    <script>
+       /*
         let moon = document.getElementById('moon');
+        */
         let text = document.getElementById('text');
 
         let cow_left = document.getElementById('cow_left');
@@ -275,13 +296,15 @@
         window.addEventListener('scroll', function(){
         var value = window.scrollY;
         
+        /*
         moon.style.left = -value * 0.5 + 'px';
+        */
         
         text.style.top = value * 1 -200+'px';
       
         mountain_back.style.bottom = value * 0.15 + 'px';
         mountain_middle.style.bottom = value * 0.20 + 'px';
-        mountain_front.style.bottom = value * 0.30 + 'px';
+        mountain_front.style.bottom = value * 0.001 + 'px';
 
         cow_right.style.right =  value * 0.005 + 14+'vw';
 
@@ -329,5 +352,6 @@
 
 </script>
 </main>
+
 </body>
 </html>
