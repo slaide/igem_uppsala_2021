@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title> Gustaf's real sidepage for the fgfuture
+    <title> Gustaf's real sidepage for the fgfuture, concept2
     </title>
 
 <meta charset=utf-8>
 
 <style>
 
-/* font */
+/* FIXAR FONT */
 @font-face {
                 font-family: archive;
                 src: url("../Archive.otf");
@@ -159,7 +159,7 @@ height:10%;
 
 #menu:hover{overflow:visible;}
 
-#menu:hover ~ .wrapper, #menu:hover~ section, #menu:hover~ .grid-container-bottom{
+#menu:hover ~ #content, #menu:hover~ section, #menu:hover~ .grid-container-bottom{
     filter:blur(10px);
 }
 
@@ -488,37 +488,6 @@ li.dropdown {
       font-weight: bold;
 }
 
-.wrapper {
-  display: flex;
-  justify-content: space-between;
-}
-
-
-.main {
-  width: 65%;
-  height: 100%;
-  margin-right:10%;
-}
-
-.main >p{font-weight:normal;
-font-size:15px;
-font-family:verdana;
-color:black;
-line-height:1.6;
-letter-spacing:0.03em;
-margin-bottom:10px;
-margin-top:20px;
-}
-
-.main > h1 {
-    font-size: 1.5em;
-    font-weight: bold;
-    margin-bottom: 5px;
-    letter-spacing: .05em;
-    margin-bottom:30px;
-    margin-top:30px;
-}
-
 .sidebar3 {
   width: 20%;
   height:50%;
@@ -675,6 +644,85 @@ img.social{border-radius:50%;
 width:30px;
 height:30px;}
 
+
+/* uppdelad i 3 content delar, sidebar-text-bild */
+
+#content {
+  display: flex;
+  justify-content: left;
+}
+
+#midcontent1{
+  width: 40vw;
+  height: 100vh;
+  margin-left: 6vw;
+  margin-top:5vh;
+  height: 300%; 
+}
+
+#midcontent2{
+  width: 25vw;
+  height: 100vh;
+  margin-left: 6vw;
+  margin-top:5vh;
+  height: 300%; 
+}
+
+#midcontenttext{
+  text-align: left;
+  font-size: 1.1em;
+}
+
+.midcontenttext > h1{
+            font-size: 2em;
+            font-style: bold;
+            color:#6d1d23;
+            text-align: center;
+            margin: 2%;
+            margin-top: 1%;
+            border-bottom: 1px solid #6d1d23;
+        }
+
+        .midcontenttext >p{
+            font-weight:normal;
+            font-size:1em;
+            font-family:verdana;
+            color:black;
+            line-height:1.6;
+            letter-spacing:0.03em;
+            margin:2%;
+        }
+
+        .midcontentpic{
+            display:flex;
+            align-items:center;
+            justify-content:space-evenly;
+            background-color: #426968;
+            margin-top: 5vh;
+        }
+
+        .picfiller{
+            height: 70vh;
+            width: 100%;
+        }
+
+        .midcontentpictext >p{
+            font-weight:normal;
+            text-align: left;
+            font-size:0.75em;
+            font-family:'Times New Roman', Times, serif;
+            color:black;
+            line-height:1.2;
+            letter-spacing:0.05em;
+            margin-bottom:2%;
+            margin-top:0;
+            margin-left: 2%;
+            margin-right: 2%;
+            
+        }
+
+        
+/* end alex */
 
 </style>
 
@@ -903,7 +951,7 @@ gör sponsordelen snyggare med typ fb länk från bild och instagram med.
   <img src="moon.png" id="moon">
   <img src="mountain.png" id='mountain' >
   <img src="road.png" id="road">
-  <h2 id="text">Final Safety</h2>
+  <h2 id="text">Safety 2</h2>
 </section>
 
 
@@ -929,102 +977,102 @@ gör sponsordelen snyggare med typ fb länk från bild och instagram med.
       })
           </script>
 
-            <div class="wrapper">
+<!-- ACTUAL page content-->
+  <div id="content">
 
+              <!-- the sidebar-->
                 <div class="sidebar3">
-
                     <ul class="myullist">
                         <a href="#sectiontop"><li class="myli2big">Safety</li></a>
                         
-
                         <a href="#section1">
                             <li class="myli2"><div class="circle" style="background-color:lightblue;"></div>
                                 <span id="span1">Lab Safety
                                 </span>
                             </li>
                         </a>
-
                         <a href="#section2">
                             <li class="myli2"><div class="circle" style="background-color:orange;"></div><span id="span2">Ethics and Risks of GMOs</span></li>
                         </a>
-
                         <a href="#section3">
                         <li class="myli2"><div class="circle" style="background-color:red;"></div><span id="span3">COVID-19 Measures</span></li></a>
-
                     </ul>
                   </div>
+                  <!-- end of sidebar-->
+<!--Actual content-->
+        <div id="midcontent1">
+            <div id="section1"></div>
+            <div class="midcontenttext">
+                <h1>Lab Safety</h1>
+                <p>
+                    Sharing is caring, especially when it comes to safety knowledge. To make sure that everyone understood and followed the rules needed for a safe-laboratory environment, we organized an introductory week before entering the lab, where the whole team participated in three mandatory activities, a laboratory safety round, a biosafety workshop and a waste disposal course. For the first, fire extinguishers, first aid kits and showers were introduced, as well as emergency exits and chemical room organization. For the second, Good Laboratory Practices (GLP) were explained, along with a practical demonstration of pipetting and safe glove removal techniques.
+                </p>
+                <p>
+                    The waste disposal course was held by the safety officer on our campus. The course was composed of a tour around the waste disposal facilities in Uppsala University and a detailed demonstration about the correct labelling and transportations measures for laboratory waste-bins and chemical waste containers. At the end of the tour, each participant was given a diploma allowing them to handle all waste products that were produced in the lab.
+                </p>
 
-                <div class="main">
-                  
-                    <p>Safety while working in the lab is an important key player. Read about how the Uppsala 2020 team dealt with it.
-                    </p>
-                    <div id="section1"></div>
-                    <h1> Lab Safety</h1>
-             
-                    <hr style="border: 1px solid black;">
-             
-                    <p>Sharing is caring, especially when it comes to safety knowledge. To make sure that everyone understood and followed the rules needed for a safe-laboratory environment, we organized an introductory week before entering the lab, where the whole team participated in three mandatory activities, a laboratory safety round, a biosafety workshop and a waste disposal course. For the first, fire extinguishers, first aid kits and showers were introduced, as well as emergency exits and chemical room organization. For the second, Good Laboratory Practices (GLP) were explained, along with a practical demonstration of pipetting and safe glove removal techniques.
-                    </p>
-             
-                    <p>The waste disposal course was held by the safety officer on our campus. The course was composed of a tour around the waste disposal facilities in Uppsala University and a detailed demonstration about the correct labelling and transportations measures for laboratory waste-bins and chemical waste containers. At the end of the tour, each participant was given a diploma allowing them to handle all waste products that were produced in the lab.
-                 </p>
-                 
-<div class="picturecontainer">
-             <img class="pipett" src="pipette.png">
-             <img class="fire" src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
+                <p>
+                    Lab leaders attended an introduction for the handling of the autoclave and the dishwasher. Additionally, the most experienced students organized lessons showing the basic techniques in synthetic biology, as gel casting or working safely under the flame.
+                </p>
+                <p>
+                    Our wet lab work was carried in a BSL-1 (Biosafety Level 1) laboratory. Basic PPE (Personal Protective Equipment), including a laboratory coat, protective eyewear and gloves according to indications were enforced. Gloves were discarded immediately after use. For our experiments we used Escherichia coli (Strains DH5α, BL21(DE3)) and Bacillus subtilis w168, all included in the iGEM white-list and suited to be handled safely in our installations, without the need of extra protective equipment. Dangerous chemicals were handled in a fume hood.
+                </p>
+                <p>
+                    Lab work is often coupled with long and stressful days, which can be a potential hazard on their own. Therefore we made sure to communicate any errors in our routines during group meetings and to remind each other our responsibilities. A special lab-question communication channel in slack was accessible for any questions and concerns. To keep the lab in order, different lab groups rotated between responsibility of cleaning the lab, i.e. taking care of used glassware.
+                </p>
+                <div id="section2"></div>
+                <h1>Ethics of <br>cultivated meat</h1>
+                <p>
+                    Our goal is to modify first the Gram-negative bacteria Escherichia coli and second the Gram-positive Bacillus subtilis so they express the different parts composing the biosensor fusion proteins containing the nanobodies for detection, T7 promoter amplification loop and β-galactosidase as output signal.
+                </p>
+                <p>
+                    When designing the prototype we kept in mind the user and the potential risks leading to releases of the organisms to the environment in mind. Accidents and/or mistakes could happen during the research and development, production, distribution, usage and discard of our biosensor. According to that, we have developed our prototype (see Kit design) and worked accordingly guidelines of our universities regarding safety preconditions in the lab. For our case study “Tuberculosis disease” we have also taken into account possible social concerns and conflicts that could arise upon a stigmatised disease/infection being easily detected (see Human practice).
+                </p>
+
+                <p>
+                    We have assessed the risk of our genetically modified bacteria (GMO) reaching the environment and deem it as relatively low. The proteins and other elements included in the bacteria are naturally occurring, and the fitness cost of carrying all this extra genetic material is likely to lead to bacterial death outside a controlled environment. The antibiotic-resistant genes included in the genome of our bacteria are standard for this kind of research. Further development of the biosensor would entail integrating a kill switch (see Future). Upon actual product development necessary evaluations and risk assessment aimed for different user groups should be carried out.
+                </p>
+                <p>
+                    For the whole project we have taken special care regarding ethics concerns in research, by attributing every contribution to its author, either inside or outside the team, as well as asking for permission and double-checking the content before its publication for the latter.
+                </p>
+                <div id="section3"></div>
+                <h1>COVID-19 measures</h1>
+                <p>
+                    During the spring period of 2020, all our activities were switched to a digital format. Later, during the summer months, we got an exemption from digital education after presenting an action plan with extra safety measures to contain potential outbreaks. The plan included social distancing, extra cleaning stations, maximum number of people allowed per room and personal equipment like portable hand disinfectant or face shields. These measures were enforced not just in the lab but also in the lunchroom and group rooms. Team members suspecting any symptoms were encouraged to stay home. As one of the few courses exempted from the distance studies during summer we shared our feedback and concerns with the Biological Education center, department that coordinates all bachelor's and master's education in biology at Uppsala University to help organize courses returning to campus during autumn 2020 in the settings of a pandemic.
+                </p>
+            </div>  
+        </div>
+        <div id="midcontent2">
+            <div class="midcontentpic">
+                <img src="https://p0.pxfuel.com/preview/691/193/134/chemistry-flame-metals-salts.jpg" height="100%" width="70%">
             </div>
+            <div class="midcontentpictext">
+                <p>
+                    Figure 1. Wow very cool photos, they are the best photos ever taken. This just some text used to fil the page with. I dont really feel like writing Lorem Ipsum for the hundreth time... Damn, need to write some more to see how the text would look lite on two seperate rows. FML.
+                </p>
+            </div>
+            <div class="picfiller"></div>
+            <div class="midcontentpic">
+                <img src="https://static.parade.com/wp-content/uploads/2018/01/cute-cow-FTR.jpg" height="100%" width="90%">
+            </div>
+            <div class="midcontentpictext">
+                <p>
+                    Figure 2. Wow very cool photos, they are the best photos ever taken. This just some text used to fil the page with. I dont really feel like writing Lorem Ipsum for the hundreth time... Damn, need to write some more to see how the text would look lite on two seperate rows. FML.
+                </p>
+            </div>
+            <div class="picfiller"></div>
+            <div class="midcontentpic">
+                <img src="https://www.statnews.com/wp-content/uploads/2019/05/IMG_20190510_181747-645x645.jpg" height="100%" width="80%">
+            </div>
+            <div class="midcontentpictext">
+                <p>Fig.10 wow this explains all of our project.</p>
+            </div>
+              
+        </div>
 
-                 <p>Lab leaders attended an introduction for the handling of the autoclave and the dishwasher. Additionally, the most experienced students organized lessons showing the basic techniques in synthetic biology, as gel casting or working safely under the flame.</p>
-             
-                 <p>Our wet lab work was carried in a BSL-1 (Biosafety Level 1) laboratory. Basic PPE (Personal Protective Equipment), including a laboratory coat, protective eyewear and gloves according to indications were enforced. Gloves were discarded immediately after use. For our experiments we used Escherichia coli (Strains DH5α, BL21(DE3)) and Bacillus subtilis w168, all included in the iGEM white-list and suited to be handled safely in our installations, without the need of extra protective equipment. Dangerous chemicals were handled in a fume hood.
-             
-                 </p>
-             
-                 <p>Lab work is often coupled with long and stressful days, which can be a potential hazard on their own. Therefore we made sure to communicate any errors in our routines during group meetings and to remind each other our responsibilities. A special lab-question communication channel in slack was accessible for any questions and concerns. To keep the lab in order, different lab groups rotated between responsibility of cleaning the lab, i.e. taking care of used glassware.
-                 </p>
-                 
-                 <div id="section2"></div>
-                 <h1>Ethics and Risks of GMOs</h1>
-             <hr style="border: 1px solid black;">
-             
-                 <p>Our goal is to modify first the Gram-negative bacteria Escherichia coli and second the Gram-positive Bacillus subtilis so they express the different parts composing the biosensor fusion proteins containing the nanobodies for detection, T7 promoter amplification loop and β-galactosidase as output signal.</p>
-             
-                 <p>When designing the prototype we kept in mind the user and the potential risks leading to releases of the organisms to the environment in mind. Accidents and/or mistakes could happen during the research and development, production, distribution, usage and discard of our biosensor. According to that, we have developed our prototype (see <a href="https://2020.igem.org/Team:UofUppsala/Implementation#Kit"> Kit design</a>) and worked accordingly guidelines of our universities regarding safety preconditions in the lab. For our case study “Tuberculosis disease” we have also taken into account possible social concerns and conflicts that could arise upon a stigmatised disease/infection being easily detected (see <a href="https://2020.igem.org/Team:UofUppsala/Human_Practices"> Human practice</a>).</p>
-             
-                 <div class="picturecontainer">
-                   <img class="biohazard" src="biohazard.jpeg">
-                 </div>
-                 <p>We have assessed the risk of our genetically modified bacteria (GMO) reaching the environment and deem it as relatively low. The proteins and other elements included in the bacteria are naturally occurring, and the fitness cost of carrying all this extra genetic material is likely to lead to bacterial death outside a controlled environment. The antibiotic-resistant genes included in the genome of our bacteria are standard for this kind of research. Further development of the biosensor would entail integrating a kill switch (see <a href="https://2020.igem.org/Team:UofUppsala/Implementation">Future</a>). Upon actual product development necessary evaluations and risk assessment aimed for different user groups should be carried out.</p>
-             
-                 <p>For the whole project we have taken special care regarding ethics concerns in research, by attributing every contribution to its author, either inside or outside the team, as well as asking for permission and double-checking the content before its publication for the latter.</p>
-             
-                 <div id="section3"></div>
-                 <h1>COVID-19 measures</h1>
-             <hr style="border: 1px solid black;">
-             
-                 <p>During the spring period of 2020, all our activities were switched to a digital format. Later, during the summer months, we got an exemption from digital education after presenting an action plan with extra safety measures to contain potential outbreaks. The plan included social distancing, extra cleaning stations, maximum number of people allowed per room and personal equipment like portable hand disinfectant or face shields. These measures were enforced not just in the lab but also in the lunchroom and group rooms. Team members suspecting any symptoms were encouraged to stay home. As one of the few courses exempted from the distance studies during summer we shared our feedback and concerns with the Biological Education center, department that coordinates all bachelor's and master's education in biology at Uppsala University to help organize courses returning to campus during autumn 2020 in the settings of a pandemic.</p>
-            
-                 <div class="picturecontainer2">
-                  <img class="monalisa" src="monalisa.jpg">
-                  <img class="pandemic" src="pandemic.jpg">
-                </div>
-                
-                <div class="buttoncontainer">
+    </div>
 
-                    <div class="centerbutton">
-                        <a href="https://2020.igem.org/wiki/images/d/db/T--UofUppsala--iGEMXCovid19.pdf" class="button">COVID-19 action plan</a>
-                    </div>
-
-                </div>
-             
-                 <p>For the autumn months, physical meetings were partially allowed on average 2h twice a week. Since physical meetings were restored students were encouraged to stay at home if they felt any minimum symptom and to work individually as much as possible. In addition, digital participation in the meetings and discussions was always offered.
-                 </p>
-             
-                 <p>All our measures were based on and updated according to the recommendations from the Swedish Health Agency, Folkhälsomyndigheten.</p>
-
-                </div>
-
-</div>
+<!-- END OF THE TEXT-->
 
   <!-- Nu sponsordelen! -->
         <div class="grid-container-bottom">
