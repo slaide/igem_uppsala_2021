@@ -333,9 +333,9 @@ li.dropdown {
 
 .grid-container-bottom{
             display: grid;
-            height: 20%;
+            height: 35%;
             grid-template-columns:repeat(5,1fr);
-            grid-template-rows:repeat(3,1fr);
+            grid-template-rows:repeat(6,1fr);
             overflow: hidden;
             background-color: #426968;
             border: 2px solid transparent;
@@ -394,7 +394,7 @@ li.dropdown {
           height:100%;
           width:100%;
           grid-column: 1;
-            grid-row: 2 /span all;
+          grid-row: 2 /span all;
 }
 
 .row{display:flex;
@@ -410,12 +410,12 @@ li.dropdown {
         flex:1;
 }
        
-
+/* sponsordel */
 .boxb2 {
             height: 100%;
             width: 100%;
             grid-column: 2;
-            grid-row: 2 /span all;
+            grid-row: 2 /span 2;
             text-align: center;
             overflow: hidden;
 }
@@ -424,7 +424,7 @@ li.dropdown {
             height: 100%;
             width: 100%;
             grid-column: 3;
-            grid-row: 2 /span all;
+            grid-row: 2 /span 2;
             text-align: center;
             overflow: hidden;
 }
@@ -433,7 +433,7 @@ li.dropdown {
             height: 100%;
             width: 100%;
             grid-column: 4;
-            grid-row: 2 /span all;
+            grid-row: 2 /span 2;
             text-align: center;
             overflow: hidden;
 }
@@ -442,7 +442,45 @@ li.dropdown {
             height: 100%;
             width: 100%;
             grid-column: 5;
-            grid-row: 2 /span all;
+            grid-row: 2 /span 2;
+            text-align: center;
+            overflow: hidden;
+            padding-bottom:10px;
+}
+
+/* elongating the sponsoring part */
+.boxb6 {
+            height: 100%;
+            width: 100%;
+            grid-column: 2;
+            grid-row: 5 /span 2;
+            text-align: center;
+            overflow: hidden;
+}
+
+.boxb7 {
+            height: 100%;
+            width: 100%;
+            grid-column: 3;
+            grid-row: 5 /span 2;
+            text-align: center;
+            overflow: hidden;
+}
+
+.boxb8 {
+            height: 100%;
+            width: 100%;
+            grid-column: 4;
+            grid-row: 5 /span 2;
+            text-align: center;
+            overflow: hidden;
+}
+
+.boxb9 {
+            height: 100%;
+            width: 100%;
+            grid-column: 5;
+            grid-row: 5 /span 2;
             text-align: center;
             overflow: hidden;
             padding-bottom:10px;
@@ -668,12 +706,18 @@ img.pandemic{
 
 .vertical{
   border-right:2px solid black;
-  height:50px;
+  height:10vh;
+}
+
+.vertical2{
+  border-right:2px solid black;
+  height:20vh;
 }
 
 img.social{border-radius:50%;
-width:30px;
-height:30px;}
+width:2vw;
+height:5vh;
+}
 
 
 </style>
@@ -702,23 +746,29 @@ function clickerfunction(){
         function indexFunction1(){
             if (document.documentElement.scrollTop > 700 && document.documentElement.scrollTop < 1800) {
                 document.getElementById("span1").style.fontWeight="bold";
+                document.getElementById("span1").style.textDecoration="underline";
             } else {
             document.getElementById("span1").style.fontWeight = "normal";
+            document.getElementById("span1").style.textDecoration="none";
             }
         }
 
         function indexFunction2(){
             if (document.documentElement.scrollTop > 1800 && document.documentElement.scrollTop < 2900) {
                 document.getElementById("span2").style.fontWeight="bold";
+                document.getElementById("span2").style.textDecoration="underline";
             } else {
             document.getElementById("span2").style.fontWeight = "normal";
+            document.getElementById("span2").style.textDecoration="none";
             }
         }
         function indexFunction3(){
             if (document.documentElement.scrollTop > 2900) {
                 document.getElementById("span3").style.fontWeight="bold";
+                document.getElementById("span3").style.textDecoration="underline";
             } else {
             document.getElementById("span3").style.fontWeight = "normal";
+            document.getElementById("span3").style.textDecoration="none";
             }
         }
 
@@ -1086,12 +1136,16 @@ gör sponsordelen snyggare med typ fb länk från bild och instagram med.
               </div>
 
               <div class="column">
-               <div class="vertical"></div>
-              </div>
+               <div class="vertical2"></div>
+              </div> 
             </div>
-            
-          </div>
 
+
+
+            
+          
+          
+          </div>
           <!-- Now the sponsors-->
   
           <div class="boxb2">
@@ -1118,6 +1172,33 @@ gör sponsordelen snyggare med typ fb länk från bild och instagram med.
               <img src="systemet.png" width="30%" height="90%">
               </a>
           </div>
+
+          <!-- en rad till !-->
+          
+          <div class="boxb6">
+            <a href='https://www.redbull.com/se-en/?rbcid=9444236839&utm_source=Adwords&utm_medium=g&utm_campaign=9444236839&utm_content=419793811365&gclid=CjwKCAjwieuGBhAsEiwA1Ly_nch21qFzsnXwxTP5fBozk4fvFx-4zEaBpOiom2i6jgP4xa5Nf3NlxhoCFzEQAvD_BwE'>
+              <img src="redbull.png" width="30%" height="90%">
+              </a>
+        </div>
+
+        <div class="boxb7">
+            
+            <a href='https://www.absolut.com/en/'>
+              <img src="absolut.png" width="40%" height="90%">
+              </a>
+        </div>
+
+        <div class="boxb8">
+            <a href='https://shotluckan.se/'>
+              <img src="shot.png" width="30%" height="90%">
+              </a>
+        </div>
+
+        <div class="boxb9">
+            <a href='https://www.systembolaget.se/'>
+            <img src="systemet.png" width="30%" height="90%">
+            </a>
+        </div>
 
       </div>
 </body>
