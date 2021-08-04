@@ -38,14 +38,14 @@ html {
 
 /* REMOVE SECTYION! */
 .parallax{
-  background-image: url("labmeat2.jpeg");
-  height:60vh; 
+  background-image: url("carro.jpg");
+  height:50vh; 
   position:relative;
   background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-repeat:no-repeat;
   background-size: cover;
   margin-left:0%;
+  margin-top:10vh;
 }
 
 .infobox {
@@ -653,7 +653,15 @@ img.pipett{width:40%;
 height:30%;
 filter:grayscale(60%) contrast(170%) brightness(95%);
 float:right;
+/*
 shape-outside:circle();
+*/
+/* from
+https://dev.to/gabbyj/how-to-easily-wrap-text-around-image-outline-5455
+*/
+shape-outside:url(pipette.png);
+shape-image-threshold: 0.9;
+shape-margin:2%;
 }
 
 img.fire{

@@ -272,6 +272,12 @@ Additional 2: 694256
         #menu:hover ~ section, #menu:hover ~ section::after, #menu:hover ~ section::before, #menu:hover ~ .grid-container-bottom, #menu:hover ~ .reference_image{
             filter: blur(5px);
         }
+        
+        /* OBS BLUR BLIR KONSTIG PÅ BILDERNA I MAIN....
+        #menu:hover ~ main{
+            filter:blur(5px);
+        }
+        */
 
         .logotype{
             float:left;
@@ -490,7 +496,7 @@ height:30px;}
 
 <script>
 /* function for the navigation bar to go away after scroll */
-  window.onscroll= window.onscroll = function() {myFunction(), indexFunction1(), indexFunction2(), indexFunction3()};
+  window.onscroll= window.onscroll = function() {myFunction()};
 
 function myFunction(){
   if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300){
