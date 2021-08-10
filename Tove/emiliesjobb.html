@@ -22,7 +22,7 @@
 
             #repeatable_background{
                 width:100%;
-                height:1600px;
+                height:100%;
                 background-repeat: repeat;
                 background-image: url("https://www.netclipart.com/pp/m/111-1114400_fish-and-pinterest-sunday-school-under-the-sea.png");
                 display: flex;
@@ -120,10 +120,11 @@
 
             #meat_pic{
                 display: grid;
-                height:100%;
                 grid-template-columns: repeat(50,1fr);
                 grid-template-rows: repeat(50,1fr);
                 overflow: hidden;
+                height:57em;
+                
                 
             }
 
@@ -148,17 +149,298 @@
             #antibio{
                 height:100%;
                 width:100%;
-                grid-column: 10/ span 5 ;
+                grid-column: 8/ span 8 ;
                 grid-row: 9/ span 10;
                 border: 2px solid black;
                 overflow:hidden;
-                border-radius: 5%;
-                background-color: #f1f1f1;
-            
+                background-image: url("/Users/tovejonsson/Desktop/syringe.jpg");
+                background-size: cover;
+                background-repeat: no-repeat;
+                transition:all 0.2s;
+                border-radius:50%;
+                z-index: 1;
+            }
+
+            #antibio_text{
+                opacity:0;
+                text-align: center;
+                font-size: 1em;
+                transition: all 0.5s;
+                margin:30px;
+                margin-top: 65px;
+                
+            }
+
+            #antibio:hover{
+                border: 2px solid red;
+                grid-column: 8/ span 10 ;
+                grid-row: 9/ span 12;
+                background-image: url("/Users/tovejonsson/Desktop/skull.webp");
+            }
+
+            #antibio:hover #antibio_text{
+                opacity:1;
+            }
+
+            #massproducing{
+                height:100%;
+                width:100%; 
+                grid-column: 36/ span 8;
+                grid-row:9/ span 10;
+                border: 2px solid black;
+                overflow: hidden;
+                border-radius: 50%;
+                background-image: url("/Users/tovejonsson/Desktop/wallpapers-cow-head.jpg.jpg");
+                background-repeat: no-repeat;
+                background-size: 100%;
+                transition: all 0.5s;
+                z-index: 1;
+            }
+
+            #massproducing_textbox{
+                height: 100%;
+                width:100%;
+                grid-column: 43 / span 5;
+                grid-row: 9 / span 7;
+                border: 2px solid lightslategray;
+                background-color: wheat;
+                border-radius: 50%;
+                opacity:0;
+                transition: all 0.5s;
+            }
+
+            #massproducing_text{
+                margin:25px;
+                transition: all 0.5s;
+                font-size: 0.75em;
+                text-align: center;
 
             }
-            
 
+            #massproducing:hover{
+                border: 2px solid red;
+                background-image: url("/Users/tovejonsson/Desktop/sad cow.jpeg");
+                background-size: 120%;
+            }
+
+            #massproducing:hover ~ #massproducing_textbox{
+                opacity: 1; 
+            }
+
+            #landuse{
+                height: 100%;
+                width: 100%;
+                grid-column: 36/ span 8;
+                grid-row: 30/ span 10;
+                border: 2px solid black;
+                overflow: hidden;
+                border-radius: 50%;
+                background-image: url("/Users/tovejonsson/Desktop/forest.jpeg");
+                background-repeat: no-repeat;
+                background-size: 160%;
+                transition: all 0.5s;
+                z-index: 1;
+            }
+
+            #landuse_textbox{
+                height:100%;
+                width:100%;
+                grid-column: 43 / span 5;
+                grid-row: 30 / span 8;
+                border: 2px solid lightslategray;
+                background-color: wheat;
+                border-radius: 50%;
+                opacity: 0;
+                transition: all 0.5s;
+            }
+
+            #landuse_text{
+                margin: 25px;
+                transition: all 0.2s;
+                font-size: 0.85em;
+                text-align: center;
+            }
+
+            #landuse:hover{
+                border: 2px solid red;
+                background-image: url("/Users/tovejonsson/Desktop/cowdestroy.jpeg");
+                background-size: 220%;
+            }
+
+            #landuse:hover ~ #landuse_textbox{
+                opacity: 1;
+            }
+
+            #carbon{
+            height:100%;
+            width:100%;
+            grid-column: 8/ span 8 ;
+            grid-row: 30/ span 10;
+            border: 2px solid black;
+            overflow:hidden;
+            background-image: url("/Users/tovejonsson/Desktop/carbon.jpeg");
+            background-size: 150%;
+            background-repeat: no-repeat;
+            background-position: 30%;
+            transition:all 0.2s;
+            border-radius:50%;
+            z-index: 1;
+            }
+
+            #carbon_text{
+                opacity:0;
+                text-align: center;
+                font-size: 1em;
+                transition: all 0.2s;
+                margin:30px;
+                margin-top: 50px;
+            }
+
+            #carbon:hover{
+                border: 2px solid red;
+                background-image: url("/Users/tovejonsson/Desktop/global heat.jpeg");
+                grid-column: 8/ span 10 ;
+                grid-row: 30/ span 12;
+            }
+
+            #carbon:hover #carbon_text{
+                opacity: 1;
+                margin-top: 75px;
+            }
+
+            #Projectname{
+                text-align: center;
+                
+            }
+
+            .estrellas{
+                position:relative;
+                width:520px;
+                height:300px;
+                margin:0 auto;
+                font-size: 70px;
+            }
+
+            .estrellas span{
+                position:absolute;
+                bottom:0;
+                left:50%;
+                width:70px;
+                height: 300px;
+                margin-left: -35px;
+                line-height: 530px; /* height*2 - font-size */
+                text-align: center;
+                transform-origin: top center;
+            }
+
+            .estrellas span:nth-of-type(1)  {
+                transform: rotate(75deg);
+                }
+                .estrellas span:nth-of-type(2)  {
+                transform: rotate(65deg);
+                }
+                .estrellas span:nth-of-type(3)  {
+                transform: rotate(54deg);
+                }
+                .estrellas span:nth-of-type(4)  {
+                transform: rotate(39deg);
+                }
+                .estrellas span:nth-of-type(5)  {
+                transform: rotate(29deg);
+                }
+                .estrellas span:nth-of-type(6)  {
+                transform: rotate(19deg);
+                }
+                .estrellas span:nth-of-type(7)  {
+                transform: rotate(7deg);}
+
+                .estrellas span:nth-of-type(8)  {
+                transform: rotate(-4deg);
+                }
+                .estrellas span:nth-of-type(9)  {
+                transform: rotate(-14deg);
+                }
+                .estrellas span:nth-of-type(10)  {
+                transform: rotate(-24deg);
+                }
+                .estrellas span:nth-of-type(11)  {
+                transform: rotate(-34deg);
+                }
+                .estrellas span:nth-of-type(12)  {
+                transform: rotate(-44deg);
+                }
+                .estrellas span:nth-of-type(13)  {
+                transform: rotate(-54deg);
+                }
+                .estrellas span:nth-of-type(14)  {
+                transform: rotate(-64deg);}
+
+                .estrellas span:nth-of-type(15)  {
+                transform: rotate(-75deg);
+                }
+
+                /* Reverse mode */
+                .inverso {
+                font-weight: bold;
+                }
+
+                .inverso span {
+                line-height: 70px;
+                transform-origin: bottom center;
+                /*border: 1px solid red;  Only for seeing trick */
+                }
+
+                #flexmeat{
+                    position: relative;
+                    width:100%;
+                    height:70em;
+                    display:grid;
+                    grid-template-columns: repeat(50,1fr);
+                    grid-template-rows: repeat(50,1fr);
+                }
+
+
+                #reactor{
+                    z-index: 2;
+                    width: 100%;
+                    height: 100%;
+                    position: relative;
+                    grid-column: 25 / span 1;
+                    grid-row: 25 / span 1;
+                }
+
+                #imgreactor{
+                    width: 100%;
+                    height:100%;
+                    overflow: hidden;
+                    position: relative;
+
+                }
+
+
+                #steak{
+                    z-index: 1;
+                    height: 100%;
+                    grid-column: 25 / span 1;
+                    grid-row: 25 / span 1;
+                    position: fixed;
+                    
+                }
+
+                #imgsteak > img{
+                    position: fixed;
+                    width:50%;
+                    height:50%;
+                }
+
+                
+
+        
+
+
+
+
+            
             body{
                 margin:0%;
             }
@@ -197,9 +479,70 @@
                     <img src="/Users/tovejonsson/Desktop/Raw-Meat-Free-PNG-Image.png">
                 </div>
                 <div id="antibio">
+                    <div id="antibio_text">
+                        <b> Antibiotic resistence is bad :c</b>
+                    </div>
+                </div>
+                <div id="massproducing"></div>
+                <div id="massproducing_textbox">
+                    <div id="massproducing_text">
+                        <b> Poor cows, getting massproduced and viewed as little less than a slab of meat</b>
+                    </div>
+                </div>
+                <div id="landuse"></div>
+                <div id="landuse_textbox">
+                    <div id="landuse_text">
+                        <b>Cut down forests to breed mass-produce poor cows? Poor biodiversity</b>
+                    </div>
+                </div>
+                <div id="carbon">
+                    <div id="carbon_text">
+                    <b>Carbon dioxide very bad for environment and comes from cow farts not from meat labs</b>
+                    </div>
+                </div>
+            </div>
+
+            <div id="Projectname">
+                <h1> There is a better way...</h1>
+                <div class="estrellas inverso">
+                    <span>T</span>
+                    <span>A</span>
+                    <span>E</span>
+                    <span>M</span>
+                    <span></span>
+                    <span>D</span>
+                    <span>E</span>
+                    <span>T</span>
+                    <span>A</span>
+                    <span>V</span>
+                    <span>I</span>
+                    <span>T</span>
+                    <span>L</span>
+                    <span>U</span>
+                    <span>C</span>
+                </div>
+            </div>
+
+
+            <div id="flexmeat">
+                <div id="reactor">
+                    <div id="imgreactor">
+                        <img src="/Users/tovejonsson/Desktop/bioreactorfinal.png">
+                    </div>
+                </div>
+
+                <div id="steak">
+                    <div id="imgsteak">
+                        <img src="/Users/tovejonsson/Desktop/Raw-Meat-Free-PNG-Image.png">
+                    </div>
 
                 </div>
             </div>
+
+            
+           
+
+           
 
         </div>
 
