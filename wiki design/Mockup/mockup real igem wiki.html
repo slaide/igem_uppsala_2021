@@ -774,11 +774,14 @@
             animation_functions.push(animate_front_grass)
 
             function animate_all(){
+                if (disable_complex_animations){
+                    return
+                }
                 for(fun of animation_functions){
                     fun()
                 }
             }
-            if(!disable_complex_animations){
+            if(true || !disable_complex_animations){
                 setInterval(animate_all,1000/cap_framerate)
             }else{
                 animate_all()
