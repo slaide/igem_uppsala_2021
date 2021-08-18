@@ -602,6 +602,10 @@
             clean up the existing stuff that is nothing but in the way of our page design (top bar with igem logo and navigation panel hidden behind a burger menu, and quite thick padding on the left and top of the screen)
             */
             function on_load(){
+                let element=document.getElementsByClassName("top_bar")[0]
+                if(element){
+                    element.classList.remove("top_bar")
+                }
                 for(class_name of "igem_content_wrapper igem_column_wrapper clear extra_space".split(" ")){
                     for(element of document.getElementsByClassName(class_name)){
                         element.classList.remove(class_name)
