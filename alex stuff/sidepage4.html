@@ -1,34 +1,21 @@
-<!DOCTYPE html>
+{{IGEM_TopBar}}
 <html lang="en">
 <head>
      <title>
-        text and pic same
+        wrap text
     </title>
     <style>
         /* used for all pages */
-        @font-face {
-                font-family: archive;
-                src: url("../Archive.otf");
-            }
+
         *{
             margin:0;
             border:0;
             padding:0;
-            font-family: archive;
+
         }
         body, html{
             height: 100%;
             scroll-behavior: smooth;      
-        }
-
-        .igem-head-bar{
-            height: 16px;
-            width:100%;
-            background-color: black;
-            position: fixed;
-            text-align: center;
-            color: white;
-            z-index: 1000;
         }
 
         #section0, #section1, #section2, #section3{
@@ -46,14 +33,14 @@
             height: 8.6%;
             z-index: 10;
             font-size: 1.2em;
-            color:#426968;
+            color:#6d1d23;
 
         }
         #menu:hover{
             overflow: visible;
         }
 
-        #menu:hover ~ .parallaxtop, #menu:hover ~ #content, #menu:hover ~ .grid-container-sponsors{
+        #menu:hover ~ .parallaxtop, #menu:hover ~ #content, #menu:hover ~ .sponsorarea{
             filter: blur(5px);
         }
 
@@ -67,7 +54,6 @@
 
         ul {
             list-style-type: none;
-
         }
         
         li {
@@ -77,19 +63,19 @@
 
         li a, .dropbtn {
             display: inline-block;
-            color:#426968;
+            color:#6d1d23;
             text-align: center;
             margin-top: 3vh;
             text-decoration: none;
         }
         
         li a:hover, .dropdown-1:hover .dropbtn, .dropdown-2:hover .dropbtn , .dropdown-3:hover .dropbtn , .dropdown-4:hover .dropbtn , .dropdown-5:hover .dropbtn, .dropdown-6:hover .dropbtn {
-            color: #6d1d23;
+            color: #426968;
             text-decoration: underline;
         }
 
         .dropdown-1:hover .dropdown-content-1 a, .dropdown-2:hover .dropdown-content-2 a, .dropdown-3:hover .dropdown-content-3 a, .dropdown-4:hover .dropdown-content-4 a, .dropdown-5:hover .dropdown-content-5 a, .dropdown-6:hover .dropdown-content-6 a{
-            color: #6d1d23;
+            color: #426968;
         }
         
         li.dropdown-1, li.dropdown-2, li.dropdown-3, li.dropdown-4, li.dropdown-5, li.dropdown-6{
@@ -113,7 +99,7 @@
         }
         
         .dropdown-content-1 a:hover, .dropdown-content-2 a:hover, .dropdown-content-3 a:hover, .dropdown-content-4 a:hover, .dropdown-content-5 a:hover, .dropdown-content-6 a:hover{
-            color: #6d1d23;
+            color: #426968;
             margin-left: 5px;
             text-decoration: none;
         }
@@ -151,7 +137,7 @@
         /* parallax section*/
 
         .parallaxtop {
-            background-image: url(https://image.shutterstock.com/image-photo/experiments-chemistry-lab-conducting-experiment-260nw-435738523.jpg);
+            background-image: url(https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fspecials-images.forbesimg.com%2Fdam%2Fimageserve%2F1163531587%2F960x0.jpg%3Ffit%3Dscale);
             height: 50%;
             background-attachment: fixed;
             background-position: center;
@@ -241,7 +227,6 @@
         #midcontent{
             background-color: #dce1de;
             width: 64vw;
-            height: 100vh;
             margin-left: 6vw;
             margin-top:5vh;
             height: 300%;    
@@ -272,19 +257,6 @@
             margin:2%;
         }
 
-        .midcontentpic{
-            display:flex;
-            align-items:center;
-            justify-content:space-evenly;
-            margin-top: 5vh;
-        }
-
-        .picfiller{
-            background-color: #dce1de;
-            height: 90vh;
-            width: 100%;
-        }
-
         .midcontentpictext >p{
             font-weight:normal;
             text-align: left;
@@ -300,55 +272,121 @@
             
         }
 
+        .midcontentpictextleft >p{
+            font-weight:normal;
+            text-align: left;
+            font-size:0.75em;
+            font-family:'Times New Roman', Times, serif;
+            color:black;
+            line-height:1.2;
+            letter-spacing:0.05em;
+            margin-top:0;
+            margin-left: 2%;
+            margin-right: 2%;
+            float: left;
+        }
+
+        .midcontentpictextright{
+            font-weight:normal;
+            text-align: left;
+            font-size:0.9em;
+            font-family:'Times New Roman', Times, serif;
+            color:black;
+            line-height:1.2;
+            letter-spacing:0.05em;
+            float: right;
+            margin-left: 4%;
+        }
+        img.fire{
+            width:40%;
+            height:30%;
+            filter:grayscale(60%);
+            float:left;
+            shape-outside:polygon();
+            margin-top: 1vh;
+            mask-image: linear-gradient(to bottom, transparent 5%, black 75%);
+            cursor: zoom-in;
+        }
+
+
+        .divrightpicture{
+            width: 50%;
+            float: right;
+        }
+        img.pipett{            
+            /*
+            shape-outside:circle();
+            */
+            /* from
+            https://dev.to/gabbyj/how-to-easily-wrap-text-around-image-outline-5455
+            */
+            width:100%;
+            height:30%;
+            filter:grayscale(60%) contrast(170%) brightness(95%);
+            float:right;
+            shape-outside:polygon();
+            shape-image-threshold: 0.9;
+            shape-margin:2%;
+        }
+
         /* Sponsor part*/
-        .grid-container-sponsors{
+
+        .sponsorarea{
+            height: 40vh;
+            background-color:#426968;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .flex-container-socialmedia{
+            width: 21vw;
+            height: 40vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border-right:2px solid #6d1d23;
+        }
+
+        .grid-container-socialmedia{
+            width: 21vw;
+            height: 20vh;
             display: grid;
-            height: 30%;
+            grid-template-columns:repeat(2,1fr);
+            grid-template-rows:repeat(2,1fr);
+            overflow: hidden;
+        }
+
+        .grid-container-socialmedia > div >img{
+            margin-left: 5vw;
+            transform: translateX(-50%);
+        }
+
+        .uppsala-logo-sm > img{
+            margin-left: 10.2vw;
+            transform: translateX(-50%);
+            margin-top: 2vh;
+            width: 50%;
+        }
+
+
+        .grid-container-sponsors{
+            width: 79vw;
+            height: 40vh;
+            display: grid;
             grid-template-columns:repeat(4,1fr);
             grid-template-rows:repeat(3,1fr);
             overflow: hidden;
-            background-color:#426968;
-            color: white;
+            color: #6d1d23;
         }
 
-        .sponsorheading{
-            text-align: center;
-            margin:auto;
-            font-size: 2em;
-            grid-column: 2 /span 2;
-            grid-row: 1 /span 1;
+
+        .grid-container-sponsors > div > img{
+            margin-left: 3vw;
+            margin-top: 7vh;
+            transform: translateY(-50%);
         }
 
-        .sponsor1{
-            text-align: center;
-            margin:auto;
-            grid-column: 1 /span 1;
-            grid-row: 2 /span 1;
-        }
-
-        .sponsor2{
-            text-align: center;
-            margin:auto;
-            font-size: 3em;
-            grid-column: 2 /span 1;
-            grid-row: 2 /span 1;
-        }
-
-        .sponsor3{
-            text-align: center;
-            margin:auto;
-            font-size: 3em;
-            grid-column: 3 /span 1;
-            grid-row: 2 /span 1;
-        }
-
-        .sponsor4{
-            text-align: center;
-            margin:auto;
-            font-size: 3em;
-            grid-column: 4 /span 2;
-            grid-row: 2 /span 1;
-        }
+        
     </style>
     <script>
         //Collpaseable menu
@@ -374,10 +412,13 @@
         }
         prevScrollpos = currentScrollPos;
         })
-
+        
+        function and(a,b){return (a+b)==2}
+        
         //Bolding index
         function indexFunction1(){
-            if (document.documentElement.scrollTop > 400 && document.documentElement.scrollTop < 1700) {
+            let if2=document.documentElement.scrollTop <1700
+            if (and(document.documentElement.scrollTop >400,document.documentElement.scrollTop <1700)) {
                 document.getElementById("span1").style.fontWeight="bolder";
                 document.getElementById("span1").style.textDecoration="underline";
             } else {
@@ -386,7 +427,7 @@
             }
         }
         function indexFunction2(){
-            if (document.documentElement.scrollTop > 1700 && document.documentElement.scrollTop < 2700) {
+            if (and(document.documentElement.scrollTop >1700, document.documentElement.scrollTop <2200)) {
                 document.getElementById("span2").style.fontWeight="bolder";
                 document.getElementById("span2").style.textDecoration="underline";
             } else {
@@ -395,14 +436,14 @@
             }
         }
         function indexFunction3(){
-            if (document.documentElement.scrollTop > 2700) {
+            if (document.documentElement.scrollTop > 2200) {
                 document.getElementById("span3").style.fontWeight="bolder";
                 document.getElementById("span3").style.textDecoration="underline";
             } else {
             document.getElementById("span3").style.fontWeight = "normal";
             document.getElementById("span3").style.textDecoration="none";
             }
-        }
+        } 
         
         //Uncollapse the menu with a click on the logo
         function clickfunction(){
@@ -412,47 +453,19 @@
             setTimeout(function(){ document.getElementById("menu").style.overflow='visible'; }, 1000);
         }
 
-        //Meat reactor
-        function min(a,b){return (a<b?a:b)}
-        function max(a,b){return (a>b?a:b)}
-            var observeViewEnter=new IntersectionObserver(function(entries){9
-                if(entries[0].isIntersecting===true){
-                    //window.alert("entered view")
-                    entries[0].target.classList.add("paddingtopinteractive")
-                    window.addEventListener("scroll",function(){
-                        var target=document.getElementById("steakdiv")
-                        var top=target.getBoundingClientRect().top
-                        var max_scroll=document.documentElement.scrollHeight-window.innerHeight;
-                        var height=window.innerHeight
-                        var scroll_height=(height-top)/height;
-                        console.log(scroll_height)
-                        scroll_height=min(max(scroll_height,0),1.0)
-                        console.log(scroll_height)
-                        target.style.setProperty("--pt",(scroll_height)*50+"vh")
-                    })
+        function on_load(){
+                for(class_name of "igem_content_wrapper igem_column_wrapper clear extra_space".split(" ")){
+                    for(element of document.getElementsByClassName(class_name)){
+                        element.classList.remove(class_name)
+                    }
                 }
-            },{threshold:[1.0]});
-            var observeViewLeave=new IntersectionObserver(function(entries){
-                if(entries[0].isIntersecting!==true){
-                    entries[0].target.classList.remove("paddingtopinteractive")
-                    //window.alert("left view")
-                }
-            },{threshold:[0.0]});
-            function onload_function(){
-                observeViewEnter.observe(document.getElementById("steakdiv"))
-                observeViewLeave.observe(document.getElementById("steakdiv"))
-            }
+        }
 
             
     </script>
 </head>
-<body onload="onload_function()">
+<body onload="on_load()">
     <div id="section0"></div>
-    <div class="igem-head-bar">
-        IGEM BAR
-    </div>
-
-
     <!--Menu with drop down-->
     <div id="menu">
         <div class="dropdown-background"></div> 
@@ -534,7 +547,7 @@
     <div class=parallaxtop>
         
         <div id="header">
-                Lab Saftey  
+                Lab Saftey
         </div>
     </div>
 
@@ -588,17 +601,12 @@
                 <p>
                     The waste disposal course was held by the safety officer on our campus. The course was composed of a tour around the waste disposal facilities in Uppsala University and a detailed demonstration about the correct labelling and transportations measures for laboratory waste-bins and chemical waste containers. At the end of the tour, each participant was given a diploma allowing them to handle all waste products that were produced in the lab.
                 </p>
-            </div>
-            <div class="midcontentpic">
-                <img src="https://p0.pxfuel.com/preview/691/193/134/chemistry-flame-metals-salts.jpg" height="100%" width="20%">
-                <img src="https://www.statnews.com/wp-content/uploads/2019/05/IMG_20190510_181747-645x645.jpg" height="100%" width="30%">
-            </div>
-            <div class="midcontentpictext">
-                <p>
-                    Figure 1. Wow very cool photos, they are the best photos ever taken. This just some text used to fil the page with. I dont really feel like writing Lorem Ipsum for the hundreth time... Damn, need to write some more to see how the text would look lite on two seperate rows. FML.
-                </p>
-            </div>
-            <div class="midcontenttext">
+                <img class="fire" src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
+                <div class="midcontentpictextleft" style="width: 40%;">
+                    <p>
+                        Figure 1. Wow very cool photos, they are the best photos ever taken. This just some text used to fil the page with. I dont really feel like writing Lorem Ipsum for the hundreth time... Damn, need to write some more to see how the text would look lite on two seperate rows. FML.
+                    </p>
+                </div>
                 <p>
                     Lab leaders attended an introduction for the handling of the autoclave and the dishwasher. Additionally, the most experienced students organized lessons showing the basic techniques in synthetic biology, as gel casting or working safely under the flame.
                 </p>
@@ -616,16 +624,12 @@
                 <p>
                     When designing the prototype we kept in mind the user and the potential risks leading to releases of the organisms to the environment in mind. Accidents and/or mistakes could happen during the research and development, production, distribution, usage and discard of our biosensor. According to that, we have developed our prototype (see Kit design) and worked accordingly guidelines of our universities regarding safety preconditions in the lab. For our case study “Tuberculosis disease” we have also taken into account possible social concerns and conflicts that could arise upon a stigmatised disease/infection being easily detected (see Human practice).
                 </p>
-            </div>
-            <div class="midcontentpic">
-                <img src="https://static.parade.com/wp-content/uploads/2018/01/cute-cow-FTR.jpg" height="100%" width="70%">
-            </div>
-            <div class="midcontentpictext">
-                <p>
-                    Figure 2. Wow very cool photos, they are the best photos ever taken. This just some text used to fil the page with. I dont really feel like writing Lorem Ipsum for the hundreth time... Damn, need to write some more to see how the text would look lite on two seperate rows. FML.
-                </p>
-            </div>
-            <div class="midcontenttext">
+                <img class="fire" src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
+                <div class="midcontentpictextleft" style="width: 40%;">
+                    <p>
+                        Figure 1. Wow very cool photos, they are the best photos ever taken. This just some text used to fil the page with. I dont really feel like writing Lorem Ipsum for the hundreth time... Damn, need to write some more to see how the text would look lite on two seperate rows. FML.
+                    </p>
+                </div>
                 <p>
                     We have assessed the risk of our genetically modified bacteria (GMO) reaching the environment and deem it as relatively low. The proteins and other elements included in the bacteria are naturally occurring, and the fitness cost of carrying all this extra genetic material is likely to lead to bacterial death outside a controlled environment. The antibiotic-resistant genes included in the genome of our bacteria are standard for this kind of research. Further development of the biosensor would entail integrating a kill switch (see Future). Upon actual product development necessary evaluations and risk assessment aimed for different user groups should be carried out.
                 </p>
@@ -634,15 +638,17 @@
                 </p>
                 <div id="section3"></div>
                 <h1>COVID-19 measures</h1>
+                <div class="divrightpicture">
+                    <div class="midcontentpictextright">
+                        <img class="pipett" src="pipette.png">
+                        Figure 1. Wow very cool photos, they are the best photos ever taken. This just some text used to fil the page with. I dont really feel like writing Lorem Ipsum for the hundreth time... Damn, need to write some more to see how the text would look lite on two seperate rows. FML.
+                    </div>
+                </div>
                 <p>
                     During the spring period of 2020, all our activities were switched to a digital format. Later, during the summer months, we got an exemption from digital education after presenting an action plan with extra safety measures to contain potential outbreaks. The plan included social distancing, extra cleaning stations, maximum number of people allowed per room and personal equipment like portable hand disinfectant or face shields. These measures were enforced not just in the lab but also in the lunchroom and group rooms. Team members suspecting any symptoms were encouraged to stay home. As one of the few courses exempted from the distance studies during summer we shared our feedback and concerns with the Biological Education center, department that coordinates all bachelor's and master's education in biology at Uppsala University to help organize courses returning to campus during autumn 2020 in the settings of a pandemic.
                 </p>
-            </div>
-            <div class="midcontentpic">
-                <img src="https://static.parade.com/wp-content/uploads/2018/01/cute-cow-FTR.jpg" height="100%" width="70%">
-            </div>
-            <div class="midcontentpictext">
-                <p>Fig.10 wow this explains all of our project.</p>
+                <p>                        
+                    The waste disposal course was held by the safety officer on our campus. The course was composed of a tour around the waste disposal facilities in Uppsala University and a detailed demonstration about the correct labelling and transportations measures for laboratory waste-bins and chemical waste containers. At the end of the tour, each participant was given a diploma allowing them to handle all waste products that were produced in the lab.</p>
             </div>
               
         </div>
@@ -650,26 +656,28 @@
     </div>
 
     <!--Start sponsor-->
-    <div class="grid-container-sponsors">
-        <div class="sponsorheading">
-            <h3><u>Our sponsors</u></h3>
+    <div class="sponsorarea">
+        <div class="flex-container-socialmedia">
+            <div class="uppsala-logo-sm"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/03/Uppsala_University_logo.svg/1024px-Uppsala_University_logo.svg.png"></div>
+            <div class="grid-container-socialmedia">
+                <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png" width="30%"></div>
+                <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/1024px-Instagram_logo_2016.svg.png" width="30%"></div>
+                <div><img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Circle-icons-mail.svg" width="30%"></div>
+                <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Linkedin_icon.svg/480px-Linkedin_icon.svg.png" width="30%"></div>
+            </div>
         </div>
-        <div class="sponsor1">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png" width="30%" height="100%">
-        </div>
+        <div class="grid-container-sponsors">
+                <div><img src="MERCK_LOGO_RPurple_RGBtransparent_cut.png" width="80%"></div>
+                <div><img src="snapgene-logo.png" width="80%"></div>
+                <div><img src="campbokhandeln-transparent-notext.png" width="80%"></div>
+                <div><img src="geneious_logo_cut.png" width="80%"></div>
+                <div><img src="promega-transparent-cut.png" width="80%"></div>
+                <div><img src="BioNordika-logo-transparent.png" width="80%"></div>
+                <div><img src="bio-rad-transparent-cut.png" width="80%"></div>
+                <div><img src="Genscript Logo Transparent-B.png" width="80%"></div>
 
-        <div class="sponsor2">
-            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c4/Snapchat_logo.svg/1024px-Snapchat_logo.svg.png" width="30%" height="100%">
-        </div>
 
-        <div class="sponsor3">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/1024px-Instagram_logo_2016.svg.png" width="30%" height="100%">
         </div>
-
-        <div class="sponsor4">
-            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a9/TikTok_logo.svg/1920px-TikTok_logo.svg.png" width="60%" height="100%">
-        </div>
-
     </div>  
 </body>
 </html>

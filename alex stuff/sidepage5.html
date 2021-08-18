@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
      <title>
-        text and pic same
+        wrap text
     </title>
     <style>
         /* used for all pages */
@@ -30,6 +30,7 @@
             color: white;
             z-index: 1000;
         }
+
 
         #section0, #section1, #section2, #section3{
             height:0.1px;
@@ -113,7 +114,7 @@
         }
         
         .dropdown-content-1 a:hover, .dropdown-content-2 a:hover, .dropdown-content-3 a:hover, .dropdown-content-4 a:hover, .dropdown-content-5 a:hover, .dropdown-content-6 a:hover{
-            color: #6d1d23;
+            color:#6d1d23;
             margin-left: 5px;
             text-decoration: none;
         }
@@ -151,7 +152,7 @@
         /* parallax section*/
 
         .parallaxtop {
-            background-image: url(https://image.shutterstock.com/image-photo/experiments-chemistry-lab-conducting-experiment-260nw-435738523.jpg);
+            background-image: url(https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fspecials-images.forbesimg.com%2Fdam%2Fimageserve%2F1163531587%2F960x0.jpg%3Ffit%3Dscale);
             height: 50%;
             background-attachment: fixed;
             background-position: center;
@@ -169,7 +170,7 @@
             animation-duration: 2s;
             text-align: center;
             font-size: 6em;
-            color: #6d1d23;
+            color: #426968;
             font-style: italic;
         }
         @keyframes fadein{
@@ -193,7 +194,7 @@
             left:0px;
             margin-top:5vh;
             padding: 0px;
-            background-color: #6d1d23;
+            background-color: #426968;
             text-align: left;
             font-size: 1.5em;
         }
@@ -208,7 +209,7 @@
         }
 
         .listsections{
-            color:#6d1d23;
+            color:#426968;
             padding-top: 30px;
             display:block;
             width:100%;
@@ -217,31 +218,30 @@
 
       
         .listsections span:hover{
-            color:#426968;
+            color:#6d1d23;
         }
 
 
         .listheader{
-            color:#6d1d23;
+            color:#426968;
             padding-top:3%;
             display:block;
             width:100%;
             background-color:#dce1de;
             font-size:1.6em;
             font-weight: bold;
-            border-bottom: 1px solid #6d1d23;
+            border-bottom: 1px solid #426968;
             
         }
 
         .listheader span:hover{
-            color:#426968; 
+            color:#6d1d23;
         }
 
         /* Actual content */
         #midcontent{
             background-color: #dce1de;
             width: 64vw;
-            height: 100vh;
             margin-left: 6vw;
             margin-top:5vh;
             height: 300%;    
@@ -255,11 +255,11 @@
         .midcontenttext > h1{
             font-size: 2em;
             font-style: italic;
-            color:#6d1d23;
+            color:#426968;
             text-align: center;
             margin: 2%;
             margin-top: 1%;
-            border-bottom: 1px solid #6d1d23;
+            border-bottom: 1px solid #426968;
         }
 
         .midcontenttext >p{
@@ -270,19 +270,6 @@
             line-height:1.8;
             letter-spacing:0.05em;
             margin:2%;
-        }
-
-        .midcontentpic{
-            display:flex;
-            align-items:center;
-            justify-content:space-evenly;
-            margin-top: 5vh;
-        }
-
-        .picfiller{
-            background-color: #dce1de;
-            height: 90vh;
-            width: 100%;
         }
 
         .midcontentpictext >p{
@@ -300,10 +287,83 @@
             
         }
 
+        .midcontentpictextleft >p{
+            font-weight:normal;
+            text-align: left;
+            font-size:0.75em;
+            font-family:'Times New Roman', Times, serif;
+            color:black;
+            line-height:1.2;
+            letter-spacing:0.05em;
+            margin-top:0;
+            margin-left: 2%;
+            margin-right: 2%;
+            float: left;
+        }
+
+        .midcontentpictextright{
+            font-weight:normal;
+            text-align: left;
+            font-size:0.9em;
+            font-family:'Times New Roman', Times, serif;
+            color:black;
+            line-height:1.2;
+            letter-spacing:0.05em;
+            float: right;
+            margin-left: 4%;
+        }
+        img.fire{
+            width:40%;
+            height:30%;
+            filter:grayscale(60%);
+            float:left;
+            shape-outside:polygon();
+            margin-top: 1vh;
+            mask-image: linear-gradient(to bottom, transparent 5%, black 75%);
+            cursor: zoom-in;
+        }
+
+
+        .divrightpicture{
+            width: 50%;
+            float: right;
+        }
+        img.pipett{            
+            /*
+            shape-outside:circle();
+            */
+            /* from
+            https://dev.to/gabbyj/how-to-easily-wrap-text-around-image-outline-5455
+            */
+            width:100%;
+            height:30%;
+            filter:grayscale(60%) contrast(170%) brightness(95%);
+            float:right;
+            shape-outside:polygon();
+            shape-image-threshold: 0.9;
+            shape-margin:2%;
+        }
+
         /* Sponsor part*/
-        .grid-container-sponsors{
+
+        .sponsorarea{
+            height: 40vh;
+            background-color:#426968;
+        }
+
+        .grid-container-socialmedia{
+            width: 20vw;
             display: grid;
-            height: 30%;
+            grid-template-columns:repeat(4,1fr);
+            grid-template-rows:repeat(3,1fr);
+            overflow: hidden;
+            background-color:red;
+            color: white;
+        }
+
+        .grid-container-sponsors{
+            width: 80vw;
+            display: grid;
             grid-template-columns:repeat(4,1fr);
             grid-template-rows:repeat(3,1fr);
             overflow: hidden;
@@ -386,7 +446,7 @@
             }
         }
         function indexFunction2(){
-            if (document.documentElement.scrollTop > 1700 && document.documentElement.scrollTop < 2700) {
+            if (document.documentElement.scrollTop > 1700 && document.documentElement.scrollTop < 2200) {
                 document.getElementById("span2").style.fontWeight="bolder";
                 document.getElementById("span2").style.textDecoration="underline";
             } else {
@@ -395,7 +455,7 @@
             }
         }
         function indexFunction3(){
-            if (document.documentElement.scrollTop > 2700) {
+            if (document.documentElement.scrollTop > 2200) {
                 document.getElementById("span3").style.fontWeight="bolder";
                 document.getElementById("span3").style.textDecoration="underline";
             } else {
@@ -534,7 +594,7 @@
     <div class=parallaxtop>
         
         <div id="header">
-                Lab Saftey  
+                Lab Saftey
         </div>
     </div>
 
@@ -588,17 +648,12 @@
                 <p>
                     The waste disposal course was held by the safety officer on our campus. The course was composed of a tour around the waste disposal facilities in Uppsala University and a detailed demonstration about the correct labelling and transportations measures for laboratory waste-bins and chemical waste containers. At the end of the tour, each participant was given a diploma allowing them to handle all waste products that were produced in the lab.
                 </p>
-            </div>
-            <div class="midcontentpic">
-                <img src="https://p0.pxfuel.com/preview/691/193/134/chemistry-flame-metals-salts.jpg" height="100%" width="20%">
-                <img src="https://www.statnews.com/wp-content/uploads/2019/05/IMG_20190510_181747-645x645.jpg" height="100%" width="30%">
-            </div>
-            <div class="midcontentpictext">
-                <p>
-                    Figure 1. Wow very cool photos, they are the best photos ever taken. This just some text used to fil the page with. I dont really feel like writing Lorem Ipsum for the hundreth time... Damn, need to write some more to see how the text would look lite on two seperate rows. FML.
-                </p>
-            </div>
-            <div class="midcontenttext">
+                <img class="fire" src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
+                <div class="midcontentpictextleft" style="width: 40%;">
+                    <p>
+                        Figure 1. Wow very cool photos, they are the best photos ever taken. This just some text used to fil the page with. I dont really feel like writing Lorem Ipsum for the hundreth time... Damn, need to write some more to see how the text would look lite on two seperate rows. FML.
+                    </p>
+                </div>
                 <p>
                     Lab leaders attended an introduction for the handling of the autoclave and the dishwasher. Additionally, the most experienced students organized lessons showing the basic techniques in synthetic biology, as gel casting or working safely under the flame.
                 </p>
@@ -616,16 +671,12 @@
                 <p>
                     When designing the prototype we kept in mind the user and the potential risks leading to releases of the organisms to the environment in mind. Accidents and/or mistakes could happen during the research and development, production, distribution, usage and discard of our biosensor. According to that, we have developed our prototype (see Kit design) and worked accordingly guidelines of our universities regarding safety preconditions in the lab. For our case study “Tuberculosis disease” we have also taken into account possible social concerns and conflicts that could arise upon a stigmatised disease/infection being easily detected (see Human practice).
                 </p>
-            </div>
-            <div class="midcontentpic">
-                <img src="https://static.parade.com/wp-content/uploads/2018/01/cute-cow-FTR.jpg" height="100%" width="70%">
-            </div>
-            <div class="midcontentpictext">
-                <p>
-                    Figure 2. Wow very cool photos, they are the best photos ever taken. This just some text used to fil the page with. I dont really feel like writing Lorem Ipsum for the hundreth time... Damn, need to write some more to see how the text would look lite on two seperate rows. FML.
-                </p>
-            </div>
-            <div class="midcontenttext">
+                <img class="fire" src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
+                <div class="midcontentpictextleft" style="width: 40%;">
+                    <p>
+                        Figure 1. Wow very cool photos, they are the best photos ever taken. This just some text used to fil the page with. I dont really feel like writing Lorem Ipsum for the hundreth time... Damn, need to write some more to see how the text would look lite on two seperate rows. FML.
+                    </p>
+                </div>
                 <p>
                     We have assessed the risk of our genetically modified bacteria (GMO) reaching the environment and deem it as relatively low. The proteins and other elements included in the bacteria are naturally occurring, and the fitness cost of carrying all this extra genetic material is likely to lead to bacterial death outside a controlled environment. The antibiotic-resistant genes included in the genome of our bacteria are standard for this kind of research. Further development of the biosensor would entail integrating a kill switch (see Future). Upon actual product development necessary evaluations and risk assessment aimed for different user groups should be carried out.
                 </p>
@@ -634,15 +685,17 @@
                 </p>
                 <div id="section3"></div>
                 <h1>COVID-19 measures</h1>
+                <div class="divrightpicture">
+                    <div class="midcontentpictextright">
+                        <img class="pipett" src="pipette.png">
+                        Figure 1. Wow very cool photos, they are the best photos ever taken. This just some text used to fil the page with. I dont really feel like writing Lorem Ipsum for the hundreth time... Damn, need to write some more to see how the text would look lite on two seperate rows. FML.
+                    </div>
+                </div>
                 <p>
                     During the spring period of 2020, all our activities were switched to a digital format. Later, during the summer months, we got an exemption from digital education after presenting an action plan with extra safety measures to contain potential outbreaks. The plan included social distancing, extra cleaning stations, maximum number of people allowed per room and personal equipment like portable hand disinfectant or face shields. These measures were enforced not just in the lab but also in the lunchroom and group rooms. Team members suspecting any symptoms were encouraged to stay home. As one of the few courses exempted from the distance studies during summer we shared our feedback and concerns with the Biological Education center, department that coordinates all bachelor's and master's education in biology at Uppsala University to help organize courses returning to campus during autumn 2020 in the settings of a pandemic.
                 </p>
-            </div>
-            <div class="midcontentpic">
-                <img src="https://static.parade.com/wp-content/uploads/2018/01/cute-cow-FTR.jpg" height="100%" width="70%">
-            </div>
-            <div class="midcontentpictext">
-                <p>Fig.10 wow this explains all of our project.</p>
+                <p>                        
+                    The waste disposal course was held by the safety officer on our campus. The course was composed of a tour around the waste disposal facilities in Uppsala University and a detailed demonstration about the correct labelling and transportations measures for laboratory waste-bins and chemical waste containers. At the end of the tour, each participant was given a diploma allowing them to handle all waste products that were produced in the lab.</p>
             </div>
               
         </div>
