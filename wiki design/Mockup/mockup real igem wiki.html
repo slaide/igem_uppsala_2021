@@ -58,8 +58,10 @@
                 background-color:#7ab9ce;
                 /*oopacity is used to 'toggle' for debugging purposes*/
                 oopacity: 0.5;
+                width:100%;
+                height:100%;
             }
-            .real,.reference_image{
+            .reference_image{
                 width:100%;
                 height:100vh;
             }
@@ -370,7 +372,9 @@
                 width:var(--bubble-diameter);
                 height:var(--bubble-diameter);
                 position:absolute;
+
                 offset-path:path("M342.18,931C286.5,916.5,210.5,861.5,229.5,786.5c22.35-88.21,147.26-65.91,161-125,10-43-34-87-44-111");
+                
                 transform:scale(0);
                 animation: move var(--animation-duration) infinite linear var(--delay);
             }
@@ -597,14 +601,111 @@
                 padding-top:1.2vh;
             }
         </style>
+        <style real-href="main_3.css">
+            #panel3_headline{
+                font-size: 10em;
+                text-align: center;
+            }
+            .steak_pipeline{
+                position:absolute;
+                top:50vh;
+                width:100vw;
+                height:50vh;
+            }
+            .whole_cow,.petri_dish,.petri_dish_steak{
+                top:25vh;
+                position:absolute;
+                transform:translateY(-50%);
+            }
+            .whole_cow{
+                width:300px;
+                height:270px;
+                left:10vw;
+
+                z-index:2;
+            }
+            .cow_tissue{
+                width:100px;
+                height:60px;
+
+                transform:scale(4);
+
+                z-index:1;
+
+                position:relative;
+            }
+            .petri_dish{
+                width:300px;
+                height:270px;
+                left:45vw;
+
+                z-index:2;
+
+                transform:translateY(-50%) translateX(-20%);
+            }
+            .fgf2_old,.fgf2_new{
+                width:200px;
+                height:180px;
+
+                transform:scale(0.5) translateX(-50%) translateY(-50%);
+
+                z-index:1;
+
+                position:relative;
+            }
+            .petri_dish_steak{
+                width:50px;
+                height:45px;
+
+                left:45vw;
+
+                z-index:3;
+
+                transform:scale(0);
+                animation: petri_dish_steak_grow 4s infinite linear 1s;
+            }
+            @keyframes petri_dish_steak_grow{
+                0%,60%{
+                    transform:scale(0);
+                }
+                75%,85%{
+                    transform:scale(var(--steak-max-scale));
+                }
+                100%{
+                    transform:translateY(-100vh) scale(var(--steak-max-scale));
+                }
+            }
+            .fgf2_container{
+                transform: translateY(-50%);
+                top:25vh;
+                position:absolute;
+
+                
+                left:45vw;
+                width:40vw;
+                height:calc(365.87px * 0.3);
+            }
+            .tissue_container{
+                transform: translateY(-50%);
+                top:25vh;
+                position:absolute;
+
+                left:15vw;
+                width:40vw;
+                height:calc(365.87px * 0.3);
+            }
+        </style>
         <script>
             /*
             clean up the existing stuff that is nothing but in the way of our page design (top bar with igem logo and navigation panel hidden behind a burger menu, and quite thick padding on the left and top of the screen)
             */
+            const framerate=60
+
             function on_load(){
                 let element=document.getElementsByClassName("top_bar")[0]
                 if(element){
                     element.classList.remove("top_bar")
+                    element.style="display:none;"
                 }
                 for(class_name of "igem_content_wrapper igem_column_wrapper clear extra_space".split(" ")){
                     for(element of document.getElementsByClassName(class_name)){
@@ -613,6 +714,12 @@
                 }
 
                 hide_meat_problem_areas()
+                setTimeout(()=>{
+                    setInterval(fgf2_animation,1000/framerate)
+                },1000)
+                setTimeout(()=>{
+                    setInterval(tissue_animation,1000/framerate)
+                },0)
             }
         </script>
     </head>
@@ -740,10 +847,105 @@
                     }
                 </script>
             </div>
-            <div class="panel">
+            <div class="panel" style="height:150vh;">
                 <img class="reference_image" src="https://2021.igem.org/wiki/images/4/41/T--Uppsala--IMG_0970.png" loading="lazy">
-                <div class="real" style="background-color:#CCE0DD; opacity:0.5;border-top: 1px solid #CCE0DD;">
+                <div class="real" style="background-color:#CCE0DD; oopacity:0.5;border-top: 1px solid #CCE0DD;height:150vh;">
+                    <div id="panel3_headline">BETTER: CULTIVATED MEEEAT</div>
+                    <div class="steak_pipeline">
+                        <img class="whole_cow" src="../3-cultivated-meat/cow.svg" loadling="lazy">
+                        <div class="tissue_container">
+                            <img class="cow_tissue" src="../4-logo/fibroblastwiki.svg" loadling="lazy">
+                        </div>
+                        <img class="petri_dish" src="../3-cultivated-meat/petridish_full.svg" loadling="lazy">
+                        <img class="petri_dish_steak" src="../3-cultivated-meat/steak_simple.svg" loadling="lazy" style="--steak-max-scale:2;">
+                        <div class="fgf2_container">
+                            <img class="fgf2_old" src="../3-cultivated-meat/FGF_old.svg" loadling="lazy">
+                        </div>
+                    </div>
+                    <div class="steak_pipeline" style="top:100vh;">
+                        <img class="whole_cow" src="../3-cultivated-meat/cow.svg" loadling="lazy">
+                        <div class="tissue_container">
+                            <img class="cow_tissue" src="../4-logo/fibroblastwiki.svg" loadling="lazy">
+                        </div>
+                        <img class="petri_dish" src="../3-cultivated-meat/petridish_full.svg" loadling="lazy">
+                        <img class="petri_dish_steak" src="../3-cultivated-meat/steak_simple.svg" loadling="lazy" style="--steak-max-scale:4;">
+                        <div class="fgf2_container">
+                            <img class="fgf2_new" src="../3-cultivated-meat/FGF_new.svg" loadling="lazy">
+                        </div>
+                    </div>
+                    <script>
+                        /*
+                            play fgf2 animation over one second
+                            2 seconds between animations
+                            no initial delay
+                            framerate is apparently 30fps
+                        */
 
+                        const svg_namespace="http://www.w3.org/2000/svg"
+
+                        let svg=document.createElementNS(svg_namespace,"svg")
+                        let path=document.createElementNS(svg_namespace,"path")
+                        path.setAttribute("d","M0,1080c569.5-504.5,1420.5-468.5,1920,0")
+                        path.setAttribute("viewBox","0 0 1920.67 365.87")
+                        svg.appendChild(path)
+
+                        const total_path_length=path.getTotalLength()
+                        const default_delta=total_path_length/framerate
+
+                        function at_percent_length(pl){
+                            return path.getPointAtLength(path.getTotalLength()*pl/100)
+                        }
+                        let base_y=at_percent_length(0).y
+                        let max_height=base_y-at_percent_length(50).y
+
+                        var delta_time_fgf2=0
+                        var fgf2_delta=default_delta
+                        function fgf2_animation(){
+                            delta_time_fgf2+=fgf2_delta
+
+                            let delta_length=(delta_time_fgf2/total_path_length)*100
+                            let point=at_percent_length(delta_length)
+
+                            let current_height=base_y-point.y
+
+                            let bottom=current_height/max_height*100
+                            
+                            if(delta_time_fgf2>total_path_length){
+                                document.getElementsByClassName("fgf2_old")[0].style="left:"+100+"%;bottom:"+0+"%;"
+                                document.getElementsByClassName("fgf2_new")[0].style="left:"+100+"%;bottom:"+0+"%;"
+                                if(delta_time_fgf2>(4*total_path_length)){
+                                    delta_time_fgf2=0
+                                }
+                            }else{
+                                document.getElementsByClassName("fgf2_old")[0].style="left:"+(100-delta_length)+"%;bottom:"+bottom+"%;"
+                                document.getElementsByClassName("fgf2_new")[0].style="left:"+(100-delta_length)+"%;bottom:"+bottom+"%;"
+                            }
+                        }
+
+                        var delta_time_tissue=0
+                        var tissue_delta=default_delta
+                        function tissue_animation(){
+                            delta_time_tissue+=tissue_delta
+
+                            let delta_length=(delta_time_tissue/total_path_length)*100
+                            let point=at_percent_length(delta_length)
+
+                            let current_height=base_y-point.y
+
+                            let bottom=current_height/max_height*100
+                            
+                            if(delta_time_tissue>total_path_length){
+                                document.getElementsByClassName("cow_tissue")[0].style="left:"+0+"%;bottom:"+0+"%;"
+                                document.getElementsByClassName("cow_tissue")[1].style="left:"+0+"%;bottom:"+0+"%;"
+                                if(delta_time_tissue>(4*total_path_length)){
+                                    delta_time_tissue=0
+                                }
+                            }else{
+                                document.getElementsByClassName("cow_tissue")[0].style="left:"+delta_length+"%;bottom:"+bottom+"%;"
+                                document.getElementsByClassName("cow_tissue")[1].style="left:"+delta_length+"%;bottom:"+bottom+"%;"
+                            }
+                        }
+                    </script>
                 </div>
             </div>
             <div class="panel">
