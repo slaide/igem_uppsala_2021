@@ -59,7 +59,8 @@
                 /*oopacity is used to 'toggle' for debugging purposes*/
                 oopacity: 0.5;
                 width:100%;
-                height:100%;
+                /*NEVER EVER CHANGE THIS TO 100%! height in percent of certain elements is broken on the igem page. ONLY VH WORKS CORRECTLY!*/
+                height:100vh;
             }
             .reference_image{
                 width:100%;
@@ -609,97 +610,122 @@
             .steak_pipeline{
                 position:absolute;
                 top:50vh;
-                width:100vw;
+                width:100%;
                 height:50vh;
             }
-            .whole_cow,.petri_dish,.petri_dish_steak{
-                top:25vh;
+            .whole_cow,.petri_dish,.petri_dish_front,.petri_dish_steak{
+                top:50%;
                 position:absolute;
-                transform:translateY(-50%);
+
+                transform-origin:center center;
+
+                transform:translateY(-50%) translateX(-50%);
             }
             .whole_cow{
                 width:300px;
                 height:270px;
-                left:10vw;
+                left:10%;
 
                 z-index:2;
-            }
-            .cow_tissue{
-                width:100px;
-                height:60px;
-
-                transform:scale(4);
-
-                z-index:1;
-
-                position:relative;
             }
             .petri_dish{
                 width:300px;
-                height:270px;
-                left:45vw;
+                height:auto;
+                left:50%;
 
-                z-index:2;
+                z-index:0;
+            }
+            .petri_dish_front{
+                width:300px;
+                height:auto;
+                left:50%;
 
-                transform:translateY(-50%) translateX(-20%);
+                transform:translateY(-25%) translateX(-50%);
+
+                z-index:5;
+            }
+            .cow_tissue{
+                width:120px;
+                height:80px;
+
+                transform:translateY(50%) translateX(50%) scale( calc( var(--bottom) *2 ));
+
+                --right:100%;
+                right:var(--right);
             }
             .fgf2_old,.fgf2_new{
-                width:200px;
-                height:180px;
+                width:100px;
+                height:90px;
 
-                transform:scale(0.5) translateX(-50%) translateY(-50%);
+                transform:translateY(50%) translateX(-50%) scale( calc( var(--bottom) *2 ));
 
+                --left:100%;
+                left:var(--left);
+            }
+            .cow_tissue,.fgf2_new,.fgf2_old{
+                transform-origin: center center;
+
+                position:absolute;
+
+                --bottom:0%;
+                bottom:var(--bottom);
+            }
+            .cow_tissue,.fgf2_new,.fgf2_old,.petri_dish_steak{
                 z-index:1;
-
-                position:relative;
             }
             .petri_dish_steak{
                 width:50px;
                 height:45px;
 
-                left:45vw;
+                left:50%;
+                top:50%;
 
-                z-index:3;
+                --scale:0;
+                --bottom:0vh;
+                --left:0vh;
 
-                transform:scale(0);
-                animation: petri_dish_steak_grow 4s infinite linear 1s;
-            }
-            @keyframes petri_dish_steak_grow{
-                0%,60%{
-                    transform:scale(0);
-                }
-                75%,85%{
-                    transform:scale(var(--steak-max-scale));
-                }
-                100%{
-                    transform:translateY(-100vh) scale(var(--steak-max-scale));
-                }
+                transform-origin:center center;
+                transform: translateY(calc(-50% - var(--bottom))) translateX(calc(-50% + var(--left))) scale(calc( var(--scale) * var(--steak-max-scale)));
+                /*transform: translateY(calc(-50% - var(--bottom))) translateX(-50%) scale(calc( var(--scale) * var(--steak-max-scale)));*/
             }
             .fgf2_container{
-                transform: translateY(-50%);
-                top:25vh;
-                position:absolute;
+                width:40%;
 
-                
-                left:45vw;
-                width:40vw;
-                height:calc(365.87px * 0.3);
+                left:50%;
             }
             .tissue_container{
-                transform: translateY(-50%);
-                top:25vh;
+                --left:10%;
+
+                width:calc( 50% - var(--left));
+
+                left:var(--left);
+            }
+            .fgf2_container,.tissue_container{
+                bottom:50%;
                 position:absolute;
 
-                left:15vw;
-                width:40vw;
-                height:calc(365.87px * 0.3);
+                height:calc(365.87px * 0.6);
+            }
+            .fork_upper,.fork_lower{
+                width:calc(100px * 1.2);
+                height:calc(260px * 1.2);
+                position:absolute;
+                bottom:50%;
+                right:49vw;
+                z-index:6;
+                transform-origin:bottom left;
             }
         </style>
         <script>
+            function min(a,b){return (a<b)?a:b}
+            function max(a,b){return (a>b)?a:b}
+
             /*
             clean up the existing stuff that is nothing but in the way of our page design (top bar with igem logo and navigation panel hidden behind a burger menu, and quite thick padding on the left and top of the screen)
             */
             const framerate=60
+            const add_stuff_to_petri_dish_duration=2.7 /*seconds*/
+            const animation_steps=4
 
             function on_load(){
                 let element=document.getElementsByClassName("top_bar")[0]
@@ -715,11 +741,14 @@
 
                 hide_meat_problem_areas()
                 setTimeout(()=>{
-                    setInterval(fgf2_animation,1000/framerate)
-                },1000)
-                setTimeout(()=>{
                     setInterval(tissue_animation,1000/framerate)
                 },0)
+                setTimeout(()=>{
+                    setInterval(fgf2_animation,1000/framerate)
+                },add_stuff_to_petri_dish_duration*1000)
+                setTimeout(()=>{
+                    setInterval(steak_animation,1000/framerate)
+                },add_stuff_to_petri_dish_duration*2000)
             }
         </script>
     </head>
@@ -748,7 +777,7 @@
                     <div id="co2_text" class="text_top_right">
                         <div onmouseenter="show_greenhouse_gases()">Greenhouse Gas emissions</div>
                         <div>
-                            sometext and stuff that is about the dangers of co2 ch4 and some other nasty things. these gases are emitted with each bite from a juicy steak you monster! they make the air go bad, degrade the atmosphere, and heat up the planet, which is bad for polar bears.
+                            Carbon dioxide and methane are byproducts from cattle farming and are also greenhouse gases (GHG). The biggest contributor of carbon dioxide is the deforestation for cattle farms. Methane is produced through cows digestion and waste and traps heat about 30 times more efficiently than carbon dioxide. 
                         </div>
                     </div>
                     <div id="co_bubble_container" onmouseenter="show_greenhouse_gases()">
@@ -771,7 +800,7 @@
                     <div id="deforestation_text" class="text_bottom_left">
                         <div onmouseenter="show_deforestation()">Deforestation</div>
                         <div>
-                            text on deforestation where tress are culled in some way like fire to be able to use the land for land-consuming activies like food/plant production for cattle, and cattles themselves. this is bad because we can only breath oxygen created by trees, not the kind of gases cattle produce.
+                            Cattle farming is the top reason for deforestation of the rainforest. During the last 30 years 780 000 square kilometers of forest have been deforested for the cause of cattle farming, resulting in a loss of approximately 2000 species. Deforestation also makes up half of Brazil’s carbon emissions.
                         </div>
                     </div>
                     <div id="forest_fire_container" onmouseenter="show_deforestation()">
@@ -786,7 +815,7 @@
                     <div id="antibiotic_text" class="text_top_left">
                         <div onmouseenter="show_antibiotic_resistance()">Antibiotic resistance</div>
                         <div>
-                            antibiotics are bad. they are in all the meat, and by ingesting them you bring them in contact with your immune system, which becomes resistant to them therefore making future treatments by them ineffective. Over time this decreases the number of antibiotics that can work on you, because there is a very limited number of antibiotics.
+                            Antibiotics are widely used in factory farming as a growth factor. The reckless use of it leads to dangerous bacteria evolving antibiotics-resistance which in turn can become a global threat for humans, such as zoonotic diseases.
                         </div>
                     </div>
                     <div id="syringe_container" onmouseenter="show_antibiotic_resistance()">
@@ -798,7 +827,7 @@
                     <div id="factory_text" class="text_bottom_right">
                         <div onmouseenter="show_factory_farming()">Factory Farming</div>
                         <div>
-                            to be able to produce cattle in the amounts that we are consuming them, we have factories focusing on growing cow meat as fast as possible, with as little space used up as possible to decrease the costs. the health and welfare of the animals is disregareded, because it does not influence meat yield, which is awful.
+                            Factory farming has a huge impact on land degradation, pollution, deforestation, and loss of biodiversity. The cattle is often not allowed to perform natural behaviour due to the effectivisation of raising them as fast as possible on as little space as possible.
                         </div>
                     </div>
                     <div id="factory_container" onmouseenter="show_factory_farming()">
@@ -848,39 +877,36 @@
                 </script>
             </div>
             <div class="panel" style="height:150vh;">
-                <img class="reference_image" src="https://2021.igem.org/wiki/images/4/41/T--Uppsala--IMG_0970.png" loading="lazy">
-                <div class="real" style="background-color:#CCE0DD; oopacity:0.5;border-top: 1px solid #CCE0DD;height:150vh;">
+                <!-- img class="reference_image" src="https://2021.igem.org/wiki/images/4/41/T--Uppsala--IMG_0970.png" loading="lazy" -->
+                <div class="real" style="background-color:#CCE0DD; height:150vh;">
                     <div id="panel3_headline">BETTER: CULTIVATED MEEEAT</div>
                     <div class="steak_pipeline">
-                        <img class="whole_cow" src="../3-cultivated-meat/cow.svg" loadling="lazy">
+                        <img class="whole_cow" src="https://2021.igem.org/wiki/images/0/03/T--Uppsala--cow.svg" loadling="lazy">
                         <div class="tissue_container">
-                            <img class="cow_tissue" src="../4-logo/fibroblastwiki.svg" loadling="lazy">
+                            <img class="cow_tissue" src="https://2021.igem.org/wiki/images/4/43/T--Uppsala--cow_tissue_fibroblast.svg" loadling="lazy">
                         </div>
-                        <img class="petri_dish" src="../3-cultivated-meat/petridish_full.svg" loadling="lazy">
-                        <img class="petri_dish_steak" src="../3-cultivated-meat/steak_simple.svg" loadling="lazy" style="--steak-max-scale:2;">
+                        <img class="petri_dish" src="https://2021.igem.org/wiki/images/f/fe/T--Uppsala--petridish_back.svg" loadling="lazy">
+                        <img class="petri_dish_front" src="https://2021.igem.org/wiki/images/0/08/T--Uppsala--petridish_front.svg" loadling="lazy">
+                        <img class="petri_dish_steak" src="https://2021.igem.org/wiki/images/2/22/T--Uppsala--steak_simple.svg" loadling="lazy" style="--steak-max-scale:2;">
                         <div class="fgf2_container">
-                            <img class="fgf2_old" src="../3-cultivated-meat/FGF_old.svg" loadling="lazy">
+                            <img class="fgf2_old" src="https://2021.igem.org/wiki/images/e/ec/T--Uppsala--FGF_old.svg" loadling="lazy">
                         </div>
+                        <img class="fork_upper" src="https://2021.igem.org/wiki/images/f/f8/T--Uppsala--fork.svg">
                     </div>
                     <div class="steak_pipeline" style="top:100vh;">
-                        <img class="whole_cow" src="../3-cultivated-meat/cow.svg" loadling="lazy">
+                        <img class="whole_cow" src="https://2021.igem.org/wiki/images/0/03/T--Uppsala--cow.svg" loadling="lazy">
                         <div class="tissue_container">
-                            <img class="cow_tissue" src="../4-logo/fibroblastwiki.svg" loadling="lazy">
+                            <img class="cow_tissue" src="https://2021.igem.org/wiki/images/4/43/T--Uppsala--cow_tissue_fibroblast.svg" loadling="lazy">
                         </div>
-                        <img class="petri_dish" src="../3-cultivated-meat/petridish_full.svg" loadling="lazy">
-                        <img class="petri_dish_steak" src="../3-cultivated-meat/steak_simple.svg" loadling="lazy" style="--steak-max-scale:4;">
+                        <img class="petri_dish" src="https://2021.igem.org/wiki/images/f/fe/T--Uppsala--petridish_back.svg" loadling="lazy">
+                        <img class="petri_dish_front" src="https://2021.igem.org/wiki/images/0/08/T--Uppsala--petridish_front.svg" loadling="lazy">
+                        <img class="petri_dish_steak" src="https://2021.igem.org/wiki/images/2/22/T--Uppsala--steak_simple.svg" loadling="lazy" style="--steak-max-scale:4;">
                         <div class="fgf2_container">
-                            <img class="fgf2_new" src="../3-cultivated-meat/FGF_new.svg" loadling="lazy">
+                            <img class="fgf2_new" src="https://2021.igem.org/wiki/images/d/d7/T--Uppsala--FGF_new.svg" loadling="lazy">
                         </div>
+                        <img class="fork_lower" src="https://2021.igem.org/wiki/images/f/f8/T--Uppsala--fork.svg">
                     </div>
                     <script>
-                        /*
-                            play fgf2 animation over one second
-                            2 seconds between animations
-                            no initial delay
-                            framerate is apparently 30fps
-                        */
-
                         const svg_namespace="http://www.w3.org/2000/svg"
 
                         let svg=document.createElementNS(svg_namespace,"svg")
@@ -890,7 +916,7 @@
                         svg.appendChild(path)
 
                         const total_path_length=path.getTotalLength()
-                        const default_delta=total_path_length/framerate
+                        const default_delta=total_path_length/framerate/add_stuff_to_petri_dish_duration
 
                         function at_percent_length(pl){
                             return path.getPointAtLength(path.getTotalLength()*pl/100)
@@ -911,15 +937,16 @@
                             let bottom=current_height/max_height*100
                             
                             if(delta_time_fgf2>total_path_length){
-                                document.getElementsByClassName("fgf2_old")[0].style="left:"+100+"%;bottom:"+0+"%;"
-                                document.getElementsByClassName("fgf2_new")[0].style="left:"+100+"%;bottom:"+0+"%;"
-                                if(delta_time_fgf2>(4*total_path_length)){
+                                delta_length=0
+                                bottom=0
+                                if(delta_time_fgf2>(animation_steps*total_path_length)){
                                     delta_time_fgf2=0
                                 }
-                            }else{
-                                document.getElementsByClassName("fgf2_old")[0].style="left:"+(100-delta_length)+"%;bottom:"+bottom+"%;"
-                                document.getElementsByClassName("fgf2_new")[0].style="left:"+(100-delta_length)+"%;bottom:"+bottom+"%;"
                             }
+
+                            let attributes="--left:"+(100-delta_length)+"%;--bottom:"+bottom+"%;"
+                            document.getElementsByClassName("fgf2_old")[0].style=attributes
+                            document.getElementsByClassName("fgf2_new")[0].style=attributes
                         }
 
                         var delta_time_tissue=0
@@ -935,15 +962,60 @@
                             let bottom=current_height/max_height*100
                             
                             if(delta_time_tissue>total_path_length){
-                                document.getElementsByClassName("cow_tissue")[0].style="left:"+0+"%;bottom:"+0+"%;"
-                                document.getElementsByClassName("cow_tissue")[1].style="left:"+0+"%;bottom:"+0+"%;"
-                                if(delta_time_tissue>(4*total_path_length)){
+                                delta_length=0
+                                bottom=0
+                                if(delta_time_tissue>(animation_steps*total_path_length)){
                                     delta_time_tissue=0
                                 }
-                            }else{
-                                document.getElementsByClassName("cow_tissue")[0].style="left:"+delta_length+"%;bottom:"+bottom+"%;"
-                                document.getElementsByClassName("cow_tissue")[1].style="left:"+delta_length+"%;bottom:"+bottom+"%;"
                             }
+
+                            let attributes="--right:"+(100-delta_length)+"%;--bottom:"+bottom+"%;"
+                            for(element of document.getElementsByClassName("cow_tissue")){
+                                element.style=attributes
+                            }
+                        }
+
+                        /*includes steak and fork animations!*/
+                        var delta_steak=0
+                        function steak_animation(){
+                            //delta_steak+=1 for every animation step (number of animation frames changes accordingly)
+                            delta_steak+=1/(framerate*add_stuff_to_petri_dish_duration)
+
+                            const steak_scale_delay=0.2
+                            var steak_scale=max(min(delta_steak-steak_scale_delay,1-steak_scale_delay),0)
+                                
+                            //to normalize steak scale to 100% of max value no matter how many steps this takes
+
+                            const animation_steps_preceding_steak_movement=animation_steps/2 /*not quite sure why this formula. tested for 4 animation steps, where the first one is the cow tissue, the second is the fgf3, the third is the steak growth and the fourth is the steak movement*/
+                            const delta_steak_movement_threshold=animation_steps_preceding_steak_movement/1.5
+
+                            var movement_progress=0
+                            if(delta_steak>delta_steak_movement_threshold){
+                                movement_progress=delta_steak-delta_steak_movement_threshold
+                                movement_progress*=100
+
+                                if(delta_steak>animation_steps){
+                                    delta_steak=0
+                                }
+                            }
+
+                            const fork_angle=35
+
+                            var point={
+                                x: Math.cos((90+fork_angle)/180*Math.PI)*movement_progress,
+                                y: Math.sin((90+fork_angle)/180*Math.PI)*movement_progress
+                            }
+
+                            let steaks=document.getElementsByClassName("petri_dish_steak")
+                            for(steak of steaks){
+                                steak.style.setProperty("--scale",steak_scale)
+                                steak.style.setProperty("--bottom",point.y+"vh")
+                            }
+                            steaks[0].style.setProperty("--left",point.x+"vh")
+                            steaks[1].style.setProperty("--left",-point.x+"vh")
+
+                            document.getElementsByClassName("fork_upper")[0].style.setProperty("transform","translateX("+point.x+"vh) translateY("+-point.y+"vh)")
+                            document.getElementsByClassName("fork_lower")[0].style.setProperty("transform","translateX("+-point.x+"vh) translateY("+-point.y+"vh)")
                         }
                     </script>
                 </div>
@@ -983,11 +1055,8 @@
                     fun()
                 }
             }
-            if(true || !disable_complex_animations){
-                setInterval(animate_all,1000/cap_framerate)
-            }else{
-                animate_all()
-            }
+
+            setInterval(animate_all,1000/cap_framerate)
         </script>
     </body>
 </html>
