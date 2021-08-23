@@ -54,7 +54,8 @@
         hr{
             height: 1px;
             background-color: #6d1d23;
-            width: 100%;
+            display: block;
+            width: auto;
             margin-top: 2vh;
         }
 
@@ -63,7 +64,7 @@
         }
 
         /* menu with drop down */
-        #menu{
+        #navmenu{
             position: fixed;
             width: 100%;
             background-color: #dce1de;
@@ -76,17 +77,17 @@
             font-family: UL;
 
         }
-        #menu:hover{
+        #navmenu:hover{
             overflow: visible;
         }
 
-        #menu:hover ~ .parallaxtop, #menu:hover ~ #pagecontent, #menu:hover ~ .sponsorarea{
+        #navmenu:hover ~ .parallaxtop, #navmenu:hover ~ #pagecontent, #navmenu:hover ~ .sponsorarea{
             filter: blur(5px);
         }
 
         .logotype{
             float:left;
-            width:3vw;
+            width:3.5vw;
             height:5vh;
             padding-right:0px;
         }
@@ -103,6 +104,19 @@
         li {
             float: left;
             margin-right: 8vw;      
+        }
+
+        #navigation_bar_container{
+            height:100%;
+        }
+        #navigation_bar_container > li{
+            height:100%;
+            margin:0;
+        }
+        #navigation_bar_container > li > a{
+            position:absolute;
+            top:50%;
+            transform:translateY(-50%);
         }
 
         .dropdown a, .dropbtn {
@@ -130,12 +144,15 @@
             display: none;
             position: absolute;
             background-color: #dce1de;
-            min-width: 160px;
+            min-width: 5vw;
             z-index: 1;
+            margin-top: 1vh;
+            margin-bottom: 2vh;
         }
         
         .dropdown-content a{
-            margin-top: 2.7h;
+            margin-top: 2.7vh;
+            margin-left: 0.5vw;
             text-decoration: none;
             display: block;
             text-align: left;
@@ -143,7 +160,7 @@
         
         .dropdown-content a:hover{
             color: #426968;
-            margin-left: 5px;
+            margin-left: 1vw;
             text-decoration: none;
         }
 
@@ -151,19 +168,19 @@
             display: none;
             position: absolute;
             background-color: #dce1de;
-            width: 90%;
-            height: 460%;
+            width: 80vw;
+            height: 40vh;
             z-index: 1;
-            margin-top: 4.2%;
-            margin-left: 5%;
+            margin-top: 5vh;
+            margin-left: 3.5vw;
         }
     
-        #menu:hover .dropdown-content, #menu:hover .dropdown-background{
+        #navmenu:hover .dropdown-content, #navmenu:hover .dropdown-background{
             display: block;
         }
        
         #clickbox{
-            width: 3vw;
+            width: 3.5vw;
             height:5vh;
             position: fixed;
             z-index: 100;
@@ -365,10 +382,10 @@
             margin-top: 7vh;
             width: 4vw;
         }
-        
 
-        .flexbox-container-socialmedia > div > img:hover{
-            filter: grayscale(0);
+        .flexbox-container-socialmedia > div > img:not(img.upplogo):hover{
+            filter:grayscale(0);
+
         }
 
         img.upplogo{
@@ -378,29 +395,6 @@
             margin-right: 3vw;
         }
        
-       
-       /* .grid-container-socialmedia{
-            width: 98.9vw;
-            height: 20vh;
-            display: grid;
-            grid-template-columns:repeat(5,1fr);
-            grid-template-rows:repeat(1,1fr);
-            overflow: hidden;
-            background-color: #426968;
-        }
-
-        .grid-container-socialmedia > div >img{
-            margin-left: 5.9vw;
-            transform: translateX(-50%);
-            filter: grayscale(50%);
-            margin-top: 12vh;
-            transform: translateY(-50%);
-            width: 4vw;
-        }
-
-        .grid-container-socialmedia > div >img:hover{
-            filter: grayscale(0);
-        } */
 
         .grid-container-sponsors{
             width: 98.9vw;
@@ -436,12 +430,24 @@
 
             console.log(document.documentElement.scrollTop)
 
-            if (prevScrollpos < currentScrollPos) {
-                document.getElementById("menu").style.height = "0%";
-            } else {
-                document.getElementById("menu").style.height = "5vh";
+            /*if (prevScrollpos < currentScrollPos) {
+                document.getElementById("navmenu").style.height = "0%";
+            }
+            else if(currentScrollPos > 400){
+                document.getElementById("navmenu").style.height = "5vh";
+            }
+            else {
+                document.getElementById("navmenu").style.height = "5vh";
             }
             prevScrollpos = currentScrollPos;
+
+            ------------*/
+            if (prevScrollpos > currentScrollPos || currentScrollPos < 400){
+                document.getElementById("navmenu").style.height = "5vh";
+            }
+            else{
+                document.getElementById("navmenu").style.height = "0%";
+            }
         })
         
         function and(a,b){return (a+b)==2}
@@ -476,12 +482,12 @@
         } 
         
         //Uncollapse the menu with a click on the logo
-        function clickfunction(){
-            document.getElementById("menu").style.width = "100%";
-            document.getElementById("menu").style.opacity = "1";
-            document.getElementById("menu").style.overflow  = "hidden";
-            setTimeout(function(){ document.getElementById("menu").style.overflow='visible'; }, 1000);
-        }
+        /*function clickfunction(){
+            document.getElementById("navmenu").style.width = "100%";
+            document.getElementById("navmenu").style.opacity = "1";
+            document.getElementById("navmenu").style.overflow  = "hidden";
+            setTimeout(function(){ document.getElementById("navmenu").style.overflow='visible'; }, 1000);
+        }*/
 
         function on_load(){
             let element=document.getElementsByClassName("top_bar")[0]
@@ -502,12 +508,12 @@
 <body onload="on_load()">
     <div id="section0"></div>
     <!--Menu with drop down-->
-    <div id="menu">
+    <div id="navmenu">
         <div class="dropdown-background"></div> 
-        <a href='https://2021.igem.org/Team:Uppsala'>
+        <a id=nav-menu-logo-container href='https://2021.igem.org/Team:Uppsala' style="height: 100%; width: auto;">
             <img class="logotype" src="https://2021.igem.org/wiki/images/thumb/1/13/T--Uppsala--logotransparent.png/320px-T--Uppsala--logotransparent.png">
         </a>
-        <ul>
+        <ul id="navigation_bar_list">
             <li class="dropdown">
                 <a href="https://2021.igem.org/Team:Uppsala/Description" class="dropbtn">Project</a>
                 <div class="dropdown-content">
@@ -702,18 +708,18 @@
             </div>
 
         <div class="grid-container-sponsors">
-                <div><img src="MERCK_LOGO_RPurple_RGBtransparent_cut.png"></div>
-                <div><img src="snapgene-logo.png"></div>
-                <div><img src="campbokhandeln-transparent-notext.png"></div>
-                <div><img src="geneious_logo_cut.png"></div>
-                <div><img src="promega-transparent-cut.png"></div>
-                <div><img src="BioNordika-logo-transparent.png"></div>
-                <div><img src="bio-rad-transparent-cut.png"></div>
-                <div><img src="Genscript Logo Transparent-B.png"></div>
-                <div><img src="MERCK_LOGO_RPurple_RGBtransparent_cut.png"></div>
-                <div><img src="snapgene-logo.png"></div>
-                <div><img src="campbokhandeln-transparent-notext.png"></div>
-                <div><img src="geneious_logo_cut.png"></div>
+                <div><img src="https://2021.igem.org/wiki/images/8/8b/T--Uppsala--utnlogo.png"></div>
+                <div><img src="http://2014.igem.org/wiki/images/5/5a/York_Genscript_logo-1-.png"></div>
+                <div><img src="https://2020.igem.org/wiki/images/0/05/T--UofUppsala--pro.png"></div>
+                <div><img src="https://2021.igem.org/wiki/images/f/fc/T--Uppsala--bioradlogo.png"></div>
+                <div><img src="https://2021.igem.org/wiki/images/2/29/T--Uppsala--bionordikalogo.png"></div>
+                <div><img src="https://2021.igem.org/wiki/images/9/9a/T--Uppsala--mercklogo.png"></div>
+                <div><img src="https://2021.igem.org/wiki/images/f/fa/T--Uppsala--scbtlogo.png"></div>
+                <div><img src="https://2020.igem.org/wiki/images/8/8c/T--UofUppsala--snap.png"></div>
+                <div><img src="https://2020.igem.org/wiki/images/a/a4/T--UofUppsala--euro.png"></div>
+                <div><img src="https://upload.wikimedia.org/wikipedia/commons/1/12/New_Harvest_Full_Logo_-_RGB_.png"></div>
+                <div><img src="https://testacenter.com/wp-content/uploads/2019/08/TestaCenter_LogoWithTagline_Pantone.png"></div>
+                <div><img src="https://cdn.cytivalifesciences.com/dmm3bwsv3/AssetStream.aspx?mediaformatid=10061&destinationid=10016&assetid=32945"></div>
         </div>
 </body>
 </html>
