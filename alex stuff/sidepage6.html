@@ -314,7 +314,7 @@
         }
 
         /* 
-        WHEN ADDING THE PICTURE DIV, DEFINES ITS WIDTH IN THE HTML SECTION TO MAKE THE IMG THE RIGHT SIZE
+        WHEN ADDING THE PICTURE DIV, DEFINE ITS WIDTH IN THE HTML SECTION TO MAKE THE IMG THE RIGHT SIZE
         EX   ->
         <div class="divrightpicture" style="width:30vw;">
         */
@@ -448,6 +448,7 @@
             else{
                 document.getElementById("navmenu").style.height = "0%";
             }
+            prevScrollpos = currentScrollPos;
         })
         
         function and(a,b){return (a+b)==2}
@@ -499,6 +500,11 @@
                     for(element of document.getElementsByClassName(class_name)){
                         element.classList.remove(class_name)
                     }
+                }
+                document.getElementById("nav-menu-logo-container").classList.remove("current_hub")
+                let navigation_bar_list=document.getElementById("navigation_bar_list")
+                if(navigation_bar_list.style.getPropertyValue("display")=="none"){
+                    navigation_bar_list.style=""
                 }
             }
 
