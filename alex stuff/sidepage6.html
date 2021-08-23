@@ -168,7 +168,7 @@
             display: none;
             position: absolute;
             background-color: #dce1de;
-            width: 80vw;
+            width: 77vw;
             height: 40vh;
             z-index: 1;
             margin-top: 5vh;
@@ -491,22 +491,35 @@
         }*/
 
         function on_load(){
-            let element=document.getElementsByClassName("top_bar")[0]
-                if(element){
-                    element.classList.remove("top_bar")
-                    element.style="display:none;"
-                }
-                for(class_name of "igem_content_wrapper igem_column_wrapper clear extra_space" .split(" ")){
-                    for(element of document.getElementsByClassName(class_name)){
-                        element.classList.remove(class_name)
+            function hide_igem_bs(){
+                    let element=document.getElementsByClassName("top_bar")[0]
+                    if(element){
+                        element.classList.remove("top_bar")
+                        element.style="display:none;"
+                    }
+                    for(class_name of "igem_content_wrapper igem_column_wrapper clear extra_space".split(" ")){
+                        for(element of document.getElementsByClassName(class_name)){
+                            element.classList.remove(class_name)
+                        }
+                    }
+                    let logo_container=document.getElementById("nav-menu-logo-container")
+                    if(logo_container){
+                        logo_container.classList.remove("current_hub")
+                    }
+                    let navigation_bar_list=document.getElementById("navigation_bar_list")
+                    if(navigation_bar_list){
+                        if(navigation_bar_list.style.getPropertyValue("display")=="none"){
+                            navigation_bar_list.style=undefined
+                        }
+                        for(child of navigation_bar_list.children){
+                            child.classList.remove("current_hub")
+                            child.style=undefined
+                        }
                     }
                 }
-                document.getElementById("nav-menu-logo-container").classList.remove("current_hub")
-                let navigation_bar_list=document.getElementById("navigation_bar_list")
-                if(navigation_bar_list.style.getPropertyValue("display")=="none"){
-                    navigation_bar_list.style=""
-                }
-            }
+                hide_igem_bs()
+                setTimeout(hide_igem_bs,1000)
+        }
 
             
     </script>
