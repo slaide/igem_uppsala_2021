@@ -211,9 +211,6 @@
                 background-image: url("https://2021.igem.org/wiki/images/f/f5/T--Uppsala--steak.svg");
                 background-repeat: no-repeat;
 
-                --steak-width:1073px;
-                --steak-height:580.06px;
-
                 position:absolute;
 
                 width: var(--steak-width);
@@ -227,7 +224,7 @@
                 position:absolute;
                 width:auto;
                 height:auto;
-                font-size: 3vh;
+                font-size: 1.5vw;
                 line-height:normal;
             }
             .text_top_left{
@@ -246,13 +243,40 @@
                 bottom:5vh;
                 right:5vh;
             }
+
+            #co2_text,#antibiotic_text,#factory_text,#deforestation_text{
+                max-width:18vw;
+            }
+            #co2_text>div,#antibiotic_text>div,#factory_text>div,#deforestation_text>div{
+                overflow:hidden;
+                height:auto;
+                transition:max-height 0.65s;
+                max-height: 100vh;
+            }
+            #co2_text>div.invisible,#antibiotic_text>div.invisible,#factory_text>div.invisible,#deforestation_text>div.invisible{
+                max-height:0px;
+                transition:max-height 0.2s;
+            }
+            /*of the divs that are children of #co2_text, only select the first one*/
+            .text_top_right>div:first-child,.text_top_left>div:first-child,.text_bottom_right>div:first-child,.text_bottom_left>div:first-child{
+                padding-bottom:1.2vh;
+                border-bottom:0.5vh solid black;
+            }
+            .text_top_right>div:last-child,.text_top_left>div:last-child,.text_bottom_right>div:last-child,.text_bottom_left>div:last-child{
+                padding-top:1.2vh;
+            }
+
+            #co_bubble_container,#factory_container{
+                right:23vw;
+            }
+            #deforestation_container{
+                left:23vw;
+            }
+            #syringe_container{
+                left:30vw;
+            }
+
             #syringe_container,#antibiotic_syringe_body,#antibiotic_syringe_top,#antibiotic_syringe_fluid{
-                --syringe-top-height:140.66px;
-                --syringe-top-width:629.17px;
-
-                --syringe-body-height:262.02px;
-                --syringe-body-width:1081.73px;
-
                 --scale-factor:0.3;
 
                 --scale-x:calc( -1 * var(--scale-factor));
@@ -264,7 +288,6 @@
                 height:calc( var(--syringe-body-height) * var(--scale-factor));
                 width:calc( ( var(--syringe-body-width) + var(--syringe-top-width) ) * var(--scale-factor) );
 
-                left:30%;
                 top:45%;
 
                 transform-origin: left center;
@@ -322,11 +345,11 @@
             #antibiotic_syringe_fluid{
                 background-image:url("https://2021.igem.org/wiki/images/0/04/T--Uppsala--syringe_liquid.svg");
 
-                --height:calc(113.41px*var(--scale-factor));
-                --width:calc(232.48px*var(--scale-factor));
+                --real-height:calc( var(--height) * var(--scale-factor));
+                --real-width:calc( var(--width) * var(--scale-factor));
 
-                height:var(--height);
-                width:var(--width);
+                height:var(--real-height);
+                width:var(--real-width);
 
                 top:50%;
 
@@ -340,11 +363,11 @@
             @keyframes fluid-stretch {
                 from{
                     transform:translateY(-46%) scaleX(var(--length-stretch-empty));
-                    left:calc(25% + (var(--width) * ( var(--length-stretch-empty) - 1 ) / 2));
+                    left:calc(25% + (var(--real-width) * ( var(--length-stretch-empty) - 1 ) / 2));
                 }
                 to{
                     transform:translateY(-46%) scaleX(var(--length-stretch-full));
-                    left:calc(25% + (var(--width) * ( var(--length-stretch-full) - 1 ) / 2));
+                    left:calc(25% + (var(--real-width) * ( var(--length-stretch-full) - 1 ) / 2));
                 }
             }
             .co2_bubble,.co4_bubble,#co_bubble_container,#co_bubble_path_container{
@@ -357,7 +380,6 @@
             #co_bubble_container{
                 width:var(--container-width);
                 height:var(--container-height);
-                left:65%;
                 top:15%;
                 position:absolute;
             }
@@ -437,17 +459,20 @@
                     opacity:0;
                 }
             }
+            #deforestation_container{
+                position:absolute;
+    
+                bottom:5vh;
+
+                width:auto;
+                height:auto;
+            }
             .tree_container,.tree_front_branch{
                 --scale-factor:0.4;
             }
             .tree_container{
                 width:calc(628px * var(--scale-factor));
                 height:calc(663px * var(--scale-factor));
-
-                position:absolute;
-
-                left:20%;
-                bottom:5vh;
             }
             .tree{
                 width:100%;
@@ -458,10 +483,6 @@
                 background-image:url("https://2021.igem.org/wiki/images/2/29/T--Uppsala--tree_no_fire.svg");
 
                 z-index:2;
-            }
-            /*shadow for the tree. TODO for everything else*/
-            .tree,.tree_front_branch{
-                filter:drop-shadow(6px -2px 4px #4f4f4f);
             }
             .tree_front_branch{
                 background-image:url("https://2021.igem.org/wiki/images/2/25/T--Uppsala--tree_branch_front.svg");
@@ -531,12 +552,11 @@
                 --cow-head-width:calc( 202.82px * var(--cow-head-scale));
                 --cow-head-height:calc( 210.65px * var(--cow-head-scale));
 
-                width:calc( (4 * var(--cow-head-width))  );
+                width:calc( 4 * var(--cow-head-width) + 1.2vh);
                 height:calc( 3 * var(--cow-head-height) - (2 * 1.2vh));
 
                 position:absolute;
 
-                left:60%;
                 bottom:5vh;
             }
             .cow_head{
@@ -578,28 +598,6 @@
                 40%{
                     transform:rotate(0deg);
                 }
-            }
-
-            #co2_text,#antibiotic_text,#factory_text,#deforestation_text{
-                max-width:18vw;
-            }
-            #co2_text>div,#antibiotic_text>div,#factory_text>div,#deforestation_text>div{
-                overflow:hidden;
-                height:auto;
-                transition:max-height 0.65s;
-                max-height: 100vh;
-            }
-            #co2_text>div.invisible,#antibiotic_text>div.invisible,#factory_text>div.invisible,#deforestation_text>div.invisible{
-                max-height:0px;
-                transition:max-height 0.2s;
-            }
-            /*of the divs that are children of #co2_text, only select the first one*/
-            .text_top_right>div:first-child,.text_top_left>div:first-child,.text_bottom_right>div:first-child,.text_bottom_left>div:first-child{
-                padding-bottom:1.2vh;
-                border-bottom:0.5vh solid black;
-            }
-            .text_top_right>div:last-child,.text_top_left>div:last-child,.text_bottom_right>div:last-child,.text_bottom_left>div:last-child{
-                padding-top:1.2vh;
             }
         </style>
         <style real-href="main_3.css">
@@ -714,6 +712,7 @@
                 right:49vw;
                 z-index:6;
                 transform-origin:bottom left;
+                transform:translate(-200vw, -200vw)
             }
         </style>
         <script>
@@ -752,7 +751,7 @@
             }
         </script>
     </head>
-    <body onload="on_load()">
+    <body onload="on_load()" onresize="scale_steak()">
         <main>
             <div class="panel">
                 <!-- img class="reference_image" src="https://2021.igem.org/wiki/images/e/e1/T--Uppsala--IMG_0968.png" loading="lazy" -->
@@ -803,7 +802,7 @@
                             Cattle farming is the top reason for deforestation of the rainforest. During the last 30 years 780 000 square kilometers of forest have been deforested for the cause of cattle farming, resulting in a loss of approximately 2000 species. Deforestation also makes up half of Brazil’s carbon emissions.
                         </div>
                     </div>
-                    <div id="forest_fire_container" onmouseenter="show_deforestation()">
+                    <div id="deforestation_container" onmouseenter="show_deforestation()">
                         <div class="tree_container">
                             <div class="tree"></div>
                             <div class="fire_back"></div>
@@ -844,6 +843,42 @@
                         <div class="cow_head" style="--pos-x:2;--pos-y:2;"></div>
                         <div class="cow_head" style="--pos-x:3;--pos-y:2;"></div>
                     </div>
+
+                    <script>
+                        function scale_steak(){
+                            const my_height=919 /*not 1080, because browsers*/
+                            const my_width=1920
+
+                            const scale_fraction=window.innerWidth/my_width
+
+                            let steak=document.getElementById("steak_big")
+                            steak.style.setProperty("--steak-height", 580.06 *scale_fraction +"px")
+                            steak.style.setProperty("--steak-width",1073 *scale_fraction +"px")
+
+                            for(id of "#syringe_container,#antibiotic_syringe_body,#antibiotic_syringe_top,#antibiotic_syringe_fluid".split(",")){
+                                let element=document.getElementById(id.substr(1))
+
+                                element.style.setProperty("--syringe-top-height",140.66*scale_fraction+"px")
+                                element.style.setProperty("--syringe-top-width",629.17*scale_fraction+"px")
+
+                                element.style.setProperty("--syringe-body-height",262.02*scale_fraction+"px")
+                                element.style.setProperty("--syringe-body-width",1081.73*scale_fraction+"px")
+                            }
+
+                            let syringe_fluid=document.getElementById("antibiotic_syringe_fluid")
+                            syringe_fluid.style.setProperty("--height",113.41*scale_fraction+"px")
+                            syringe_fluid.style.setProperty("--width",232.48*scale_fraction+"px")
+
+                            for(id of "deforestation_container,co_bubble_container,factory_container".split(",")){
+                                let element=document.getElementById(id)
+                                if(!element){
+                                    console.log(id)
+                                }
+                                element.style.setProperty("transform","scale("+scale_fraction+")")
+                            }
+                        }
+                        scale_steak()
+                    </script>
                 </div>
                 <script>
                     function show_greenhouse_gases(){
@@ -989,10 +1024,11 @@
                             const animation_steps_preceding_steak_movement=animation_steps/2 /*not quite sure why this formula. tested for 4 animation steps, where the first one is the cow tissue, the second is the fgf3, the third is the steak growth and the fourth is the steak movement*/
                             const delta_steak_movement_threshold=animation_steps_preceding_steak_movement/1.5
 
-                            var movement_progress=0
+                            /* steak movement */
+                            var steak_movement_progress=0
                             if(delta_steak>delta_steak_movement_threshold){
-                                movement_progress=delta_steak-delta_steak_movement_threshold
-                                movement_progress*=100
+                                steak_movement_progress=delta_steak-delta_steak_movement_threshold
+                                steak_movement_progress*=100
 
                                 if(delta_steak>animation_steps){
                                     delta_steak=0
@@ -1001,21 +1037,50 @@
 
                             const fork_angle=35
 
-                            var point={
-                                x: Math.cos((90+fork_angle)/180*Math.PI)*movement_progress,
-                                y: Math.sin((90+fork_angle)/180*Math.PI)*movement_progress
+                            var steak_point={
+                                x: Math.cos((90+fork_angle)/180*Math.PI)*steak_movement_progress,
+                                y: Math.sin((90+fork_angle)/180*Math.PI)*steak_movement_progress
                             }
 
                             let steaks=document.getElementsByClassName("petri_dish_steak")
                             for(steak of steaks){
                                 steak.style.setProperty("--scale",steak_scale)
-                                steak.style.setProperty("--bottom",point.y+"vh")
+                                steak.style.setProperty("--bottom",steak_point.y+"vh")
                             }
-                            steaks[0].style.setProperty("--left",point.x+"vh")
-                            steaks[1].style.setProperty("--left",-point.x+"vh")
+                            steaks[0].style.setProperty("--left",steak_point.x+"vh")
+                            steaks[1].style.setProperty("--left",-steak_point.x+"vh")
 
-                            document.getElementsByClassName("fork_upper")[0].style.setProperty("transform","translateX("+point.x+"vh) translateY("+-point.y+"vh)")
-                            document.getElementsByClassName("fork_lower")[0].style.setProperty("transform","translateX("+-point.x+"vh) translateY("+-point.y+"vh)")
+                            /* fork movement */
+                            const animation_steps_preceding_fork_movement=1
+                            const delta_fork_movement_threshold=animation_steps_preceding_fork_movement
+
+                            var fork_movement_progress=0
+                            if(/*delta_steak>delta_fork_movement_threshold && */delta_steak<delta_steak_movement_threshold){
+                                fork_movement_progress=delta_steak-delta_fork_movement_threshold-(delta_steak_movement_threshold-delta_fork_movement_threshold)
+                                fork_movement_progress*=100
+
+                                var fork_point={
+                                    x: Math.cos((90+fork_angle)/180*Math.PI)*fork_movement_progress,
+                                    y: Math.sin((90+fork_angle)/180*Math.PI)*fork_movement_progress
+                                }
+                                fork_point.y*=-1
+                            }else if(delta_steak>delta_fork_movement_threshold){
+                                fork_movement_progress=delta_steak-delta_steak_movement_threshold
+                                fork_movement_progress*=100
+
+                                var fork_point={
+                                    x: Math.cos((90+fork_angle)/180*Math.PI)*fork_movement_progress,
+                                    y: Math.sin((90+fork_angle)/180*Math.PI)*fork_movement_progress
+                                }
+                            }
+
+                            if (fork_movement_progress<0){
+                                document.getElementsByClassName("fork_upper")[0].style.setProperty("transform","translateX("+-fork_point.x+"vh) translateY("+-fork_point.y+"vh)")
+                                document.getElementsByClassName("fork_lower")[0].style.setProperty("transform","translateX("+-fork_point.x+"vh) translateY("+-fork_point.y+"vh)")
+                            }else{
+                                document.getElementsByClassName("fork_upper")[0].style.setProperty("transform","translateX("+fork_point.x+"vh) translateY("+-fork_point.y+"vh)")
+                                document.getElementsByClassName("fork_lower")[0].style.setProperty("transform","translateX("+-fork_point.x+"vh) translateY("+-fork_point.y+"vh)")
+                            }
                         }
                     </script>
                 </div>
