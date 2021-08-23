@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
      <title>
-        sidepage4
+        sidepage6
     </title>
     <style>
         /* used for all pages */
@@ -36,6 +36,10 @@
             color: #426968;
         }
 
+        a:visited{
+            color:#6d1d23;
+        }
+
 
         body, html{
             height: 100%;
@@ -65,7 +69,7 @@
             background-color: #dce1de;
             transition: all 0.5s;
             overflow: hidden;
-            height: 8.7vh;
+            height: 5vh;
             z-index: 10;
             font-size: 1.5em;
             color:#6d1d23;
@@ -82,10 +86,9 @@
 
         .logotype{
             float:left;
-            width:12%;
-            height:65px;
+            width:3vw;
+            height:5vh;
             padding-right:0px;
-            width: 5%;
         }
 
         ul {
@@ -99,15 +102,14 @@
         
         li {
             float: left;
-            margin-right: 7vw;
-            margin-left: 1vw;      
+            margin-right: 8vw;      
         }
 
         .dropdown a, .dropbtn {
             display: inline-block;
             color:#6d1d23;
             text-align: center;
-            margin-top: 3vh;
+            margin-top: 0.6vh;
             text-decoration: none;
         }
         
@@ -133,7 +135,7 @@
         }
         
         .dropdown-content a{
-            margin-top: 3vh;
+            margin-top: 2.7h;
             text-decoration: none;
             display: block;
             text-align: left;
@@ -156,16 +158,13 @@
             margin-left: 5%;
         }
     
-        
-
         #menu:hover .dropdown-content, #menu:hover .dropdown-background{
             display: block;
         }
-
-        
+       
         #clickbox{
-            width: 5%;
-            height:8.7vh;
+            width: 3vw;
+            height:5vh;
             position: fixed;
             z-index: 100;
             background-color: #dce1de;
@@ -173,6 +172,7 @@
             align-content: center;
             display: flex;
         }
+
 
         /* parallax section*/
         .parallaxtop {
@@ -241,12 +241,10 @@
             transition: all 0.2s;
             font-family: UL;
         }
-
-      
+     
         .listsections span:hover{
             color:#426968;
         }
-
 
         .listheader{
             color:#6d1d23;
@@ -295,122 +293,123 @@
             color:black;
             line-height:1.8;
             letter-spacing:0.05em;
-            margin:2%;
+            margin-top: 3vh;
         }
 
-        .midcontentpictext >p{
-            font-weight:normal;
-            text-align: left;
-            font-size:0.75em;
-            color:black;
-            line-height:1.2;
-            letter-spacing:0.05em;
-            margin-bottom:2%;
-            margin-top:0;
-            margin-left: 2%;
-            margin-right: 2%;
-            
+        /* 
+        WHEN ADDING THE PICTURE DIV, DEFINES ITS WIDTH IN THE HTML SECTION TO MAKE THE IMG THE RIGHT SIZE
+        EX   ->
+        <div class="divrightpicture" style="width:30vw;">
+        */
+        .divrightpicture{
+            float: right;
+            margin-top: 3vh;
+            margin-left: 2vw;
+            margin-right: 2vw;
+            margin-bottom: 0;
         }
 
-        .midcontentpictextleft >p{
-            font-weight:normal;
-            text-align: left;
-            font-size:0.75em;
-            color:black;
-            line-height:1.2;
-            letter-spacing:0.05em;
-            margin-top:0;
-            margin-left: 2%;
-            margin-right: 2%;
-            float: left;
-        }
-
-        .midcontentpictextright{
+        .divrightpicture > p{
             font-weight:normal;
             text-align: left;
             font-size:0.9em;
             color:black;
             line-height:1.2;
             letter-spacing:0.05em;
-            float: right;
-            margin-left: 4%;
         }
-        img.fire{
-            width:20vw;
-            filter:grayscale(60%);
-            float:left;
-            shape-outside:polygon();
-            margin-top: 1vh;
+
+        .divrightpicture > img{
+            width: 100%;
             cursor: zoom-in;
         }
 
-
-        .divrightpicture{
-            width: 30vw;
-            float: right;
+        .divleftpicture{
+            float: left;
+            margin-top: 3vh;
+            margin-left: 2vw;
+            margin-right: 2vw;
+            margin-bottom: 0;
         }
-        img.pipett{            
-            /*
-            shape-outside:circle();
-            */
-            /* from
-            https://dev.to/gabbyj/how-to-easily-wrap-text-around-image-outline-5455
-            */
-            width:100%;
-            float:right;
-            shape-outside:polygon();
-            shape-image-threshold: 0.9;
-            shape-margin:2%;
+
+        .divleftpicture > p{
+            font-weight:normal;
+            text-align: left;
+            font-size:0.9em;
+            color:black;
+            line-height:1.2;
+            letter-spacing:0.05em;
+        }
+
+        .divleftpicture > img{
+            width: 100%;
+            cursor: zoom-in;
         }
 
         /* Sponsor part*/
 
-        .sponsorarea{
-            height: 40vh;
-            background-color:#426968;
+        .flexbox-container-socialmedia{
+            width: 98.9vw;
+            height: 25vh;
             display: flex;
             flex-direction: row;
-        }
-
-        .flex-container-socialmedia{
-            width: 21vw;
-            height: 40vh;
-            display: flex;
-            flex-direction: column;
             overflow: hidden;
-            border-right:2px solid #6d1d23;
+            background-color: #426968;
+            justify-content: center;
         }
 
-        .grid-container-socialmedia{
-            width: 21vw;
+
+        .flexbox-container-socialmedia > div > img:not(img.upplogo){
+            margin-left: 3vw;
+            margin-right: 3vw;
+            filter: grayscale(50%);
+            margin-top: 7vh;
+            width: 4vw;
+        }
+        
+
+        .flexbox-container-socialmedia > div > img:hover{
+            filter: grayscale(0);
+        }
+
+        img.upplogo{
+            width: 10vw;
+            margin-top: 3vh;
+            margin-left: 3vw;
+            margin-right: 3vw;
+        }
+       
+       
+       /* .grid-container-socialmedia{
+            width: 98.9vw;
             height: 20vh;
             display: grid;
-            grid-template-columns:repeat(2,1fr);
-            grid-template-rows:repeat(2,1fr);
+            grid-template-columns:repeat(5,1fr);
+            grid-template-rows:repeat(1,1fr);
             overflow: hidden;
+            background-color: #426968;
         }
 
         .grid-container-socialmedia > div >img{
-            margin-left: 5vw;
+            margin-left: 5.9vw;
             transform: translateX(-50%);
+            filter: grayscale(50%);
+            margin-top: 12vh;
+            transform: translateY(-50%);
+            width: 4vw;
         }
 
-        .uppsala-logo-sm > img{
-            margin-left: 10.2vw;
-            transform: translateX(-50%);
-            margin-top: 2vh;
-            width: 50%;
-        }
-
+        .grid-container-socialmedia > div >img:hover{
+            filter: grayscale(0);
+        } */
 
         .grid-container-sponsors{
-            width: 79vw;
-            height: 40vh;
+            width: 98.9vw;
+            height: 30vh;
             display: grid;
-            grid-template-columns:repeat(4,1fr);
-            grid-template-rows:repeat(3,1fr);
+            grid-template-columns:repeat(6,1fr);
+            grid-template-rows:repeat(2,1fr);
             overflow: hidden;
-            color: #6d1d23;
+            background-color: #426968;
         }
 
 
@@ -418,8 +417,13 @@
             margin-left: 3vw;
             margin-top: 7vh;
             transform: translateY(-50%);
+            width: 7vw;
+            filter: grayscale(50%);
         }
 
+        .grid-container-sponsors > div > img:hover{
+            filter: grayscale(0);
+        }
         
     </style>
     <script>
@@ -435,7 +439,7 @@
             if (prevScrollpos < currentScrollPos) {
                 document.getElementById("menu").style.height = "0%";
             } else {
-                document.getElementById("menu").style.height = "8.7vh";
+                document.getElementById("menu").style.height = "5vh";
             }
             prevScrollpos = currentScrollPos;
         })
@@ -515,8 +519,6 @@
                 </div>
 
             </li>
-              
-
             <li class="dropdown">
                 <a href="https://2021.igem.org/Team:Uppsala/Results" class="dropbtn">Experiments</a>
                 <div class="dropdown-content">
@@ -570,7 +572,7 @@
     </div>
     <div id="clickbox">
         <a href='https://2021.igem.org/Team:Uppsala'>
-            <img src="https://2021.igem.org/wiki/images/thumb/1/13/T--Uppsala--logotransparent.png/320px-T--Uppsala--logotransparent.png" height="100%">
+            <img src="https://2021.igem.org/wiki/images/thumb/1/13/T--Uppsala--logotransparent.png/320px-T--Uppsala--logotransparent.png" height="100%" style="margin-left: auto">
         </a>
     </div>
 
@@ -601,8 +603,6 @@
                             </a>
                     </span>
                 </li>
-
-            
                 <li class="listsections">
                     <span id="span2">
                         <a href="#section2">
@@ -610,9 +610,6 @@
                         </a>
                     </span>
                 </li>
-        
-
-            
                 <li class="listsections">
                     <span id="span3">
                         <a href="#section3">
@@ -620,8 +617,6 @@
                         </a>
                     </span>
                 </li>
-                
-
             </ul>
         </div>
         <!--Actual content-->
@@ -636,8 +631,8 @@
                 <p>
                     The waste disposal course was held by the safety officer on our campus. The course was composed of a tour around the waste disposal facilities in Uppsala University and a detailed demonstration about the correct labelling and transportations measures for laboratory waste-bins and chemical waste containers. At the end of the tour, each participant was given a diploma allowing them to handle all waste products that were produced in the lab.
                 </p>
-                <img class="fire" src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
-                <div class="midcontentpictextleft" style="width: 20vw">
+                <div class="divleftpicture" style="width:35vw;">
+                    <img  src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
                     <p>
                         Figure 1. Wow very cool photos, they are the best photos ever taken. This just some text used to fil the page with. I dont really feel like writing Lorem Ipsum for the hundreth time... Damn, need to write some more to see how the text would look lite on two seperate rows. FML.
                     </p>
@@ -657,8 +652,8 @@
                 <p>
                     Our goal is to modify first the Gram-negative bacteria Escherichia coli and second the Gram-positive Bacillus subtilis so they express the different parts composing the biosensor fusion proteins containing the nanobodies for detection, T7 promoter amplification loop and β-galactosidase as output signal.
                 </p>
-                <img class="fire" src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
-                <div class="midcontentpictextleft" style="width: 20vw;">
+                <div class="divleftpicture" style="width:20vw;">
+                    <img  src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
                     <p>
                         Figure 1. Wow very cool photos, they are the best photos ever taken. This just some text used to fil the page with. I dont really feel like writing Lorem Ipsum for the hundreth time... Damn, need to write some more to see how the text would look lite on two seperate rows. FML.
                     </p>
@@ -676,11 +671,11 @@
                 <div id="section3"></div>
                 <h1>COVID-19 measures</h1>
                 <hr>
-                <div class="divrightpicture">
-                    <div class="midcontentpictextright">
-                        <img class="pipett" src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
-                        Figure 1. Wow very cool photos, they are the best photos ever taken. This just some text used to fil the page with. I dont really feel like writing Lorem Ipsum for the hundreth time... Damn, need to write some more to see how the text would look lite on two seperate rows. FML.
-                    </div>
+                <div class="divrightpicture" style="width:30vw;">
+                        <img  src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
+                        <p>
+                            Figure 1. Wow very cool photos, they are the best photos ever taken. This just some text used to fil the page with. I dont really feel like writing Lorem Ipsum for the hundreth time... Damn, need to write some more to see how the text would look lite on two seperate rows. FML.
+                        </p>
                 </div>
                 <p>
                     During the spring period of 2020, all our activities were switched to a digital format. Later, during the summer months, we got an exemption from digital education after presenting an action plan with extra safety measures to contain potential outbreaks. The plan included social distancing, extra cleaning stations, maximum number of people allowed per room and personal equipment like portable hand disinfectant or face shields. These measures were enforced not just in the lab but also in the lunchroom and group rooms. Team members suspecting any symptoms were encouraged to stay home. As one of the few courses exempted from the distance studies during summer we shared our feedback and concerns with the Biological Education center, department that coordinates all bachelor's and master's education in biology at Uppsala University to help organize courses returning to campus during autumn 2020 in the settings of a pandemic.
@@ -694,28 +689,31 @@
     </div>
 
     <!--Start sponsor-->
-    <div class="sponsorarea">
-        <div class="flex-container-socialmedia">
-            <div class="uppsala-logo-sm"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/03/Uppsala_University_logo.svg/1024px-Uppsala_University_logo.svg.png"></div>
-            <div class="grid-container-socialmedia">
-                <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png" width="30%"></div>
-                <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/1024px-Instagram_logo_2016.svg.png" width="30%"></div>
-                <div><img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Circle-icons-mail.svg" width="30%"></div>
-                <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Linkedin_icon.svg/480px-Linkedin_icon.svg.png" width="30%"></div>
+            <div class="flexbox-container-socialmedia">
+                <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png"></div>
+
+                <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/1024px-Instagram_logo_2016.svg.png"></div>
+
+                <div><img class="upplogo"src="https://shop.uu.se/shop/ws45/82845/files/UU_logo_vit.png"></div>
+
+                <div><img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Circle-icons-mail.svg"></div>
+
+                <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Linkedin_icon.svg/480px-Linkedin_icon.svg.png"></div>
             </div>
-        </div>
+
         <div class="grid-container-sponsors">
-                <div><img src="MERCK_LOGO_RPurple_RGBtransparent_cut.png" width="80%"></div>
-                <div><img src="snapgene-logo.png" width="80%"></div>
-                <div><img src="campbokhandeln-transparent-notext.png" width="80%"></div>
-                <div><img src="geneious_logo_cut.png" width="80%"></div>
-                <div><img src="promega-transparent-cut.png" width="80%"></div>
-                <div><img src="BioNordika-logo-transparent.png" width="80%"></div>
-                <div><img src="bio-rad-transparent-cut.png" width="80%"></div>
-                <div><img src="Genscript Logo Transparent-B.png" width="80%"></div>
-
-
+                <div><img src="MERCK_LOGO_RPurple_RGBtransparent_cut.png"></div>
+                <div><img src="snapgene-logo.png"></div>
+                <div><img src="campbokhandeln-transparent-notext.png"></div>
+                <div><img src="geneious_logo_cut.png"></div>
+                <div><img src="promega-transparent-cut.png"></div>
+                <div><img src="BioNordika-logo-transparent.png"></div>
+                <div><img src="bio-rad-transparent-cut.png"></div>
+                <div><img src="Genscript Logo Transparent-B.png"></div>
+                <div><img src="MERCK_LOGO_RPurple_RGBtransparent_cut.png"></div>
+                <div><img src="snapgene-logo.png"></div>
+                <div><img src="campbokhandeln-transparent-notext.png"></div>
+                <div><img src="geneious_logo_cut.png"></div>
         </div>
-    </div>  
 </body>
 </html>
