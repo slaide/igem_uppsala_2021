@@ -723,9 +723,9 @@
             /*
             clean up the existing stuff that is nothing but in the way of our page design (top bar with igem logo and navigation panel hidden behind a burger menu, and quite thick padding on the left and top of the screen)
             */
-            const framerate=60
+            const framerate=60 /*frames per second*/
             const add_stuff_to_petri_dish_duration=2.7 /*seconds*/
-            const animation_steps=4
+            const animation_steps=4 /*add tissue to plate, then add fgf2 to plate, then grow steak, then move steak*/
 
             function on_load(){
                 let element=document.getElementsByClassName("top_bar")[0]
@@ -879,7 +879,7 @@
             <div class="panel" style="height:150vh;">
                 <!-- img class="reference_image" src="https://2021.igem.org/wiki/images/4/41/T--Uppsala--IMG_0970.png" loading="lazy" -->
                 <div class="real" style="background-color:#CCE0DD; height:150vh;">
-                    <div id="panel3_headline">BETTER: CULTIVATED MEEEAT</div>
+                    <div id="panel3_headline">SOLUTION: CULTIVATED MEAT</div>
                     <div class="steak_pipeline">
                         <img class="whole_cow" src="https://2021.igem.org/wiki/images/0/03/T--Uppsala--cow.svg" loadling="lazy">
                         <div class="tissue_container">
@@ -919,7 +919,7 @@
                         const default_delta=total_path_length/framerate/add_stuff_to_petri_dish_duration
 
                         function at_percent_length(pl){
-                            return path.getPointAtLength(path.getTotalLength()*pl/100)
+                            return path.getPointAtLength(total_path_length*pl/100)
                         }
                         let base_y=at_percent_length(0).y
                         let max_height=base_y-at_percent_length(50).y
