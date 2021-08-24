@@ -1,6 +1,8 @@
 {{IGEM_TopBar}}
 <html>
     <head>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/warpjs@1.0.8/dist/warp.js"></script>
         <script real-src="landscape_embedded_svgs.js">
             let grass_front_svg=`
@@ -29,6 +31,13 @@
                 display:none;
                 height:0px;
             }
+            .igem_column_wrapper{
+                width:auto;
+                max-width:none;
+            }
+            #globalWrapper{
+                padding-bottom:0;
+            }
         </style>
         <style real-href="main.css">
             *{
@@ -37,18 +46,19 @@
                 border:0;
             }
             main{
-                display:grid;
-                grid-template-columns: 1fr;
-                grid-template-rows: repeat(5,1fr);
-                height:500vh;
+                height:auto;
                 width:100%;
                 /*font used by igem on the wiki wrapper*/
                 font:x-small sans-serif;
+                display:grid;
+                grid-template-columns: 100%;
+                grid-template-rows: 100vh auto 100vh 120vh /*100vh*/ 100vh;
             }
 
             .panel{
                 width:100%;
                 height:100vh;
+                position:relative;
             }
             .panel > *{
                 position:absolute;
@@ -56,8 +66,6 @@
             }
             .real{
                 background-color:#7ab9ce;
-                /*oopacity is used to 'toggle' for debugging purposes*/
-                oopacity: 0.5;
                 width:100%;
                 /*NEVER EVER CHANGE THIS TO 100%! height in percent of certain elements is broken on the igem page. ONLY VH WORKS CORRECTLY!*/
                 height:100vh;
@@ -69,6 +77,26 @@
             /*applies to all divs with an onmouseenter event handler*/
             div[onmouseenter]{
                 cursor:pointer;
+            }
+            #loading_overlay{
+                position:fixed;
+                height:calc( 100vh - 16px);
+                width:100%;
+                background-color: #d9dfda;
+                top:16px;
+                z-index:11;
+            }
+            #loading_icon{
+                height:50%;
+                width:auto;
+                position:absolute;
+                left:50%;
+                top:50%;
+                transform:translate(-50%,-50%);
+            }
+            #loading_icon > img{
+                height:100%;
+                width:auto;
             }
         </style>
         <style real-href="main_1.css">
@@ -606,13 +634,17 @@
                 text-align: center;
             }
             .steak_pipeline{
-                position:absolute;
-                top:50vh;
+                position:relative;
                 width:100%;
                 height:50vh;
+                overflow:hidden;
+            }
+
+            .fork_upper,.fork_lower{                
+                bottom:40%;
             }
             .whole_cow,.petri_dish,.petri_dish_front,.petri_dish_steak{
-                top:50%;
+                top:60%;
                 position:absolute;
 
                 transform-origin:center center;
@@ -646,7 +678,7 @@
                 width:120px;
                 height:80px;
 
-                transform:translateY(50%) translateX(50%) scale( calc( var(--bottom) *2 ));
+                transform:translateX(50%) scale( calc( var(--bottom) *2 ));
 
                 --right:100%;
                 right:var(--right);
@@ -655,18 +687,19 @@
                 width:100px;
                 height:90px;
 
-                transform:translateY(50%) translateX(-50%) scale( calc( var(--bottom) *2 ));
+                transform:translateX(-50%) scale( calc( var(--bottom) *2 ));
 
                 --left:100%;
                 left:var(--left);
             }
             .cow_tissue,.fgf2_new,.fgf2_old{
-                transform-origin: center center;
+                transform-origin: top center;
 
                 position:absolute;
 
                 --bottom:0%;
-                bottom:var(--bottom);
+                /*bottom:var(--bottom);*/
+                top:calc(100% - var(--bottom));
             }
             .cow_tissue,.fgf2_new,.fgf2_old,.petri_dish_steak{
                 z-index:1;
@@ -676,15 +709,12 @@
                 height:45px;
 
                 left:50%;
-                top:50%;
 
                 --scale:0;
                 --bottom:0vh;
                 --left:0vh;
 
-                transform-origin:center center;
                 transform: translateY(calc(-50% - var(--bottom))) translateX(calc(-50% + var(--left))) scale(calc( var(--scale) * var(--steak-max-scale)));
-                /*transform: translateY(calc(-50% - var(--bottom))) translateX(-50%) scale(calc( var(--scale) * var(--steak-max-scale)));*/
             }
             .fgf2_container{
                 width:40%;
@@ -699,20 +729,81 @@
                 left:var(--left);
             }
             .fgf2_container,.tissue_container{
-                bottom:50%;
+                bottom:40%;
                 position:absolute;
 
                 height:calc(365.87px * 0.6);
+                height:60%;
             }
             .fork_upper,.fork_lower{
                 width:calc(100px * 1.2);
                 height:calc(260px * 1.2);
                 position:absolute;
-                bottom:50%;
+                
                 right:49vw;
                 z-index:6;
                 transform-origin:bottom left;
                 transform:translate(-200vw, -200vw)
+            }
+
+            .intermediate_text.header{
+                text-align: center;
+                font-size:5em;
+                font-family: sans-serif;
+                padding-top:5vh;
+                padding-bottom:10vh;
+            }
+            .intermediate_text.informative{
+                text-align: center;
+                font-size:2.5em;
+                font-family: sans-serif;
+            }
+        </style>
+        <style real-href="scrolling.css">
+            .scroll_thing{
+                position:fixed;
+                z-index:10;
+                bottom:0;
+                left:0;
+                width:100px;
+                height:100px;
+                transform:translateX(-50%);
+            }
+            .scroll_thing > img{
+                position:relative;
+                height:80%;
+                width:auto;
+                left:50%;
+                top:50%;
+                transform:translate(-50%, -50%);
+                z-index:4;
+            }
+            #logo_animated{
+                display:block;
+                position:absolute;
+                transform:translate(-50%,-50%);
+                width:100px;
+                height:100px;
+                transform:scale(calc(var(--scale)*5.5));
+            }
+            #logo_animated > img{
+                height:100%;
+                width:auto;
+                left:50%;
+                position:relative;
+                transform:translateX(-50%);
+            }
+            #tagline{
+                position:absolute;
+                max-width:20%;
+                font-size: 5em;
+                left:50%;
+                top:50%;
+                transform:translate(-50%,-50%);
+            }
+            #logo_flask{
+                transform-origin:center center;
+                transition:0.2s;
             }
         </style>
         <script>
@@ -727,16 +818,50 @@
             const animation_steps=4 /*add tissue to plate, then add fgf2 to plate, then grow steak, then move steak*/
 
             function on_load(){
-                let element=document.getElementsByClassName("top_bar")[0]
-                if(element){
-                    element.classList.remove("top_bar")
-                    element.style="display:none;"
-                }
-                for(class_name of "igem_content_wrapper igem_column_wrapper clear extra_space".split(" ")){
-                    for(element of document.getElementsByClassName(class_name)){
-                        element.classList.remove(class_name)
+                function hide_igem_bs(){
+                    let element=document.getElementsByClassName("top_bar")[0]
+                    if(element){
+                        element.classList.remove("top_bar")
+                        element.style="display:none;"
+                    }
+                    for(class_name of "clear extra_space".split(" ")){
+                        for(element of document.getElementsByClassName(class_name)){
+                            element.classList.remove(class_name)
+                        }
+                    }
+                    let logo_container=document.getElementById("nav-menu-logo-container")
+                    if(logo_container){
+                        logo_container.classList.remove("current_hub")
+                    }
+                    let navigation_bar_list=document.getElementById("navigation_bar_list")
+                    if(navigation_bar_list){
+                        if(navigation_bar_list.style.getPropertyValue("display")=="none"){
+                            navigation_bar_list.style=undefined
+                        }
+                        for(child of navigation_bar_list.children){
+                            child.classList.remove("current_hub")
+                            child.classList.remove("current_page")
+                            child.style=undefined
+                        }
+                    }
+                    //remove annoying p element
+                    let annoying_p=document.getElementById("fgfuture_main").nextElementSibling
+                    if(annoying_p){
+                        annoying_p=annoying_p.nextElementSibling
+                        if(annoying_p){
+                            annoying_p.style="display:none;"
+                        }
                     }
                 }
+
+                hide_igem_bs()
+                //after the page has loaded, provide some additional time for all of the javascript to run, then actually remove the loading screen overlay
+                setTimeout(()=>{
+                    hide_igem_bs()
+                    setTimeout(()=>{
+                        document.getElementById("loading_overlay").style="display:none;"
+                    },200)
+                },1000)
 
                 hide_meat_problem_areas()
                 setTimeout(()=>{
@@ -752,7 +877,13 @@
         </script>
     </head>
     <body onload="on_load()" onresize="scale_steak()">
-        <main>
+        <div id="loading_overlay">
+            <div id="loading_icon">
+                <img src="https://2021.igem.org/wiki/images/7/76/T--Uppsala--logo_animated.gif">
+                <div style="font-size:3vh;text-align:center;padding-top:4vh;font-family: sans-serif;">LOADING</div>
+            </div>
+        </div>
+        <main id="fgfuture_main">
             <div class="panel">
                 <!-- img class="reference_image" src="https://2021.igem.org/wiki/images/e/e1/T--Uppsala--IMG_0968.png" loading="lazy" -->
                 <div class="real">
@@ -767,6 +898,9 @@
                     <div id="mountain_middle"></div>
                     <div id="mountain_front"></div>
                 </div>
+            </div>
+            <div class="intermediate_text header" style="background-color:#8cb29f;">
+                Current problems regarding meat production:
             </div>
             <div class="panel">
                 <!-- img class="reference_image" src="https://2021.igem.org/wiki/images/a/af/T--Uppsala--IMG_0969.png" loading="lazy" -->
@@ -830,19 +964,19 @@
                         </div>
                     </div>
                     <div id="factory_container" onmouseenter="show_factory_farming()">
-                        <div class="cow_head" style="--pos-x:0;--pos-y:0;"></div>
-                        <div class="cow_head" style="--pos-x:1;--pos-y:0;"></div>
-                        <div class="cow_head" style="--pos-x:2;--pos-y:0;"></div>
-                        <div class="cow_head" style="--pos-x:3;--pos-y:0;"></div>
-                        <div class="cow_head" style="--pos-x:0;--pos-y:1;"></div>
-                        <div class="cow_head" style="--pos-x:1;--pos-y:1;"></div>
-                        <div class="cow_head" style="--pos-x:2;--pos-y:1;"></div>
-                        <div class="cow_head" style="--pos-x:3;--pos-y:1;"></div>
-                        <div class="cow_head" style="--pos-x:0;--pos-y:2;"></div>
-                        <div class="cow_head" style="--pos-x:1;--pos-y:2;"></div>
-                        <div class="cow_head" style="--pos-x:2;--pos-y:2;"></div>
-                        <div class="cow_head" style="--pos-x:3;--pos-y:2;"></div>
                     </div>
+                    <script>
+                        let factory_container=document.getElementById("factory_container")
+                        for(let y=0;y<3;y++){
+                            for(let x=0;x<4;x++){
+                                let cow_head=document.createElement("div")
+                                cow_head.classList.add("cow_head")
+                                cow_head.style="--pos-x:"+x+";--pos-y:"+y+";"
+
+                                factory_container.appendChild(cow_head)
+                            }
+                        }
+                    </script>
 
                     <script>
                         function scale_steak(){
@@ -911,10 +1045,13 @@
                     }
                 </script>
             </div>
-            <div class="panel" style="height:150vh;">
+            <div class="panel">
                 <!-- img class="reference_image" src="https://2021.igem.org/wiki/images/4/41/T--Uppsala--IMG_0970.png" loading="lazy" -->
                 <div class="real" style="background-color:#CCE0DD; height:150vh;">
                     <div id="panel3_headline">SOLUTION: CULTIVATED MEAT</div>
+                    <div class="intermediate_text informative">
+                        this is how cultivated meat production works in a lab, right now:
+                    </div>
                     <div class="steak_pipeline">
                         <img class="whole_cow" src="https://2021.igem.org/wiki/images/0/03/T--Uppsala--cow.svg" loadling="lazy">
                         <div class="tissue_container">
@@ -928,7 +1065,11 @@
                         </div>
                         <img class="fork_upper" src="https://2021.igem.org/wiki/images/f/f8/T--Uppsala--fork.svg">
                     </div>
-                    <div class="steak_pipeline" style="top:100vh;">
+                    <div class="intermediate_text informative">
+                        Our team tackles several challenges of this process.<br>
+                        The goal is to grow meat bigger, faster, more efficient.
+                    </div>
+                    <div class="steak_pipeline">
                         <img class="whole_cow" src="https://2021.igem.org/wiki/images/0/03/T--Uppsala--cow.svg" loadling="lazy">
                         <div class="tissue_container">
                             <img class="cow_tissue" src="https://2021.igem.org/wiki/images/4/43/T--Uppsala--cow_tissue_fibroblast.svg" loadling="lazy">
@@ -1085,14 +1226,83 @@
                     </script>
                 </div>
             </div>
-            <div class="panel">
+            <!-- div class="panel">
                 <img class="reference_image" src="https://2021.igem.org/wiki/images/3/3b/T--Uppsala--IMG_0971.png" loading="lazy">
-            </div>
+            </div -->
             <div class="panel">
                 <img class="reference_image" src="https://2021.igem.org/wiki/images/4/42/T--Uppsala--IMG_0972.png" loading="lazy">
+                <div id="logo_animated" style="display:none;">
+                    <!-- the image below is a placeholder, waiting for a better time where we actually have a full svg logo -->
+                    <img src="https://2021.igem.org/wiki/images/e/ef/T--Uppsala--logo_cow_head.svg"  loading="lazy">
+                </div>
+                <div id="tagline">
+                    We are Team Uppsala and we believe in a bright future.
+                </div>
             </div>
+            <div class="scroll_thing">
+                <img src="https://2021.igem.org/wiki/images/e/ef/T--Uppsala--logo_cow_head.svg"  loading="lazy">
+            </div>
+            <div class="scroll_thing">
+                <img src="https://2021.igem.org/wiki/images/e/e9/T--Uppsala--logo_flask.svg" id="logo_flask"  loading="lazy">
+            </div>
+            <script purpose="scrolling_icons_screen_bottom">
+                function scroll_height_fraction(){
+                    /*scrollTopMax works on local files, scrollHeight on igem*/
+                    const scroll_range=document.body.scrollTopMax||document.documentElement.scrollTopMax
+                    let current_scroll=document.body.scrollTop||document.documentElement.scrollTop
+                    return current_scroll/scroll_range
+                }
+                let logo_animation_has_played=false
+                let animation_interval_object=null
+
+                function move_scrollable_elements(){
+                    let scroll_things=document.getElementsByClassName("scroll_thing")
+
+                    let current_fraction=scroll_height_fraction()
+
+                    scroll_things[0].style="left:"+current_fraction*100/2+"%;"
+                    scroll_things[1].style="left:"+(100-current_fraction*100/2)+"%;"
+
+                    if(current_fraction>0.95){
+                        document.getElementById("logo_flask").style="transform:translate(-50%, -50%) translateY(-43px) scale(0.57);"
+                    }else{
+                        document.getElementById("logo_flask").style=""
+                    }
+
+                    if(!animation_interval_object){if(current_fraction==1){
+                        logo_animation_has_played=false
+
+                        const animation_duration=1 /*seconds*/
+                        const animation_delta=1/framerate
+
+                        /*number of animation frames*/
+                        const animation_frames=animation_duration*framerate
+                        let i=0
+                        animation_interval_object=setInterval(function(){
+                            //left_target=20%
+                            //left_start=50%
+                            //top_target=50%
+                            //top_start=100%
+
+                            let left=0.5-0.3/animation_frames*i
+                            let top=1-0.5/animation_frames*i
+
+                            document.getElementById("logo_animated").style="left:"+left*100+"%;"+"top:"+top*100+"vh;--scale:"+i/animation_frames+";"
+
+                            i+=1
+
+                            if(i>animation_frames){
+                                clearInterval(animation_interval_object)
+                            }
+                        },animation_delta*1000)
+                    }}
+                }
+
+                move_scrollable_elements()
+                window.addEventListener("scroll",()=>requestAnimationFrame(move_scrollable_elements))
+            </script>
         </main>
-        <script>
+        <script purpose="grass_animation">
             let animation_functions=[]
             let disable_complex_animations=true
             const cap_framerate=60
