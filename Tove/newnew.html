@@ -1,0 +1,759 @@
+{{IGEM_TopBar}}
+<!-- doctype should go here to make document.docmentelement.scrollTop work, which breaks the page on the igem site though-->
+<html lang="en">
+<head>
+     <title>
+        sidepage6
+    </title>
+    <style>
+        /* used for all pages */
+        #globalWrapper {padding-bottom:0px;}
+
+        @font-face {
+            font-family: UL;
+            src: url("https://2021.igem.org/wiki/images/5/56/T--Uppsala--Ubuntu-Light.ttf");
+        }
+
+        @font-face {
+            font-family: UM;
+            src: url("https://2021.igem.org/wiki/images/d/db/T--Uppsala--Ubuntu-Medium.ttf");
+        }
+
+
+        *{
+            margin:0;
+            border:0;
+            padding:0;
+        }
+
+        a{
+            width: 100%;
+            text-decoration: none;
+            color: #6d1d23;
+        }
+
+        a:hover{
+            color: #426968;
+        }
+
+        a:visited{
+            color:#6d1d23;
+        }
+
+
+        body, html{
+            height: 100%;
+            scroll-behavior: smooth;
+        }
+
+        #bodyContent h1{
+            margin:0;
+        }
+        
+
+        hr{
+            height: 1px;
+            background-color: #6d1d23;
+            display: block;
+            width: auto;
+            margin-top: 2vh;
+        }
+
+        #section0, #section1, #section2, #section3{
+            height:0.1px;
+        }
+
+        /* menu with drop down */
+        #navmenu{
+            position: fixed;
+            width: 100%;
+            background-color: #dce1de;
+            transition: all 0.5s;
+            overflow: hidden;
+            height: 5vh;
+            z-index: 10;
+            font-size: 1.5em;
+            color:#6d1d23;
+            font-family: UL;
+
+        }
+        #navmenu:hover{
+            overflow: visible;
+        }
+
+        #navmenu:hover ~ .parallaxtop, #navmenu:hover ~ #pagecontent, #navmenu:hover ~ .sponsorarea{
+            filter: blur(5px);
+        }
+
+        .logotype{
+            float:left;
+            width:3.5vw;
+            height:5vh;
+            padding-right:0px;
+        }
+
+        ul {
+            list-style-type: none;
+            margin:0;
+        }
+
+        .mw-content-ltr ul, .mw-content-rtl .mw-content-ltr ul{
+            margin: 0;;
+        }
+        
+        li {
+            float: left;
+            margin-right: 8vw;      
+        }
+
+        #navigation_bar_container{
+            height:100%;
+        }
+        #navigation_bar_container > li{
+            height:100%;
+            margin:0;
+        }
+        #navigation_bar_container > li > a{
+            position:absolute;
+            top:50%;
+            transform:translateY(-50%);
+        }
+
+        .dropdown a, .dropbtn {
+            display: inline-block;
+            color:#6d1d23;
+            text-align: center;
+            margin-top: 0.6vh;
+            text-decoration: none;
+        }
+        
+        .dropdown a:hover, .dropdown:hover .dropbtn{
+            color: #426968;
+            text-decoration: underline;
+        }
+
+        .dropdown:hover .dropdown-content a{
+            color: #426968;
+        }
+        
+        li.dropdown{
+            display: inline-block;
+        }
+        
+        .dropdown-content{
+            display: none;
+            position: absolute;
+            background-color: #dce1de;
+            min-width: 5vw;
+            z-index: 1;
+            margin-top: 1vh;
+            margin-bottom: 2vh;
+        }
+        
+        .dropdown-content a{
+            margin-top: 2.7vh;
+            margin-left: 0.5vw;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        
+        .dropdown-content a:hover{
+            color: #426968;
+            margin-left: 1vw;
+            text-decoration: none;
+        }
+
+        .dropdown-background{
+            display: none;
+            position: absolute;
+            background-color: #dce1de;
+            width: 80vw;
+            height: 40vh;
+            z-index: 1;
+            margin-top: 5vh;
+            margin-left: 3.5vw;
+        }
+    
+        #navmenu:hover .dropdown-content, #navmenu:hover .dropdown-background{
+            display: block;
+        }
+       
+        #clickbox{
+            width: 3.5vw;
+            height:5vh;
+            position: fixed;
+            z-index: 100;
+            background-color: #dce1de;
+            justify-content: center;
+            align-content: center;
+            display: flex;
+        }
+
+
+        /* parallax section*/
+        .parallaxtop {
+            background-image: url(https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fspecials-images.forbesimg.com%2Fdam%2Fimageserve%2F1163531587%2F960x0.jpg%3Ffit%3Dscale);
+            height: 50vh;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            overflow: hidden;
+            padding-top: 5%;
+        }
+
+        #header{
+            margin: auto;
+            width: 60vw;
+            margin-top: 25vh;
+            transform: translateY(-50%);
+            animation-name: fadein;
+            animation-duration: 2s;
+            text-align: center;
+            font-size: 6em;
+            color: #6d1d23;
+            font-family: UM;
+        }
+        @keyframes fadein{
+            from {opacity: 0;}
+            to{opacity: 1;}
+        }
+
+    
+        #pagecontent{
+            display: flex;
+            justify-content: left;
+            background-color: #dce1de;
+        }
+
+        /* sidebar */
+        .sidebar3 {
+            width: 20vw;
+            height:50vh;
+            position:sticky;
+            top:10.7vh;
+            left:0px;
+            margin-top:5vh;
+            padding: 0px;
+            background-color: #6d1d23;
+            text-align: left;
+            font-size: 1.5em;
+        }
+
+        .listsidebar{
+            margin-top: 0px;
+            padding:0;
+            width: 100%;
+            background-color: #dce1de;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .listsections{
+            color:#6d1d23;
+            padding-top: 30px;
+            display:block;
+            width:100%;
+            transition: all 0.2s;
+            font-family: UL;
+        }
+     
+        .listsections span:hover{
+            color:#426968;
+        }
+
+        .listheader{
+            color:#6d1d23;
+            padding-top:3vh;
+            display:block;
+            width:100%;
+            background-color:#dce1de;
+            font-size:1.6em;
+            margin-bottom: 2vh;
+            font-family: UM;
+            font: bold;
+            
+        }
+
+        .listheader span:hover{
+            color:#426968; 
+        }
+
+        /* Actual content */
+        #midcontent{
+            background-color: #dce1de;
+            width: 64vw;
+            margin-left: 6vw;
+            margin-top:3.6vh;
+            height: 300%;
+            font-family: UL; 
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+               
+        }
+
+        .teamcontainer{
+            justify-content: center;
+            display: flex;
+            position: relative;
+            align-items: center;
+            flex-wrap: wrap;
+            z-index: 1;
+
+
+        }
+
+        .teamcontainer .card{
+            position: relative;
+            width: 28vh;
+            height:40vh;
+            margin: 2vh;
+            box-shadow: 1vh 1vh 4vh rgba(0, 0, 0, 0.5);
+            border-radius: 2vh;
+            background: rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.5);
+            border-left: 1px solid rgba(255, 255, 255, 0.5);
+
+            
+        }
+
+        .top-part{
+            background-image: url("/Users/tovejonsson/Desktop/DSC05131 (2).JPG");
+            width:35vh;
+            height:35vh;
+            position: absolute;
+            
+            padding: 3vh;
+            background-size: contain;
+            
+            transition: 0.5s;
+        }
+
+        .teamcontainer .card:hover .top-part {
+            
+            transform: translateY(0px);
+            opacity:1;
+            position: absolute;
+            background-image: url("/Users/tovejonsson/Desktop/DSC05131 (2).JPG");
+            
+
+        }
+
+        .teamcontainer .card:hover .top-part{
+            transform:translateY(-5vh);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        
+
+        
+
+        .teamcontainer .card .content{
+            padding: 1vh; 
+            text-align: center;
+            transition: 0.5s;
+            transform: translateY(5vh);
+            opacity: 0;
+            
+
+        }
+
+        .teamcontainer .card:hover .content{
+            transform:translateY(0px);
+            opacity: 1;
+            
+        }
+
+        
+
+        .teamcontainer .card .content h3{
+            font-size: 1.8em;
+            color: #6d1d23;
+            z-index: 1;
+            padding: 1vh;
+
+        }
+
+        .teamcontainer .card .content > p{
+            font-size: 1em;
+            color: #426968;
+            font-weight: 300;
+            padding: 1vh;
+        }
+
+        .teamcontainer .card .content > a{
+            position: relative;
+            display: inline-block;
+            padding: 0.5vh 0.8vh;
+            margin-top: 2vh;
+            background-attachment: #fff;
+            color: #000;
+            background: #fff;
+            border-radius: 2vh;
+            width:50%;
+            text-decoration: none;
+            font-weight: 500;
+            box-shadow: 0 0.3vh 0.7vh rgba(0, 0, 0, 0.2);
+
+
+        }
+
+
+
+        
+
+        
+
+        /* 
+        WHEN ADDING THE PICTURE DIV, DEFINE ITS WIDTH IN THE HTML SECTION TO MAKE THE IMG THE RIGHT SIZE
+        EX   ->
+        <div class="divrightpicture" style="width:30vw;">
+        */
+        
+        /* Sponsor part*/
+
+        .flexbox-container-socialmedia{
+            width: 98.9vw;
+            height: 25vh;
+            display: flex;
+            flex-direction: row;
+            overflow: hidden;
+            background-color: #426968;
+            justify-content: center;
+        }
+
+
+        .flexbox-container-socialmedia > div > img:not(img.upplogo){
+            margin-left: 3vw;
+            margin-right: 3vw;
+            filter: grayscale(50%);
+            margin-top: 7vh;
+            width: 4vw;
+        }
+
+        .flexbox-container-socialmedia > div > img:not(img.upplogo):hover{
+            filter:grayscale(0);
+
+        }
+
+        img.upplogo{
+            width: 10vw;
+            margin-top: 3vh;
+            margin-left: 3vw;
+            margin-right: 3vw;
+        }
+       
+
+        .grid-container-sponsors{
+            width: 98.9vw;
+            height: 30vh;
+            display: grid;
+            grid-template-columns:repeat(6,1fr);
+            grid-template-rows:repeat(2,1fr);
+            overflow: hidden;
+            background-color: #426968;
+        }
+
+
+        .grid-container-sponsors > div > img{
+            margin-left: 3vw;
+            margin-top: 7vh;
+            transform: translateY(-50%);
+            width: 7vw;
+            filter: grayscale(50%);
+        }
+
+        .grid-container-sponsors > div > img:hover{
+            filter: grayscale(0);
+        }
+        
+    </style>
+    <script>
+        //Collpaseable menu
+        window.onscroll = function() {indexFunction1(), indexFunction2(), indexFunction3()};
+
+        var prevScrollpos = document.documentElement.scrollTop;
+        window.addEventListener("scroll", function() {
+            var currentScrollPos = document.documentElement.scrollTop;
+
+            console.log(document.documentElement.scrollTop)
+
+            /*if (prevScrollpos < currentScrollPos) {
+                document.getElementById("navmenu").style.height = "0%";
+            }
+            else if(currentScrollPos > 400){
+                document.getElementById("navmenu").style.height = "5vh";
+            }
+            else {
+                document.getElementById("navmenu").style.height = "5vh";
+            }
+            prevScrollpos = currentScrollPos;
+
+            ------------*/
+            if (prevScrollpos > currentScrollPos || currentScrollPos < 400){
+                document.getElementById("navmenu").style.height = "5vh";
+            }
+            else{
+                document.getElementById("navmenu").style.height = "0%";
+            }
+            prevScrollpos = currentScrollPos;
+        })
+        
+        function and(a,b){return (a+b)==2}
+        
+        //Bolding index
+        function indexFunction1(){
+            if (and(document.documentElement.scrollTop >400,document.documentElement.scrollTop <1700)) {
+                document.getElementById("span1").style.fontWeight="bolder";
+                document.getElementById("span1").style.textDecoration="underline";
+            } else {
+            document.getElementById("span1").style.fontWeight = "normal";
+            document.getElementById("span1").style.textDecoration="none";
+            }
+        }
+        function indexFunction2(){
+            if (and(document.documentElement.scrollTop >1700, document.documentElement.scrollTop <2200)) {
+                document.getElementById("span2").style.fontWeight="bolder";
+                document.getElementById("span2").style.textDecoration="underline";
+            } else {
+            document.getElementById("span2").style.fontWeight = "normal";
+            document.getElementById("span2").style.textDecoration="none";
+            }
+        }
+        function indexFunction3(){
+            if (document.documentElement.scrollTop > 2200) {
+                document.getElementById("span3").style.fontWeight="bolder";
+                document.getElementById("span3").style.textDecoration="underline";
+            } else {
+            document.getElementById("span3").style.fontWeight = "normal";
+            document.getElementById("span3").style.textDecoration="none";
+            }
+        } 
+        
+        //Uncollapse the menu with a click on the logo
+        /*function clickfunction(){
+            document.getElementById("navmenu").style.width = "100%";
+            document.getElementById("navmenu").style.opacity = "1";
+            document.getElementById("navmenu").style.overflow  = "hidden";
+            setTimeout(function(){ document.getElementById("navmenu").style.overflow='visible'; }, 1000);
+        }*/
+
+        function on_load(){
+            let element=document.getElementsByClassName("top_bar")[0]
+                if(element){
+                    element.classList.remove("top_bar")
+                    element.style="display:none;"
+                }
+                for(class_name of "igem_content_wrapper igem_column_wrapper clear extra_space" .split(" ")){
+                    for(element of document.getElementsByClassName(class_name)){
+                        element.classList.remove(class_name)
+                    }
+                }
+                document.getElementById("nav-menu-logo-container").classList.remove("current_hub")
+                let navigation_bar_list=document.getElementById("navigation_bar_list")
+                if(navigation_bar_list.style.getPropertyValue("display")=="none"){
+                    navigation_bar_list.style=""
+                }
+            }
+
+            
+    </script>
+</head>
+<body onload="on_load()">
+    <div id="section0"></div>
+    <!--Menu with drop down-->
+    <div id="navmenu">
+        <div class="dropdown-background"></div> 
+        <a id="nav-menu-logo-container" href='https://2021.igem.org/Team:Uppsala' style="height: 100%; width: auto;">
+            <img class="logotype" src="https://2021.igem.org/wiki/images/thumb/1/13/T--Uppsala--logotransparent.png/320px-T--Uppsala--logotransparent.png">
+        </a>
+        <ul id="navigation_bar_list">
+            <li class="dropdown">
+                <a href="https://2021.igem.org/Team:Uppsala/Description" class="dropbtn">Project</a>
+                <div class="dropdown-content">
+                    <a href="https://2021.igem.org/Team:Uppsala/Description">Description</a>
+                    <a href="https://2021.igem.org/Team:Uppsala/Proof_Of_Concept">Proof of Concept</a>
+                    <a href="https://2021.igem.org/Team:Uppsala/Engineering">Engineering<br> Success</a>
+                    <a href="https://2021.igem.org/Team:Uppsala/Contribution">Contribution</a>
+                    <a href="https://2021.igem.org/Team:Uppsala/Implementation">Proposed<br> Implementation</a>
+                </div>
+
+            </li>
+            <li class="dropdown">
+                <a href="https://2021.igem.org/Team:Uppsala/Results" class="dropbtn">Experiments</a>
+                <div class="dropdown-content">
+                    <a href="https://2021.igem.org/Team:Uppsala/Results">Results</a>
+                    <a href="https://2021.igem.org/Team:Uppsala/Model">Modeling</a>
+                    <a href="https://2021.igem.org/Team:Uppsala/Notebook">Notebook</a>
+                    <a href="https://2021.igem.org/Team:Uppsala/Parts">Parts</a>
+                    <a href="https://2021.igem.org/Team:Uppsala/Safety" style="text-decoration: underline; font-weight: bolder;">Safety</a>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <a href="https://2021.igem.org/Team:Uppsala/Human_Practices" class="dropbtn">Human Practice</a>
+                <div class="dropdown-content">
+                    <a href="https://2021.igem.org/Team:Uppsala/Human_Practices">Integrated <br>Human Practice</a>
+                    <a href="https://2021.igem.org/Team:Uppsala/Education">Education</a>
+                    <a href="#">Ethics</a>
+                    <a href="#">Inclusion</a>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <a href="https://2021.igem.org/Team:Uppsala/Team" class="dropbtn">Team</a>
+                <div class="dropdown-content">
+                    <a href="https://2021.igem.org/Team:Uppsala/Team">Team</a>
+                    <a href="https://2021.igem.org/Team:Uppsala/Collaborations">Collaboration</a>
+                    <a href="https://2021.igem.org/Team:Uppsala/Attributions">Attribution</a>
+                    <a href="https://2021.igem.org/Team:Uppsala/Attributions">Sponsors</a>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Videos</a>
+                <div class="dropdown-content">
+                    <a href="https://2021.igem.org/Team:Uppsala/Description">Final<br> Presentation</a>
+                    <a href="https://www.youtube.com/watch?v=avKlAK5-1ks">Promotional<br> Video</a>
+                    <a href="https://2021.igem.org/Team:Uppsala/Model">Molecular Dynamics</a>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Judging</a>
+                <div class="dropdown-content">
+                    <a href="#">Judging Form</a>
+                    <a href="#">Awards</a>
+                </div>
+            </li>
+
+
+        </ul>
+    </div>
+    <div id="clickbox">
+        <a href='https://2021.igem.org/Team:Uppsala'>
+            <img src="https://2021.igem.org/wiki/images/thumb/1/13/T--Uppsala--logotransparent.png/320px-T--Uppsala--logotransparent.png" height="100%" style="margin-left: auto">
+        </a>
+    </div>
+
+    <!-- Parallax-->
+    <div class=parallaxtop>
+        
+        <div id="header">
+                Lab Safety
+        </div>
+    </div>
+
+    <div id="pagecontent">
+        <!--Sidebar-->
+        <div class="sidebar3">
+            <ul class="listsidebar">
+                <li class="listheader">
+                    <span id="span0">
+                        <a href="#section0">
+                            Lab Safety
+                        </a>
+                    </span>
+                    <hr>  
+                </li>  
+                <li class="listsections">
+                    <span id="span1">
+                        <a href="#section1">
+                                Lab Safety
+                            </a>
+                    </span>
+                </li>
+                <li class="listsections">
+                    <span id="span2">
+                        <a href="#section2">
+                            Ethics of <br>cultivated meat 
+                        </a>
+                    </span>
+                </li>
+                <li class="listsections">
+                    <span id="span3">
+                        <a href="#section3">
+                            COVID-19 Measures
+                        </a>
+                    </span>
+                </li>
+            </ul>
+        </div>
+        <!--Actual content-->
+        <div id="midcontent">
+            <div class="teamcontainer">
+                <div class="card">
+
+                    <div class="top-part"></div>
+
+                    <div class="content">
+                        
+                        <h3>Tove Jonsson</h3>
+                        <h4>Wiki, Graphic design</h4>
+                        <p>Engineer in molecular biotechnology</p>
+                        <p>Bollnäs, Sweden</p>
+                        <a href="#">Linkedin_icon</a>
+                        
+                    </div>
+
+                </div>
+
+                <div class="card">
+                    <div class="content">
+                        
+                        <h3>Card Two</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum nostrum architecto vero laboriosam soluta reprehenderit nihil dolorem et quisquam ut iure, ipsa quos at itaque quibusdam voluptate sapiente, maiores corrupti?</p>
+                        <a href="#">Linkedin_icon</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="content">
+                        
+                        <h3>Card Three</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum nostrum architecto vero laboriosam soluta reprehenderit nihil dolorem et quisquam ut iure, ipsa quos at itaque quibusdam voluptate sapiente, maiores corrupti?</p>
+                        <a href="#">Linkedin_icon</a>
+                    </div>
+                </div>
+            </div>
+                
+        </div>
+
+    </div>
+
+    <!--Start sponsor-->
+            <div class="flexbox-container-socialmedia">
+                <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png"></div>
+
+                <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/1024px-Instagram_logo_2016.svg.png"></div>
+
+                <div><img class="upplogo"src="https://shop.uu.se/shop/ws45/82845/files/UU_logo_vit.png"></div>
+
+                <div><img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Circle-icons-mail.svg"></div>
+
+                <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Linkedin_icon.svg/480px-Linkedin_icon.svg.png"></div>
+            </div>
+
+        <div class="grid-container-sponsors">
+                <div><img src="https://2021.igem.org/wiki/images/8/8b/T--Uppsala--utnlogo.png"></div>
+                <div><img src="http://2014.igem.org/wiki/images/5/5a/York_Genscript_logo-1-.png"></div>
+                <div><img src="https://2020.igem.org/wiki/images/0/05/T--UofUppsala--pro.png"></div>
+                <div><img src="https://2021.igem.org/wiki/images/f/fc/T--Uppsala--bioradlogo.png"></div>
+                <div><img src="https://2021.igem.org/wiki/images/2/29/T--Uppsala--bionordikalogo.png"></div>
+                <div><img src="https://2021.igem.org/wiki/images/9/9a/T--Uppsala--mercklogo.png"></div>
+                <div><img src="https://2021.igem.org/wiki/images/f/fa/T--Uppsala--scbtlogo.png"></div>
+                <div><img src="https://2020.igem.org/wiki/images/8/8c/T--UofUppsala--snap.png"></div>
+                <div><img src="https://2020.igem.org/wiki/images/a/a4/T--UofUppsala--euro.png"></div>
+                <div><img src="https://upload.wikimedia.org/wikipedia/commons/1/12/New_Harvest_Full_Logo_-_RGB_.png"></div>
+                <div><img src="https://testacenter.com/wp-content/uploads/2019/08/TestaCenter_LogoWithTagline_Pantone.png"></div>
+                <div><img src="https://cdn.cytivalifesciences.com/dmm3bwsv3/AssetStream.aspx?mediaformatid=10061&destinationid=10016&assetid=32945"></div>
+        </div>
+</body>
+</html>
