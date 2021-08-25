@@ -764,6 +764,7 @@
                 width:100px;
                 height:100px;
                 transform:translateX(-50%);
+                transition:0.2s opacity;
             }
             .scroll_thing > img{
                 position:relative;
@@ -777,10 +778,10 @@
             #logo_animated{
                 display:block;
                 position:absolute;
-                transform:translate(-50%,-50%);
                 width:100px;
                 height:100px;
-                transform:scale(calc(var(--scale)*5.5));
+                transform-origin:center center;
+                transform:translate(-50%,-50%) scale(calc(var(--scale)*5.5));
             }
             #logo_animated > img{
                 height:100%;
@@ -800,6 +801,9 @@
             #logo_flask{
                 transform-origin:center center;
                 transition:0.2s;
+            }
+            .invisible{
+                opacity:0;
             }
         </style>
         <script>
@@ -1228,8 +1232,7 @@
             <div class="panel">
                 <img class="reference_image" src="https://2021.igem.org/wiki/images/4/42/T--Uppsala--IMG_0972.png" loading="lazy">
                 <div id="logo_animated" style="display:none;">
-                    <!-- the image below is a placeholder, waiting for a better time where we actually have a full svg logo -->
-                    <img src="https://2021.igem.org/wiki/images/e/ef/T--Uppsala--logo_cow_head.svg"  loading="lazy">
+                    <img src="https://2021.igem.org/wiki/images/5/53/T--Uppsala--cow_logo.svg"  loading="lazy">
                 </div>
                 <div id="tagline">
                     We are Team Uppsala and we believe in a bright future.
@@ -1271,29 +1274,45 @@
                     if(!animation_interval_object){if(current_fraction>0.999){
                         logo_animation_has_played=false
 
-                        const animation_duration=1 /*seconds*/
+                        for(element of document.getElementsByClassName("scroll_thing")){
+                            element.classList.add("invisible")
+                        }
+
+                        const animation_duration=1 /*seconds*/ /*also not very precise due to the use of requestAnimationFrame*/
                         const animation_delta=1/framerate
+
+                        setTimeout(()=>{
+                        for(element of document.getElementsByClassName("scroll_thing")){
+                            element.classList.remove("invisible")
+                        }},animation_duration*1500)
 
                         /*number of animation frames*/
                         const animation_frames=animation_duration*framerate
                         let i=0
-                        animation_interval_object=setInterval(function(){
-                            //left_target=20%==50%-30§
-                            //left_start=50%
-                            //top_target=50%==100%-50%
-                            //top_start=100%
 
-                            let left=0.5-0.3/animation_frames*i
-                            let top=1-0.5/animation_frames*i
+                        animation_interval_object=setInterval(()=>requestAnimationFrame(function(){
+                            //20% is max width of text, head should be placed on left half of screen, half way between left edge of screen and left edge of text
+                            const left_start=0.5
+                            const left_target=(1-0.2)/4
+                            //should move up to 50% height of container
+                            const top_target=0.5
+                            const top_start=(window.innerHeight-100/2)/window.innerHeight
 
-                            document.getElementById("logo_animated").style="left:"+left*100+"%;"+"top:"+top*100+"vh;--scale:"+i/animation_frames+";"
+                            let animation_fraction_elapsed=i/animation_frames
+                            let left=left_target-(left_target-left_start)*(1-animation_fraction_elapsed)
+                            let top=top_target-(top_target-top_start)*(1-animation_fraction_elapsed)
+
+                            const target_scale=1
+                            const start_scale=1/5.5
+                            let scale=start_scale+(target_scale-start_scale)*animation_fraction_elapsed*animation_fraction_elapsed
+                            document.getElementById("logo_animated").style="left:"+left*100+"%;"+"top:"+top*100+"vh;--scale:"+scale+";"
 
                             i+=1
 
                             if(i>animation_frames){
                                 clearInterval(animation_interval_object)
                             }
-                        },animation_delta*1000)
+                        }),animation_delta*1000)
                     }}
                 }
 
