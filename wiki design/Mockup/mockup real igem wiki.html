@@ -45,19 +45,22 @@
                 padding:0;
                 border:0;
             }
-            main{
+            #fgfuture_main{
                 height:auto;
                 width:100%;
                 /*font used by igem on the wiki wrapper*/
                 font:x-small sans-serif;
                 display:grid;
                 grid-template-columns: 100%;
-                grid-template-rows: 100vh auto 100vh 120vh /*100vh*/ 100vh;
+                grid-template-rows: 100vh auto 100vh 120vh /*100vh <- this is the height of one panel that was removed during development*/ 100vh /*100px 100px <- these two are the height of the scrolling elements that are technically part of this container, but they do not take up any space within that element (position is not relative)*/;
             }
 
-            .panel{
+            .reference_image,.real,.panel{
                 width:100%;
+                /*NEVER EVER CHANGE THIS TO 100%! height in percent of certain elements is broken on the igem page. ONLY VH WORKS CORRECTLY!*/
                 height:100vh;
+            }
+            .panel{
                 position:relative;
             }
             .panel > *{
@@ -66,16 +69,9 @@
             }
             .real{
                 background-color:#7ab9ce;
-                width:100%;
-                /*NEVER EVER CHANGE THIS TO 100%! height in percent of certain elements is broken on the igem page. ONLY VH WORKS CORRECTLY!*/
-                height:100vh;
-            }
-            .reference_image{
-                width:100%;
-                height:100vh;
             }
             /*applies to all divs with an onmouseenter event handler*/
-            div[onmouseenter]{
+            #fgfuture_main div[onmouseenter]{
                 cursor:pointer;
             }
             #loading_overlay{
@@ -630,7 +626,7 @@
         </style>
         <style real-href="main_3.css">
             #panel3_headline{
-                font-size: 10em;
+                font-size: 5.5vw;
                 text-align: center;
             }
             .steak_pipeline{
@@ -1247,9 +1243,10 @@
             </div>
             <script purpose="scrolling_icons_screen_bottom">
                 function scroll_height_fraction(){
-                    /*scrollTopMax works on local files, scrollHeight on igem*/
-                    const scroll_range=document.body.scrollTopMax||document.documentElement.scrollTopMax
-                    let current_scroll=document.body.scrollTop||document.documentElement.scrollTop
+                    /*damn this is bad*/
+                    const scroll_range=document.getElementById("fgfuture_main").clientHeight-window.innerHeight+16
+                    let current_scroll=document.body.scrollTop||document.documentElement.scrollTop||window.pageYOffset
+
                     return current_scroll/scroll_range
                 }
                 let logo_animation_has_played=false
@@ -1260,16 +1257,18 @@
 
                     let current_fraction=scroll_height_fraction()
 
-                    scroll_things[0].style="left:"+current_fraction*100/2+"%;"
-                    scroll_things[1].style="left:"+(100-current_fraction*100/2)+"%;"
+                    let cow_left=min(current_fraction*100/2,50)
+                    scroll_things[0].style="left:"+cow_left+"%;"
+                    scroll_things[1].style="left:"+(100-cow_left)+"%;"
 
+                    /*transform flask from cow-counterpart in size and position into the upper half of the logo, with corresponding size and position*/
                     if(current_fraction>0.95){
                         document.getElementById("logo_flask").style="transform:translate(-50%, -50%) translateY(-43px) scale(0.57);"
                     }else{
                         document.getElementById("logo_flask").style=""
                     }
 
-                    if(!animation_interval_object){if(current_fraction==1){
+                    if(!animation_interval_object){if(current_fraction>0.999){
                         logo_animation_has_played=false
 
                         const animation_duration=1 /*seconds*/
@@ -1279,9 +1278,9 @@
                         const animation_frames=animation_duration*framerate
                         let i=0
                         animation_interval_object=setInterval(function(){
-                            //left_target=20%
+                            //left_target=20%==50%-30§
                             //left_start=50%
-                            //top_target=50%
+                            //top_target=50%==100%-50%
                             //top_start=100%
 
                             let left=0.5-0.3/animation_frames*i
