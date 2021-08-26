@@ -130,7 +130,6 @@
         .dropdown a:hover, .dropdown:hover .dropbtn{
             color: #426968;
             text-decoration: underline;
-            cursor: default;
         }
 
         .dropdown:hover .dropdown-content a{
@@ -288,13 +287,15 @@
             margin-left: 6vw;
             margin-top:3.6vh;
             height: 300%;
-            font-family: UL;    
+            font-family: UL;  
+        
         }
         /* TEXT*/
         .midcontenttext{
             text-align: left;
             font-size: 1.1em;
             margin-top: 3.2vh;
+            
         }
 
         /*HEADERS*/
@@ -332,6 +333,8 @@
             margin-top: 3vh;
         }
 
+        
+
         /* 
         WHEN ADDING THE PICTURE DIV
         DEFINE ITS WIDTH IN THE HTML SECTION TO MAKE THE IMG THE RIGHT SIZE
@@ -353,6 +356,7 @@
             color:black;
             line-height:1.2;
             letter-spacing:0.05em;
+        
         }
 
         .divrightpicture > img{
@@ -389,7 +393,10 @@
             margin-top: 3vh;
             margin-left: 2vw;
             margin-right: 2vw;
-            margin-bottom: 0;
+             /* 
+            margin-bottom:20vh;
+            
+            can be used to make the text under the pic move away */
         }
 
         .divleftpicture > p{
@@ -404,6 +411,7 @@
         .divleftpicture > img{
             width: 100%;
             cursor: zoom-in;
+            
         }
             /*For table*/
         table {
@@ -671,7 +679,7 @@
     <div class=parallaxtop>
         
         <div id="header">
-                Lab Safety
+                Implementation
         </div>
     </div>
 
@@ -682,7 +690,7 @@
                 <li class="listheader">
                     <span id="span0">
                         <a href="#section0">
-                            Lab Safety
+                            Implementation
                         </a>
                     </span>
                     <hr>  
@@ -690,21 +698,28 @@
                 <li class="listsections">
                     <span id="span1">
                         <a href="#section1">
-                                Lab Safety
+                                bild1
                             </a>
                     </span>
                 </li>
                 <li class="listsections">
                     <span id="span2">
                         <a href="#section2">
-                            Ethics of <br>cultivated meat 
+                            bild2
                         </a>
                     </span>
                 </li>
                 <li class="listsections">
                     <span id="span3">
                         <a href="#section3">
-                            COVID-19 Measures
+                            bild3
+                        </a>
+                    </span>
+                </li>
+                <li class="listsections">
+                    <span id="span4">
+                        <a href="#section4">
+                            bild4
                         </a>
                     </span>
                 </li>
@@ -714,41 +729,39 @@
         <div id="midcontent">
             <div id="section1"></div>
             <div class="midcontenttext">
-                <h1>Lab Safety</h1>
+                <h1>bild 1</h1>
                 <hr>
+
+                <div class="divleftpicture" style=" width:35vw; margin-bottom:40vh;">
+                    <img src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
+                    <p>
+                        Figure 1. Wow very cool photos, they are the best photos ever taken. This just some text used to fil the page with. I dont really feel like writing Lorem Ipsum for the hundreth time... Damn, need to write some more to see how the text would look lite on two seperate rows. FML.
+                    </p>
+                </div>
+
                 <p>
                     Sharing is caring, especially when it comes to safety knowledge. To make sure that everyone understood and followed the rules needed for a safe-laboratory environment, we organized an introductory week before entering the lab, where the whole team participated in three mandatory activities, a laboratory safety round, a biosafety workshop and a waste disposal course. For the first, fire extinguishers, first aid kits and showers were introduced, as well as emergency exits and chemical room organization. For the second, Good Laboratory Practices (GLP) were explained, along with a practical demonstration of pipetting and safe glove removal techniques.
                 </p>
+                
                 <p>
                     The waste disposal course was held by the safety officer on our campus. The course was composed of a tour around the waste disposal facilities in Uppsala University and a detailed demonstration about the correct labelling and transportations measures for laboratory waste-bins and chemical waste containers. At the end of the tour, each participant was given a diploma allowing them to handle all waste products that were produced in the lab.
                 </p>
-                <div class="divleftpicture" style="width:25vw;">
-                    <img  src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
+                
+                
+               
+                <div id="section2"></div>
+                <h1>bild2</h1>
+                <hr>
+                
+                <div class="divleftpicture" style="width:35vw; margin-bottom:20vh;">
+                    <img src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
                     <p>
                         Figure 1. Wow very cool photos, they are the best photos ever taken. This just some text used to fil the page with. I dont really feel like writing Lorem Ipsum for the hundreth time... Damn, need to write some more to see how the text would look lite on two seperate rows. FML.
                     </p>
                 </div>
-                <p>
-                    Lab leaders attended an introduction for the handling of the autoclave and the dishwasher. Additionally, the most experienced students organized lessons showing the basic techniques in synthetic biology, as gel casting or working safely under the flame.
-                </p>
-                <p>
-                    Our wet lab work was carried in a BSL-1 (Biosafety Level 1) laboratory. Basic PPE (Personal Protective Equipment), including a laboratory coat, protective eyewear and gloves according to indications were enforced. Gloves were discarded immediately after use. For our experiments we used Escherichia coli (Strains DH5α, BL21(DE3)) and Bacillus subtilis w168, all included in the iGEM white-list and suited to be handled safely in our installations, without the need of extra protective equipment. Dangerous chemicals were handled in a fume hood.
-                </p>
-                <p>
-                    Lab work is often coupled with long and stressful days, which can be a potential hazard on their own. Therefore we made sure to communicate any errors in our routines during group meetings and to remind each other our responsibilities. A special lab-question communication channel in slack was accessible for any questions and concerns. To keep the lab in order, different lab groups rotated between responsibility of cleaning the lab, i.e. taking care of used glassware.
-                </p>
-                <div id="section2"></div>
-                <h1>Ethics of cultivated meat</h1>
-                <hr>
                 <p>
                     Our goal is to modify first the Gram-negative bacteria Escherichia coli and second the Gram-positive Bacillus subtilis so they express the different parts composing the biosensor fusion proteins containing the nanobodies for detection, T7 promoter amplification loop and β-galactosidase as output signal.
                 </p>
-                <div class="divleftpicture" style="width:20vw;">
-                    <img  src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
-                    <p>
-                        Figure 1. Wow very cool photos, they are the best photos ever taken. This just some text used to fil the page with. I dont really feel like writing Lorem Ipsum for the hundreth time... Damn, need to write some more to see how the text would look lite on two seperate rows. FML.
-                    </p>
-                </div>
                 <p>
                     When designing the prototype we kept in mind the user and the potential risks leading to releases of the organisms to the environment in mind. Accidents and/or mistakes could happen during the research and development, production, distribution, usage and discard of our biosensor. According to that, we have developed our prototype (see Kit design) and worked accordingly guidelines of our universities regarding safety preconditions in the lab. For our case study “Tuberculosis disease” we have also taken into account possible social concerns and conflicts that could arise upon a stigmatised disease/infection being easily detected (see Human practice).
                 </p>
@@ -760,9 +773,25 @@
                     For the whole project we have taken special care regarding ethics concerns in research, by attributing every contribution to its author, either inside or outside the team, as well as asking for permission and double-checking the content before its publication for the latter.
                 </p>
                 <div id="section3"></div>
-                <h1>COVID-19 measures</h1>
+                <h1>bild3</h1>
                 <hr>
-                <div class="divrightpicture" style="width:30vw;">
+                <div class="divrightpicture" style="width:35vw; margin-bottom:20vh;">
+                        <img  src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
+                        <p>
+                            Figure 1. Wow very cool photos, they are the best photos ever taken. This just some text used to fil the page with. I dont really feel like writing Lorem Ipsum for the hundreth time... Damn, need to write some more to see how the text would look lite on two seperate rows. FML.
+                        </p>
+                </div>
+                <p>
+                    During the spring period of 2020, all our activities were switched to a digital format. Later, during the summer months, we got an exemption from digital education after presenting an action plan with extra safety measures to contain potential outbreaks. The plan included social distancing, extra cleaning stations, maximum number of people allowed per room and personal equipment like portable hand disinfectant or face shields. These measures were enforced not just in the lab but also in the lunchroom and group rooms. Team members suspecting any symptoms were encouraged to stay home. As one of the few courses exempted from the distance studies during summer we shared our feedback and concerns with the Biological Education center, department that coordinates all bachelor's and master's education in biology at Uppsala University to help organize courses returning to campus during autumn 2020 in the settings of a pandemic.
+                </p>
+                <p>                        
+                    The waste disposal course was held by the safety officer on our campus. The course was composed of a tour around the waste disposal facilities in Uppsala University and a detailed demonstration about the correct labelling and transportations measures for laboratory waste-bins and chemical waste containers. At the end of the tour, each participant was given a diploma allowing them to handle all waste products that were produced in the lab.</p>
+            
+
+            <div id="section4"></div>
+                <h1>bild4</h1>
+                <hr>
+                <div class="divrightpicture" style="width:35vw; margin-bottom:20vh;">
                         <img  src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
                         <p>
                             Figure 1. Wow very cool photos, they are the best photos ever taken. This just some text used to fil the page with. I dont really feel like writing Lorem Ipsum for the hundreth time... Damn, need to write some more to see how the text would look lite on two seperate rows. FML.

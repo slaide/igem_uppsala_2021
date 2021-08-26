@@ -3,8 +3,10 @@
 <html lang="en">
 <head>
      <title>
-        sidepage6
+        Modelingpage2
     </title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
         /* used for all pages */
         #globalWrapper {padding-bottom:0px;}
@@ -130,7 +132,6 @@
         .dropdown a:hover, .dropdown:hover .dropbtn{
             color: #426968;
             text-decoration: underline;
-            cursor: default;
         }
 
         .dropdown:hover .dropdown-content a{
@@ -179,7 +180,7 @@
         #navmenu:hover .dropdown-content, #navmenu:hover .dropdown-background{
             display: block;
         }
-       /*LOGO FOR MENU*/
+       
         #clickbox{
             width: 3.5vw;
             height:5vh;
@@ -232,9 +233,8 @@
             width: 20vw;
             height:50vh;
             position:sticky;
-            top:5vh;
+            top:8vh;
             left:0px;
-            margin-top:5vh;
             padding: 0px;
             background-color: #6d1d23;
             text-align: left;
@@ -252,7 +252,7 @@
 
         .listsections{
             color:#6d1d23;
-            padding-bottom: 4vh;
+            padding-bottom: 2vh;
             display:block;
             width:100%;
             transition: all 0.2s;
@@ -266,12 +266,12 @@
 
         .listheader{
             color:#6d1d23;
-            padding-top:3vh;
+            padding-top:1vh;
             display:block;
             width:100%;
             background-color:#dce1de;
             font-size:1.6em;
-            margin-bottom: 2vh;
+            margin-bottom: 1vh;
             font-family: UM;
             margin-left: 1vw;
             
@@ -290,21 +290,22 @@
             height: 300%;
             font-family: UL;    
         }
-        /* TEXT*/
+
         .midcontenttext{
             text-align: left;
             font-size: 1.1em;
             margin-top: 3.2vh;
         }
 
-        /*HEADERS*/
         .midcontenttext > h1{
             font-size: 2em;
             color:#6d1d23;
             text-align: center;
             font-family: UM;
             border: none;
+            margin-top: 3vh;
         }
+
         .midcontenttext > h2{
             font-size: 1.5em;
             color: black;
@@ -322,7 +323,7 @@
             border:none;
             margin-top: 3vh;
         }
-        /* NORMAL PARAGRAPH*/
+
         .midcontenttext >p{
             font-weight:normal;
             font-size:1em;
@@ -333,8 +334,7 @@
         }
 
         /* 
-        WHEN ADDING THE PICTURE DIV
-        DEFINE ITS WIDTH IN THE HTML SECTION TO MAKE THE IMG THE RIGHT SIZE
+        WHEN ADDING THE PICTURE DIV, DEFINE ITS WIDTH IN THE HTML SECTION TO MAKE THE IMG THE RIGHT SIZE
         EX   ->
         <div class="divrightpicture" style="width:30vw;">
         */
@@ -353,6 +353,7 @@
             color:black;
             line-height:1.2;
             letter-spacing:0.05em;
+            margin-bottom: 2vh;
         }
 
         .divrightpicture > img{
@@ -399,27 +400,12 @@
             color:black;
             line-height:1.2;
             letter-spacing:0.05em;
+            margin-bottom: 2vh;
         }
 
         .divleftpicture > img{
             width: 100%;
             cursor: zoom-in;
-        }
-            /*For table*/
-        table {
-            font-family: arial, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        td, th {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-        }
-
-        tr:nth-child(even) {
-            background-color: #dddddd;
         }
 
         /* Sponsor part*/
@@ -485,6 +471,7 @@
         }
         
     </style>
+    
     <script>
         //Collpaseable menu
         window.onscroll = function() {indexFunction1(), indexFunction2(), indexFunction3()};
@@ -585,7 +572,7 @@
                 hide_igem_bs()
                 setTimeout(hide_igem_bs,1000)
         }
-
+        
             
     </script>
 </head>
@@ -599,40 +586,39 @@
         </a>
         <ul id="navigation_bar_list">
             <li class="dropdown">
-                <a href="#" class="dropbtn">Project</a>
+                <a href="https://2021.igem.org/Team:Uppsala/Description" class="dropbtn">Project</a>
                 <div class="dropdown-content">
                     <a href="https://2021.igem.org/Team:Uppsala/Description">Description</a>
                     <a href="https://2021.igem.org/Team:Uppsala/Proof_Of_Concept">Proof of Concept</a>
                     <a href="https://2021.igem.org/Team:Uppsala/Engineering">Engineering<br> Success</a>
                     <a href="https://2021.igem.org/Team:Uppsala/Contribution">Contribution</a>
+                    <a href="https://2021.igem.org/Team:Uppsala/Implementation">Proposed<br> Implementation</a>
                 </div>
 
             </li>
             <li class="dropdown">
-                <a href="#" class="dropbtn">Experiments</a>
+                <a href="https://2021.igem.org/Team:Uppsala/Results" class="dropbtn">Experiments</a>
                 <div class="dropdown-content">
                     <a href="https://2021.igem.org/Team:Uppsala/Results">Results</a>
                     <a href="https://2021.igem.org/Team:Uppsala/Model">Modeling</a>
-                    <a href="https://2021.igem.org/Team:Uppsala/Notebook">Wet Lab Notebook</a>
-                    <a href="https://2021.igem.org/Team:Uppsala/Notebook">Dry Lab Notebook</a>
+                    <a href="https://2021.igem.org/Team:Uppsala/Notebook">Notebook</a>
                     <a href="https://2021.igem.org/Team:Uppsala/Parts">Parts</a>
                     <a href="https://2021.igem.org/Team:Uppsala/Safety" style="text-decoration: underline; font-weight: bolder;">Safety</a>
                 </div>
             </li>
 
             <li class="dropdown">
-                <a href="#" class="dropbtn">Human Practice</a>
+                <a href="https://2021.igem.org/Team:Uppsala/Human_Practices" class="dropbtn">Human Practice</a>
                 <div class="dropdown-content">
-                    <a href="https://2021.igem.org/Team:Uppsala/Human_Practices">Overview</a>
-                    <a href="https://2021.igem.org/Team:Uppsala/Human_Practices">Integrated<br>Human Practice</a>
-                    <a href="https://2021.igem.org/Team:Uppsala/Implementation">Proposed<br>Implementation</a>
+                    <a href="https://2021.igem.org/Team:Uppsala/Human_Practices">Integrated <br>Human Practice</a>
                     <a href="https://2021.igem.org/Team:Uppsala/Education">Education</a>
-                    <a href="https://2021.igem.org/Team:Uppsala/Inclusivity">Inclusion</a>
+                    <a href="#">Ethics</a>
+                    <a href="#">Inclusion</a>
                 </div>
             </li>
 
             <li class="dropdown">
-                <a href="https://2021.igem.org/Team:Uppsala/Team" class="dropbtn">People</a>
+                <a href="https://2021.igem.org/Team:Uppsala/Team" class="dropbtn">Team</a>
                 <div class="dropdown-content">
                     <a href="https://2021.igem.org/Team:Uppsala/Team">Team</a>
                     <a href="https://2021.igem.org/Team:Uppsala/Collaborations">Collaboration</a>
@@ -644,8 +630,8 @@
             <li class="dropdown">
                 <a href="javascript:void(0)" class="dropbtn">Videos</a>
                 <div class="dropdown-content">
-                    <a href="https://2021.igem.org/Team:Uppsala/Description">Final<br>Presentation</a>
-                    <a href="https://www.youtube.com/watch?v=avKlAK5-1ks">Promotional<br>Video</a>
+                    <a href="https://2021.igem.org/Team:Uppsala/Description">Final<br> Presentation</a>
+                    <a href="https://www.youtube.com/watch?v=avKlAK5-1ks">Promotional<br> Video</a>
                     <a href="https://2021.igem.org/Team:Uppsala/Model">Molecular Dynamics</a>
                 </div>
             </li>
@@ -671,7 +657,7 @@
     <div class=parallaxtop>
         
         <div id="header">
-                Lab Safety
+                Modeling
         </div>
     </div>
 
@@ -682,7 +668,7 @@
                 <li class="listheader">
                     <span id="span0">
                         <a href="#section0">
-                            Lab Safety
+                            Modeling
                         </a>
                     </span>
                     <hr>  
@@ -690,93 +676,192 @@
                 <li class="listsections">
                     <span id="span1">
                         <a href="#section1">
-                                Lab Safety
+                                Strcuture
                             </a>
                     </span>
                 </li>
                 <li class="listsections">
                     <span id="span2">
                         <a href="#section2">
-                            Ethics of <br>cultivated meat 
+                            Initial Mutation Pool
                         </a>
                     </span>
                 </li>
                 <li class="listsections">
                     <span id="span3">
                         <a href="#section3">
-                            COVID-19 Measures
+                            FoldX
                         </a>
                     </span>
                 </li>
+                <li class="listsections">
+                    <span id="span4">
+                        <a href="#section4">
+                            Residue Scanning
+                        </a>
+                    </span>
+                </li>
+                <li class="listsections">
+                    <span id="span5">
+                        <a href="#section5">
+                            Molecular Dynamics
+                        </a>
+                    </span>
+                </li>
+                <li class="listsections">
+                    <span id="span6">
+                        <a href="#section6">
+                            Videomaking
+                        </a>
+                    </span>
+                </li>
+                
             </ul>
         </div>
         <!--Actual content-->
         <div id="midcontent">
             <div id="section1"></div>
             <div class="midcontenttext">
-                <h1>Lab Safety</h1>
                 <hr>
                 <p>
-                    Sharing is caring, especially when it comes to safety knowledge. To make sure that everyone understood and followed the rules needed for a safe-laboratory environment, we organized an introductory week before entering the lab, where the whole team participated in three mandatory activities, a laboratory safety round, a biosafety workshop and a waste disposal course. For the first, fire extinguishers, first aid kits and showers were introduced, as well as emergency exits and chemical room organization. For the second, Good Laboratory Practices (GLP) were explained, along with a practical demonstration of pipetting and safe glove removal techniques.
-                </p>
-                <p>
-                    The waste disposal course was held by the safety officer on our campus. The course was composed of a tour around the waste disposal facilities in Uppsala University and a detailed demonstration about the correct labelling and transportations measures for laboratory waste-bins and chemical waste containers. At the end of the tour, each participant was given a diploma allowing them to handle all waste products that were produced in the lab.
-                </p>
-                <div class="divleftpicture" style="width:25vw;">
-                    <img  src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
-                    <p>
-                        Figure 1. Wow very cool photos, they are the best photos ever taken. This just some text used to fil the page with. I dont really feel like writing Lorem Ipsum for the hundreth time... Damn, need to write some more to see how the text would look lite on two seperate rows. FML.
+                    As the project idea was formed, that is, reducing the cost of cultivated meat by optimizing FGF2. It became clear that the dry lab would become an important part of the process. Our approach of improving the binding between FGF2 and its receptor FGFR2 by site directed mutagenesis in particular, was believed to greatly benefit from in silico modeling. The idea being that if we could evaluate the effect of mutations computationally, we would be able to pin point mutations that are more likely to work. This is useful due to the fact that there are 20 possible natural amino acids for each position within a given protein chain. To produce mutant proteins in the lab for every possible amino acid in each position is simply unreasonable amounts of work without the guarantee of success. By the use of free energy perturbation (FEP) through the molecular dynamics software package Q, we were able to estimate the effect of single point mutations computationally. Enabling us to only proceed in the lab with single point mutations that had satisfactory in silico estimation results, thus saving us extensive lab work and increasing the chance of successful results.     
                     </p>
-                </div>
-                <p>
-                    Lab leaders attended an introduction for the handling of the autoclave and the dishwasher. Additionally, the most experienced students organized lessons showing the basic techniques in synthetic biology, as gel casting or working safely under the flame.
-                </p>
-                <p>
-                    Our wet lab work was carried in a BSL-1 (Biosafety Level 1) laboratory. Basic PPE (Personal Protective Equipment), including a laboratory coat, protective eyewear and gloves according to indications were enforced. Gloves were discarded immediately after use. For our experiments we used Escherichia coli (Strains DH5α, BL21(DE3)) and Bacillus subtilis w168, all included in the iGEM white-list and suited to be handled safely in our installations, without the need of extra protective equipment. Dangerous chemicals were handled in a fume hood.
-                </p>
-                <p>
-                    Lab work is often coupled with long and stressful days, which can be a potential hazard on their own. Therefore we made sure to communicate any errors in our routines during group meetings and to remind each other our responsibilities. A special lab-question communication channel in slack was accessible for any questions and concerns. To keep the lab in order, different lab groups rotated between responsibility of cleaning the lab, i.e. taking care of used glassware.
-                </p>
-                <div id="section2"></div>
-                <h1>Ethics of cultivated meat</h1>
-                <hr>
-                <p>
-                    Our goal is to modify first the Gram-negative bacteria Escherichia coli and second the Gram-positive Bacillus subtilis so they express the different parts composing the biosensor fusion proteins containing the nanobodies for detection, T7 promoter amplification loop and β-galactosidase as output signal.
-                </p>
-                <div class="divleftpicture" style="width:20vw;">
-                    <img  src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
+                    
+                    <h1>Structure</h1>
+                    <hr>
                     <p>
-                        Figure 1. Wow very cool photos, they are the best photos ever taken. This just some text used to fil the page with. I dont really feel like writing Lorem Ipsum for the hundreth time... Damn, need to write some more to see how the text would look lite on two seperate rows. FML.
-                    </p>
-                </div>
-                <p>
-                    When designing the prototype we kept in mind the user and the potential risks leading to releases of the organisms to the environment in mind. Accidents and/or mistakes could happen during the research and development, production, distribution, usage and discard of our biosensor. According to that, we have developed our prototype (see Kit design) and worked accordingly guidelines of our universities regarding safety preconditions in the lab. For our case study “Tuberculosis disease” we have also taken into account possible social concerns and conflicts that could arise upon a stigmatised disease/infection being easily detected (see Human practice).
-                </p>
-      
-                <p>
-                    We have assessed the risk of our genetically modified bacteria (GMO) reaching the environment and deem it as relatively low. The proteins and other elements included in the bacteria are naturally occurring, and the fitness cost of carrying all this extra genetic material is likely to lead to bacterial death outside a controlled environment. The antibiotic-resistant genes included in the genome of our bacteria are standard for this kind of research. Further development of the biosensor would entail integrating a kill switch (see Future). Upon actual product development necessary evaluations and risk assessment aimed for different user groups should be carried out.
-                </p>
-                <p>
-                    For the whole project we have taken special care regarding ethics concerns in research, by attributing every contribution to its author, either inside or outside the team, as well as asking for permission and double-checking the content before its publication for the latter.
-                </p>
-                <div id="section3"></div>
-                <h1>COVID-19 measures</h1>
-                <hr>
-                <div class="divrightpicture" style="width:30vw;">
-                        <img  src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
-                        <p>
-                            Figure 1. Wow very cool photos, they are the best photos ever taken. This just some text used to fil the page with. I dont really feel like writing Lorem Ipsum for the hundreth time... Damn, need to write some more to see how the text would look lite on two seperate rows. FML.
-                        </p>
-                </div>
-                <p>
-                    During the spring period of 2020, all our activities were switched to a digital format. Later, during the summer months, we got an exemption from digital education after presenting an action plan with extra safety measures to contain potential outbreaks. The plan included social distancing, extra cleaning stations, maximum number of people allowed per room and personal equipment like portable hand disinfectant or face shields. These measures were enforced not just in the lab but also in the lunchroom and group rooms. Team members suspecting any symptoms were encouraged to stay home. As one of the few courses exempted from the distance studies during summer we shared our feedback and concerns with the Biological Education center, department that coordinates all bachelor's and master's education in biology at Uppsala University to help organize courses returning to campus during autumn 2020 in the settings of a pandemic.
-                </p>
-                <p>                        
-                    The waste disposal course was held by the safety officer on our campus. The course was composed of a tour around the waste disposal facilities in Uppsala University and a detailed demonstration about the correct labelling and transportations measures for laboratory waste-bins and chemical waste containers. At the end of the tour, each participant was given a diploma allowing them to handle all waste products that were produced in the lab.</p>
-            </div>
-              
-        </div>
+                    Our project initially started with searches on uniprot and the PDB in order to find sequences and crystal structures of the growth factor, bovine FGF2, and its receptor bovine FGFR2. Since a crystal structure of bovine FGF2 could not be found whilst a crystal structure of human FGF2 was found, alignments between the sequences of human FGF2 and bovine FGF2 were performed. As the sequences were found to have very high sequence identity, they only differed by two residues, the human FGF2 bound to its receptor human FGFR2 crystal structure was chosen as the target structure to manually search for plausible mutations. Furthermore, homology modeling of bovine FGF2 with human FGF2 as template on swiss prot showed that the 3D structure of bovine FGF2 was very likely to be near identical to the 3D structure of human FGF2 which gave further support for the choice of human FGF2 crystal structure as search target for mutations. 
+                    <p>
+                    
 
+                <div class="divmidpicture" style="width:80%;">
+                    <img src="https://2021.igem.org/wiki/images/6/67/T--Uppsala--FGF2andFGFR2.png">
+                    <p>
+                        Figure X: Structure used to search for plausible mutations. PDB code 1ev2. 
+                    </p>
+                </div>
+                <h1>Initial mutation pool</h1>
+                <hr>
+                <p>
+                The search for mutations was conducted in the GUI in pyMOL. Sites within the interaction interface in which there was no interaction present or an existing interaction being believed to be weak were chosen. From the search, a pool of sites believed to be apt for improving mutations were constructed. Some sites were excluded directly as the side chain rotamers all faced away from the receptor back into the growth factor causing high side chain clashes. 
+                </p>
+                <p>
+                We analyzed the structure of FGF2, its binding site and interactions with its receptor. We explored altering different residues to strengthen the existing  bond and/or to create a new interaction between the protein and receptor. Rational design. We also looked for natural or unnatural mutations that had been found in analogous structures to FGF2 in existing literature. The result was a first mutation pool consisting of positions that seemed likely to be prone to improving mutations. See table X.
+                </p>
+                <p>
+                Optimally all sites within the mutation pool would be evaluated using molecular dynamics. However our computing power resources were limited. Thus, other means of evaluating the mutations were used in order to reduce the size of the mutation pool. These included: FoldX through the GUI Yasara, the residue scanning tool within the maestro suite, docking on cluspro and evaluation in Dynamut. In Yasara, the PDB of human FGF2 in complex with FGFR2 was loaded and repaired using a repair module within the FoldX suite. Then a residue scanning module within the FoldX suite was used to evaluate the effect the remaining nineteen natural amino acids would have on overall stability of the complex. In maestro the structure was loaded and repaired similarly but the residue scanning tool within the maestro suite gave information on the effect of both affinity and stability. For cluspro the structure of FGFR2 and different mutated versions of FGF2 was submitted for docking. The calculated gibbs free energy of the best suggested binding mode was chosen and compared to the wild type. All combined, this resulted in a reduction of the mutation pool from XXX to a size of 7-10 mutations that were to be evaluated computationally using molecular dynamics through the Q software package developed at Uppsala University.
+                </p>
+                <p>
+                As free energy perturbation, FEP, is very computationally demanding we needed some means of reducing the size of the pool that were to be evaluated using MD. We used different platforms to test different mutations and their impact on binding affinity to the receptor in order to accomplish this. Some of them are explained in brief below:
+                </p>
+                <h1>FoldX</h1> 
+                <hr>
+                <p>FoldX was used through the GUI Yasara in order to reduce the size of the mutation pool that</p>
+
+                <h1>Residue Scanning</h1> 
+                <hr>
+                <p>
+                With the trial license for Maestro from Schrodinger, we managed to use the residue scanning panel.The panel helps us to scan our proteins for residues that are suitable for mutations based on solvent accessible surface area and distances with other residues but also can allow manual selection. We defined the  mutations based on the findings from pymol to produce mutated structures. We got the thermal stability of a single protein as well as its binding affinity variations with the original protein which helped us to move further in the process of finding mutations.
+                </p>
+
+                <h1>Molecular dynamics </h1>
+                <hr>
+
+                <p>
+                Once the mutation pool had been reduced to a manageable size we went on to evaluating the remaining mutations through the molecular dynamics software package Q. 
+                </p>
+
+                <h2>Theory</h2>
+
+                <p>
+                The molecular dynamics software package Q can be used to simulate and calculate the change in free energy during annihilation of any of the 20 natural amino acids into an alanine residue. Each amino acid is annihilated in a given number of steps. During the different steps the amino acid gradually loses its chemical and physical properties until it by the end of the annihilation has “become” an alanine residue. For all amino acids these annealing steps are further divided into time steps, or so called lambda windows, during which the molecular dynamics sampling occurs in the form of short simulations. The difference in free energy between two simulations is determined either with the Zwanzig’s exponential formula: 
+                </p>
+                <p> 
+                    \[
+                        \Delta G=G_B - G_A= - \beta ^{-1}  \sum_{m=1}^{n-1}ln(e^{- \beta(U_{m+1} - U_m)})_A
+                    \]
+    
+                    In which \( \beta = {1 \over kT}\) and \(U_m = (1-\lambda_m)U_A + \lambda_m U_B\)
+                    <br>
+                    
+                    Or alternatively the difference in free energy can be calculated using the Bennet acceptance ratio:
+                    \[
+                    \Delta G_i = - \beta^{-1} ln {(1 + e^{- \beta (\Delta U \lambda_i - C_i)})_{i+1} \over (1 + e^{+ \beta (\Delta U \lambda_i - C_i)})_i } + C_i
+                    \]
+                </p>
+
+                <p>
+                By following the scheme of a thermodynamic cycle, the energy values estimated by the simulations can indirectly be used to calculate an estimation of the effect of single point mutations on protein characteristics.   
+                </p>
+
+                <p>
+                The molecular engine Q requires information in the form of different input files in order to adequately perform the simulations. The setup of the required input files has been automated by its developers and users in the form of API modules. In that way the setup and running of Q has become very user friendly. One need only to define a few parameters in order to produce the correct setup. We generously received both great consulting from Hugo Guiterrez de Teran and his colleagues and also prepared input structure files that could be understood by the API modules. In addition we further automated the process of setting up files for the simulations. Read more about our own pipeline in XXYYXX.
+                </p>
+
+                <p>
+                In addition to giving the user the estimated energy values the simulation produces trajectory files. These trajectories can be used to follow the simulation and to make representations of the simulation. Note that the annihilation does not work by removing atoms as the video representation suggests. Rather the removed atoms lose their properties and are being interpreted as “dummy” atoms by the molecular dynamics engine.
+                </p>
+
+                <p>
+                (Picture of complex with sphere upon it) next to (Video of sphere and annihilation)   
+                </p>
+
+                <h2>Method</h2>
+
+                <p>
+                As described, Q can predict the change in free energy during annihilation of an amino acid to alanine, and this can be used to evaluate the effect of single point mutations. Q has mainly been used to evaluate the effect of single point mutations on protein-ligand interactions but for our project we needed to estimate the effect on protein-protein interactions. That was done by combining the scheme of thermodynamic cycles associated with the different mutations. The combination is possible due to the fact that they all share the common alanine leg, which can be simulated by Q. See combined thermodynamic cycle for one of our mutations in figure X.  
+                </p>
+                <div class="divmidpicture" style="width: 80%;">
+                    <img src="https://2021.igem.org/wiki/images/a/a4/T--Uppsala--thermodynamicscycle1.png">
+                    <p>
+                        Figure X: Example of combined thermodynamic cycle for mutation Q54K. In the middle is the shared alanine leg for Q54A and K54A. The FEP arrows represent values that we can obtain by the use of FEP in Q.  
+                    </p>
+                </div>
+                        
+                <p>
+                Equation X:
+                \(
+                    \Delta \Delta G = ( \Delta G_{holo}^{wt}- \Delta G_{apo} ^{wt})-(\Delta G_{holo}^{mut}- \Delta G_{apo} ^{mut})
+                    \)
+                </p>
+                <p>
+                    Similar thermodynamic cycles were created for all remaining mutations in the final pool after FoldX and Residue Scanning filtration. The Q simulations provide values to the FEP arrows within the thermodynamic cycle that can be used according to equation X in order to obtain the final ΔΔG value. A lower ΔΔG corresponds to a more stable structure and thus negative ΔΔG indicates improving mutations. Simulations were performed with Q on the supercomputer cluster snowy on UPPMAX in order to obtain values for the FEP arrows for us to be able to calculate the final ΔΔG values for all remaining mutations. See calculation example below.    
+                </p>     
+                    
+                <h2>Calculation example Q54K:</h2>
+                    <p>
+                    \[ \Delta G_{holo}^{wt} = 40.99 ± 0.25 \]
+                    \[ \Delta G_{apo}^{wt}= 40.94 ± 0.33 \]
+                    \[ \Delta G_{holo}^{mut} = -21.91 ± 1.88 \]
+                    \[ \Delta G_{apo}^{mut} = -22.86 ± 0.32 \]
+                    \[
+                        \Delta \Delta G = ( \Delta G_{holo}^{wt}- \Delta G_{apo} ^{wt})-(\Delta G_{holo}^{mut}- \Delta G_{apo} ^{mut})
+                        \]
+
+                        \[
+                        \Delta \Delta G = ( 40.99 - 40.94)-(21.91- 22.86) = 0.05 - 0.95 = -0.9
+                        \]
+                    </p>
+                
+                    <div class="divmidpicture" style="width:80%;">
+                        <img src="https://2021.igem.org/wiki/images/3/32/T--Uppsala--graphs-added-modeling.png">
+                        <p>
+                            Figure X: Free energy difference over time for all four simulations required to close the thermodynamic cylce for Q54K mutation. 
+                        </p>
+                    </div>
+
+                    <h2>Results</h2>
+                    <p>INSERT TABLE HERE</p>
+                    <h1>Video making</h1>
+                    <p>
+                    The picture and video representation on this page was made in VMD. The videos were made by screen recording the VMD session and then treated using adobe. 
+                    </p>
+
+                    
+
+                
+            </div>
+        </div>
     </div>
 
     <!--Start sponsor-->

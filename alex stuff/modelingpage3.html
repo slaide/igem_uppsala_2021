@@ -1,0 +1,954 @@
+{{IGEM_TopBar}}
+<!-- doctype should go here to make document.docmentelement.scrollTop work, which breaks the page on the igem site though-->
+<html lang="en">
+<head>
+     <title>
+        modelpagev3
+    </title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        /* used for all pages */
+        #globalWrapper {padding-bottom:0px;}
+
+        @font-face {
+            font-family: UL;
+            src: url("https://2021.igem.org/wiki/images/5/56/T--Uppsala--Ubuntu-Light.ttf");
+        }
+
+        @font-face {
+            font-family: UM;
+            src: url("https://2021.igem.org/wiki/images/d/db/T--Uppsala--Ubuntu-Medium.ttf");
+        }
+
+
+        *{
+            margin:0;
+            border:0;
+            padding:0;
+        }
+
+        a{
+            width: 100%;
+            text-decoration: none;
+            color: #6d1d23;
+        }
+
+        a:hover{
+            color: #426968;
+        }
+
+        a:visited{
+            color:#6d1d23;
+        }
+
+
+        body, html{
+            height: 100%;
+            scroll-behavior: smooth;
+        }
+
+        #bodyContent h1{
+            margin:0;
+        }
+        
+
+        hr{
+            height: 1px;
+            background-color: #6d1d23;
+            display: block;
+            width: auto;
+            margin-top: 2vh;
+        }
+
+        #section0, #section1, #section2, #section3{
+            height:0.1px;
+        }
+
+        /* menu with drop down */
+        #navmenu{
+            position: fixed;
+            width: 100%;
+            background-color: #dce1de;
+            transition: all 0.5s;
+            overflow: hidden;
+            height: 5vh;
+            z-index: 10;
+            font-size: 1.5em;
+            color:#6d1d23;
+            font-family: UL;
+
+        }
+        #navmenu:hover{
+            overflow: visible;
+        }
+
+        #navmenu:hover ~ .parallaxtop, #navmenu:hover ~ #pagecontent, #navmenu:hover ~ .flexbox-container-socialmedia, #navmenu:hover ~ .grid-container-sponsors{
+            filter: blur(5px);
+        }
+
+        .logotype{
+            float:left;
+            width:3.5vw;
+            height:5vh;
+            padding-right:0px;
+        }
+
+        ul {
+            list-style-type: none;
+            margin:0;
+        }
+
+        .mw-content-ltr ul, .mw-content-rtl .mw-content-ltr ul{
+            margin: 0;;
+        }
+        
+        li {
+            float: left;
+            margin-right: 8vw;      
+        }
+
+        #navigation_bar_container{
+            height:100%;
+        }
+        #navigation_bar_container > li{
+            height:100%;
+            margin:0;
+        }
+        #navigation_bar_container > li > a{
+            position:absolute;
+            top:50%;
+            transform:translateY(-50%);
+        }
+
+        .dropdown a, .dropbtn {
+            display: inline-block;
+            color:#6d1d23;
+            text-align: center;
+            margin-top: 0.6vh;
+            text-decoration: none;
+        }
+        
+        .dropdown a:hover, .dropdown:hover .dropbtn{
+            color: #426968;
+            text-decoration: underline;
+            cursor: default;
+        }
+
+        .dropdown:hover .dropdown-content a{
+            color: #426968;
+        }
+        
+        li.dropdown{
+            display: inline-block;
+        }
+        
+        .dropdown-content{
+            display: none;
+            position: absolute;
+            background-color: #dce1de;
+            min-width: 5vw;
+            z-index: 1;
+            margin-top: 1vh;
+            margin-bottom: 2vh;
+        }
+        
+        .dropdown-content a{
+            margin-top: 2.7vh;
+            margin-left: 0.5vw;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        
+        .dropdown-content a:hover{
+            color: #426968;
+            margin-left: 1vw;
+            text-decoration: none;
+        }
+
+        .dropdown-background{
+            display: none;
+            position: absolute;
+            background-color: #dce1de;
+            width: 77vw;
+            height: 40vh;
+            z-index: 1;
+            margin-top: 5vh;
+            margin-left: 3.5vw;
+        }
+    
+        #navmenu:hover .dropdown-content, #navmenu:hover .dropdown-background{
+            display: block;
+        }
+       
+        #clickbox{
+            width: 3.5vw;
+            height:5vh;
+            position: fixed;
+            z-index: 100;
+            background-color: #dce1de;
+            justify-content: center;
+            align-content: center;
+            display: flex;
+        }
+
+
+        /* parallax section*/
+        .parallaxtop {
+            background-image: url(https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fspecials-images.forbesimg.com%2Fdam%2Fimageserve%2F1163531587%2F960x0.jpg%3Ffit%3Dscale);
+            height: 50vh;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            overflow: hidden;
+        }
+
+        #header{
+            margin: auto;
+            width: 60vw;
+            margin-top: 25vh;
+            transform: translateY(-50%);
+            animation-name: fadein;
+            animation-duration: 2s;
+            text-align: center;
+            font-size: 6em;
+            color: #6d1d23;
+            font-family: UM;
+        }
+        @keyframes fadein{
+            from {opacity: 0;}
+            to{opacity: 1;}
+        }
+
+    
+        #pagecontent{
+            display: flex;
+            justify-content: left;
+            background-color: #dce1de;
+        }
+/* sidebar */
+.sidebar3 {
+            width: 20vw;
+            height:50vh;
+            position:sticky;
+            top:8vh;
+            left:0px;
+            padding: 0px;
+            background-color: #6d1d23;
+            text-align: left;
+            font-size: 1.5em;
+        }
+
+        .listsidebar{
+            margin-top: 0px;
+            padding:0;
+            width: 100%;
+            background-color: #dce1de;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .listsections{
+            color:#6d1d23;
+            padding-bottom: 2vh;
+            display:block;
+            width:100%;
+            transition: all 0.2s;
+            font-family: UL;
+            margin-left: 1vw;
+        }
+     
+        .listsections span:hover{
+            color:#426968;
+        }
+
+        .listheader{
+            color:#6d1d23;
+            padding-top:1vh;
+            display:block;
+            width:100%;
+            background-color:#dce1de;
+            font-size:1.6em;
+            margin-bottom: 1vh;
+            font-family: UM;
+            margin-left: 1vw;
+            
+        }
+
+        .listheader span:hover{
+            color:#426968; 
+        }
+
+        /* Actual content */
+        #midcontent{
+            background-color: #dce1de;
+            width: 64vw;
+            margin-left: 6vw;
+            margin-top:3.6vh;
+            height: 300%;
+            font-family: UL;    
+        }
+
+        .midcontenttext{
+            text-align: left;
+            font-size: 1.1em;
+            margin-top: 3.2vh;
+        }
+
+        .midcontenttext > h1{
+            font-size: 2em;
+            color:#6d1d23;
+            text-align: center;
+            font-family: UM;
+            border: none;
+            margin-top: 3vh;
+        }
+
+        .midcontenttext > h2{
+            font-size: 1.5em;
+            color: black;
+            text-align: center;
+            font-family: UM;
+            border:none;
+            margin-top: 3vh;
+        }
+
+        .midcontenttext > h3{
+            font-size: 1.2em;
+            color: black;
+            text-align: center;
+            font-family: UL;
+            border:none;
+            margin-top: 3vh;
+        }
+
+        .midcontenttext >p{
+            font-weight:normal;
+            font-size:1em;
+            color:black;
+            line-height:1.8;
+            letter-spacing:0.05em;
+            margin-top: 3vh;
+        }
+
+        /* 
+        WHEN ADDING THE PICTURE DIV, DEFINE ITS WIDTH IN THE HTML SECTION TO MAKE THE IMG THE RIGHT SIZE
+        EX   ->
+        <div class="divrightpicture" style="width:30vw;">
+        */
+        .divrightpicture{
+            float: right;
+            margin-top: 3vh;
+            margin-left: 2vw;
+            margin-right: 2vw;
+            margin-bottom: 0;
+        }
+
+        .divrightpicture > p{
+            font-weight:normal;
+            text-align: left;
+            font-size:0.9em;
+            color:black;
+            line-height:1.2;
+            letter-spacing:0.05em;
+            margin-bottom: 2vh;
+        }
+
+        .divrightpicture > img{
+            width: 100%;
+            cursor: zoom-in;
+        }
+
+        .divmidpicture{
+            margin-top: 3vh;
+            margin-left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 0;
+
+
+        }
+
+        .divmidpicture > p{
+            font-weight:normal;
+            text-align: left;
+            font-size:0.9em;
+            color:black;
+            line-height:1.2;
+            letter-spacing:0.05em;
+            margin-bottom: 2vh;
+        }
+
+        .divmidpicture > img{
+            width: 100%;
+            cursor: zoom-in;
+        }
+
+        .divleftpicture{
+            float: left;
+            margin-top: 3vh;
+            margin-left: 2vw;
+            margin-right: 2vw;
+            margin-bottom: 0;
+        }
+
+        .divleftpicture > p{
+            font-weight:normal;
+            text-align: left;
+            font-size:0.9em;
+            color:black;
+            line-height:1.2;
+            letter-spacing:0.05em;
+            margin-bottom: 2vh;
+        }
+
+        .divleftpicture > img{
+            width: 100%;
+            cursor: zoom-in;
+        }
+
+            /*For table*/
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+        /* Sponsor part*/
+
+        .flexbox-container-socialmedia{
+            width: auto;
+            height: 25vh;
+            display: flex;
+            flex-direction: row;
+            overflow: hidden;
+            background-color: #426968;
+            justify-content: center;
+        }
+
+
+        .flexbox-container-socialmedia > div > img:not(img.upplogo){
+            margin-left: 3vw;
+            margin-right: 3vw;
+            filter: grayscale(50%);
+            margin-top: 7vh;
+            width: 4vw;
+        }
+
+        .flexbox-container-socialmedia > div > img:not(img.upplogo):hover{
+            filter:grayscale(0);
+            filter: brightness(130%);
+            filter: contrast(150%);
+
+        }
+
+        img.upplogo{
+            width: 10vw;
+            margin-top: 3vh;
+            margin-left: 3vw;
+            margin-right: 3vw;
+        }
+       
+
+        .grid-container-sponsors{
+            width: auto;
+            height: 30vh;
+            display: grid;
+            grid-template-columns:repeat(6,1fr);
+            grid-template-rows:repeat(2,1fr);
+            overflow: hidden;
+            background-color: #426968;
+        }
+
+
+        .grid-container-sponsors > div > img{
+            margin-left: 50%;
+            margin-top: 7vh;
+            transform: translateY(-50%);
+            transform: translateX(-50%);
+            width: 7vw;
+            filter: grayscale(50%);
+        }
+
+        .grid-container-sponsors > div > img:hover{
+            filter:grayscale(0);
+            filter: brightness(130%);
+            filter: contrast(150%);
+        }
+        
+    </style>
+    
+    <script>
+        //Collpaseable menu
+        window.onscroll = function() {indexFunction1(), indexFunction2(), indexFunction3()};
+
+        var prevScrollpos = document.documentElement.scrollTop;
+        window.addEventListener("scroll", function() {
+            var currentScrollPos = document.documentElement.scrollTop;
+
+            console.log(document.documentElement.scrollTop)
+
+            /*if (prevScrollpos < currentScrollPos) {
+                document.getElementById("navmenu").style.height = "0%";
+            }
+            else if(currentScrollPos > 400){
+                document.getElementById("navmenu").style.height = "5vh";
+            }
+            else {
+                document.getElementById("navmenu").style.height = "5vh";
+            }
+            prevScrollpos = currentScrollPos;
+
+            ------------*/
+            if (prevScrollpos > currentScrollPos || currentScrollPos < 400){
+                document.getElementById("navmenu").style.height = "5vh";
+            }
+            else{
+                document.getElementById("navmenu").style.height = "0%";
+            }
+            prevScrollpos = currentScrollPos;
+        })
+        
+        function and(a,b){return (a+b)==2}
+        
+        //Bolding index
+        function indexFunction1(){
+            if (and(document.documentElement.scrollTop >400,document.documentElement.scrollTop <1700)) {
+                document.getElementById("span1").style.fontWeight="bolder";
+                document.getElementById("span1").style.textDecoration="underline";
+            } else {
+            document.getElementById("span1").style.fontWeight = "normal";
+            document.getElementById("span1").style.textDecoration="none";
+            }
+        }
+        function indexFunction2(){
+            if (and(document.documentElement.scrollTop >1700, document.documentElement.scrollTop <2200)) {
+                document.getElementById("span2").style.fontWeight="bolder";
+                document.getElementById("span2").style.textDecoration="underline";
+            } else {
+            document.getElementById("span2").style.fontWeight = "normal";
+            document.getElementById("span2").style.textDecoration="none";
+            }
+        }
+        function indexFunction3(){
+            if (document.documentElement.scrollTop > 2200) {
+                document.getElementById("span3").style.fontWeight="bolder";
+                document.getElementById("span3").style.textDecoration="underline";
+            } else {
+            document.getElementById("span3").style.fontWeight = "normal";
+            document.getElementById("span3").style.textDecoration="none";
+            }
+        } 
+        
+        //Uncollapse the menu with a click on the logo
+        /*function clickfunction(){
+            document.getElementById("navmenu").style.width = "100%";
+            document.getElementById("navmenu").style.opacity = "1";
+            document.getElementById("navmenu").style.overflow  = "hidden";
+            setTimeout(function(){ document.getElementById("navmenu").style.overflow='visible'; }, 1000);
+        }*/
+
+        function on_load(){
+            function hide_igem_bs(){
+                    let element=document.getElementsByClassName("top_bar")[0]
+                    if(element){
+                        element.classList.remove("top_bar")
+                        element.style="display:none;"
+                    }
+                    for(class_name of "igem_content_wrapper igem_column_wrapper clear extra_space".split(" ")){
+                        for(element of document.getElementsByClassName(class_name)){
+                            element.classList.remove(class_name)
+                        }
+                    }
+                    let logo_container=document.getElementById("nav-menu-logo-container")
+                    if(logo_container){
+                        logo_container.classList.remove("current_hub")
+                    }
+                    let navigation_bar_list=document.getElementById("navigation_bar_list")
+                    if(navigation_bar_list){
+                        if(navigation_bar_list.style.getPropertyValue("display")=="none"){
+                            navigation_bar_list.style=undefined
+                        }
+                        for(child of navigation_bar_list.children){
+                            child.classList.remove("current_hub")
+                            child.style=undefined
+                        }
+                    }
+                }
+                hide_igem_bs()
+                setTimeout(hide_igem_bs,1000)
+        }
+        
+            
+    </script>
+</head>
+<body onload="on_load()">
+    <div id="section0"></div>
+    <!--Menu with drop down-->
+    <div id="navmenu">
+        <div class="dropdown-background"></div> 
+        <a id="nav-menu-logo-container" href='https://2021.igem.org/Team:Uppsala' style="height: 100%; width: auto;">
+            <img class="logotype" src="https://2021.igem.org/wiki/images/thumb/1/13/T--Uppsala--logotransparent.png/320px-T--Uppsala--logotransparent.png">
+        </a>
+        <ul id="navigation_bar_list">
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Project</a>
+                <div class="dropdown-content">
+                    <a href="https://2021.igem.org/Team:Uppsala/Description">Description</a>
+                    <a href="https://2021.igem.org/Team:Uppsala/Proof_Of_Concept">Proof of Concept</a>
+                    <a href="https://2021.igem.org/Team:Uppsala/Engineering">Engineering<br> Success</a>
+                    <a href="https://2021.igem.org/Team:Uppsala/Contribution">Contribution</a>
+                </div>
+
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Experiments</a>
+                <div class="dropdown-content">
+                    <a href="https://2021.igem.org/Team:Uppsala/Results">Results</a>
+                    <a href="https://2021.igem.org/Team:Uppsala/Model">Modeling</a>
+                    <a href="https://2021.igem.org/Team:Uppsala/Notebook">Wet Lab Notebook</a>
+                    <a href="https://2021.igem.org/Team:Uppsala/Notebook">Dry Lab Notebook</a>
+                    <a href="https://2021.igem.org/Team:Uppsala/Parts">Parts</a>
+                    <a href="https://2021.igem.org/Team:Uppsala/Safety" style="text-decoration: underline; font-weight: bolder;">Safety</a>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Human Practice</a>
+                <div class="dropdown-content">
+                    <a href="https://2021.igem.org/Team:Uppsala/Human_Practices">Overview</a>
+                    <a href="https://2021.igem.org/Team:Uppsala/Human_Practices">Integrated<br>Human Practice</a>
+                    <a href="https://2021.igem.org/Team:Uppsala/Implementation">Proposed<br>Implementation</a>
+                    <a href="https://2021.igem.org/Team:Uppsala/Education">Education</a>
+                    <a href="https://2021.igem.org/Team:Uppsala/Inclusivity">Inclusion</a>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <a href="https://2021.igem.org/Team:Uppsala/Team" class="dropbtn">People</a>
+                <div class="dropdown-content">
+                    <a href="https://2021.igem.org/Team:Uppsala/Team">Team</a>
+                    <a href="https://2021.igem.org/Team:Uppsala/Collaborations">Collaboration</a>
+                    <a href="https://2021.igem.org/Team:Uppsala/Attributions">Attribution</a>
+                    <a href="https://2021.igem.org/Team:Uppsala/Attributions">Sponsors</a>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Videos</a>
+                <div class="dropdown-content">
+                    <a href="https://2021.igem.org/Team:Uppsala/Description">Final<br>Presentation</a>
+                    <a href="https://www.youtube.com/watch?v=avKlAK5-1ks">Promotional<br>Video</a>
+                    <a href="https://2021.igem.org/Team:Uppsala/Model">Molecular Dynamics</a>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Judging</a>
+                <div class="dropdown-content">
+                    <a href="#">Judging Form</a>
+                    <a href="#">Awards</a>
+                </div>
+            </li>
+
+
+        </ul>
+    </div>
+    <div id="clickbox">
+        <a href='https://2021.igem.org/Team:Uppsala'>
+            <img src="https://2021.igem.org/wiki/images/thumb/1/13/T--Uppsala--logotransparent.png/320px-T--Uppsala--logotransparent.png" height="100%" style="margin-left: auto">
+        </a>
+    </div>
+        <!-- Parallax-->
+        <div class=parallaxtop>
+        
+            <div id="header">
+                    Modeling
+            </div>
+        </div>
+    
+        <div id="pagecontent">
+            <!--Sidebar-->
+            <div class="sidebar3">
+                <ul class="listsidebar">
+                    <li class="listheader">
+                        <span id="span0">
+                            <a href="#section0">
+                                Modeling
+                            </a>
+                        </span>
+                        <hr>  
+                    </li>  
+                    <li class="listsections">
+                        <span id="span1">
+                            <a href="#section1">
+                                    Strcuture
+                                </a>
+                        </span>
+                    </li>
+                    <li class="listsections">
+                        <span id="span2">
+                            <a href="#section2">
+                                Initial Mutation Pool
+                            </a>
+                        </span>
+                    </li>
+                    <li class="listsections">
+                        <span id="span3">
+                            <a href="#section3">
+                                FoldX
+                            </a>
+                        </span>
+                    </li>
+                    <li class="listsections">
+                        <span id="span4">
+                            <a href="#section4">
+                                Residue Scanning
+                            </a>
+                        </span>
+                    </li>
+                    <li class="listsections">
+                        <span id="span5">
+                            <a href="#section5">
+                                Molecular Dynamics
+                            </a>
+                        </span>
+                    </li>
+                    <li class="listsections">
+                        <span id="span6">
+                            <a href="#section6">
+                                Videomaking
+                            </a>
+                        </span>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!--Actual content-->
+            <div id="midcontent">
+                <div id="section1"></div>
+                <div class="midcontenttext">
+                    <hr>
+                    <p>
+                        As the project idea was formed, that is, reducing the cost of cultivated meat by optimizing FGF2. It became clear that the dry lab would become an important part of the process. Our approach of improving the binding between FGF2 and its receptor FGFR2 by site directed mutagenesis in particular, was believed to greatly benefit from in silico modeling. The idea being that if we could evaluate the effect of mutations computationally, we would be able to pin point mutations that are more likely to work. This is useful due to the fact that there are 20 possible natural amino acids for each position within a given protein chain. To produce mutant proteins in the lab for every possible amino acid in each position is simply unreasonable amounts of work without the guarantee of success. By the use of free energy perturbation (FEP) through the molecular dynamics software package Q, we were able to estimate the effect of single point mutations computationally. Enabling us to only proceed in the lab with single point mutations that had satisfactory in silico estimation results, thus saving us extensive lab work and increasing the chance of successful results.     
+                        </p>
+                        
+                        <h1>Structure</h1>
+                        <hr>
+                        <p>
+                        Our project initially started with searches on uniprot and the PDB in order to find sequences and crystal structures of the growth factor, bovine FGF2, and its receptor bovine FGFR2. Since a crystal structure of bovine FGF2 could not be found whilst a crystal structure of human FGF2 was found, alignments between the sequences of human FGF2 and bovine FGF2 were performed. As the sequences were found to have very high sequence identity, they only differed by two residues, the human FGF2 bound to its receptor human FGFR2 crystal structure was chosen as the target structure to manually search for plausible mutations. Furthermore, homology modeling of bovine FGF2 with human FGF2 as template on swiss prot showed that the 3D structure of bovine FGF2 was very likely to be near identical to the 3D structure of human FGF2 which gave further support for the choice of human FGF2 crystal structure as search target for mutations. 
+                        <p>
+                        
+    
+                    <div class="divmidpicture" style="width:80%;">
+                        <img src="https://2021.igem.org/wiki/images/6/67/T--Uppsala--FGF2andFGFR2.png">
+                        <p>
+                            Figure X: Structure used to search for plausible mutations. PDB code 1ev2. 
+                        </p>
+                    </div>
+                    <h1>Initial mutation pool</h1>
+                    <hr>
+                    <p>
+                    The search for mutations was conducted in the GUI in pyMOL. Sites within the interaction interface in which there was no interaction present or an existing interaction being believed to be weak were chosen. From the search, a pool of sites believed to be apt for improving mutations were constructed. Some sites were excluded directly as the side chain rotamers all faced away from the receptor back into the growth factor causing high side chain clashes. 
+                    </p>
+                    <p>
+                    We analyzed the structure of FGF2, its binding site and interactions with its receptor. We explored altering different residues to strengthen the existing  bond and/or to create a new interaction between the protein and receptor. Rational design. We also looked for natural or unnatural mutations that had been found in analogous structures to FGF2 in existing literature. The result was a first mutation pool consisting of positions that seemed likely to be prone to improving mutations. See table X.
+                    </p>
+                    <p>
+                    Optimally all sites within the mutation pool would be evaluated using molecular dynamics. However our computing power resources were limited. Thus, other means of evaluating the mutations were used in order to reduce the size of the mutation pool. These included: FoldX through the GUI Yasara, the residue scanning tool within the maestro suite, docking on cluspro and evaluation in Dynamut. In Yasara, the PDB of human FGF2 in complex with FGFR2 was loaded and repaired using a repair module within the FoldX suite. Then a residue scanning module within the FoldX suite was used to evaluate the effect the remaining nineteen natural amino acids would have on overall stability of the complex. In maestro the structure was loaded and repaired similarly but the residue scanning tool within the maestro suite gave information on the effect of both affinity and stability. For cluspro the structure of FGFR2 and different mutated versions of FGF2 was submitted for docking. The calculated gibbs free energy of the best suggested binding mode was chosen and compared to the wild type. All combined, this resulted in a reduction of the mutation pool from XXX to a size of 7-10 mutations that were to be evaluated computationally using molecular dynamics through the Q software package developed at Uppsala University.
+                    </p>
+                    <p>
+                    As free energy perturbation, FEP, is very computationally demanding we needed some means of reducing the size of the pool that were to be evaluated using MD. We used different platforms to test different mutations and their impact on binding affinity to the receptor in order to accomplish this. Some of them are explained in brief below:
+                    </p>
+                    <h1>FoldX</h1> 
+                    <hr>
+                    <p>FoldX was used through the GUI Yasara in order to reduce the size of the mutation pool that</p>
+    
+                    <h1>Residue Scanning</h1> 
+                    <hr>
+                    <p>
+                    With the trial license for Maestro from Schrodinger, we managed to use the residue scanning panel.The panel helps us to scan our proteins for residues that are suitable for mutations based on solvent accessible surface area and distances with other residues but also can allow manual selection. We defined the  mutations based on the findings from pymol to produce mutated structures. We got the thermal stability of a single protein as well as its binding affinity variations with the original protein which helped us to move further in the process of finding mutations.
+                    </p>
+    
+                    <h1>Molecular dynamics </h1>
+                    <hr>
+    
+                    <p>
+                    Once the mutation pool had been reduced to a manageable size we went on to evaluating the remaining mutations through the molecular dynamics software package Q. 
+                    </p>
+    
+                    <h2>Theory</h2>
+    
+                    <p>
+                    The molecular dynamics software package Q can be used to simulate and calculate the change in free energy during annihilation of any of the 20 natural amino acids into an alanine residue. Each amino acid is annihilated in a given number of steps. During the different steps the amino acid gradually loses its chemical and physical properties until it by the end of the annihilation has “become” an alanine residue. For all amino acids these annealing steps are further divided into time steps, or so called lambda windows, during which the molecular dynamics sampling occurs in the form of short simulations. The difference in free energy between two simulations is determined either with the Zwanzig’s exponential formula: 
+                    </p>
+                    <p> 
+                        \[
+                            \Delta G=G_B - G_A= - \beta ^{-1}  \sum_{m=1}^{n-1}ln(e^{- \beta(U_{m+1} - U_m)})_A
+                        \]
+        
+                        In which \( \beta = {1 \over kT}\) and \(U_m = (1-\lambda_m)U_A + \lambda_m U_B\)
+                        <br>
+                        
+                        Or alternatively the difference in free energy can be calculated using the Bennet acceptance ratio:
+                        \[
+                        \Delta G_i = - \beta^{-1} ln {(1 + e^{- \beta (\Delta U \lambda_i - C_i)})_{i+1} \over (1 + e^{+ \beta (\Delta U \lambda_i - C_i)})_i } + C_i
+                        \]
+                    </p>
+    
+                    <p>
+                    By following the scheme of a thermodynamic cycle, the energy values estimated by the simulations can indirectly be used to calculate an estimation of the effect of single point mutations on protein characteristics.   
+                    </p>
+    
+                    <p>
+                    The molecular engine Q requires information in the form of different input files in order to adequately perform the simulations. The setup of the required input files has been automated by its developers and users in the form of API modules. In that way the setup and running of Q has become very user friendly. One need only to define a few parameters in order to produce the correct setup. We generously received both great consulting from Hugo Guiterrez de Teran and his colleagues and also prepared input structure files that could be understood by the API modules. In addition we further automated the process of setting up files for the simulations. Read more about our own pipeline in XXYYXX.
+                    </p>
+    
+                    <p>
+                    In addition to giving the user the estimated energy values the simulation produces trajectory files. These trajectories can be used to follow the simulation and to make representations of the simulation. Note that the annihilation does not work by removing atoms as the video representation suggests. Rather the removed atoms lose their properties and are being interpreted as “dummy” atoms by the molecular dynamics engine.
+                    </p>
+    
+                    <p>
+                    (Picture of complex with sphere upon it) next to (Video of sphere and annihilation)   
+                    </p>
+    
+                    <h2>Method</h2>
+    
+                    <p>
+                    As described, Q can predict the change in free energy during annihilation of an amino acid to alanine, and this can be used to evaluate the effect of single point mutations. Q has mainly been used to evaluate the effect of single point mutations on protein-ligand interactions but for our project we needed to estimate the effect on protein-protein interactions. That was done by combining the scheme of thermodynamic cycles associated with the different mutations. The combination is possible due to the fact that they all share the common alanine leg, which can be simulated by Q. See combined thermodynamic cycle for one of our mutations in figure X.  
+                    </p>
+                    <div class="divmidpicture" style="width: 80%;">
+                        <img src="https://2021.igem.org/wiki/images/a/a4/T--Uppsala--thermodynamicscycle1.png">
+                        <p>
+                            Figure X: Example of combined thermodynamic cycle for mutation Q54K. In the middle is the shared alanine leg for Q54A and K54A. The FEP arrows represent values that we can obtain by the use of FEP in Q.  
+                        </p>
+                    </div>
+                            
+                    <p>
+                    Equation X:
+                    \(
+                        \Delta \Delta G = ( \Delta G_{holo}^{wt}- \Delta G_{apo} ^{wt})-(\Delta G_{holo}^{mut}- \Delta G_{apo} ^{mut})
+                        \)
+                    </p>
+                    <p>
+                        Similar thermodynamic cycles were created for all remaining mutations in the final pool after FoldX and Residue Scanning filtration. The Q simulations provide values to the FEP arrows within the thermodynamic cycle that can be used according to equation X in order to obtain the final ΔΔG value. A lower ΔΔG corresponds to a more stable structure and thus negative ΔΔG indicates improving mutations. Simulations were performed with Q on the supercomputer cluster snowy on UPPMAX in order to obtain values for the FEP arrows for us to be able to calculate the final ΔΔG values for all remaining mutations. See calculation example below.    
+                    </p>     
+                        
+                    <h2>Calculation example Q54K:</h2>
+                        <p>
+                        \[ \Delta G_{holo}^{wt} = 40.99 ± 0.25 \]
+                        \[ \Delta G_{apo}^{wt}= 40.94 ± 0.33 \]
+                        \[ \Delta G_{holo}^{mut} = -21.91 ± 1.88 \]
+                        \[ \Delta G_{apo}^{mut} = -22.86 ± 0.32 \]
+                        \[
+                            \Delta \Delta G = ( \Delta G_{holo}^{wt}- \Delta G_{apo} ^{wt})-(\Delta G_{holo}^{mut}- \Delta G_{apo} ^{mut})
+                            \]
+    
+                            \[
+                            \Delta \Delta G = ( 40.99 - 40.94)-(21.91- 22.86) = 0.05 - 0.95 = -0.9
+                            \]
+                        </p>
+                    
+                        <div class="divmidpicture" style="width:80%;">
+                            <img src="https://2021.igem.org/wiki/images/3/32/T--Uppsala--graphs-added-modeling.png">
+                            <p>
+                                Figure X: Free energy difference over time for all four simulations required to close the thermodynamic cylce for Q54K mutation. 
+                            </p>
+                        </div>
+    
+                        <h2>Results</h2>
+                        <table>
+                            <tr>
+                              <th>Mutation</th>
+                              <th>
+                                \(
+                                \Delta \Delta G
+                                \)
+                            </th>
+                            </tr>
+                            <tr>
+                              <td>Q54K</td>
+                              <td>-0.9 ± 2.78</td>
+                            </tr>
+                            <tr>
+                              <td>L98M</td>
+                              <td>-0.26 ± 1.13</td>
+                            </tr>
+                            <tr>
+                              <td>V88I</td>
+                              <td>0.01 ± 0.98</td>
+                            </tr>
+                            <tr>
+                              <td>F93Y</td>
+                              <td>0.37 ± 2.26</td>
+
+                            </tr>
+                            <tr>
+                              <td>F93L</td>
+                              <td>0.61 ± 2.12</td>
+                            </tr>
+                            <tr>
+                              <td>F93W</td>
+                              <td>1.04 ± 2.29</td>
+                            </tr>
+                            <tr>
+                            <td>Q54R</td>
+                            <td>2.28 ± 1.6</td>
+                            </tr>
+                            <tr>
+                            <td>Q56M</td>
+                            <td>3.11 ± 2.15</td>
+                            </tr>
+                          </table>
+                        <h1>Video making</h1>
+                        <p>
+                        The picture and video representation on this page was made in VMD. The videos were made by screen recording the VMD session and then treated using adobe. 
+                        </p>
+    
+                        
+    
+                    
+                </div>
+            </div>
+        </div>
+    
+        <!--Start sponsor-->
+                <div class="flexbox-container-socialmedia">
+                    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png"></div>
+    
+                    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/1024px-Instagram_logo_2016.svg.png"></div>
+    
+                    <div><img class="upplogo"src="https://shop.uu.se/shop/ws45/82845/files/UU_logo_vit.png"></div>
+    
+                    <div><img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Circle-icons-mail.svg"></div>
+    
+                    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Linkedin_icon.svg/480px-Linkedin_icon.svg.png"></div>
+                </div>
+    
+            <div class="grid-container-sponsors">
+                    <div><img src="https://2021.igem.org/wiki/images/8/8b/T--Uppsala--utnlogo.png"></div>
+                    <div><img src="http://2014.igem.org/wiki/images/5/5a/York_Genscript_logo-1-.png"></div>
+                    <div><img src="https://2020.igem.org/wiki/images/0/05/T--UofUppsala--pro.png"></div>
+                    <div><img src="https://2021.igem.org/wiki/images/f/fc/T--Uppsala--bioradlogo.png"></div>
+                    <div><img src="https://2021.igem.org/wiki/images/2/29/T--Uppsala--bionordikalogo.png"></div>
+                    <div><img src="https://2021.igem.org/wiki/images/9/9a/T--Uppsala--mercklogo.png"></div>
+                    <div><img src="https://2021.igem.org/wiki/images/f/fa/T--Uppsala--scbtlogo.png"></div>
+                    <div><img src="https://2020.igem.org/wiki/images/8/8c/T--UofUppsala--snap.png"></div>
+                    <div><img src="https://2020.igem.org/wiki/images/a/a4/T--UofUppsala--euro.png"></div>
+                    <div><img src="https://upload.wikimedia.org/wikipedia/commons/1/12/New_Harvest_Full_Logo_-_RGB_.png"></div>
+                    <div><img src="https://testacenter.com/wp-content/uploads/2019/08/TestaCenter_LogoWithTagline_Pantone.png"></div>
+                    <div><img src="https://cdn.cytivalifesciences.com/dmm3bwsv3/AssetStream.aspx?mediaformatid=10061&destinationid=10016&assetid=32945"></div>
+            </div>
+    </body>
+    </html>
