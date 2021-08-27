@@ -53,6 +53,7 @@
                 display:grid;
                 grid-template-columns: 100%;
                 grid-template-rows: 100vh auto 100vh 120vh /*100vh <- this is the height of one panel that was removed during development*/ 100vh /*100px 100px <- these two are the height of the scrolling elements that are technically part of this container, but they do not take up any space within that element (position is not relative)*/;
+                transition: 0.1s filter;
             }
 
             .reference_image,.real,.panel{
@@ -915,6 +916,245 @@
                     requestAnimationFrame(step_animations)
                 }
                 requestAnimationFrame(step_animations)
+
+                highlight_current_topic_in_navbar()
+            }
+        </script>
+        <style real-href="navigation_bar">
+            /*
+            #navmenu{
+                position: fixed;
+                width: 100%;
+                background-color: #dce1de;
+                transition: all 0.5s;
+                overflow: hidden;
+                height: 5vh;
+                z-index: 10;
+                font-size: 1.5em;
+                color:#6d1d23;
+                font-family: UL;
+
+            }
+            #navmenu:hover{
+                overflow: visible;
+            }
+
+            #navmenu:hover ~ .parallaxtop, #navmenu:hover ~ #pagecontent, #navmenu:hover ~ .flexbox-container-socialmedia, #navmenu:hover ~ .grid-container-sponsors{
+                filter: blur(5px);
+            }
+
+            .logotype{
+                float:left;
+                width:3.5vw;
+                height:5vh;
+                padding-right:0px;
+            }
+
+            ul {
+                list-style-type: none;
+                margin:0;
+            }
+
+            .mw-content-ltr ul, .mw-content-rtl .mw-content-ltr ul{
+                margin: 0;;
+            }
+
+            li {
+                float: left;
+                margin-right: 8vw;      
+            }
+
+            #navigation_bar_container{
+                height:100%;
+            }
+            #navigation_bar_container > li{
+                height:100%;
+                margin:0;
+            }
+            #navigation_bar_container > li > a{
+                position:absolute;
+                top:50%;
+                transform:translateY(-50%);
+            }
+
+            .dropdown a, .dropbtn {
+                display: inline-block;
+                color:#6d1d23;
+                text-align: center;
+                margin-top: 0.6vh;
+                text-decoration: none;
+            }
+
+            .dropdown a:hover, .dropdown:hover .dropbtn{
+                color: #426968;
+                text-decoration: underline;
+            }
+
+            .dropdown:hover .dropdown-content a{
+                color: #426968;
+            }
+
+            li.dropdown{
+                display: inline-block;
+            }
+
+            .dropdown-content{
+                display: none;
+                position: absolute;
+                background-color: #dce1de;
+                min-width: 5vw;
+                z-index: 1;
+                margin-top: 1vh;
+                margin-bottom: 2vh;
+            }
+
+            .dropdown-content a{
+                margin-top: 2.7vh;
+                margin-left: 0.5vw;
+                text-decoration: none;
+                display: block;
+                text-align: left;
+            }
+
+            .dropdown-content a:hover{
+                color: #426968;
+                margin-left: 1vw;
+                text-decoration: none;
+            }
+
+            .dropdown-background{
+                display: none;
+                position: absolute;
+                background-color: #dce1de;
+                width: 77vw;
+                height: 40vh;
+                z-index: 1;
+                margin-top: 5vh;
+                margin-left: 3.5vw;
+            }
+
+            #navmenu:hover .dropdown-content, #navmenu:hover .dropdown-background{
+                display: block;
+            }
+
+            #clickbox{
+                width: 3.5vw;
+                height:5vh;
+                position: fixed;
+                z-index: 100;
+                background-color: #dce1de;
+                justify-content: center;
+                align-content: center;
+                display: flex;
+            }*/
+
+            #navigation_bar:not(.fully_open){
+                height:5vh;
+            }
+            .fully_open{
+                height:auto;
+            }
+            #navigation_bar{
+                top:16px;
+                overflow:hidden;
+
+                position:fixed;
+                width:100%;
+
+                z-index:9;
+
+                display:grid;
+                grid-template-columns: 5% 95%;
+                grid-template-rows: 100%;
+
+                background-color: #dce1de;
+            }
+            .dropdown a{
+                font-family: sans-serif;
+                font-size: 2vh;
+                color:black;
+                transition: 0.1s;
+            }
+            .dropdown > a{
+                font-size: 2.5vh;
+            }
+            .dropdown.hovering_over a{
+                color:#6d1d23;
+                font-weight: bolder;
+            }
+            #navigation_bar a:not(:hover){
+                text-decoration: none;
+            }
+            #navigation_bar_logo_container{
+                height:5vh;
+            }
+            #navigation_bar_logo_container > img{
+                height:100%;
+            }
+            #navigation_bar > ul{
+                display:grid;
+
+                grid-template-columns: repeat(6,auto);
+                grid-template-rows: 100%;
+            }
+            .dropdown{
+                display:block;
+                height:35vh;
+            }
+            .dropbtn{
+                display:block;
+                position:absolute;
+
+                height:3vh;
+
+                text-decoration: none;
+
+                top:calc( 2.5vh);
+                transform:translateY(-50%);
+            }
+            .dropdown-content{
+                position:absolute;
+                height:auto;
+
+                font-size: 2vh;
+
+                top:5vh;
+            }
+            .dropdown-content > a{
+                display:block;
+                height:90%;
+                padding-left:10%;
+                padding-bottom:1vh;
+                padding-top:1vh;
+            }
+            .dropdown-content > a:hover{
+                text-decoration:underline;
+            }
+            .dropdown.hovering_over a{
+                color:#6d1d23;
+            }
+            .current_topic{
+                font-style: italic;
+                font-weight: bolder;
+                font-size: 2.2vh;
+            }
+        </style>
+        <script purpose="open_close_navbar">
+            function open_navbar(){
+                document.getElementById("navigation_bar").classList.add("fully_open")
+                document.getElementById("fgfuture_main").style.setProperty("filter","blur(15px)")
+                //this is broken. blurring the main element makes the scrolly things lose their position setting
+                for(element of document.getElementsByClassName("scroll_thing")){
+                    element.style.setProperty("filter","blur(15px)")
+                }
+            }
+            function close_navbar(){
+                document.getElementById("navigation_bar").classList.remove("fully_open")
+                document.getElementById("fgfuture_main").style.setProperty("filter","initial")
+                //this is broken. blurring the main element makes the scrolly things lose their position setting
+                for(element of document.getElementsByClassName("scroll_thing")){
+                    element.style.setProperty("filter","initial")
+                }
             }
         </script>
     </head>
@@ -924,6 +1164,92 @@
                 <img src="https://2021.igem.org/wiki/images/7/76/T--Uppsala--logo_animated.gif">
                 <div style="font-size:3vh;text-align:center;padding-top:4vh;font-family: sans-serif;">LOADING</div>
             </div>
+        </div>    <!--Menu with drop down-->
+        <div id="navigation_bar" onmouseenter="open_navbar()" onmouseleave="close_navbar()">
+            <a id="navigation_bar_logo_container" href='https://2021.igem.org/Team:Uppsala'>
+                <img class="logotype" src="https://2021.igem.org/wiki/images/thumb/1/13/T--Uppsala--logotransparent.png/320px-T--Uppsala--logotransparent.png">
+            </a>
+            <ul>
+                <li class="dropdown">
+                    <a href="https://2021.igem.org/Team:Uppsala/Description" class="dropbtn">Project</a>
+                    <div class="dropdown-content">
+                        <a href="https://2021.igem.org/Team:Uppsala/Description">Description</a>
+                        <a href="https://2021.igem.org/Team:Uppsala/Proof_Of_Concept">Proof of Concept</a>
+                        <a href="https://2021.igem.org/Team:Uppsala/Engineering">Engineering<br> Success</a>
+                        <a href="https://2021.igem.org/Team:Uppsala/Contribution">Contribution</a>
+                        <a href="https://2021.igem.org/Team:Uppsala/Implementation">Proposed Implementation</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="https://2021.igem.org/Team:Uppsala/Results" class="dropbtn">Experiments</a>
+                    <div class="dropdown-content">
+                        <a href="https://2021.igem.org/Team:Uppsala/Results">Results</a>
+                        <a href="https://2021.igem.org/Team:Uppsala/Model">Modeling</a>
+                        <a href="https://2021.igem.org/Team:Uppsala/Notebook">Notebook</a>
+                        <a href="https://2021.igem.org/Team:Uppsala/Parts">Parts</a>
+                        <a href="https://2021.igem.org/Team:Uppsala/Safety">Safety</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="https://2021.igem.org/Team:Uppsala/Human_Practices" class="dropbtn">Human Practice</a>
+                    <div class="dropdown-content">
+                        <a href="https://2021.igem.org/Team:Uppsala/Human_Practices">Integrated Human Practice</a>
+                        <a href="https://2021.igem.org/Team:Uppsala/Education">Education</a>
+                        <a href="#">Ethics</a>
+                        <a href="#">Inclusion</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="https://2021.igem.org/Team:Uppsala/Team" class="dropbtn">Team</a>
+                    <div class="dropdown-content">
+                        <a href="https://2021.igem.org/Team:Uppsala/Team">Team</a>
+                        <a href="https://2021.igem.org/Team:Uppsala/Collaborations">Collaboration</a>
+                        <a href="https://2021.igem.org/Team:Uppsala/Attributions">Attribution</a>
+                        <a href="https://2021.igem.org/Team:Uppsala/Attributions">Sponsors</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Videos</a>
+                    <div class="dropdown-content">
+                        <a href="https://2021.igem.org/Team:Uppsala/Description">Final Presentation</a>
+                        <a href="https://www.youtube.com/watch?v=avKlAK5-1ks">Promotional Video</a>
+                        <a href="https://2021.igem.org/Team:Uppsala/Model">Molecular Dynamics</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Judging</a>
+                    <div class="dropdown-content">
+                        <a href="#">Judging Form</a>
+                        <a href="#">Awards</a>
+                    </div>
+                </li>
+            </ul>
+            <script purpose="dropdown_open_close">
+                for(dropdown of document.getElementsByClassName("dropdown")){
+                    dropdown.addEventListener("mouseenter",function(ev){
+                        function remove_hovering_highlighting(ev){
+                            ev.target.removeEventListener("mouseleave",remove_hovering_highlighting)
+                            ev.target.classList.remove("hovering_over")
+                        }
+                        ev.target.classList.add("hovering_over")
+                        ev.target.addEventListener("mouseleave",remove_hovering_highlighting)
+                    })
+                }
+            </script>
+            <script purpose="highlight_current_topic_in_navbar">
+                function highlight_current_topic_in_navbar(){
+                    const match_path_text=window.location.pathName
+                    const match_path_length=match_path_text.length
+                    for(element of document.getElementsByClassName("dropdown-content")){
+                        for(child of element.children){
+                            //const match_path_text="/Team:Uppsala/Model"
+                            if(child.getAttribute("href").substr(-match_path_length)==match_path_text){
+                                child.classList.add("current_topic")
+                            }
+                        }
+                    }
+                }
+            </script>
         </div>
         <main id="fgfuture_main">
             <div class="panel">
