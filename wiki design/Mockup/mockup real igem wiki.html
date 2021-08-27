@@ -67,9 +67,6 @@
                 position:absolute;
                 overflow:hidden;
             }
-            .real{
-                background-color:#7ab9ce;
-            }
             /*applies to all divs with an onmouseenter event handler*/
             #fgfuture_main div[onmouseenter]{
                 cursor:pointer;
@@ -665,6 +662,8 @@
                 left:10%;
 
                 z-index:2;
+
+                transform:translateY(-50%) translateX(-50%) scaleX(-1);
             }
             .petri_dish{
                 --height:15vh;
@@ -795,8 +794,7 @@
             #logo_animated{
                 display:block;
                 position:absolute;
-                width:100px;
-                height:100px;
+                height:calc( 60% / 5.5 );
                 transform-origin:center center;
                 transform:translate(-50%,-50%) scale(calc(var(--scale)*5.5));
             }
@@ -809,8 +807,9 @@
             }
             #tagline{
                 position:absolute;
+                text-align: center;
                 max-width:20%;
-                font-size: 5em;
+                font-size: 5vh;
                 left:50%;
                 top:50%;
                 transform:translate(-50%,-50%);
@@ -822,8 +821,20 @@
             .invisible{
                 opacity:0;
             }
+            #team_steak{
+                position:absolute;
+                top:50%;
+                left:80%;/*50%+(20%/2)+(100%-20%)/2/2 = 60%+20% = 80%*/
+                transform-origin: center center;
+                transform: translate(-50%,-50%);
+                width:24%;/*(100%-20%) * 60% / 2*/
+            }
+            #team_steak > img{
+                width:100%;
+                height:100%;
+            }
         </style>
-        <script>
+        <script purpose="on_load_code">
             function min(a,b){return (a<b)?a:b}
             function max(a,b){return (a>b)?a:b}
 
@@ -863,11 +874,12 @@
                     }
                     //remove annoying p element
                     let annoying_p=document.getElementById("fgfuture_main").nextElementSibling
-                    if(annoying_p){
-                        annoying_p=annoying_p.nextElementSibling
-                        if(annoying_p){
+                    while(annoying_p){
+                        if(annoying_p.tagName=="p"){
                             annoying_p.style="display:none;"
+                            break
                         }
+                        annoying_p=annoying_p.nextElementSibling
                     }
                 }
 
@@ -916,7 +928,7 @@
         <main id="fgfuture_main">
             <div class="panel">
                 <!-- img class="reference_image" src="https://2021.igem.org/wiki/images/e/e1/T--Uppsala--IMG_0968.png" loading="lazy" -->
-                <div class="real">
+                <div class="real" style="background-color:#7ab9ce;">
                     <div id="grass_front"></div>
                     <div id="grass_front_middle_fill"></div>
                     <div id="cow_left"></div>
@@ -1039,9 +1051,9 @@
                     }
                 </script>
             </div>
-            <div class="panel">
+            <div class="panel" style="background-color:#CCE0DD; height:auto;">
                 <!-- img class="reference_image" src="https://2021.igem.org/wiki/images/4/41/T--Uppsala--IMG_0970.png" loading="lazy" -->
-                <div class="real" style="background-color:#CCE0DD; height:150vh;">
+                <div class="real" style="height:auto;">
                     <div id="panel3_headline">SOLUTION: CULTIVATED MEAT</div>
                     <div class="intermediate_text informative">
                         this is how cultivated meat production works in a lab, right now:
@@ -1076,7 +1088,7 @@
                         </div>
                         <img class="fork_lower" src="https://2021.igem.org/wiki/images/f/f8/T--Uppsala--fork.svg">
                     </div>
-                    <script>
+                    <script purpose="panel_3_movement_animations">
                         const svg_namespace="http://www.w3.org/2000/svg"
 
                         /* path for cow tissue and fgf2 protein */
@@ -1227,13 +1239,16 @@
             <!-- div class="panel">
                 <img class="reference_image" src="https://2021.igem.org/wiki/images/3/3b/T--Uppsala--IMG_0971.png" loading="lazy">
             </div -->
-            <div class="panel">
-                <img class="reference_image" src="https://2021.igem.org/wiki/images/4/42/T--Uppsala--IMG_0972.png" loading="lazy">
+            <div class="panel" style="background-color:#CCE0DD">
+                <!-- img class="reference_image" src="https://2021.igem.org/wiki/images/4/42/T--Uppsala--IMG_0972.png" loading="lazy" -->
                 <div id="logo_animated" style="display:none;">
                     <img src="https://2021.igem.org/wiki/images/5/53/T--Uppsala--cow_logo.svg"  loading="lazy">
                 </div>
                 <div id="tagline">
                     We are Team Uppsala and we believe in a bright future.
+                </div>
+                <div id="team_steak">
+                    <img src="https://2021.igem.org/wiki/images/2/22/T--Uppsala--steak_simple.svg"  loading="lazy">
                 </div>
             </div>
             <div class="scroll_thing">
