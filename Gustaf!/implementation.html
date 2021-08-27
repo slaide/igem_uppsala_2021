@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
      <title>
-        sidepage6
+        Implementation page
     </title>
     <style>
         /* used for all pages */
@@ -443,7 +443,7 @@
         }
 
 
-        .flexbox-container-socialmedia > div > img:not(img.upplogo){
+        .flexbox-container-socialmedia > div > a > img:not(img.upplogo){
             margin-left: 3vw;
             margin-right: 3vw;
             filter: grayscale(50%);
@@ -451,7 +451,7 @@
             width: 4vw;
         }
 
-        .flexbox-container-socialmedia > div > img:not(img.upplogo):hover{
+        .flexbox-container-socialmedia > div > a > img:not(img.upplogo):hover{
             filter:grayscale(0);
             filter: brightness(130%);
             filter: contrast(150%);
@@ -477,7 +477,7 @@
         }
 
 
-        .grid-container-sponsors > div > img{
+        .grid-container-sponsors > div > a > img{
             margin-left: 50%;
             margin-top: 7vh;
             transform: translateY(-50%);
@@ -486,7 +486,7 @@
             filter: grayscale(50%);
         }
 
-        .grid-container-sponsors > div > img:hover{
+        .grid-container-sponsors > div > a > img:hover{
             filter:grayscale(0);
             filter: brightness(130%);
             filter: contrast(150%);
@@ -732,7 +732,7 @@
                 <h1>bild 1</h1>
                 <hr>
 
-                <div class="divleftpicture" style=" width:35vw; margin-bottom:40vh;">
+                <div class="divleftpicture" style=" width:35vw; margin-bottom:10vh;">
                     <img src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
                     <p>
                         Figure 1. Wow very cool photos, they are the best photos ever taken. This just some text used to fil the page with. I dont really feel like writing Lorem Ipsum for the hundreth time... Damn, need to write some more to see how the text would look lite on two seperate rows. FML.
@@ -753,7 +753,7 @@
                 <h1>bild2</h1>
                 <hr>
                 
-                <div class="divleftpicture" style="width:35vw; margin-bottom:20vh;">
+                <div class="divrightpicture" style="width:35vw; margin-bottom:70vh;">
                     <img src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
                     <p>
                         Figure 1. Wow very cool photos, they are the best photos ever taken. This just some text used to fil the page with. I dont really feel like writing Lorem Ipsum for the hundreth time... Damn, need to write some more to see how the text would look lite on two seperate rows. FML.
@@ -775,7 +775,7 @@
                 <div id="section3"></div>
                 <h1>bild3</h1>
                 <hr>
-                <div class="divrightpicture" style="width:35vw; margin-bottom:20vh;">
+                <div class="divleftpicture" style="width:35vw; margin-bottom:20vh;">
                         <img  src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
                         <p>
                             Figure 1. Wow very cool photos, they are the best photos ever taken. This just some text used to fil the page with. I dont really feel like writing Lorem Ipsum for the hundreth time... Damn, need to write some more to see how the text would look lite on two seperate rows. FML.
@@ -809,31 +809,115 @@
     </div>
 
     <!--Start sponsor-->
-            <div class="flexbox-container-socialmedia">
-                <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png"></div>
+    <div class="flexbox-container-socialmedia">
+                
+        <div>
+            <a href="https://www.facebook.com/iGEMUppsala">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png">
+        </a>
+    </div>
 
-                <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/1024px-Instagram_logo_2016.svg.png"></div>
+        <div>
+            <a href="https://www.instagram.com/igem.uppsala/">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/1024px-Instagram_logo_2016.svg.png">
+        </a>
+    </div>
 
-                <div><img class="upplogo"src="https://shop.uu.se/shop/ws45/82845/files/UU_logo_vit.png"></div>
+        <div>
+            <a href="https://www.uu.se/">
+            <img class="upplogo"src="https://shop.uu.se/shop/ws45/82845/files/UU_logo_vit.png">
+        </a>
+    </div>
 
-                <div><img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Circle-icons-mail.svg"></div>
+        <div>
+            <a href="#">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Circle-icons-mail.svg">
+        </a>
+    </div>
 
-                <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Linkedin_icon.svg/480px-Linkedin_icon.svg.png"></div>
-            </div>
-
-        <div class="grid-container-sponsors">
-                <div><img src="https://2021.igem.org/wiki/images/8/8b/T--Uppsala--utnlogo.png"></div>
-                <div><img src="http://2014.igem.org/wiki/images/5/5a/York_Genscript_logo-1-.png"></div>
-                <div><img src="https://2020.igem.org/wiki/images/0/05/T--UofUppsala--pro.png"></div>
-                <div><img src="https://2021.igem.org/wiki/images/f/fc/T--Uppsala--bioradlogo.png"></div>
-                <div><img src="https://2021.igem.org/wiki/images/2/29/T--Uppsala--bionordikalogo.png"></div>
-                <div><img src="https://2021.igem.org/wiki/images/9/9a/T--Uppsala--mercklogo.png"></div>
-                <div><img src="https://2021.igem.org/wiki/images/f/fa/T--Uppsala--scbtlogo.png"></div>
-                <div><img src="https://2020.igem.org/wiki/images/8/8c/T--UofUppsala--snap.png"></div>
-                <div><img src="https://2020.igem.org/wiki/images/a/a4/T--UofUppsala--euro.png"></div>
-                <div><img src="https://upload.wikimedia.org/wikipedia/commons/1/12/New_Harvest_Full_Logo_-_RGB_.png"></div>
-                <div><img src="https://testacenter.com/wp-content/uploads/2019/08/TestaCenter_LogoWithTagline_Pantone.png"></div>
-                <div><img src="https://cdn.cytivalifesciences.com/dmm3bwsv3/AssetStream.aspx?mediaformatid=10061&destinationid=10016&assetid=32945"></div>
+        <div>
+            <a href="https://www.linkedin.com/company/igem-uppsala/mycompany/">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Linkedin_icon.svg/480px-Linkedin_icon.svg.png">
+            </a>
         </div>
+            
+    </div>
+
+<div class="grid-container-sponsors">
+    
+        <div>
+            <a href="https://www.utn.se/" >
+            <img src="https://2021.igem.org/wiki/images/8/8b/T--Uppsala--utnlogo.png">  
+        </a>
+        </div>
+   
+
+        <div>
+            <a href="https://www.genscript.com/">
+            <img src="http://2014.igem.org/wiki/images/5/5a/York_Genscript_logo-1-.png">
+        </a>
+        </div>
+
+        <div>
+            <a href="https://worldwide.promega.com/">
+            <img src="https://2020.igem.org/wiki/images/0/05/T--UofUppsala--pro.png">
+        </a>
+        </div>
+
+        
+        <div>
+            <a href="https://www.bio-rad.com/?WT.srch=1&WT.mc_id=aw-corp-EU-brand&WT.knsh_id=_kenshoo_clickid_&gclid=CjwKCAjw95yJBhAgEiwAmRrutA48CMgos3JZ-TdTj_YQADBtV-EWJK_8CUBKD466XHL8I8Bi9VhDihoC7GEQAvD_BwE">
+            <img src="https://2021.igem.org/wiki/images/f/fc/T--Uppsala--bioradlogo.png">
+        </a>
+        </div>
+
+        <div>
+            <a href="https://www.bionordika.se/high-quality-pipette-tips/?gclid=CjwKCAjw95yJBhAgEiwAmRrutNGqkBzNJKL7ijaS2B49sQAOYXhCv-EijnZZGaPm7ILAn9b8eU7-eRoC9-AQAvD_BwE">
+            <img src="https://2021.igem.org/wiki/images/2/29/T--Uppsala--bionordikalogo.png">
+        </a>
+        </div>
+
+        <div>
+            <a href="https://www.merck.com/">
+            <img src="https://2021.igem.org/wiki/images/9/9a/T--Uppsala--mercklogo.png">
+            </a>
+        </div>
+
+        <div>
+            <a href="https://www.scbt.com/home">
+            <img src="https://2021.igem.org/wiki/images/f/fa/T--Uppsala--scbtlogo.png">
+        </a>
+        </div>
+
+        <div>
+            <a href="https://www.snapgene.com/">
+            <img src="https://2020.igem.org/wiki/images/8/8c/T--UofUppsala--snap.png">
+        </a>
+        </div>
+
+        <div>
+            <a href="https://www.eurofins.se/">
+            <img src="https://2020.igem.org/wiki/images/a/a4/T--UofUppsala--euro.png">
+        </a>
+        </div>
+
+        <div>
+            <a href="https://new-harvest.org/">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/New_Harvest_Full_Logo_-_RGB_.png">
+        </a>
+        </div>
+
+        <div>
+            <a href="https://testacenter.com/">
+            <img src="https://testacenter.com/wp-content/uploads/2019/08/TestaCenter_LogoWithTagline_Pantone.png">
+        </a>
+        </div>
+
+        <div>
+            <a href="https://www.cytivalifesciences.com/en/at">
+            <img src="https://cdn.cytivalifesciences.com/dmm3bwsv3/AssetStream.aspx?mediaformatid=10061&destinationid=10016&assetid=32945">
+        </a>
+        </div>
+</div>
 </body>
 </html>

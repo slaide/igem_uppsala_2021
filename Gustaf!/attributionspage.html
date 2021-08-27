@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
      <title>
-        sidepage6 for attributions on igem site
+        Attributions page on igem site
     </title>
     <style>
         /* used for all pages */
@@ -376,7 +376,7 @@
             justify-content: center;
         }
 
-        .flexbox-container-socialmedia > div > img:not(img.upplogo){
+        .flexbox-container-socialmedia > div > a > img:not(img.upplogo){
             margin-left: 3vw;
             margin-right: 3vw;
             filter: grayscale(50%);
@@ -384,7 +384,7 @@
             width: 4vw;
         }
 
-        .flexbox-container-socialmedia > div > img:not(img.upplogo):hover{
+        .flexbox-container-socialmedia > div > a > img:not(img.upplogo):hover{
             filter:grayscale(0);
 
         }
@@ -406,7 +406,7 @@
             background-color: #426968;
         }
 
-        .grid-container-sponsors > div > img{
+        .grid-container-sponsors > div > a > img{
             margin-left:4.5vw;
             margin-top: 7vh;
             /*
@@ -417,7 +417,7 @@
             filter: grayscale(50%);
         }
 
-        .grid-container-sponsors > div > img:hover{
+        .grid-container-sponsors > div > a > img:hover{
             filter: grayscale(0);
         }
 
@@ -595,43 +595,44 @@ tr:nth-child(odd) {
         </a>
         <ul id="navigation_bar_list">
             <li class="dropdown">
-                <a href="https://2021.igem.org/Team:Uppsala/Description" class="dropbtn">Project</a>
+                <a href="#" class="dropbtn">Project</a>
                 <div class="dropdown-content">
                     <a href="https://2021.igem.org/Team:Uppsala/Description">Description</a>
                     <a href="https://2021.igem.org/Team:Uppsala/Proof_Of_Concept">Proof of Concept</a>
                     <a href="https://2021.igem.org/Team:Uppsala/Engineering">Engineering<br> Success</a>
                     <a href="https://2021.igem.org/Team:Uppsala/Contribution">Contribution</a>
-                    <a href="https://2021.igem.org/Team:Uppsala/Implementation">Proposed<br> Implementation</a>
                 </div>
 
             </li>
             <li class="dropdown">
-                <a href="https://2021.igem.org/Team:Uppsala/Results" class="dropbtn">Experiments</a>
+                <a href="#" class="dropbtn">Experiments</a>
                 <div class="dropdown-content">
                     <a href="https://2021.igem.org/Team:Uppsala/Results">Results</a>
                     <a href="https://2021.igem.org/Team:Uppsala/Model">Modeling</a>
-                    <a href="https://2021.igem.org/Team:Uppsala/Notebook">Notebook</a>
+                    <a href="https://2021.igem.org/Team:Uppsala/Notebook">Wet Lab Notebook</a>
+                    <a href="https://2021.igem.org/Team:Uppsala/Notebook">Dry Lab Notebook</a>
                     <a href="https://2021.igem.org/Team:Uppsala/Parts">Parts</a>
-                    <a href="https://2021.igem.org/Team:Uppsala/Safety">Safety</a>
+                    <a href="https://2021.igem.org/Team:Uppsala/Safety" style="text-decoration: underline; font-weight: bolder;">Safety</a>
                 </div>
             </li>
 
             <li class="dropdown">
-                <a href="https://2021.igem.org/Team:Uppsala/Human_Practices" class="dropbtn">Human Practice</a>
+                <a href="#" class="dropbtn">Human Practice</a>
                 <div class="dropdown-content">
-                    <a href="https://2021.igem.org/Team:Uppsala/Human_Practices">Integrated <br>Human Practice</a>
+                    <a href="https://2021.igem.org/Team:Uppsala/Human_Practices">Overview</a>
+                    <a href="https://2021.igem.org/Team:Uppsala/Human_Practices">Integrated<br>Human Practice</a>
+                    <a href="https://2021.igem.org/Team:Uppsala/Implementation">Proposed<br>Implementation</a>
                     <a href="https://2021.igem.org/Team:Uppsala/Education">Education</a>
-                    <a href="#">Ethics</a>
-                    <a href="#">Inclusion</a>
+                    <a href="https://2021.igem.org/Team:Uppsala/Inclusivity">Inclusion</a>
                 </div>
             </li>
 
             <li class="dropdown">
-                <a href="https://2021.igem.org/Team:Uppsala/Team" class="dropbtn">Team</a>
+                <a href="https://2021.igem.org/Team:Uppsala/Team" class="dropbtn">People</a>
                 <div class="dropdown-content">
                     <a href="https://2021.igem.org/Team:Uppsala/Team">Team</a>
                     <a href="https://2021.igem.org/Team:Uppsala/Collaborations">Collaboration</a>
-                    <a href="https://2021.igem.org/Team:Uppsala/Attributions" style="text-decoration: underline; font-weight: bolder;">Attributions</a>
+                    <a href="https://2021.igem.org/Team:Uppsala/Attributions">Attribution</a>
                     <a href="https://2021.igem.org/Team:Uppsala/Attributions">Sponsors</a>
                 </div>
             </li>
@@ -639,8 +640,8 @@ tr:nth-child(odd) {
             <li class="dropdown">
                 <a href="javascript:void(0)" class="dropbtn">Videos</a>
                 <div class="dropdown-content">
-                    <a href="https://2021.igem.org/Team:Uppsala/Description">Final<br> Presentation</a>
-                    <a href="https://www.youtube.com/watch?v=avKlAK5-1ks">Promotional<br> Video</a>
+                    <a href="https://2021.igem.org/Team:Uppsala/Description">Final<br>Presentation</a>
+                    <a href="https://www.youtube.com/watch?v=avKlAK5-1ks">Promotional<br>Video</a>
                     <a href="https://2021.igem.org/Team:Uppsala/Model">Molecular Dynamics</a>
                 </div>
             </li>
@@ -652,6 +653,7 @@ tr:nth-child(odd) {
                     <a href="#">Awards</a>
                 </div>
             </li>
+
 
         </ul>
     </div>
@@ -1313,56 +1315,112 @@ tr:nth-child(odd) {
     <!--Start sponsor-->
             <div class="flexbox-container-socialmedia">
                 
-                <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png"></div>
+                <div>
+                    <a href="https://www.facebook.com/iGEMUppsala">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png">
+                </a>
+            </div>
         
-                <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/1024px-Instagram_logo_2016.svg.png"></div>
+                <div>
+                    <a href="https://www.instagram.com/igem.uppsala/">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/1024px-Instagram_logo_2016.svg.png">
+                </a>
+            </div>
 
-                <div><img class="upplogo"src="https://shop.uu.se/shop/ws45/82845/files/UU_logo_vit.png"></div>
+                <div>
+                    <a href="https://www.uu.se/">
+                    <img class="upplogo"src="https://shop.uu.se/shop/ws45/82845/files/UU_logo_vit.png">
+                </a>
+            </div>
 
-                <div><img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Circle-icons-mail.svg"></div>
+                <div>
+                    <a href="#">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Circle-icons-mail.svg">
+                </a>
+            </div>
 
-                <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Linkedin_icon.svg/480px-Linkedin_icon.svg.png"></div>
+                <div>
+                    <a href="https://www.linkedin.com/company/igem-uppsala/mycompany/">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Linkedin_icon.svg/480px-Linkedin_icon.svg.png">
+                    </a>
+                </div>
+                    
             </div>
 
         <div class="grid-container-sponsors">
-                <div>
-                    <img src="https://2021.igem.org/wiki/images/8/8b/T--Uppsala--utnlogo.png">
-                </div>
             
+                <div>
+                    <a href="https://www.utn.se/" >
+                    <img src="https://2021.igem.org/wiki/images/8/8b/T--Uppsala--utnlogo.png">  
+                </a>
+                </div>
+           
 
                 <div>
+                    <a href="https://www.genscript.com/">
                     <img src="http://2014.igem.org/wiki/images/5/5a/York_Genscript_logo-1-.png">
+                </a>
                 </div>
+
                 <div>
+                    <a href="https://worldwide.promega.com/">
                     <img src="https://2020.igem.org/wiki/images/0/05/T--UofUppsala--pro.png">
+                </a>
                 </div>
+
+                
                 <div>
+                    <a href="https://www.bio-rad.com/?WT.srch=1&WT.mc_id=aw-corp-EU-brand&WT.knsh_id=_kenshoo_clickid_&gclid=CjwKCAjw95yJBhAgEiwAmRrutA48CMgos3JZ-TdTj_YQADBtV-EWJK_8CUBKD466XHL8I8Bi9VhDihoC7GEQAvD_BwE">
                     <img src="https://2021.igem.org/wiki/images/f/fc/T--Uppsala--bioradlogo.png">
+                </a>
                 </div>
+
                 <div>
+                    <a href="https://www.bionordika.se/high-quality-pipette-tips/?gclid=CjwKCAjw95yJBhAgEiwAmRrutNGqkBzNJKL7ijaS2B49sQAOYXhCv-EijnZZGaPm7ILAn9b8eU7-eRoC9-AQAvD_BwE">
                     <img src="https://2021.igem.org/wiki/images/2/29/T--Uppsala--bionordikalogo.png">
+                </a>
                 </div>
+
                 <div>
+                    <a href="https://www.merck.com/">
                     <img src="https://2021.igem.org/wiki/images/9/9a/T--Uppsala--mercklogo.png">
+                    </a>
                 </div>
+
                 <div>
+                    <a href="https://www.scbt.com/home">
                     <img src="https://2021.igem.org/wiki/images/f/fa/T--Uppsala--scbtlogo.png">
+                </a>
                 </div>
+
                 <div>
+                    <a href="https://www.snapgene.com/">
                     <img src="https://2020.igem.org/wiki/images/8/8c/T--UofUppsala--snap.png">
+                </a>
                 </div>
+
                 <div>
+                    <a href="https://www.eurofins.se/">
                     <img src="https://2020.igem.org/wiki/images/a/a4/T--UofUppsala--euro.png">
+                </a>
                 </div>
+
                 <div>
+                    <a href="https://new-harvest.org/">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/New_Harvest_Full_Logo_-_RGB_.png">
+                </a>
                 </div>
+
                 <div>
+                    <a href="https://testacenter.com/">
                     <img src="https://testacenter.com/wp-content/uploads/2019/08/TestaCenter_LogoWithTagline_Pantone.png">
+                </a>
                 </div>
+
                 <div>
-                    
+                    <a href="https://www.cytivalifesciences.com/en/at">
                     <img src="https://cdn.cytivalifesciences.com/dmm3bwsv3/AssetStream.aspx?mediaformatid=10061&destinationid=10016&assetid=32945">
+                </a>
                 </div>
         </div>
 </body>
