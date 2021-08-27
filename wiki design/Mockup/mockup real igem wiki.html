@@ -779,8 +779,7 @@
                 z-index:10;
                 bottom:0;
                 left:0;
-                width:100px;
-                height:100px;
+                height:10vh;
                 transform:translateX(-50%);
                 transition:0.2s opacity;
             }
@@ -1265,7 +1264,8 @@
 
                     /*transform flask from cow-counterpart in size and position into the upper half of the logo, with corresponding size and position*/
                     if(current_fraction>0.95){
-                        document.getElementById("logo_flask").style="transform:translate(-50%, -50%) translateY(-43px) scale(0.57);"
+                        //document.getElementById("logo_flask").style="transform:translate(-50%, -50%) translateY(-43px) scale(0.57);"/* -43px assumes container height of 100px */
+                        document.getElementById("logo_flask").style="transform:translate(-50%, -50%) translateY(-4.3vh) scale(0.57);"
                     }else{
                         document.getElementById("logo_flask").style=""
                     }
