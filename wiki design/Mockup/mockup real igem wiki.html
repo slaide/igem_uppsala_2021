@@ -875,7 +875,7 @@
                     //remove annoying p element
                     let annoying_p=document.getElementById("fgfuture_main").nextElementSibling
                     while(annoying_p){
-                        if(annoying_p.tagName=="p"){
+                        if(annoying_p.tagName.toLowerCase()=="p"){
                             annoying_p.style="display:none;"
                             break
                         }
