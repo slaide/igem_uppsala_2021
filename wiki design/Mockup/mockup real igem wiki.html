@@ -53,6 +53,7 @@
                 display:grid;
                 grid-template-columns: 100%;
                 grid-template-rows: 100vh auto 100vh 120vh /*100vh <- this is the height of one panel that was removed during development*/ 100vh /*100px 100px <- these two are the height of the scrolling elements that are technically part of this container, but they do not take up any space within that element (position is not relative)*/;
+                transition: 0.1s filter;
             }
 
             .reference_image,.real,.panel{
@@ -66,9 +67,6 @@
             .panel > *{
                 position:absolute;
                 overflow:hidden;
-            }
-            .real{
-                background-color:#7ab9ce;
             }
             /*applies to all divs with an onmouseenter event handler*/
             #fgfuture_main div[onmouseenter]{
@@ -183,15 +181,16 @@
                 --cow-height:887.78;
                 --cow-width:530.92;
 
-                height:calc(var(--width)*var(--cow-width)/var(--cow-height));
+                --width:calc(var(--height)*var(--cow-height)/var(--cow-width));
                 width:var(--width);
+                height:var(--height);
 
                 background-image: url("https://2021.igem.org/wiki/images/1/19/T--Uppsala--cow_eating.svg");
             }
             #cow_left{
-                --width:32vw;
+                --height:40vh;
 
-                left: 10vw;
+                right: calc(95vw - var(--width));
                 bottom: 3vh;
 
                 z-index: 7;
@@ -199,9 +198,9 @@
                 transform: scaleX(-1);
             }
             #cow_right{
-                --width:20vw;
+                --height:22vh;
 
-                right: 14vw;
+                left: calc(86vw - var(--width));
                 bottom: 9vh;
 
                 z-index: 5;
@@ -651,24 +650,38 @@
                 transform-origin:center center;
 
                 transform:translateY(-50%) translateX(-50%);
+
+                height:var(--height);
+                width:calc( var(--height) * var(--real-width) / var(--real-height));
             }
             .whole_cow{
-                width:300px;
-                height:270px;
+                --height:20vh;
+
+                --real-height:574.99px;
+                --real-width:927.92px;
+
                 left:10%;
 
                 z-index:2;
+
+                transform:translateY(-50%) translateX(-50%) scaleX(-1);
             }
             .petri_dish{
-                width:300px;
-                height:auto;
+                --height:15vh;
+
+                --real-height:559.38px;
+                --real-width:1182.37px;
+
                 left:50%;
 
                 z-index:0;
             }
             .petri_dish_front{
-                width:300px;
-                height:auto;
+                --real-height:362.23px;
+                --real-width:1183.05px;
+                
+                --height:calc( 15vh * 0.6475562229611356 ); /*15vh is the calcualted, 559.38px the real height of the full petri dish, of which this front piece should have the proportional height. 362.23px/559.38px=0.647556... */
+                
                 left:50%;
 
                 transform:translateY(-25%) translateX(-50%);
@@ -706,8 +719,8 @@
                 z-index:1;
             }
             .petri_dish_steak{
-                width:50px;
-                height:45px;
+                width:1076.55px;
+                height:572.77px;
 
                 left:50%;
 
@@ -766,8 +779,7 @@
                 z-index:10;
                 bottom:0;
                 left:0;
-                width:100px;
-                height:100px;
+                height:10vh;
                 transform:translateX(-50%);
                 transition:0.2s opacity;
             }
@@ -783,8 +795,7 @@
             #logo_animated{
                 display:block;
                 position:absolute;
-                width:100px;
-                height:100px;
+                height:calc( 60% / 5.5 );
                 transform-origin:center center;
                 transform:translate(-50%,-50%) scale(calc(var(--scale)*5.5));
             }
@@ -797,8 +808,9 @@
             }
             #tagline{
                 position:absolute;
+                text-align: center;
                 max-width:20%;
-                font-size: 5em;
+                font-size: 5vh;
                 left:50%;
                 top:50%;
                 transform:translate(-50%,-50%);
@@ -810,8 +822,20 @@
             .invisible{
                 opacity:0;
             }
+            #team_steak{
+                position:absolute;
+                top:50%;
+                left:80%;/*50%+(20%/2)+(100%-20%)/2/2 = 60%+20% = 80%*/
+                transform-origin: center center;
+                transform: translate(-50%,-50%);
+                width:24%;/*(100%-20%) * 60% / 2*/
+            }
+            #team_steak > img{
+                width:100%;
+                height:100%;
+            }
         </style>
-        <script>
+        <script purpose="on_load_code">
             function min(a,b){return (a<b)?a:b}
             function max(a,b){return (a>b)?a:b}
 
@@ -851,11 +875,12 @@
                     }
                     //remove annoying p element
                     let annoying_p=document.getElementById("fgfuture_main").nextElementSibling
-                    if(annoying_p){
-                        annoying_p=annoying_p.nextElementSibling
-                        if(annoying_p){
+                    while(annoying_p){
+                        if(annoying_p.tagName.toLowerCase()=="p"){
                             annoying_p.style="display:none;"
+                            break
                         }
+                        annoying_p=annoying_p.nextElementSibling
                     }
                 }
 
@@ -869,15 +894,267 @@
                 },1000)
 
                 hide_meat_problem_areas()
-                setTimeout(()=>{
-                    setInterval(tissue_animation,1000/framerate)
-                },0)
-                setTimeout(()=>{
-                    setInterval(fgf2_animation,1000/framerate)
-                },add_stuff_to_petri_dish_duration*1000)
-                setTimeout(()=>{
-                    setInterval(steak_animation,1000/framerate)
-                },add_stuff_to_petri_dish_duration*2000)
+
+                var start_time=Date.now()/1000
+                var last_time=Date.now()/1000
+                function step_animations(){
+                    var current_time=Date.now()/1000
+
+                    let step=current_time-last_time
+                    let total_time=current_time-start_time
+
+                    tissue_animation(step)
+                    if(total_time>(add_stuff_to_petri_dish_duration)){
+                        fgf2_animation(step)
+                    }
+                    if(total_time>(add_stuff_to_petri_dish_duration*2)){
+                        steak_animation(step)
+                    }
+
+                    last_time=current_time
+
+                    requestAnimationFrame(step_animations)
+                }
+                requestAnimationFrame(step_animations)
+
+                highlight_current_topic_in_navbar()
+            }
+        </script>
+        <style real-href="navigation_bar">
+            /*
+            #navmenu{
+                position: fixed;
+                width: 100%;
+                background-color: #dce1de;
+                transition: all 0.5s;
+                overflow: hidden;
+                height: 5vh;
+                z-index: 10;
+                font-size: 1.5em;
+                color:#6d1d23;
+                font-family: UL;
+
+            }
+            #navmenu:hover{
+                overflow: visible;
+            }
+
+            #navmenu:hover ~ .parallaxtop, #navmenu:hover ~ #pagecontent, #navmenu:hover ~ .flexbox-container-socialmedia, #navmenu:hover ~ .grid-container-sponsors{
+                filter: blur(5px);
+            }
+
+            .logotype{
+                float:left;
+                width:3.5vw;
+                height:5vh;
+                padding-right:0px;
+            }
+
+            ul {
+                list-style-type: none;
+                margin:0;
+            }
+
+            .mw-content-ltr ul, .mw-content-rtl .mw-content-ltr ul{
+                margin: 0;;
+            }
+
+            li {
+                float: left;
+                margin-right: 8vw;      
+            }
+
+            #navigation_bar_container{
+                height:100%;
+            }
+            #navigation_bar_container > li{
+                height:100%;
+                margin:0;
+            }
+            #navigation_bar_container > li > a{
+                position:absolute;
+                top:50%;
+                transform:translateY(-50%);
+            }
+
+            .dropdown a, .dropbtn {
+                display: inline-block;
+                color:#6d1d23;
+                text-align: center;
+                margin-top: 0.6vh;
+                text-decoration: none;
+            }
+
+            .dropdown a:hover, .dropdown:hover .dropbtn{
+                color: #426968;
+                text-decoration: underline;
+            }
+
+            .dropdown:hover .dropdown-content a{
+                color: #426968;
+            }
+
+            li.dropdown{
+                display: inline-block;
+            }
+
+            .dropdown-content{
+                display: none;
+                position: absolute;
+                background-color: #dce1de;
+                min-width: 5vw;
+                z-index: 1;
+                margin-top: 1vh;
+                margin-bottom: 2vh;
+            }
+
+            .dropdown-content a{
+                margin-top: 2.7vh;
+                margin-left: 0.5vw;
+                text-decoration: none;
+                display: block;
+                text-align: left;
+            }
+
+            .dropdown-content a:hover{
+                color: #426968;
+                margin-left: 1vw;
+                text-decoration: none;
+            }
+
+            .dropdown-background{
+                display: none;
+                position: absolute;
+                background-color: #dce1de;
+                width: 77vw;
+                height: 40vh;
+                z-index: 1;
+                margin-top: 5vh;
+                margin-left: 3.5vw;
+            }
+
+            #navmenu:hover .dropdown-content, #navmenu:hover .dropdown-background{
+                display: block;
+            }
+
+            #clickbox{
+                width: 3.5vw;
+                height:5vh;
+                position: fixed;
+                z-index: 100;
+                background-color: #dce1de;
+                justify-content: center;
+                align-content: center;
+                display: flex;
+            }*/
+
+            #navigation_bar:not(.fully_open){
+                height:5vh;
+            }
+            .fully_open{
+                height:auto;
+            }
+            #navigation_bar{
+                top:16px;
+                overflow:hidden;
+
+                position:fixed;
+                width:100%;
+
+                z-index:9;
+
+                display:grid;
+                grid-template-columns: 5% 95%;
+                grid-template-rows: 100%;
+
+                background-color: #dce1de;
+            }
+            .dropdown a{
+                font-family: sans-serif;
+                font-size: 2vh;
+                color:black;
+                transition: 0.1s;
+            }
+            .dropdown > a{
+                font-size: 2.5vh;
+            }
+            .dropdown.hovering_over a{
+                color:#6d1d23;
+                font-weight: bolder;
+            }
+            #navigation_bar a:not(:hover){
+                text-decoration: none;
+            }
+            #navigation_bar_logo_container{
+                height:5vh;
+            }
+            #navigation_bar_logo_container > img{
+                height:100%;
+            }
+            #navigation_bar > ul{
+                display:grid;
+
+                grid-template-columns: repeat(6,auto);
+                grid-template-rows: 100%;
+            }
+            .dropdown{
+                display:block;
+                height:35vh;
+            }
+            .dropbtn{
+                display:block;
+                position:absolute;
+
+                height:3vh;
+
+                text-decoration: none;
+
+                top:calc( 2.5vh);
+                transform:translateY(-50%);
+            }
+            .dropdown-content{
+                position:absolute;
+                height:auto;
+
+                font-size: 2vh;
+
+                top:5vh;
+            }
+            .dropdown-content > a{
+                display:block;
+                height:90%;
+                padding-left:10%;
+                padding-bottom:1vh;
+                padding-top:1vh;
+            }
+            .dropdown-content > a:hover{
+                text-decoration:underline;
+            }
+            .dropdown.hovering_over a{
+                color:#6d1d23;
+            }
+            .current_topic{
+                font-style: italic;
+                font-weight: bolder;
+                font-size: 2.2vh;
+            }
+        </style>
+        <script purpose="open_close_navbar">
+            function open_navbar(){
+                document.getElementById("navigation_bar").classList.add("fully_open")
+                document.getElementById("fgfuture_main").style.setProperty("filter","blur(15px)")
+                //this is broken. blurring the main element makes the scrolly things lose their position setting
+                for(element of document.getElementsByClassName("scroll_thing")){
+                    element.style.setProperty("filter","blur(15px)")
+                }
+            }
+            function close_navbar(){
+                document.getElementById("navigation_bar").classList.remove("fully_open")
+                document.getElementById("fgfuture_main").style.setProperty("filter","initial")
+                //this is broken. blurring the main element makes the scrolly things lose their position setting
+                for(element of document.getElementsByClassName("scroll_thing")){
+                    element.style.setProperty("filter","initial")
+                }
             }
         </script>
     </head>
@@ -887,11 +1164,97 @@
                 <img src="https://2021.igem.org/wiki/images/7/76/T--Uppsala--logo_animated.gif">
                 <div style="font-size:3vh;text-align:center;padding-top:4vh;font-family: sans-serif;">LOADING</div>
             </div>
+        </div>    <!--Menu with drop down-->
+        <div id="navigation_bar" onmouseenter="open_navbar()" onmouseleave="close_navbar()">
+            <a id="navigation_bar_logo_container" href='https://2021.igem.org/Team:Uppsala'>
+                <img class="logotype" src="https://2021.igem.org/wiki/images/thumb/1/13/T--Uppsala--logotransparent.png/320px-T--Uppsala--logotransparent.png">
+            </a>
+            <ul>
+                <li class="dropdown">
+                    <a href="https://2021.igem.org/Team:Uppsala/Description" class="dropbtn">Project</a>
+                    <div class="dropdown-content">
+                        <a href="https://2021.igem.org/Team:Uppsala/Description">Description</a>
+                        <a href="https://2021.igem.org/Team:Uppsala/Proof_Of_Concept">Proof of Concept</a>
+                        <a href="https://2021.igem.org/Team:Uppsala/Engineering">Engineering<br> Success</a>
+                        <a href="https://2021.igem.org/Team:Uppsala/Contribution">Contribution</a>
+                        <a href="https://2021.igem.org/Team:Uppsala/Implementation">Proposed Implementation</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="https://2021.igem.org/Team:Uppsala/Results" class="dropbtn">Experiments</a>
+                    <div class="dropdown-content">
+                        <a href="https://2021.igem.org/Team:Uppsala/Results">Results</a>
+                        <a href="https://2021.igem.org/Team:Uppsala/Model">Modeling</a>
+                        <a href="https://2021.igem.org/Team:Uppsala/Notebook">Notebook</a>
+                        <a href="https://2021.igem.org/Team:Uppsala/Parts">Parts</a>
+                        <a href="https://2021.igem.org/Team:Uppsala/Safety">Safety</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="https://2021.igem.org/Team:Uppsala/Human_Practices" class="dropbtn">Human Practice</a>
+                    <div class="dropdown-content">
+                        <a href="https://2021.igem.org/Team:Uppsala/Human_Practices">Integrated Human Practice</a>
+                        <a href="https://2021.igem.org/Team:Uppsala/Education">Education</a>
+                        <a href="#">Ethics</a>
+                        <a href="#">Inclusion</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="https://2021.igem.org/Team:Uppsala/Team" class="dropbtn">Team</a>
+                    <div class="dropdown-content">
+                        <a href="https://2021.igem.org/Team:Uppsala/Team">Team</a>
+                        <a href="https://2021.igem.org/Team:Uppsala/Collaborations">Collaboration</a>
+                        <a href="https://2021.igem.org/Team:Uppsala/Attributions">Attribution</a>
+                        <a href="https://2021.igem.org/Team:Uppsala/Attributions">Sponsors</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Videos</a>
+                    <div class="dropdown-content">
+                        <a href="https://2021.igem.org/Team:Uppsala/Description">Final Presentation</a>
+                        <a href="https://www.youtube.com/watch?v=avKlAK5-1ks">Promotional Video</a>
+                        <a href="https://2021.igem.org/Team:Uppsala/Model">Molecular Dynamics</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Judging</a>
+                    <div class="dropdown-content">
+                        <a href="#">Judging Form</a>
+                        <a href="#">Awards</a>
+                    </div>
+                </li>
+            </ul>
+            <script purpose="dropdown_open_close">
+                for(dropdown of document.getElementsByClassName("dropdown")){
+                    dropdown.addEventListener("mouseenter",function(ev){
+                        function remove_hovering_highlighting(ev){
+                            ev.target.removeEventListener("mouseleave",remove_hovering_highlighting)
+                            ev.target.classList.remove("hovering_over")
+                        }
+                        ev.target.classList.add("hovering_over")
+                        ev.target.addEventListener("mouseleave",remove_hovering_highlighting)
+                    })
+                }
+            </script>
+            <script purpose="highlight_current_topic_in_navbar">
+                function highlight_current_topic_in_navbar(){
+                    const match_path_text=window.location.pathName
+                    const match_path_length=match_path_text.length
+                    for(element of document.getElementsByClassName("dropdown-content")){
+                        for(child of element.children){
+                            //const match_path_text="/Team:Uppsala/Model"
+                            if(child.getAttribute("href").substr(-match_path_length)==match_path_text){
+                                child.classList.add("current_topic")
+                            }
+                        }
+                    }
+                }
+            </script>
         </div>
         <main id="fgfuture_main">
             <div class="panel">
                 <!-- img class="reference_image" src="https://2021.igem.org/wiki/images/e/e1/T--Uppsala--IMG_0968.png" loading="lazy" -->
-                <div class="real">
+                <div class="real" style="background-color:#7ab9ce;">
                     <div id="grass_front"></div>
                     <div id="grass_front_middle_fill"></div>
                     <div id="cow_left"></div>
@@ -982,44 +1345,8 @@
                             }
                         }
                     </script>
-
-                    <script>
-                        function scale_steak(){
-                            const my_height=919 /*not 1080, because browsers*/
-                            const my_width=1920
-
-                            const scale_fraction=window.innerWidth/my_width
-
-                            let steak=document.getElementById("steak_big")
-                            steak.style.setProperty("--steak-height", 580.06 *scale_fraction +"px")
-                            steak.style.setProperty("--steak-width",1073 *scale_fraction +"px")
-
-                            for(id of "#syringe_container,#antibiotic_syringe_body,#antibiotic_syringe_top,#antibiotic_syringe_fluid".split(",")){
-                                let element=document.getElementById(id.substr(1))
-
-                                element.style.setProperty("--syringe-top-height",140.66*scale_fraction+"px")
-                                element.style.setProperty("--syringe-top-width",629.17*scale_fraction+"px")
-
-                                element.style.setProperty("--syringe-body-height",262.02*scale_fraction+"px")
-                                element.style.setProperty("--syringe-body-width",1081.73*scale_fraction+"px")
-                            }
-
-                            let syringe_fluid=document.getElementById("antibiotic_syringe_fluid")
-                            syringe_fluid.style.setProperty("--height",113.41*scale_fraction+"px")
-                            syringe_fluid.style.setProperty("--width",232.48*scale_fraction+"px")
-
-                            for(id of "deforestation_container,co_bubble_container,factory_container".split(",")){
-                                let element=document.getElementById(id)
-                                if(!element){
-                                    console.log(id)
-                                }
-                                element.style.setProperty("transform","scale("+scale_fraction+")")
-                            }
-                        }
-                        scale_steak()
-                    </script>
                 </div>
-                <script>
+                <script purpose="hover_expand_problem_information">
                     function show_greenhouse_gases(){
                         let element=document.getElementById("co2_text")
                         element.children[1].classList.remove("invisible")
@@ -1050,9 +1377,9 @@
                     }
                 </script>
             </div>
-            <div class="panel">
+            <div class="panel" style="background-color:#CCE0DD; height:auto;">
                 <!-- img class="reference_image" src="https://2021.igem.org/wiki/images/4/41/T--Uppsala--IMG_0970.png" loading="lazy" -->
-                <div class="real" style="background-color:#CCE0DD; height:150vh;">
+                <div class="real" style="height:auto;">
                     <div id="panel3_headline">SOLUTION: CULTIVATED MEAT</div>
                     <div class="intermediate_text informative">
                         this is how cultivated meat production works in a lab, right now:
@@ -1064,7 +1391,7 @@
                         </div>
                         <img class="petri_dish" src="https://2021.igem.org/wiki/images/f/fe/T--Uppsala--petridish_back.svg" loadling="lazy">
                         <img class="petri_dish_front" src="https://2021.igem.org/wiki/images/0/08/T--Uppsala--petridish_front.svg" loadling="lazy">
-                        <img class="petri_dish_steak" src="https://2021.igem.org/wiki/images/2/22/T--Uppsala--steak_simple.svg" loadling="lazy" style="--steak-max-scale:2;">
+                        <img class="petri_dish_steak" src="https://2021.igem.org/wiki/images/2/22/T--Uppsala--steak_simple.svg" loadling="lazy">
                         <div class="fgf2_container">
                             <img class="fgf2_old" src="https://2021.igem.org/wiki/images/e/ec/T--Uppsala--FGF_old.svg" loadling="lazy">
                         </div>
@@ -1081,15 +1408,16 @@
                         </div>
                         <img class="petri_dish" src="https://2021.igem.org/wiki/images/f/fe/T--Uppsala--petridish_back.svg" loadling="lazy">
                         <img class="petri_dish_front" src="https://2021.igem.org/wiki/images/0/08/T--Uppsala--petridish_front.svg" loadling="lazy">
-                        <img class="petri_dish_steak" src="https://2021.igem.org/wiki/images/2/22/T--Uppsala--steak_simple.svg" loadling="lazy" style="--steak-max-scale:4;">
+                        <img class="petri_dish_steak" src="https://2021.igem.org/wiki/images/2/22/T--Uppsala--steak_simple.svg" loadling="lazy">
                         <div class="fgf2_container">
                             <img class="fgf2_new" src="https://2021.igem.org/wiki/images/d/d7/T--Uppsala--FGF_new.svg" loadling="lazy">
                         </div>
                         <img class="fork_lower" src="https://2021.igem.org/wiki/images/f/f8/T--Uppsala--fork.svg">
                     </div>
-                    <script>
+                    <script purpose="panel_3_movement_animations">
                         const svg_namespace="http://www.w3.org/2000/svg"
 
+                        /* path for cow tissue and fgf2 protein */
                         let svg=document.createElementNS(svg_namespace,"svg")
                         let path=document.createElementNS(svg_namespace,"path")
                         path.setAttribute("d","M0,1080c569.5-504.5,1420.5-468.5,1920,0")
@@ -1107,8 +1435,9 @@
 
                         var delta_time_fgf2=0
                         var fgf2_delta=default_delta
-                        function fgf2_animation(){
-                            delta_time_fgf2+=fgf2_delta
+                        function fgf2_animation(step){
+                            //delta_time_fgf2+=fgf2_delta
+                            delta_time_fgf2+=total_path_length*step/add_stuff_to_petri_dish_duration
 
                             let delta_length=(delta_time_fgf2/total_path_length)*100
                             let point=at_percent_length(delta_length)
@@ -1132,8 +1461,9 @@
 
                         var delta_time_tissue=0
                         var tissue_delta=default_delta
-                        function tissue_animation(){
-                            delta_time_tissue+=tissue_delta
+                        function tissue_animation(step){
+                            //delta_time_tissue+=tissue_delta
+                            delta_time_tissue+=total_path_length*step/add_stuff_to_petri_dish_duration
 
                             let delta_length=(delta_time_tissue/total_path_length)*100
                             let point=at_percent_length(delta_length)
@@ -1158,9 +1488,10 @@
 
                         /*includes steak and fork animations!*/
                         var delta_steak=0
-                        function steak_animation(){
+                        function steak_animation(step){
                             //delta_steak+=1 for every animation step (number of animation frames changes accordingly)
-                            delta_steak+=1/(framerate*add_stuff_to_petri_dish_duration)
+                            //delta_steak+=1/(framerate*add_stuff_to_petri_dish_duration)
+                            delta_steak+=step/add_stuff_to_petri_dish_duration
 
                             const steak_scale_delay=0.2
                             var steak_scale=max(min(delta_steak-steak_scale_delay,1-steak_scale_delay),0)
@@ -1234,13 +1565,16 @@
             <!-- div class="panel">
                 <img class="reference_image" src="https://2021.igem.org/wiki/images/3/3b/T--Uppsala--IMG_0971.png" loading="lazy">
             </div -->
-            <div class="panel">
-                <img class="reference_image" src="https://2021.igem.org/wiki/images/4/42/T--Uppsala--IMG_0972.png" loading="lazy">
+            <div class="panel" style="background-color:#CCE0DD">
+                <!-- img class="reference_image" src="https://2021.igem.org/wiki/images/4/42/T--Uppsala--IMG_0972.png" loading="lazy" -->
                 <div id="logo_animated" style="display:none;">
                     <img src="https://2021.igem.org/wiki/images/5/53/T--Uppsala--cow_logo.svg"  loading="lazy">
                 </div>
                 <div id="tagline">
                     We are Team Uppsala and we believe in a bright future.
+                </div>
+                <div id="team_steak">
+                    <img src="https://2021.igem.org/wiki/images/2/22/T--Uppsala--steak_simple.svg"  loading="lazy">
                 </div>
             </div>
             <div class="scroll_thing">
@@ -1271,7 +1605,8 @@
 
                     /*transform flask from cow-counterpart in size and position into the upper half of the logo, with corresponding size and position*/
                     if(current_fraction>0.95){
-                        document.getElementById("logo_flask").style="transform:translate(-50%, -50%) translateY(-43px) scale(0.57);"
+                        //document.getElementById("logo_flask").style="transform:translate(-50%, -50%) translateY(-43px) scale(0.57);"/* -43px assumes container height of 100px */
+                        document.getElementById("logo_flask").style="transform:translate(-50%, -50%) translateY(-4.3vh) scale(0.57);"
                     }else{
                         document.getElementById("logo_flask").style=""
                     }
@@ -1325,6 +1660,47 @@
                 window.addEventListener("scroll",()=>requestAnimationFrame(move_scrollable_elements))
             </script>
         </main>
+        <script purpose="rescaling_code">
+            function scale_steak(){
+                const my_height=919 /*not 1080, because browsers*/
+                const my_width=1920
+
+                const scale_fraction=window.innerWidth/my_width
+
+                let petri_dish_steaks=document.getElementsByClassName("petri_dish_steak")
+                let small_petri_dish_steak_scale=(31.705727770031103/100 * window.innerHeight / 1076.55 * 0.8 / 2)
+
+                petri_dish_steaks[0].style.setProperty("--steak-max-scale",small_petri_dish_steak_scale+"")
+                petri_dish_steaks[1].style.setProperty("--steak-max-scale",small_petri_dish_steak_scale*2+"")
+
+                let steak=document.getElementById("steak_big")
+                steak.style.setProperty("--steak-height", 580.06 *scale_fraction +"px")
+                steak.style.setProperty("--steak-width",1073 *scale_fraction +"px")
+
+                for(id of "#syringe_container,#antibiotic_syringe_body,#antibiotic_syringe_top,#antibiotic_syringe_fluid".split(",")){
+                    let element=document.getElementById(id.substr(1))
+
+                    element.style.setProperty("--syringe-top-height",140.66*scale_fraction+"px")
+                    element.style.setProperty("--syringe-top-width",629.17*scale_fraction+"px")
+
+                    element.style.setProperty("--syringe-body-height",262.02*scale_fraction+"px")
+                    element.style.setProperty("--syringe-body-width",1081.73*scale_fraction+"px")
+                }
+
+                let syringe_fluid=document.getElementById("antibiotic_syringe_fluid")
+                syringe_fluid.style.setProperty("--height",113.41*scale_fraction+"px")
+                syringe_fluid.style.setProperty("--width",232.48*scale_fraction+"px")
+
+                for(id of "deforestation_container,co_bubble_container,factory_container".split(",")){
+                    let element=document.getElementById(id)
+                    if(!element){
+                        console.log(id)
+                    }
+                    element.style.setProperty("transform","scale("+scale_fraction+")")
+                }
+            }
+            scale_steak()
+        </script>
         <script purpose="grass_animation">
             let animation_functions=[]
             let disable_complex_animations=true
