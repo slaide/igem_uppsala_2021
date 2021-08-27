@@ -183,15 +183,16 @@
                 --cow-height:887.78;
                 --cow-width:530.92;
 
-                height:calc(var(--width)*var(--cow-width)/var(--cow-height));
+                --width:calc(var(--height)*var(--cow-height)/var(--cow-width));
                 width:var(--width);
+                height:var(--height);
 
                 background-image: url("https://2021.igem.org/wiki/images/1/19/T--Uppsala--cow_eating.svg");
             }
             #cow_left{
-                --width:32vw;
+                --height:40vh;
 
-                left: 10vw;
+                right: calc(95vw - var(--width));
                 bottom: 3vh;
 
                 z-index: 7;
@@ -199,9 +200,9 @@
                 transform: scaleX(-1);
             }
             #cow_right{
-                --width:20vw;
+                --height:22vh;
 
-                right: 14vw;
+                left: calc(86vw - var(--width));
                 bottom: 9vh;
 
                 z-index: 5;
@@ -651,24 +652,36 @@
                 transform-origin:center center;
 
                 transform:translateY(-50%) translateX(-50%);
+
+                height:var(--height);
+                width:calc( var(--height) * var(--real-width) / var(--real-height));
             }
             .whole_cow{
-                width:300px;
-                height:270px;
+                --height:20vh;
+
+                --real-height:574.99px;
+                --real-width:927.92px;
+
                 left:10%;
 
                 z-index:2;
             }
             .petri_dish{
-                width:300px;
-                height:auto;
+                --height:15vh;
+
+                --real-height:559.38px;
+                --real-width:1182.37px;
+
                 left:50%;
 
                 z-index:0;
             }
             .petri_dish_front{
-                width:300px;
-                height:auto;
+                --real-height:362.23px;
+                --real-width:1183.05px;
+                
+                --height:calc( 15vh * 0.6475562229611356 ); /*15vh is the calcualted, 559.38px the real height of the full petri dish, of which this front piece should have the proportional height. 362.23px/559.38px=0.647556... */
+                
                 left:50%;
 
                 transform:translateY(-25%) translateX(-50%);
@@ -706,8 +719,8 @@
                 z-index:1;
             }
             .petri_dish_steak{
-                width:50px;
-                height:45px;
+                width:1076.55px;
+                height:572.77px;
 
                 left:50%;
 
@@ -869,15 +882,28 @@
                 },1000)
 
                 hide_meat_problem_areas()
-                setTimeout(()=>{
-                    setInterval(tissue_animation,1000/framerate)
-                },0)
-                setTimeout(()=>{
-                    setInterval(fgf2_animation,1000/framerate)
-                },add_stuff_to_petri_dish_duration*1000)
-                setTimeout(()=>{
-                    setInterval(steak_animation,1000/framerate)
-                },add_stuff_to_petri_dish_duration*2000)
+
+                var start_time=Date.now()/1000
+                var last_time=Date.now()/1000
+                function step_animations(){
+                    var current_time=Date.now()/1000
+
+                    let step=current_time-last_time
+                    let total_time=current_time-start_time
+
+                    tissue_animation(step)
+                    if(total_time>(add_stuff_to_petri_dish_duration)){
+                        fgf2_animation(step)
+                    }
+                    if(total_time>(add_stuff_to_petri_dish_duration*2)){
+                        steak_animation(step)
+                    }
+
+                    last_time=current_time
+
+                    requestAnimationFrame(step_animations)
+                }
+                requestAnimationFrame(step_animations)
             }
         </script>
     </head>
@@ -982,44 +1008,8 @@
                             }
                         }
                     </script>
-
-                    <script>
-                        function scale_steak(){
-                            const my_height=919 /*not 1080, because browsers*/
-                            const my_width=1920
-
-                            const scale_fraction=window.innerWidth/my_width
-
-                            let steak=document.getElementById("steak_big")
-                            steak.style.setProperty("--steak-height", 580.06 *scale_fraction +"px")
-                            steak.style.setProperty("--steak-width",1073 *scale_fraction +"px")
-
-                            for(id of "#syringe_container,#antibiotic_syringe_body,#antibiotic_syringe_top,#antibiotic_syringe_fluid".split(",")){
-                                let element=document.getElementById(id.substr(1))
-
-                                element.style.setProperty("--syringe-top-height",140.66*scale_fraction+"px")
-                                element.style.setProperty("--syringe-top-width",629.17*scale_fraction+"px")
-
-                                element.style.setProperty("--syringe-body-height",262.02*scale_fraction+"px")
-                                element.style.setProperty("--syringe-body-width",1081.73*scale_fraction+"px")
-                            }
-
-                            let syringe_fluid=document.getElementById("antibiotic_syringe_fluid")
-                            syringe_fluid.style.setProperty("--height",113.41*scale_fraction+"px")
-                            syringe_fluid.style.setProperty("--width",232.48*scale_fraction+"px")
-
-                            for(id of "deforestation_container,co_bubble_container,factory_container".split(",")){
-                                let element=document.getElementById(id)
-                                if(!element){
-                                    console.log(id)
-                                }
-                                element.style.setProperty("transform","scale("+scale_fraction+")")
-                            }
-                        }
-                        scale_steak()
-                    </script>
                 </div>
-                <script>
+                <script purpose="hover_expand_problem_information">
                     function show_greenhouse_gases(){
                         let element=document.getElementById("co2_text")
                         element.children[1].classList.remove("invisible")
@@ -1064,7 +1054,7 @@
                         </div>
                         <img class="petri_dish" src="https://2021.igem.org/wiki/images/f/fe/T--Uppsala--petridish_back.svg" loadling="lazy">
                         <img class="petri_dish_front" src="https://2021.igem.org/wiki/images/0/08/T--Uppsala--petridish_front.svg" loadling="lazy">
-                        <img class="petri_dish_steak" src="https://2021.igem.org/wiki/images/2/22/T--Uppsala--steak_simple.svg" loadling="lazy" style="--steak-max-scale:2;">
+                        <img class="petri_dish_steak" src="https://2021.igem.org/wiki/images/2/22/T--Uppsala--steak_simple.svg" loadling="lazy">
                         <div class="fgf2_container">
                             <img class="fgf2_old" src="https://2021.igem.org/wiki/images/e/ec/T--Uppsala--FGF_old.svg" loadling="lazy">
                         </div>
@@ -1081,7 +1071,7 @@
                         </div>
                         <img class="petri_dish" src="https://2021.igem.org/wiki/images/f/fe/T--Uppsala--petridish_back.svg" loadling="lazy">
                         <img class="petri_dish_front" src="https://2021.igem.org/wiki/images/0/08/T--Uppsala--petridish_front.svg" loadling="lazy">
-                        <img class="petri_dish_steak" src="https://2021.igem.org/wiki/images/2/22/T--Uppsala--steak_simple.svg" loadling="lazy" style="--steak-max-scale:4;">
+                        <img class="petri_dish_steak" src="https://2021.igem.org/wiki/images/2/22/T--Uppsala--steak_simple.svg" loadling="lazy">
                         <div class="fgf2_container">
                             <img class="fgf2_new" src="https://2021.igem.org/wiki/images/d/d7/T--Uppsala--FGF_new.svg" loadling="lazy">
                         </div>
@@ -1090,6 +1080,7 @@
                     <script>
                         const svg_namespace="http://www.w3.org/2000/svg"
 
+                        /* path for cow tissue and fgf2 protein */
                         let svg=document.createElementNS(svg_namespace,"svg")
                         let path=document.createElementNS(svg_namespace,"path")
                         path.setAttribute("d","M0,1080c569.5-504.5,1420.5-468.5,1920,0")
@@ -1107,8 +1098,9 @@
 
                         var delta_time_fgf2=0
                         var fgf2_delta=default_delta
-                        function fgf2_animation(){
-                            delta_time_fgf2+=fgf2_delta
+                        function fgf2_animation(step){
+                            //delta_time_fgf2+=fgf2_delta
+                            delta_time_fgf2+=total_path_length*step/add_stuff_to_petri_dish_duration
 
                             let delta_length=(delta_time_fgf2/total_path_length)*100
                             let point=at_percent_length(delta_length)
@@ -1132,8 +1124,9 @@
 
                         var delta_time_tissue=0
                         var tissue_delta=default_delta
-                        function tissue_animation(){
-                            delta_time_tissue+=tissue_delta
+                        function tissue_animation(step){
+                            //delta_time_tissue+=tissue_delta
+                            delta_time_tissue+=total_path_length*step/add_stuff_to_petri_dish_duration
 
                             let delta_length=(delta_time_tissue/total_path_length)*100
                             let point=at_percent_length(delta_length)
@@ -1158,9 +1151,10 @@
 
                         /*includes steak and fork animations!*/
                         var delta_steak=0
-                        function steak_animation(){
+                        function steak_animation(step){
                             //delta_steak+=1 for every animation step (number of animation frames changes accordingly)
-                            delta_steak+=1/(framerate*add_stuff_to_petri_dish_duration)
+                            //delta_steak+=1/(framerate*add_stuff_to_petri_dish_duration)
+                            delta_steak+=step/add_stuff_to_petri_dish_duration
 
                             const steak_scale_delay=0.2
                             var steak_scale=max(min(delta_steak-steak_scale_delay,1-steak_scale_delay),0)
@@ -1325,6 +1319,47 @@
                 window.addEventListener("scroll",()=>requestAnimationFrame(move_scrollable_elements))
             </script>
         </main>
+        <script purpose="rescaling_code">
+            function scale_steak(){
+                const my_height=919 /*not 1080, because browsers*/
+                const my_width=1920
+
+                const scale_fraction=window.innerWidth/my_width
+
+                let petri_dish_steaks=document.getElementsByClassName("petri_dish_steak")
+                let small_petri_dish_steak_scale=(31.705727770031103/100 * window.innerHeight / 1076.55 * 0.8 / 2)
+
+                petri_dish_steaks[0].style.setProperty("--steak-max-scale",small_petri_dish_steak_scale+"")
+                petri_dish_steaks[1].style.setProperty("--steak-max-scale",small_petri_dish_steak_scale*2+"")
+
+                let steak=document.getElementById("steak_big")
+                steak.style.setProperty("--steak-height", 580.06 *scale_fraction +"px")
+                steak.style.setProperty("--steak-width",1073 *scale_fraction +"px")
+
+                for(id of "#syringe_container,#antibiotic_syringe_body,#antibiotic_syringe_top,#antibiotic_syringe_fluid".split(",")){
+                    let element=document.getElementById(id.substr(1))
+
+                    element.style.setProperty("--syringe-top-height",140.66*scale_fraction+"px")
+                    element.style.setProperty("--syringe-top-width",629.17*scale_fraction+"px")
+
+                    element.style.setProperty("--syringe-body-height",262.02*scale_fraction+"px")
+                    element.style.setProperty("--syringe-body-width",1081.73*scale_fraction+"px")
+                }
+
+                let syringe_fluid=document.getElementById("antibiotic_syringe_fluid")
+                syringe_fluid.style.setProperty("--height",113.41*scale_fraction+"px")
+                syringe_fluid.style.setProperty("--width",232.48*scale_fraction+"px")
+
+                for(id of "deforestation_container,co_bubble_container,factory_container".split(",")){
+                    let element=document.getElementById(id)
+                    if(!element){
+                        console.log(id)
+                    }
+                    element.style.setProperty("transform","scale("+scale_fraction+")")
+                }
+            }
+            scale_steak()
+        </script>
         <script purpose="grass_animation">
             let animation_functions=[]
             let disable_complex_animations=true
