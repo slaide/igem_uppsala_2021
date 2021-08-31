@@ -38,6 +38,15 @@
             #globalWrapper{
                 padding-bottom:0;
             }
+            .igem_content_wrapper .igem_column_wrapper a,.igem_content_wrapper .igem_column_wrapper a:hover{
+                font-weight: initial;
+                text-decoration-color: initial;
+                transition: initial;
+                -webkit-transition: initial;
+                -moz-transition: initial;
+                -ms-transition: initial;
+                -o-transition: initial;
+            }
         </style>
         <style real-href="main.css">
             *{
@@ -1048,12 +1057,7 @@
                 display: flex;
             }*/
 
-            #navigation_bar:not(.fully_open){
-                height:5vh;
-            }
-            .fully_open{
-                height:auto;
-            }
+            /*navigation bar*/
             #navigation_bar{
                 top:16px;
                 overflow:hidden;
@@ -1069,49 +1073,77 @@
 
                 background-color: #dce1de;
             }
-            .dropdown a{
+            /*navigation bar height while not open, or open*/
+            #navigation_bar:not(.fully_open){
+                height:5vh;
+            }
+            .fully_open{
+                height:auto;
+            }
+
+            /* a elements when not hovering*/
+            a.dropbtn,.navigation_dropdown_entry,.igem_content_wrapper .igem_column_wrapper a{
                 font-family: sans-serif;
-                font-size: 2vh;
-                color:black;
                 transition: 0.1s;
+                font-weight: normal;
+                color:black;
+                text-decoration: none;
             }
-            .dropdown > a{
+            a.dropbtn{
                 font-size: 2.5vh;
-            }
-            .dropdown.hovering_over a{
-                color:#6d1d23;
-                font-weight: bolder;
             }
             #navigation_bar a:not(:hover){
                 text-decoration: none;
             }
+            /* a elements when hovering (override color and underline) */
+            #navigation_bar a:hover{
+                color:#6d1d23;
+                text-decoration: underline;
+                /* reset igem bs */
+                font-weight: bold;
+            }
+
+            /* navigation bar logo on left */
+            /* img container */
             #navigation_bar_logo_container{
                 height:5vh;
             }
+            /* actual logo inside container */
             #navigation_bar_logo_container > img{
                 height:100%;
             }
+
+            /* container for dropdown menus on right side of navigation bar */
             #navigation_bar > ul{
                 display:grid;
 
                 grid-template-columns: repeat(6,auto);
                 grid-template-rows: 100%;
+
+                /* reset igem bs */
+                padding:0;
             }
+            /* dropdown menus (containers) */
             .dropdown{
                 display:block;
                 height:35vh;
             }
+            /* header of dropdown menus (containing name of each category) */
             .dropbtn{
                 display:block;
                 position:absolute;
-
-                height:3vh;
 
                 text-decoration: none;
 
                 top:calc( 2.5vh);
                 transform:translateY(-50%);
             }
+            /* override text color of all links inside dropdown menu when hovering over the menu */
+            .dropdown.hovering_over a{
+                color:#6d1d23;
+                font-weight: bold;
+            }
+            /* container for links inside dropdown menu */
             .dropdown-content{
                 position:absolute;
                 height:auto;
@@ -1120,19 +1152,19 @@
 
                 top:5vh;
             }
+            /* individual link inside dropdown menu */
             .dropdown-content > a{
                 display:block;
-                height:90%;
                 padding-left:10%;
                 padding-bottom:1vh;
                 padding-top:1vh;
             }
+            /* individual link inside dropdown menu on hover (underline) */
             .dropdown-content > a:hover{
                 text-decoration:underline;
             }
-            .dropdown.hovering_over a{
-                color:#6d1d23;
-            }
+
+            /* highlighting of current topic in dropdown */
             .current_topic{
                 font-style: italic;
                 font-weight: bolder;
@@ -1173,54 +1205,54 @@
                 <li class="dropdown">
                     <a href="https://2021.igem.org/Team:Uppsala/Description" class="dropbtn">Project</a>
                     <div class="dropdown-content">
-                        <a href="https://2021.igem.org/Team:Uppsala/Description">Description</a>
-                        <a href="https://2021.igem.org/Team:Uppsala/Proof_Of_Concept">Proof of Concept</a>
-                        <a href="https://2021.igem.org/Team:Uppsala/Engineering">Engineering<br> Success</a>
-                        <a href="https://2021.igem.org/Team:Uppsala/Contribution">Contribution</a>
-                        <a href="https://2021.igem.org/Team:Uppsala/Implementation">Proposed Implementation</a>
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Description">Description</a>
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Proof_Of_Concept">Proof of Concept</a>
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Engineering">Engineering Success</a>
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Contribution">Contribution</a>
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Implementation">Proposed Implementation</a>
                     </div>
                 </li>
                 <li class="dropdown">
                     <a href="https://2021.igem.org/Team:Uppsala/Results" class="dropbtn">Experiments</a>
                     <div class="dropdown-content">
-                        <a href="https://2021.igem.org/Team:Uppsala/Results">Results</a>
-                        <a href="https://2021.igem.org/Team:Uppsala/Model">Modeling</a>
-                        <a href="https://2021.igem.org/Team:Uppsala/Notebook">Notebook</a>
-                        <a href="https://2021.igem.org/Team:Uppsala/Parts">Parts</a>
-                        <a href="https://2021.igem.org/Team:Uppsala/Safety">Safety</a>
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Results">Results</a>
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Model">Modeling</a>
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Notebook">Notebook</a>
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Parts">Parts</a>
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Safety">Safety</a>
                     </div>
                 </li>
                 <li class="dropdown">
                     <a href="https://2021.igem.org/Team:Uppsala/Human_Practices" class="dropbtn">Human Practice</a>
                     <div class="dropdown-content">
-                        <a href="https://2021.igem.org/Team:Uppsala/Human_Practices">Integrated Human Practice</a>
-                        <a href="https://2021.igem.org/Team:Uppsala/Education">Education</a>
-                        <a href="#">Ethics</a>
-                        <a href="#">Inclusion</a>
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Human_Practices">Integrated Human Practice</a>
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Education">Education</a>
+                        <a class="navigation_dropdown_entry" href="#">Ethics</a>
+                        <a class="navigation_dropdown_entry" href="#">Inclusion</a>
                     </div>
                 </li>
                 <li class="dropdown">
                     <a href="https://2021.igem.org/Team:Uppsala/Team" class="dropbtn">Team</a>
                     <div class="dropdown-content">
-                        <a href="https://2021.igem.org/Team:Uppsala/Team">Team</a>
-                        <a href="https://2021.igem.org/Team:Uppsala/Collaborations">Collaboration</a>
-                        <a href="https://2021.igem.org/Team:Uppsala/Attributions">Attribution</a>
-                        <a href="https://2021.igem.org/Team:Uppsala/Attributions">Sponsors</a>
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Team">Team</a>
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Collaborations">Collaboration</a>
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Attributions">Attribution</a>
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Attributions">Sponsors</a>
                     </div>
                 </li>
                 <li class="dropdown">
                     <a href="javascript:void(0)" class="dropbtn">Videos</a>
                     <div class="dropdown-content">
-                        <a href="https://2021.igem.org/Team:Uppsala/Description">Final Presentation</a>
-                        <a href="https://www.youtube.com/watch?v=avKlAK5-1ks">Promotional Video</a>
-                        <a href="https://2021.igem.org/Team:Uppsala/Model">Molecular Dynamics</a>
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Description">Final Presentation</a>
+                        <a class="navigation_dropdown_entry" href="https://www.youtube.com/watch?v=avKlAK5-1ks">Promotional Video</a>
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Model">Molecular Dynamics</a>
                     </div>
                 </li>
                 <li class="dropdown">
                     <a href="javascript:void(0)" class="dropbtn">Judging</a>
                     <div class="dropdown-content">
-                        <a href="#">Judging Form</a>
-                        <a href="#">Awards</a>
+                        <a class="navigation_dropdown_entry" href="#">Judging Form</a>
+                        <a class="navigation_dropdown_entry" href="#">Awards</a>
                     </div>
                 </li>
             </ul>
