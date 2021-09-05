@@ -1,8 +1,7 @@
 {{IGEM_TopBar}}
 <html>
     <head>
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <!-- landing page specific styling -->
         <script src="https://cdn.jsdelivr.net/npm/warpjs@1.0.8/dist/warp.js"></script>
         <script real-src="landscape_embedded_svgs.js">
             let grass_front_svg=`
@@ -844,6 +843,7 @@
                 height:100%;
             }
         </style>
+
         <script purpose="on_load_code">
             function min(a,b){return (a<b)?a:b}
             function max(a,b){return (a>b)?a:b}
@@ -928,139 +928,15 @@
 
                 highlight_current_topic_in_navbar()
             }
+            document.body.addEventListener("load",on_load)
         </script>
+
+        <!-- cross-page navigation bar -->
         <style real-href="navigation_bar">
-            /*
-            #navmenu{
-                position: fixed;
-                width: 100%;
-                background-color: #dce1de;
-                transition: all 0.5s;
-                overflow: hidden;
-                height: 5vh;
-                z-index: 10;
-                font-size: 1.5em;
-                color:#6d1d23;
-                font-family: UL;
-
-            }
-            #navmenu:hover{
-                overflow: visible;
-            }
-
-            #navmenu:hover ~ .parallaxtop, #navmenu:hover ~ #pagecontent, #navmenu:hover ~ .flexbox-container-socialmedia, #navmenu:hover ~ .grid-container-sponsors{
-                filter: blur(5px);
-            }
-
-            .logotype{
-                float:left;
-                width:3.5vw;
-                height:5vh;
-                padding-right:0px;
-            }
-
-            ul {
-                list-style-type: none;
-                margin:0;
-            }
-
-            .mw-content-ltr ul, .mw-content-rtl .mw-content-ltr ul{
-                margin: 0;;
-            }
-
-            li {
-                float: left;
-                margin-right: 8vw;      
-            }
-
-            #navigation_bar_container{
-                height:100%;
-            }
-            #navigation_bar_container > li{
-                height:100%;
-                margin:0;
-            }
-            #navigation_bar_container > li > a{
-                position:absolute;
-                top:50%;
-                transform:translateY(-50%);
-            }
-
-            .dropdown a, .dropbtn {
-                display: inline-block;
-                color:#6d1d23;
-                text-align: center;
-                margin-top: 0.6vh;
-                text-decoration: none;
-            }
-
-            .dropdown a:hover, .dropdown:hover .dropbtn{
-                color: #426968;
-                text-decoration: underline;
-            }
-
-            .dropdown:hover .dropdown-content a{
-                color: #426968;
-            }
-
-            li.dropdown{
-                display: inline-block;
-            }
-
-            .dropdown-content{
-                display: none;
-                position: absolute;
-                background-color: #dce1de;
-                min-width: 5vw;
-                z-index: 1;
-                margin-top: 1vh;
-                margin-bottom: 2vh;
-            }
-
-            .dropdown-content a{
-                margin-top: 2.7vh;
-                margin-left: 0.5vw;
-                text-decoration: none;
-                display: block;
-                text-align: left;
-            }
-
-            .dropdown-content a:hover{
-                color: #426968;
-                margin-left: 1vw;
-                text-decoration: none;
-            }
-
-            .dropdown-background{
-                display: none;
-                position: absolute;
-                background-color: #dce1de;
-                width: 77vw;
-                height: 40vh;
-                z-index: 1;
-                margin-top: 5vh;
-                margin-left: 3.5vw;
-            }
-
-            #navmenu:hover .dropdown-content, #navmenu:hover .dropdown-background{
-                display: block;
-            }
-
-            #clickbox{
-                width: 3.5vw;
-                height:5vh;
-                position: fixed;
-                z-index: 100;
-                background-color: #dce1de;
-                justify-content: center;
-                align-content: center;
-                display: flex;
-            }*/
-
             /*navigation bar*/
             #navigation_bar{
                 top:16px;
-                overflow:hidden;
+                height:5vh;
 
                 position:fixed;
                 width:100%;
@@ -1068,17 +944,10 @@
                 z-index:9;
 
                 display:grid;
-                grid-template-columns: 5% 95%;
+                /* left grid element has height 100% (5vh), and to contain the logo, the width needs to be calculated from the image's aspect ratio, with a width of 87px and height of 65px, the rest is math */
+                --logo-width: calc(5vh * 87.1333 / 65.35 );
+                grid-template-columns: var(--logo-width) calc(100% - var(--logo-width));
                 grid-template-rows: 100%;
-
-                background-color: #dce1de;
-            }
-            /*navigation bar height while not open, or open*/
-            #navigation_bar:not(.fully_open){
-                height:5vh;
-            }
-            .fully_open{
-                height:auto;
             }
 
             /* a elements when not hovering*/
@@ -1092,6 +961,7 @@
             a.dropbtn{
                 font-size: 2.5vh;
             }
+            /* override default link highlighting */
             #navigation_bar a:not(:hover){
                 text-decoration: none;
             }
@@ -1106,7 +976,14 @@
             /* navigation bar logo on left */
             /* img container */
             #navigation_bar_logo_container{
-                height:5vh;
+                height:calc(5vh - 1px);
+
+                border-bottom: 1px solid black;
+                border-right: 1px solid black;
+            }
+            /* set own background color to still have background when rest of navigation bar vanishes while scrolling */
+            #navigation_bar_logo_container,.logotype{
+                background-color: #dce1de;
             }
             /* actual logo inside container */
             #navigation_bar_logo_container > img{
@@ -1114,19 +991,75 @@
             }
 
             /* container for dropdown menus on right side of navigation bar */
-            #navigation_bar > ul{
+            #dropdown-container{
                 display:grid;
+                height:calc( 5vh - 1px);
 
-                grid-template-columns: repeat(6,auto);
+                grid-template-columns: repeat(6,1fr);
                 grid-template-rows: 100%;
+                
+                /* manually transition background-color to preserve left/right padding background while the navigation menus vanish during scrolling */
+                transition: 0s background-color 1s;
 
                 /* reset igem bs */
                 padding:0;
+                margin:0;
+
+                /* then set my own padding */
+                padding-left: 10%;
+                padding-right: 10%;
+
+                overflow:hidden;
+            }
+            /* while either scrolling, or hovering mouse over the navigation menu area, show the menu overview */
+            #dropdown-container.scrolled_down,#dropdown-container.panel_opened{
+                border-bottom: 1px solid black;
+
+                background-color: #dce1de;
+                
+                transition: 0s background-color 0s;
+            }
+            /* only while the panel is open (via mouse hover), show the extended menus, which include the links to other pages */
+            #dropdown-container.panel_opened{
+                overflow:visible;
+            }
+            /* animate shrinking dropdown menus' height to 0 when scrolling down and not hovering the mouse over the navigation area */
+            #dropdown-container:not(.scrolled_down):not(.panel_opened) .dropdown{
+                height:0vh;
+                transition: 1s height;
+            }
+            #dropdown-container:not(.scrolled_down):not(.panel_opened) .dropdown{
+                height:0vh;
+                transition: 1s height;
+                border-bottom:0;
+            }
+            /* because overflow:hidden does not work, make the navigation menu headlines (.dropbtn) see-through when scrolling down and not hovering over the navigation area */
+            #dropdown-container:not(.scrolled_down):not(.panel_opened) .dropbtn{
+                opacity:0;
+                transition: 0.2s opacity 0.8s;
+            }
+            /* when not hovering over the navigation area, make all links see-through, that are not headlines (i.e. only the menu entries) */
+            #dropdown-container:not(.panel_opened) a:not(.dropbtn){
+                opacity:0;
             }
             /* dropdown menus (containers) */
             .dropdown{
                 display:block;
                 height:35vh;
+                background-color: #dce1de;
+                border-bottom:1px solid black;
+                overflow:visible;
+            }
+            /* add border on left and right side of navigation SUB-menus (not all around menu, which would include borders crossing through the navigation bar itself) */
+            .dropdown:first-child .dropdown-content{
+                border-left:1px solid black;
+            }
+            .dropdown:last-child .dropdown-content{
+                border-right:1px solid black;
+            }
+            /* to disable mouse-hover javascript events on see-through links below navigation bar, effectively remove them (except not really) */
+            #dropdown-container:not(.panel_opened) .dropdown-content{
+                display:none;
             }
             /* header of dropdown menus (containing name of each category) */
             .dropbtn{
@@ -1146,11 +1079,15 @@
             /* container for links inside dropdown menu */
             .dropdown-content{
                 position:absolute;
-                height:auto;
+                /* .dropdown's 35vh height - 5vh offset from top*/
+                height:30vh;
 
                 font-size: 2vh;
 
                 top:5vh;
+
+                --logo-width: calc(5vh * 87.1333 / 65.35 );
+                width:calc( (100% - var(--logo-width) ) * 0.8 / 6);
             }
             /* individual link inside dropdown menu */
             .dropdown-content > a{
@@ -1188,20 +1125,31 @@
                     element.style.setProperty("filter","initial")
                 }
             }
+
+            /* open/close navigation bar while scrolling */
+            window.addEventListener("wheel",(ev)=>{
+                if(ev.deltaY>0){
+                    document.getElementById("dropdown-container").classList.remove("scrolled_down")
+                }else{
+                    document.getElementById("dropdown-container").classList.add("scrolled_down")
+                }
+            })
         </script>
     </head>
     <body onload="on_load()" onresize="scale_steak()">
+        <!-- cross-page loading screen -->
         <div id="loading_overlay">
             <div id="loading_icon">
                 <img src="https://2021.igem.org/wiki/images/7/76/T--Uppsala--logo_animated.gif">
                 <div style="font-size:3vh;text-align:center;padding-top:4vh;font-family: sans-serif;">LOADING</div>
             </div>
-        </div>    <!--Menu with drop down-->
+        </div>
+        <!-- cross-page Navigation Menu with drop down -->
         <div id="navigation_bar" onmouseenter="open_navbar()" onmouseleave="close_navbar()">
             <a id="navigation_bar_logo_container" href='https://2021.igem.org/Team:Uppsala'>
                 <img class="logotype" src="https://2021.igem.org/wiki/images/thumb/1/13/T--Uppsala--logotransparent.png/320px-T--Uppsala--logotransparent.png">
             </a>
-            <ul>
+            <ul id="dropdown-container" class="scrolled_down">
                 <li class="dropdown">
                     <a href="https://2021.igem.org/Team:Uppsala/Description" class="dropbtn">Project</a>
                     <div class="dropdown-content">
@@ -1267,10 +1215,17 @@
                         ev.target.addEventListener("mouseleave",remove_hovering_highlighting)
                     })
                 }
+                document.getElementById("dropdown-container").addEventListener("mouseenter",(ev)=>{
+                    ev.target.classList.add("panel_opened")
+                    ev.target.classList.add("scrolled_down")
+                })
+                document.getElementById("dropdown-container").addEventListener("mouseleave",(ev)=>{
+                    ev.target.classList.remove("panel_opened")
+                })
             </script>
             <script purpose="highlight_current_topic_in_navbar">
                 function highlight_current_topic_in_navbar(){
-                    const match_path_text=window.location.pathName
+                    const match_path_text=window.location.pathName || ""
                     const match_path_length=match_path_text.length
                     for(element of document.getElementsByClassName("dropdown-content")){
                         for(child of element.children){
@@ -1283,6 +1238,8 @@
                 }
             </script>
         </div>
+
+        <!-- landing page main area -->
         <main id="fgfuture_main">
             <div class="panel">
                 <!-- img class="reference_image" src="https://2021.igem.org/wiki/images/e/e1/T--Uppsala--IMG_0968.png" loading="lazy" -->
@@ -1692,6 +1649,7 @@
                 window.addEventListener("scroll",()=>requestAnimationFrame(move_scrollable_elements))
             </script>
         </main>
+        <!-- landing page specific code used to scale some js-dependent stuff -->
         <script purpose="rescaling_code">
             function scale_steak(){
                 const my_height=919 /*not 1080, because browsers*/
