@@ -80,26 +80,6 @@
             #fgfuture_main div[onmouseenter]{
                 cursor:pointer;
             }
-            #loading_overlay{
-                position:fixed;
-                height:calc( 100vh - 16px);
-                width:100%;
-                background-color: #d9dfda;
-                top:16px;
-                z-index:11;
-            }
-            #loading_icon{
-                height:50%;
-                width:auto;
-                position:absolute;
-                left:50%;
-                top:50%;
-                transform:translate(-50%,-50%);
-            }
-            #loading_icon > img{
-                height:100%;
-                width:auto;
-            }
         </style>
         <style real-href="main_1.css">
             #grass_front,#grass_middle,#grass_back{
@@ -844,6 +824,29 @@
             }
         </style>
 
+        <!-- cross-page loading styling and code -->
+        <style purpose="loading screen">
+            #loading_overlay{
+                position:fixed;
+                height:calc( 100vh - 16px);
+                width:100%;
+                background-color: #d9dfda;
+                top:16px;
+                z-index:11;
+            }
+            #loading_icon{
+                height:50%;
+                width:auto;
+                position:absolute;
+                left:50%;
+                top:50%;
+                transform:translate(-50%,-50%);
+            }
+            #loading_icon > img{
+                height:100%;
+                width:auto;
+            }
+        </style>
         <script purpose="on_load_code">
             function min(a,b){return (a<b)?a:b}
             function max(a,b){return (a>b)?a:b}
@@ -866,6 +869,9 @@
                         for(element of document.getElementsByClassName(class_name)){
                             element.classList.remove(class_name)
                         }
+                    }
+                    for(dropdown of document.getElementsByClassName("dropdown")){
+                        dropdown.style=""
                     }
                     let logo_container=document.getElementById("nav-menu-logo-container")
                     if(logo_container){
@@ -928,7 +934,6 @@
 
                 highlight_current_topic_in_navbar()
             }
-            document.body.addEventListener("load",on_load)
         </script>
 
         <!-- cross-page navigation bar -->
@@ -1051,14 +1056,14 @@
                 overflow:visible;
             }
             /* add border on left and right side of navigation SUB-menus (not all around menu, which would include borders crossing through the navigation bar itself) */
-            .dropdown:first-child .dropdown-content{
+            .dropdown:first-child .dropdown_content{
                 border-left:1px solid black;
             }
-            .dropdown:last-child .dropdown-content{
+            .dropdown:last-child .dropdown_content{
                 border-right:1px solid black;
             }
             /* to disable mouse-hover javascript events on see-through links below navigation bar, effectively remove them (except not really) */
-            #dropdown-container:not(.panel_opened) .dropdown-content{
+            #dropdown-container:not(.panel_opened) .dropdown_content{
                 display:none;
             }
             /* header of dropdown menus (containing name of each category) */
@@ -1077,7 +1082,7 @@
                 font-weight: bold;
             }
             /* container for links inside dropdown menu */
-            .dropdown-content{
+            .dropdown_content{
                 position:absolute;
                 /* .dropdown's 35vh height - 5vh offset from top*/
                 height:30vh;
@@ -1090,14 +1095,14 @@
                 width:calc( (100% - var(--logo-width) ) * 0.8 / 6);
             }
             /* individual link inside dropdown menu */
-            .dropdown-content > a{
+            .dropdown_content > a{
                 display:block;
                 padding-left:10%;
                 padding-bottom:1vh;
                 padding-top:1vh;
             }
             /* individual link inside dropdown menu on hover (underline) */
-            .dropdown-content > a:hover{
+            .dropdown_content > a:hover{
                 text-decoration:underline;
             }
 
@@ -1108,7 +1113,7 @@
                 font-size: 2.2vh;
             }
         </style>
-        <script purpose="open_close_navbar">
+        <script purpose="internal_open_close_navbar">
             function open_navbar(){
                 document.getElementById("navigation_bar").classList.add("fully_open")
                 document.getElementById("fgfuture_main").style.setProperty("filter","blur(15px)")
@@ -1152,17 +1157,16 @@
             <ul id="dropdown-container" class="scrolled_down">
                 <li class="dropdown">
                     <a href="https://2021.igem.org/Team:Uppsala/Description" class="dropbtn">Project</a>
-                    <div class="dropdown-content">
+                    <div class="dropdown_content">
                         <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Description">Description</a>
                         <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Proof_Of_Concept">Proof of Concept</a>
                         <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Engineering">Engineering Success</a>
                         <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Contribution">Contribution</a>
-                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Implementation">Proposed Implementation</a>
                     </div>
                 </li>
                 <li class="dropdown">
                     <a href="https://2021.igem.org/Team:Uppsala/Results" class="dropbtn">Experiments</a>
-                    <div class="dropdown-content">
+                    <div class="dropdown_content">
                         <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Results">Results</a>
                         <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Model">Modeling</a>
                         <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Notebook">Notebook</a>
@@ -1172,16 +1176,17 @@
                 </li>
                 <li class="dropdown">
                     <a href="https://2021.igem.org/Team:Uppsala/Human_Practices" class="dropbtn">Human Practice</a>
-                    <div class="dropdown-content">
-                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Human_Practices">Integrated Human Practice</a>
-                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Education">Education</a>
-                        <a class="navigation_dropdown_entry" href="#">Ethics</a>
-                        <a class="navigation_dropdown_entry" href="#">Inclusion</a>
+                    <div class="dropdown_content">
+                        <a href="https://2021.igem.org/Team:Uppsala/Human_Practices">Overview</a>
+                        <a href="https://2021.igem.org/Team:Uppsala/Human_Practices">Integrated Human Practice</a>
+                        <a href="https://2021.igem.org/Team:Uppsala/Implementation">Proposed Implementation</a>
+                        <a href="https://2021.igem.org/Team:Uppsala/Education">Education</a>
+                        <a href="https://2021.igem.org/Team:Uppsala/Inclusivity">Inclusion</a>
                     </div>
                 </li>
                 <li class="dropdown">
-                    <a href="https://2021.igem.org/Team:Uppsala/Team" class="dropbtn">Team</a>
-                    <div class="dropdown-content">
+                    <a href="https://2021.igem.org/Team:Uppsala/Team" class="dropbtn">People</a>
+                    <div class="dropdown_content">
                         <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Team">Team</a>
                         <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Collaborations">Collaboration</a>
                         <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Attributions">Attribution</a>
@@ -1190,15 +1195,15 @@
                 </li>
                 <li class="dropdown">
                     <a href="javascript:void(0)" class="dropbtn">Videos</a>
-                    <div class="dropdown-content">
-                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Description">Final Presentation</a>
-                        <a class="navigation_dropdown_entry" href="https://www.youtube.com/watch?v=avKlAK5-1ks">Promotional Video</a>
-                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Model">Molecular Dynamics</a>
+                    <div class="dropdown_content">
+                        <a href="https://2021.igem.org/Team:Uppsala/Description">Final Presentation</a>
+                        <a href="https://www.youtube.com/watch?v=avKlAK5-1ks">Promotional Video</a>
+                        <a href="https://2021.igem.org/Team:Uppsala/Model">Molecular Dynamics</a>
                     </div>
                 </li>
                 <li class="dropdown">
                     <a href="javascript:void(0)" class="dropbtn">Judging</a>
-                    <div class="dropdown-content">
+                    <div class="dropdown_content">
                         <a class="navigation_dropdown_entry" href="#">Judging Form</a>
                         <a class="navigation_dropdown_entry" href="#">Awards</a>
                     </div>
@@ -1215,19 +1220,19 @@
                         ev.target.addEventListener("mouseleave",remove_hovering_highlighting)
                     })
                 }
-                document.getElementById("dropdown-container").addEventListener("mouseenter",(ev)=>{
-                    ev.target.classList.add("panel_opened")
-                    ev.target.classList.add("scrolled_down")
+                document.getElementById("navigation_bar").addEventListener("mouseenter",(ev)=>{
+                    ev.target.children[1].classList.add("panel_opened")
+                    ev.target.children[1].classList.add("scrolled_down")
                 })
-                document.getElementById("dropdown-container").addEventListener("mouseleave",(ev)=>{
-                    ev.target.classList.remove("panel_opened")
+                document.getElementById("navigation_bar").addEventListener("mouseleave",(ev)=>{
+                    ev.target.children[1].classList.remove("panel_opened")
                 })
             </script>
             <script purpose="highlight_current_topic_in_navbar">
                 function highlight_current_topic_in_navbar(){
                     const match_path_text=window.location.pathName || ""
                     const match_path_length=match_path_text.length
-                    for(element of document.getElementsByClassName("dropdown-content")){
+                    for(element of document.getElementsByClassName("dropdown_content")){
                         for(child of element.children){
                             //const match_path_text="/Team:Uppsala/Model"
                             if(child.getAttribute("href").substr(-match_path_length)==match_path_text){
