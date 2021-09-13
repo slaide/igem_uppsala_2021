@@ -214,7 +214,7 @@
                 display:inline-block;
                 padding-bottom: 1vh;
             }
-            div.image>p{
+            .igem_column_wrapper div.image>p,div.image>p{
                 font-size: 1.2vh;
                 padding-top: 1vh;
                 padding-left: 0.5vh;
@@ -717,6 +717,11 @@
                 for(dropdown of document.getElementsByClassName("dropdown")){
                     dropdown.style=""
                 }
+                //disable the 'p' at the end of the column wrapper content which is just blank white space at the bottom of the page for some reason
+                let igem_column_wrappers=document.getElementsByClassName("igem_column_wrapper")
+                for(igem_column_wrapper of igem_column_wrappers){
+                    igem_column_wrapper.lastElementChild.style.display="none"
+                }
             }
 
             function on_load(){
@@ -859,37 +864,30 @@
                     </div>
                     <hr>
                     <ul id="sidebar_list_container">
-                        <li class="sidebar_list_section">
-                            <span id="span1">
-                                <a href="#section1_link">
-                                    Lab Safety
-                                </a>
-                            </span>
-                        </li>
-                        <li class="sidebar_list_section">
-                            <span id="span2">
-                                <a href="#section2_link">
-                                    Ethics of cultivated meat
-                                </a>
-                            </span>
-                        </li>
-                        <li class="sidebar_list_section">
-                            <span id="span3">
-                                <a href="#section3_link">
-                                    COVID-19 Measures
-                                </a>
-                            </span>
-                        </li>
+                        <!-- template for a single entry in this list. the real entries will be added at runtime
+                            <li class="sidebar_list_section">
+                                <span id="span1">
+                                    <a href="#section1_link">
+                                        Lab Safety
+                                    </a>
+                                </span>
+                            </li>
+                        -->
                     </ul>
                 </div>
             </div>
 
             <!--Actual content-->
             <div id="fgfuture_content">
+
+                <!-- INSERT GOOGLE DOC CONTENT BELOW THIS LINE -->
+
                 <div id="section1">
-                    <span id="section1_link"></span>
+                    <!-- template for auto-generated span here 
+                        <span id="section1_link"></span>
+                    -->
                     <h1>Lab Safety</h1>
-                    <hr>
+
                     <p>
                         Sharing is caring, especially when it comes to safety knowledge. To make sure that everyone understood and followed the rules needed for a safe-laboratory environment, we organized an introductory week before entering the lab, where the whole team participated in three mandatory activities, a laboratory safety round, a biosafety workshop and a waste disposal course. For the first, fire extinguishers, first aid kits and showers were introduced, as well as emergency exits and chemical room organization. For the second, Good Laboratory Practices (GLP) were explained, along with a practical demonstration of pipetting and safe glove removal techniques.
                     </p>
@@ -914,9 +912,8 @@
                 </div>
 
                 <div id="section2">
-                    <span id="section2_link"></span>
                     <h1>Ethics of cultivated meat</h1>
-                    <hr>
+                    
                     <p>
                         Our goal is to modify first the Gram-negative bacteria Escherichia coli and second the Gram-positive Bacillus subtilis so they express the different parts composing the biosensor fusion proteins containing the nanobodies for detection, T7 promoter amplification loop and β-galactosidase as output signal.
                     </p>
@@ -938,9 +935,8 @@
                 </div>
 
                 <div id="section3">
-                    <span id="section3_link"></span>
                     <h1>COVID-19 measures</h1>
-                    <hr>
+
                     <div class="image left quarter">
                         <img src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
                         <p>
@@ -955,7 +951,55 @@
                     </p>
                 </div>
             </div>
+
+            <!-- INSERT GOOGLE DOC CONTENT ABOVE THIS LINE -->
+
         </div>
+
+        <script purpose="derive sidebar entries from user-generated content">
+            //for each child of the 'INSERT CONTENT HERE' section
+            let fgfuture_content=document.getElementById("fgfuture_content")
+            for(let child_num=0;child_num<fgfuture_content.children.length;child_num++){
+                let element=fgfuture_content.children[child_num]
+                //check if first element is header element
+                let header=element.children[0]
+                if(header.tagName!="H1" || header.innerText.length==0){
+                    window.alert("section "+element.id+" must have an <h1>Headline</h1> as first line!")
+                }
+                //get header text of this section
+                header=header.innerText
+
+                //insert horizontal line between header and text for that section
+                let horizontal_seperator=document.createElement("hr")
+                if(element.children.length>1){
+                    element.insertBefore(horizontal_seperator,element.children[1])
+                }else{
+                    element.appendChild(horizontal_seperator)
+                }
+
+                //get the sidebar dom element
+                let sidebar_list_container=document.getElementById("sidebar_list_container")
+
+                //create the invisible span element at the beginning of the section that serves as 'sroll-to' anchor for the section
+                let link_span=document.createElement("span")
+                link_span.setAttribute("id","section"+child_num+"_link")
+                element.insertBefore(link_span,element.children[0])
+
+                //create sidebar entry for the current section/its header
+                let new_element=document.createElement("li")
+                let new_span=document.createElement("span")
+                let new_a=document.createElement("a")
+                new_a.setAttribute("href","#section"+child_num+"_link")
+                new_a.innerText=header
+                new_span.setAttribute("id","span"+child_num)
+                new_span.appendChild(new_a)
+                new_element.classList.add("sidebar_list_section")
+                new_element.appendChild(new_span)
+
+                //add created sidebar entry to the sidebar
+                sidebar_list_container.appendChild(new_element)
+            }
+        </script>
 
         <script purpose="hightlight currently viewed section">
             let offsets={}

@@ -1,0 +1,1110 @@
+{{IGEM_TopBar}}
+<html lang="en">
+    <head>
+        <style real-href="remove_presets.css">
+            .top_bar{
+                display:none;
+                height:0px;
+            }
+            .igem_column_wrapper{
+                width:auto;
+                max-width:none;
+            }
+            #globalWrapper{
+                padding-bottom:0;
+            }
+            .igem_content_wrapper .igem_column_wrapper a,.igem_content_wrapper .igem_column_wrapper a:hover{
+                font-weight: initial;
+                text-decoration-color: initial;
+                transition: initial;
+                -webkit-transition: initial;
+                -moz-transition: initial;
+                -ms-transition: initial;
+                -o-transition: initial;
+            }
+        </style>
+        <style purpose="global">
+            #globalWrapper {padding-bottom:0px;}
+
+            @font-face {
+                font-family: UL;
+                src: url("https://2021.igem.org/wiki/images/5/56/T--Uppsala--Ubuntu-Light.ttf");
+            }
+
+            @font-face {
+                font-family: UM;
+                src: url("https://2021.igem.org/wiki/images/d/db/T--Uppsala--Ubuntu-Medium.ttf");
+            }
+
+            *{
+                margin:0;
+                border:0;
+                padding:0;
+                font-family: sans-serif;
+            }
+
+            a,a:visited{
+                text-decoration: none;
+                color: #6d1d23;
+            }
+            a:hover{
+                text-decoration: underline;
+                color: #426968;
+            }
+
+            body, html{
+                height: 100%;
+                width: 100%;
+                scroll-behavior: smooth;
+            }
+
+            hr{
+                height: 1px;
+                background-color: #6d1d23;
+                display: block;
+                width: auto;
+                margin-top: 2vh;
+                margin-bottom: 2vh;
+            }
+        </style>
+        <style purpose="header section and content container">
+            #pagecontent{
+                display: grid;
+
+                grid-template-rows:calc(5vh + 50vh + 16px) auto;
+                grid-template-columns: 1fr 1fr 4fr 2fr;
+                background-color: #dce1de;
+            }
+
+            #parallaxtop {
+                background-image: url(https://www.incimages.com/uploaded_files/image/1920x1080/getty_476804889_146231.jpg);
+                height: calc(50vh + 5vh);
+                background-attachment: fixed;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                overflow: hidden;
+
+                grid-row: 1 / 2;
+                grid-column: 1 / 5;
+            }
+
+            #page_header{
+                display:inline-block;
+                position:relative;
+                width:auto;
+                height:auto;
+                left:50%;
+                top:calc( 50vh /2 + 5vh);
+                transform:translate(-50%,-50%);
+
+                text-align: center;
+                font-size: 6em;
+                color: #6d1d23;
+                font-family: UM, sans-serif;
+            }
+        </style>
+        <style purpose="sidebar">
+            #sidebar {
+                display:block;
+                position:relative;
+
+                width: 100%;
+
+                margin-top:5vh;
+                margin-left:1vh;
+                margin-right:1vh;
+
+                font-size: 2vh;
+                font-weight:600;
+
+                grid-row: 2 / 3;
+                grid-column: 1 / 2;
+            }
+            #sticky_sidebar{
+                top:calc( 16px + 5vh);
+                position:sticky;
+            }
+            #sidebar_header{
+                padding-top:2vh;
+                font-size:3.5vh;
+                font-family: UM;
+            }
+            #sidebar a{
+                color:#6d1d23;
+                font-weight:bold;
+            }
+            #sidebar :hover{
+                color:#426968; 
+            }
+            #sidebar_list_container{
+                margin:0;
+                padding:0;
+                margin-left:1vw;
+                width:calc(100% - 1vw);
+                line-height: 1;
+            }
+            .sidebar_list_section{
+                display:block;
+                width:calc(100% - 2vh);
+                
+                color:#6d1d23;
+
+                margin-bottom: 2.2vh;
+
+                transition: all 0.2s;
+
+                font-family: UL;
+            }
+            .sidebar_list_section a{
+                font-size: 2vh;
+            }
+            .sidebar_list_section.current_section{
+                /* #6d1d23 */
+                border-left:1vh solid rgba(109,29,35,0.9);
+                padding-left:1vh;
+            }
+            .sidebar_list_section span:hover{
+                color:#426968;
+            }
+            .listsidebar{
+                margin-top: 0px;
+                padding:0;
+                width: 100%;
+                background-color: #dce1de;
+                height: 100%;
+            }
+        </style>
+
+        <style purpose="text/main section and pre-defined styles for user-writable code">
+            /* Actual content */
+            #fgfuture_content{
+                background-color: #dce1de;
+
+                margin-top: 3.6vh;
+
+                font-family: UL; 
+
+                grid-row: 2 / 3;
+                grid-column: 3 / 4;
+            }
+
+            #fgfuture_content h1{
+                color:#6d1d23;
+                font-family: UM, sans-serif;
+                font-size: 3vh;
+            }
+            #section1,#section2,#section3{
+                display:block;
+                position:relative;
+
+                height:auto;
+                width:100%;
+
+                /* extend section, to include floating children (like images) */
+                overflow:auto;
+            }
+            #section1_link,#section2_link,#section3_link{
+                position:absolute;
+                top:-200px;
+            }
+
+            div.image{
+                /* make space for text around the image */
+                display:inline-block;
+                padding-bottom: 1vh;
+            }
+            .igem_column_wrapper div.image>p,div.image>p{
+                font-size: 1.2vh;
+                padding-top: 1vh;
+                padding-left: 0.5vh;
+                padding-right: 0.5vh;
+                text-align: justify;
+            }
+            /* make image float so that text can wrap around it */
+            div.image.left{
+                float:left;
+                padding-right:2vh;
+            }
+            div.image.right{
+                float:right;
+                padding-left:2vh;
+            }
+            div.quarter{
+                width:25%;
+            }
+            div.half{
+                width:50%;
+            }
+            
+            /* styling applies to all text within the content area that is not a header */
+            #fgfuture_content > div > p{
+                font-family: sans-serif;
+                font-size: 1.5vh;
+                padding-bottom: 2vh;
+                line-height: 1.5;
+            }
+            /* make sure images have expected size (the actual size specifications apply to their container, not themself) */
+            #fgfuture_content div > img{
+                width:100%;
+                height:auto;
+            }
+
+
+
+            /* TEXT*/
+            .midcontenttext{
+                text-align: left;
+                font-size: 1.1em;
+                margin-top: 3.2vh;
+            }
+
+            /*HEADERS*/
+            .midcontenttext > h1{
+                font-size: 2em;
+                color:#6d1d23;
+                text-align: center;
+                font-family: UM;
+                border: none;
+            }
+            .midcontenttext > h2{
+                font-size: 1.5em;
+                color: black;
+                text-align: center;
+                font-family: UM;
+                border:none;
+                margin-top: 3vh;
+            }
+
+            .midcontenttext > h3{
+                font-size: 1.2em;
+                color: black;
+                text-align: center;
+                font-family: UL;
+                border:none;
+                margin-top: 3vh;
+            }
+            /* NORMAL PARAGRAPH*/
+            .midcontenttext >p{
+                font-weight:normal;
+                font-size:1em;
+                color:black;
+                line-height:1.8;
+                letter-spacing:0.05em;
+                margin-top: 3vh;
+            }
+
+            /* 
+            WHEN ADDING THE PICTURE DIV
+            DEFINE ITS WIDTH IN THE HTML SECTION TO MAKE THE IMG THE RIGHT SIZE
+            EX   ->
+            <div class="divrightpicture" style="width:30vw;">
+            */
+            .divrightpicture{
+                float: right;
+                margin-top: 3vh;
+                margin-left: 2vw;
+                margin-right: 2vw;
+                margin-bottom: 0;
+            }
+
+            .divrightpicture > p{
+                font-weight:normal;
+                text-align: left;
+                font-size:0.9em;
+                color:black;
+                line-height:1.2;
+                letter-spacing:0.05em;
+            }
+
+            .divrightpicture > img{
+                width: 100%;
+                cursor: zoom-in;
+            }
+
+            .divmidpicture{
+                margin-top: 3vh;
+                margin-left: 50%;
+                transform: translateX(-50%);
+                margin-bottom: 0;
+            }
+
+            .divmidpicture > p{
+                font-weight:normal;
+                text-align: left;
+                font-size:0.9em;
+                color:black;
+                line-height:1.2;
+                letter-spacing:0.05em;
+                margin-bottom: 2vh;
+            }
+
+            .divmidpicture > img{
+                width: 100%;
+                cursor: zoom-in;
+            }
+
+            .divleftpicture{
+                float: left;
+                margin-top: 3vh;
+                margin-left: 2vw;
+                margin-right: 2vw;
+                margin-bottom: 0;
+            }
+
+            .divleftpicture > p{
+                font-weight:normal;
+                text-align: left;
+                font-size:0.9em;
+                color:black;
+                line-height:1.2;
+                letter-spacing:0.05em;
+            }
+
+            .divleftpicture > img{
+                width: 100%;
+                cursor: zoom-in;
+            }
+
+            /* For tables */
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            td, th {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
+
+            tr:nth-child(even) {
+                background-color: #dddddd;
+            }
+        </style>
+
+        <style purpose="sponsors">
+            /* Sponsor part*/
+            .flexbox-container-socialmedia{
+                width: auto;
+                height: 25vh;
+                display: flex;
+                flex-direction: row;
+                overflow: hidden;
+                background-color: #426968;
+                justify-content: center;
+            }
+
+
+            .flexbox-container-socialmedia > div > img:not(img.upplogo){
+                margin-left: 3vw;
+                margin-right: 3vw;
+                filter: grayscale(50%);
+                margin-top: 7vh;
+                width: 4vw;
+            }
+
+            .flexbox-container-socialmedia > div > img:not(img.upplogo):hover{
+                filter:grayscale(0);
+                filter: brightness(130%);
+                filter: contrast(150%);
+
+            }
+
+            img.upplogo{
+                width: 10vw;
+                margin-top: 3vh;
+                margin-left: 3vw;
+                margin-right: 3vw;
+            }
+        
+
+            .grid-container-sponsors{
+                width: auto;
+                height: 30vh;
+                display: grid;
+                grid-template-columns:repeat(6,1fr);
+                grid-template-rows:repeat(2,1fr);
+                overflow: hidden;
+                background-color: #426968;
+            }
+
+
+            .grid-container-sponsors > div > img{
+                margin-left: 50%;
+                margin-top: 7vh;
+                transform: translateY(-50%);
+                transform: translateX(-50%);
+                width: 7vw;
+                filter: grayscale(50%);
+            }
+
+            .grid-container-sponsors > div > img:hover{
+                filter:grayscale(0);
+                filter: brightness(130%);
+                filter: contrast(150%);
+            }
+            
+        </style>
+
+        <script purpose="general purpose functions">
+            function and(a,b){return (a+b)==2}
+            function min(a,b){return (a<b)?a:b}
+            function max(a,b){return (a>b)?a:b}
+
+        </script>
+
+        <!-- cross-page navigation bar -->
+        <style real-href="navigation_bar">
+            /*navigation bar*/
+            #navigation_bar{
+                top:16px;
+                height:5vh;
+
+                position:fixed;
+                width:100%;
+
+                z-index:9;
+
+                display:grid;
+                /* left grid element has height 100% (5vh), and to contain the logo, the width needs to be calculated from the image's aspect ratio, with a width of 87px and height of 65px, the rest is math */
+                --logo-width: calc(5vh * 87.1333 / 65.35 );
+                grid-template-columns: var(--logo-width) calc(100% - var(--logo-width));
+                grid-template-rows: 100%;
+            }
+
+            /* a elements when not hovering*/
+            a.dropbtn,.navigation_dropdown_entry,.igem_content_wrapper .igem_column_wrapper a{
+                font-family: sans-serif;
+                transition: 0.1s;
+                font-weight: normal;
+                color:black;
+                text-decoration: none;
+            }
+            .dropdown_content > a{
+                color:black;
+            }
+            a.dropbtn{
+                font-size: 2.5vh;
+            }
+            /* override default link highlighting */
+            #navigation_bar a:not(:hover){
+                text-decoration: none;
+            }
+            /* a elements when hovering (override color and underline) */
+            #navigation_bar a:hover{
+                color:#6d1d23;
+                text-decoration: underline;
+                /* reset igem bs */
+                font-weight: bold;
+            }
+
+            /* navigation bar logo on left */
+            /* img container */
+            #navigation_bar_logo_container{
+                height:calc(5vh - 1px);
+
+                border-bottom: 1px solid black;
+                border-right: 1px solid black;
+            }
+            /* set own background color to still have background when rest of navigation bar vanishes while scrolling */
+            #navigation_bar_logo_container,.logotype{
+                background-color: #dce1de;
+            }
+            /* actual logo inside container */
+            #navigation_bar_logo_container > img{
+                height:100%;
+            }
+
+            /* container for dropdown menus on right side of navigation bar */
+            #dropdown-container{
+                display:grid;
+                height:calc( 5vh - 1px);
+
+                grid-template-columns: repeat(6,1fr);
+                grid-template-rows: 100%;
+                
+                /* manually transition background-color to preserve left/right padding background while the navigation menus vanish during scrolling */
+                transition: 0s background-color 1s;
+
+                /* reset igem bs */
+                padding:0;
+                margin:0;
+
+                /* then set my own padding */
+                padding-left: 10%;
+                padding-right: 10%;
+
+                overflow:hidden;
+            }
+            /* while either scrolling, or hovering mouse over the navigation menu area, show the menu overview */
+            #dropdown-container.scrolled_down,#dropdown-container.panel_opened{
+                border-bottom: 1px solid black;
+
+                background-color: #dce1de;
+                
+                transition: 0s background-color 0s;
+            }
+            /* only while the panel is open (via mouse hover), show the extended menus, which include the links to other pages */
+            #dropdown-container.panel_opened{
+                overflow:visible;
+            }
+            /* animate shrinking dropdown menus' height to 0 when scrolling down and not hovering the mouse over the navigation area */
+            #dropdown-container:not(.scrolled_down):not(.panel_opened) .dropdown{
+                height:0vh;
+                transition: 1s height;
+            }
+            #dropdown-container:not(.scrolled_down):not(.panel_opened) .dropdown{
+                height:0vh;
+                transition: 1s height;
+                border-bottom:0;
+            }
+            /* because overflow:hidden does not work, make the navigation menu headlines (.dropbtn) see-through when scrolling down and not hovering over the navigation area */
+            #dropdown-container:not(.scrolled_down):not(.panel_opened) .dropbtn{
+                opacity:0;
+                transition: 0.2s opacity 0.8s;
+            }
+            /* when not hovering over the navigation area, make all links see-through, that are not headlines (i.e. only the menu entries) */
+            #dropdown-container:not(.panel_opened) a:not(.dropbtn){
+                opacity:0;
+            }
+            /* dropdown menus (containers) */
+            .dropdown{
+                display:block;
+                height:35vh;
+                background-color: #dce1de;
+                border-bottom:1px solid black;
+                overflow:visible;
+            }
+            /* add border on left and right side of navigation SUB-menus (not all around menu, which would include borders crossing through the navigation bar itself) */
+            .dropdown:first-child .dropdown_content{
+                border-left:1px solid black;
+            }
+            .dropdown:last-child .dropdown_content{
+                border-right:1px solid black;
+            }
+            /* to disable mouse-hover javascript events on see-through links below navigation bar, effectively remove them (except not really) */
+            #dropdown-container:not(.panel_opened) .dropdown_content{
+                display:none;
+            }
+            /* header of dropdown menus (containing name of each category) */
+            .dropbtn{
+                display:block;
+                position:absolute;
+
+                text-decoration: none;
+
+                top:calc( 2.5vh);
+                transform:translateY(-50%);
+            }
+            /* override text color of all links inside dropdown menu when hovering over the menu */
+            .dropdown.hovering_over a{
+                color:#6d1d23;
+                font-weight: bold;
+            }
+            /* container for links inside dropdown menu */
+            .dropdown_content{
+                position:absolute;
+                /* .dropdown's 35vh height - 5vh offset from top*/
+                height:30vh;
+
+                font-size: 2vh;
+
+                top:5vh;
+
+                --logo-width: calc(5vh * 87.1333 / 65.35 );
+                width:calc( (100% - var(--logo-width) ) * 0.8 / 6);
+            }
+            /* individual link inside dropdown menu */
+            .dropdown_content > a{
+                display:block;
+                padding-left:10%;
+                padding-bottom:1vh;
+                padding-top:1vh;
+            }
+            /* individual link inside dropdown menu on hover (underline) */
+            .dropdown_content > a:hover{
+                text-decoration:underline;
+            }
+
+            /* highlighting of current topic in dropdown */
+            .current_topic{
+                font-style: italic;
+                font-weight: bolder;
+                font-size: 2.2vh;
+            }
+        </style>
+        <script purpose="internal_open_close_navbar">
+            function open_navbar(){
+                document.getElementById("navigation_bar").classList.add("fully_open")
+                document.getElementById("pagecontent").style.setProperty("filter","blur(15px)")
+                //this is broken. blurring the main element makes the scrolly things lose their position setting
+                for(element of document.getElementsByClassName("scroll_thing")){
+                    element.style.setProperty("filter","blur(15px)")
+                }
+            }
+            function close_navbar(){
+                document.getElementById("navigation_bar").classList.remove("fully_open")
+                document.getElementById("pagecontent").style.setProperty("filter","initial")
+                //this is broken. blurring the main element makes the scrolly things lose their position setting
+                for(element of document.getElementsByClassName("scroll_thing")){
+                    element.style.setProperty("filter","initial")
+                }
+            }
+
+            /* open/close navigation bar while scrolling */
+            window.addEventListener("wheel",(ev)=>{
+                if(ev.deltaY>0){
+                    document.getElementById("dropdown-container").classList.remove("scrolled_down")
+                }else{
+                    document.getElementById("dropdown-container").classList.add("scrolled_down")
+                }
+            })
+        </script>
+
+        <!-- cross-page loading styling and code -->
+        <style purpose="loading screen">
+            #loading_overlay{
+                position:fixed;
+                height:calc( 100vh - 16px);
+                width:100%;
+                background-color: #d9dfda;
+                top:16px;
+                z-index:11;
+            }
+            #loading_icon{
+                height:50%;
+                width:auto;
+                position:absolute;
+                left:50%;
+                top:50%;
+                transform:translate(-50%,-50%);
+            }
+            #loading_icon > img{
+                height:100%;
+                width:auto;
+            }
+        </style>
+        <script purpose="on_load_code">
+            /*
+            clean up the existing stuff that is nothing but in the way of our page design (top bar with igem logo and navigation panel hidden behind a burger menu, and quite thick padding on the left and top of the screen)
+            */
+
+            function hide_igem_bs(){
+                let element=document.getElementsByClassName("top_bar")[0]
+                if(element){
+                    element.classList.remove("top_bar")
+                    element.style="display:none;"
+                }
+                for(class_name of "clear extra_space".split(" ")){
+                    for(element of document.getElementsByClassName(class_name)){
+                        element.classList.remove(class_name)
+                    }
+                }
+
+                let navigation_bar_list=document.getElementById("navigation_bar_list")
+                if(navigation_bar_list){
+                    if(navigation_bar_list.style.getPropertyValue("display")=="none"){
+                        navigation_bar_list.style=undefined
+                    }
+                    for(child of navigation_bar_list.children){
+                        child.classList.remove("current_hub")
+                        child.classList.remove("current_page")
+                        child.style=undefined
+                    }
+                }
+                for(dropdown of document.getElementsByClassName("dropdown")){
+                    dropdown.style=""
+                }
+                //disable the 'p' at the end of the column wrapper content which is just blank white space at the bottom of the page for some reason
+                let igem_column_wrappers=document.getElementsByClassName("igem_column_wrapper")
+                for(igem_column_wrapper of igem_column_wrappers){
+                    igem_column_wrapper.lastElementChild.style.display="none"
+                }
+            }
+
+            function on_load(){
+                hide_igem_bs()
+
+                //after the page has loaded, provide some additional time for all of the javascript to run, then actually remove the loading screen overlay
+                setTimeout(()=>{
+                    hide_igem_bs()
+                    setTimeout(()=>{
+                        document.getElementById("loading_overlay").style="display:none;"
+                    },200)
+                },1000)
+
+                /* get_section_offsets-specific reset */
+                base=null;
+                get_section_offsets()
+                highlight_current_section_in_sidebar()
+                window.addEventListener("scroll",highlight_current_section_in_sidebar)
+            }
+        </script>
+    </head>
+    <body onload="on_load()" onresize="on_load()">
+        <!-- cross-page loading screen -->
+        <div id="loading_overlay">
+            <div id="loading_icon">
+                <img src="https://2021.igem.org/wiki/images/7/76/T--Uppsala--logo_animated.gif">
+                <div style="font-size:3vh;text-align:center;padding-top:4vh;font-family: sans-serif;">LOADING</div>
+            </div>
+        </div>
+        <!-- cross-page Navigation Menu with drop down -->
+        <div id="navigation_bar" onmouseenter="open_navbar()" onmouseleave="close_navbar()">
+            <a id="navigation_bar_logo_container" href='https://2021.igem.org/Team:Uppsala'>
+                <img class="logotype" src="https://2021.igem.org/wiki/images/thumb/1/13/T--Uppsala--logotransparent.png/320px-T--Uppsala--logotransparent.png">
+            </a>
+            <ul id="dropdown-container" class="scrolled_down">
+                <li class="dropdown">
+                    <a href="https://2021.igem.org/Team:Uppsala/Description" class="dropbtn">Project</a>
+                    <div class="dropdown_content">
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Description">Description</a>
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Proof_Of_Concept">Proof of Concept</a>
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Engineering">Engineering Success</a>
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Contribution">Contribution</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="https://2021.igem.org/Team:Uppsala/Results" class="dropbtn">Experiments</a>
+                    <div class="dropdown_content">
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Results">Results</a>
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Model">Modeling</a>
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Notebook">Notebook</a>
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Parts">Parts</a>
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Safety">Safety</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="https://2021.igem.org/Team:Uppsala/Human_Practices" class="dropbtn">Human Practice</a>
+                    <div class="dropdown_content">
+                        <a href="https://2021.igem.org/Team:Uppsala/Human_Practices">Overview</a>
+                        <a href="https://2021.igem.org/Team:Uppsala/Human_Practices">Integrated Human Practice</a>
+                        <a href="https://2021.igem.org/Team:Uppsala/Implementation">Proposed Implementation</a>
+                        <a href="https://2021.igem.org/Team:Uppsala/Education">Education</a>
+                        <a href="https://2021.igem.org/Team:Uppsala/Inclusivity">Inclusion</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="https://2021.igem.org/Team:Uppsala/Team" class="dropbtn">People</a>
+                    <div class="dropdown_content">
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Team">Team</a>
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Collaborations">Collaboration</a>
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Attributions">Attribution</a>
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Attributions">Sponsors</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Videos</a>
+                    <div class="dropdown_content">
+                        <a href="https://2021.igem.org/Team:Uppsala/Description">Final Presentation</a>
+                        <a href="https://www.youtube.com/watch?v=avKlAK5-1ks">Promotional Video</a>
+                        <a href="https://2021.igem.org/Team:Uppsala/Model">Molecular Dynamics</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Judging</a>
+                    <div class="dropdown_content">
+                        <a class="navigation_dropdown_entry" href="#">Judging Form</a>
+                        <a class="navigation_dropdown_entry" href="#">Awards</a>
+                    </div>
+                </li>
+            </ul>
+            <script purpose="dropdown_open_close">
+                for(dropdown of document.getElementsByClassName("dropdown")){
+                    dropdown.addEventListener("mouseenter",function(ev){
+                        function remove_hovering_highlighting(ev){
+                            ev.target.removeEventListener("mouseleave",remove_hovering_highlighting)
+                            ev.target.classList.remove("hovering_over")
+                        }
+                        ev.target.classList.add("hovering_over")
+                        ev.target.addEventListener("mouseleave",remove_hovering_highlighting)
+                    })
+                }
+                document.getElementById("navigation_bar").addEventListener("mouseenter",(ev)=>{
+                    ev.target.children[1].classList.add("panel_opened")
+                    ev.target.children[1].classList.add("scrolled_down")
+                })
+                document.getElementById("navigation_bar").addEventListener("mouseleave",(ev)=>{
+                    ev.target.children[1].classList.remove("panel_opened")
+                })
+            </script>
+            <script purpose="highlight_current_topic_in_navbar">
+                function highlight_current_topic_in_navbar(){
+                    const match_path_text=window.location.pathName || ""
+                    const match_path_length=match_path_text.length
+                    for(element of document.getElementsByClassName("dropdown_content")){
+                        for(child of element.children){
+                            //const match_path_text="/Team:Uppsala/Model"
+                            if(child.getAttribute("href").substr(-match_path_length)==match_path_text){
+                                child.classList.add("current_topic")
+                            }
+                        }
+                    }
+                }
+            </script>
+        </div>
+
+        <div id="pagecontent">
+            <!-- page title-->
+            <div id=parallaxtop>
+                <div id="page_header">
+                    Standard & Integrated Human Practices
+                </div>
+            </div>
+
+            <!--Sidebar-->
+            <div id="sidebar">
+                <div id="sticky_sidebar">
+                    <div id="sidebar_header">
+                        <a href="#pagecontent">
+                            Standard & Integrated Human Practices
+                        </a>
+                    </div>
+                    <hr>
+                    <ul id="sidebar_list_container">
+                        <!-- template for a single entry in this list. the real entries will be added at runtime
+                            <li class="sidebar_list_section">
+                                <span id="span1">
+                                    <a href="#section1_link">
+                                        Lab Safety
+                                    </a>
+                                </span>
+                            </li>
+                        -->
+                    </ul>
+                </div>
+            </div>
+
+            <!--Actual content-->
+            <div id="fgfuture_content">
+
+                <!-- INSERT GOOGLE DOC CONTENT BELOW THIS LINE -->
+                <style purpose="hp specific decoration">
+                    #page_switcher{
+                        display:flex;
+                        flex-direction:row;
+                        height:5vh;
+                        font-size:3vh;
+                        cursor: pointer;
+                    }
+                    #page_switcher > div{
+                        flex:1;
+                        text-align: center;
+                        /*transparent border used as placeholder for solid black border on active panel (border adds to box size which moves the contained text. this placeholder avoids 'jumping' text on becoming active) */
+                        border-top:1px solid transparent;
+                        border-left:1px solid transparent;
+                        border-right:1px solid transparent;
+                        border-bottom:1px solid black;
+                    }
+                    #page_switcher > div.active_section{
+                        border-top:1px solid black;
+                        border-left:1px solid black;
+                        border-right:1px solid black;
+                        border-bottom:1px solid transparent;
+                    }
+                    .hp_section{
+                        padding-top: 3vh;
+                        border-bottom: 1px solid black;
+                        border-left: 1px solid black;
+                        border-right: 1px solid black;
+                    }
+                    .hp_section:not(.active_section){
+                        display:none;
+                    }
+
+                    #integrated_hp_timeline_container{
+                    }
+                    .integrated_hp_timeline_entry{
+                        padding-left: 2vh;
+                        margin-left: 2vh;
+                        padding-bottom:3vh;
+                        border-left:1px solid black;
+                        font-size:2vh;
+                    }
+                    .integrated_hp_timeline_entry > span{
+                        position:absolute;
+                        height:1vh;
+                        width:1vh;
+                        background-color:black;
+                        transform:translate( calc(-50% - 2vh),calc( 1vh - 25%) /* font-size*0.5 - <fraction of height of itself that makes it look like it was centered on the line> */);
+                        border-radius: 50%;
+                    }
+                </style>
+                <script>
+                    function switch_hp(hp_type){
+                        if(hp_type=="standard"){
+                            document.getElementById("page_switcher").children[1].classList.remove("active_section")
+                            document.getElementById("page_switcher").children[0].classList.add("active_section")
+
+                            document.getElementById("human_practices_content").classList.add("active_section")
+                            document.getElementById("integrated_human_practices_content").classList.remove("active_section")
+                        }else if(hp_type=="integrated"){
+                            document.getElementById("page_switcher").children[0].classList.remove("active_section")
+                            document.getElementById("page_switcher").children[1].classList.add("active_section")
+                            
+                            document.getElementById("human_practices_content").classList.remove("active_section")
+                            document.getElementById("integrated_human_practices_content").classList.add("active_section")
+                        }
+                    }
+                </script>
+                <div id="page_switcher">
+                    <div class="active_section" onclick="switch_hp('standard')">Human Practices</div>
+                    <div onclick="switch_hp('integrated')">Integrated HP</div>
+                </div>
+                <div id="human_practices_content" class="hp_section active_section">
+                    <h1>HP Overview</h1>
+                    <p>
+                        human practice is about its content
+                    </p>
+                </div>
+                <div id="integrated_human_practices_content" class="hp_section">
+                    <h1>Integrated HP Overview</h1>
+                    <p>
+                        below is a timeline of the work we did
+                    </p>
+                    <div id="integrated_hp_timeline_container">
+                        <div class="integrated_hp_timeline_entry">first, we had an idea</div>
+                        <div class="integrated_hp_timeline_entry">then, we refined the idea with more text and then some more and more until we hit a second line of content but then we went even further to make sure this looks good!</div>
+                        <div class="integrated_hp_timeline_entry">then we talked to people who told us that the idea was good</div>
+                        <div class="integrated_hp_timeline_entry">afterwards we won a gold medal, and best igem project ever!</div>
+                        <div class="integrated_hp_timeline_entry">but we stayed humble</div>
+                        <div class="integrated_hp_timeline_entry">and even more humble when we added another line to this timeline with even more text lorem ipsum dolor sit amet</div>
+                    </div>
+                    <script purpose="add tacatical dot for each entry in the timeline">
+                        for(element of document.getElementsByClassName("integrated_hp_timeline_entry")){
+                            element.innerHTML="<span></span>"+element.innerText
+                        }
+                    </script>
+                </div>
+            </div>
+
+            <!-- INSERT GOOGLE DOC CONTENT ABOVE THIS LINE -->
+
+        </div>
+
+        <script purpose="derive sidebar entries from user-generated content">
+            function derive_sidebar_content(){
+                //for each child of the 'INSERT CONTENT HERE' section
+                for(hp_section_name of ["human_practices_content","integrated_human_practices_content"]){
+                    let element=document.getElementById(hp_section_name)
+
+                    //check if first element is header element
+                    let header=element.children[0]
+                    if(header.tagName!="H1" || header.innerText.length==0){
+                        window.alert("section "+element.id+" must have an <h1>Headline</h1> as first line!")
+                    }
+                    //get header text of this section
+                    header=header.innerText
+
+                    //insert horizontal line between header and text for that section
+                    let horizontal_seperator=document.createElement("hr")
+                    if(element.children.length>1){
+                        element.insertBefore(horizontal_seperator,element.children[1])
+                    }else{
+                        element.appendChild(horizontal_seperator)
+                    }
+
+                    //get the sidebar dom element
+                    let sidebar_list_container=document.getElementById("sidebar_list_container")
+
+                    //create the invisible span element at the beginning of the section that serves as 'sroll-to' anchor for the section
+                    let link_span=document.createElement("span")
+                    //link_span.setAttribute("id","section"+child_num+"_link")
+                    element.insertBefore(link_span,element.children[0])
+
+                    //create sidebar entry for the current section/its header
+                    let new_element=document.createElement("li")
+                    let new_span=document.createElement("span")
+                    let new_a=document.createElement("a")
+                    //new_a.setAttribute("href","#section"+child_num+"_link")
+                    new_a.innerText=header
+                    //new_span.setAttribute("id","span"+child_num)
+                    new_span.appendChild(new_a)
+                    new_element.classList.add("sidebar_list_section")
+                    new_element.appendChild(new_span)
+
+                    //add created sidebar entry to the sidebar
+                    sidebar_list_container.appendChild(new_element)
+                }
+            }
+            derive_sidebar_content()
+        </script>
+
+        <script purpose="hightlight currently viewed section">
+            let offsets={}
+            let base=null;
+            /* this code is executed on load */
+            function get_section_offsets(){
+                for(element of document.getElementById("fgfuture_content").children){
+                    if(!base){
+                        let offset=0;
+                        
+                        let current_element=element;
+                        while(current_element){
+                            offset+=current_element.offsetTop;
+                            current_element=current_element.offsetParent;
+                        }
+                        base=offset;
+                    }
+                    offsets[element.id]=base
+                    base+=element.clientHeight
+                }
+            }
+
+            function highlight_current_section_in_sidebar(){
+                let current_scroll=document.body.scrollTop||document.documentElement.scrollTop||window.pageYOffset
+
+                let found=false
+                let index=0
+                for(element in offsets){
+                    /*
+                    const subtracted_negative_screen_fraction=0.67
+                    const added_positive_screen_fraction=0.15
+
+                    let above_lower=(offsets[element]+document.getElementById(element).clientHeight-window.innerHeight*subtracted_negative_screen_fraction)>=current_scroll
+                    let below_upper=offsets[element]>=(current_scroll+window.innerHeight*added_positive_screen_fraction)
+                    let above_lowest=(offsets[element]+document.getElementById(element).clientHeight)<=current_scroll
+                    let is_last_element_in_list=(index==(Object.keys(offsets).length-1))
+
+                    if(and(above_lower, !found)||and(below_upper, above_lowest)||and(is_last_element_in_list, !found)){
+                        if(found){
+                            document.getElementById("sidebar_list_container").children[index-1].classList.remove("current_section")
+                        }
+                        found=element
+                        document.getElementById("sidebar_list_container").children[index].classList.add("current_section")
+                    }else{
+                        document.getElementById("sidebar_list_container").children[index].classList.remove("current_section")
+                    }
+                    index+=1
+                    */
+                }
+            }
+        </script>
+
+        <!-- sponsor and social media footer -->
+        <div class="flexbox-container-socialmedia">
+            <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png"></div>
+            <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/1024px-Instagram_logo_2016.svg.png"></div>
+            <div><img class="upplogo"src="https://shop.uu.se/shop/ws45/82845/files/UU_logo_vit.png"></div>
+            <div><img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Circle-icons-mail.svg"></div>
+            <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Linkedin_icon.svg/480px-Linkedin_icon.svg.png"></div>
+        </div>
+
+        <div class="grid-container-sponsors">
+            <div><img src="https://2021.igem.org/wiki/images/8/8b/T--Uppsala--utnlogo.png"></div>
+            <div><img src="http://2014.igem.org/wiki/images/5/5a/York_Genscript_logo-1-.png"></div>
+            <div><img src="https://2020.igem.org/wiki/images/0/05/T--UofUppsala--pro.png"></div>
+            <div><img src="https://2021.igem.org/wiki/images/f/fc/T--Uppsala--bioradlogo.png"></div>
+            <div><img src="https://2021.igem.org/wiki/images/2/29/T--Uppsala--bionordikalogo.png"></div>
+            <div><img src="https://2021.igem.org/wiki/images/9/9a/T--Uppsala--mercklogo.png"></div>
+            <div><img src="https://2021.igem.org/wiki/images/f/fa/T--Uppsala--scbtlogo.png"></div>
+            <div><img src="https://2020.igem.org/wiki/images/8/8c/T--UofUppsala--snap.png"></div>
+            <div><img src="https://2020.igem.org/wiki/images/a/a4/T--UofUppsala--euro.png"></div>
+            <div><img src="https://upload.wikimedia.org/wikipedia/commons/1/12/New_Harvest_Full_Logo_-_RGB_.png"></div>
+            <div><img src="https://testacenter.com/wp-content/uploads/2019/08/TestaCenter_LogoWithTagline_Pantone.png"></div>
+            <div><img src="https://cdn.cytivalifesciences.com/dmm3bwsv3/AssetStream.aspx?mediaformatid=10061&destinationid=10016&assetid=32945"></div>
+        </div>
+    </body>
+</html>
