@@ -426,23 +426,32 @@
         
 
             .grid-container-sponsors{
-                width: auto;
                 height: 30vh;
                 display: grid;
+                padding-left:5%;
+                padding-right:5%;
+                padding-bottom:5vh;
+                width: 90%;
+                row-gap: 20%;
+                column-gap: 5%;
                 grid-template-columns:repeat(6,1fr);
                 grid-template-rows:repeat(2,1fr);
                 overflow: hidden;
                 background-color: #426968;
             }
 
-
+            .grid-container-sponsors > div{
+                width:auto;
+                height:auto;
+            }
             .grid-container-sponsors > div > img{
-                margin-left: 50%;
-                margin-top: 7vh;
-                transform: translateY(-50%);
-                transform: translateX(-50%);
-                width: 7vw;
+                width:80%;
+                height:auto;
                 filter: grayscale(50%);
+                position:relative;
+                left:50%;
+                top:50%;
+                transform:translate(-50%,-50%);
             }
 
             .grid-container-sponsors > div > img:hover{
@@ -789,7 +798,7 @@
                     <div class="dropdown_content">
                         <a href="https://2021.igem.org/Team:Uppsala/Human_Practices">Overview</a>
                         <a href="https://2021.igem.org/Team:Uppsala/Human_Practices">Integrated Human Practice</a>
-                        <a href="https://2021.igem.org/Team:Uppsala/Implementation">Proposed Implementation</a>
+                        <a href="https://2021.igem.org/Team:Uppsala/Implementation">Proposed<br/>Implementation</a>
                         <a href="https://2021.igem.org/Team:Uppsala/Education">Education</a>
                         <a href="https://2021.igem.org/Team:Uppsala/Inclusivity">Inclusion</a>
                     </div>
@@ -952,7 +961,7 @@
                 <div id="section3">
                     <h1>COVID-19 measures</h1>
 
-                    <div class="image left quarter">
+                    <div class="image right quarter">
                         <img class="expandable_image" width="1050" height="1050" src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
                         <p>
                             Figure 1. Wow very cool photos, they are the best photos ever taken. This just some text used to fil the page with. I dont really feel like writing Lorem Ipsum for the hundreth time... Damn, need to write some more to see how the text would look lite on two seperate rows. FML.
@@ -1306,7 +1315,7 @@
 
         <div class="grid-container-sponsors">
             <div><img src="https://2021.igem.org/wiki/images/8/8b/T--Uppsala--utnlogo.png"></div>
-            <div><img src="http://2014.igem.org/wiki/images/5/5a/York_Genscript_logo-1-.png"></div>
+            <div><img src="https://2014.igem.org/wiki/images/5/5a/York_Genscript_logo-1-.png"></div>
             <div><img src="https://2020.igem.org/wiki/images/0/05/T--UofUppsala--pro.png"></div>
             <div><img src="https://2021.igem.org/wiki/images/f/fc/T--Uppsala--bioradlogo.png"></div>
             <div><img src="https://2021.igem.org/wiki/images/2/29/T--Uppsala--bionordikalogo.png"></div>
