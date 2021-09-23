@@ -292,7 +292,46 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
                
+        }
+
+        #midcontent > h1{
+            font-size: 2em;
+            color:#6d1d23;
+            text-align: center;
+            font-family: UM;
+            border: none;
+        }
+
+        #midcontent > hr{
+            height: 1px;
+            background-color: #6d1d23;
+            display: block;
+            width: 100%;
+            margin-top: 2vh;
+            margin-bottom: 3vh;
+            
+        }
+
+        .explain{
+            justify-content: center;
+            display: flex;
+            position: relative;
+            align-items: center;
+            flex-wrap: wrap;
+            box-shadow: 1vh 1vh 3vh rgba(0,0,0,0.5);
+            overflow: hidden;
+            border-top: 1px solid rgba(255,255,255,0.5);
+            border-left: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 2vh;
+            margin-bottom: 2vh;
+        }
+
+        .explain > img{
+            width: 8vh;
+            height: 8vh;
+            margin:1vh;
         }
 
         .teamcontainer{
@@ -330,6 +369,12 @@
 
         }
 
+        .top-part .subgroup-logo{
+            position: fixed;
+            
+
+
+        }
 
         .teamcontainer .card:hover .top-part {
             transform: translateY(0px);
@@ -648,7 +693,7 @@
     <div class=parallaxtop>
         
         <div id="header">
-                Lab Safety
+                Team
         </div>
     </div>
 
@@ -659,7 +704,7 @@
                 <li class="listheader">
                     <span id="span0">
                         <a href="#section0">
-                            Lab Safety
+                            Meet the Team
                         </a>
                     </span>
                     <hr>  
@@ -667,21 +712,21 @@
                 <li class="listsections">
                     <span id="span1">
                         <a href="#section1">
-                                Lab Safety
+                                Team members
                             </a>
                     </span>
                 </li>
                 <li class="listsections">
                     <span id="span2">
                         <a href="#section2">
-                            Ethics of <br>cultivated meat 
+                            Principal Investigators 
                         </a>
                     </span>
                 </li>
                 <li class="listsections">
                     <span id="span3">
                         <a href="#section3">
-                            COVID-19 Measures
+                            Advisor
                         </a>
                     </span>
                 </li>
@@ -692,11 +737,37 @@
 
         <!--Actual content-->
         <div id="midcontent">
+            
+            <h1>Team members</h1>
+            <hr>
+
+            <div class="explain">
+                <img src="/Users/tovejonsson/Desktop/Wiki logo test.png"> 
+                <p>:Wiki subgroup</p>
+                <img src="/Users/tovejonsson/Desktop/GD logo test (2).png">
+                <p>:Graphic Design subgroup</p>
+                <img src="/Users/tovejonsson/Desktop/modeling logo test.png"> 
+                <p>:Modeling subgroup</p>
+                <img src="/Users/tovejonsson/Desktop/HP logo test.png">
+                <p>:Human practices subgroup</p> 
+                <img src="/Users/tovejonsson/Desktop/Lab co logo test.png">
+                <p>:Lab coordinator subgroup</p>
+                <img src="/Users/tovejonsson/Desktop/spons logo test (1).png">
+                <p>:Sponsoring subgroup</p>
+                <img src="/Users/tovejonsson/Desktop/PM logo test.png">
+                <p>:Projectmanager</p>
+            </div>
+
             <div class="teamcontainer">
+                
                 <div class="card">
 
                     <div class="top-part">
-                        <img src="/Users/tovejonsson/Desktop/DSC05131 (2).JPG" style="width: 45vh; padding-top: 3vh;">
+                        <img src="/Users/tovejonsson/Desktop/DSC05123 (2).JPG" style="width: 49vh; padding-top: 2vh;">
+                        <div class="subgroup-logo">
+                            <img src="/Users/tovejonsson/Desktop/Wiki logo test.png">
+                            <img src="/Users/tovejonsson/Desktop/GD logo test (2).png">
+                        </div>
                     </div>
 
                     <div class="content">
@@ -704,7 +775,7 @@
                         <img src="/Users/tovejonsson/Desktop/GD logo test (2).png">
                         <h3>Tove Jonsson</h3>
                         <h4>Wiki, Graphic Design</h4>
-                        <p>Engineer in molecular biotechnology</p>
+                        <p>B. Sc. Molecular Biotechnology Engineering</p>
                         <p>Bollnäs, Sweden</p>
                         <a href="#"></a>
 
@@ -721,8 +792,8 @@
                         <img src="/Users/tovejonsson/Desktop/GD logo test (2).png">
                         <h3>Milena Trabert</h3>
                         <h4>Graphic Design Coordinator</h4>
-                        <p>Bioinformatics</p>
-                        <p>blablabla, Germany</p>
+                        <p>M. Sc. Bioinformatics</p>
+                        <p>Weigenheim, Germany</p>
                         <a href="#"></a>
 
                     </div>
@@ -738,9 +809,9 @@
                         <img src="/Users/tovejonsson/Desktop/modeling logo test.png">
                         <img src="/Users/tovejonsson/Desktop/HP logo test.png">
                         <h3>Subashini Kennedy</h3>
-                        <h4>Modelling, Human Practices</h4>
-                        <p>Pharmaceutical Modeling</p>
-                        <p>Chennai, India</p>
+                        <h4>Modeling Co-Coordinator, Human Practices</h4>
+                        <p>M. Sc. Pharmaceutical Modeling</p>
+                        <p>Tamilnadu, India</p>
                         <a href="#"></a>
 
                     </div>
@@ -755,9 +826,10 @@
                     <div class="content">
                         
                         <img src="/Users/tovejonsson/Desktop/modeling logo test.png">
-                        <h3>Niklas Eckert Elfving</h3>
+                        <h3 style="font-size: 3.3vh;">Niklas</h3>
+                        <h3 style="font-size: 3.3vh;">Eckert Elfving</h3>
                         <h4>Modeling</h4>
-                        <p>Engineer in molecular biotechnology</p>
+                        <p>B. Sc. Molecular Biotechnology Engineering</p>
                         <p>Linköping, Sweden</p>
                         <a href="#"></a>
 
@@ -776,7 +848,7 @@
                         <img src="/Users/tovejonsson/Desktop/Wiki logo test.png">
                         <h3>Gustaf Hederoth</h3>
                         <h4>Wiki</h4>
-                        <p>Engineer in molecular biotechnology</p>
+                        <p>B. Sc. Molecular Biotechnology Engineering</p>
                         <p>Stockholm, Sweden</p>
                         <a href="#"></a>
 
@@ -794,7 +866,7 @@
                         <img src="/Users/tovejonsson/Desktop/HP logo test.png">
                         <h3>Diogo Filipe</h3>
                         <h4>Lab Coordinator, Human Practices</h4>
-                        <p>Immunology and Microbiology</p>
+                        <p>M. Sc. Immunology and Microbiology</p>
                         <p>Lisbon, Portugal</p>
                         <a href="#"></a>
 
@@ -804,15 +876,14 @@
                 <div class="card">
 
                     <div class="top-part">
-                        <img src="/Users/tovejonsson/Desktop/alexwiki.JPG" style="width: 40vh; padding-top: 3vh;">
+                        <img src="/Users/tovejonsson/Desktop/alexwiki.JPG" style="width: 65vh; padding-top: 3vh;">
                     </div>
 
                     <div class="content">
-                        <img src="/Users/tovejonsson/Desktop/GD logo test.png">
-                        <img src="/Users/tovejonsson/Desktop/carbon.jpeg">
+                        <img src="/Users/tovejonsson/Desktop/Wiki logo test.png">
                         <h3>Alexander Blomlöf</h3>
                         <h4>Wiki</h4>
-                        <p>Engineer in molecular biotechnology</p>
+                        <p>B. Sc. Molecular Biotechnology Engineering</p>
                         <p>Stockholm, Sweden</p>
                         <a href="#"></a>
 
@@ -822,16 +893,15 @@
                 <div class="card">
 
                     <div class="top-part">
-                        <img src="/Users/tovejonsson/Desktop/DSC05131 (2).JPG" style="width: 40vh; padding-top: 3vh;">
+                        <img src="/Users/tovejonsson/Desktop/paarkaviwiki.JPG" style="width: 40vh; padding-top: 3vh;">
                     </div>
 
                     <div class="content">
-                        <img scr="/Users/tovejonsson/Desktop/GD logo test.png">
-                        <img scr="/Users/tovejonsson/Desktop/carbon.jpeg">
-                        <h3>Tove Jonsson</h3>
-                        <h4>Wiki, Graphic design</h4>
-                        <p>Engineer in molecular biotechnology</p>
-                        <p>Bollnäs, Sweden</p>
+                        <img src="/Users/tovejonsson/Desktop/PM logo test.png">
+                        <h3 style="font-size: 3vh;">Paarkavi Udayakumar</h3>
+                        <h4>Project Manager</h4>
+                        <p>M. Sc. Drug Discovery and Development</p>
+                        <p>Chennai, India</p>
                         <a href="#"></a>
 
                     </div>
@@ -840,16 +910,15 @@
                 <div class="card">
 
                     <div class="top-part">
-                        <img src="/Users/tovejonsson/Desktop/DSC05131 (2).JPG" style="width: 40vh; padding-top: 3vh;">
+                        <img src="/Users/tovejonsson/Desktop/Maria-wiki.png" style="width: 43vh; padding-top: 3vh;">
                     </div>
 
                     <div class="content">
-                        <img scr="/Users/tovejonsson/Desktop/GD logo test.png">
-                        <img scr="/Users/tovejonsson/Desktop/carbon.jpeg">
-                        <h3>Tove Jonsson</h3>
-                        <h4>Wiki, Graphic design</h4>
-                        <p>Engineer in molecular biotechnology</p>
-                        <p>Bollnäs, Sweden</p>
+                        <img src="/Users/tovejonsson/Desktop/HP logo test.png">
+                        <h3>Maria Ovezik</h3>
+                        <h4>Human Practices</h4>
+                        <p>M. Sc. Immunology and Microbiology</p>
+                        <p>Veria, Greece</p>
                         <a href="#"></a>
 
                     </div>
@@ -858,16 +927,15 @@
                 <div class="card">
 
                     <div class="top-part">
-                        <img src="/Users/tovejonsson/Desktop/DSC05131 (2).JPG" style="width: 40vh; padding-top: 3vh;">
+                        <img src="/Users/tovejonsson/Desktop/DSC04955.JPG" style="width: 75vh; padding-top: 3vh;">
                     </div>
 
                     <div class="content">
-                        <img scr="/Users/tovejonsson/Desktop/GD logo test.png">
-                        <img scr="/Users/tovejonsson/Desktop/carbon.jpeg">
-                        <h3>Tove Jonsson</h3>
-                        <h4>Wiki, Graphic design</h4>
-                        <p>Engineer in molecular biotechnology</p>
-                        <p>Bollnäs, Sweden</p>
+                        <img src="/Users/tovejonsson/Desktop/spons logo test (1).png">
+                        <h3 style="font-size: 3vh;">Carolinne Norrman</h3>
+                        <h4>Socialmedia Coordinator, Sponsporing</h4>
+                        <p>B. Sc.  Molecular Biotechnology Engineering</p>
+                        <p>Stockholm, Sweden</p>
                         <a href="#"></a>
 
                     </div>
@@ -876,16 +944,17 @@
                 <div class="card">
 
                     <div class="top-part">
-                        <img src="/Users/tovejonsson/Desktop/DSC05131 (2).JPG" style="width: 40vh; padding-top: 3vh;">
+                        <img src="/Users/tovejonsson/Desktop/DSC05035 (2).JPG" style="width: 50vh; padding-top: 3vh;">
                     </div>
 
                     <div class="content">
-                        <img scr="/Users/tovejonsson/Desktop/GD logo test.png">
-                        <img scr="/Users/tovejonsson/Desktop/carbon.jpeg">
-                        <h3>Tove Jonsson</h3>
-                        <h4>Wiki, Graphic design</h4>
-                        <p>Engineer in molecular biotechnology</p>
-                        <p>Bollnäs, Sweden</p>
+                        <img src="/Users/tovejonsson/Desktop/Wiki logo test.png">
+                        <img src="/Users/tovejonsson/Desktop/spons logo test (1).png">
+                        <img src="/Users/tovejonsson/Desktop/Lab co logo test.png">
+                        <h3 style="font-size: 3vh;">Emelie Oscarsson </h3>
+                        <h4>Lab Coordinator, Wiki, Sponsoring</h4>
+                        <p>M. Sc. Cell and Molecular Biology</p>
+                        <p>Stockholm, Sweden</p>
                         <a href="#"></a>
 
                     </div>
@@ -894,16 +963,16 @@
                 <div class="card">
 
                     <div class="top-part">
-                        <img src="/Users/tovejonsson/Desktop/DSC05131 (2).JPG" style="width: 40vh; padding-top: 3vh;">
+                        <img src="/Users/tovejonsson/Desktop/NataliaWiki.jpg" style="width: 65vh; padding-top: 3vh;">
                     </div>
 
                     <div class="content">
-                        <img scr="/Users/tovejonsson/Desktop/GD logo test.png">
-                        <img scr="/Users/tovejonsson/Desktop/carbon.jpeg">
-                        <h3>Tove Jonsson</h3>
-                        <h4>Wiki, Graphic design</h4>
-                        <p>Engineer in molecular biotechnology</p>
-                        <p>Bollnäs, Sweden</p>
+                        <img src="/Users/tovejonsson/Desktop/spons logo test (1).png">
+                        <img src="/Users/tovejonsson/Desktop/HP logo test.png">
+                        <h3 style="font-size: 2.8vh;">Natalia Reynisdottir</h3>
+                        <h4>Human Practices Coordinator, Sponsoring Coordinator, Socialmedia</h4>
+                        <p>M. Sc. Applied Biotechnology</p>
+                        <p>Reykjavik, Iceland</p>
                         <a href="#"></a>
 
                     </div>
@@ -912,16 +981,15 @@
                 <div class="card">
 
                     <div class="top-part">
-                        <img src="/Users/tovejonsson/Desktop/DSC05131 (2).JPG" style="width: 40vh; padding-top: 3vh;">
+                        <img src="/Users/tovejonsson/Desktop/DSC05519 (2).JPG" style="width: 48vh; padding-top: 2vh; filter: brightness(70%); filter:saturate(140%)">
                     </div>
 
                     <div class="content">
-                        <img scr="/Users/tovejonsson/Desktop/GD logo test.png">
-                        <img scr="/Users/tovejonsson/Desktop/carbon.jpeg">
-                        <h3>Tove Jonsson</h3>
-                        <h4>Wiki, Graphic design</h4>
-                        <p>Engineer in molecular biotechnology</p>
-                        <p>Bollnäs, Sweden</p>
+                        <img src="/Users/tovejonsson/Desktop/PM logo test.png">
+                        <h3 style="font-size: 3vh;">Sebastian Uggla</h3>
+                        <h4>Project Manager</h4>
+                        <p>M. Sc. Bioinformatics</p>
+                        <p>Helsinki, Finland</p>
                         <a href="#"></a>
 
                     </div>
@@ -930,16 +998,17 @@
                 <div class="card">
 
                     <div class="top-part">
-                        <img src="/Users/tovejonsson/Desktop/DSC05131 (2).JPG" style="width: 40vh; padding-top: 3vh;">
+                        <img src="/Users/tovejonsson/Desktop/Andreeawiki.JPG" style="width: 40vh; padding-top: 3vh;">
                     </div>
 
                     <div class="content">
-                        <img scr="/Users/tovejonsson/Desktop/GD logo test.png">
-                        <img scr="/Users/tovejonsson/Desktop/carbon.jpeg">
-                        <h3>Tove Jonsson</h3>
-                        <h4>Wiki, Graphic design</h4>
-                        <p>Engineer in molecular biotechnology</p>
-                        <p>Bollnäs, Sweden</p>
+                        <img src="/Users/tovejonsson/Desktop/GD logo test (2).png">
+                        <img src="/Users/tovejonsson/Desktop/modeling logo test.png">
+                        <h3 style="font-size: 3vh;">Andreea</h3>
+                        <h3 style="font-size: 3vh;">Carmen Ciobanu</h3>
+                        <h4>Modeling, Graphic design</h4>
+                        <p>M. Sc. Pharmaceutical Modelling</p>
+                        <p>Calafat, România</p>
                         <a href="#"></a>
 
                     </div>
@@ -948,16 +1017,16 @@
                 <div class="card">
 
                     <div class="top-part">
-                        <img src="/Users/tovejonsson/Desktop/DSC05131 (2).JPG" style="width: 40vh; padding-top: 3vh;">
+                        <img src="/Users/tovejonsson/Desktop/Danwiki.JPG" style="width: 75vh; padding-top: -1vh;">
                     </div>
 
                     <div class="content">
-                        <img scr="/Users/tovejonsson/Desktop/GD logo test.png">
-                        <img scr="/Users/tovejonsson/Desktop/carbon.jpeg">
-                        <h3>Tove Jonsson</h3>
-                        <h4>Wiki, Graphic design</h4>
-                        <p>Engineer in molecular biotechnology</p>
-                        <p>Bollnäs, Sweden</p>
+                        <img src="Users/tovejonsson/Desktop/Lab co logo test.png">
+                        <img src="/Users/tovejonsson/Desktop/HP logo test.png">
+                        <h3>Daniel Lake</h3>
+                        <h4>Lab Coordinator, Human Practices</h4>
+                        <p>M. Sc. Applied biotechnology</p>
+                        <p>Uppsala, Sweden</p>
                         <a href="#"></a>
 
                     </div>
@@ -966,16 +1035,15 @@
                 <div class="card">
 
                     <div class="top-part">
-                        <img src="/Users/tovejonsson/Desktop/DSC05131 (2).JPG" style="width: 40vh; padding-top: 3vh;">
+                        <img src="/Users/tovejonsson/Desktop/Belawiki.jpeg" style="width: 66vh; padding-top: -3vh;">
                     </div>
 
                     <div class="content">
-                        <img scr="/Users/tovejonsson/Desktop/GD logo test.png">
-                        <img scr="/Users/tovejonsson/Desktop/carbon.jpeg">
-                        <h3>Tove Jonsson</h3>
-                        <h4>Wiki, Graphic design</h4>
-                        <p>Engineer in molecular biotechnology</p>
-                        <p>Bollnäs, Sweden</p>
+                        <img src="/Users/tovejonsson/Desktop/GD logo test.png">
+                        <h3>Bela Soares</h3>
+                        <h4>Graphic design, Socialmedia</h4>
+                        <p>B. Sc. Molecular Biology</p>
+                        <p>Uppsala, Sweden</p>
                         <a href="#"></a>
 
                     </div>
@@ -984,26 +1052,133 @@
                 <div class="card">
 
                     <div class="top-part">
-                        <img src="/Users/tovejonsson/Desktop/DSC05131 (2).JPG" style="width: 40vh; padding-top: 3vh;">
+                        <img src="/Users/tovejonsson/Desktop/Aditiwiki.JPG" style="width: 60vh; padding-top: 2vh;">
                     </div>
 
                     <div class="content">
-                        <img scr="/Users/tovejonsson/Desktop/GD logo test.png">
-                        <img scr="/Users/tovejonsson/Desktop/carbon.jpeg">
-                        <h3>Tove Jonsson</h3>
-                        <h4>Wiki, Graphic design</h4>
-                        <p>Engineer in molecular biotechnology</p>
-                        <p>Bollnäs, Sweden</p>
+                        <img src="/Users/tovejonsson/Desktop/modeling logo test.png">
+                        <img src="/Users/tovejonsson/Desktop/spons logo test (1).png">
+                        <h3>Aditi Bahadur</h3>
+                        <h4>Modeling, Sponsoring</h4>
+                        <p>M. Sc. Pharmaceutical modelling</p>
+                        <p>Pune, India</p>
                         <a href="#"></a>
 
                     </div>
                 </div>
 
+                <div class="card">
 
+                    <div class="top-part">
+                        <img src="/Users/tovejonsson/Desktop/Tanyawiki.JPG" style="width: 50vh; padding-top: 3vh;">
+                    </div>
 
-                
+                    <div class="content">
+                        <img src="/Users/tovejonsson/Desktop/Lab co logo test.png">
+                        <img src="/Users/tovejonsson/Desktop/spons logo test (1).png">
+                        <h3 style="font-size: 3vh;">Tanya Al-Khafaf</h3>
+                        <h4>Human Practices, Sponsoring</h4>
+                        <p>M. Sc. Molecular Biotechnology Engineering</p>
+                        <p>Uppsala, Sweden</p>
+                        <a href="#"></a>
+
+                    </div>
+                </div>
+
+                <div class="card">
+
+                    <div class="top-part">
+                        <img src="/Users/tovejonsson/Desktop/patrick.JPG" style="width: 75vh; padding-top: 3vh;">
+                    </div>
+
+                    <div class="content">
+                        <img src="/Users/tovejonsson/Desktop/modeling logo test.png">
+                        <img src="/Users/tovejonsson/Desktop/Wiki logo test.png">
+                        <h3>Patrick Henning</h3>
+                        <h4>Modeling Co-Coordinator , Wiki Coordinator</h4>
+                        <p>M. Sc. Bioinformatics</p>
+                        <p>Erlangen, Germany</p>
+                        <a href="#"></a>
+
+                    </div>
+                </div>
                 
             </div>
+
+
+            <div style="margin:4vh;"></div>
+            <h1>Advisor</h1>
+            <hr>
+
+            <div class="teamcontainer">
+                
+                <div class="card">
+
+                    <div class="top-part">
+                        <img src="/Users/tovejonsson/Desktop/Konradwiki.JPG" style="width: 90vh; padding-top: 3vh; padding-left: 4vh;">
+                        
+                    </div>
+
+                    <div class="content">
+                        
+                        <h3>Konrad Gras</h3>
+                        
+                        <p>Scientist at the Department of Cell and Molecular Biology</p>
+                        
+                        <a href="#"></a>
+
+                    </div>
+                </div>
+
+                
+
+            </div>
+
+            <div style="margin:4vh;"></div>
+            <h1>Principal Investigators</h1>
+            <hr>
+
+            <div class="teamcontainer">
+                
+                <div class="card">
+
+                    <div class="top-part">
+                        <img src="/Users/tovejonsson/Desktop/DSC05131 (2).JPG" style="width: 45vh; padding-top: 3vh;">
+                        
+                    </div>
+
+                    <div class="content">
+                        
+                        <h3>Margareta Krabbe</h3>
+                        
+                        <p>Lecturer at the Department of Basic Education in Biology</p>
+                        
+                        <a href="#"></a>
+
+                    </div>
+                </div>
+
+                <div class="card">
+
+                    <div class="top-part">
+                        <img src="/Users/tovejonsson/Desktop/DSC05131 (2).JPG" style="width: 45vh; padding-top: 3vh;">
+                        
+                    </div>
+
+                    <div class="content">
+                        
+                        <h3>Anthony Forster</h3>
+                        
+                        <p> Professor at the Department of Cell and Molecular Biology</p>
+                        
+                        <a href="#"></a>
+
+                    </div>
+                </div>
+
+            </div>
+
+            
                 
         </div>
 
