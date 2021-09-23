@@ -882,7 +882,7 @@
 
                 <!-- INSERT GOOGLE DOC CONTENT BELOW THIS LINE -->
                 
-                <div>
+                <div id="webinarlineup">
                     <h1>Webinar Lineup</h1>
                     <style purpose="webinar specific decoration">
                         #webinar_lineup_container{
@@ -1141,10 +1141,10 @@
                         </script>
                     </div>
                 </div>
+
+                <!-- INSERT GOOGLE DOC CONTENT ABOVE THIS LINE -->
+
             </div>
-
-            <!-- INSERT GOOGLE DOC CONTENT ABOVE THIS LINE -->
-
         </div>
 
         <script purpose="derive sidebar entries from user-generated content">
@@ -1198,6 +1198,10 @@
             /* this code is executed on load */
             function get_section_offsets(){
                 for(element of document.getElementById("fgfuture_content").children){
+                    if(!element.id){
+                        window.alert("a section does not have an html id! (tell wiki team to help you fix this)")
+                        console.log(element)
+                    }
                     if(!base){
                         let offset=0;
                         
@@ -1219,7 +1223,6 @@
                 let found=false
                 let index=0
                 for(element in offsets){
-                    /*
                     const subtracted_negative_screen_fraction=0.67
                     const added_positive_screen_fraction=0.15
 
@@ -1238,7 +1241,6 @@
                         document.getElementById("sidebar_list_container").children[index].classList.remove("current_section")
                     }
                     index+=1
-                    */
                 }
             }
         </script>
