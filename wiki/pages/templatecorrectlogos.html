@@ -29,11 +29,13 @@
             @font-face {
                 font-family: UL;
                 src: url("https://2021.igem.org/wiki/images/5/56/T--Uppsala--Ubuntu-Light.ttf");
+                src: url("./T--Uppsala--Ubuntu-Light.ttf");
             }
 
             @font-face {
                 font-family: UM;
                 src: url("https://2021.igem.org/wiki/images/d/db/T--Uppsala--Ubuntu-Medium.ttf");
+                src: url("./T--Uppsala--Ubuntu-Medium.ttf");
             }
 
             *{
@@ -65,6 +67,9 @@
                 width: auto;
                 margin-top: 2vh;
                 margin-bottom: 2vh;
+            }
+            .blurred_image_overlay,.blurred_navigation_bar_open{
+                filter:blur(15px);
             }
         </style>
         <style purpose="header section and content container">
@@ -638,7 +643,7 @@
         <script purpose="internal_open_close_navbar">
             function open_navbar(){
                 document.getElementById("navigation_bar").classList.add("fully_open")
-                document.getElementById("pagecontent").style.setProperty("filter","blur(15px)")
+                document.getElementById("pagecontent").classList.add("blurred_navigation_bar_open")
                 //this is broken. blurring the main element makes the scrolly things lose their position setting
                 for(element of document.getElementsByClassName("scroll_thing")){
                     element.style.setProperty("filter","blur(15px)")
@@ -646,7 +651,7 @@
             }
             function close_navbar(){
                 document.getElementById("navigation_bar").classList.remove("fully_open")
-                document.getElementById("pagecontent").style.setProperty("filter","initial")
+                document.getElementById("pagecontent").classList.remove("blurred_navigation_bar_open")
                 //this is broken. blurring the main element makes the scrolly things lose their position setting
                 for(element of document.getElementsByClassName("scroll_thing")){
                     element.style.setProperty("filter","initial")
@@ -750,6 +755,9 @@
                 <img src="https://2021.igem.org/wiki/images/7/76/T--Uppsala--logo_animated.gif">
                 <div style="font-size:3vh;text-align:center;padding-top:4vh;font-family: sans-serif;">LOADING</div>
             </div>
+        </div>
+        <div id="image_overlay" class="invisible">
+            <div style="height:100px;width:100px;background-color:red;float:right;" onclick="collapse_image()"></div>
         </div>
         <!-- cross-page Navigation Menu with drop down -->
         <div id="navigation_bar" onmouseenter="open_navbar()" onmouseleave="close_navbar()">
@@ -895,7 +903,7 @@
                         The waste disposal course was held by the safety officer on our campus. The course was composed of a tour around the waste disposal facilities in Uppsala University and a detailed demonstration about the correct labelling and transportations measures for laboratory waste-bins and chemical waste containers. At the end of the tour, each participant was given a diploma allowing them to handle all waste products that were produced in the lab.
                     </p>
                     <div class="image left quarter">
-                        <img  src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
+                        <img class="expandable_image" width="1050" height="1050" src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
                         <p>
                             Figure 1. Wow very cool photos, they are the best photos ever taken. This just some text used to fil the page with. I dont really feel like writing Lorem Ipsum for the hundreth time... Damn, need to write some more to see how the text would look lite on two seperate rows. FML.
                         </p>
@@ -904,7 +912,14 @@
                         Lab leaders attended an introduction for the handling of the autoclave and the dishwasher. Additionally, the most experienced students organized lessons showing the basic techniques in synthetic biology, as gel casting or working safely under the flame.
                     </p>
                     <p>
-                        Our wet lab work was carried in a BSL-1 (Biosafety Level 1) laboratory. Basic PPE (Personal Protective Equipment), including a laboratory coat, protective eyewear and gloves according to indications were enforced. Gloves were discarded immediately after use. For our experiments we used Escherichia coli (Strains DH5α, BL21(DE3)) and Bacillus subtilis w168, all included in the iGEM white-list and suited to be handled safely in our installations, without the need of extra protective equipment. Dangerous chemicals were handled in a fume hood.
+                        Our wet lab work was carried in a BSL-1 (Biosafety Level 1) laboratory. Basic PPE (Personal Protective Equipment), including a laboratory coat, protective eyewear and gloves according to indications were enforced. Gloves were discarded immediately after use. For our experiments we used 
+                        <span class="popup">
+                            <span>Escherichia coli</span>
+                            <span class="popup_content">Here is a wikipedia link with more information on this species of bacteria: 
+                                <a href="https://en.wikipedia.org/wiki/Escherichia_coli">wikipedia</a>
+                            </span>
+                        </span>
+                        (Strains DH5α, BL21(DE3)) and Bacillus subtilis w168, all included in the iGEM white-list and suited to be handled safely in our installations, without the need of extra protective equipment. Dangerous chemicals were handled in a fume hood.
                     </p>
                     <p>
                         Lab work is often coupled with long and stressful days, which can be a potential hazard on their own. Therefore we made sure to communicate any errors in our routines during group meetings and to remind each other our responsibilities. A special lab-question communication channel in slack was accessible for any questions and concerns. To keep the lab in order, different lab groups rotated between responsibility of cleaning the lab, i.e. taking care of used glassware.
@@ -918,7 +933,7 @@
                         Our goal is to modify first the Gram-negative bacteria Escherichia coli and second the Gram-positive Bacillus subtilis so they express the different parts composing the biosensor fusion proteins containing the nanobodies for detection, T7 promoter amplification loop and β-galactosidase as output signal.
                     </p>
                     <div class="image left half">
-                        <img  src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
+                        <img class="expandable_image" width="1050" height="1050"  src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
                         <p>
                             Figure 1. Wow very cool photos, they are the best photos ever taken. This just some text used to fil the page with. I dont really feel like writing Lorem Ipsum for the hundreth time... Damn, need to write some more to see how the text would look lite on two seperate rows. FML.
                         </p>
@@ -938,7 +953,7 @@
                     <h1>COVID-19 measures</h1>
 
                     <div class="image left quarter">
-                        <img src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
+                        <img class="expandable_image" width="1050" height="1050" src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
                         <p>
                             Figure 1. Wow very cool photos, they are the best photos ever taken. This just some text used to fil the page with. I dont really feel like writing Lorem Ipsum for the hundreth time... Damn, need to write some more to see how the text would look lite on two seperate rows. FML.
                         </p>
@@ -1050,6 +1065,236 @@
             }
         </script>
 
+        <style purpose="popup">
+            .popup{
+                text-decoration: underline;
+                color: blue;
+            }
+            .popup > span:not(.popup_content){
+                cursor:pointer;
+            }
+            .popup_content{
+                cursor:default;
+                display:inline-block;
+                color:black;
+                position:fixed;
+                width:20vh;
+                margin-top:0.5vh;
+                padding:1vh;
+                transform:translateX(-50%);
+                text-align: justify;
+                z-index:10;
+                background-color:white;
+                border:0.2vh solid black;
+            }
+            .popup_content_header{
+                font-size: 2.2vh;
+            }
+            .popup_content{
+                font-size: 1.5vh;
+            }
+        </style>
+        <script purpose="popup initiaiziation">
+            for(element of document.getElementsByClassName("popup")){
+                console.log(element.children)
+                element.children[1].style.setProperty("display","none")
+                element.children[1].innerHTML="<span class='popup_content_header'>"+element.children[0].innerText+"</span><br><br>"+element.children[1].innerHTML
+
+                function open_popup(ev){
+                    let element=ev.target
+                    if(!element.classList.contains("popup")){
+                        element=element.parentElement
+                    }
+
+                    if(element.getAttribute("vanish_timer")){
+                        clearTimeout(element.getAttribute("vanish_timer"))
+                    }
+
+                    element.setAttribute("popped_up",true)
+                    let element_bb=element.getBoundingClientRect()
+                    element.children[1].style.setProperty("display","initial")
+                    let left_offset=element_bb.x+(element_bb.width/2) // centering of popup happens in css
+                    left_offset=max(element.children[1].getBoundingClientRect().width/2,left_offset) // make sure it does not leave the screen area to the left for text that is close to the left border
+                    left_offset=min(window.innerWidth-(element.children[1].getBoundingClientRect().width/2),left_offset) // make sure the popup does not leave the screen area on the right
+                    //the min/max caps above could probably be omitted on the wiki page since the main text area has enough padding on the left and right, but better to be safe than sorry (could also be adjusted to make sure the popup does not leave the text area, bu i do not think that it would a visual issue if it did)
+                    element.children[1].style.setProperty("left",left_offset+"px")
+                    element.children[1].style.setProperty("top",element_bb.bottom+"px")
+                }
+                function close_popup(ev){
+                    let element=ev.target
+                    if(!element.classList.contains("popup")){
+                        element=element.parentElement
+                    }
+
+                    //small gap between link and popup content is not valid popup surface, to moving the mouse from the link to the popup content leaves the container area, which closes the popup
+                    //this timeout means that the popup window is closed if the mouse is not positioned within the container area within 250ms after it left the area, ergo the popup remains visible while the mouse moves over the gap between the link and the popup
+                    //and 250ms looks short enough to make it seem like the popup would still automatically vanish when the user leaves the popup area with the mouse actively, to move it somewhere else
+                    element.setAttribute("vanish_timer",setTimeout(
+                        ()=>{
+                            element.setAttribute("popped_up",false)
+                            element.children[1].style.setProperty("display","none")
+                        },250
+                    ))
+                }
+
+                element.addEventListener("mouseenter",open_popup)
+                element.addEventListener("mouseleave",close_popup)
+            }
+        </script>
+
+        <script purpose="expand images">
+            let style_document=document.styleSheets[0].rules || document.styleSheets[0].cssRules
+            let image_shrink_duration=0
+            for (rule of style_document){
+                if(rule.selectorText=="content_slice"){
+                    width=window.innerWidth*rule.style.width.slice(0,-2)/100
+                }
+                if(rule.selectorText=="actualcontent"){
+                    max_height=window.innerHeight*rule.style.height.slice(0,-1)/100
+                }
+                if(rule.selectorText==".image_shrink"){
+                    image_shrink_duration=rule.style.getPropertyValue("animation-duration").slice(0,-1)*1000
+                }
+            }
+
+            for(element of document.getElementsByClassName("expandable_image")){
+                element.addEventListener("click",expand_image)
+            }
+
+            function expand_image(ev){
+                let image_element=ev.target
+                let image_overlay=document.getElementById("image_overlay")
+                image_overlay.classList.remove("invisible")
+
+                if(image_overlay.children.length==2){
+                    image_overlay.removeChild(image_overlay.lastChild)
+                }
+
+                let big_image=document.createElement("img")
+                big_image.setAttribute("src",image_element.src)
+                big_image.classList.add("overlay_image")
+
+                image_overlay.appendChild(big_image)
+
+                big_image.style.setProperty("--width",image_element.getBoundingClientRect().width+"px")
+                big_image.style.setProperty("--height",image_element.getBoundingClientRect().height+"px")
+                big_image.style.setProperty("--left",image_element.getBoundingClientRect().left+image_element.width/2+"px")
+                big_image.style.setProperty("--top",image_element.getBoundingClientRect().top+image_element.height/2+"px")
+
+                let final_width=image_element.getAttribute("width")*0.5
+                let final_height=image_element.getAttribute("height")*0.5
+
+                big_image.style.setProperty("--left-end",window.innerWidth/2+"px")
+                big_image.style.setProperty("--top-end",window.innerHeight/2+"px")
+
+                big_image.style.setProperty("--overlay-width",final_width+"px")
+                big_image.style.setProperty("--overlay-height",final_height+"px")
+
+                big_image.classList.add("image_transition")
+
+                image_element.classList.toggle("pseudo-invisible")
+
+                image_overlay.image_element=image_element
+                
+                document.getElementById("pagecontent").classList.add("blurred_image_overlay")
+            }
+            function collapse_image(ev){
+                let image_overlay=document.getElementById("image_overlay")
+
+                image_overlay.children[1].classList.remove("image_transition")
+                image_overlay.children[1].classList.add("image_shrink")
+
+                document.getElementById("pagecontent").classList.remove("blurred_image_overlay")
+
+                setTimeout(()=>{
+                    document.getElementById("image_overlay").classList.add("invisible")
+                    image_overlay.image_element.classList.toggle("pseudo-invisible")
+                },image_shrink_duration)
+            }
+        </script>
+        <style purpose="expand images">
+            .expandable_image{
+                cursor:zoom-in;
+                z-index:1;
+            }
+            /*the actual overlay panel*/
+            #image_overlay{
+                position:fixed;
+
+                left:0;
+                /* top offset (which is subtracted from height) is height of igem bar and navigation bar*/
+                top:calc(16px + 5vh);
+                height:calc(100% - 16px - 5vh);
+                width:100%;
+
+                float:left;
+
+                background-color: rgba(255,255,255,0.0);
+                z-index: 11;
+            }
+            #image_overlay:not(.invisible){
+                display:block; 
+            }
+            /*the image displayed within the overlay panel*/
+            .overlay_image{
+                position:relative;
+                transform:translateX(-50%) translateY(-50%);
+                width:var(--overlay-width);
+                height:var(--overlay-height);
+                left:var(--left-end);
+                top:var(--top-end);
+            }
+            .image_transition{
+                animation-name:into_center;
+                animation-duration:0.4s;
+            }
+            .image_shrink{
+                animation-name:from_center;
+                animation-duration:0.4s;
+            }
+            .invisible{
+                display:none;
+            }
+            .pseudo-invisible{
+                opacity:0.0;
+            }
+            @keyframes into_center{
+                from{
+                    width:var(--width);
+                    height:var(--height);
+                    left:var(--left);
+                    top:var(--top);
+                }
+                to{
+                    width:var(--overlay-width);
+                    height:var(--overlay-height);
+                    left:var(--left-end);
+                    top:var(--top-end);
+                }
+            }
+            @keyframes from_center{
+                from{
+                    width:var(--overlay-width);
+                    height:var(--overlay-height);
+                    left:var(--left-end);
+                    top:var(--top-end);
+                }
+                to{
+                    width:var(--width);
+                    height:var(--height);
+                    left:var(--left);
+                    top:var(--top);
+                }
+            }
+            .one_vertical_image_padding{
+                height:1em;
+                width:100%;
+            }
+            img{
+                display:block;
+            }
+        </style>
+
         <!-- sponsor and social media footer -->
         <div class="flexbox-container-socialmedia">
             <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png"></div>
@@ -1058,17 +1303,17 @@
             <div><img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Circle-icons-mail.svg"></div>
             <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Linkedin_icon.svg/480px-Linkedin_icon.svg.png"></div>
         </div>
-
+<!-- I CHANGED THE LOGO FOR cytiva, new harvest and testa-->
         <div class="grid-container-sponsors">
             <div><img src="https://2021.igem.org/wiki/images/8/8b/T--Uppsala--utnlogo.png"></div>
-            <div><img src="https://2021.igem.org/wiki/images/f/f7/T--Uppsala--genscriptreal.png"></div>
-            <div><img src="https://2021.igem.org/wiki/images/c/c8/T--Uppsala--promegareal.png"></div>
-            <div><img src="https://2021.igem.org/wiki/images/1/11/T--Uppsala--bioradreal.jpg"></div>
+            <div><img src="http://2014.igem.org/wiki/images/5/5a/York_Genscript_logo-1-.png"></div>
+            <div><img src="https://2020.igem.org/wiki/images/0/05/T--UofUppsala--pro.png"></div>
+            <div><img src="https://2021.igem.org/wiki/images/f/fc/T--Uppsala--bioradlogo.png"></div>
             <div><img src="https://2021.igem.org/wiki/images/2/29/T--Uppsala--bionordikalogo.png"></div>
             <div><img src="https://2021.igem.org/wiki/images/9/9a/T--Uppsala--mercklogo.png"></div>
             <div><img src="https://2021.igem.org/wiki/images/f/fa/T--Uppsala--scbtlogo.png"></div>
-            <div><img src="https://2021.igem.org/wiki/images/2/2f/T--Uppsala--snapgenereal.png"></div>
-            <div><img src="https://2021.igem.org/wiki/images/e/e2/T--Uppsala--eurofinsreal.jpg"></div>
+            <div><img src="https://2020.igem.org/wiki/images/8/8c/T--UofUppsala--snap.png"></div>
+            <div><img src="https://2020.igem.org/wiki/images/a/a4/T--UofUppsala--euro.png"></div>
             <div><img src="https://2021.igem.org/wiki/images/e/ec/T--Uppsala--newharvestreal.png"></div>
             <div><img src="https://2021.igem.org/wiki/images/d/d6/T--Uppsala--testacenterreal.png"></div>
             <div><img src="https://2021.igem.org/wiki/images/d/d4/T--Uppsala--cytiva.jpeg"></div>
