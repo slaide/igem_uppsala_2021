@@ -227,13 +227,29 @@
                 text-align: justify;
             }
             /* make image float so that text can wrap around it */
-            div.image.left{
+            div.image.left:not(.wide){
                 float:left;
                 padding-right:2vh;
             }
-            div.image.right{
+            div.image.right:not(.wide){
                 float:right;
                 padding-left:2vh;
+            }
+            div.image.middle,div.image.wide{
+                display:block;
+                padding-left:2vh;
+                padding-right:2vh;
+                width:calc( 100% - 2 * 2vh);
+            }
+            div.image.middle > img{
+                width:50%;
+                position:relative;
+                left:50%;
+                transform:translateX(-50%);
+            }
+
+            div.image.wide > img{
+                width:100%;
             }
             div.quarter{
                 width:25%;
@@ -251,8 +267,10 @@
             }
             /* make sure images have expected size (the actual size specifications apply to their container, not themself) */
             #fgfuture_content div > img{
-                width:100%;
                 height:auto;
+            }
+            #fgfuture_content div:not(.middle) > img{
+                width:100%;
             }
 
 
@@ -902,8 +920,36 @@
                     <p>
                         The waste disposal course was held by the safety officer on our campus. The course was composed of a tour around the waste disposal facilities in Uppsala University and a detailed demonstration about the correct labelling and transportations measures for laboratory waste-bins and chemical waste containers. At the end of the tour, each participant was given a diploma allowing them to handle all waste products that were produced in the lab.
                     </p>
-                    <div class="image left quarter">
+                    <div class="image middle half">
                         <img class="expandable_image" width="1050" height="1050" src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
+                        <p>
+                            Figure 1. Wow very cool photos, they are the best photos ever taken. This just some text used to fil the page with. I dont really feel like writing Lorem Ipsum for the hundreth time... Damn, need to write some more to see how the text would look lite on two seperate rows. FML.
+                        </p>
+                    </div>
+                    <p>
+                        Lab leaders attended an introduction for the handling of the autoclave and the dishwasher. Additionally, the most experienced students organized lessons showing the basic techniques in synthetic biology, as gel casting or working safely under the flame.
+                    </p>
+                    <p>
+                        Our wet lab work was carried in a BSL-1 (Biosafety Level 1) laboratory. Basic PPE (Personal Protective Equipment), including a laboratory coat, protective eyewear and gloves according to indications were enforced. Gloves were discarded immediately after use. For our experiments we used 
+                        <span class="popup">
+                            <span>Escherichia coli</span>
+                            <span class="popup_content">Here is a wikipedia link with more information on this species of bacteria: 
+                                <a href="https://en.wikipedia.org/wiki/Escherichia_coli">wikipedia</a>
+                            </span>
+                        </span>
+                        (Strains DH5α, BL21(DE3)) and Bacillus subtilis w168, all included in the iGEM white-list and suited to be handled safely in our installations, without the need of extra protective equipment. Dangerous chemicals were handled in a fume hood.
+                    </p>
+                    <p>
+                        Lab work is often coupled with long and stressful days, which can be a potential hazard on their own. Therefore we made sure to communicate any errors in our routines during group meetings and to remind each other our responsibilities. A special lab-question communication channel in slack was accessible for any questions and concerns. To keep the lab in order, different lab groups rotated between responsibility of cleaning the lab, i.e. taking care of used glassware.
+                    </p>
+                    <p>
+                        Sharing is caring, especially when it comes to safety knowledge. To make sure that everyone understood and followed the rules needed for a safe-laboratory environment, we organized an introductory week before entering the lab, where the whole team participated in three mandatory activities, a laboratory safety round, a biosafety workshop and a waste disposal course. For the first, fire extinguishers, first aid kits and showers were introduced, as well as emergency exits and chemical room organization. For the second, Good Laboratory Practices (GLP) were explained, along with a practical demonstration of pipetting and safe glove removal techniques.
+                    </p>
+                    <p>
+                        The waste disposal course was held by the safety officer on our campus. The course was composed of a tour around the waste disposal facilities in Uppsala University and a detailed demonstration about the correct labelling and transportations measures for laboratory waste-bins and chemical waste containers. At the end of the tour, each participant was given a diploma allowing them to handle all waste products that were produced in the lab.
+                    </p>
+                    <div class="image middle wide">
+                        <img class="expandable_image" width="1182.37" height="557.38" src="https://2021.igem.org/wiki/images/f/fe/T--Uppsala--petridish_back.svg">
                         <p>
                             Figure 1. Wow very cool photos, they are the best photos ever taken. This just some text used to fil the page with. I dont really feel like writing Lorem Ipsum for the hundreth time... Damn, need to write some more to see how the text would look lite on two seperate rows. FML.
                         </p>
