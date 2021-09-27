@@ -227,29 +227,13 @@
                 text-align: justify;
             }
             /* make image float so that text can wrap around it */
-            div.image.left:not(.wide){
+            div.image.left{
                 float:left;
                 padding-right:2vh;
             }
-            div.image.right:not(.wide){
+            div.image.right{
                 float:right;
                 padding-left:2vh;
-            }
-            div.image.middle,div.image.wide{
-                display:block;
-                padding-left:2vh;
-                padding-right:2vh;
-                width:calc( 100% - 2 * 2vh);
-            }
-            div.image.middle > img{
-                width:50%;
-                position:relative;
-                left:50%;
-                transform:translateX(-50%);
-            }
-
-            div.image.wide > img{
-                width:100%;
             }
             div.quarter{
                 width:25%;
@@ -267,10 +251,8 @@
             }
             /* make sure images have expected size (the actual size specifications apply to their container, not themself) */
             #fgfuture_content div > img{
-                height:auto;
-            }
-            #fgfuture_content div:not(.middle) > img{
                 width:100%;
+                height:auto;
             }
 
 
@@ -420,15 +402,15 @@
             }
 
 
-            .flexbox-container-socialmedia > div > a > img:not(img.upplogo){
+            .flexbox-container-socialmedia > div > img:not(img.upplogo){
                 margin-left: 3vw;
                 margin-right: 3vw;
                 filter: grayscale(50%);
                 margin-top: 7vh;
-                width: 5vw;
+                width: 4vw;
             }
 
-            .flexbox-container-socialmedia > div > a > img:not(img.upplogo):hover{
+            .flexbox-container-socialmedia > div > img:not(img.upplogo):hover{
                 filter:grayscale(0);
                 filter: brightness(130%);
                 filter: contrast(150%);
@@ -444,35 +426,26 @@
         
 
             .grid-container-sponsors{
+                width: auto;
                 height: 30vh;
                 display: grid;
-                padding-left:5%;
-                padding-right:5%;
-                padding-bottom:5vh;
-                width: 90%;
-                row-gap: 20%;
-                column-gap: 5%;
                 grid-template-columns:repeat(6,1fr);
                 grid-template-rows:repeat(2,1fr);
                 overflow: hidden;
                 background-color: #426968;
             }
 
-            .grid-container-sponsors > div{
-                width:auto;
-                height:auto;
-            }
-            .grid-container-sponsors > div > a > img{
-                width:80%;
-                height:auto;
+
+            .grid-container-sponsors > div > img{
+                margin-left: 50%;
+                margin-top: 7vh;
+                transform: translateY(-50%);
+                transform: translateX(-50%);
+                width: 7vw;
                 filter: grayscale(50%);
-                position:relative;
-                left:50%;
-                top:50%;
-                transform:translate(-50%,-50%);
             }
 
-            .grid-container-sponsors > div > a > img:hover{
+            .grid-container-sponsors > div > img:hover{
                 filter:grayscale(0);
                 filter: brightness(130%);
                 filter: contrast(150%);
@@ -816,7 +789,7 @@
                     <div class="dropdown_content">
                         <a href="https://2021.igem.org/Team:Uppsala/Human_Practices">Overview</a>
                         <a href="https://2021.igem.org/Team:Uppsala/Human_Practices">Integrated Human Practice</a>
-                        <a href="https://2021.igem.org/Team:Uppsala/Implementation">Proposed<br/>Implementation</a>
+                        <a href="https://2021.igem.org/Team:Uppsala/Implementation">Proposed Implementation</a>
                         <a href="https://2021.igem.org/Team:Uppsala/Education">Education</a>
                         <a href="https://2021.igem.org/Team:Uppsala/Inclusivity">Inclusion</a>
                     </div>
@@ -929,36 +902,8 @@
                     <p>
                         The waste disposal course was held by the safety officer on our campus. The course was composed of a tour around the waste disposal facilities in Uppsala University and a detailed demonstration about the correct labelling and transportations measures for laboratory waste-bins and chemical waste containers. At the end of the tour, each participant was given a diploma allowing them to handle all waste products that were produced in the lab.
                     </p>
-                    <div class="image middle half">
+                    <div class="image left quarter">
                         <img class="expandable_image" width="1050" height="1050" src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
-                        <p>
-                            Figure 1. Wow very cool photos, they are the best photos ever taken. This just some text used to fil the page with. I dont really feel like writing Lorem Ipsum for the hundreth time... Damn, need to write some more to see how the text would look lite on two seperate rows. FML.
-                        </p>
-                    </div>
-                    <p>
-                        Lab leaders attended an introduction for the handling of the autoclave and the dishwasher. Additionally, the most experienced students organized lessons showing the basic techniques in synthetic biology, as gel casting or working safely under the flame.
-                    </p>
-                    <p>
-                        Our wet lab work was carried in a BSL-1 (Biosafety Level 1) laboratory. Basic PPE (Personal Protective Equipment), including a laboratory coat, protective eyewear and gloves according to indications were enforced. Gloves were discarded immediately after use. For our experiments we used 
-                        <span class="popup">
-                            <span>Escherichia coli</span>
-                            <span class="popup_content">Here is a wikipedia link with more information on this species of bacteria: 
-                                <a href="https://en.wikipedia.org/wiki/Escherichia_coli">wikipedia</a>
-                            </span>
-                        </span>
-                        (Strains DH5α, BL21(DE3)) and Bacillus subtilis w168, all included in the iGEM white-list and suited to be handled safely in our installations, without the need of extra protective equipment. Dangerous chemicals were handled in a fume hood.
-                    </p>
-                    <p>
-                        Lab work is often coupled with long and stressful days, which can be a potential hazard on their own. Therefore we made sure to communicate any errors in our routines during group meetings and to remind each other our responsibilities. A special lab-question communication channel in slack was accessible for any questions and concerns. To keep the lab in order, different lab groups rotated between responsibility of cleaning the lab, i.e. taking care of used glassware.
-                    </p>
-                    <p>
-                        Sharing is caring, especially when it comes to safety knowledge. To make sure that everyone understood and followed the rules needed for a safe-laboratory environment, we organized an introductory week before entering the lab, where the whole team participated in three mandatory activities, a laboratory safety round, a biosafety workshop and a waste disposal course. For the first, fire extinguishers, first aid kits and showers were introduced, as well as emergency exits and chemical room organization. For the second, Good Laboratory Practices (GLP) were explained, along with a practical demonstration of pipetting and safe glove removal techniques.
-                    </p>
-                    <p>
-                        The waste disposal course was held by the safety officer on our campus. The course was composed of a tour around the waste disposal facilities in Uppsala University and a detailed demonstration about the correct labelling and transportations measures for laboratory waste-bins and chemical waste containers. At the end of the tour, each participant was given a diploma allowing them to handle all waste products that were produced in the lab.
-                    </p>
-                    <div class="image middle wide">
-                        <img class="expandable_image" width="1182.37" height="557.38" src="https://2021.igem.org/wiki/images/f/fe/T--Uppsala--petridish_back.svg">
                         <p>
                             Figure 1. Wow very cool photos, they are the best photos ever taken. This just some text used to fil the page with. I dont really feel like writing Lorem Ipsum for the hundreth time... Damn, need to write some more to see how the text would look lite on two seperate rows. FML.
                         </p>
@@ -1007,7 +952,7 @@
                 <div id="section3">
                     <h1>COVID-19 measures</h1>
 
-                    <div class="image right quarter">
+                    <div class="image left quarter">
                         <img class="expandable_image" width="1050" height="1050" src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
                         <p>
                             Figure 1. Wow very cool photos, they are the best photos ever taken. This just some text used to fil the page with. I dont really feel like writing Lorem Ipsum for the hundreth time... Damn, need to write some more to see how the text would look lite on two seperate rows. FML.
@@ -1352,93 +1297,26 @@
 
         <!-- sponsor and social media footer -->
         <div class="flexbox-container-socialmedia">
-            <div>
-                <a href="https://www.facebook.com/iGEMUppsala">
-                    <img src="https://2021.igem.org/wiki/images/e/eb/T--Uppsala--facebook.png">
-                </a>
-            </div>
-            <div>
-                <a href="https://www.instagram.com/igem.uppsala/">
-                    <img src="https://2021.igem.org/wiki/images/b/ba/T--Uppsala--instagram.png">
-                </a>
-            </div>
-            <div>
-                <a href="https://www.uu.se/">
-                    <img class="upplogo"src="https://shop.uu.se/shop/ws45/82845/files/UU_logo_vit.png">
-                </a>
-            </div>
-            <div>
-                <a href="mailto:info@igemuppsala.se">
-                    <img src="https://2021.igem.org/wiki/images/1/1e/T--Uppsala--mail.png">
-                </a>
-            </div>
-            <div>
-                <a href="https://www.linkedin.com/company/igem-uppsala/mycompany/">
-                    <img src="https://2021.igem.org/wiki/images/b/bc/T--Uppsala--linkedin.png">
-                </a>
-            </div>
+            <div><img src="https://2021.igem.org/wiki/images/e/eb/T--Uppsala--facebook.png"></div>
+            <div><img src="https://2021.igem.org/wiki/images/b/ba/T--Uppsala--instagram.png"></div>
+            <div><img class="upplogo"src="https://2021.igem.org/wiki/images/1/15/T--Uppsala--UUlogowhite.png"></div>
+            <div><img src="https://2021.igem.org/wiki/images/1/1e/T--Uppsala--mail.png"></div>
+            <div><img src="https://2021.igem.org/wiki/images/b/bc/T--Uppsala--linkedin.png"></div>
         </div>
+
         <div class="grid-container-sponsors">
-            <div>
-                <a href="https://www.utn.se/">
-                    <img src="https://2021.igem.org/wiki/images/8/8b/T--Uppsala--utnlogo.png">
-                </a>
-            </div>
-            <div>
-                <a href="https://www.genscript.com/">
-                    <img src="http://2014.igem.org/wiki/images/5/5a/York_Genscript_logo-1-.png">
-                </a>
-            </div>
-            <div>
-                <a href="https://worldwide.promega.com/">
-                    <img src="https://2020.igem.org/wiki/images/0/05/T--UofUppsala--pro.png">
-                </a>
-            </div>
-            <div>
-                <a href="https://www.bio-rad.com/">
-                        <img src="https://2021.igem.org/wiki/images/f/fc/T--Uppsala--bioradlogo.png">
-                </a>
-            </div>
-            <div>
-                <a href="https://www.bionordika.se/">
-                        <img src="https://2021.igem.org/wiki/images/2/29/T--Uppsala--bionordikalogo.png">
-                </a>
-            </div>
-            <div>
-                <a href="https://www.merck.com/">
-                    <img src="https://2021.igem.org/wiki/images/9/9a/T--Uppsala--mercklogo.png">
-                </a>
-            </div>
-            <div>
-                <a href="https://www.scbt.com/home">
-                    <img src="https://2021.igem.org/wiki/images/f/fa/T--Uppsala--scbtlogo.png">
-                </a>
-            </div>
-            <div>
-                <a href="https://www.snapgene.com/">
-                    <img src="https://2020.igem.org/wiki/images/8/8c/T--UofUppsala--snap.png">
-                </a>
-            </div>
-            <div>
-                <a href="https://www.eurofins.se/">
-                    <img src="https://2020.igem.org/wiki/images/a/a4/T--UofUppsala--euro.png">
-                </a>
-            </div>
-            <div>
-                <a href="https://new-harvest.org/">
-                    <img src="https://2021.igem.org/wiki/images/e/ec/T--Uppsala--newharvestreal.png">
-                </a>
-            </div>
-            <div>
-                <a href="https://testacenter.com/">
-                    <img src="https://2021.igem.org/wiki/images/d/d6/T--Uppsala--testacenterreal.png">
-                </a>
-            </div>
-            <div>
-                <a href="https://www.cytivalifesciences.com/en/at">
-                    <img src="https://2021.igem.org/wiki/images/d/d4/T--Uppsala--cytiva.jpeg">
-                </a>
-            </div>
+            <div><img src="https://2021.igem.org/wiki/images/8/8b/T--Uppsala--utnlogo.png"></div>
+            <div><img src="http://2014.igem.org/wiki/images/5/5a/York_Genscript_logo-1-.png"></div>
+            <div><img src="https://2020.igem.org/wiki/images/0/05/T--UofUppsala--pro.png"></div>
+            <div><img src="https://2021.igem.org/wiki/images/f/fc/T--Uppsala--bioradlogo.png"></div>
+            <div><img src="https://2021.igem.org/wiki/images/2/29/T--Uppsala--bionordikalogo.png"></div>
+            <div><img src="https://2021.igem.org/wiki/images/9/9a/T--Uppsala--mercklogo.png"></div>
+            <div><img src="https://2021.igem.org/wiki/images/f/fa/T--Uppsala--scbtlogo.png"></div>
+            <div><img src="https://2020.igem.org/wiki/images/8/8c/T--UofUppsala--snap.png"></div>
+            <div><img src="https://2020.igem.org/wiki/images/a/a4/T--UofUppsala--euro.png"></div>
+            <div><img src="https://upload.wikimedia.org/wikipedia/commons/1/12/New_Harvest_Full_Logo_-_RGB_.png"></div>
+            <div><img src="https://testacenter.com/wp-content/uploads/2019/08/TestaCenter_LogoWithTagline_Pantone.png"></div>
+            <div><img src="https://cdn.cytivalifesciences.com/dmm3bwsv3/AssetStream.aspx?mediaformatid=10061&destinationid=10016&assetid=32945"></div>
         </div>
     </body>
 </html>
