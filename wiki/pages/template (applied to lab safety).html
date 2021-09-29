@@ -432,7 +432,6 @@
                 filter:grayscale(0);
                 filter: brightness(130%);
                 filter: contrast(150%);
-
             }
 
             img.upplogo{
@@ -442,18 +441,22 @@
                 margin-right: 3vw;
             }
         
-
             .grid-container-sponsors{
+                width: 90%;
                 height: 30vh;
+
                 display: grid;
+
                 padding-left:5%;
                 padding-right:5%;
                 padding-bottom:5vh;
-                width: 90%;
+
                 row-gap: 20%;
                 column-gap: 5%;
+
                 grid-template-columns:repeat(6,1fr);
                 grid-template-rows:repeat(2,1fr);
+
                 overflow: hidden;
                 background-color: #426968;
             }
@@ -1020,10 +1023,10 @@
                         The waste disposal course was held by the safety officer on our campus. The course was composed of a tour around the waste disposal facilities in Uppsala University and a detailed demonstration about the correct labelling and transportations measures for laboratory waste-bins and chemical waste containers. At the end of the tour, each participant was given a diploma allowing them to handle all waste products that were produced in the lab.
                     </p>
                 </div>
+
+                <!-- INSERT GOOGLE DOC CONTENT ABOVE THIS LINE -->
+
             </div>
-
-            <!-- INSERT GOOGLE DOC CONTENT ABOVE THIS LINE -->
-
         </div>
 
         <script purpose="derive sidebar entries from user-generated content">
@@ -1151,7 +1154,6 @@
         </style>
         <script purpose="popup initiaiziation">
             for(element of document.getElementsByClassName("popup")){
-                console.log(element.children)
                 element.children[1].style.setProperty("display","none")
                 element.children[1].innerHTML="<span class='popup_content_header'>"+element.children[0].innerText+"</span><br><br>"+element.children[1].innerHTML
 
