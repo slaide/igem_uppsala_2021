@@ -954,11 +954,308 @@
                     <div onclick="switch_hp('integrated')">Integrated HP</div>
                 </div>
                 <div id="human_practices_content" class="hp_section active_section">
-                    <h1>HP Overview</h1>
+                    <h1>Introduction</h1>
                     <p>
-                        human practice is about its content
+                        “We shall escape the absurdity of growing a whole chicken in order to eat a breast or a wing, by growing these parts separately under a suitable medium”- Winston Churchill
                     </p>
+                    <p>
+                        This year, iGEM Uppsala team was engaged in a Cellular Agriculture related project, a field that is dedicated to the production of slaughter-free lab-grown meat, grown directly from animal cells, otherwise known as cultivated meat.
+                    </p>
+
+                    <h2>
+                        What is the problem? 
+                    </h2>
+                    <p>
+                        Our planet Earth is currently populated by almost 7.9 billion people with the number rising every second, increasing annually by 1.05% [1]. It is estimated that until 2050 the population will have reached 9.1 billion [2]. Τhis fact does not come without complications, the question of how to feed everyone is being answered with the increase inraise of meat production to 470 million tonnes per year, and the need to diminish world hunger and malnutrition over the world requires an even higher supply of meat [2]. Our current supply food chain and agricultural infrastructures and practices are already compromised in their current state, and in need of more sustainable practices [3][4]. They will not be enough to cover our increasing needs [4].  
+                    </p>
+                    <p>
+                        Cultivated meat has emerged in an attempt to cover these demands without the need to  slaughter animals on a massive scale in order to feed our human population [6] and  will allow more arable land to be freed from animal rearing and to be used for growing crops for human consumption instead [7][8]. Therefore, environmentally speaking, cultivated meat production could lead to a decrease in water consumption and carbon footprint compared to conventional meat production [7][9].
+                    </p>
+                    <p>
+                        Furthermore, cultivated meat is considered safe and clean. It does not require the large amounts of antibiotics that are needed in industrial animal farming to prevent infectious diseases in the animals, exacerbating the antibiotic resistance problem we are facing. For cultivated meat, crowded animals in facilities with questionable sanitary conditions will not be necessary [7][9][10]. On that note, animal and human contact will also decrease, potentially preventing the transmission of zoonotic diseases from animals to humans that could lead to future pandemics [9][10]. Cultivated meat might become the answer to many of these problems. 
+                        For more details, you can see the proposed implementation of our project here and how it relates to the UN sustainable goals here.
+                    </p>
+                    <p>
+                        However, the production of cultivated meat is still not completely ideal and it is still quite expensive. In the beginning, the production required the use of Fetal Bovine Serum (FBS) as a media supplement. FBS is a serum obtained from calf blood, which contains the necessary growth factors for cell culture proliferation in the lab. Thus, the blood collection procedure that is necessary to obtain FBS renders it not completely animal slaughter-free.[11]
+                    </p>
+                    <p>
+                        Commercially engineered growth factors have been developed as a substitute for the growth factors found in FBS and are currently available. They are one of the components in so-called serum-free media that substitutes the FBS for the cultivation of the animal cells. The problem is that they are needed in remarkably high quantities due to their lower protein stability, keeping the cost of cultivated meat very high. [12][13]
+                    </p>
+                    
+                    <h3>
+                        Our goal
+                    </h3>
+                    <p>
+                        To get one step closer to the goal of serum free and affordable cultivated meat media, our team aims to improve one of the growth factors required for the process of cultivating meat in the lab. Basic fibroblast growth factor, or FGF2, is a protein with high mitogenic properties. It plays a key role in tissue formation and repairment.[14][15]
+                    </p>
+                    <p>
+                        Our team decided to have the upscaling of FGF2 as a project topic this year, to achieve massive production of the basic fibroblast growth factor in bioreactors and in long term its use in industry and the reduction in the cost of cultivated meat production. Inspiration in our goals was the 2014 iGEM SF Bay Area DIYbio team [16], who tried to produce milk-proteins in yeast using synthetic biology. The aforementioned proteins would later be used in the production of vegan milk, with vegan cheese creation as an end goal. Besides that, very few other iGEM teams have tried to delve into the alternative protein sector, and to our knowledge no team so far has presented a project related to cultivated meat, which served as a motivation for our team to pursue this track.
+                    </p>
+                    <p>
+                        To achieve this goal, we pursued several different strategies in our experiments. Our team proceeded with the design and screening of mutations for improving FGF2 using computational tools, site-directed mutagenesis with PCR, and the use of synthetic biology in the generation of optimized mutant FGF2 proteins. In a different approach, a chimeric protein that contains parts from FGF1 and FGF2 (FGFC) was used. This protein was hypothesized to  exhibit increased receptor binding affinity, increased stability and thermostability as well as increased solubility for higher yield.
+                    </p>
+                    <p>
+                        The successful achievement of the above objectives would highly impact the industry of cultivated meat and the associated research field, which would forever change our life. For more details on the functionality of our project you can proceed in the Proposed Implementation section. 
+                    </p>
+
+                    <h2>
+                        Short story of our project
+                    </h2>
+                    <p>
+                        Besides dry and wet lab work, our team strived to engage the public in our project ideas and the world of synthetic biology. During the summer, we were mainly responsible for organizing and hosting an online conference. The “Future Farming” webinar covered different topics within the field of cellular and traditional agriculture. We aimed to spread awareness about the development in the cellular agriculture field, and the shortcomings of traditional agriculture that need to be resolved. You can see more details in Education here.
+                    </p>
+                    <p>
+                        Along with organizing the webinar, our team also hosted a lot of interviews with experts in different scientific fields, one of them being an ethical expert. His advice along with our participation in the SynthEthics workshop that was part of our collaboration with team Stockholm, aided us to better realize the ethical values of our goal and some ethical concerns that might arise from our project. You can see more details in the Ethics part of Human practice here or Education here.
+                    </p>
+                    <p>
+                        Throughout the project, we never failed to engage with the general public through our social media pages and platforms, where we always placed great emphasis on valuing their opinions and feedback. We also distributed a survey on cultivated meat as a means to acquire their thoughts on this idea. At the same time, a different farmer survey was launched which was tailored specifically to this target group. Their opinion was of critical importance to us since we consider farmers one of our biggest stakeholders and they are the people who might unintentionally be negatively affected from future implementations of this idea. For more details, you can see the Cultivated meat survey section on the Human Practice or Inclusivity page.
+                    </p>
+
+                    <h1>
+                        Ethics
+                    </h1>
+                    <p>
+                        In the early stages of our project, we split our human practice team to cover six different categories, each person taking the lead on a specific ethical value surrounding our project. We considered how we could approach our project from the following perspectives:
+                    </p>
+                    <p>
+                        <ol>
+                            <li>Environmental - How our project could have good and bad effect on the environment</li>
+                            <li>Societal - Why is our project needed? How do we combat the increasing demand for meat?</li>
+                            <li>Ethical - Is it ethically better to consume slaughter-free meat?</li>
+                            <li>Scepticism - What are the concerns and needs of meat eaters? Why are some skeptical?</li>
+                            <li>Collaboration - Can we identify others that hope to improve the food system?</li>
+                            <li>Scientific aspect - What experts could give us an insight into this field?</li>
+                        </ol>
+                    </p>
+                    <p>
+                        To explore and understand the ethical boundaries of our project, we sought faculty advice on the topic when it comes to ethical implications to consider. In our interview with Stefan Eriksson, Director of the Center for Research Ethics and Bioethics at Uppsala University, we discussed the topic of what ethical meat can be and how people's perception could be similar to the reluctance to GMOs. After suitable laws have been passed for consumption, cultivated meat should have a strong ethical argument. We explored a spectrum of topics that varied from considerations of what the benefits are and also where a potentially darker side could emerge. 
+                    </p>
+                    <p>
+                        To be prepared for the ethical considerations and problems that might arise due to our project, we attended a workshop with iGEM team Stockholm that is focused on implementing ethics in synthetic biology. The workshop was in collaboration with SynthEthics and they helped us to identify areas where we could take possible actions related to ethics. We considered what would be the optimal outcome of incorporation of cultivated meat in our society and how we could get there.
+                        Read more about the SynthEthics workshop here and the expert interview with Stefan Eriksson here.
+                    </p>
+
+                    <h2>
+                        The Bright Side
+                    </h2>
+                    <p>
+                        Although our project’s main goal is to optimize the basic growth factor, the long term implementations regarding the production of cultivated meat are connected with animal welfare, indirectly the environment and even our health. Obliquely, our project touches the following ethical considerations:
+                    </p>
+                    <p>
+                        <ol>
+                            <li>
+                                <h3>
+                                    1) Consideration for animals’ lives/ Value of animal’s lives/ Animal lives matter
+                                </h3>
+                                <p>
+                                    In June 2020, a cattle herd escaped from a local slaughterhouse in Los Angeles, United States [17]. Two of the animals managed to reach safety and avoided the fate of the rest of the escapees which were recaptured and slaughtered. People cheered for the few animals who miraculously enjoyed an hour of freedom and mourned the ones that were killed [17]. 
+                                    Animals are also living beings. Like us humans, they breathe oxygen, they need water and food to survive, they reproduce and take care of their offspring and eventually they die. However, a lot of people disregard those facts and they only view animals as meat factories. Not only do they ignore the horrifying deaths taking place for the convenience of an easy access to cheap food but they also take for granted that animals have to sacrifice their lives for our society to enjoy the taste of meat. 
+                                </p>
+                                <p>
+                                    There is a lot of controversy regarding the topic of humans being able to live, and have  healthier lives, without meat. It  mostly is advertised by vegetarian or vegan proponents, but there are also people who underline the nutritional value and the importance of meat in our diet [18][19]. Regardless of which side is right or wrong, it is an inevitable fact that people enjoy eating meat. But why do animals need to give their lives for this enjoyment? Cultivated meat offers the chance for  people to continue enjoying meat, without any harm done to animals. If we truly had the chance to eliminate animal death for something that is not crucial for our health, would that not be the more moral choice, to value animal life in the same regard as ours?  
+                                </p>
+                            </li>
+                            <li>
+                                <h3>
+                                    2) Consideration of animal suffering
+                                </h3>
+                                <p>
+                                    Sometimes death is not even the worst thing that can happen. Living in captivity under what would be characterized as inhumane conditions is considered worse in some cases. In the current large scale industrial farming facilities, animals suffer all kinds of violent and painful treatments as the only “purpose of their existence” is to become food [20][21]. Chickens bred for meat with poor locomotion because their legs cannot support their excess weight and female sows confined in very small spaces with no room for turning during their pregnancies are only some examples of the harm animals face in large scale industrial farming [20]. The suffering is not limited only to physical abuse. Animals are also sentient beings, they can feel pain and pleasure too [21]. As such, the harmful treatment they are subjected into has a negative impact in their psychology that can be observed through repetitive destructive behaviors such as chewing their cell bars [20]. Therefore a  question arises if a practise like cultivated meat production could potentially lead to the abolishment of animal abuse.
+                                </p>
+                            </li>
+                            <li>
+                                <h3>
+                                    3) Consideration for the environment
+                                </h3>
+
+                                <p>
+                                    In all this, one should not forget the environmental consequences. Large scale animal farming consequently leads to the release of harmful substances that pollute the terrestrial and aquatic system. Greenhouse gases are also emitted, sourced either from the factory facilities or the animals themselves as cows are known to release methane emissions in the atmosphere. It is argued that it would be more ethical to avoid any practises that harm our planet, which is our home.[8] [21]
+                                </p>
+                            </li>
+                            <li>
+                                <h3>
+                                    4) Consideration for our health
+                                </h3>
+                                <p>
+                                    Our health is also a matter of importance. Large scale industrial animal farming is also in some proportion responsible for the exacerbation of many contemporary issues. One of them is the increasing antibiotic resistance that risks rendering the current antibiotics ineffective against pathogens, necessitating the need to develop new effective ones. The need for new, effectiveof antibiotics in such facilities is of utmost importance to reduce the spread of diseases among the captive animals [7][9][10][21]. 
+                                </p>
+                                <p>
+                                    Despite antibiotic usage the spread of diseases between animals still happens, and sometimes those diseases also spread to humans [9][10]. As the current pandemic situation indicates, the danger of zoonotic diseases is always constant and even assisted. Industrial farm animals are selected for a specific trait and thus they are genetically very similar. This means they do not have the genes to battle new pathogens. Moreover, the harmful conditions of the farm industry do not contribute to a robust immune system. Therefore they can all be hosts [22]. 
+                                </p>
+                            </li>
+                        </ol>
+                    </p>
+                    <p>
+                        COVID-19 is not the only pandemic disease that has arisen indirectly due to human exposure to sick animals or meat consumption. There are other previous pandemics throughout history that have arisen because of the above reasons. The swine and avian flu, diseases responsible for pandemics, may have come from onecould have potentially arisen in some of the outbreaks in industrial farming facilities, and rapidly spread worldwide causing global health problems [23][24]. One should not forget Bovine spongiform encephalopathy that has arisen from diseased cows, commonly known as mad cow disease. Although the last one is responsible only for regional small-scale outbreaks, it is a bright example of the health hazards that meat consumption might lead to [22]. 
+                        Would it not be more ethical to transition into a meat production habit that would also protect us from such harms?
+                    </p>
+
+                    <h2>
+                        The Dark Side:
+                    </h2>
+
+                    <p>
+                        There are also some more malicious aspects of cultivated meat production that could come forward because of our project. There are some major ethical concerns that arise from the establishment of lab grown meat production that consequently bring forward ethical dilemmas.
+                    </p>
+
+                    <p>
+                        <ol>
+                            <li>
+                                <h3>
+                                    1) Harm to small scale farmers
+                                </h3>
+                                <p>
+                                    One of the risks of our project is the unintentional repercussions for small scale farmers. For the production of cultivated meat, animal cells need to be donated [9] and those can come from animal farms. The main adversary of animal life quality are the industrial factories with unsavory conditions. Small scale farmers with more favourable conditions for animals are considered potential allies and needed for cell donations. However our project’s ideals might be perceived wrongly and it is our responsibility not to let all famers reputations be indiscriminately harmed. 
+                                </p>
+                            </li>
+                            <li>
+                                <h3>
+                                    2) Are humans playing God?
+                                </h3>
+                                <p>
+                                    Another ethical consideration is the method used for the cultivated production itself. Lab cell growth heavily relies on cloning techniques and cultivated meat is basically an early step of the cloning process, a topic that is still ambiguous with a lot of controversy surrounding it. After all, is it moral to create the same organism, or a part of it, twice and play with life for “the greater good” or is it an attempt of humans to play god?
+                                </p>
+                            </li>
+                            <li>
+                                <h3>
+                                    3) Possibility of extinct animals as food?
+                                </h3>
+                                <p>
+                                    Nowadays, since more and more companies and scientists are engaged in the lab-grown production of different kinds of meats such as pork, chicken and fish, the idea of producing unusual kinds of meat might also start circulating. Furthermore, the animal sources for these unusual tastes might be species that are already rendered extinct. There is a certain appeal of tasting meat that has never before been eaten by contemporary humans. With the use of genetic modifications, the possibility to eat mammoth meat or other extinct species will be a possibility [25]. Some people would jump the gun to be able to try it while others dismay it as a trivial or irresponsible reason to create the meat [26]. However there are those who advocate that this can pave the way for endangered species to continue to exist [27] [28] and  extinct animals to be brought back to life again, especially those that became extinct due to human intervention, putting this point more in the morally gray zone.  
+                                </p>
+                            </li>
+                            <li>
+                                <h3>
+                                    4) Title
+                                </h3>
+                                <p>
+                                    Many people have expressed their concerns about the lab production of another more unique taste of meat, that of human flesh [29]. According to cellular agriculture, animals only have to donate their cells for us to enjoy a meat product. Therefore who is to say that in a few years cultivated human meat won’t be the new trend in meat delicacies? Consequently the following dilemma arises: Is it morally wrong to eat human meat? On one hand, the idea of devouring meat from the same species usually leads to feelings of disgust and uneasiness, dividing people due to mistrust. After all, how can you trust someone if you believe that they might want to eat you? On the other hand, there is a minority in our society that already enjoys and demands the taste of human flesh. For these people to satisfy their urge, they are forced to kill for consumption. By providing cultivated human flesh for them no one would need to get harmed [25]. Some lives could potentially be saved. And wouldn’t that be morally better compared to killing humans for their flesh? 
+                                </p>
+                            </li>
+                        </ol>
+                    </p>
+
+                    <h1>
+                        Cultivated meat survey
+                    </h1>
+                    <p>
+                        Although cellular agriculture is still a relatively new field, major accomplishments have already been made in it. Among the accomplishments is the production of the first lab grown burger patty in 2013, which was produced from cultured cells and not animal slaughtering [30]. Subsequently, the release and commercialization approval of a cultured chicken product was achieved in Singapore in 2020 [31]. In industry, cellular agriculture has majorly developed in a short time. In the last few years, a lot of companies and non-profit organizations have arisen all over the world that are dedicated to the production of other cultured meat products such as cultivated pork and chicken meat, cultivated fish and even leather [32]. However, despite cultivated meat being a reality for a couple of years now, people are either unfamiliar with it or reluctant to try it, as they find it unpleasant. In order to raise awareness of the development of cultivated meat and to assess people’s willingness to accept cultivated meat in their everyday life, our team created and distributed an online survey to the general public. Below you can see some of the comments left by people who took the survey as well as our survey questions.
+                    </p>
+
+                    <h2>
+                        Public Survey Results
+                    </h2>
+
+                    <p>
+                        The age of respondents ranged People of ages ranging from 18 to 70 years old with  responded to the survey and 45% being within the of the contributions were from the age group of between 18 to 24, which is expectedreasonable, as we sent out the survey to other iGEM teams. Following that we got responses from 33 countries all over the world with 58% female respondents. Below are few graphical representation of the results:
+                    </p>
+                    <div style="font-size: 5em;color:red;">bunch of pictures go here</div>
+
+                    <p>
+                        Apart from these we asked people to fill in their opinions towards cultivated meat such as their thoughts,concerns and mixed feelings. As a result, we got few interesting comments as below:
+                    </p>
+
+                    <h2>
+                        People's response and thoughts about cellular agriculture
+                    </h2>
+                    <p>
+                        I think in order to restore a balance in the biosystem and to fulfill the demands of the growing population changes such as cultivated meat need to be undertaken.
+                    </p>
+                    <p>
+                        Cultivated meat will definitely be a great solution in bringing down the environmental impact and also reduces animal slaughtering.The idea of increasing production in order to reduce costs seems very interesting and appreciable.</p>
+                    <p>
+                        Looking forward to the success of these projects.Innovative. Guilt-free protein food without killing animals
+                    </p>
+                    <p>
+                        I think cultivated meat will be a blessing for both Human beings and animals
+                    </p>
+                    <p>
+                        Please hurry up your experiments. I've been waiting for this since the first time I heard about it in 2014 and I really think it’s a good solution to feed the earth’s growing population. I think many people in the world will starve without this because we won’t have enough land to grow crops on for the amount of people in the world in the future.
+                    </p>
+                    <p>
+                        I think it's a great innovation. I primarily try to reduce my meat intake because of environmental reasons. I hope that a switch to cultivated meat results in a (large) reduction of CO2 emissions and water usage. I also hope that it will not be sold in plastic packaging.
+                    </p>
+                    <p>
+                        I don't have a great knowledge about cultivated meat but I would like to give it a try. This survey induced a curiosity which triggered me to try cultivated meat in future.
+                    </p>
+
+                    <h2>
+                        Concerns about cellular agriculture imposing on agriculture and farmers:
+                    </h2>
+                    <p>
+                        Similar to our concerns about traditional farming practices and farmers employability ,our respondents also raised queries as below. These comments further influenced us know more about farmers opinion on this field:
+                    </p>
+                    <p>
+                        Farmers would need to be educated towards producing the cultivated meat to allow for a smooth transition and having public's support.
+                    </p>
+                    <p>
+                        Cultivated meat will undoubtedly disrupt conventional livestock farming. Provided we can reduce operating costs and educate farmers, to diversify into more sustainable practises, it presents an exciting opportunity to develop sustainable meat production.
+                    </p>
+                    <p>
+                        Farmers in the traditional business should have a smooth transition into the cultivated meat process.
+                    </p>
+
+                    <h2>
+                        You asked and we answered:
+                    </h2>
+                    <p>
+                        Similar to a coin having two sides everything in this world have both pros and cons, in that sense, we received few queries in the survey and we would like to take this opportunity to triy our best to answer them:
+                    </p>
+                    <p>
+                        <ul>
+                            <li>
+                                <h3>
+                                    I am wondering if we could avoid ever taking biopsy from cattle. So that we use the same cells over and over again, but if we do will that cause a HEALTH AND SAFETY ISSUE
+                                </h3>
+                                <p>
+                                    We will be growing those in fresh and nutrient media so it won't cause any health issues.Mosa Meat, a leading lab-grown meat startup, says a single tissue sample from a cow can produce 80,000 quarter-pounders. Proponents believe that this technology can reduce global emissions, mitigate environmental damage and continue to feed the human population.
+                                </p>
+                            </li>
+                            <li>
+                                <h3>
+                                    Possible contamination in a lab environment and also putting many cattle farmers out of business.
+                                </h3>
+                                <p>
+                                    The production of cultivated meat will be performed in sterilized environments similar to that of pharma industries which can prevent possible contamination from zoonotic pathogens.We are concerned about farmers too and engaged in hearing their opinions on cultivated meat production.
+                                </p>
+                            </li>
+                            <li>
+                                <h3>
+                                    I think the biggest obstacle for cultivated meat to go mainstream would be the public opinion on bioengineered food products. GMOs already are facing a lot of flak, especially in my country. I'd be willing to try it because I understand the science behind it, even if it's only a little bit. But there's a lot of people who don't really trust these things, and getting them to do so would be the main challenge here.
+                                </h3>
+                                <p>
+                                    We agree with the comment but with transparency and explain the tractability of the process, we believe that it is possible to gain the trust of people.
+                                </p>    
+                            </li>
+                            <li>            
+                                <h3>
+                                    I like the idea of cultivated meat and the benefit it brings, but how do we enforce quality and safety of the meat?
+                                </h3>
+                                <p>
+                                    Food and regulatory authorities will examine thoroughly and decide on its approval but, yes, it is safe and Singapore has launched cultivated chicken in the market recently.
+                                </p>
+                            </li>
+                            <li>
+                                <h3>
+                                    How will this be marketed ? I take companies' slogans and promises etc with a grain of salt, so I'm wondering how it will be portrayed to the public without specific brands?
+                                </h3>
+                                <p>
+                                    This question can be answered by illustrating an example of beyond burger and its potential of being ranked as one of the most successful IPOs (Initial Public Offering)in the last decade.This concludes that people are interested in investing and in addition by holding hands with food chains like McDonalds, Burger king and many more it is possible to reach public.
+                                </p>
+                            </li>
+                            <li>
+                                <h3>
+                                    How does the current meat production chain see cultivated meat? Are they supportive?
+                                </h3>
+                                <p>
+                                    Two of the biggest traditional meat processors in the United States have invested money in cultivated meat startups. Therefore, the probability of cultivated meats being launched in the market is promising.
+                                </p>
+                            </li>
+                        </ul>
+                    </p>
+
                 </div>
+
                 <div id="integrated_human_practices_content" class="hp_section">
                     <h1>Integrated HP Overview</h1>
                     <p>
