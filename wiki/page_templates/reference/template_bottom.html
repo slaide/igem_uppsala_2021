@@ -1,0 +1,419 @@
+
+        </div>
+
+        <script purpose="derive sidebar entries from user-generated content">
+            //for each child of the 'INSERT CONTENT HERE' section
+            let fgfuture_content=document.getElementById("fgfuture_content")
+            for(let child_num=0;child_num<fgfuture_content.children.length;child_num++){
+                let element=fgfuture_content.children[child_num]
+                //check if first element is header element
+                let header=element.children[0]
+                if(header.tagName!="H1" || header.innerText.length==0){
+                    window.alert("section "+element.id+" must have an <h1>Headline</h1> as first line!")
+                }
+                //get header text of this section
+                header=header.innerText
+
+                //insert horizontal line between header and text for that section
+                let horizontal_seperator=document.createElement("hr")
+                if(element.children.length>1){
+                    element.insertBefore(horizontal_seperator,element.children[1])
+                }else{
+                    element.appendChild(horizontal_seperator)
+                }
+
+                //get the sidebar dom element
+                let sidebar_list_container=document.getElementById("sidebar_list_container")
+
+                //create the invisible span element at the beginning of the section that serves as 'sroll-to' anchor for the section
+                let link_span=document.createElement("span")
+                link_span.setAttribute("id","section"+child_num+"_link")
+                element.insertBefore(link_span,element.children[0])
+
+                //create sidebar entry for the current section/its header
+                let new_element=document.createElement("li")
+                let new_span=document.createElement("span")
+                let new_a=document.createElement("a")
+                new_a.setAttribute("href","#section"+child_num+"_link")
+                new_a.innerText=header
+                new_span.setAttribute("id","span"+child_num)
+                new_span.appendChild(new_a)
+                new_element.classList.add("sidebar_list_section")
+                new_element.appendChild(new_span)
+
+                //add created sidebar entry to the sidebar
+                sidebar_list_container.appendChild(new_element)
+            }
+        </script>
+
+        <script purpose="hightlight currently viewed section">
+            let offsets={}
+            let base=null;
+            /* this code is executed on load */
+            function get_section_offsets(){
+                for(element of document.getElementById("fgfuture_content").children){
+                    if(!base){
+                        let offset=0;
+                        
+                        let current_element=element;
+                        while(current_element){
+                            offset+=current_element.offsetTop;
+                            current_element=current_element.offsetParent;
+                        }
+                        base=offset;
+                    }
+                    offsets[element.id]=base
+                    base+=element.clientHeight
+                }
+            }
+
+            function highlight_current_section_in_sidebar(){
+                let current_scroll=document.body.scrollTop||document.documentElement.scrollTop||window.pageYOffset
+
+                let found=false
+                let index=0
+                for(element in offsets){
+                    const subtracted_negative_screen_fraction=0.67
+                    const added_positive_screen_fraction=0.15
+
+                    let above_lower=(offsets[element]+document.getElementById(element).clientHeight-window.innerHeight*subtracted_negative_screen_fraction)>=current_scroll
+                    let below_upper=offsets[element]>=(current_scroll+window.innerHeight*added_positive_screen_fraction)
+                    let above_lowest=(offsets[element]+document.getElementById(element).clientHeight)<=current_scroll
+                    let is_last_element_in_list=(index==(Object.keys(offsets).length-1))
+
+                    if(and(above_lower, !found)||and(below_upper, above_lowest)||and(is_last_element_in_list, !found)){
+                        if(found){
+                            document.getElementById("sidebar_list_container").children[index-1].classList.remove("current_section")
+                        }
+                        found=element
+                        document.getElementById("sidebar_list_container").children[index].classList.add("current_section")
+                    }else{
+                        document.getElementById("sidebar_list_container").children[index].classList.remove("current_section")
+                    }
+                    index+=1
+                }
+            }
+        </script>
+
+        <style purpose="popup">
+            .popup{
+                text-decoration: underline;
+                color: blue;
+            }
+            .popup > span:not(.popup_content){
+                cursor:pointer;
+            }
+            .popup_content{
+                cursor:default;
+                display:inline-block;
+                color:black;
+                position:fixed;
+                width:20vh;
+                margin-top:0.5vh;
+                padding:1vh;
+                transform:translateX(-50%);
+                text-align: justify;
+                z-index:10;
+                background-color:white;
+                border:0.2vh solid black;
+            }
+            .popup_content_header{
+                font-size: 2.2vh;
+            }
+            .popup_content{
+                font-size: 1.5vh;
+            }
+        </style>
+        <script purpose="popup initiaiziation">
+            for(element of document.getElementsByClassName("popup")){
+                console.log(element.children)
+                element.children[1].style.setProperty("display","none")
+                element.children[1].innerHTML="<span class='popup_content_header'>"+element.children[0].innerText+"</span><br><br>"+element.children[1].innerHTML
+
+                function open_popup(ev){
+                    let element=ev.target
+                    if(!element.classList.contains("popup")){
+                        element=element.parentElement
+                    }
+
+                    if(element.getAttribute("vanish_timer")){
+                        clearTimeout(element.getAttribute("vanish_timer"))
+                    }
+
+                    element.setAttribute("popped_up",true)
+                    let element_bb=element.getBoundingClientRect()
+                    element.children[1].style.setProperty("display","initial")
+                    let left_offset=element_bb.x+(element_bb.width/2) // centering of popup happens in css
+                    left_offset=max(element.children[1].getBoundingClientRect().width/2,left_offset) // make sure it does not leave the screen area to the left for text that is close to the left border
+                    left_offset=min(window.innerWidth-(element.children[1].getBoundingClientRect().width/2),left_offset) // make sure the popup does not leave the screen area on the right
+                    //the min/max caps above could probably be omitted on the wiki page since the main text area has enough padding on the left and right, but better to be safe than sorry (could also be adjusted to make sure the popup does not leave the text area, bu i do not think that it would a visual issue if it did)
+                    element.children[1].style.setProperty("left",left_offset+"px")
+                    element.children[1].style.setProperty("top",element_bb.bottom+"px")
+                }
+                function close_popup(ev){
+                    let element=ev.target
+                    if(!element.classList.contains("popup")){
+                        element=element.parentElement
+                    }
+
+                    //small gap between link and popup content is not valid popup surface, to moving the mouse from the link to the popup content leaves the container area, which closes the popup
+                    //this timeout means that the popup window is closed if the mouse is not positioned within the container area within 250ms after it left the area, ergo the popup remains visible while the mouse moves over the gap between the link and the popup
+                    //and 250ms looks short enough to make it seem like the popup would still automatically vanish when the user leaves the popup area with the mouse actively, to move it somewhere else
+                    element.setAttribute("vanish_timer",setTimeout(
+                        ()=>{
+                            element.setAttribute("popped_up",false)
+                            element.children[1].style.setProperty("display","none")
+                        },250
+                    ))
+                }
+
+                element.addEventListener("mouseenter",open_popup)
+                element.addEventListener("mouseleave",close_popup)
+            }
+        </script>
+
+        <script purpose="expand images">
+            let style_document=document.styleSheets[0].rules || document.styleSheets[0].cssRules
+            let image_shrink_duration=0
+            for (rule of style_document){
+                if(rule.selectorText=="content_slice"){
+                    width=window.innerWidth*rule.style.width.slice(0,-2)/100
+                }
+                if(rule.selectorText=="actualcontent"){
+                    max_height=window.innerHeight*rule.style.height.slice(0,-1)/100
+                }
+                if(rule.selectorText==".image_shrink"){
+                    image_shrink_duration=rule.style.getPropertyValue("animation-duration").slice(0,-1)*1000
+                }
+            }
+
+            for(element of document.getElementsByClassName("expandable_image")){
+                element.addEventListener("click",expand_image)
+            }
+
+            function expand_image(ev){
+                let image_element=ev.target
+                let image_overlay=document.getElementById("image_overlay")
+                image_overlay.classList.remove("invisible")
+
+                if(image_overlay.children.length==2){
+                    image_overlay.removeChild(image_overlay.lastChild)
+                }
+
+                let big_image=document.createElement("img")
+                big_image.setAttribute("src",image_element.src)
+                big_image.classList.add("overlay_image")
+
+                image_overlay.appendChild(big_image)
+
+                big_image.style.setProperty("--width",image_element.getBoundingClientRect().width+"px")
+                big_image.style.setProperty("--height",image_element.getBoundingClientRect().height+"px")
+                big_image.style.setProperty("--left",image_element.getBoundingClientRect().left+image_element.width/2+"px")
+                big_image.style.setProperty("--top",image_element.getBoundingClientRect().top+image_element.height/2+"px")
+
+                let final_width=image_element.getAttribute("width")*0.5
+                let final_height=image_element.getAttribute("height")*0.5
+
+                big_image.style.setProperty("--left-end",window.innerWidth/2+"px")
+                big_image.style.setProperty("--top-end",window.innerHeight/2+"px")
+
+                big_image.style.setProperty("--overlay-width",final_width+"px")
+                big_image.style.setProperty("--overlay-height",final_height+"px")
+
+                big_image.classList.add("image_transition")
+
+                image_element.classList.toggle("pseudo-invisible")
+
+                image_overlay.image_element=image_element
+                
+                document.getElementById("pagecontent").classList.add("blurred_image_overlay")
+            }
+            function collapse_image(ev){
+                let image_overlay=document.getElementById("image_overlay")
+
+                image_overlay.children[1].classList.remove("image_transition")
+                image_overlay.children[1].classList.add("image_shrink")
+
+                document.getElementById("pagecontent").classList.remove("blurred_image_overlay")
+
+                setTimeout(()=>{
+                    document.getElementById("image_overlay").classList.add("invisible")
+                    image_overlay.image_element.classList.toggle("pseudo-invisible")
+                },image_shrink_duration)
+            }
+        </script>
+        <style purpose="expand images">
+            .expandable_image{
+                cursor:zoom-in;
+                z-index:1;
+            }
+            /*the actual overlay panel*/
+            #image_overlay{
+                position:fixed;
+
+                left:0;
+                /* top offset (which is subtracted from height) is height of igem bar and navigation bar*/
+                top:calc(16px + 5vh);
+                height:calc(100% - 16px - 5vh);
+                width:100%;
+
+                float:left;
+
+                background-color: rgba(255,255,255,0.0);
+                z-index: 11;
+            }
+            #image_overlay:not(.invisible){
+                display:block; 
+            }
+            /*the image displayed within the overlay panel*/
+            .overlay_image{
+                position:relative;
+                transform:translateX(-50%) translateY(-50%);
+                width:var(--overlay-width);
+                height:var(--overlay-height);
+                left:var(--left-end);
+                top:var(--top-end);
+            }
+            .image_transition{
+                animation-name:into_center;
+                animation-duration:0.4s;
+            }
+            .image_shrink{
+                animation-name:from_center;
+                animation-duration:0.4s;
+            }
+            .invisible{
+                display:none;
+            }
+            .pseudo-invisible{
+                opacity:0.0;
+            }
+            @keyframes into_center{
+                from{
+                    width:var(--width);
+                    height:var(--height);
+                    left:var(--left);
+                    top:var(--top);
+                }
+                to{
+                    width:var(--overlay-width);
+                    height:var(--overlay-height);
+                    left:var(--left-end);
+                    top:var(--top-end);
+                }
+            }
+            @keyframes from_center{
+                from{
+                    width:var(--overlay-width);
+                    height:var(--overlay-height);
+                    left:var(--left-end);
+                    top:var(--top-end);
+                }
+                to{
+                    width:var(--width);
+                    height:var(--height);
+                    left:var(--left);
+                    top:var(--top);
+                }
+            }
+            .one_vertical_image_padding{
+                height:1em;
+                width:100%;
+            }
+            img{
+                display:block;
+            }
+        </style>
+
+        <!-- sponsor and social media footer -->
+        <div class="flexbox-container-socialmedia">
+            <div>
+                <a href="https://www.facebook.com/iGEMUppsala">
+                    <img src="https://2021.igem.org/wiki/images/e/eb/T--Uppsala--facebook.png">
+                </a>
+            </div>
+            <div>
+                <a href="https://www.instagram.com/igem.uppsala/">
+                    <img src="https://2021.igem.org/wiki/images/b/ba/T--Uppsala--instagram.png">
+                </a>
+            </div>
+            <div>
+                <a href="https://www.uu.se/">
+                    <img class="upplogo" src="https://shop.uu.se/shop/ws45/82845/files/UU_logo_vit.png">
+                </a>
+            </div>
+            <div>
+                <a href="mailto:info@igemuppsala.se">
+                    <img src="https://2021.igem.org/wiki/images/1/1e/T--Uppsala--mail.png">
+                </a>
+            </div>
+            <div>
+                <a href="https://www.linkedin.com/company/igem-uppsala/mycompany/">
+                    <img src="https://2021.igem.org/wiki/images/b/bc/T--Uppsala--linkedin.png">
+                </a>
+            </div>
+        </div>
+        <div class="grid-container-sponsors">
+            <div>
+                <a href="https://www.utn.se/">
+                    <img src="https://2021.igem.org/wiki/images/8/8b/T--Uppsala--utnlogo.png">
+                </a>
+            </div>
+            <div>
+                <a href="https://www.genscript.com/">
+                    <img src="http://2014.igem.org/wiki/images/5/5a/York_Genscript_logo-1-.png">
+                </a>
+            </div>
+            <div>
+                <a href="https://worldwide.promega.com/">
+                    <img src="https://2020.igem.org/wiki/images/0/05/T--UofUppsala--pro.png">
+                </a>
+            </div>
+            <div>
+                <a href="https://www.bio-rad.com/">
+                        <img src="https://2021.igem.org/wiki/images/f/fc/T--Uppsala--bioradlogo.png">
+                </a>
+            </div>
+            <div>
+                <a href="https://www.bionordika.se/">
+                        <img src="https://2021.igem.org/wiki/images/2/29/T--Uppsala--bionordikalogo.png">
+                </a>
+            </div>
+            <div>
+                <a href="https://www.merck.com/">
+                    <img src="https://2021.igem.org/wiki/images/9/9a/T--Uppsala--mercklogo.png">
+                </a>
+            </div>
+            <div>
+                <a href="https://www.scbt.com/home">
+                    <img src="https://2021.igem.org/wiki/images/f/fa/T--Uppsala--scbtlogo.png">
+                </a>
+            </div>
+            <div>
+                <a href="https://www.snapgene.com/">
+                    <img src="https://2020.igem.org/wiki/images/8/8c/T--UofUppsala--snap.png">
+                </a>
+            </div>
+            <div>
+                <a href="https://www.eurofins.se/">
+                    <img src="https://2020.igem.org/wiki/images/a/a4/T--UofUppsala--euro.png">
+                </a>
+            </div>
+            <div>
+                <a href="https://new-harvest.org/">
+                    <img src="https://2021.igem.org/wiki/images/e/ec/T--Uppsala--newharvestreal.png">
+                </a>
+            </div>
+            <div>
+                <a href="https://testacenter.com/">
+                    <img src="https://2021.igem.org/wiki/images/d/d6/T--Uppsala--testacenterreal.png">
+                </a>
+            </div>
+            <div>
+                <a href="https://www.cytivalifesciences.com/en/at">
+                    <img src="https://2021.igem.org/wiki/images/d/d4/T--Uppsala--cytiva.jpeg">
+                </a>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,59 @@
+{{template_top.html}}
+
+            <!-- page title-->
+            <div id=parallaxtop>
+                <div id="page_header">
+                    Education
+                </div>
+            </div>
+
+            <!--Sidebar-->
+            <div id="sidebar">
+                <div id="sticky_sidebar">
+                    <div id="sidebar_header">
+                        <a href="#pagecontent">
+                            Education
+                        </a>
+                    </div>
+                    <hr>
+                    <ul id="sidebar_list_container">
+                        <!-- template for a single entry in this list. the real entries will be added at runtime
+                            <li class="sidebar_list_section">
+                                <span id="span1">
+                                    <a href="#section1_link">
+                                        Lab Safety
+                                    </a>
+                                </span>
+                            </li>
+                        -->
+                    </ul>
+                </div>
+            </div>
+
+            <!--Actual content-->
+            <div id="fgfuture_content">
+
+                <!-- INSERT GOOGLE DOC CONTENT BELOW THIS LINE -->
+                
+                <div id="webinarlineup">
+                    <h1>Webinar Lineup</h1>
+                    {{webinar.css}}
+                    <div id="webinar_lineup_container">
+                        {{schedule.json}}
+
+                        <div id="webinar_lineup_day1_head">Day 1 - 2021-08-29</div>
+                        <div id="webinar_lineup_day2_head">Day 2 - 2021-08-30</div>
+                        <div id="webinar_lineup_day1_content">
+                        </div>
+                        <div id="webinar_lineup_day2_content">
+                        </div>
+
+                        {{add_schedule_entries_to_dom.js}}
+                    </div>
+                </div>
+
+                <!-- INSERT GOOGLE DOC CONTENT ABOVE THIS LINE -->
+
+            </div>
+
+{{template_bottom.html}}

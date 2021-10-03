@@ -1,0 +1,1405 @@
+{{IGEM_TopBar}}
+<html lang="en">
+    <head>
+        <style real-href="remove_presets.css">
+            .top_bar{
+                display:none;
+                height:0px;
+            }
+            .igem_column_wrapper{
+                width:auto;
+                max-width:none;
+            }
+            #globalWrapper{
+                padding-bottom:0;
+            }
+            .igem_content_wrapper .igem_column_wrapper a,.igem_content_wrapper .igem_column_wrapper a:hover{
+                font-weight: initial;
+                text-decoration-color: initial;
+                transition: initial;
+                -webkit-transition: initial;
+                -moz-transition: initial;
+                -ms-transition: initial;
+                -o-transition: initial;
+            }
+        </style>
+        <style purpose="global">
+            #globalWrapper {padding-bottom:0px;}
+
+            @font-face {
+                font-family: UL;
+                src: url("https://2021.igem.org/wiki/images/5/56/T--Uppsala--Ubuntu-Light.ttf");
+            }
+
+            @font-face {
+                font-family: UM;
+                src: url("https://2021.igem.org/wiki/images/d/db/T--Uppsala--Ubuntu-Medium.ttf");
+            }
+
+            *{
+                margin:0;
+                border:0;
+                padding:0;
+                font-family: sans-serif;
+            }
+
+            a,a:visited{
+                text-decoration: none;
+                color: #6d1d23;
+            }
+            a:hover{
+                text-decoration: underline;
+                color: #426968;
+            }
+
+            body, html{
+                height: 100%;
+                width: 100%;
+                scroll-behavior: smooth;
+            }
+
+            hr{
+                height: 1px;
+                background-color: #6d1d23;
+                display: block;
+                width: auto;
+                margin-top: 2vh;
+                margin-bottom: 2vh;
+            }
+        </style>
+        <style purpose="header section and content container">
+            #pagecontent{
+                display: grid;
+
+                grid-template-rows:calc(5vh + 50vh + 16px) auto;
+                grid-template-columns: 1fr 1fr 4fr 2fr;
+                background-color: #dce1de;
+            }
+
+            #parallaxtop {
+                background-image: url(https://www.incimages.com/uploaded_files/image/1920x1080/getty_476804889_146231.jpg);
+                height: calc(50vh + 5vh);
+                background-attachment: fixed;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                overflow: hidden;
+
+                grid-row: 1 / 2;
+                grid-column: 1 / 5;
+            }
+
+            #page_header{
+                display:inline-block;
+                position:relative;
+                width:auto;
+                height:auto;
+                left:50%;
+                top:calc( 50vh /2 + 5vh);
+                transform:translate(-50%,-50%);
+
+                text-align: center;
+                font-size: 6em;
+                color: #6d1d23;
+                font-family: UM, sans-serif;
+            }
+        </style>
+        <style purpose="sidebar">
+            #sidebar {
+                display:block;
+                position:relative;
+
+                width: 100%;
+
+                margin-top:5vh;
+                margin-left:1vh;
+                margin-right:1vh;
+
+                font-size: 2vh;
+                font-weight:600;
+
+                grid-row: 2 / 3;
+                grid-column: 1 / 2;
+            }
+            #sticky_sidebar{
+                top:calc( 16px + 5vh);
+                position:sticky;
+            }
+            #sidebar_header{
+                padding-top:2vh;
+                font-size:3.5vh;
+                font-family: UM;
+            }
+            #sidebar a{
+                color:#6d1d23;
+                font-weight:bold;
+            }
+            #sidebar :hover{
+                color:#426968; 
+            }
+            #sidebar_list_container{
+                margin:0;
+                padding:0;
+                margin-left:1vw;
+                width:calc(100% - 1vw);
+                line-height: 1;
+            }
+            .sidebar_list_section{
+                display:block;
+                width:calc(100% - 2vh);
+                
+                color:#6d1d23;
+
+                margin-bottom: 2.2vh;
+
+                transition: all 0.2s;
+
+                font-family: UL;
+            }
+            .sidebar_list_section a{
+                font-size: 2vh;
+            }
+            .sidebar_list_section.current_section{
+                /* #6d1d23 */
+                border-left:1vh solid rgba(109,29,35,0.9);
+                padding-left:1vh;
+            }
+            .sidebar_list_section span:hover{
+                color:#426968;
+            }
+            .listsidebar{
+                margin-top: 0px;
+                padding:0;
+                width: 100%;
+                background-color: #dce1de;
+                height: 100%;
+            }
+        </style>
+
+        <style purpose="text/main section and pre-defined styles for user-writable code">
+            /* Actual content */
+            #fgfuture_content{
+                background-color: #dce1de;
+
+                margin-top: 3.6vh;
+
+                font-family: UL; 
+
+                grid-row: 2 / 3;
+                grid-column: 3 / 4;
+            }
+
+            #fgfuture_content h1{
+                color:#6d1d23;
+                font-family: UM, sans-serif;
+                font-size: 3vh;
+            }
+            #section1,#section2,#section3{
+                display:block;
+                position:relative;
+
+                height:auto;
+                width:100%;
+
+                /* extend section, to include floating children (like images) */
+                overflow:auto;
+            }
+            #section1_link,#section2_link,#section3_link{
+                position:absolute;
+                top:-200px;
+            }
+
+            div.image{
+                /* make space for text around the image */
+                display:inline-block;
+                padding-bottom: 1vh;
+            }
+            .igem_column_wrapper div.image>p,div.image>p{
+                font-size: 1.2vh;
+                padding-top: 1vh;
+                padding-left: 0.5vh;
+                padding-right: 0.5vh;
+                text-align: justify;
+            }
+            /* make image float so that text can wrap around it */
+            div.image.left{
+                float:left;
+                padding-right:2vh;
+            }
+            div.image.right{
+                float:right;
+                padding-left:2vh;
+            }
+            div.quarter{
+                width:25%;
+            }
+            div.half{
+                width:50%;
+            }
+            
+            /* styling applies to all text within the content area that is not a header */
+            #fgfuture_content > div > p{
+                font-family: sans-serif;
+                font-size: 1.5vh;
+                padding-bottom: 2vh;
+                line-height: 1.5;
+            }
+            /* make sure images have expected size (the actual size specifications apply to their container, not themself) */
+            #fgfuture_content div > img{
+                width:100%;
+                height:auto;
+            }
+
+
+
+            /* TEXT*/
+            .midcontenttext{
+                text-align: left;
+                font-size: 1.1em;
+                margin-top: 3.2vh;
+            }
+
+            /*HEADERS*/
+            .midcontenttext > h1{
+                font-size: 2em;
+                color:#6d1d23;
+                text-align: center;
+                font-family: UM;
+                border: none;
+            }
+            .midcontenttext > h2{
+                font-size: 1.5em;
+                color: black;
+                text-align: center;
+                font-family: UM;
+                border:none;
+                margin-top: 3vh;
+            }
+
+            .midcontenttext > h3{
+                font-size: 1.2em;
+                color: black;
+                text-align: center;
+                font-family: UL;
+                border:none;
+                margin-top: 3vh;
+            }
+            /* NORMAL PARAGRAPH*/
+            .midcontenttext >p{
+                font-weight:normal;
+                font-size:1em;
+                color:black;
+                line-height:1.8;
+                letter-spacing:0.05em;
+                margin-top: 3vh;
+            }
+
+            /* 
+            WHEN ADDING THE PICTURE DIV
+            DEFINE ITS WIDTH IN THE HTML SECTION TO MAKE THE IMG THE RIGHT SIZE
+            EX   ->
+            <div class="divrightpicture" style="width:30vw;">
+            */
+            .divrightpicture{
+                float: right;
+                margin-top: 3vh;
+                margin-left: 2vw;
+                margin-right: 2vw;
+                margin-bottom: 0;
+            }
+
+            .divrightpicture > p{
+                font-weight:normal;
+                text-align: left;
+                font-size:0.9em;
+                color:black;
+                line-height:1.2;
+                letter-spacing:0.05em;
+            }
+
+            .divrightpicture > img{
+                width: 100%;
+                cursor: zoom-in;
+            }
+
+            .divmidpicture{
+                margin-top: 3vh;
+                margin-left: 50%;
+                transform: translateX(-50%);
+                margin-bottom: 0;
+            }
+
+            .divmidpicture > p{
+                font-weight:normal;
+                text-align: left;
+                font-size:0.9em;
+                color:black;
+                line-height:1.2;
+                letter-spacing:0.05em;
+                margin-bottom: 2vh;
+            }
+
+            .divmidpicture > img{
+                width: 100%;
+                cursor: zoom-in;
+            }
+
+            .divleftpicture{
+                float: left;
+                margin-top: 3vh;
+                margin-left: 2vw;
+                margin-right: 2vw;
+                margin-bottom: 0;
+            }
+
+            .divleftpicture > p{
+                font-weight:normal;
+                text-align: left;
+                font-size:0.9em;
+                color:black;
+                line-height:1.2;
+                letter-spacing:0.05em;
+            }
+
+            .divleftpicture > img{
+                width: 100%;
+                cursor: zoom-in;
+            }
+
+            /* For tables */
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            td, th {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
+
+            tr:nth-child(even) {
+                background-color: #dddddd;
+            }
+        </style>
+
+        <style purpose="sponsors">
+            /* Sponsor part*/
+            .flexbox-container-socialmedia{
+                width: auto;
+                height: 25vh;
+                display: flex;
+                flex-direction: row;
+                overflow: hidden;
+                background-color: #426968;
+                justify-content: center;
+            }
+
+
+            .flexbox-container-socialmedia > div > img:not(img.upplogo){
+                margin-left: 3vw;
+                margin-right: 3vw;
+                filter: grayscale(50%);
+                margin-top: 7vh;
+                width: 4vw;
+            }
+
+            .flexbox-container-socialmedia > div > img:not(img.upplogo):hover{
+                filter:grayscale(0);
+                filter: brightness(130%);
+                filter: contrast(150%);
+
+            }
+
+            img.upplogo{
+                width: 10vw;
+                margin-top: 3vh;
+                margin-left: 3vw;
+                margin-right: 3vw;
+            }
+
+            .grid-container-sponsors{
+                width: auto;
+                height: 30vh;
+                display: grid;
+                grid-template-columns:repeat(6,1fr);
+                grid-template-rows:repeat(2,1fr);
+                overflow: hidden;
+                background-color: #426968;
+            }
+
+            .grid-container-sponsors > div > img{
+                margin-left: 50%;
+                margin-top: 7vh;
+                transform: translateY(-50%);
+                transform: translateX(-50%);
+                width: 7vw;
+                filter: grayscale(50%);
+            }
+
+            .grid-container-sponsors > div > img:hover{
+                filter:grayscale(0);
+                filter: brightness(130%);
+                filter: contrast(150%);
+            }
+            
+        </style>
+
+        <script purpose="general purpose functions">
+            function and(a,b){return (a+b)==2}
+            function min(a,b){return (a<b)?a:b}
+            function max(a,b){return (a>b)?a:b}
+
+        </script>
+
+        <!-- cross-page navigation bar -->
+        <style real-href="navigation_bar">
+            /*navigation bar*/
+            #navigation_bar{
+                top:16px;
+                height:5vh;
+
+                position:fixed;
+                width:100%;
+
+                z-index:9;
+
+                display:grid;
+                /* left grid element has height 100% (5vh), and to contain the logo, the width needs to be calculated from the image's aspect ratio, with a width of 87px and height of 65px, the rest is math */
+                --logo-width: calc(5vh * 87.1333 / 65.35 );
+                grid-template-columns: var(--logo-width) calc(100% - var(--logo-width));
+                grid-template-rows: 100%;
+            }
+
+            /* a elements when not hovering*/
+            a.dropbtn,.navigation_dropdown_entry,.igem_content_wrapper .igem_column_wrapper a{
+                font-family: sans-serif;
+                transition: 0.1s;
+                font-weight: normal;
+                color:black;
+                text-decoration: none;
+            }
+            .dropdown_content > a{
+                color:black;
+            }
+            a.dropbtn{
+                font-size: 2.5vh;
+            }
+            /* override default link highlighting */
+            #navigation_bar a:not(:hover){
+                text-decoration: none;
+            }
+            /* a elements when hovering (override color and underline) */
+            #navigation_bar a:hover{
+                color:#6d1d23;
+                text-decoration: underline;
+                /* reset igem bs */
+                font-weight: bold;
+            }
+
+            /* navigation bar logo on left */
+            /* img container */
+            #navigation_bar_logo_container{
+                height:calc(5vh - 1px);
+
+                border-bottom: 1px solid black;
+                border-right: 1px solid black;
+            }
+            /* set own background color to still have background when rest of navigation bar vanishes while scrolling */
+            #navigation_bar_logo_container,.logotype{
+                background-color: #dce1de;
+            }
+            /* actual logo inside container */
+            #navigation_bar_logo_container > img{
+                height:100%;
+            }
+
+            /* container for dropdown menus on right side of navigation bar */
+            #dropdown-container{
+                display:grid;
+                height:calc( 5vh - 1px);
+
+                grid-template-columns: repeat(6,1fr);
+                grid-template-rows: 100%;
+                
+                /* manually transition background-color to preserve left/right padding background while the navigation menus vanish during scrolling */
+                transition: 0s background-color 1s;
+
+                /* reset igem bs */
+                padding:0;
+                margin:0;
+
+                /* then set my own padding */
+                padding-left: 10%;
+                padding-right: 10%;
+
+                overflow:hidden;
+            }
+            /* while either scrolling, or hovering mouse over the navigation menu area, show the menu overview */
+            #dropdown-container.scrolled_down,#dropdown-container.panel_opened{
+                border-bottom: 1px solid black;
+
+                background-color: #dce1de;
+                
+                transition: 0s background-color 0s;
+            }
+            /* only while the panel is open (via mouse hover), show the extended menus, which include the links to other pages */
+            #dropdown-container.panel_opened{
+                overflow:visible;
+            }
+            /* animate shrinking dropdown menus' height to 0 when scrolling down and not hovering the mouse over the navigation area */
+            #dropdown-container:not(.scrolled_down):not(.panel_opened) .dropdown{
+                height:0vh;
+                transition: 1s height;
+            }
+            #dropdown-container:not(.scrolled_down):not(.panel_opened) .dropdown{
+                height:0vh;
+                transition: 1s height;
+                border-bottom:0;
+            }
+            /* because overflow:hidden does not work, make the navigation menu headlines (.dropbtn) see-through when scrolling down and not hovering over the navigation area */
+            #dropdown-container:not(.scrolled_down):not(.panel_opened) .dropbtn{
+                opacity:0;
+                transition: 0.2s opacity 0.8s;
+            }
+            /* when not hovering over the navigation area, make all links see-through, that are not headlines (i.e. only the menu entries) */
+            #dropdown-container:not(.panel_opened) a:not(.dropbtn){
+                opacity:0;
+            }
+            /* dropdown menus (containers) */
+            .dropdown{
+                display:block;
+                height:35vh;
+                background-color: #dce1de;
+                border-bottom:1px solid black;
+                overflow:visible;
+            }
+            /* add border on left and right side of navigation SUB-menus (not all around menu, which would include borders crossing through the navigation bar itself) */
+            .dropdown:first-child .dropdown_content{
+                border-left:1px solid black;
+            }
+            .dropdown:last-child .dropdown_content{
+                border-right:1px solid black;
+            }
+            /* to disable mouse-hover javascript events on see-through links below navigation bar, effectively remove them (except not really) */
+            #dropdown-container:not(.panel_opened) .dropdown_content{
+                display:none;
+            }
+            /* header of dropdown menus (containing name of each category) */
+            .dropbtn{
+                display:block;
+                position:absolute;
+
+                text-decoration: none;
+
+                top:calc( 2.5vh);
+                transform:translateY(-50%);
+            }
+            /* override text color of all links inside dropdown menu when hovering over the menu */
+            .dropdown.hovering_over a{
+                color:#6d1d23;
+                font-weight: bold;
+            }
+            /* container for links inside dropdown menu */
+            .dropdown_content{
+                position:absolute;
+                /* .dropdown's 35vh height - 5vh offset from top*/
+                height:30vh;
+
+                font-size: 2vh;
+
+                top:5vh;
+
+                --logo-width: calc(5vh * 87.1333 / 65.35 );
+                width:calc( (100% - var(--logo-width) ) * 0.8 / 6);
+            }
+            /* individual link inside dropdown menu */
+            .dropdown_content > a{
+                display:block;
+                padding-left:10%;
+                padding-bottom:1vh;
+                padding-top:1vh;
+            }
+            /* individual link inside dropdown menu on hover (underline) */
+            .dropdown_content > a:hover{
+                text-decoration:underline;
+            }
+
+            /* highlighting of current topic in dropdown */
+            .current_topic{
+                font-style: italic;
+                font-weight: bolder;
+                font-size: 2.2vh;
+            }
+        </style>
+        <script purpose="internal_open_close_navbar">
+            function open_navbar(){
+                document.getElementById("navigation_bar").classList.add("fully_open")
+                document.getElementById("pagecontent").style.setProperty("filter","blur(15px)")
+                //this is broken. blurring the main element makes the scrolly things lose their position setting
+                for(element of document.getElementsByClassName("scroll_thing")){
+                    element.style.setProperty("filter","blur(15px)")
+                }
+            }
+            function close_navbar(){
+                document.getElementById("navigation_bar").classList.remove("fully_open")
+                document.getElementById("pagecontent").style.setProperty("filter","initial")
+                //this is broken. blurring the main element makes the scrolly things lose their position setting
+                for(element of document.getElementsByClassName("scroll_thing")){
+                    element.style.setProperty("filter","initial")
+                }
+            }
+
+            /* open/close navigation bar while scrolling */
+            window.addEventListener("wheel",(ev)=>{
+                if(ev.deltaY>0){
+                    document.getElementById("dropdown-container").classList.remove("scrolled_down")
+                }else{
+                    document.getElementById("dropdown-container").classList.add("scrolled_down")
+                }
+            })
+        </script>
+
+        <!-- cross-page loading styling and code -->
+        <style purpose="loading screen">
+            #loading_overlay{
+                position:fixed;
+                height:calc( 100vh - 16px);
+                width:100%;
+                background-color: #d9dfda;
+                top:16px;
+                z-index:11;
+            }
+            #loading_icon{
+                height:50%;
+                width:auto;
+                position:absolute;
+                left:50%;
+                top:50%;
+                transform:translate(-50%,-50%);
+            }
+            #loading_icon > img{
+                height:100%;
+                width:auto;
+            }
+        </style>
+        <script purpose="on_load_code">
+            /*
+            clean up the existing stuff that is nothing but in the way of our page design (top bar with igem logo and navigation panel hidden behind a burger menu, and quite thick padding on the left and top of the screen)
+            */
+
+            function hide_igem_bs(){
+                let element=document.getElementsByClassName("top_bar")[0]
+                if(element){
+                    element.classList.remove("top_bar")
+                    element.style="display:none;"
+                }
+                for(class_name of "clear extra_space".split(" ")){
+                    for(element of document.getElementsByClassName(class_name)){
+                        element.classList.remove(class_name)
+                    }
+                }
+
+                let navigation_bar_list=document.getElementById("navigation_bar_list")
+                if(navigation_bar_list){
+                    if(navigation_bar_list.style.getPropertyValue("display")=="none"){
+                        navigation_bar_list.style=undefined
+                    }
+                    for(child of navigation_bar_list.children){
+                        child.classList.remove("current_hub")
+                        child.classList.remove("current_page")
+                        child.style=undefined
+                    }
+                }
+                for(dropdown of document.getElementsByClassName("dropdown")){
+                    dropdown.style=""
+                }
+                //disable the 'p' at the end of the column wrapper content which is just blank white space at the bottom of the page for some reason
+                let igem_column_wrappers=document.getElementsByClassName("igem_column_wrapper")
+                for(igem_column_wrapper of igem_column_wrappers){
+                    igem_column_wrapper.lastElementChild.style.display="none"
+                }
+            }
+
+            function on_load(){
+                hide_igem_bs()
+
+                //after the page has loaded, provide some additional time for all of the javascript to run, then actually remove the loading screen overlay
+                setTimeout(()=>{
+                    hide_igem_bs()
+                    setTimeout(()=>{
+                        document.getElementById("loading_overlay").style="display:none;"
+                    },200)
+                },1000)
+
+                /* get_section_offsets-specific reset */
+                base=null;
+                get_section_offsets()
+                highlight_current_section_in_sidebar()
+                window.addEventListener("scroll",highlight_current_section_in_sidebar)
+            }
+        </script>
+    </head>
+    <body onload="on_load()" onresize="on_load()">
+        <!-- cross-page loading screen -->
+        <div id="loading_overlay">
+            <div id="loading_icon">
+                <img src="https://2021.igem.org/wiki/images/7/76/T--Uppsala--logo_animated.gif">
+                <div style="font-size:3vh;text-align:center;padding-top:4vh;font-family: sans-serif;">LOADING</div>
+            </div>
+        </div>
+        <!-- cross-page Navigation Menu with drop down -->
+        <div id="navigation_bar" onmouseenter="open_navbar()" onmouseleave="close_navbar()">
+            <a id="navigation_bar_logo_container" href='https://2021.igem.org/Team:Uppsala'>
+                <img class="logotype" src="https://2021.igem.org/wiki/images/thumb/1/13/T--Uppsala--logotransparent.png/320px-T--Uppsala--logotransparent.png">
+            </a>
+            <ul id="dropdown-container" class="scrolled_down">
+                <li class="dropdown">
+                    <a href="https://2021.igem.org/Team:Uppsala/Description" class="dropbtn">Project</a>
+                    <div class="dropdown_content">
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Description">Description</a>
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Proof_Of_Concept">Proof of Concept</a>
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Engineering">Engineering Success</a>
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Contribution">Contribution</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="https://2021.igem.org/Team:Uppsala/Results" class="dropbtn">Experiments</a>
+                    <div class="dropdown_content">
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Results">Results</a>
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Model">Modeling</a>
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Notebook">Notebook</a>
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Parts">Parts</a>
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Safety">Safety</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="https://2021.igem.org/Team:Uppsala/Human_Practices" class="dropbtn">Human Practice</a>
+                    <div class="dropdown_content">
+                        <a href="https://2021.igem.org/Team:Uppsala/Human_Practices">Overview</a>
+                        <a href="https://2021.igem.org/Team:Uppsala/Human_Practices">Integrated Human Practice</a>
+                        <a href="https://2021.igem.org/Team:Uppsala/Implementation">Proposed Implementation</a>
+                        <a href="https://2021.igem.org/Team:Uppsala/Education">Education</a>
+                        <a href="https://2021.igem.org/Team:Uppsala/Inclusivity">Inclusion</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="https://2021.igem.org/Team:Uppsala/Team" class="dropbtn">People</a>
+                    <div class="dropdown_content">
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Team">Team</a>
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Collaborations">Collaboration</a>
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Attributions">Attribution</a>
+                        <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Attributions">Sponsors</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Videos</a>
+                    <div class="dropdown_content">
+                        <a href="https://2021.igem.org/Team:Uppsala/Description">Final Presentation</a>
+                        <a href="https://www.youtube.com/watch?v=avKlAK5-1ks">Promotional Video</a>
+                        <a href="https://2021.igem.org/Team:Uppsala/Model">Molecular Dynamics</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Judging</a>
+                    <div class="dropdown_content">
+                        <a class="navigation_dropdown_entry" href="#">Judging Form</a>
+                        <a class="navigation_dropdown_entry" href="#">Awards</a>
+                    </div>
+                </li>
+            </ul>
+            <script purpose="dropdown_open_close">
+                for(dropdown of document.getElementsByClassName("dropdown")){
+                    dropdown.addEventListener("mouseenter",function(ev){
+                        function remove_hovering_highlighting(ev){
+                            ev.target.removeEventListener("mouseleave",remove_hovering_highlighting)
+                            ev.target.classList.remove("hovering_over")
+                        }
+                        ev.target.classList.add("hovering_over")
+                        ev.target.addEventListener("mouseleave",remove_hovering_highlighting)
+                    })
+                }
+                document.getElementById("navigation_bar").addEventListener("mouseenter",(ev)=>{
+                    ev.target.children[1].classList.add("panel_opened")
+                    ev.target.children[1].classList.add("scrolled_down")
+                })
+                document.getElementById("navigation_bar").addEventListener("mouseleave",(ev)=>{
+                    ev.target.children[1].classList.remove("panel_opened")
+                })
+            </script>
+            <script purpose="highlight_current_topic_in_navbar">
+                function highlight_current_topic_in_navbar(){
+                    const match_path_text=window.location.pathName || ""
+                    const match_path_length=match_path_text.length
+                    for(element of document.getElementsByClassName("dropdown_content")){
+                        for(child of element.children){
+                            //const match_path_text="/Team:Uppsala/Model"
+                            if(child.getAttribute("href").substr(-match_path_length)==match_path_text){
+                                child.classList.add("current_topic")
+                            }
+                        }
+                    }
+                }
+            </script>
+        </div>
+
+        <div id="pagecontent">
+            <!-- page title-->
+            <div id=parallaxtop>
+                <div id="page_header">
+                    Standard & Integrated Human Practices
+                </div>
+            </div>
+
+            <!--Sidebar-->
+            <div id="sidebar">
+                <div id="sticky_sidebar">
+                    <div id="sidebar_header">
+                        <a href="#pagecontent">
+                            Standard & Integrated Human Practices
+                        </a>
+                    </div>
+                    <hr>
+                    <ul id="sidebar_list_container">
+                        <!-- template for a single entry in this list. the real entries will be added at runtime
+                            <li class="sidebar_list_section">
+                                <span id="span1">
+                                    <a href="#section1_link">
+                                        Lab Safety
+                                    </a>
+                                </span>
+                            </li>
+                        -->
+                    </ul>
+                </div>
+            </div>
+
+            <!--Actual content-->
+            <div id="fgfuture_content">
+
+                <!-- INSERT GOOGLE DOC CONTENT BELOW THIS LINE -->
+                <style purpose="hp specific decoration">
+                    #page_switcher{
+                        display:flex;
+                        flex-direction:row;
+                        height:5vh;
+                        font-size:3vh;
+                        cursor: pointer;
+                    }
+                    #page_switcher > div{
+                        flex:1;
+                        text-align: center;
+                        /*transparent border used as placeholder for solid black border on active panel (border adds to box size which moves the contained text. this placeholder avoids 'jumping' text on becoming active) */
+                        border-top:1px solid transparent;
+                        border-left:1px solid transparent;
+                        border-right:1px solid transparent;
+                        border-bottom:1px solid black;
+                    }
+                    #page_switcher > div.active_section{
+                        border-top:1px solid black;
+                        border-left:1px solid black;
+                        border-right:1px solid black;
+                        border-bottom:1px solid transparent;
+                    }
+                    .hp_section{
+                        padding-top: 3vh;
+                        border-bottom: 1px solid black;
+                        border-left: 1px solid black;
+                        border-right: 1px solid black;
+                    }
+                    .hp_section:not(.active_section){
+                        display:none;
+                    }
+
+                    #integrated_hp_timeline_container{
+                    }
+                    .integrated_hp_timeline_entry{
+                        padding-left: 2vh;
+                        margin-left: 2vh;
+                        padding-bottom:3vh;
+                        border-left:1px solid black;
+                        font-size:2vh;
+                    }
+                    .integrated_hp_timeline_entry > span{
+                        position:absolute;
+                        height:1vh;
+                        width:1vh;
+                        background-color:black;
+                        transform:translate( calc(-50% - 2vh),calc( 1vh - 25%) /* font-size*0.5 - <fraction of height of itself that makes it look like it was centered on the line> */);
+                        border-radius: 50%;
+                    }
+                </style>
+                <script>
+                    function switch_hp(hp_type){
+                        if(hp_type=="standard"){
+                            document.getElementById("page_switcher").children[1].classList.remove("active_section")
+                            document.getElementById("page_switcher").children[0].classList.add("active_section")
+
+                            document.getElementById("human_practices_content").classList.add("active_section")
+                            document.getElementById("integrated_human_practices_content").classList.remove("active_section")
+                        }else if(hp_type=="integrated"){
+                            document.getElementById("page_switcher").children[0].classList.remove("active_section")
+                            document.getElementById("page_switcher").children[1].classList.add("active_section")
+                            
+                            document.getElementById("human_practices_content").classList.remove("active_section")
+                            document.getElementById("integrated_human_practices_content").classList.add("active_section")
+                        }
+                    }
+                </script>
+                <div id="page_switcher">
+                    <div class="active_section" onclick="switch_hp('standard')">Human Practices</div>
+                    <div onclick="switch_hp('integrated')">Integrated HP</div>
+                </div>
+                <div id="human_practices_content" class="hp_section active_section">
+                    <h1>Introduction</h1>
+                    <p>
+                        “We shall escape the absurdity of growing a whole chicken in order to eat a breast or a wing, by growing these parts separately under a suitable medium”- Winston Churchill
+                    </p>
+                    <p>
+                        This year, iGEM Uppsala team was engaged in a Cellular Agriculture related project, a field that is dedicated to the production of slaughter-free lab-grown meat, grown directly from animal cells, otherwise known as cultivated meat.
+                    </p>
+
+                    <h2>
+                        What is the problem? 
+                    </h2>
+                    <p>
+                        Our planet Earth is currently populated by almost 7.9 billion people with the number rising every second, increasing annually by 1.05% [1]. It is estimated that until 2050 the population will have reached 9.1 billion [2]. Τhis fact does not come without complications, the question of how to feed everyone is being answered with the increase inraise of meat production to 470 million tonnes per year, and the need to diminish world hunger and malnutrition over the world requires an even higher supply of meat [2]. Our current supply food chain and agricultural infrastructures and practices are already compromised in their current state, and in need of more sustainable practices [3][4]. They will not be enough to cover our increasing needs [4].  
+                    </p>
+                    <p>
+                        Cultivated meat has emerged in an attempt to cover these demands without the need to  slaughter animals on a massive scale in order to feed our human population [6] and  will allow more arable land to be freed from animal rearing and to be used for growing crops for human consumption instead [7][8]. Therefore, environmentally speaking, cultivated meat production could lead to a decrease in water consumption and carbon footprint compared to conventional meat production [7][9].
+                    </p>
+                    <p>
+                        Furthermore, cultivated meat is considered safe and clean. It does not require the large amounts of antibiotics that are needed in industrial animal farming to prevent infectious diseases in the animals, exacerbating the antibiotic resistance problem we are facing. For cultivated meat, crowded animals in facilities with questionable sanitary conditions will not be necessary [7][9][10]. On that note, animal and human contact will also decrease, potentially preventing the transmission of zoonotic diseases from animals to humans that could lead to future pandemics [9][10]. Cultivated meat might become the answer to many of these problems. 
+                        For more details, you can see the proposed implementation of our project here and how it relates to the UN sustainable goals here.
+                    </p>
+                    <p>
+                        However, the production of cultivated meat is still not completely ideal and it is still quite expensive. In the beginning, the production required the use of Fetal Bovine Serum (FBS) as a media supplement. FBS is a serum obtained from calf blood, which contains the necessary growth factors for cell culture proliferation in the lab. Thus, the blood collection procedure that is necessary to obtain FBS renders it not completely animal slaughter-free.[11]
+                    </p>
+                    <p>
+                        Commercially engineered growth factors have been developed as a substitute for the growth factors found in FBS and are currently available. They are one of the components in so-called serum-free media that substitutes the FBS for the cultivation of the animal cells. The problem is that they are needed in remarkably high quantities due to their lower protein stability, keeping the cost of cultivated meat very high. [12][13]
+                    </p>
+                    
+                    <h3>
+                        Our goal
+                    </h3>
+                    <p>
+                        To get one step closer to the goal of serum free and affordable cultivated meat media, our team aims to improve one of the growth factors required for the process of cultivating meat in the lab. Basic fibroblast growth factor, or FGF2, is a protein with high mitogenic properties. It plays a key role in tissue formation and repairment.[14][15]
+                    </p>
+                    <p>
+                        Our team decided to have the upscaling of FGF2 as a project topic this year, to achieve massive production of the basic fibroblast growth factor in bioreactors and in long term its use in industry and the reduction in the cost of cultivated meat production. Inspiration in our goals was the 2014 iGEM SF Bay Area DIYbio team [16], who tried to produce milk-proteins in yeast using synthetic biology. The aforementioned proteins would later be used in the production of vegan milk, with vegan cheese creation as an end goal. Besides that, very few other iGEM teams have tried to delve into the alternative protein sector, and to our knowledge no team so far has presented a project related to cultivated meat, which served as a motivation for our team to pursue this track.
+                    </p>
+                    <p>
+                        To achieve this goal, we pursued several different strategies in our experiments. Our team proceeded with the design and screening of mutations for improving FGF2 using computational tools, site-directed mutagenesis with PCR, and the use of synthetic biology in the generation of optimized mutant FGF2 proteins. In a different approach, a chimeric protein that contains parts from FGF1 and FGF2 (FGFC) was used. This protein was hypothesized to  exhibit increased receptor binding affinity, increased stability and thermostability as well as increased solubility for higher yield.
+                    </p>
+                    <p>
+                        The successful achievement of the above objectives would highly impact the industry of cultivated meat and the associated research field, which would forever change our life. For more details on the functionality of our project you can proceed in the Proposed Implementation section. 
+                    </p>
+
+                    <h2>
+                        Short story of our project
+                    </h2>
+                    <p>
+                        Besides dry and wet lab work, our team strived to engage the public in our project ideas and the world of synthetic biology. During the summer, we were mainly responsible for organizing and hosting an online conference. The “Future Farming” webinar covered different topics within the field of cellular and traditional agriculture. We aimed to spread awareness about the development in the cellular agriculture field, and the shortcomings of traditional agriculture that need to be resolved. You can see more details in Education here.
+                    </p>
+                    <p>
+                        Along with organizing the webinar, our team also hosted a lot of interviews with experts in different scientific fields, one of them being an ethical expert. His advice along with our participation in the SynthEthics workshop that was part of our collaboration with team Stockholm, aided us to better realize the ethical values of our goal and some ethical concerns that might arise from our project. You can see more details in the Ethics part of Human practice here or Education here.
+                    </p>
+                    <p>
+                        Throughout the project, we never failed to engage with the general public through our social media pages and platforms, where we always placed great emphasis on valuing their opinions and feedback. We also distributed a survey on cultivated meat as a means to acquire their thoughts on this idea. At the same time, a different farmer survey was launched which was tailored specifically to this target group. Their opinion was of critical importance to us since we consider farmers one of our biggest stakeholders and they are the people who might unintentionally be negatively affected from future implementations of this idea. For more details, you can see the Cultivated meat survey section on the Human Practice or Inclusivity page.
+                    </p>
+
+                    <h1>
+                        Ethics
+                    </h1>
+                    <p>
+                        In the early stages of our project, we split our human practice team to cover six different categories, each person taking the lead on a specific ethical value surrounding our project. We considered how we could approach our project from the following perspectives:
+                    </p>
+                    <p>
+                        <ol>
+                            <li>Environmental - How our project could have good and bad effect on the environment</li>
+                            <li>Societal - Why is our project needed? How do we combat the increasing demand for meat?</li>
+                            <li>Ethical - Is it ethically better to consume slaughter-free meat?</li>
+                            <li>Scepticism - What are the concerns and needs of meat eaters? Why are some skeptical?</li>
+                            <li>Collaboration - Can we identify others that hope to improve the food system?</li>
+                            <li>Scientific aspect - What experts could give us an insight into this field?</li>
+                        </ol>
+                    </p>
+                    <p>
+                        To explore and understand the ethical boundaries of our project, we sought faculty advice on the topic when it comes to ethical implications to consider. In our interview with Stefan Eriksson, Director of the Center for Research Ethics and Bioethics at Uppsala University, we discussed the topic of what ethical meat can be and how people's perception could be similar to the reluctance to GMOs. After suitable laws have been passed for consumption, cultivated meat should have a strong ethical argument. We explored a spectrum of topics that varied from considerations of what the benefits are and also where a potentially darker side could emerge. 
+                    </p>
+                    <p>
+                        To be prepared for the ethical considerations and problems that might arise due to our project, we attended a workshop with iGEM team Stockholm that is focused on implementing ethics in synthetic biology. The workshop was in collaboration with SynthEthics and they helped us to identify areas where we could take possible actions related to ethics. We considered what would be the optimal outcome of incorporation of cultivated meat in our society and how we could get there.
+                        Read more about the SynthEthics workshop here and the expert interview with Stefan Eriksson here.
+                    </p>
+
+                    <h2>
+                        The Bright Side
+                    </h2>
+                    <p>
+                        Although our project’s main goal is to optimize the basic growth factor, the long term implementations regarding the production of cultivated meat are connected with animal welfare, indirectly the environment and even our health. Obliquely, our project touches the following ethical considerations:
+                    </p>
+                    <p>
+                        <ol>
+                            <li>
+                                <h3>
+                                    1) Consideration for animals’ lives/ Value of animal’s lives/ Animal lives matter
+                                </h3>
+                                <p>
+                                    In June 2020, a cattle herd escaped from a local slaughterhouse in Los Angeles, United States [17]. Two of the animals managed to reach safety and avoided the fate of the rest of the escapees which were recaptured and slaughtered. People cheered for the few animals who miraculously enjoyed an hour of freedom and mourned the ones that were killed [17]. 
+                                    Animals are also living beings. Like us humans, they breathe oxygen, they need water and food to survive, they reproduce and take care of their offspring and eventually they die. However, a lot of people disregard those facts and they only view animals as meat factories. Not only do they ignore the horrifying deaths taking place for the convenience of an easy access to cheap food but they also take for granted that animals have to sacrifice their lives for our society to enjoy the taste of meat. 
+                                </p>
+                                <p>
+                                    There is a lot of controversy regarding the topic of humans being able to live, and have  healthier lives, without meat. It  mostly is advertised by vegetarian or vegan proponents, but there are also people who underline the nutritional value and the importance of meat in our diet [18][19]. Regardless of which side is right or wrong, it is an inevitable fact that people enjoy eating meat. But why do animals need to give their lives for this enjoyment? Cultivated meat offers the chance for  people to continue enjoying meat, without any harm done to animals. If we truly had the chance to eliminate animal death for something that is not crucial for our health, would that not be the more moral choice, to value animal life in the same regard as ours?  
+                                </p>
+                            </li>
+                            <li>
+                                <h3>
+                                    2) Consideration of animal suffering
+                                </h3>
+                                <p>
+                                    Sometimes death is not even the worst thing that can happen. Living in captivity under what would be characterized as inhumane conditions is considered worse in some cases. In the current large scale industrial farming facilities, animals suffer all kinds of violent and painful treatments as the only “purpose of their existence” is to become food [20][21]. Chickens bred for meat with poor locomotion because their legs cannot support their excess weight and female sows confined in very small spaces with no room for turning during their pregnancies are only some examples of the harm animals face in large scale industrial farming [20]. The suffering is not limited only to physical abuse. Animals are also sentient beings, they can feel pain and pleasure too [21]. As such, the harmful treatment they are subjected into has a negative impact in their psychology that can be observed through repetitive destructive behaviors such as chewing their cell bars [20]. Therefore a  question arises if a practise like cultivated meat production could potentially lead to the abolishment of animal abuse.
+                                </p>
+                            </li>
+                            <li>
+                                <h3>
+                                    3) Consideration for the environment
+                                </h3>
+
+                                <p>
+                                    In all this, one should not forget the environmental consequences. Large scale animal farming consequently leads to the release of harmful substances that pollute the terrestrial and aquatic system. Greenhouse gases are also emitted, sourced either from the factory facilities or the animals themselves as cows are known to release methane emissions in the atmosphere. It is argued that it would be more ethical to avoid any practises that harm our planet, which is our home.[8] [21]
+                                </p>
+                            </li>
+                            <li>
+                                <h3>
+                                    4) Consideration for our health
+                                </h3>
+                                <p>
+                                    Our health is also a matter of importance. Large scale industrial animal farming is also in some proportion responsible for the exacerbation of many contemporary issues. One of them is the increasing antibiotic resistance that risks rendering the current antibiotics ineffective against pathogens, necessitating the need to develop new effective ones. The need for new, effectiveof antibiotics in such facilities is of utmost importance to reduce the spread of diseases among the captive animals [7][9][10][21]. 
+                                </p>
+                                <p>
+                                    Despite antibiotic usage the spread of diseases between animals still happens, and sometimes those diseases also spread to humans [9][10]. As the current pandemic situation indicates, the danger of zoonotic diseases is always constant and even assisted. Industrial farm animals are selected for a specific trait and thus they are genetically very similar. This means they do not have the genes to battle new pathogens. Moreover, the harmful conditions of the farm industry do not contribute to a robust immune system. Therefore they can all be hosts [22]. 
+                                </p>
+                            </li>
+                        </ol>
+                    </p>
+                    <p>
+                        COVID-19 is not the only pandemic disease that has arisen indirectly due to human exposure to sick animals or meat consumption. There are other previous pandemics throughout history that have arisen because of the above reasons. The swine and avian flu, diseases responsible for pandemics, may have come from onecould have potentially arisen in some of the outbreaks in industrial farming facilities, and rapidly spread worldwide causing global health problems [23][24]. One should not forget Bovine spongiform encephalopathy that has arisen from diseased cows, commonly known as mad cow disease. Although the last one is responsible only for regional small-scale outbreaks, it is a bright example of the health hazards that meat consumption might lead to [22]. 
+                        Would it not be more ethical to transition into a meat production habit that would also protect us from such harms?
+                    </p>
+
+                    <h2>
+                        The Dark Side:
+                    </h2>
+
+                    <p>
+                        There are also some more malicious aspects of cultivated meat production that could come forward because of our project. There are some major ethical concerns that arise from the establishment of lab grown meat production that consequently bring forward ethical dilemmas.
+                    </p>
+
+                    <p>
+                        <ol>
+                            <li>
+                                <h3>
+                                    1) Harm to small scale farmers
+                                </h3>
+                                <p>
+                                    One of the risks of our project is the unintentional repercussions for small scale farmers. For the production of cultivated meat, animal cells need to be donated [9] and those can come from animal farms. The main adversary of animal life quality are the industrial factories with unsavory conditions. Small scale farmers with more favourable conditions for animals are considered potential allies and needed for cell donations. However our project’s ideals might be perceived wrongly and it is our responsibility not to let all famers reputations be indiscriminately harmed. 
+                                </p>
+                            </li>
+                            <li>
+                                <h3>
+                                    2) Are humans playing God?
+                                </h3>
+                                <p>
+                                    Another ethical consideration is the method used for the cultivated production itself. Lab cell growth heavily relies on cloning techniques and cultivated meat is basically an early step of the cloning process, a topic that is still ambiguous with a lot of controversy surrounding it. After all, is it moral to create the same organism, or a part of it, twice and play with life for “the greater good” or is it an attempt of humans to play god?
+                                </p>
+                            </li>
+                            <li>
+                                <h3>
+                                    3) Possibility of extinct animals as food?
+                                </h3>
+                                <p>
+                                    Nowadays, since more and more companies and scientists are engaged in the lab-grown production of different kinds of meats such as pork, chicken and fish, the idea of producing unusual kinds of meat might also start circulating. Furthermore, the animal sources for these unusual tastes might be species that are already rendered extinct. There is a certain appeal of tasting meat that has never before been eaten by contemporary humans. With the use of genetic modifications, the possibility to eat mammoth meat or other extinct species will be a possibility [25]. Some people would jump the gun to be able to try it while others dismay it as a trivial or irresponsible reason to create the meat [26]. However there are those who advocate that this can pave the way for endangered species to continue to exist [27] [28] and  extinct animals to be brought back to life again, especially those that became extinct due to human intervention, putting this point more in the morally gray zone.  
+                                </p>
+                            </li>
+                            <li>
+                                <h3>
+                                    4) Title
+                                </h3>
+                                <p>
+                                    Many people have expressed their concerns about the lab production of another more unique taste of meat, that of human flesh [29]. According to cellular agriculture, animals only have to donate their cells for us to enjoy a meat product. Therefore who is to say that in a few years cultivated human meat won’t be the new trend in meat delicacies? Consequently the following dilemma arises: Is it morally wrong to eat human meat? On one hand, the idea of devouring meat from the same species usually leads to feelings of disgust and uneasiness, dividing people due to mistrust. After all, how can you trust someone if you believe that they might want to eat you? On the other hand, there is a minority in our society that already enjoys and demands the taste of human flesh. For these people to satisfy their urge, they are forced to kill for consumption. By providing cultivated human flesh for them no one would need to get harmed [25]. Some lives could potentially be saved. And wouldn’t that be morally better compared to killing humans for their flesh? 
+                                </p>
+                            </li>
+                        </ol>
+                    </p>
+
+                    <h1>
+                        Cultivated meat survey
+                    </h1>
+                    <p>
+                        Although cellular agriculture is still a relatively new field, major accomplishments have already been made in it. Among the accomplishments is the production of the first lab grown burger patty in 2013, which was produced from cultured cells and not animal slaughtering [30]. Subsequently, the release and commercialization approval of a cultured chicken product was achieved in Singapore in 2020 [31]. In industry, cellular agriculture has majorly developed in a short time. In the last few years, a lot of companies and non-profit organizations have arisen all over the world that are dedicated to the production of other cultured meat products such as cultivated pork and chicken meat, cultivated fish and even leather [32]. However, despite cultivated meat being a reality for a couple of years now, people are either unfamiliar with it or reluctant to try it, as they find it unpleasant. In order to raise awareness of the development of cultivated meat and to assess people’s willingness to accept cultivated meat in their everyday life, our team created and distributed an online survey to the general public. Below you can see some of the comments left by people who took the survey as well as our survey questions.
+                    </p>
+
+                    <h2>
+                        Public Survey Results
+                    </h2>
+
+                    <p>
+                        The age of respondents ranged People of ages ranging from 18 to 70 years old with  responded to the survey and 45% being within the of the contributions were from the age group of between 18 to 24, which is expectedreasonable, as we sent out the survey to other iGEM teams. Following that we got responses from 33 countries all over the world with 58% female respondents. Below are few graphical representation of the results:
+                    </p>
+                    <div style="font-size: 5em;color:red;">bunch of pictures go here</div>
+
+                    <p>
+                        Apart from these we asked people to fill in their opinions towards cultivated meat such as their thoughts,concerns and mixed feelings. As a result, we got few interesting comments as below:
+                    </p>
+
+                    <h2>
+                        People's response and thoughts about cellular agriculture
+                    </h2>
+                    <p>
+                        I think in order to restore a balance in the biosystem and to fulfill the demands of the growing population changes such as cultivated meat need to be undertaken.
+                    </p>
+                    <p>
+                        Cultivated meat will definitely be a great solution in bringing down the environmental impact and also reduces animal slaughtering.The idea of increasing production in order to reduce costs seems very interesting and appreciable.</p>
+                    <p>
+                        Looking forward to the success of these projects.Innovative. Guilt-free protein food without killing animals
+                    </p>
+                    <p>
+                        I think cultivated meat will be a blessing for both Human beings and animals
+                    </p>
+                    <p>
+                        Please hurry up your experiments. I've been waiting for this since the first time I heard about it in 2014 and I really think it’s a good solution to feed the earth’s growing population. I think many people in the world will starve without this because we won’t have enough land to grow crops on for the amount of people in the world in the future.
+                    </p>
+                    <p>
+                        I think it's a great innovation. I primarily try to reduce my meat intake because of environmental reasons. I hope that a switch to cultivated meat results in a (large) reduction of CO2 emissions and water usage. I also hope that it will not be sold in plastic packaging.
+                    </p>
+                    <p>
+                        I don't have a great knowledge about cultivated meat but I would like to give it a try. This survey induced a curiosity which triggered me to try cultivated meat in future.
+                    </p>
+
+                    <h2>
+                        Concerns about cellular agriculture imposing on agriculture and farmers:
+                    </h2>
+                    <p>
+                        Similar to our concerns about traditional farming practices and farmers employability ,our respondents also raised queries as below. These comments further influenced us know more about farmers opinion on this field:
+                    </p>
+                    <p>
+                        Farmers would need to be educated towards producing the cultivated meat to allow for a smooth transition and having public's support.
+                    </p>
+                    <p>
+                        Cultivated meat will undoubtedly disrupt conventional livestock farming. Provided we can reduce operating costs and educate farmers, to diversify into more sustainable practises, it presents an exciting opportunity to develop sustainable meat production.
+                    </p>
+                    <p>
+                        Farmers in the traditional business should have a smooth transition into the cultivated meat process.
+                    </p>
+
+                    <h2>
+                        You asked and we answered:
+                    </h2>
+                    <p>
+                        Similar to a coin having two sides everything in this world have both pros and cons, in that sense, we received few queries in the survey and we would like to take this opportunity to triy our best to answer them:
+                    </p>
+                    <p>
+                        <ul>
+                            <li>
+                                <h3>
+                                    I am wondering if we could avoid ever taking biopsy from cattle. So that we use the same cells over and over again, but if we do will that cause a HEALTH AND SAFETY ISSUE
+                                </h3>
+                                <p>
+                                    We will be growing those in fresh and nutrient media so it won't cause any health issues.Mosa Meat, a leading lab-grown meat startup, says a single tissue sample from a cow can produce 80,000 quarter-pounders. Proponents believe that this technology can reduce global emissions, mitigate environmental damage and continue to feed the human population.
+                                </p>
+                            </li>
+                            <li>
+                                <h3>
+                                    Possible contamination in a lab environment and also putting many cattle farmers out of business.
+                                </h3>
+                                <p>
+                                    The production of cultivated meat will be performed in sterilized environments similar to that of pharma industries which can prevent possible contamination from zoonotic pathogens.We are concerned about farmers too and engaged in hearing their opinions on cultivated meat production.
+                                </p>
+                            </li>
+                            <li>
+                                <h3>
+                                    I think the biggest obstacle for cultivated meat to go mainstream would be the public opinion on bioengineered food products. GMOs already are facing a lot of flak, especially in my country. I'd be willing to try it because I understand the science behind it, even if it's only a little bit. But there's a lot of people who don't really trust these things, and getting them to do so would be the main challenge here.
+                                </h3>
+                                <p>
+                                    We agree with the comment but with transparency and explain the tractability of the process, we believe that it is possible to gain the trust of people.
+                                </p>    
+                            </li>
+                            <li>            
+                                <h3>
+                                    I like the idea of cultivated meat and the benefit it brings, but how do we enforce quality and safety of the meat?
+                                </h3>
+                                <p>
+                                    Food and regulatory authorities will examine thoroughly and decide on its approval but, yes, it is safe and Singapore has launched cultivated chicken in the market recently.
+                                </p>
+                            </li>
+                            <li>
+                                <h3>
+                                    How will this be marketed ? I take companies' slogans and promises etc with a grain of salt, so I'm wondering how it will be portrayed to the public without specific brands?
+                                </h3>
+                                <p>
+                                    This question can be answered by illustrating an example of beyond burger and its potential of being ranked as one of the most successful IPOs (Initial Public Offering)in the last decade.This concludes that people are interested in investing and in addition by holding hands with food chains like McDonalds, Burger king and many more it is possible to reach public.
+                                </p>
+                            </li>
+                            <li>
+                                <h3>
+                                    How does the current meat production chain see cultivated meat? Are they supportive?
+                                </h3>
+                                <p>
+                                    Two of the biggest traditional meat processors in the United States have invested money in cultivated meat startups. Therefore, the probability of cultivated meats being launched in the market is promising.
+                                </p>
+                            </li>
+                        </ul>
+                    </p>
+
+                </div>
+
+                <div id="integrated_human_practices_content" class="hp_section">
+                    <h1>Integrated HP Overview</h1>
+                    <p>
+                        below is a timeline of the work we did
+                    </p>
+                    <div id="integrated_hp_timeline_container">
+                        <div class="integrated_hp_timeline_entry">first, we had an idea</div>
+                        <div class="integrated_hp_timeline_entry">then, we refined the idea with more text and then some more and more until we hit a second line of content but then we went even further to make sure this looks good!</div>
+                        <div class="integrated_hp_timeline_entry">then we talked to people who told us that the idea was good</div>
+                        <div class="integrated_hp_timeline_entry">afterwards we won a gold medal, and best igem project ever!</div>
+                        <div class="integrated_hp_timeline_entry">but we stayed humble</div>
+                        <div class="integrated_hp_timeline_entry">and even more humble when we added another line to this timeline with even more text lorem ipsum dolor sit amet</div>
+                    </div>
+                    <script purpose="add tacatical dot for each entry in the timeline">
+                        for(element of document.getElementsByClassName("integrated_hp_timeline_entry")){
+                            element.innerHTML="<span></span>"+element.innerText
+                        }
+                    </script>
+                </div>
+            </div>
+
+            <!-- INSERT GOOGLE DOC CONTENT ABOVE THIS LINE -->
+
+        </div>
+
+        <script purpose="derive sidebar entries from user-generated content">
+            function derive_sidebar_content(){
+                //for each child of the 'INSERT CONTENT HERE' section
+                for(hp_section_name of ["human_practices_content","integrated_human_practices_content"]){
+                    let element=document.getElementById(hp_section_name)
+
+                    //check if first element is header element
+                    let header=element.children[0]
+                    if(header.tagName!="H1" || header.innerText.length==0){
+                        window.alert("section "+element.id+" must have an <h1>Headline</h1> as first line!")
+                    }
+                    //get header text of this section
+                    header=header.innerText
+
+                    //insert horizontal line between header and text for that section
+                    let horizontal_seperator=document.createElement("hr")
+                    if(element.children.length>1){
+                        element.insertBefore(horizontal_seperator,element.children[1])
+                    }else{
+                        element.appendChild(horizontal_seperator)
+                    }
+
+                    //get the sidebar dom element
+                    let sidebar_list_container=document.getElementById("sidebar_list_container")
+
+                    //create the invisible span element at the beginning of the section that serves as 'sroll-to' anchor for the section
+                    let link_span=document.createElement("span")
+                    //link_span.setAttribute("id","section"+child_num+"_link")
+                    element.insertBefore(link_span,element.children[0])
+
+                    //create sidebar entry for the current section/its header
+                    let new_element=document.createElement("li")
+                    let new_span=document.createElement("span")
+                    let new_a=document.createElement("a")
+                    //new_a.setAttribute("href","#section"+child_num+"_link")
+                    new_a.innerText=header
+                    //new_span.setAttribute("id","span"+child_num)
+                    new_span.appendChild(new_a)
+                    new_element.classList.add("sidebar_list_section")
+                    new_element.appendChild(new_span)
+
+                    //add created sidebar entry to the sidebar
+                    sidebar_list_container.appendChild(new_element)
+                }
+            }
+            derive_sidebar_content()
+        </script>
+
+        <script purpose="hightlight currently viewed section">
+            let offsets={}
+            let base=null;
+            /* this code is executed on load */
+            function get_section_offsets(){
+                for(element of document.getElementById("fgfuture_content").children){
+                    if(!base){
+                        let offset=0;
+                        
+                        let current_element=element;
+                        while(current_element){
+                            offset+=current_element.offsetTop;
+                            current_element=current_element.offsetParent;
+                        }
+                        base=offset;
+                    }
+                    offsets[element.id]=base
+                    base+=element.clientHeight
+                }
+            }
+
+            function highlight_current_section_in_sidebar(){
+                let current_scroll=document.body.scrollTop||document.documentElement.scrollTop||window.pageYOffset
+
+                let found=false
+                let index=0
+                for(element in offsets){
+                    /*
+                    const subtracted_negative_screen_fraction=0.67
+                    const added_positive_screen_fraction=0.15
+
+                    let above_lower=(offsets[element]+document.getElementById(element).clientHeight-window.innerHeight*subtracted_negative_screen_fraction)>=current_scroll
+                    let below_upper=offsets[element]>=(current_scroll+window.innerHeight*added_positive_screen_fraction)
+                    let above_lowest=(offsets[element]+document.getElementById(element).clientHeight)<=current_scroll
+                    let is_last_element_in_list=(index==(Object.keys(offsets).length-1))
+
+                    if(and(above_lower, !found)||and(below_upper, above_lowest)||and(is_last_element_in_list, !found)){
+                        if(found){
+                            document.getElementById("sidebar_list_container").children[index-1].classList.remove("current_section")
+                        }
+                        found=element
+                        document.getElementById("sidebar_list_container").children[index].classList.add("current_section")
+                    }else{
+                        document.getElementById("sidebar_list_container").children[index].classList.remove("current_section")
+                    }
+                    index+=1
+                    */
+                }
+            }
+        </script>
+
+        <!-- sponsor and social media footer -->
+        <div class="flexbox-container-socialmedia">
+            <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png"></div>
+            <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/1024px-Instagram_logo_2016.svg.png"></div>
+            <div><img class="upplogo"src="https://shop.uu.se/shop/ws45/82845/files/UU_logo_vit.png"></div>
+            <div><img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Circle-icons-mail.svg"></div>
+            <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Linkedin_icon.svg/480px-Linkedin_icon.svg.png"></div>
+        </div>
+
+        <div class="grid-container-sponsors">
+            <div><img src="https://2021.igem.org/wiki/images/8/8b/T--Uppsala--utnlogo.png"></div>
+            <div><img src="http://2014.igem.org/wiki/images/5/5a/York_Genscript_logo-1-.png"></div>
+            <div><img src="https://2020.igem.org/wiki/images/0/05/T--UofUppsala--pro.png"></div>
+            <div><img src="https://2021.igem.org/wiki/images/f/fc/T--Uppsala--bioradlogo.png"></div>
+            <div><img src="https://2021.igem.org/wiki/images/2/29/T--Uppsala--bionordikalogo.png"></div>
+            <div><img src="https://2021.igem.org/wiki/images/9/9a/T--Uppsala--mercklogo.png"></div>
+            <div><img src="https://2021.igem.org/wiki/images/f/fa/T--Uppsala--scbtlogo.png"></div>
+            <div><img src="https://2020.igem.org/wiki/images/8/8c/T--UofUppsala--snap.png"></div>
+            <div><img src="https://2020.igem.org/wiki/images/a/a4/T--UofUppsala--euro.png"></div>
+            <div><img src="https://upload.wikimedia.org/wikipedia/commons/1/12/New_Harvest_Full_Logo_-_RGB_.png"></div>
+            <div><img src="https://testacenter.com/wp-content/uploads/2019/08/TestaCenter_LogoWithTagline_Pantone.png"></div>
+            <div><img src="https://cdn.cytivalifesciences.com/dmm3bwsv3/AssetStream.aspx?mediaformatid=10061&destinationid=10016&assetid=32945"></div>
+        </div>
+    </body>
+</html>
