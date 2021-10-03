@@ -5,6 +5,30 @@ out_folder=cwd+"/../real_pages"
 if not os.path.exists(out_folder):
     os.mkdir(out_folder)
     
+reference_file_list=set()
+for file in os.listdir(cwd+"/reference"):
+    if os.path.isfile(cwd+"/reference/"+file):
+        reference_file_list.add(file)
+
+def resolve_templates(input):
+    output=""
+    for line in input:
+        line=line.lstrip().rstrip()
+        if line[0:2]=="{{":
+            assert(line[-2:]=="}}")
+            to_be_inserted_filename=line[2:-2]
+
+            if to_be_inserted_filename=="IGEM_TopBar":
+                continue
+            elif to_be_inserted_filename in reference_file_list:
+                output+="\n"+open("reference/"+to_be_inserted_filename,"r",encoding="utf-8").read()+"\n"
+            else:
+                output+="\n"+open(folder+"/"+to_be_inserted_filename,"r",encoding="utf-8").read()+"\n"
+        else:
+            output+="\n"+line
+
+    return output
+
 for folder in os.listdir(cwd):
     if folder=="reference":
         continue
@@ -21,22 +45,10 @@ for folder in os.listdir(cwd):
     if not os.path.exists(html_center_file):
         print(html_center_file+" does not exist in folder "+folder)
     
-    generated_html_code=""
     with open(html_center_file,"r",encoding="utf-8") as html_center_file:
-        for line in html_center_file.readlines():
-            line=line.lstrip().rstrip()
-            if line[0:2]=="{{":
-                assert(line[-2:]=="}}")
-                to_be_inserted_filename=line[2:-2]
-
-                if to_be_inserted_filename=="IGEM_TopBar":
-                    continue
-                elif to_be_inserted_filename in {"template_top.html","template_bottom.html"}:
-                    generated_html_code+="\n"+open("reference/"+to_be_inserted_filename,"r",encoding="utf-8").read()+"\n"
-                else:
-                    generated_html_code+="\n"+open(folder+"/"+to_be_inserted_filename,"r",encoding="utf-8").read()+"\n"
-            else:
-                generated_html_code+="\n"+line
+        #do it twice to resolve nested templates
+        generated_html_code=resolve_templates(html_center_file.readlines())
+        generated_html_code=resolve_templates(generated_html_code.splitlines())
     
     out_file=out_folder+"/"+folder+".html"
     if os.path.exists(out_file):
