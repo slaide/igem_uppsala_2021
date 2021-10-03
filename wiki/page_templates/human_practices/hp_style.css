@@ -1,0 +1,51 @@
+<style purpose="hp specific decoration">
+                    #page_switcher{
+                        display:flex;
+                        flex-direction:row;
+                        height:5vh;
+                        font-size:3vh;
+                        cursor: pointer;
+                    }
+                    #page_switcher > div{
+                        flex:1;
+                        text-align: center;
+                        /*transparent border used as placeholder for solid black border on active panel (border adds to box size which moves the contained text. this placeholder avoids 'jumping' text on becoming active) */
+                        border-top:1px solid transparent;
+                        border-left:1px solid transparent;
+                        border-right:1px solid transparent;
+                        border-bottom:1px solid black;
+                    }
+                    #page_switcher > div.active_section{
+                        border-top:1px solid black;
+                        border-left:1px solid black;
+                        border-right:1px solid black;
+                        border-bottom:1px solid transparent;
+                    }
+                    .hp_section{
+                        padding-top: 3vh;
+                        border-bottom: 1px solid black;
+                        border-left: 1px solid black;
+                        border-right: 1px solid black;
+                    }
+                    .hp_section:not(.active_section){
+                        display:none;
+                    }
+
+                    #integrated_hp_timeline_container{
+                    }
+                    .integrated_hp_timeline_entry{
+                        padding-left: 2vh;
+                        margin-left: 2vh;
+                        padding-bottom:3vh;
+                        border-left:1px solid black;
+                        font-size:2vh;
+                    }
+                    .integrated_hp_timeline_entry > span{
+                        position:absolute;
+                        height:1vh;
+                        width:1vh;
+                        background-color:black;
+                        transform:translate( calc(-50% - 2vh),calc( 1vh - 25%) /* font-size*0.5 - <fraction of height of itself that makes it look like it was centered on the line> */);
+                        border-radius: 50%;
+                    }
+                </style>
