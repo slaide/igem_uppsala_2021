@@ -1,72 +1,68 @@
-<style purpose="sponsors">
-            /* Sponsor part*/
-            .flexbox-container-socialmedia{
-                width: auto;
-                height: 25vh;
-                display: flex;
-                flex-direction: row;
-                overflow: hidden;
-                background-color: #426968;
-                justify-content: center;
-            }
+.flexbox-container-socialmedia{
+    width: auto;
+    height: 25vh;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    background-color: #426968;
+    justify-content: center;
+}
 
 
-            .flexbox-container-socialmedia > div > a > img:not(img.upplogo){
-                margin-left: 3vw;
-                margin-right: 3vw;
-                filter: grayscale(50%);
-                margin-top: 7vh;
-                width: 5vw;
-            }
+.flexbox-container-socialmedia > div > a > img:not(img.upplogo){
+    margin-left: 3vw;
+    margin-right: 3vw;
+    filter: grayscale(50%);
+    margin-top: 7vh;
+    width: 5vw;
+}
 
-            .flexbox-container-socialmedia > div > a > img:not(img.upplogo):hover{
-                filter:grayscale(0);
-                filter: brightness(130%);
-                filter: contrast(150%);
+.flexbox-container-socialmedia > div > a > img:not(img.upplogo):hover{
+    filter:grayscale(0);
+    filter: brightness(130%);
+    filter: contrast(150%);
 
-            }
+}
 
-            img.upplogo{
-                width: 10vw;
-                margin-top: 3vh;
-                margin-left: 3vw;
-                margin-right: 3vw;
-            }
-        
+img.upplogo{
+    width: 10vw;
+    margin-top: 3vh;
+    margin-left: 3vw;
+    margin-right: 3vw;
+}
 
-            .grid-container-sponsors{
-                height: 30vh;
-                display: grid;
-                padding-left:5%;
-                padding-right:5%;
-                padding-bottom:5vh;
-                width: 90%;
-                row-gap: 20%;
-                column-gap: 5%;
-                grid-template-columns:repeat(6,1fr);
-                grid-template-rows:repeat(2,1fr);
-                overflow: hidden;
-                background-color: #426968;
-            }
 
-            .grid-container-sponsors > div{
-                width:auto;
-                height:auto;
-            }
-            .grid-container-sponsors > div > a > img{
-                width:80%;
-                height:auto;
-                filter: grayscale(50%);
-                position:relative;
-                left:50%;
-                top:50%;
-                transform:translate(-50%,-50%);
-            }
+.grid-container-sponsors{
+    height: 30vh;
+    display: grid;
+    padding-left:5%;
+    padding-right:5%;
+    padding-bottom:5vh;
+    width: 90%;
+    row-gap: 20%;
+    column-gap: 5%;
+    grid-template-columns:repeat(6,1fr);
+    grid-template-rows:repeat(2,1fr);
+    overflow: hidden;
+    background-color: #426968;
+}
 
-            .grid-container-sponsors > div > a > img:hover{
-                filter:grayscale(0);
-                filter: brightness(130%);
-                filter: contrast(150%);
-            }
-            
-        </style>
+.grid-container-sponsors > div{
+    width:auto;
+    height:auto;
+}
+.grid-container-sponsors > div > a > img{
+    width:80%;
+    height:auto;
+    filter: grayscale(50%);
+    position:relative;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+}
+
+.grid-container-sponsors > div > a > img:hover{
+    filter:grayscale(0);
+    filter: brightness(130%);
+    filter: contrast(150%);
+}

@@ -32,9 +32,14 @@
             <!--Actual content-->
             <div id="fgfuture_content">
 
+                <style purpose="hp specific decoration">
+                    {{hp_style.css}}
+                </style>
+                <script purpose="integrated/hp_switcher">
+                    {{integrated_hp_panel_switcher.js}}
+                </script>
+
                 <!-- INSERT GOOGLE DOC CONTENT BELOW THIS LINE -->
-                {{hp_style.css}}
-                {{integrated_hp_panel_switcher.js}}
 
                 <div id="page_switcher">
                     <div class="active_section" onclick="switch_hp('standard')">Human Practices</div>

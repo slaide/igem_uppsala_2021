@@ -1,71 +1,69 @@
-<style purpose="sidebar">
-            #sidebar {
-                display:block;
-                position:relative;
+#sidebar {
+    display:block;
+    position:relative;
 
-                width: 100%;
+    width: 100%;
 
-                margin-top:5vh;
-                margin-left:1vh;
-                margin-right:1vh;
+    margin-top:5vh;
+    margin-left:1vh;
+    margin-right:1vh;
 
-                font-size: 2vh;
-                font-weight:600;
+    font-size: 2vh;
+    font-weight:600;
 
-                grid-row: 2 / 3;
-                grid-column: 1 / 2;
-            }
-            #sticky_sidebar{
-                top:calc( 16px + 5vh);
-                position:sticky;
-            }
-            #sidebar_header{
-                padding-top:2vh;
-                font-size:3.5vh;
-                font-family: UM;
-            }
-            #sidebar a{
-                color:#6d1d23;
-                font-weight:bold;
-            }
-            #sidebar :hover{
-                color:#426968; 
-            }
-            #sidebar_list_container{
-                margin:0;
-                padding:0;
-                margin-left:1vw;
-                width:calc(100% - 1vw);
-                line-height: 1;
-            }
-            .sidebar_list_section{
-                display:block;
-                width:calc(100% - 2vh);
-                
-                color:#6d1d23;
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+}
+#sticky_sidebar{
+    top:calc( 16px + 5vh);
+    position:sticky;
+}
+#sidebar_header{
+    padding-top:2vh;
+    font-size:3.5vh;
+    font-family: UM;
+}
+#sidebar a{
+    color:#6d1d23;
+    font-weight:bold;
+}
+#sidebar :hover{
+    color:#426968; 
+}
+#sidebar_list_container{
+    margin:0;
+    padding:0;
+    margin-left:1vw;
+    width:calc(100% - 1vw);
+    line-height: 1;
+}
+.sidebar_list_section{
+    display:block;
+    width:calc(100% - 2vh);
+    
+    color:#6d1d23;
 
-                margin-bottom: 2.2vh;
+    margin-bottom: 2.2vh;
 
-                transition: all 0.2s;
+    transition: all 0.2s;
 
-                font-family: UL;
-            }
-            .sidebar_list_section a{
-                font-size: 2vh;
-            }
-            .sidebar_list_section.current_section{
-                /* #6d1d23 */
-                border-left:1vh solid rgba(109,29,35,0.9);
-                padding-left:1vh;
-            }
-            .sidebar_list_section span:hover{
-                color:#426968;
-            }
-            .listsidebar{
-                margin-top: 0px;
-                padding:0;
-                width: 100%;
-                background-color: #dce1de;
-                height: 100%;
-            }
-        </style>
+    font-family: UL;
+}
+.sidebar_list_section a{
+    font-size: 2vh;
+}
+.sidebar_list_section.current_section{
+    /* #6d1d23 */
+    border-left:1vh solid rgba(109,29,35,0.9);
+    padding-left:1vh;
+}
+.sidebar_list_section span:hover{
+    color:#426968;
+}
+.listsidebar{
+    margin-top: 0px;
+    padding:0;
+    width: 100%;
+    background-color: #dce1de;
+    height: 100%;
+}

@@ -1,126 +1,118 @@
-<style purpose="text/main section and pre-defined styles for user-writable code">
-            /* Actual content */
-            #fgfuture_content{
-                background-color: #dce1de;
+/* Actual content */
+#fgfuture_content{
+    background-color: #dce1de;
 
-                margin-top: 3.6vh;
+    margin-top: 3.6vh;
 
-                font-family: UL; 
+    font-family: UL; 
 
-                grid-row: 2 / 3;
-                grid-column: 3 / 4;
-            }
+    grid-row: 2 / 3;
+    grid-column: 3 / 4;
+}
 
-            #fgfuture_content h1,#fgfuture_content h2,#fgfuture_content h3{
-                color:#6d1d23;
-                font-family: UM, sans-serif;
-                margin-left: 0.5vh;
-            }
+#fgfuture_content h1,#fgfuture_content h2,#fgfuture_content h3{
+    color:#6d1d23;
+    font-family: UM, sans-serif;
+    margin-left: 0.5vh;
+}
 
-            #fgfuture_content h1{
-                font-size: 3vh;
-                margin-top: 1.5vh;
-                margin-bottom: 1.5vh;
-            }
-            #fgfuture_content h2{
-                font-size: 2.4vh;
-                margin-top:1.2vh;
-                margin-bottom: 1.2vh;
-            }
-            #fgfuture_content h3{
-                font-size: 1.8vh;
-                margin-top: 0.9vh;
-                margin-bottom: 0.9vh;
-            }
+#fgfuture_content h1{
+    font-size: 3vh;
+    margin-top: 1.5vh;
+    margin-bottom: 1.5vh;
+}
+#fgfuture_content h2{
+    font-size: 2.4vh;
+    margin-top:1.2vh;
+    margin-bottom: 1.2vh;
+}
+#fgfuture_content h3{
+    font-size: 1.8vh;
+    margin-top: 0.9vh;
+    margin-bottom: 0.9vh;
+}
 
-            #fgfuture_content p{
-                margin-bottom: 0.5vh;
-                margin-top: 0.5vh;
-                margin-left:1.5vh;
-            }
+/* styling applies to all text within the content area that is not a header */
+#fgfuture_content > div > p,#fgfuture_content > div > ol,#fgfuture_content > div > ul{
+}
+#fgfuture_content p,#fgfuture_content ul,#fgfuture_content ol{
+    margin-bottom: 0.5vh;
+    margin-top: 0.5vh;
+    margin-left:1.5vh;
+    
+    padding-bottom: 2vh;
 
-            div.image{
-                /* make space for text around the image */
-                display:inline-block;
-                padding-bottom: 1vh;
-            }
-            .igem_column_wrapper div.image>p,div.image>p{
-                font-size: 1.2vh;
-                padding-top: 1vh;
-                padding-left: 0.5vh;
-                padding-right: 0.5vh;
-                text-align: justify;
-            }
-            /* make image float so that text can wrap around it */
-            div.image.left{
-                float:left;
-                padding-right:2vh;
-            }
-            div.image.right{
-                float:right;
-                padding-left:2vh;
-            }
-            div.image.left{
-                float:left;
-                padding-right:2vh;
-            }
-            div.image.right{
-                float:right;
-                padding-left:2vh;
-            }
-            div.quarter{
-                width:25%;
-            }
-            div.half{
-                width:50%;
-            }
-            
-            /* styling applies to all text within the content area that is not a header */
-            #fgfuture_content > div > p{
-                font-family: sans-serif;
-                font-size: 1.5vh;
-                padding-bottom: 2vh;
-                line-height: 1.5;
-            }
-            /* make sure images have expected size (the actual size specifications apply to their container, not themself) */
-            #fgfuture_content div > img{
-                width:100%;
-                height:auto;
-            }
+    font-family: sans-serif;
+    font-size: 1.5vh;
+    
+    line-height: 1.5;
+}
 
-            /* NORMAL PARAGRAPH*/
-            .midcontenttext >p{
-                font-weight:normal;
-                font-size:1em;
-                color:black;
-                line-height:1.8;
-                letter-spacing:0.05em;
-                margin-top: 3vh;
-            }
+div.image{
+    /* make space for text around the image */
+    display:inline-block;
+    padding-bottom: 1vh;
+}
+#fgfuture_content div.image>p,div.image>p{
+    font-size: 1.2vh;
+    padding-top: 1vh;
+    padding-left: 0.5vh;
+    padding-right: 0.5vh;
+    text-align: justify;
+}
+/* make image float so that text can wrap around it */
+div.image.left{
+    float:left;
+    padding-right:2vh;
+}
+div.image.right{
+    float:right;
+    padding-left:2vh;
+}
+div.image.left{
+    float:left;
+    padding-right:2vh;
+}
+div.image.right{
+    float:right;
+    padding-left:2vh;
+}
+div.quarter{
+    width:25%;
+}
+div.half{
+    width:50%;
+}
 
-            /* For tables */
-            table {
-                font-family: arial, sans-serif;
-                border-collapse: collapse;
-                width: 100%;
-            }
+/* make sure images have expected size (the actual size specifications apply to their container, not themself) */
+#fgfuture_content div > img{
+    width:100%;
+    height:auto;
+}
 
-            td, th {
-                border: 1px solid #dddddd;
-                text-align: left;
-                padding: 8px;
-            }
+/* NORMAL PARAGRAPH*/
+.midcontenttext >p{
+    font-weight:normal;
+    font-size:1em;
+    color:black;
+    line-height:1.8;
+    letter-spacing:0.05em;
+    margin-top: 3vh;
+}
 
-            tr:nth-child(even) {
-                background-color: #dddddd;
-            }
+/* For tables */
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
 
-            /* for lists */
-            ul,ol{
-                margin-left:4vh;
-            }
-            li{
-                margin-bottom:1vh;
-                margin-top:1vh;
-            }
-        </style>
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
