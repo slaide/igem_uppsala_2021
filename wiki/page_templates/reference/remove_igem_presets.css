@@ -1,0 +1,22 @@
+<style real-href="remove_presets.css">
+            .top_bar{
+                display:none;
+                height:0px;
+            }
+            .igem_column_wrapper{
+                width:auto;
+                max-width:none;
+            }
+            #globalWrapper{
+                padding-bottom:0;
+            }
+            .igem_content_wrapper .igem_column_wrapper a,.igem_content_wrapper .igem_column_wrapper a:hover{
+                font-weight: initial;
+                text-decoration-color: initial;
+                transition: initial;
+                -webkit-transition: initial;
+                -moz-transition: initial;
+                -ms-transition: initial;
+                -o-transition: initial;
+            }
+        </style>

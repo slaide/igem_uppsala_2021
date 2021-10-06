@@ -1,0 +1,186 @@
+<style real-href="navigation_bar">
+            /*navigation bar*/
+            #navigation_bar{
+                top:16px;
+                height:5vh;
+
+                position:fixed;
+                width:100%;
+
+                z-index:9;
+
+                display:grid;
+                /* left grid element has height 100% (5vh), and to contain the logo, the width needs to be calculated from the image's aspect ratio, with a width of 87px and height of 65px, the rest is math */
+                --logo-width: calc(5vh * 87.1333 / 65.35 );
+                grid-template-columns: var(--logo-width) calc(100% - var(--logo-width));
+                grid-template-rows: 100%;
+            }
+
+            /* a elements when not hovering*/
+            div.dropbtn,.navigation_dropdown_entry,.igem_content_wrapper .igem_column_wrapper a{
+                font-family: sans-serif;
+                transition: 0.1s;
+                font-weight: normal;
+                color:black;
+                text-decoration: none;
+            }
+            .dropdown_content > a{
+                color:black;
+            }
+            div.dropbtn{
+                cursor:default;
+                color:#6d1d23;
+                font-size: 2.5vh;
+            }
+            li.hovering_over > div.dropbtn{
+                font-weight: bold;
+            }
+            /* override default link highlighting */
+            #navigation_bar a:not(:hover),#navigation_bar div:not(:hover){
+                text-decoration: none;
+            }
+            /* a elements when hovering (override color and underline) */
+            #navigation_bar a:hover,#navigation_bar div.dropbtn:hover{
+                color:#6d1d23;
+                /* reset igem bs */
+                font-weight: bold;
+            }
+            #navigation_bar a:hover{
+                text-decoration: underline;
+            }
+
+            /* navigation bar logo on left */
+            /* img container */
+            #navigation_bar_logo_container{
+                height:calc(5vh - 1px);
+
+                border-bottom: 1px solid black;
+                border-right: 1px solid black;
+            }
+            /* set own background color to still have background when rest of navigation bar vanishes while scrolling */
+            #navigation_bar_logo_container,.logotype{
+                background-color: #dce1de;
+            }
+            /* actual logo inside container */
+            #navigation_bar_logo_container > img{
+                height:100%;
+            }
+
+            /* container for dropdown menus on right side of navigation bar */
+            #dropdown-container{
+                display:grid;
+                height:calc( 5vh - 1px);
+
+                grid-template-columns: repeat(6,1fr);
+                grid-template-rows: 100%;
+                
+                /* manually transition background-color to preserve left/right padding background while the navigation menus vanish during scrolling */
+                transition: 0s background-color 1s;
+
+                /* reset igem bs */
+                padding:0;
+                margin:0;
+
+                /* then set my own padding */
+                padding-left: 10%;
+                padding-right: 10%;
+
+                overflow:hidden;
+            }
+            /* while either scrolling, or hovering mouse over the navigation menu area, show the menu overview */
+            #dropdown-container.scrolled_down,#dropdown-container.panel_opened{
+                border-bottom: 1px solid black;
+
+                background-color: #dce1de;
+                
+                transition: 0s background-color 0s;
+            }
+            /* only while the panel is open (via mouse hover), show the extended menus, which include the links to other pages */
+            #dropdown-container.panel_opened{
+                overflow:visible;
+            }
+            /* animate shrinking dropdown menus' height to 0 when scrolling down and not hovering the mouse over the navigation area */
+            #dropdown-container:not(.scrolled_down):not(.panel_opened) .dropdown{
+                height:0vh;
+                transition: 1s height;
+            }
+            #dropdown-container:not(.scrolled_down):not(.panel_opened) .dropdown{
+                height:0vh;
+                transition: 1s height;
+                border-bottom:0;
+            }
+            /* because overflow:hidden does not work, make the navigation menu headlines (.dropbtn) see-through when scrolling down and not hovering over the navigation area */
+            #dropdown-container:not(.scrolled_down):not(.panel_opened) .dropbtn{
+                opacity:0;
+                transition: 0.2s opacity 0.8s;
+            }
+            /* when not hovering over the navigation area, make all links see-through, that are not headlines (i.e. only the menu entries) */
+            #dropdown-container:not(.panel_opened) a:not(.dropbtn){
+                opacity:0;
+            }
+            /* dropdown menus (containers) */
+            .dropdown{
+                display:block;
+                height:40vh;
+                background-color: #dce1de;
+                border-bottom:1px solid black;
+                overflow:visible;
+            }
+            /* add border on left and right side of navigation SUB-menus (not all around menu, which would include borders crossing through the navigation bar itself) */
+            .dropdown:first-child .dropdown_content{
+                border-left:1px solid black;
+            }
+            .dropdown:last-child .dropdown_content{
+                border-right:1px solid black;
+            }
+            /* to disable mouse-hover javascript events on see-through links below navigation bar, effectively remove them (except not really) */
+            #dropdown-container:not(.panel_opened) .dropdown_content{
+                display:none;
+            }
+            /* header of dropdown menus (containing name of each category) */
+            .dropbtn{
+                display:block;
+                position:absolute;
+
+                text-decoration: none;
+
+                top:calc( 2.5vh);
+                transform:translateY(-50%);
+            }
+            /* override text color of all links inside dropdown menu when hovering over the menu */
+            .dropdown.hovering_over a{
+                color:#6d1d23;
+                font-weight: bold;
+            }
+            /* container for links inside dropdown menu */
+            .dropdown_content{
+                position:absolute;
+                /* .dropdown's 40vh height - 5vh offset from top*/
+                height:35vh;
+
+                font-size: 2vh;
+
+                top:5vh;
+
+                --logo-width: calc(5vh * 87.1333 / 65.35 );
+                width:calc( (100% - var(--logo-width) ) * 0.8 / 6);
+            }
+            /* individual link inside dropdown menu */
+            .dropdown_content > a{
+                display:block;
+                padding-left:10%;
+                padding-bottom:1vh;
+                padding-top:1vh;
+            }
+            /* individual link inside dropdown menu on hover (underline) */
+            .dropdown_content > a:hover{
+                text-decoration:underline;
+            }
+
+            /* highlighting of current topic in dropdown */
+            .current_topic{
+                font-style: italic;
+                font-weight: bolder;
+                font-size: 2.2vh;
+            }
+        </style>
