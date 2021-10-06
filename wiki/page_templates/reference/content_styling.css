@@ -3,6 +3,7 @@
     background-color: #dce1de;
 
     margin-top: 3.6vh;
+    padding-bottom: 5vh;
 
     font-family: UL; 
 
@@ -33,9 +34,7 @@
 }
 
 /* styling applies to all text within the content area that is not a header */
-#fgfuture_content > div > p,#fgfuture_content > div > ol,#fgfuture_content > div > ul{
-}
-#fgfuture_content p,#fgfuture_content ul,#fgfuture_content ol{
+#fgfuture_content p,#fgfuture_content ul,#fgfuture_content ol,#fgfuture_content div.content_section>div{
     margin-bottom: 0.5vh;
     margin-top: 0.5vh;
     margin-left:1.5vh;

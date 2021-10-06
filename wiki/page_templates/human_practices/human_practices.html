@@ -42,8 +42,12 @@
                 <!-- INSERT GOOGLE DOC CONTENT BELOW THIS LINE -->
 
                 <div id="page_switcher">
-                    <div class="active_section" onclick="switch_hp('standard')">Human Practices</div>
-                    <div onclick="switch_hp('integrated')">Integrated HP</div>
+                    <div class="hp_section_header active_section" onclick="switch_hp('standard')">
+                        <div>Human Practices</div>
+                    </div>
+                    <div class="hp_section_header" onclick="switch_hp('integrated')">
+                        <div>Integrated HP</div>
+                    </div>
                 </div>
 
                 {{hp.html}}

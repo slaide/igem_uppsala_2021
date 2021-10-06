@@ -75,8 +75,12 @@
         </script>
 
         <!-- cross-page navigation bar -->
-        {{navigation_bar.css}}
-        {{navigation_bar.js}}
+        <style real-href="navigation_bar">
+            {{navigation_bar.css}}
+        </style>
+        <script purpose="internal_open_close_navbar">
+            {{navigation_bar.js}}
+        </script>
 
         <!-- cross-page loading styling and code -->
         {{loading_screen.css}}
