@@ -15,6 +15,8 @@
     grid-template-rows: 100%;
     
     color:#6d1d23;
+
+    background-color: transparent;
 }
 
 /* a elements when not hovering*/
@@ -72,46 +74,36 @@ li.hovering_over > div.dropbtn{
     grid-template-columns: repeat(6,1fr);
     grid-template-rows: 100%;
     
-    /* manually transition background-color to preserve left/right padding background while the navigation menus vanish during scrolling */
-    transition: 0s background-color 1s;
-
+    /* invisible by default. making it invisible happens gradually */
+    transition: opacity 0.3s;
+    opacity: 0;
+    
     /* reset igem bs */
     padding:0;
     margin:0;
-
+    
     /* then set my own padding */
     padding-left: 10%;
     padding-right: 10%;
-
-    overflow:hidden;
-}
-/* while either scrolling, or hovering mouse over the navigation menu area, show the menu overview */
-#dropdown-container.scrolled_down,#dropdown-container.panel_opened{
-    border-bottom: 1px solid black;
-
-    background-color: #dce1de;
     
-    transition: 0s background-color 0s;
+    overflow:hidden;
+    border-bottom: 1px solid black;
 }
-/* only while the panel is open (via mouse hover), show the extended menus, which include the links to other pages */
+/* while either scrolling, or hovering mouse over the navigation menu area, show the menu overview, instantly (transition takes 0 time) */
+#dropdown-container.scrolled_down,#dropdown-container.panel_opened{
+    transition: opacity 0s;
+    opacity: 1;
+}
+/* only while the panel is open (via mouse hover) show the extended menus, which include the links to other pages */
 #dropdown-container.panel_opened{
     overflow:visible;
 }
-/* animate shrinking dropdown menus' height to 0 when scrolling down and not hovering the mouse over the navigation area */
-#dropdown-container:not(.scrolled_down):not(.panel_opened) .dropdown{
-    height:0vh;
-    transition: 1s height;
-    border-bottom:0;
-}
-/* because overflow:hidden does not work, make the navigation menu headlines (.dropbtn) see-through when scrolling down and not hovering over the navigation area */
-#dropdown-container:not(.scrolled_down):not(.panel_opened) .dropbtn{
-    opacity:0;
-    transition: 0.2s opacity 0.8s;
-}
+
 /* when not hovering over the navigation area, make all links see-through, that are not headlines (i.e. only the menu entries) */
 #dropdown-container:not(.panel_opened) a:not(.dropbtn){
     opacity:0;
 }
+
 /* dropdown menus (containers) */
 .dropdown{
     display:block;
