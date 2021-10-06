@@ -89,7 +89,7 @@ li.hovering_over > div.dropbtn{
     overflow:hidden;
     border-bottom: 1px solid black;
 }
-/* while either scrolling, or hovering mouse over the navigation menu area, show the menu overview, instantly (transition takes 0 time) */
+/* while either scrolling, or hovering mouse over the navigation menu area, show the menu overview instantly */
 #dropdown-container.scrolled_down,#dropdown-container.panel_opened{
     transition: opacity 0s;
     opacity: 1;
