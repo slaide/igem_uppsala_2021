@@ -1,0 +1,137 @@
+{{template_top.html}}
+            <!-- page title-->
+            <div id=parallaxtop>
+                <div id="page_header">
+                    Software tool
+                </div>
+            </div>
+
+            <!--Sidebar-->
+            <div id="sidebar">
+                <div id="sticky_sidebar">
+                    <div id="sidebar_header">
+                        <a href="#pagecontent">
+                            Software tool
+                        </a>
+                    </div>
+                    <hr>
+                    <ul id="sidebar_list_container">
+                        <!-- template for a single entry in this list. the real entries will be added at runtime
+                            <li class="sidebar_list_section">
+                                <span id="span1">
+                                    <a href="#section1_link">
+                                        Lab Safety
+                                    </a>
+                                </span>
+                            </li>
+                        -->
+                    </ul>
+                </div>
+            </div>
+
+            <!--Actual content-->
+            <div id="fgfuture_content">
+
+                <!-- INSERT GOOGLE DOC CONTENT BELOW THIS LINE -->
+                
+                <div class="content_section" id="modelling_retrospection">
+                    <h1>Modelling workflow retrospection</h1>
+                        <p>
+                        The overall modelling goal was to find mutations that generally increased some aspect of FGF2, like its binding affinity to the FGF-receptor 1. For a detailed description of the whole modelling workflow, see the modelling page.
+                        </p>
+                        <p>
+                        To discover and rank mutations that would likely lead to an increase in binding affinity of FGF2 to the receptor, we planned to evaluate possible mutations using molecular dynamics simulations. This evaluation is very computationally expensive though, so we started with the manual approaches described previously on the modelling page, which limited the list of possible mutations to 8 promising single point mutations.
+                        </p>
+                        <p>
+                        The next step towards molecular dynamics simulations then was to prepare protein structure files, each containing one of the following structures:
+                        </p>
+                        <ol>
+                        <div>a) wildtype FGF2</div>
+                        <div>b) mutant FGF2</div>
+                        <div>c) (wildtype FGF2)-receptor complex</div>
+                        <div>d) (mutant FGF2)-receptor complex</div>
+                        </ol>
+                        <p>
+                        These files each contain information on the type and position of all atoms in the respective structures, and are used as input for QresFEP, the software tool we used to set up molecular dynamics simulations for the Q software.
+                        </p>
+                    </div>
+                    <div class="content_section" id="increasing_steps">
+                        <h1>Increasing number of manual software steps</h1>
+                        <p>
+                        The thermodynamic cycle requires 4 different simulation setups per mutation, and each setup has to be run multiple times for statistical significance. With 8 mutations, this means that we had to run 32 sets of simulations, for each of which we also had to prepare the aforementioned protein structure files.
+                        </p>
+                        <p>
+                        The preparation of the protein files consisted of changes in the protein structure using the pymol software. There, we manually replaced the target amino acid with the one we required for each simulation, with pymol automatically choosing the rotomer with the least clashes with the rest of the structure. While this itself is quick to do, repeating this step 32 times is very time consuming.
+                        </p>
+                        <p>
+                        In addition to this manual work in pymol, using the QresFEP software to set up 32 different runs was also done manually. For each run, we had to run multiple programs to create the Q configuration files that we could finally submit to the UPPMAX supercomputer cluster we used for the molecular dynamics simulations.
+                        </p>
+                    </div>
+                    <div class="content_section" id="solving_bugs">
+                        <h1>Solving software bugs</h1>
+                        <p>
+                            <span class="popup">
+                                <span>QresFEP</span>
+                                <span class="popup_content">QresFEP is a program, but also includes additional software to pre- and post-process Q in-/output. For brevity, we refer to all software included in QresFEP by 'QresFEP'.</span>
+                            </span>
+                            turned out to be harder to use than we expected. We are not quite sure what the essential cause of our issues was, but briefly, we had to run the software many times while looking for the source of the issues.
+                        </p>
+                        <p>
+                        We had no major problems solving the bugs, once we found the root causes, but what we ended up with afterwards was an extremely tedious process that we had to repeat for <i>every single simulation</i>:
+                        </p>
+                        <ol>
+                            <div> 1. Mutate the structure in pymol</div>
+                            <div> 2. prepare configuration files for QresFEP</div>
+                            <div> 3. run QresFEP once</div>
+                            <div> 4. prepare the intermediate output for the next step</div>
+                            <div> 5. run QresFEP again</div>
+                            <div> 6. prepare the intermediate output for the next step</div>
+                            <div> 7. run QresFEP again</div>
+                            <div> 8. adjust a setup file for the supercomputer</div>
+                            <div> 9. run the simulation on the supercomputer</div>
+                            <div>10. combine and evaluate the results from all simulations</div>
+                        </ol>
+                        <p>
+                            While we were looking for the cause of our problems, we also had to recreate the workflow from start to end for a small sample of our mutations to verify the impact of our proposed fixes. The increasing number of intermediate steps also meant that the chance of human error in the pipeline increased. 
+                        </p>
+                        <p>
+                            This inspired us to automate parts of the pipeline. Initially, this increased the effort required to introduce changes into the code, because the amount of code increased quickly. Over time, it reduced the amount of manual work required for the simulation setup though.
+                        </p>
+                        <p>
+                            Once we fixed all known bugs and our first simulation actually produced output that looked plausible, we had reached a collection of 8 different script files. Each of these files was responsible for at least one intermediate step of our pipeline, and contained code in one of two different languages: bash or python.
+                        </p>
+                    </div>
+                    <div class="content_section" id="adapting_software">
+                        <h1>Adapting software to new circumstances</h1>
+                        <p>
+                            While our code worked at that point, it was far from easy to use. The code being split across two vastly different programming languages meant that following the flow of information across the files was hard to follow for someone unfamiliar with both languages. Even for someone familiar, the split across multiple files made it difficult to know which parts of the code to adjust when evaluating a different mutation, or making other changes to the simulation parameters.
+                        </p>
+                        <p>
+                            This led us to re-evaluate the software pipeline. Essentially, our workflow required four manual steps to prepare the evaluation of  a single mutation: the initial mutation using pymol, applying the script files to the new mutation, running the simulations on UPPMAX, and manually combining the output from all 4 runs, per mutation, into the single stability value we were actually looking for.
+                        </p>
+                    </div>
+                    
+                    <div class="content_section" id="tool_creation">
+                        <h1>Creation of a new software tool</h1>
+                        <p>
+                            To streamline this workflow and enable quick evaluation of new mutations for our project, we rewrote our software pipeline.
+                        </p>
+                        <p>
+                            It is now contained in a single python script file. The file contains separate functions for every major step of the pipeline.<br>
+                            One function runs all setup steps based on user-provided protein structure files for the protein and the receptor (only wild type structures required). This code encapsulates the initial, fully automated pymol mutation and all QresFEP plus intermediate steps.<br>
+                            A second function can be used to submit all simulations to UPPMAX, which would otherwise need to be done manually for each replicate (in our case: 32 simulations * 10 replicates = 320 submissions).<br>
+                            The third and last function then applies the QresFEP provided analysis script to the output from the simulations on UPPMAX and combines the output from all analyses into one stability value per mutation, based on the thermodynamic cycle.
+                        </p>
+                        <p>
+                            The code can be found on github. It includes documentation for the functions mentioned above and instructions on how to set up the software environment. The repository also includes the python code and protein structure files for an example on how to use our software.
+                        </p>
+                        <p>
+                            We hope that this tool enables future iGEM teams to get their simulations up and running quickly.
+                        </p>
+                    </div>
+
+                <!-- INSERT GOOGLE DOC CONTENT ABOVE THIS LINE -->
+
+            </div>
+                
+{{template_bottom.html}}

@@ -1,55 +1,129 @@
-<style purpose="hp specific decoration">
-                    #page_switcher{
-                        display:flex;
-                        flex-direction:row;
-                        height:5vh;
-                        font-size:3vh;
-                        cursor: pointer;
-                    }
-                    #page_switcher > div{
-                        flex:1;
-                        text-align: center;
-                        /*transparent border used as placeholder for solid black border on active panel (border adds to box size which moves the contained text. this placeholder avoids 'jumping' text on becoming active) */
-                        border-top:1px solid transparent;
-                        border-left:1px solid transparent;
-                        border-right:1px solid transparent;
-                        border-bottom:1px solid black;
-                    }
-                    #page_switcher > div.active_section{
-                        border-top:1px solid black;
-                        border-left:1px solid black;
-                        border-right:1px solid black;
-                        border-bottom:1px solid transparent;
-                    }
-                    .hp_section{
-                        padding-top: 3vh;
-                        border-bottom: 1px solid black;
-                        border-left: 1px solid black;
-                        border-right: 1px solid black;
-                    }
-                    .hp_section:not(.active_section){
-                        display:none;
-                    }
+/* override template-wide styling to increase main content width to make the border around it look better */
+#pagecontent {
+    grid-template-columns: 1fr 0.5fr 4fr 1.5fr;
+}
+/* add padding to the hp page area that is surrounded by borders to make the inner content the same size as all other pages */
+.hp_section{
+    /* regular templates have 1+1+4+2 fr size. here it has 1+0.5+4+1.5 fr size, which means 1/8th of the width can be padding on the whole width. split in 2 equal parts for the left/right side */
+    padding-left:calc( 1 / 8 / 2 * 100% );
+    padding-right:calc( 1 / 8 / 2 * 100% );
+    /* padding-bottom should be the same value as above, but this would only be possible using javascript. using vw as approximation of width% (the difference being the scrollbar at the side of the page) should be close enough though. */
+    padding-bottom: 3vh;
+}
 
-                    #integrated_hp_timeline_container{
-                    }
-                    .integrated_hp_timeline_entry{
-                        padding-left: 2vh;
-                        margin-left: 2vh;
-                        padding-bottom:3vh;
-                        border-left:1px solid black;
-                        font-size:2vh;
-                    }
-                    .integrated_hp_timeline_entry > span{
-                        position:absolute;
-                        height:1vh;
-                        width:1vh;
-                        background-color:black;
-                        transform:translate( calc(-50% - 2vh),calc( 1vh - 25%) /* font-size*0.5 - <fraction of height of itself that makes it look like it was centered on the line> */);
-                        border-radius: 50%;
-                    }
+#page_switcher{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 5vh;
+    height:5vh;
+    grid-row-gap: 1vh;
+    font-size:3vh;
+    cursor: pointer;
+}
 
-                    #fgfuture_content p{
-                        margin-right:3vh;
-                    }
-                </style>
+/* HP header */
+#page_switcher:first-child{
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+}
+/* Integrated HP header */
+#page_switcher:last-child{
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
+}
+.hp_section_header{
+    font-size:2.5vh;
+    text-align: center;
+    /*transparent border used as placeholder for solid black border on active panel (border adds to box size which moves the contained text. this placeholder avoids 'jumping' text on becoming active) */
+    border-top:1px solid transparent;
+    border-left:1px solid transparent;
+    border-right:1px solid transparent;
+    border-bottom:1px solid black;
+    cursor:default;
+}
+/* change border to show selected section */
+.hp_section_header.active_section{
+    border-top:1px solid black;
+    border-left:1px solid black;
+    border-right:1px solid black;
+    border-bottom:1px solid transparent;
+}
+.hp_section_header:hover:not(.active_section){
+    text-decoration: underline;
+    cursor:pointer;
+}
+
+/* not quite sure if the currently active, or the NOT active section should have a grey header */
+.hp_section_header.active_section > div{
+    color:grey;
+}
+/* make header text vertically centered */
+.hp_section_header > div{
+    position:relative;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+.hp_section{
+    padding-top: 3vh;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+.hp_section:not(.active_section){
+    display:none;
+}
+
+.integrated_hp_timeline_entry{
+    padding-left: 2vh;
+    margin-left: 2vh;
+    padding-bottom:3vh;
+    border-left:1px solid black;
+    font-size:2vh;
+}
+.integrated_hp_timeline_entry > span{
+    position:absolute;
+    height:1vh;
+    width:1vh;
+    background-color:black;
+    transform:translate( calc(-50% - 2vh),calc( 1vh - 25%) /* font-size*0.5 - <fraction of height of itself that makes it look like it was centered on the line> */);
+    border-radius: 50%;
+}
+
+#fgfuture_content p{
+    margin-right:3vh;
+}
+
+/* for conversation style Q&A */
+#fgfuture_content .conversations{
+    margin-left:0;
+}
+.conversation_container{
+    display:grid;
+    width:100%;
+    height:auto;
+    grid-template-columns: 2fr 1fr 2fr;
+    grid-template-rows: auto auto;
+}
+.conversation_left{
+    grid-area: 1 / 1 / 2 / 3;
+}
+.conversation_right{
+    grid-area: 2 / 2 / 3 / 4;
+    margin-bottom: 3vh;
+}
+.conversation_right::before{
+    content: "A: ";
+}
+.conversation_left:not(.no_question)::before{
+    content: "Q: ";
+}
+.conversation_left,.conversation_right{
+    height:auto;
+    border-radius: 1vh;
+    border:1px solid black;
+    margin:1vh;
+    padding:1vh;
+    background-color: white;
+    text-align: justify;
+}

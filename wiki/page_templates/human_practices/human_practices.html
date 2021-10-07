@@ -32,21 +32,31 @@
             <!--Actual content-->
             <div id="fgfuture_content">
 
+                <style purpose="hp specific decoration">
+                    {{hp_style.css}}
+                </style>
+                <script purpose="integrated/hp_switcher">
+                    {{integrated_hp_panel_switcher.js}}
+                </script>
+
                 <!-- INSERT GOOGLE DOC CONTENT BELOW THIS LINE -->
-                {{hp_style.css}}
-                {{integrated_hp_panel_switcher.js}}
 
                 <div id="page_switcher">
-                    <div class="active_section" onclick="switch_hp('standard')">Human Practices</div>
-                    <div onclick="switch_hp('integrated')">Integrated HP</div>
+                    <div class="hp_section_header active_section" onclick="switch_hp('standard')">
+                        <div>Human Practices</div>
+                    </div>
+                    <div class="hp_section_header" onclick="switch_hp('integrated')">
+                        <div>Integrated HP</div>
+                    </div>
                 </div>
 
                 {{hp.html}}
 
                 {{integrated_hp.html}}
-            </div>
 
-            <!-- INSERT GOOGLE DOC CONTENT ABOVE THIS LINE -->
+                <!-- INSERT GOOGLE DOC CONTENT ABOVE THIS LINE -->
+                
+            </div>
 
         </div>
 

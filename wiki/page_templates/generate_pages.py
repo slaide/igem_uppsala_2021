@@ -11,7 +11,7 @@ for file in os.listdir("reference"):
         reference_file_list.add(file)
 
 def resolve_templates(input,folder):
-    output="{{IGEM_TopBar}}\n"
+    output=""
     for line in input:
         line=line.lstrip().rstrip()
         if line[0:2]=="{{":
@@ -19,7 +19,8 @@ def resolve_templates(input,folder):
             to_be_inserted_filename=line[2:-2]
 
             if to_be_inserted_filename=="IGEM_TopBar":
-                continue
+                #forwarded into actual code because it is an iGEM intrinsic template
+                output+="{{IGEM_TopBar}}\n"
             elif to_be_inserted_filename in reference_file_list:
                 output+="\n"+open("reference/"+to_be_inserted_filename,"r",encoding="utf-8").read()+"\n"
             else:
