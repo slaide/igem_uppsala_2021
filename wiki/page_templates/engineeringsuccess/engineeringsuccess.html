@@ -1,0 +1,124 @@
+{{template_top.html}}
+
+            <!-- page title-->
+            <div id=parallaxtop>
+                <div id="page_header">
+                    Engineering Success
+                </div>
+            </div>
+
+            <!--Sidebar-->
+            <div id="sidebar">
+                <div id="sticky_sidebar">
+                    <div id="sidebar_header">
+                        <a href="#pagecontent">
+                            Engineering Success
+                        </a>
+                    </div>
+                    <hr>
+                    <ul id="sidebar_list_container">
+                        <!-- template for a single entry in this list. the real entries will be added at runtime
+                            <li class="sidebar_list_section">
+                                <span id="span1">
+                                    <a href="#section1_link">
+                                        Lab Safety
+                                    </a>
+                                </span>
+                            </li>
+                        -->
+                    </ul>
+                </div>
+            </div>
+
+            <!--Actual content-->
+            <div id="fgfuture_content">
+
+                <!-- INSERT GOOGLE DOC CONTENT BELOW THIS LINE -->
+<div id="section0">
+
+    <h1>Cycle 1: Design of the strains </h1>
+
+    <h2>Design </h2>
+    <p>FGF2 is the limiting factor for cell growth in cellular agriculture companies, as it is so unstable and therefore expensive. In order to make cellular agriculture cheaper and more accessible, we decided we would try to express more stable and therefore cheaper variants of FGF2, we also tried to scale up production of FGF2 which would in turn also lower the cost. The team examined literature that had been published by research groups who had expressed FGF2 in different organisms and decided that E. coli would be the simplest to culture. We then looked at research papers which had improved protein stability and found two promising variants we wanted to test, namely hyperstable FGF2 (FGFhs) [1] and FGF chimera (FGFC) [2]. In addition, we also expressed FGF2 wild type and other mutant variants, which we had designed ourselves [3]. We designed FGF2 mutants which would have a stronger binding affinity to fibroblast growth factor receptors (FGFRs) which you can read about here. 
+    </p>
+    
+    <p>
+    Three FGF2 constructs were initially ordered from Integrated DNA Technologies (IDT) and were initially designed to be compatible with a non-inducible vector found in the iGEM distribution kit.
+    Previous studies on expression of FGF2 had all used inducible vectors, as it seemed that the FGF2 gene could potentially be toxic to the cell if its expression was unchecked, which is the case with non-inducible vectors. The vector was therefore changed to the inducible pET 28a+ vector, as pET vectors had previously been used for expression of FGF2 in E. coli [3]. Our FGF2 inserts which we ordered from IDT were not compatible with the new pET vector. In order to make them compatible, primers were used to add the correct restriction sequences to the 5’ and 3’  end of the FGF2 inserts through PCR. A terminator sequence was also added to one of the primers, for all of the constructs making a roughly 90 bp reverse primer. 
+    </p>
+    <p>
+    One of the problems highlighted in literature was that FGF2 has low solubility and stability [4]. It was therefore needed another protein which could increase the solubility of FGF2 and  contribute to its stability if possible. We would also need to design a construct which would allow this to be purified and removed so that we only end up with the FGF2 variants in the end. The protein we decided to use was called thioredoxin, and once FGF2 had been cleaved from thioredoxin, it could be extracted through a heparin column.  
+    </p>
+    
+    <h2>Build </h2>
+    <p>The desired plasmid construct would be inducible and have the T7 promoter, lac repressor, ribosome binding site (RBS), our inserted FGF2 sequence and a terminator in that order. One advantage with the pET promoter is the ability to  control the expression of FGF2 to avoid harming the E. coli strain. The FGF2 construct contained thioredoxin which was added to increase solubility of the protein, followed by a his tag, an enterokinase site and then the FGF2 protein variant. The histidine tag was used so that the protein could be separated with affinity chromatography and the enterokinase site’s purpose was so thioredoxin could be separated from FGF2. 
+    </p>
+    
+    <h2>Test</h2>
+    <p>Agarose gel electrophoresis of the PCR products proved that the PCR was successful for most of the FGF2 constructs, meaning that the primers had successfully attached to our inserts and added biobrick sites and terminators. However when trying to ligate the insert into the pET plasmid all groups remained unsuccessful after multiple attempts. In addition, some of the lab groups could not successfully add the terminator, shown by an absence of right sized bands on the agarose gel after multiple PCRs.
+    </p>
+    <h2>Learn </h2>
+    <p>The FGF2 constructs we ordered from IDT had restriction sites at the beginning and at the end of the construct, but there was no flanking DNA on one side of each restriction site. It was discovered that biobrick restriction sites need some unspecific flanking DNA sequence in order to be cut properly by endonucleases, therefore, new primers were ordered which met this criteria. Instead of ordering even larger primers than the 90 bp we had previously ordered, we ordered smaller primers to add flanking biobrick sites to the ends of the FGF2 sequences where we had added the terminator. All FGF2 inserts were successfully cloned into the plasmid, as proven by the sequencing results. Furthermore, it was discovered that some lab groups were more successful using another brand of DNA polymerase when performing the PCR, where they finally got bright and thicker bands after many failed attempts. 
+    </p>
+</div>
+<div id="section1">
+
+    <h1>Cycle 2: Induction of FGF2 expression</h1>
+    
+    <h2>Design</h2>
+    <p>Once the FGF2 sequence was ligated into the pET vector, the constructs were transformed into DH5 alpha cells for storage, this is as DH5 alpha is much less likely to mutate the plasmid DNA than other E.coli strains. Correct FGF2 sequences were inserted into DH5 alpha E.coli cells through transformation, as these are optimised for transformation efficiency. For the protein expression of the FGF2 variants, another E.coli cell line optimised for protein expression was used called BL21. 
+    </p>
+    
+    <h2>Build</h2>
+    <p>The DH5 alpha cells transformed our construct successfully which was proven by sequencing results. They were stored in a -80°C freezer so we could have access to the correct plasmid if we needed to transform into BL21 again. The plasmid constructs were then transformed into BL21 successfully, and confirmed with sequencing. 
+    </p>
+    
+    <h2>Test </h2>
+    <p>BL21 were induced with IPTG at varying concentrations (0.5 M, 0.1 M, 0.01 M) and the results were displayed on a gel. The gels did display bands of the correct size, though some were faint. Higher levels of IPTG did not necessarily produce thicker bands for each of the constructs, some of the constructs even had more expression at lower concentrations of IPTG. Furthermore, though the constructs were induced with the same level of IPTG, the visibility of the bands was not the same and varied considerably. 
+    </p>
+    
+    <h2>Learn </h2>
+    <p>Previous attempts at PCR had shown that certain products which were used for PCR had produced negative results. It was therefore theorised that there may be some success if we tried another brand of BL21 cells or expressed them at different temperatures or concentrations.
+    </p>
+    
+    <h2>Improve</h2>
+    <p>We therefore tried another brand of BL21 and the bands for FGF2 improved even when the experimental conditions for expression remained the same. Although we did not have time to test all variants with the new brand of BL21 cells, we did get expression on FGFC, FGFhs, the wild type and mutant although the bands were not extremely clear. The wild type FGF2 had the most clear expression. 
+    </p>
+</div>
+<div id="section2">
+    <h1>Cycle 3: Purification of FGF2 </h1>
+    
+    <h2>Design</h2>
+    <p>After we got bands on most of the variants of FGF2, we decided to use a histidine tag chromatography in order to purify them. This was initially performed at the university on a small scale and then upscaled at a large lab facility using 2.5 L bioreactors. To stop the protein from degrading once purified, we were advised to snap freeze it. We decided to lyse the cells in order to extract the protein and then use a spin concentrator to concentrate our protein in a protein lysis buffer (which is a simple buffer used in a french press machine which lyses cells). The next step would be to separate the thioredoxin from the FGF2 through using enterokinase. However, it was theorised that the FGF2 bound to thioredoxin would still be functional and cause mitogenesis, as a scientific paper had proven (3). To prove we had successfully purified FGF2, we decided to run the purified FGF2 wild type on a heparin column, with thioredoxin still attached. 
+    </p>
+    
+    <h2>Build</h2>
+    <p>Two variants, FGF2 and FGF2hs were upscaled at a large up-scaling facility as they had the clearest bands. The other variants were tested on a small scale.
+    </p>
+    
+    <h2>Test</h2>
+    <p>FGF2 wild type was the only variant which seemed to have successful expression on a large scale, FGF2hs did not produce bands of the right size. When FGF2 wild type was run on the his tag column it showed an elution peak at a high concentration, meaning that a protein had bound strongly to the column. The other variants were purified on a small scale and SDS-PAGE gels showed that 4 of the variants had bands of the right size after purification, meaning that a protein was of the same size as our FGF2 thioredoxin construct. 
+    </p>
+    
+    <h2>Reflection</h2>
+    <p>Our team went through a total of 3 engineering cycles over the course of our lab period, and went on to successfully express all FGF2 variants by the end of the summer. The problems we encountered in the lab were completely new to us, but were overcome through applying what we had learnt from the previous design cycle or through troubleshooting. In some cases when we were unsure about  the root cause of the problem , control experiments were conducted to test hypotheses and redirect our thinking to the right track. Through using the scientific method and eliminating possibilities, we were able to move on to the next steps of the design cycle, and improve our designs until we were eventually successful in producing all FGF constructs. 
+    </p>
+</div>
+<div id="section3">
+    <h1>References</h1> 
+    <p>1) Dvorak P, Bednar D, Vanacek P, Balek L, Eiselleova L, Stepankova V, Sebestova E, Kunova Bosakova M, Konecna Z, Mazurenko S, Kunka A, Vanova T, Zoufalova K, Chaloupkova R, Brezovsky J, Krejci P, Prokop Z, Dvorak P, Damborsky J. Computer-assisted engineering of hyperstable fibroblast growth factor 2. Biotechnol Bioeng. 2018 Apr;115(4):850-862. doi: 10.1002/bit.26531. Epub 2018 Jan 24. PMID: 29278409.
+    </p>
+    <p>2) Motomura K, Hagiwara A, Komi-Kuramochi A, Hanyu Y, Honda E, Suzuki M, Kimura M, Oki J, Asada M, Sakaguchi N, Nakayama F, Akashi M, Imamura T. An FGF1:FGF2 chimeric growth factor exhibits universal FGF receptor specificity, enhanced stability and augmented activity useful for epithelial proliferation and radioprotection. Biochim Biophys Acta. 2008 Dec;1780(12):1432-40. doi: 10.1016/j.bbagen.2008.08.001. Epub 2008 Aug 12. PMID: 18760333.
+    </p>
+    <p>3) Gasparian ME, Elistratov PA, Drize NI, Nifontova IN, Dolgikh DA, Kirpichnikov MP. Overexpression in Escherichia coli and purification of human fibroblast growth factor (FGF-2). Biochemistry (Mosc). 2009 Feb;74(2):221-5. doi: 10.1134/s000629790902014x. PMID: 19267679.
+    </p>
+    <p>4) Benington L, Rajan G, Locher C, Lim LY. Fibroblast Growth Factor 2-A Review of Stabilisation Approaches for Clinical Applications. Pharmaceutics. 2020 Jun 2;12(6):508. doi: 10.3390/pharmaceutics12060508. PMID: 32498439; PMCID: PMC7356611.
+    </p>
+    
+</div>
+
+                <!-- INSERT GOOGLE DOC CONTENT ABOVE THIS LINE -->
+
+            </div>
+
+{{template_bottom.html}}
