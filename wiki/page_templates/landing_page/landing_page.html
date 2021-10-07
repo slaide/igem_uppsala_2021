@@ -1,0 +1,711 @@
+{{IGEM_TopBar}}
+<html>
+    <head>
+        <!-- landing page specific styling -->
+        <script src="https://cdn.jsdelivr.net/npm/warpjs@1.0.8/dist/warp.js"></script>
+        <script purpose="js_mutable_svg">
+            {{landscape_embedded_svgs.js}}
+        </script>
+        <style real-href="remove_presets.css">
+            {{remove_igem_presets.css}}
+        </style>
+        <style purpose="global">
+            {{global_basic.css}}
+        </style>
+        <style real-href="main.css">
+            #fgfuture_main{
+                height:auto;
+                width:100%;
+                /*font used by igem on the wiki wrapper*/
+                font:sans-serif;
+                display:grid;
+                grid-template-columns: 100%;
+                grid-template-rows: 100vh auto 100vh 120vh /*100vh <- this is the height of one panel that was removed during development*/ 100vh /*100px 100px <- these two are the height of the scrolling elements that are technically part of this container, but they do not take up any space within that element (position is not relative)*/;
+                transition: 0.1s filter;
+            }
+
+            .reference_image,.real,.panel{
+                width:100%;
+                /*NEVER EVER CHANGE THIS TO 100%! height in percent of certain elements is broken on the igem page. ONLY VH WORKS CORRECTLY!*/
+                height:100vh;
+            }
+            .panel{
+                position:relative;
+            }
+            .panel > *{
+                position:absolute;
+                overflow:hidden;
+            }
+            /*applies to all divs with an onmouseenter event handler*/
+            #fgfuture_main div[onmouseenter]{
+                cursor:pointer;
+            }
+        </style>
+        <style real-href="main_1.css">
+            {{panel1.css}}
+        </style>
+        <style real-href="main_2.css">
+            {{panel2.css}}
+        </style>
+        <style real-href="main_3.css">
+            {{panel3.css}}
+        </style>
+        <style real-href="scrolling.css">
+            .scroll_thing{
+                position:fixed;
+                z-index:10;
+                bottom:0;
+                left:0;
+                height:10vh;
+                transform:translateX(-50%);
+                transition:0.2s opacity;
+            }
+            .scroll_thing > img{
+                position:relative;
+                height:80%;
+                width:auto;
+                left:50%;
+                top:50%;
+                transform:translate(-50%, -50%);
+                z-index:4;
+            }
+            #logo_animated{
+                display:block;
+                position:absolute;
+                height:calc( 60% / 5.5 );
+                transform-origin:center center;
+                transform:translate(-50%,-50%) scale(calc(var(--scale)*5.5));
+            }
+            #logo_animated > img{
+                height:100%;
+                width:auto;
+                left:50%;
+                position:relative;
+                transform:translateX(-50%);
+            }
+            #tagline{
+                position:absolute;
+                text-align: center;
+                max-width:20%;
+                font-size: 5vh;
+                left:50%;
+                top:50%;
+                transform:translate(-50%,-50%);
+            }
+            #logo_flask{
+                transform-origin:center center;
+                transition:0.2s;
+            }
+            .invisible{
+                opacity:0;
+            }
+            #team_steak{
+                position:absolute;
+                top:50%;
+                left:80%;/*50%+(20%/2)+(100%-20%)/2/2 = 60%+20% = 80%*/
+                transform-origin: center center;
+                transform: translate(-50%,-50%);
+                width:24%;/*(100%-20%) * 60% / 2*/
+            }
+            #team_steak > img{
+                width:100%;
+                height:100%;
+            }
+        </style>
+
+        <!-- cross-page loading styling and code -->
+        {{loading_screen.css}}
+        
+        <script purpose="general purpose functions">
+            function and(a,b){if(a){ if(b){return true;} } return false;}
+            function min(a,b){return (a<b)?a:b}
+            function max(a,b){return (a>b)?a:b}
+        </script>
+
+        <script purpose="on_load_code">
+            /*
+            clean up the existing stuff that is nothing but in the way of our page design (top bar with igem logo and navigation panel hidden behind a burger menu, and quite thick padding on the left and top of the screen)
+            */
+            const framerate=60 /*frames per second*/
+            const add_stuff_to_petri_dish_duration=2.7 /*seconds*/
+            const animation_steps=4 /*add tissue to plate, then add fgf2 to plate, then grow steak, then move steak*/
+
+            function hide_igem_bs(){
+                let element=document.getElementsByClassName("top_bar")[0]
+                if(element){
+                    element.classList.remove("top_bar")
+                    element.style="display:none;"
+                }
+                for(class_name of "clear extra_space".split(" ")){
+                    for(element of document.getElementsByClassName(class_name)){
+                        element.classList.remove(class_name)
+                    }
+                }
+                for(dropdown of document.getElementsByClassName("dropdown")){
+                    dropdown.style=""
+                }
+                let logo_container=document.getElementById("nav-menu-logo-container")
+                if(logo_container){
+                    logo_container.classList.remove("current_hub")
+                }
+                let navigation_bar_list=document.getElementById("navigation_bar_list")
+                if(navigation_bar_list){
+                    if(navigation_bar_list.style.getPropertyValue("display")=="none"){
+                        navigation_bar_list.style=undefined
+                    }
+                    for(child of navigation_bar_list.children){
+                        child.classList.remove("current_hub")
+                        child.classList.remove("current_page")
+                        child.style=undefined
+                    }
+                }
+                //remove annoying p element
+                let annoying_p=document.getElementById("fgfuture_main").nextElementSibling
+                while(annoying_p){
+                    if(annoying_p.tagName.toLowerCase()=="p"){
+                        annoying_p.style="display:none;"
+                        break
+                    }
+                    annoying_p=annoying_p.nextElementSibling
+                }
+            }
+                
+            function on_load(){
+                hide_igem_bs()
+
+                //after the page has loaded, provide some additional time for all of the javascript to run, then actually remove the loading screen overlay
+                setTimeout(()=>{
+                    hide_igem_bs()
+                    setTimeout(()=>{
+                        document.getElementById("loading_overlay").style="display:none;"
+                    },200)
+                },1000)
+
+                hide_meat_problem_areas()
+
+                var start_time=Date.now()/1000
+                var last_time=Date.now()/1000
+                function step_animations(){
+                    var current_time=Date.now()/1000
+
+                    let step=current_time-last_time
+                    let total_time=current_time-start_time
+
+                    tissue_animation(step)
+                    if(total_time>(add_stuff_to_petri_dish_duration)){
+                        fgf2_animation(step)
+                    }
+                    if(total_time>(add_stuff_to_petri_dish_duration*2)){
+                        steak_animation(step)
+                    }
+
+                    last_time=current_time
+
+                    requestAnimationFrame(step_animations)
+                }
+                requestAnimationFrame(step_animations)
+
+                highlight_current_topic_in_navbar()
+            }
+        </script>
+
+        <!-- cross-page navigation bar -->
+        <style real-href="navigation_bar">
+            {{navigation_bar.css}}
+        </style>
+        <script purpose="internal_open_close_navbar">
+            {{navigation_bar_landing_page.js}}
+        </script>
+    </head>
+    <body onload="on_load()" onresize="scale_steak()">
+        <!-- cross-page loading screen -->
+        <div id="loading_overlay">
+            <div id="loading_icon">
+                <img src="https://2021.igem.org/wiki/images/7/76/T--Uppsala--logo_animated.gif">
+                <div style="font-size:3vh;text-align:center;padding-top:4vh;font-family: sans-serif;">LOADING</div>
+            </div>
+        </div>
+        <!-- cross-page Navigation Menu with drop down -->
+        {{navigation_bar.html}}
+
+        <!-- landing page main content -->
+        <main id="fgfuture_main">
+            <div class="panel">
+                <div class="real" style="background-color:#7ab9ce;">
+                    <div id="grass_front"></div>
+                    <div id="grass_front_middle_fill"></div>
+                    <div id="cow_left"></div>
+                    <div id="grass_middle"></div>
+                    <div id="grass_middle_back_fill"></div>
+                    <div id="cow_right"></div>
+                    <div id="grass_back"></div>
+                    <div id="mountain_back"></div>
+                    <div id="mountain_middle"></div>
+                    <div id="mountain_front"></div>
+                </div>
+            </div>
+            <div class="intermediate_text header" style="background-color:#8cb29f;">
+                Current problems regarding meat production:
+            </div>
+            <div class="panel">
+                <div class="real" style="background-image: linear-gradient(#8cb29f,#CCE0DD);">
+                    <div id="steak_big"></div>
+
+                    <div id="co2_text" class="text_top_right">
+                        <div onmouseenter="show_greenhouse_gases()">Greenhouse Gas emissions</div>
+                        <div>
+                            Carbon dioxide and methane are byproducts from cattle farming and are also greenhouse gases (GHG). The biggest contributor of carbon dioxide is the deforestation for cattle farms. Methane is produced through cows digestion and waste and traps heat about 30 times more efficiently than carbon dioxide. 
+                        </div>
+                    </div>
+                    <div id="co_bubble_container" onmouseenter="show_greenhouse_gases()">
+                        <div id="co_bubble_path_container">
+                            <div class="co2_bubble" style="--delay:0s;">
+                                <img class="co_bubble_text" src='https://2021.igem.org/wiki/images/2/28/T--Uppsala--co2_font.svg' style="--delay:0s;" loading="lazy">
+                            </div>
+                            <div class="co4_bubble" style="--delay:1.5s;">
+                                <img class="co_bubble_text" src='https://2021.igem.org/wiki/images/2/25/T--Uppsala--co4_font.svg' style="--delay:1.5s;" loading="lazy">
+                            </div>
+                            <div class="co2_bubble" style="--delay:3s;">
+                                <img class="co_bubble_text" src='https://2021.igem.org/wiki/images/2/28/T--Uppsala--co2_font.svg' style="--delay:3s;" loading="lazy">
+                            </div>
+                            <div class="co4_bubble" style="--delay:4.5s;">
+                                <img class="co_bubble_text" src='https://2021.igem.org/wiki/images/2/25/T--Uppsala--co4_font.svg' style="--delay:4.5s;" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="deforestation_text" class="text_bottom_left">
+                        <div onmouseenter="show_deforestation()">Deforestation</div>
+                        <div>
+                            Cattle farming is the top reason for deforestation of the rainforest. During the last 30 years 780 000 square kilometers of forest have been deforested for the cause of cattle farming, resulting in a loss of approximately 2000 species. Deforestation also makes up half of Brazil’s carbon emissions.
+                        </div>
+                    </div>
+                    <div id="deforestation_container" onmouseenter="show_deforestation()">
+                        <div class="tree_container">
+                            <div class="tree"></div>
+                            <div class="fire_back"></div>
+                            <div class="fire_front"></div>
+                            <div class="tree_front_branch"></div>
+                        </div>
+                    </div>
+
+                    <div id="antibiotic_text" class="text_top_left">
+                        <div onmouseenter="show_antibiotic_resistance()">Antibiotic resistance</div>
+                        <div>
+                            Antibiotics are widely used in factory farming. The reckless use of it leads to dangerous bacteria evolving antibiotics-resistance which in turn can become a global threat for humans, such as zoonotic diseases.
+                        </div>
+                    </div>
+                    <div id="syringe_container" onmouseenter="show_antibiotic_resistance()">
+                        <div id="antibiotic_syringe_body"></div>
+                        <div id="antibiotic_syringe_top"></div>
+                        <div id="antibiotic_syringe_fluid"></div>
+                    </div>
+
+                    <div id="factory_text" class="text_bottom_right">
+                        <div onmouseenter="show_factory_farming()">Factory Farming</div>
+                        <div>
+                            Factory farming has a huge impact on land degradation, pollution, deforestation, and loss of biodiversity. The cattle is often not allowed to perform natural behaviour due to the effectivisation of raising them as fast as possible on as little space as possible.
+                        </div>
+                    </div>
+                    <div id="factory_container" onmouseenter="show_factory_farming()">
+                    </div>
+                    <script>
+                        let factory_container=document.getElementById("factory_container")
+                        for(let y=0;y<3;y++){
+                            for(let x=0;x<4;x++){
+                                let cow_head=document.createElement("div")
+                                cow_head.classList.add("cow_head")
+                                cow_head.style="--pos-x:"+x+";--pos-y:"+y+";"
+
+                                factory_container.appendChild(cow_head)
+                            }
+                        }
+                    </script>
+                </div>
+                <script purpose="hover_expand_problem_information">
+                    function show_greenhouse_gases(){
+                        let element=document.getElementById("co2_text")
+                        element.children[1].classList.remove("invisible")
+                        hide_meat_problem_areas("co2_text")
+                    }
+                    function show_deforestation(){
+                        let element=document.getElementById("deforestation_text")
+                        element.children[1].classList.remove("invisible")
+                        hide_meat_problem_areas("deforestation_text")
+                    }
+                    function show_factory_farming(){
+                        let element=document.getElementById("factory_text")
+                        element.children[1].classList.remove("invisible")
+                        hide_meat_problem_areas("factory_text")
+                    }
+                    function show_antibiotic_resistance(){
+                        let element=document.getElementById("antibiotic_text")
+                        element.children[1].classList.remove("invisible")
+                        hide_meat_problem_areas("antibiotic_text")
+                    }
+    
+                    function hide_meat_problem_areas(except){
+                        for (id of "co2_text deforestation_text antibiotic_text factory_text".split(" ")){
+                            if(id!=except){
+                                document.getElementById(id).children[1].classList.add("invisible")
+                            }
+                        }
+                    }
+                </script>
+            </div>
+            <div class="panel" style="background-color:#CCE0DD; height:auto;">
+                <div class="real" style="height:auto;">
+                    <div id="panel3_headline">SOLUTION: CULTIVATED MEAT</div>
+                    <div class="intermediate_text informative">
+                        this is how cultivated meat production works in a lab, right now:
+                    </div>
+                    <div class="steak_pipeline">
+                        <img class="whole_cow" src="https://2021.igem.org/wiki/images/0/03/T--Uppsala--cow.svg" loadling="lazy">
+                        <div class="tissue_container">
+                            <img class="cow_tissue" src="https://2021.igem.org/wiki/images/4/43/T--Uppsala--cow_tissue_fibroblast.svg" loadling="lazy">
+                        </div>
+                        <img class="petri_dish" src="https://2021.igem.org/wiki/images/f/fe/T--Uppsala--petridish_back.svg" loadling="lazy">
+                        <img class="petri_dish_front" src="https://2021.igem.org/wiki/images/0/08/T--Uppsala--petridish_front.svg" loadling="lazy">
+                        <img class="petri_dish_steak" src="https://2021.igem.org/wiki/images/2/22/T--Uppsala--steak_simple.svg" loadling="lazy">
+                        <div class="fgf2_container">
+                            <img class="fgf2_old" src="https://2021.igem.org/wiki/images/e/ec/T--Uppsala--FGF_old.svg" loadling="lazy">
+                        </div>
+                        <img class="fork_upper" src="https://2021.igem.org/wiki/images/f/f8/T--Uppsala--fork.svg">
+                    </div>
+                    <div class="intermediate_text informative">
+                        Our team tackles several challenges of this process.<br>
+                        The goal is to grow meat bigger, faster, more efficient.
+                    </div>
+                    <div class="steak_pipeline">
+                        <img class="whole_cow" src="https://2021.igem.org/wiki/images/0/03/T--Uppsala--cow.svg" loadling="lazy">
+                        <div class="tissue_container">
+                            <img class="cow_tissue" src="https://2021.igem.org/wiki/images/4/43/T--Uppsala--cow_tissue_fibroblast.svg" loadling="lazy">
+                        </div>
+                        <img class="petri_dish" src="https://2021.igem.org/wiki/images/f/fe/T--Uppsala--petridish_back.svg" loadling="lazy">
+                        <img class="petri_dish_front" src="https://2021.igem.org/wiki/images/0/08/T--Uppsala--petridish_front.svg" loadling="lazy">
+                        <img class="petri_dish_steak" src="https://2021.igem.org/wiki/images/2/22/T--Uppsala--steak_simple.svg" loadling="lazy">
+                        <div class="fgf2_container">
+                            <img class="fgf2_new" src="https://2021.igem.org/wiki/images/d/d7/T--Uppsala--FGF_new.svg" loadling="lazy">
+                        </div>
+                        <img class="fork_lower" src="https://2021.igem.org/wiki/images/f/f8/T--Uppsala--fork.svg">
+                    </div>
+                    <script purpose="panel_3_movement_animations">
+                        const svg_namespace="http://www.w3.org/2000/svg"
+
+                        /* path for cow tissue and fgf2 protein */
+                        let svg=document.createElementNS(svg_namespace,"svg")
+                        let path=document.createElementNS(svg_namespace,"path")
+                        path.setAttribute("d","M0,1080c569.5-504.5,1420.5-468.5,1920,0")
+                        path.setAttribute("viewBox","0 0 1920.67 365.87")
+                        svg.appendChild(path)
+
+                        const total_path_length=path.getTotalLength()
+                        const default_delta=total_path_length/framerate/add_stuff_to_petri_dish_duration
+
+                        function at_percent_length(pl){
+                            return path.getPointAtLength(total_path_length*pl/100)
+                        }
+                        let base_y=at_percent_length(0).y
+                        let max_height=base_y-at_percent_length(50).y
+
+                        var delta_time_fgf2=0
+                        var fgf2_delta=default_delta
+                        function fgf2_animation(step){
+                            //delta_time_fgf2+=fgf2_delta
+                            delta_time_fgf2+=total_path_length*step/add_stuff_to_petri_dish_duration
+
+                            let delta_length=(delta_time_fgf2/total_path_length)*100
+                            let point=at_percent_length(delta_length)
+
+                            let current_height=base_y-point.y
+
+                            let bottom=current_height/max_height*100
+                            
+                            if(delta_time_fgf2>total_path_length){
+                                delta_length=0
+                                bottom=0
+                                if(delta_time_fgf2>(animation_steps*total_path_length)){
+                                    delta_time_fgf2=0
+                                }
+                            }
+
+                            let attributes="--left:"+(100-delta_length)+"%;--bottom:"+bottom+"%;"
+                            document.getElementsByClassName("fgf2_old")[0].style=attributes
+                            document.getElementsByClassName("fgf2_new")[0].style=attributes
+                        }
+
+                        var delta_time_tissue=0
+                        var tissue_delta=default_delta
+                        function tissue_animation(step){
+                            //delta_time_tissue+=tissue_delta
+                            delta_time_tissue+=total_path_length*step/add_stuff_to_petri_dish_duration
+
+                            let delta_length=(delta_time_tissue/total_path_length)*100
+                            let point=at_percent_length(delta_length)
+
+                            let current_height=base_y-point.y
+
+                            let bottom=current_height/max_height*100
+                            
+                            if(delta_time_tissue>total_path_length){
+                                delta_length=0
+                                bottom=0
+                                if(delta_time_tissue>(animation_steps*total_path_length)){
+                                    delta_time_tissue=0
+                                }
+                            }
+
+                            let attributes="--right:"+(100-delta_length)+"%;--bottom:"+bottom+"%;"
+                            for(element of document.getElementsByClassName("cow_tissue")){
+                                element.style=attributes
+                            }
+                        }
+
+                        /*includes steak and fork animations!*/
+                        var delta_steak=0
+                        function steak_animation(step){
+                            //delta_steak+=1 for every animation step (number of animation frames changes accordingly)
+                            //delta_steak+=1/(framerate*add_stuff_to_petri_dish_duration)
+                            delta_steak+=step/add_stuff_to_petri_dish_duration
+
+                            const steak_scale_delay=0.2
+                            var steak_scale=max(min(delta_steak-steak_scale_delay,1-steak_scale_delay),0)
+                                
+                            //to normalize steak scale to 100% of max value no matter how many steps this takes
+
+                            const animation_steps_preceding_steak_movement=animation_steps/2 /*not quite sure why this formula. tested for 4 animation steps, where the first one is the cow tissue, the second is the fgf3, the third is the steak growth and the fourth is the steak movement*/
+                            const delta_steak_movement_threshold=animation_steps_preceding_steak_movement/1.5
+
+                            /* steak movement */
+                            var steak_movement_progress=0
+                            if(delta_steak>delta_steak_movement_threshold){
+                                steak_movement_progress=delta_steak-delta_steak_movement_threshold
+                                steak_movement_progress*=100
+
+                                if(delta_steak>animation_steps){
+                                    delta_steak=0
+                                }
+                            }
+
+                            const fork_angle=35
+
+                            var steak_point={
+                                x: Math.cos((90+fork_angle)/180*Math.PI)*steak_movement_progress,
+                                y: Math.sin((90+fork_angle)/180*Math.PI)*steak_movement_progress
+                            }
+
+                            let steaks=document.getElementsByClassName("petri_dish_steak")
+                            for(steak of steaks){
+                                steak.style.setProperty("--scale",steak_scale)
+                                steak.style.setProperty("--bottom",steak_point.y+"vh")
+                            }
+                            steaks[0].style.setProperty("--left",steak_point.x+"vh")
+                            steaks[1].style.setProperty("--left",-steak_point.x+"vh")
+
+                            /* fork movement */
+                            const animation_steps_preceding_fork_movement=1
+                            const delta_fork_movement_threshold=animation_steps_preceding_fork_movement
+
+                            var fork_movement_progress=0
+                            if(/*delta_steak>delta_fork_movement_threshold && */delta_steak<delta_steak_movement_threshold){
+                                fork_movement_progress=delta_steak-delta_fork_movement_threshold-(delta_steak_movement_threshold-delta_fork_movement_threshold)
+                                fork_movement_progress*=100
+
+                                var fork_point={
+                                    x: Math.cos((90+fork_angle)/180*Math.PI)*fork_movement_progress,
+                                    y: Math.sin((90+fork_angle)/180*Math.PI)*fork_movement_progress
+                                }
+                                fork_point.y*=-1
+                            }else if(delta_steak>delta_fork_movement_threshold){
+                                fork_movement_progress=delta_steak-delta_steak_movement_threshold
+                                fork_movement_progress*=100
+
+                                var fork_point={
+                                    x: Math.cos((90+fork_angle)/180*Math.PI)*fork_movement_progress,
+                                    y: Math.sin((90+fork_angle)/180*Math.PI)*fork_movement_progress
+                                }
+                            }
+
+                            if (fork_movement_progress<0){
+                                document.getElementsByClassName("fork_upper")[0].style.setProperty("transform","translateX("+-fork_point.x+"vh) translateY("+-fork_point.y+"vh)")
+                                document.getElementsByClassName("fork_lower")[0].style.setProperty("transform","translateX("+-fork_point.x+"vh) translateY("+-fork_point.y+"vh)")
+                            }else{
+                                document.getElementsByClassName("fork_upper")[0].style.setProperty("transform","translateX("+fork_point.x+"vh) translateY("+-fork_point.y+"vh)")
+                                document.getElementsByClassName("fork_lower")[0].style.setProperty("transform","translateX("+-fork_point.x+"vh) translateY("+-fork_point.y+"vh)")
+                            }
+                        }
+                    </script>
+                </div>
+            </div>
+            <div class="panel" style="background-color:#CCE0DD">
+                <div id="logo_animated" style="display:none;">
+                    <img src="https://2021.igem.org/wiki/images/5/53/T--Uppsala--cow_logo.svg"  loading="lazy">
+                </div>
+                <div id="tagline">
+                    We are Team Uppsala and we believe in a bright future.
+                </div>
+                <div id="team_steak">
+                    <img src="https://2021.igem.org/wiki/images/2/22/T--Uppsala--steak_simple.svg"  loading="lazy">
+                </div>
+            </div>
+
+            <!-- landing-page specific scrolling things at bottom of screen-->
+            <div class="scroll_thing">
+                <img src="https://2021.igem.org/wiki/images/e/ef/T--Uppsala--logo_cow_head.svg"  loading="lazy">
+            </div>
+            <div class="scroll_thing">
+                <img src="https://2021.igem.org/wiki/images/e/e9/T--Uppsala--logo_flask.svg" id="logo_flask"  loading="lazy">
+            </div>
+
+            <script purpose="scrolling_icons_screen_bottom">
+                function scroll_height_fraction(){
+                    /*damn this is bad*/
+                    const scroll_range=document.getElementById("fgfuture_main").clientHeight-window.innerHeight+16
+                    let current_scroll=document.body.scrollTop||document.documentElement.scrollTop||window.pageYOffset
+
+                    return current_scroll/scroll_range
+                }
+                let logo_animation_has_played=false
+                let animation_interval_object=null
+
+                function move_scrollable_elements(){
+                    let scroll_things=document.getElementsByClassName("scroll_thing")
+
+                    let current_fraction=scroll_height_fraction()
+
+                    let cow_left=min(current_fraction*100/2,50)
+                    scroll_things[0].style="left:"+cow_left+"%;"
+                    scroll_things[1].style="left:"+(100-cow_left)+"%;"
+
+                    /*transform flask from cow-counterpart in size and position into the upper half of the logo, with corresponding size and position*/
+                    if(current_fraction>0.95){
+                        //document.getElementById("logo_flask").style="transform:translate(-50%, -50%) translateY(-43px) scale(0.57);"/* -43px assumes container height of 100px */
+                        document.getElementById("logo_flask").style="transform:translate(-50%, -50%) translateY(-4.3vh) scale(0.57);"
+                    }else{
+                        document.getElementById("logo_flask").style=""
+                    }
+
+                    if(!animation_interval_object){if(current_fraction>0.999){
+                        logo_animation_has_played=false
+
+                        for(element of document.getElementsByClassName("scroll_thing")){
+                            element.classList.add("invisible")
+                        }
+
+                        const animation_duration=1 /*seconds*/ /*also not very precise due to the use of requestAnimationFrame*/
+                        const animation_delta=1/framerate
+
+                        setTimeout(()=>{
+                        for(element of document.getElementsByClassName("scroll_thing")){
+                            element.classList.remove("invisible")
+                        }},animation_duration*1500)
+
+                        /*number of animation frames*/
+                        const animation_frames=animation_duration*framerate
+                        let i=0
+
+                        animation_interval_object=setInterval(()=>requestAnimationFrame(function(){
+                            //20% is max width of text, head should be placed on left half of screen, half way between left edge of screen and left edge of text
+                            const left_start=0.5
+                            const left_target=(1-0.2)/4
+                            //should move up to 50% height of container
+                            const top_target=0.5
+                            const top_start=(window.innerHeight-100/2)/window.innerHeight
+
+                            let animation_fraction_elapsed=i/animation_frames
+                            let left=left_target-(left_target-left_start)*(1-animation_fraction_elapsed)
+                            let top=top_target-(top_target-top_start)*(1-animation_fraction_elapsed)
+
+                            const target_scale=1
+                            const start_scale=1/5.5
+                            let scale=start_scale+(target_scale-start_scale)*animation_fraction_elapsed*animation_fraction_elapsed
+                            document.getElementById("logo_animated").style="left:"+left*100+"%;"+"top:"+top*100+"vh;--scale:"+scale+";"
+
+                            i+=1
+
+                            if(i>animation_frames){
+                                clearInterval(animation_interval_object)
+                            }
+                        }),animation_delta*1000)
+                    }}
+                }
+
+                move_scrollable_elements()
+                window.addEventListener("scroll",()=>requestAnimationFrame(move_scrollable_elements))
+            </script>
+        </main>
+        <!-- landing page specific code used to scale some js-dependent stuff -->
+        <script purpose="rescaling_code">
+            function scale_steak(){
+                const my_height=919 /*not 1080, because browsers*/
+                const my_width=1920
+
+                const scale_fraction=window.innerWidth/my_width
+
+                let petri_dish_steaks=document.getElementsByClassName("petri_dish_steak")
+                let small_petri_dish_steak_scale=(31.705727770031103/100 * window.innerHeight / 1076.55 * 0.8 / 2)
+
+                petri_dish_steaks[0].style.setProperty("--steak-max-scale",small_petri_dish_steak_scale+"")
+                petri_dish_steaks[1].style.setProperty("--steak-max-scale",small_petri_dish_steak_scale*2+"")
+
+                let steak=document.getElementById("steak_big")
+                steak.style.setProperty("--steak-height", 580.06 *scale_fraction +"px")
+                steak.style.setProperty("--steak-width",1073 *scale_fraction +"px")
+
+                for(id of "#syringe_container,#antibiotic_syringe_body,#antibiotic_syringe_top,#antibiotic_syringe_fluid".split(",")){
+                    let element=document.getElementById(id.substr(1))
+
+                    element.style.setProperty("--syringe-top-height",140.66*scale_fraction+"px")
+                    element.style.setProperty("--syringe-top-width",629.17*scale_fraction+"px")
+
+                    element.style.setProperty("--syringe-body-height",262.02*scale_fraction+"px")
+                    element.style.setProperty("--syringe-body-width",1081.73*scale_fraction+"px")
+                }
+
+                let syringe_fluid=document.getElementById("antibiotic_syringe_fluid")
+                syringe_fluid.style.setProperty("--height",113.41*scale_fraction+"px")
+                syringe_fluid.style.setProperty("--width",232.48*scale_fraction+"px")
+
+                for(id of "deforestation_container,co_bubble_container,factory_container".split(",")){
+                    let element=document.getElementById(id)
+                    if(!element){
+                        console.log(id)
+                    }
+                    element.style.setProperty("transform","scale("+scale_fraction+")")
+                }
+            }
+            scale_steak()
+        </script>
+        <script purpose="grass_animation">
+            let animation_functions=[]
+            let disable_complex_animations=true
+            const cap_framerate=60
+
+            let grass_front=document.getElementById('grass_front')
+            grass_front.innerHTML=grass_front_svg
+
+            /* maybe precompute equally spaced states and cache them instead of recalculating them every time */
+            const warp_front = new Warp(grass_front.children[0])
+            let offset_front = 0
+            const offset_front_delta=1.25/cap_framerate
+            const amplitude=0.15
+            const phase_multiplier=0.035
+            function animate_front_grass(){
+                warp_front.transform(([ x, y ]) => [ x+amplitude*Math.sin(phase_multiplier*y+offset_front), y])
+                offset_front += offset_front_delta
+            }
+            animation_functions.push(animate_front_grass)
+
+            function animate_all(){
+                if (disable_complex_animations){
+                    return
+                }
+                for(fun of animation_functions){
+                    fun()
+                }
+            }
+
+            setInterval(animate_all,1000/cap_framerate)
+        </script>
+    </body>
+</html>

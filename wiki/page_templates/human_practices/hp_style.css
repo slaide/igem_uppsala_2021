@@ -118,12 +118,17 @@
 .conversation_left:not(.no_question)::before{
     content: "Q: ";
 }
+.conversation_right,.conversation_left.no_question{
+    background-color: white;
+}
+.conversation_left:not(.no_question){
+    background-color:#ddd;
+}
 .conversation_left,.conversation_right{
     height:auto;
     border-radius: 1vh;
     border:1px solid black;
     margin:1vh;
     padding:1vh;
-    background-color: white;
     text-align: justify;
 }

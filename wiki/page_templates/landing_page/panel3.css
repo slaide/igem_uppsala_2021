@@ -1,0 +1,144 @@
+
+#panel3_headline{
+    font-size: 5.5vw;
+    text-align: center;
+}
+.steak_pipeline{
+    position:relative;
+    width:100%;
+    height:50vh;
+    overflow:hidden;
+}
+
+.fork_upper,.fork_lower{                
+    bottom:40%;
+}
+.whole_cow,.petri_dish,.petri_dish_front,.petri_dish_steak{
+    top:60%;
+    position:absolute;
+
+    transform-origin:center center;
+
+    transform:translateY(-50%) translateX(-50%);
+
+    height:var(--height);
+    width:calc( var(--height) * var(--real-width) / var(--real-height));
+}
+.whole_cow{
+    --height:20vh;
+
+    --real-height:574.99px;
+    --real-width:927.92px;
+
+    left:10%;
+
+    z-index:2;
+
+    transform:translateY(-50%) translateX(-50%) scaleX(-1);
+}
+.petri_dish{
+    --height:15vh;
+
+    --real-height:559.38px;
+    --real-width:1182.37px;
+
+    left:50%;
+
+    z-index:0;
+}
+.petri_dish_front{
+    --real-height:362.23px;
+    --real-width:1183.05px;
+    
+    --height:calc( 15vh * 0.6475562229611356 ); /*15vh is the calcualted, 559.38px the real height of the full petri dish, of which this front piece should have the proportional height. 362.23px/559.38px=0.647556... */
+    
+    left:50%;
+
+    transform:translateY(-25%) translateX(-50%);
+
+    z-index:5;
+}
+.cow_tissue{
+    width:120px;
+    height:80px;
+
+    transform:translateX(50%) scale( calc( var(--bottom) *2 ));
+
+    --right:100%;
+    right:var(--right);
+}
+.fgf2_old,.fgf2_new{
+    width:100px;
+    height:90px;
+
+    transform:translateX(-50%) scale( calc( var(--bottom) *2 ));
+
+    --left:100%;
+    left:var(--left);
+}
+.cow_tissue,.fgf2_new,.fgf2_old{
+    transform-origin: top center;
+
+    position:absolute;
+
+    --bottom:0%;
+    /*bottom:var(--bottom);*/
+    top:calc(100% - var(--bottom));
+}
+.cow_tissue,.fgf2_new,.fgf2_old,.petri_dish_steak{
+    z-index:1;
+}
+.petri_dish_steak{
+    width:1076.55px;
+    height:572.77px;
+
+    left:50%;
+
+    --scale:0;
+    --bottom:0vh;
+    --left:0vh;
+
+    transform: translateY(calc(-50% - var(--bottom))) translateX(calc(-50% + var(--left))) scale(calc( var(--scale) * var(--steak-max-scale)));
+}
+.fgf2_container{
+    width:40%;
+
+    left:50%;
+}
+.tissue_container{
+    --left:10%;
+
+    width:calc( 50% - var(--left));
+
+    left:var(--left);
+}
+.fgf2_container,.tissue_container{
+    bottom:40%;
+    position:absolute;
+
+    height:calc(365.87px * 0.6);
+    height:60%;
+}
+.fork_upper,.fork_lower{
+    width:calc(100px * 1.2);
+    height:calc(260px * 1.2);
+    position:absolute;
+    
+    right:49vw;
+    z-index:6;
+    transform-origin:bottom left;
+    transform:translate(-200vw, -200vw)
+}
+
+.intermediate_text.header{
+    text-align: center;
+    font-size:5em;
+    font-family: sans-serif;
+    padding-top:5vh;
+    padding-bottom:10vh;
+}
+.intermediate_text.informative{
+    text-align: center;
+    font-size:2.5em;
+    font-family: sans-serif;
+}

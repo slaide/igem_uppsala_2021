@@ -15,7 +15,7 @@
     grid-template-rows: 100%;
     
     color:#6d1d23;
-
+    
     background-color: transparent;
 }
 
@@ -88,6 +88,8 @@ li.hovering_over > div.dropbtn{
     
     overflow:hidden;
     border-bottom: 1px solid black;
+    
+    background-color:#dce1de;
 }
 /* while either scrolling, or hovering mouse over the navigation menu area, show the menu overview instantly */
 #dropdown-container.scrolled_down,#dropdown-container.panel_opened{

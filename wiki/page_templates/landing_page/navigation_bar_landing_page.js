@@ -18,7 +18,7 @@ function close_navbar(){
 /* open/close navigation bar while scrolling */
 window.addEventListener("wheel",(ev)=>{
     let scroll_height=document.body.scrollTop||document.documentElement.scrollTop||window.pageYOffset
-    if(and(ev.deltaY>0,scroll_height>(window.innerHeight*0.5 + 16 /* scroll height has passed parallax top and login bar (which offsets parallax image) */))){
+    if(ev.deltaY>0){
         document.getElementById("dropdown-container").classList.remove("scrolled_down")
     }else{
         document.getElementById("dropdown-container").classList.add("scrolled_down")
