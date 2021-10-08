@@ -37,22 +37,39 @@
 #fgfuture_content p,#fgfuture_content ul,#fgfuture_content ol,#fgfuture_content div.content_section>div{
     margin-bottom: 0.5vh;
     margin-top: 0.5vh;
-    margin-left:1.5vh;
     
     padding-bottom: 2vh;
-
+    
     font-family: sans-serif;
     font-size: 1.5vh;
     
     line-height: 1.5;
 }
+/* all elements listed in main content sections (the usual text you see on template pages) */
+#fgfuture_content p,#fgfuture_content div.content_section>div,#fgfuture_content ol,#fgfuture_content ul{
+    margin-left:2.5vh;
+}
+/* text paragraphs that are contained within a 'list of h3s' (used a lot on hp page) */
+#fgfuture_content ol > div > p{
+    margin-left:2.5vh;
+}
 
-div.image{
+/* add padding on left of lists to make sure the li-element markers are contained within list area, not outside! */
+#fgfuture_content ul{
+    list-style-type: disc;
+    padding-left: 2vh;
+}
+#fgfuture_content ol{
+    list-style-type: decimal;
+    padding-left: 3vh;
+}
+
+#fgfuture_content div.image{
     /* make space for text around the image */
     display:inline-block;
     padding-bottom: 1vh;
 }
-#fgfuture_content div.image>p,div.image>p{
+#fgfuture_content div.image>p,#fgfuture_content div.image>p{
     font-size: 1.2vh;
     padding-top: 1vh;
     padding-left: 0.5vh;
@@ -76,10 +93,10 @@ div.image.right{
     float:right;
     padding-left:2vh;
 }
-div.quarter{
+#fgfuture_content div.quarter{
     width:25%;
 }
-div.half{
+#fgfuture_content div.half{
     width:50%;
 }
 
@@ -100,18 +117,18 @@ div.half{
 }
 
 /* For tables */
-table {
+#fgfuture_content table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
 }
 
-td, th {
+#fgfuture_content td, #fgfuture_content th {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
 }
 
-tr:nth-child(even) {
+#fgfuture_content tr:nth-child(even) {
     background-color: #dddddd;
 }

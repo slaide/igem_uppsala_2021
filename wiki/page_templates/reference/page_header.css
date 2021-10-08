@@ -8,16 +8,24 @@
 
 #parallaxtop {
     height: calc(50vh + 5vh + 16px);
-    
+
     background-attachment: fixed;
-    background-position: center calc( 5vh + 16px);
     background-repeat: no-repeat;
-    background-size: 100% 50vh;
-
+    
     overflow: hidden;
-
+    
     grid-row: 1 / 2;
     grid-column: 1 / 5;
+}
+/* some page header images may fit better if stretched to the correct size */
+#parallaxtop.stretch_background{
+    background-position: center calc( 5vh + 16px);
+    background-size: 100% 50vh;
+}
+/* some page header images may fit better if clipped instead of stretched */
+#parallaxtop:not(.stretch_background){
+    background-position: center;
+    background-size: cover;
 }
 
 #page_header{

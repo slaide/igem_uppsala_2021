@@ -33,31 +33,31 @@ schedule_day1=[
     {
         "speaker":"iGEM Projects",
         "topic":"INSIGHT INTO IGEM PROJECTS: Uppsala, Maastricht, Wageningen, Groningen",
-        "image":"",
+        "image":"https://2021.igem.org/wiki/images/2/20/T--Uppsala--igem_uu_adjusted_background.png",
         "time":["10.30"]
     },
     {
         "speaker":"Ruth Purcell",
         "topic":"PAPERS TO PATENTS: How Cellular Agriculture led me from Academia to Industry",
-        "image":"Ruth_Purcell.jpeg",
+        "image":"https://2021.igem.org/wiki/images/2/24/T--Uppsala--ruth_purcell.jpeg",
         time:["11.00"]
     },
     {
         "speaker":"Ola Thomsson",
         "topic":"SUSTAINABLE FARMING: a Complex Thing",
-        "image":"Ola_Thomsson.jpeg",
+        "image":"https://2021.igem.org/wiki/images/2/2f/T--Uppsala--ola_thomsson.jpeg",
         time:["11.30"]
     },
     {
         "speaker":"Tomas Linder",
         "topic":"BEYOND AGRICULTURE: How Edible Microorganisms Can Revolutionize the Global Food System",
-        "image":"Tomas_Linder.jpeg",
+        "image":"https://2021.igem.org/wiki/images/6/66/T--Uppsala--thomas_linder.jpeg",
         time:["12.00"]
     },
     {
         speaker:"Sophya Virtual World",
         topic:"Informal networking and socialization starts",
-        "image":"Sophya.png",
+        "image":"https://2021.igem.org/wiki/images/d/de/T--Uppsala--sophya.png",
         time:["12.45"]
     },
 ]
@@ -65,43 +65,43 @@ schedule_day2=[
     {
         "speaker":"Mark Post",
         "topic":"Paving the Way Towards a Sustainable Meat Industry with Cultivated Meat",
-        "image":"Mark_Post.jpeg",
+        "image":"https://2021.igem.org/wiki/images/0/02/T--Uppsala--mark_post.jpeg",
         time:["17.00"]
     },
     {
         "speaker":"Sara Petersson",
         "topic":"Intellectual Property in Agriculture",
-        "image":"Sara_Petersson.jpeg",
+        "image":"https://2021.igem.org/wiki/images/8/81/T--Uppsala--sara_petersson.jpeg",
         time:["17.30"]
     },
     {
         "speaker":"Michael Saad",
         "topic":"Perspectives for Cellular Aquaculture",
-        "image":"Michael_Saad.png",
+        "image":"https://2021.igem.org/wiki/images/1/1c/T--Uppsala--michael_saad.png",
         time:["18.00"]
     },
     {
-        "Speaker":"Paul Shapiro",
+        "speaker":"Paul Shapiro",
         "topic":"FERMENTING THE FUTURE: Turning Microbes into Meat",
-        "image":"Paul_Shapiro.jpeg",
+        "image":"https://2021.igem.org/wiki/images/2/27/T--Uppsala--paul_shapiro.jpeg",
         time:["19.00"]
     },
     {
-        "Speaker":"Irfan Tahir",
+        "speaker":"Irfan Tahir",
         "topic":"How Can We Make Cellular Agriculture More Accessible For Farmers?",
-        "image":"Irfan_Tahir.jpeg",
+        "image":"https://2021.igem.org/wiki/images/7/75/T--Uppsala--irfan_tahir.png",
         time:["19.30"]
     },
     {
         "speaker":"Abi Aspen Glencross",
         "topic":"From Lab Grown Meat to field of Wheat - and back again",
-        "image":"Abi_Glencross.png",
+        "image":"https://2021.igem.org/wiki/images/2/25/T--Uppsala--abi_glencross.png",
         time:["20.00"]
     },
     {
         speaker:"Sophya Virtual World",
         topic:"Informal networking and socialization starts",
-        "image":"Sophya.png",
+        "image":"https://2021.igem.org/wiki/images/d/de/T--Uppsala--sophya.png",
         time:["21.00"]
     },
 ]
