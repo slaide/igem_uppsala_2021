@@ -21,22 +21,26 @@
             <!--Actual content-->
             <div id="fgfuture_content">
 
+                {{webinar.css}}
+                
                 <!-- INSERT GOOGLE DOC CONTENT BELOW THIS LINE -->
                 
                 <div id="webinarlineup">
                     <h1>Webinar Lineup</h1>
-                    {{webinar.css}}
                     <div id="webinar_lineup_container">
-                        {{schedule.json}}
+                        <script purpose="schedule JSON setup">
+                            {{schedule.js}}
+                        </script>
 
-                        <div id="webinar_lineup_day1_head">Day 1 - 2021-08-29</div>
-                        <div id="webinar_lineup_day2_head">Day 2 - 2021-08-30</div>
-                        <div id="webinar_lineup_day1_content">
-                        </div>
-                        <div id="webinar_lineup_day2_content">
-                        </div>
+                        <div id="webinar_lineup_day1_head">Day 1<br>August, 29th-29</div>
+                        <div id="webinar_lineup_day2_head">Day 2<br>August, 30th</div>
 
-                        {{add_schedule_entries_to_dom.js}}
+                        <div id="webinar_lineup_day1_content"></div>
+                        <div id="webinar_lineup_day2_content"></div>
+                        
+                        <script purpose="add lineup entries to dom">
+                            {{add_schedule_entries_to_dom.js}}
+                        </script>
                     </div>
                 </div>
 
