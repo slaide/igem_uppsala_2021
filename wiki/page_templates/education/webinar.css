@@ -34,7 +34,8 @@
     padding-bottom:0.5vh;
 }
 .webinar_entry_speaker_image > img{
-    border-radius: 5vh;
+    /* the border radius is capped to be symmetrical, so this makes all images perfect circles at all display sizes (except sophya logo, which is pill shaped, which is fine as well) */
+    border-radius: 100vh;
 }
 .webinar_entry_image > img{
     height:100%;
