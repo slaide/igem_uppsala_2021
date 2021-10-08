@@ -1,0 +1,61 @@
+
+.scroll_thing{
+    position:fixed;
+    z-index:10;
+    bottom:0;
+    left:0;
+    height:10vh;
+    transform:translateX(-50%);
+    transition:0.2s opacity;
+}
+.scroll_thing > img{
+    position:relative;
+    height:80%;
+    width:auto;
+    left:50%;
+    top:50%;
+    transform:translate(-50%, -50%);
+    z-index:4;
+}
+#logo_animated{
+    display:block;
+    position:absolute;
+    height:calc( 60% / 5.5 );
+    transform-origin:center center;
+    transform:translate(-50%,-50%) scale(calc(var(--scale)*5.5));
+}
+#logo_animated > img{
+    height:100%;
+    width:auto;
+    left:50%;
+    position:relative;
+    transform:translateX(-50%);
+}
+#tagline{
+    position:absolute;
+    text-align: center;
+    max-width:20%;
+    font-size: 5vh;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+}
+#logo_flask{
+    transform-origin:center center;
+    transition:0.2s;
+}
+.invisible{
+    opacity:0;
+}
+#team_steak{
+    position:absolute;
+    top:50%;
+    left:80%;/*50%+(20%/2)+(100%-20%)/2/2 = 60%+20% = 80%*/
+    transform-origin: center center;
+    transform: translate(-50%,-50%);
+    width:24%;/*(100%-20%) * 60% / 2*/
+}
+#team_steak > img{
+    width:100%;
+    height:100%;
+}

@@ -40,61 +40,20 @@
 
         <!-- cross-page loading styling and code -->
         {{loading_screen.css}}
+        <script purpose="undo_igem_bs.js">
+            {{undo_igem_bs.js}}
+        </script>
         <script purpose="on_load_code">
             /*
             clean up the existing stuff that is nothing but in the way of our page design (top bar with igem logo and navigation panel hidden behind a burger menu, and quite thick padding on the left and top of the screen)
             */
 
-            function hide_igem_bs(){
-                let element=document.getElementsByClassName("top_bar")[0]
-                if(element){
-                    element.classList.remove("top_bar")
-                    element.style="display:none;"
-                }
-                for(class_name of "clear extra_space".split(" ")){
-                    for(element of document.getElementsByClassName(class_name)){
-                        element.classList.remove(class_name)
-                    }
-                }
-
-                let navigation_bar_list=document.getElementById("navigation_bar_list")
-                if(navigation_bar_list){
-                    if(navigation_bar_list.style.getPropertyValue("display")=="none"){
-                        navigation_bar_list.style=undefined
-                    }
-                    for(child of navigation_bar_list.children){
-                        child.classList.remove("current_hub")
-                        child.classList.remove("current_page")
-                        child.style=undefined
-                    }
-                }
-                for(dropdown of document.getElementsByClassName("dropdown")){
-                    dropdown.style=""
-                }
-                //disable the 'p' at the end of the column wrapper content which is just blank white space at the bottom of the page for some reason
-                let igem_column_wrappers=document.getElementsByClassName("igem_column_wrapper")
-                for(igem_column_wrapper of igem_column_wrappers){
-                    igem_column_wrapper.lastElementChild.style.display="none"
-                }
-                //disable a whole bunch of css styles applied to subelements of #content (which does NOT include the holy login bar)
-                let content_element=document.getElementById("content")
-                if(content_element){
-                    content_element.id=""
-                }
-                for(classname of ["igem_content_wrapper","igem_column_wrapper"]){
-                    let elements_in_class=document.getElementsByClassName(classname)
-                    for(element of elements_in_class){
-                        element.classList.remove(classname)
-                    }
-                }
-            }
-
             function on_load(){
-                hide_igem_bs()
+                undo_igem_bs()
 
                 //after the page has loaded, provide some additional time for all of the javascript to run, then actually remove the loading screen overlay
                 setTimeout(()=>{
-                    hide_igem_bs()
+                    undo_igem_bs()
                     setTimeout(()=>{
                         document.getElementById("loading_overlay").style="display:none;"
                     },200)

@@ -1,0 +1,75 @@
+
+<div class="real" style="background-image: linear-gradient(#8cb29f,#CCE0DD);">
+    <div id="steak_big"></div>
+
+    <div id="co2_text" class="text_top_right">
+        <div onmouseenter="show_greenhouse_gases()">Greenhouse Gas emissions</div>
+        <div>
+            Carbon dioxide and methane are byproducts from cattle farming and are also greenhouse gases (GHG). The biggest contributor of carbon dioxide is the deforestation for cattle farms. Methane is produced through cows digestion and waste and traps heat about 30 times more efficiently than carbon dioxide. 
+        </div>
+    </div>
+    <div id="co_bubble_container" onmouseenter="show_greenhouse_gases()">
+        <div id="co_bubble_path_container">
+            <div class="co2_bubble" style="--delay:0s;">
+                <img class="co_bubble_text" src='https://2021.igem.org/wiki/images/2/28/T--Uppsala--co2_font.svg' style="--delay:0s;" loading="lazy">
+            </div>
+            <div class="co4_bubble" style="--delay:1.5s;">
+                <img class="co_bubble_text" src='https://2021.igem.org/wiki/images/2/25/T--Uppsala--co4_font.svg' style="--delay:1.5s;" loading="lazy">
+            </div>
+            <div class="co2_bubble" style="--delay:3s;">
+                <img class="co_bubble_text" src='https://2021.igem.org/wiki/images/2/28/T--Uppsala--co2_font.svg' style="--delay:3s;" loading="lazy">
+            </div>
+            <div class="co4_bubble" style="--delay:4.5s;">
+                <img class="co_bubble_text" src='https://2021.igem.org/wiki/images/2/25/T--Uppsala--co4_font.svg' style="--delay:4.5s;" loading="lazy">
+            </div>
+        </div>
+    </div>
+
+    <div id="deforestation_text" class="text_bottom_left">
+        <div onmouseenter="show_deforestation()">Deforestation</div>
+        <div>
+            Cattle farming is the top reason for deforestation of the rainforest. During the last 30 years 780 000 square kilometers of forest have been deforested for the cause of cattle farming, resulting in a loss of approximately 2000 species. Deforestation also makes up half of Brazil’s carbon emissions.
+        </div>
+    </div>
+    <div id="deforestation_container" onmouseenter="show_deforestation()">
+        <div class="tree_container">
+            <div class="tree"></div>
+            <div class="fire_back"></div>
+            <div class="fire_front"></div>
+            <div class="tree_front_branch"></div>
+        </div>
+    </div>
+
+    <div id="antibiotic_text" class="text_top_left">
+        <div onmouseenter="show_antibiotic_resistance()">Antibiotic resistance</div>
+        <div>
+            Antibiotics are widely used in factory farming. The reckless use of it leads to dangerous bacteria evolving antibiotics-resistance which in turn can become a global threat for humans, such as zoonotic diseases.
+        </div>
+    </div>
+    <div id="syringe_container" onmouseenter="show_antibiotic_resistance()">
+        <div id="antibiotic_syringe_body"></div>
+        <div id="antibiotic_syringe_top"></div>
+        <div id="antibiotic_syringe_fluid"></div>
+    </div>
+
+    <div id="factory_text" class="text_bottom_right">
+        <div onmouseenter="show_factory_farming()">Factory Farming</div>
+        <div>
+            Factory farming has a huge impact on land degradation, pollution, deforestation, and loss of biodiversity. The cattle is often not allowed to perform natural behaviour due to the effectivisation of raising them as fast as possible on as little space as possible.
+        </div>
+    </div>
+    <div id="factory_container" onmouseenter="show_factory_farming()">
+    </div>
+    <script>
+        let factory_container=document.getElementById("factory_container")
+        for(let y=0;y<3;y++){
+            for(let x=0;x<4;x++){
+                let cow_head=document.createElement("div")
+                cow_head.classList.add("cow_head")
+                cow_head.style="--pos-x:"+x+";--pos-y:"+y+";"
+
+                factory_container.appendChild(cow_head)
+            }
+        }
+    </script>
+</div>
