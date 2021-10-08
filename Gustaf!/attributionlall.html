@@ -1,0 +1,2024 @@
+
+{{IGEM_TopBar}}
+
+<html lang="en">
+<head>
+<style real-href="remove_presets.css">
+.top_bar{
+    display:none;
+    height:0px;
+}
+.igem_column_wrapper{
+    width:auto;
+    max-width:none;
+}
+#globalWrapper{
+    padding-bottom:0;
+}
+.igem_content_wrapper .igem_column_wrapper a,.igem_content_wrapper .igem_column_wrapper a:hover{
+    font-weight: initial;
+    text-decoration-color: initial;
+    transition: initial;
+    -webkit-transition: initial;
+    -moz-transition: initial;
+    -ms-transition: initial;
+    -o-transition: initial;
+}
+h1,h2,h3,h4,h5,h6{
+    padding:0;
+    border:0;
+}
+
+</style>
+
+<style purpose="global">
+
+#globalWrapper {padding-bottom:0px;}
+
+@font-face {
+    font-family: UL;
+    src: url("https://2021.igem.org/wiki/images/5/56/T--Uppsala--Ubuntu-Light.ttf");
+}
+
+@font-face {
+    font-family: UM;
+    src: url("https://2021.igem.org/wiki/images/d/db/T--Uppsala--Ubuntu-Medium.ttf");
+}
+
+*{
+    margin:0;
+    border:0;
+    padding:0;
+    font-family: sans-serif;
+}
+
+a,a:visited{
+    text-decoration: none;
+    color: #6d1d23;
+}
+a:hover{
+    text-decoration: underline;
+    color: #426968;
+}
+
+body, html{
+    height: 100%;
+    width: 100%;
+    scroll-behavior: smooth;
+}
+
+hr{
+    height: 1px;
+    background-color: #6d1d23;
+    display: block;
+    width: auto;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+.blurred_image_overlay,.blurred_navigation_bar_open{
+    filter:blur(15px);
+}
+
+</style>
+
+<style purpose="header section and content container">
+#pagecontent{
+    display: grid;
+
+    grid-template-rows:calc(5vh + 50vh + 16px) auto;
+    grid-template-columns: 1fr 1fr 4fr 2fr;
+    background-color: #dce1de;
+}
+
+#parallaxtop {
+    height: calc(50vh + 5vh + 16px);
+    
+    background-attachment: fixed;
+    background-position: center calc( 5vh + 16px);
+    background-repeat: no-repeat;
+    background-size: 100% 50vh;
+
+    overflow: hidden;
+
+    grid-row: 1 / 2;
+    grid-column: 1 / 5;
+}
+
+#page_header{
+    display:inline-block;
+    position:relative;
+    width:auto;
+    height:auto;
+    left:50%;
+    top:calc( 50vh /2 + 5vh);
+    transform:translate(-50%,-50%);
+
+    text-align: center;
+    font-size: 6em;
+    color: #6d1d23;
+    font-family: UM, sans-serif;
+}
+
+</style>
+<style purpose="sidebar">
+#sidebar {
+    display:block;
+    position:relative;
+
+    width: 100%;
+
+    margin-top:5vh;
+    margin-left:1vh;
+    margin-right:1vh;
+
+    font-size: 2vh;
+    font-weight:600;
+
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+}
+#sticky_sidebar{
+    top:calc( 16px + 5vh);
+    position:sticky;
+}
+#sidebar_header{
+    padding-top:2vh;
+    font-size:3.5vh;
+    font-family: UM;
+}
+#sidebar a{
+    color:#6d1d23;
+    font-weight:bold;
+}
+#sidebar :hover{
+    color:#426968; 
+}
+#sidebar_list_container{
+    margin:0;
+    padding:0;
+    margin-left:1vw;
+    width:calc(100% - 1vw);
+    line-height: 1;
+}
+.sidebar_list_section{
+    display:block;
+    width:calc(100% - 2vh);
+    
+    color:#6d1d23;
+
+    margin-bottom: 2.2vh;
+
+    transition: all 0.2s;
+
+    font-family: UL;
+}
+.sidebar_list_section a{
+    font-size: 2vh;
+}
+.sidebar_list_section.current_section{
+    /* #6d1d23 */
+    border-left:1vh solid rgba(109,29,35,0.9);
+    padding-left:1vh;
+}
+.sidebar_list_section span:hover{
+    color:#426968;
+}
+.listsidebar{
+    margin-top: 0px;
+    padding:0;
+    width: 100%;
+    background-color: #dce1de;
+    height: 100%;
+}
+
+</style>
+
+<style purpose="text/main section and pre-defined styles for user-writable code">
+/* Actual content */
+#fgfuture_content{
+    background-color: #dce1de;
+
+    margin-top: 3.6vh;
+    padding-bottom: 5vh;
+
+    font-family: UL; 
+
+    grid-row: 2 / 3;
+    grid-column: 3 / 4;
+}
+
+#fgfuture_content h1,#fgfuture_content h2,#fgfuture_content h3{
+    color:#6d1d23;
+    font-family: UM, sans-serif;
+    margin-left: 0.5vh;
+}
+
+#fgfuture_content h1{
+    font-size: 3vh;
+    margin-top: 1.5vh;
+    margin-bottom: 1.5vh;
+}
+#fgfuture_content h2{
+    font-size: 2.4vh;
+    margin-top:1.2vh;
+    margin-bottom: 1.2vh;
+}
+#fgfuture_content h3{
+    font-size: 1.8vh;
+    margin-top: 0.9vh;
+    margin-bottom: 0.9vh;
+}
+
+/* styling applies to all text within the content area that is not a header */
+#fgfuture_content p,#fgfuture_content ul,#fgfuture_content ol,#fgfuture_content div.content_section>div{
+    margin-bottom: 0.5vh;
+    margin-top: 0.5vh;
+    margin-left:1.5vh;
+    
+    padding-bottom: 2vh;
+
+    font-family: sans-serif;
+    font-size: 1.5vh;
+    
+    line-height: 1.5;
+}
+
+div.image{
+    /* make space for text around the image */
+    display:inline-block;
+    padding-bottom: 1vh;
+}
+#fgfuture_content div.image>p,div.image>p{
+    font-size: 1.2vh;
+    padding-top: 1vh;
+    padding-left: 0.5vh;
+    padding-right: 0.5vh;
+    text-align: justify;
+}
+/* make image float so that text can wrap around it */
+div.image.left{
+    float:left;
+    padding-right:2vh;
+}
+div.image.right{
+    float:right;
+    padding-left:2vh;
+}
+div.image.left{
+    float:left;
+    padding-right:2vh;
+}
+div.image.right{
+    float:right;
+    padding-left:2vh;
+}
+div.quarter{
+    width:25%;
+}
+div.half{
+    width:50%;
+}
+
+/* make sure images have expected size (the actual size specifications apply to their container, not themself) */
+#fgfuture_content div > img{
+    width:100%;
+    height:auto;
+}
+
+/* NORMAL PARAGRAPH*/
+.midcontenttext >p{
+    font-weight:normal;
+    font-size:1em;
+    color:black;
+    line-height:1.8;
+    letter-spacing:0.05em;
+    margin-top: 3vh;
+}
+
+/* For tables */
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+</style>
+
+<style purpose="sponsors">
+.flexbox-container-socialmedia{
+    width: auto;
+    height: 25vh;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    background-color: #426968;
+    justify-content: center;
+}
+
+
+.flexbox-container-socialmedia > div > a > img:not(img.upplogo){
+    margin-left: 3vw;
+    margin-right: 3vw;
+    filter: grayscale(50%);
+    margin-top: 7vh;
+    width: 5vw;
+}
+
+.flexbox-container-socialmedia > div > a > img:not(img.upplogo):hover{
+    filter:grayscale(0);
+    filter: brightness(130%);
+    filter: contrast(150%);
+
+}
+
+img.upplogo{
+    width: 10vw;
+    margin-top: 3vh;
+    margin-left: 3vw;
+    margin-right: 3vw;
+}
+
+
+.grid-container-sponsors{
+    height: 30vh;
+    display: grid;
+    padding-left:5%;
+    padding-right:5%;
+    padding-bottom:5vh;
+    width: 90%;
+    row-gap: 20%;
+    column-gap: 5%;
+    grid-template-columns:repeat(6,1fr);
+    grid-template-rows:repeat(2,1fr);
+    overflow: hidden;
+    background-color: #426968;
+}
+
+.grid-container-sponsors > div{
+    width:auto;
+    height:auto;
+}
+.grid-container-sponsors > div > a > img{
+    width:80%;
+    height:auto;
+    filter: grayscale(50%);
+    position:relative;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+}
+
+.grid-container-sponsors > div > a > img:hover{
+    filter:grayscale(0);
+    filter: brightness(130%);
+    filter: contrast(150%);
+}
+
+
+</style>
+
+<script purpose="general purpose functions">
+function and(a,b){if(a){ if(b){return true;} } return false;}
+function min(a,b){return (a<b)?a:b}
+function max(a,b){return (a>b)?a:b}
+</script>
+
+<!-- cross-page navigation bar -->
+<style real-href="navigation_bar">
+/*navigation bar*/
+#navigation_bar{
+    top:16px;
+    height:5vh;
+
+    position:fixed;
+    width:100%;
+
+    z-index:9;
+
+    display:grid;
+    /* left grid element has height 100% (5vh), and to contain the logo, the width needs to be calculated from the image's aspect ratio, with a width of 87px and height of 65px, the rest is math */
+    --logo-width: calc(5vh * 87.1333 / 65.35 );
+    grid-template-columns: var(--logo-width) calc(100% - var(--logo-width));
+    grid-template-rows: 100%;
+    
+    color:#6d1d23;
+    
+    background-color: transparent;
+}
+
+/* a elements when not hovering*/
+div.dropbtn,.navigation_dropdown_entry,.igem_content_wrapper .igem_column_wrapper a{
+    font-family: sans-serif;
+    transition: 0.1s;
+    font-weight: normal;
+    text-decoration: none;
+}
+.dropdown_content{
+    line-height:1.2;
+}
+div.dropbtn{
+    cursor:default;
+    font-size: 2.5vh;
+}
+li.hovering_over > div.dropbtn{
+    font-weight: bold;
+}
+/* override default link highlighting */
+#navigation_bar a:not(:hover),#navigation_bar div:not(:hover){
+    text-decoration: none;
+}
+/* a elements when hovering (override color and underline) */
+#navigation_bar a:hover,#navigation_bar div.dropbtn:hover{
+    /* reset igem bs */
+    font-weight: bold;
+}
+#navigation_bar a:hover{
+    text-decoration: underline;
+}
+
+/* navigation bar logo on left */
+/* img container */
+#navigation_bar_logo_container{
+    height:calc(5vh - 1px);
+
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+}
+/* set own background color to still have background when rest of navigation bar vanishes while scrolling */
+#navigation_bar_logo_container,.logotype{
+    background-color: #dce1de;
+}
+/* actual logo inside container */
+#navigation_bar_logo_container > img{
+    height:100%;
+}
+
+/* container for dropdown menus on right side of navigation bar */
+#dropdown-container{
+    display:grid;
+    height:calc( 5vh - 1px);
+
+    grid-template-columns: repeat(6,1fr);
+    grid-template-rows: 100%;
+    
+    /* invisible by default. making it invisible happens gradually */
+    transition: opacity 0.3s;
+    opacity: 0;
+    
+    /* reset igem bs */
+    padding:0;
+    margin:0;
+    
+    /* then set my own padding */
+    padding-left: 10%;
+    padding-right: 10%;
+    
+    overflow:hidden;
+    border-bottom: 1px solid black;
+    
+    background-color:#dce1de;
+}
+/* while either scrolling, or hovering mouse over the navigation menu area, show the menu overview instantly */
+#dropdown-container.scrolled_down,#dropdown-container.panel_opened{
+    transition: opacity 0s;
+    opacity: 1;
+}
+/* only while the panel is open (via mouse hover) show the extended menus, which include the links to other pages */
+#dropdown-container.panel_opened{
+    overflow:visible;
+}
+
+/* when not hovering over the navigation area, make all links see-through, that are not headlines (i.e. only the menu entries) */
+#dropdown-container:not(.panel_opened) a:not(.dropbtn){
+    opacity:0;
+}
+
+/* dropdown menus (containers) */
+.dropdown{
+    display:block;
+    height:40vh;
+    background-color: #dce1de;
+    border-bottom:1px solid black;
+    overflow:visible;
+}
+/* add border on left and right side of navigation SUB-menus (not all around menu, which would include borders crossing through the navigation bar itself) */
+.dropdown:first-child .dropdown_content{
+    border-left:1px solid black;
+}
+.dropdown:last-child .dropdown_content{
+    border-right:1px solid black;
+}
+/* to disable mouse-hover javascript events on see-through links below navigation bar, effectively remove them (except not really) */
+#dropdown-container:not(.panel_opened) .dropdown_content{
+    display:none;
+}
+/* header of dropdown menus (containing name of each category) */
+.dropbtn{
+    display:block;
+    position:absolute;
+
+    text-decoration: none;
+
+    top:calc( 2.5vh);
+    transform:translateY(-50%);
+}
+/* override text color of all links inside dropdown menu when hovering over the menu */
+.dropdown.hovering_over a{
+    font-weight: bold;
+}
+/* container for links inside dropdown menu */
+.dropdown_content{
+    position:absolute;
+    /* .dropdown's 40vh height - 5vh offset from top*/
+    height:35vh;
+
+    font-size: 2vh;
+
+    top:5vh;
+
+    --logo-width: calc(5vh * 87.1333 / 65.35 );
+    width:calc( (100% - var(--logo-width) ) * 0.8 / 6);
+}
+/* individual link inside dropdown menu */
+.dropdown_content > a{
+    display:block;
+    padding-left:10%;
+    padding-bottom:1vh;
+    padding-top:1vh;
+}
+/* individual link inside dropdown menu on hover (underline) */
+.dropdown_content > a:hover{
+    text-decoration:underline;
+}
+
+/* highlighting of current topic in dropdown */
+.current_topic{
+    font-style: italic;
+    font-weight: bolder;
+    font-size: 2.2vh;
+}
+
+</style>
+<script purpose="internal_open_close_navbar">
+function open_navbar(){
+    document.getElementById("navigation_bar").classList.add("fully_open")
+    document.getElementById("pagecontent").classList.add("blurred_navigation_bar_open")
+    //this is broken. blurring the main element makes the scrolly things lose their position setting
+    for(element of document.getElementsByClassName("scroll_thing")){
+        element.style.setProperty("filter","blur(15px)")
+    }
+}
+function close_navbar(){
+    document.getElementById("navigation_bar").classList.remove("fully_open")
+    document.getElementById("pagecontent").classList.remove("blurred_navigation_bar_open")
+    //this is broken. blurring the main element makes the scrolly things lose their position setting
+    for(element of document.getElementsByClassName("scroll_thing")){
+        element.style.setProperty("filter","initial")
+    }
+}
+
+/* open/close navigation bar while scrolling */
+window.addEventListener("wheel",(ev)=>{
+    let scroll_height=document.body.scrollTop||document.documentElement.scrollTop||window.pageYOffset
+    if(and(ev.deltaY>0,scroll_height>(window.innerHeight*0.5 + 16 /* scroll height has passed parallax top and login bar (which offsets parallax image) */))){
+        document.getElementById("dropdown-container").classList.remove("scrolled_down")
+    }else{
+        document.getElementById("dropdown-container").classList.add("scrolled_down")
+    }
+})
+
+</script>
+
+<!-- cross-page loading styling and code -->
+<style purpose="loading screen">
+            #loading_overlay{
+                position:fixed;
+                height:calc( 100vh - 16px);
+                width:100%;
+                background-color: #d9dfda;
+                top:16px;
+                z-index:11;
+            }
+            #loading_icon{
+                height:50%;
+                width:auto;
+                position:absolute;
+                left:50%;
+                top:50%;
+                transform:translate(-50%,-50%);
+            }
+            #loading_icon > img{
+                height:100%;
+                width:auto;
+            }
+        </style>
+
+<script purpose="on_load_code">
+/*
+clean up the existing stuff that is nothing but in the way of our page design (top bar with igem logo and navigation panel hidden behind a burger menu, and quite thick padding on the left and top of the screen)
+*/
+
+function hide_igem_bs(){
+let element=document.getElementsByClassName("top_bar")[0]
+if(element){
+element.classList.remove("top_bar")
+element.style="display:none;"
+}
+for(class_name of "clear extra_space".split(" ")){
+for(element of document.getElementsByClassName(class_name)){
+element.classList.remove(class_name)
+}
+}
+
+let navigation_bar_list=document.getElementById("navigation_bar_list")
+if(navigation_bar_list){
+if(navigation_bar_list.style.getPropertyValue("display")=="none"){
+navigation_bar_list.style=undefined
+}
+for(child of navigation_bar_list.children){
+child.classList.remove("current_hub")
+child.classList.remove("current_page")
+child.style=undefined
+}
+}
+for(dropdown of document.getElementsByClassName("dropdown")){
+dropdown.style=""
+}
+//disable the 'p' at the end of the column wrapper content which is just blank white space at the bottom of the page for some reason
+let igem_column_wrappers=document.getElementsByClassName("igem_column_wrapper")
+for(igem_column_wrapper of igem_column_wrappers){
+igem_column_wrapper.lastElementChild.style.display="none"
+}
+//disable a whole bunch of css styles applied to subelements of #content (which does NOT include the holy login bar)
+let content_element=document.getElementById("content")
+if(content_element){
+content_element.id=""
+}
+for(classname of ["igem_content_wrapper","igem_column_wrapper"]){
+let elements_in_class=document.getElementsByClassName(classname)
+for(element of elements_in_class){
+element.classList.remove(classname)
+}
+}
+}
+
+function on_load(){
+hide_igem_bs()
+
+//after the page has loaded, provide some additional time for all of the javascript to run, then actually remove the loading screen overlay
+setTimeout(()=>{
+hide_igem_bs()
+setTimeout(()=>{
+document.getElementById("loading_overlay").style="display:none;"
+},200)
+},1000)
+
+/* get_section_offsets-specific reset */
+base=null;
+get_section_offsets()
+highlight_current_section_in_sidebar()
+window.addEventListener("scroll",highlight_current_section_in_sidebar)
+}
+</script>
+</head>
+<body onload="on_load()" onresize="on_load()">
+<!-- cross-page loading screen -->
+<div id="loading_overlay">
+<div id="loading_icon">
+<img src="https://2021.igem.org/wiki/images/7/76/T--Uppsala--logo_animated.gif">
+<div style="font-size:3vh;text-align:center;padding-top:4vh;font-family: sans-serif;">LOADING</div>
+</div>
+</div>
+<div id="image_overlay" class="invisible">
+<div style="height:100px;width:100px;background-color:red;float:right;" onclick="collapse_image()"></div>
+</div>
+<!-- cross-page Navigation Menu with drop down -->
+<div id="navigation_bar" onmouseenter="open_navbar()" onmouseleave="close_navbar()">
+    <a id="navigation_bar_logo_container" href='https://2021.igem.org/Team:Uppsala'>
+        <img class="logotype" src="https://2021.igem.org/wiki/images/thumb/1/13/T--Uppsala--logotransparent.png/320px-T--Uppsala--logotransparent.png">
+    </a>
+    <ul id="dropdown-container" class="scrolled_down">
+        <li class="dropdown">
+            <div class="dropbtn">Project</div>
+            <div class="dropdown_content">
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Description">Description</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Proof_Of_Concept">Proof of Concept</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Engineering">Engineering Success</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Contribution">Contribution</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Software">Software tool</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <div class="dropbtn">Experiments</div>
+            <div class="dropdown_content">
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Results">Results</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Model">Modelling</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Experiments">Protocols</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Notebook">Notebook</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Parts">Parts</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Safety">Safety</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <div class="dropbtn">Human Practice</div>
+            <div class="dropdown_content">
+                <a href="https://2021.igem.org/Team:Uppsala/Human_Practices">Overview</a>
+                <a href="https://2021.igem.org/Team:Uppsala/Human_Practices">Integrated Human Practice</a>
+                <a href="https://2021.igem.org/Team:Uppsala/Implementation">Proposed Implementation</a>
+                <a href="https://2021.igem.org/Team:Uppsala/Education">Education</a>
+                <a href="https://2021.igem.org/Team:Uppsala/Inclusivity">Inclusion</a>
+                <a href="https://2021.igem.org/Team:Uppsala/Sustainable">Sustainable Development</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <div class="dropbtn">People</div>
+            <div class="dropdown_content">
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Team">Team</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Collaborations">Collaboration</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Attributions">Attribution</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Attributions">Sponsors</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <div class="dropbtn">Videos</div>
+            <div class="dropdown_content">
+                <a href="https://2021.igem.org/Team:Uppsala/Description">Final Presentation</a>
+                <a href="https://www.youtube.com/watch?v=avKlAK5-1ks">Promotional Video</a>
+                <a href="https://2021.igem.org/Team:Uppsala/Model">Molecular Dynamics</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <div class="dropbtn">Judging</div>
+            <div class="dropdown_content">
+                <a class="navigation_dropdown_entry" href="#">Judging Form</a>
+                <a class="navigation_dropdown_entry" href="#">Awards</a>
+            </div>
+        </li>
+    </ul>
+    <script purpose="dropdown_open_close">
+        for(dropdown of document.getElementsByClassName("dropdown")){
+            dropdown.addEventListener("mouseenter",function(ev){
+                function remove_hovering_highlighting(ev){
+                    ev.target.removeEventListener("mouseleave",remove_hovering_highlighting)
+                    ev.target.classList.remove("hovering_over")
+                }
+                ev.target.classList.add("hovering_over")
+                ev.target.addEventListener("mouseleave",remove_hovering_highlighting)
+            })
+        }
+        document.getElementById("navigation_bar").addEventListener("mouseenter",(ev)=>{
+            ev.target.children[1].classList.add("panel_opened")
+            ev.target.children[1].classList.add("scrolled_down")
+        })
+        document.getElementById("navigation_bar").addEventListener("mouseleave",(ev)=>{
+            ev.target.children[1].classList.remove("panel_opened")
+        })
+    </script>
+    <script purpose="highlight_current_topic_in_navbar">
+        function highlight_current_topic_in_navbar(){
+            const match_path_text=window.location.pathName || ""
+            const match_path_length=match_path_text.length
+            for(element of document.getElementsByClassName("dropdown_content")){
+                for(child of element.children){
+                    //const match_path_text="/Team:Uppsala/Model"
+                    if(child.getAttribute("href").substr(-match_path_length)==match_path_text){
+                        child.classList.add("current_topic")
+                    }
+                }
+            }
+        }
+    </script>
+</div>
+
+
+<div id="pagecontent">
+<!-- page title-->
+
+
+
+<!-- page title-->
+<div id=parallaxtop style="background-image: url('http://parts.igem.org/wiki/images/9/9b/T--Uppsala--hp_header_image.png');"></div>
+
+<!--Sidebar-->
+<div id="sidebar">
+<div id="sticky_sidebar">
+<div id="sidebar_header">
+<a href="#pagecontent">
+Attributions
+</a>
+</div>
+<hr>
+<ul id="sidebar_list_container">
+<!-- template for a single entry in this list. the real entries will be added at runtime
+<li class="sidebar_list_section">
+<span id="span1">
+<a href="#section1_link">
+Lab Safety
+</a>
+</span>
+</li>
+-->
+</ul>
+</div>
+</div>
+
+<!--Actual content-->
+<div id="fgfuture_content">
+
+<!-- INSERT GOOGLE DOC CONTENT BELOW THIS LINE -->
+<div id="section0">
+<h1>Team Attributions</h1>
+
+<h2>Team Members</h2>
+<!-- for styling of the pictures-->
+<h3>Emelie Oscarsson</h3>
+<div class="image left quarter" style="width:5vw;">
+<img class="expandable_image" SIZE  src="https://2021.igem.org/wiki/images/6/69/T--Uppsala--emelie.jpg" style="border-radius:50%;">
+</div>
+<p>
+Designed the novel mutations to increase binding affinity. Lab coordinator for lab group 1. Partook in the overall planning of the lab experiments including protocol assembly, designing and ordering primers & troubleshooting problems during the wetlab. Planned and led the upscaling at Testa Centre. Constructed list of wet lab reagents and ensured availability of material. Member of sponsoring and wiki subgroups. Led the lab during the high school visit. Wrote the part registry pages.</p>
+
+
+<h3>Natalia Reynisdottir</h3>
+<div class="image left quarter" style="width:5vw;">
+    <img class="expandable_image" SIZE  src="https://2021.igem.org/wiki/images/8/8f/T--Uppsala--nataliawiki.jpg" style="border-radius:50%;">
+    </div>
+<p>Brought the initial idea to cover the field of cellular agriculture. Coordinator of the Human Practice and Sponsoring groups. Managed public relations for the project and led the emphasis on the human practice projects pursued. Drove collaborations for the team, both with other iGEM teams and external partners. Organized and led the Future Farming webinar. Ensured availability of material by arranging with lab coordinators.</p>
+
+<h3>Niklas Eckert Elfving</h3>
+<div class="image left quarter" style="width:5vw;">
+    <img class="expandable_image" SIZE  src="https://2021.igem.org/wiki/images/9/91/T--Uppsala--niklas.jpg" style="border-radius:50%;">
+    </div>
+<p>Worked in the modelling group and did extensive in-silico evaluation of mutations. Worked in the wet-lab as well as part of lab group 1. Served as a student TA during the high-schooler visit. Contributed extensively to the modelling page.</p>
+<br>
+<h3>Alexander blomlöf</h3>
+<div class="image left quarter" style="width:5vw;">
+    <img class="expandable_image" SIZE  src="https://2021.igem.org/wiki/images/a/af/T--Uppsala--Alexwiki.jpg" style="border-radius:50%;">
+    </div>
+<p>Created the standard side page together with the wiki team. Planned and coordinated 2 weeks in lab group 1. Did wet lab work. Designed primers together with coordinators. Wrote /Experiments. Served as a student TA during the high-schooler visit. Narrowed down mutations early on with pymol and ClusPro.</p>
+
+<h3>Subashini Kennedy</h3>
+<div class="image left quarter" style="width:5vw;">
+    <img class="expandable_image" SIZE  src="https://2021.igem.org/wiki/images/0/05/T--Uppsala--subashiniwikipic.JPG" style="border-radius:50%;">
+    </div>
+<p>Modelling group coordinator. Contributed in framing surveys, contacted the U-print team for 3D printing of FGF2 and receptor, helped with residue scanning mutations for filtering mutations, helped writing and reviewing the homology model, participated in the molecular dynamics calculations,helped gather speakers for webinar. Contributed extensively to the Human Practice WIKI pages, especially Integrated Human Practice.</p>
+
+<h3>Tove Jonsson</h3>
+<div class="image left quarter" style="width:5vw;">
+    <img class="expandable_image" SIZE  src="https://2021.igem.org/wiki/images/6/69/T--Uppsala--emelie.jpg" style="border-radius:50%;">
+    </div>
+<p>Worked actively in the wetlab. Member of Graphic design and Wiki team, contributed to the development of the wiki and with graphic design to events and social media. Designed the merch and helped plan the order.</p>
+<br>
+<h3>Daniel Lake</h3>
+<div class="image left quarter" style="width:5vw;">
+    <img class="expandable_image" SIZE  src="https://2021.igem.org/wiki/images/6/69/T--Uppsala--emelie.jpg" style="border-radius:50%;">
+    </div>
+<p>Lab coordinator for group 2. Designed and ordered primers, troubleshoot problems in the wet lab, member of the human practice group. Was part of the testa squad (for upscaling) and ran the heparin columns. Contributed to several WIKI pages including engineering success and sustainable development goals.</p>
+<br>
+<h3>Tanya Al-Khafaf</h3>
+<div class="image left quarter" style="width:5vw;">
+    <img class="expandable_image" SIZE  src="https://2021.igem.org/wiki/images/7/70/T--Uppsala--tanyawikipic.JPG" style="border-radius:50%;">
+    </div>
+<p>Contribution to the wetlabs and to contacting and reaching out to companies and organisations for sponsoring and funding. Member of subgroups Sponsoring and Social Media, involved in the content Cellag Monday, Company wednesday and farmers friday. Co-coordinator for lab group 2 , planned and designed protocols for Testa center upscaling and was a member of Testa squad</p>
+
+<h3>Andreea Carmen Ciobanu</h3>
+<div class="image left quarter" style="width:5vw;">
+    <img class="expandable_image" SIZE  src="https://2021.igem.org/wiki/images/e/e3/T--Uppsala--andreeawikipic.JPG" style="border-radius:50%;">
+    </div>
+<p>Part of wet lab 2. Did the modelling contribution of group 2 which involved making and evaluating a homology model, participated in the discussion for finding Novel mutations, worked on Bioreactor and cell growth model. Participated extensively in writing on the modelling page.Part of the graphical design team - helped with the creation of some of the graphics requested by the team members.I also did photoshoot for the team. In addition I tried to implement new strategies to raise the engagement in social media in order to make our educational content more accessible.</p>
+
+<h3>Bela Soares</h3>
+<div class="image left quarter" style="width:5vw;">
+    <img class="expandable_image" SIZE  src="https://2021.igem.org/wiki/images/6/6f/T--Uppsala--bellawikipic.jpeg" style="border-radius:50%;">
+    </div>
+<p>Member of the graphical design and social media group. Worked on templates mainly for social media, and also some graphics for the wiki page. Involved in making content for CellAg Monday and Farmers Friday. Did wet lab work as a member of group 2 and was a part of the Testa squad. Organised and wrote the benchling page for lab group 2. Helped in implementing strategies for better engagement in social media.</p>
+
+<h3>Diogo Filipe</h3>
+<div class="image left quarter" style="width:5vw;">
+    <img class="expandable_image" SIZE  src="https://2021.igem.org/wiki/images/e/e6/T--Uppsala--diogowikipic.JPG" style="border-radius:50%;">
+    </div>
+<p>Planned and coordinated the wet-lab work which included designing and performing the experiments, troubleshooting, and contacting experts and faculty members for advice and/or access to facilities/equipment. Collaborated in the planning and execution of the expert interviews that had a direct impact on the wet-lab approach of the project. Collaborated in the organization and execution of the Future Farming Webinar.</p>
+
+<h3>Maria Ovezik</h3>
+<div class="image left quarter" style="width:5vw;">
+    <img class="expandable_image" SIZE  src="https://2021.igem.org/wiki/images/9/92/T--Uppsala--mariawikipic.JPG" style="border-radius:50%;">
+    </div>
+<p>Contributed extensively to the wet-lab work as co-coordinator of group 3. Contributed and led the planning of the Future Farming webinar. Contribution in the beginning in trying to find what amino acids to mutate. </p>
+<br>
+<h3>Gustaf Hederoth</h3>
+<div class="image left quarter" style="width:5vw;">
+    <img class="expandable_image" SIZE  src="https://2021.igem.org/wiki/images/5/55/T--Uppsala--gustaf.jpg" style="border-radius:50%;">
+    </div>
+<p>Worked actively in the lab as part of lab-group 3. Was also a part of the Testa squad and helped scale-up our production. Was part of the wiki-team and contributed to the wiki layout.</p>
+<br>
+<h3>Caroline Normann</h3>
+<div class="image left quarter" style="width:5vw;">
+    <img class="expandable_image" SIZE  src="https://2021.igem.org/wiki/images/7/72/T--Uppsala--carro.jpg" style="border-radius:50%;">
+    </div>
+<p>Led the social media group and planned the content. Worked in the wet lab as part of group 3 and was also involved in the Sponsoring group and did outreach to companies.</p>
+<br>
+<h3>Milena Trabert</h3>
+<div class="image left quarter" style="width:5vw;">
+    <img class="expandable_image" SIZE  src="https://2021.igem.org/wiki/images/4/43/T--Uppsala--milenawiki.png" style="border-radius:50%;">
+    </div>
+<p>Directing, animating, editing, and helping with writing the promotional video. Coordinator of the Graphic design group, Graphic design for the wiki, Farmer's survey, and indiegogo page. wet lab work as co-coordinator of group 3. Helped on writing and reviewing the modeling page, most intensively the homology model and the bioreactor for cell growth. Planning and preparation of the (not conducted) mammalian cell culture experiments. helped with writing and filming the presentation video. Also made and animated the graphics for the presentation video.</p>
+
+<h3>Patrick Hennig</h3>
+<div class="image left quarter" style="width:5vw;">
+    <img class="expandable_image" SIZE  src="https://2021.igem.org/wiki/images/b/b8/T--Uppsala--patrickwikipic.JPG" style="border-radius:50%;">
+    </div>
+<p>Leader of wiki team: trained team in html/css/js (web development programming languages), lead technical development of the wiki (visual design was done in collaboration with graphical design and all members of both teams). Co-lead of modelling team: technical lead of supercomputer (uppmax) interaction, for which i programmed different things for linux bash, and other things in python. (code is summarized for optional software tool deliverable).</p>
+
+<h3>Aditi Bahadur</h3>
+<div class="image left quarter" style="width:5vw;">
+    <img class="expandable_image" SIZE  src="https://2021.igem.org/wiki/images/e/ef/T--Uppsala--aditipic.JPG" style="border-radius:50%;">
+    </div>
+<p>Did wet lab work, worked on the bioreactor and cell model along with participating in the discussions on the in-silico mutations and also did outreaches as a part of sponsoring for our wet lab work. Did the voice over for the project video in Hindi.</p>
+<br>
+<h3>Paarkavi Udayakumar</h3>
+<div class="image left quarter" style="width:5vw;">
+    <img class="expandable_image" SIZE  src="https://2021.igem.org/wiki/images/0/06/T--Uppsala--paarkaviwiki.JPG" style="border-radius:50%;">
+    </div>
+<p>Served as one of the project managers of the project. Worked on putting the team together. Facilitated communication internally and externally. Helped with some lab experiments and provided assistance to the sub-groups in terms of resources and communication.</p>
+<br>
+<h3>Sebastian Uggla</h3>
+<div class="image left quarter" style="width:5vw;">
+    <img class="expandable_image" SIZE  src="https://2021.igem.org/wiki/images/a/a2/T--Uppsala--sebbewiki.jpg" style="border-radius:50%;">
+    </div>
+<p>Served as one of the project managers of the project. Helped plan the work to do throughout the year and facilitated communication within the team as well as communication between the team and faculty.</p>
+
+<br>
+
+<h2> Supervisors </h2>
+
+
+
+<h3> Konrad Gras </h3> <i> PhD student at Department of Cell and Molecular Biology, Molecular Systems Biology </i>
+<div class="image left quarter" style="width:5vw;">
+    <img class="expandable_image" SIZE  src="https://2021.igem.org/wiki/images/c/ca/T--Uppsala--konradwikipic.JPG" style="border-radius:50%;">
+    </div>
+<p>
+As our teaching assistant, Konrad has always been there for us. He was present during our strategic meetings, guided us in the lab throughout summer and helped us get access to crucial pieces of equipment. He has been available on short notice and gone above and beyond his responsibilities in helping us throughout the year. He also helped review our project deliverables.
+</p>
+
+<h3> Margareta Krabbe </h3>  <i> Senior lecturer at Department of Biological Undergraduate Education  </i>
+<div class="image left quarter" style="width:5vw;">
+    <img class="expandable_image" SIZE  src="https://2021.igem.org/wiki/images/c/ca/T--Uppsala--konradwikipic.JPG" style="border-radius:50%;">
+    </div>
+<p>
+As our primary PI, Margareta has provided us with inspiration and her experiences of iGEM as well as her career within biotechnology. She also helped coordinate the communication with faculty and organize the practicalities of our work during summer within the department at our University. Margareta also coordinated the meeting with high-school students, with whom we collaborated towards our goals for integrated human practices.
+</p>
+<h3> Anthony Forster  </h3>  <i> Professor at Department of Cell and Molecular Biology, Molecular Biology  </i>
+<div class="image left quarter" style="width:5vw;">
+    <img class="expandable_image" SIZE  src="https://2021.igem.org/wiki/images/c/ca/T--Uppsala--konradwikipic.JPG" style="border-radius:50%;">
+    </div>
+<p>
+As our secondary PI, Anthony has given us very valuable input on our project throughout the year. He crucially helped us solve our lab-related issues on several occasions during summer, which also included providing us with multiple materials we required for the lab work over the summer, like the backbone of our vector and control plasmids. He also helped review our project deliverables.
+</p>
+</div>
+<div id="section2">
+<h1>Acknowledgements</h1>
+
+<p>
+Throughout the year we have received support from a number of amazing people and organizations that we want to highlight. We could not have done even half of what we accomplished without the support of these people.
+</p>
+
+<h2> General Support </h2>
+<h3> Biology Education Centre (UU)  </h3>
+<p>
+Thank you for providing our team with a laboratory and equipment. Special thanks to the head of the department, Henning Blom in being open for discussions on teams needs and work in regards to pandemic restrictions
+</p>
+
+<h3> Department for Cell and Molecular Biology (ICM) (UU) </h3>
+<p>
+Thank you for allowing us to use your equipment for certain experiments and for providing us with a very generous amount of funding for our project, without which a lot of resources would have been out of reach  for the project. Thank you for also supporting us by providing  expert opinions on the complex protocols we were to pursue.
+</p>
+
+<h3> iGEM Uppsala Association </h3>
+<p>
+Thank you for connecting us with previous iGEM Uppsala team members, doing a handover for our group and providing us with valuable advice.
+</p>
+
+<h3> Mikael Olsson </h3> <h6><i> Environmental chemist at Biomedical Center (BMC), BMC Intent </i></h6>
+<p>
+Thank you for giving us a biosafety and waste management tour of the campus and making sure the work we did during summer was as safe as possible.
+</p>
+
+<h3> Mats Omarin </h3> <h6><i>Department technician at Biology Education Centre </i></h6>
+<p>
+Thank you for answering practical questions about the lab, helping us move our equipment around and answering urgent calls about equipment failure.
+</p>
+
+<h3> Peter Lillhager </h3> <h6><i>Biomedical Analyst at Biology Education Centre </i></h6>
+<p>
+Thank you for giving us a practical safety tour of the lab, answering all our questions that arose during summer, helping us find our way in the lab and ordering most of our materials.
+</p>
+
+<h3> Afsaneh Ahmadzadeh </h3> <h6><i> Facilities manager at Biology Education Centre </i></h6>
+<p>
+Thank you for helping us to order our material throughout the summer
+</p>
+<h2> Research Support </h2>
+<h3> Chandra Sekhar Mandava </h3>  <h6><i> Researcher at Department of Cell and Molecular Biology, Molecular Biology </i></h6>
+<p>
+Thank you for your expert advice during the planning of the upscaling project as well as joining us in the Testa Center lab to guide us while using new equipment, for lab guidance at BMC after Testa upscaling to finalize the upscaling project and for lending us equipment that was needed to go forward with the lab work.
+</p>
+
+
+<h3> Carl-Henrik Heldin </h3> <h6><i> Senior professor at the Department of Medical Biochemistry and Microbiology, Biochemistry, and Cell- and Tumor Biology at Uppsala University </i></h6>
+
+<p>
+Thank you for providing essential feedback on our project idea while it was still being developed. His feedback was extremely valuable due to his extensive experience with growth factors, especially TGF-beta. We are incredibly thankful for the valuable insights that helped us to select which approaches would be more likely to succeed when improving a growth factor such as FGF-2.
+</p>
+
+<h3> Terese bergfors </h3> <h6><i> Researcher at Department of Cell and Molecular Biology, Structural Biology </i></h6>
+
+<p>
+Thank you for your tremendous support through our purification process, in terms of helping with the constant systems (for the lysis of cells), centrifuge, hi-trap heparin columns and the ÄKTA system. Thank you very much for letting us use these resources for our project.
+</p>
+
+<h3> Julia Griese </h3>  <h6><i> Research assistant at Department of Cell and Molecular Biology, Structural Biology  </i></h6>
+
+<p>
+Thank you for allowing us to use the equipment at the structural biology department.
+</p>
+
+<h3> Maria Selmer </h3> <h6><i> Professor at Department of Cell and Molecular Biology, Structural Biology</i></h6>
+<p>
+Thank you for allowing us to use the equipment at the structural biology department.
+</p>
+
+<h3> Shabbir Ahmad </h3> <h6><i> Researcher at Department of Cell and Molecular Biology, Structural Biology </i></h6>
+<p>
+Thank you for teaching several team members how to use the french press and centrifuge at the structural biology department.
+</p>
+
+<h3> Alžběta Cardová </h3> <h6><i> Business Development Manager at Enantis </i></h6>
+<p>
+Thank you for answering questions about the production of FGF2, one of the easier molecules to produce in their experience and offering to provide any guidance if needed in the future.
+</p>
+
+<h3> Martin Lord, Antonino Napoleone, Triinu Linkgreim </h3>
+<p>
+Thank you for the feedback on our scale-up plan for Testa center. Also, thanks for giving us many helpful recommendations on characterization assays - ELISA, SPR and ITC (Calorimetry)
+</p>
+
+<h3> Lena Claesson-Welsh </h3> <h6><i> Professor in Vascular Biology at Uppsala University </i></h6>
+<p>
+Thank you for kindly providing a cryovial of bovine aortic endothelial cells that would be used for testing the growth factors and for also providing a vial of commercial bovine FGF-2 to the team. This bovine FGF-2 vial would be used as a control on the cell proliferation assays that were planned. Lena also suggested Elin Sjöberg as an expert that could be interviewed by the team for advice on mammalian cell culture.
+</p>
+
+<h3> Nils Welsh </h3> <h6><i> Professor at the Department of Medical Cell Biology at Uppsala University
+</i></h6>
+<p>
+Thank you for allowing the team to store the bovine aortic endothelial cells in your -150 ºC freezer.
+</p>
+
+<h3> Letian Bao </h3>  <h6><i> PhD student at the Department of Cell and Molecular Biology at Uppsala University </i></h6>
+<p>
+Thank you for providing 2-mercaptoethanol to the team and for expert assistance, providing materials and lectures about chromoproteins during the high school visit.
+</p>
+
+
+<h3> Filipa Oliveira </h3> <h6><i> Scholarship holder at the Department of Immunology, Genetics and Pathology at Uppsala University </i></h6>
+<p>
+Thank you for the support in starting and maintaining the mammalian cell cultures.
+</p>
+
+<h3> Laura Rojas-Lopez </h3> <h6><i> PhD student at the Department of Cell and Molecular Biology at Uppsala </i></h6>
+<p>
+Thank you for your problem solving mindset in providing us the security of having access to FBS in case regulations would prevent us from receiving sponsored samples locally. Special thanks to the Prof. Staffan Svärd's Group for offering to provide us a bottle of FBS to use to culture our mammalian cells.
+</p>
+
+
+<h3> Testa Center </h3>
+
+<div class="image right quarter" style="width:10vw;">
+<img class="expandable_image" SIZE  src="https://2021.igem.org/wiki/images/d/d6/T--Uppsala--testacenterreal.png">
+</div>
+<p>
+Thank you for giving us a lot of help in the upscaling process of our project by letting us use their facilities. Adam Wegelius, Jesper Hedberg, Jens Hammarlund, Charlotte Brink and Chandra Sekhar Mandava at Testa gave us some really important hands on help with the equipment and expert advice, we could not have performed upscaling without you.
+<ul><h4>Special thanks to the following:</h4>
+
+<li> <b> Adam Wegelius </b> <i> Bioprocess specialist </i> for advising us in the lab and on our project, and teaching us how to use 5L bioreactors.</li>
+<li><b> Jesper Hedberg </b> <i> Director </i> for welcoming us to Testa Center, giving advice on our project and partaking in our Bioscaling event.</li>
+<li><b> Jens Hammarlund </b><i> Head of IT and Digital </i> for IT support, welcoming us at Testa Center and for promoting our project.</li>
+<li><b> Charlotte Brink </b> <i> Downstream Specialist </i> for showing us how to use an ÄKTA pure system for IMAC for large scale protein purification.</li>
+</ul>
+</p>
+<h2> Dry Lab Support </h2>
+<h3> Tobias Jakobsson (UU) </h3> <h6><i> Project Manager at Biology Education Centre</i></h6>
+<p>
+Thank you for providing IT support throughout our project, specifically for accessing the UPPMAX supercomputer cluster, Linux computers) and giving us access to computers and software.
+</p>
+
+<h3> Hugo Gutierrez de Teran </h3> <h6><i> Senior lecturer/Associate Professor at Department of Cell and Molecular Biology, Computational Biology and Bioinformatics </i></h6>
+<p>
+Thank you for introducing us to, and providing support for your software package ‘QresFEP/QligFEP’ and helping us to evaluate point mutations in FGF2. Our modelling team has greatly benefited from your expertise.
+</p>
+
+<h3> Florian van der Ent and Lucien Koenekoop </h3> <h6><i> PhD students at Department of Cell and Molecular Biology, Computational Biology and Bioinformatics </i></h6>
+<p>
+Thank you for helping us in setting up Q software, and also supporting us through our process of mutation evaluation.
+</p>
+
+<h3> Olle Eriksson </h3> <h6><i> Research engineer at U-Print, Uppsala university 3D printing facility </i></h6>
+<p>
+Thank you for helping us constructing a 3D print of FGF2 and its receptor
+</p>
+
+<h3> Henning Henschel </h3>  <h6><i> Researcher at the Department of Medicinal Chemistry
+</i></h6>
+<p>
+Thank you for helping us with the functions of Maestro to work with mutations.
+</p>
+
+<h3> Adam Malik </h3>  <h6><i> Post Doctoral Researcher at the Department of Immunology </i></h6>
+<p>
+Thank you for helping us with the mathematical model.
+</p>
+
+<h3> Alexandr Nasedkin </h3> <h6><i> Researcher at Department of Cell and Molecular Biology, Molecular Biophysics </i></h6>
+<p>
+Thank you for giving us feedback on our Molecular Dynamics approaches in the dry lab.
+</p>
+
+<h3> Alvin O’Sullivan </h3> <h6><i> University Lecturer at the Department of Game Design
+</i></h6>
+
+<p>
+Thank you for giving us a lecture on the foundational principles and theory of graphical design. Your advice on our logo and color scheme ideas was incredibly helpful to our project. For example, thanks to your tip we redesigned the logo by removing the nostrils to make it clearer in smaller formats.
+</p>
+
+<h2> Outreach, Education and PR </h2>
+<h3> New Harvest </h3>
+<div class="image right quarter" style="width:10vw">
+<img class="expandable_image" SIZE  src="https://2021.igem.org/wiki/images/e/ec/T--Uppsala--newharvestreal.png">
+</div>
+
+<p>
+New Harvest is a non-profit research institute within the field of cellular agriculture. They are true pioneers, being the first organization to support cultivated meat research and are probably still the most influential to date. We want to thank them for their valuable collaboration throughout the summer. Their support was immensely important for our project’s visibility and outreach opportunities.
+
+
+Not only did they support us with a number of connections and expert advice throughout our project, but they also provided support leading up to our Future Farming webinar. Their assistance encouraged us to include a virtual social networking component after presentations for a more informal engagement with attendees. They introduced us to an amazing new virtual world networking solution called Sophya world. This enabled us to host a social networking event, which would not have been possible without the support from New Harvest. 
+<ul><h4>Special thanks to the following individuals:</h4>
+<li><b>Breanna Duffy: </b> Research Operations and Outreach Director, for being our primary contact at New Harvest and for her continuous support and enthusiasm towards our project. This included connections with industry and academia. Also for valuable support using Sophya.</li>
+<li><b>Morgan Ziegelski: </b> Science Communication Intern, for assisting us with troubleshooting and hosting in Sophya. </li>
+<li><b>Yadira Tejeda-Saldana:</b> Research Collaborations Director, for offering us support.</li>
+<li><b>Isha Datar: </b> Executive Director, for all that she has done for the field of cellular agriculture and for believing in our project by connecting us with Breanna in our initial outreach.</li>
+</ul>
+</p>
+
+<h3> SciLifeLab </h3>
+<div class="image right quarter" style="width:10vw;">
+<img class="expandable_image" SIZE src="https://2021.igem.org/wiki/images/0/09/T--Uppsala--scilifeforreal.png">
+</div>
+<p>
+SciLifeLab is an institution for the advancement of molecular biosciences in Sweden. They are conveniently located right next to our laboratory at Uppsala Biomedical Centre. Their support allowed our team to use their modern conference room multiple times throughout the summer. It enabled us to aim high when hosting professional events. This includes the 2-day Future Farming webinar conference, DRIVHUSET interactive workshop with iGEM Stockholm, the virtual Prototyping event and a guest introduction lecture from VidiLab. Special thanks to Erika Bergqvist Erkstam, Deputy director Office for SciLifeLab in Uppsala, for the continuous support and for always making us feel welcome.
+
+</p>
+
+<h3> STUNS Life Science </h3>
+
+<div class="image right quarter" style="width:10vw;">
+<img class="expandable_image" width="1719" height="233"src="https://2021.igem.org/wiki/images/f/ff/T--Uppsala--stuns.png">
+</div>
+<p>
+STUNS is a foundation and life science innovation hub that actively works with connecting life sciences actors from everything from small startups to the public sector. We want to extend our thanks to managing director, Björn Arvidsson, and project leaders Fanny Blom and Anisha Khan for providing support, feedback and visibility to our project as well as giving us some valuable contacts. This included connecting us with researchers at SLU working on projects related to the Future Foods initiative.
+</p>
+
+<h3> SynthEthics </h3>
+<p>
+Thank you to Erik Hartman and Blanka Novák from SynthEthics for hosting an intriguing and well organized workshop in collaboration with iGEM Stockholm. This event gave us an insight into the ethical implications of our project and turned out very important to us when incorporating ethics into our project.
+</p>
+
+<h3> Protein Report </h3>
+<p>
+Special thanks to Naropa who connected us with Cellular Agriculture Australia, which provided us with one of the speakers for our Future Farming webinar. Protein Report also shared our content on their page and allowed us to mention our webinar on their event alert page, providing more visibility to our project. Protein Report is a platform dedicated to advancing public understanding of protein by advancing protein literacy for safer, and more sustainable food systems.
+</p>
+
+<h3> Alternative Protein Project Wageningen </h3>
+<p>
+Thank you to Aditya Vaze and Panagiotis Vlachogiannis at the Alternative protein project at Wageningen for being one of the first individuals that believed in our project and brainstormed on public outreach ideas. Thanks for spreading the word with other Alternative Protein Projects about our Future Farming webinar.
+</p>
+
+<h3> Good Food Institute </h3>
+<p>
+Thank you for showing our project much interest and responding well to giving us a valuable consultation about setting up an Alternative Protein Project at Uppsala University.
+</p>
+
+<h3>Uppsala University Newsletter</h3>
+<p>
+Thank you to the Uppsala university newsletter team and Cecilia Tiscornia for featuring our project in the 2021 May issue of the newsletter.
+</p>
+
+<h2> Integrated Human Practices </h2>
+<h3> Abi Aspen Glencross </h3> 
+<h6><i> Heritage grain farmer & Co-Founder of The Sustainable Food Story. Former "Lab Meat Lady"  </i></h6>
+<p>
+You are the spark that inspired us to host the Future Farming webinar. Thank you for sharing with us your intriguing journey that bridges from growing meat in the lab into transitioning to the field of wheats. See recording here. We admire your determination to advocate for a more sustainable way of providing future foods.
+</p>
+
+<h3> Irfan Tahir </h3> <h6><i> New Harvest research fellow and a PhD student at the Engineered Biomaterials Research Laboratory at the University of Vermont </i></h6>
+<p>
+Thank you for sharing with us your insight into how scientists could collaborate with farmers in the conversation surrounding the emergence of cellular agriculture and cultivated meat, first in our expert interview and then later during our Future Farming webinar.
+</p>
+
+<h3> Patrik Fernlund </h3> <h6><i> Swedish farmer </i></h6>
+<p>
+Thank you for sharing with us your insights as a Swedish farmer and allowing us to share our interview with you as a part of our Farmer Friday series on social media.
+</p>
+
+<h3> Bianca Le </h3>  <h6><i> Founder and Director of Cellular Agriculture Australia </i></h6>
+<p>
+Thank you for connecting us with Ruth Purcell, one of our Future Farming Webinar speakers.
+</p>
+<ul>
+<h3><i> Special thanks to the experts we got to interview: </i></h3>
+<li>Kerstin Ekelöf, <i> IP advisor at Uppsala University Innovation </i> </li>
+<li>Stefan Eriksson, <i> Associate Professor and Senior Lecturer in Research Ethics at Uppsala University </i></li>
+<li>Elin Sjöberg, <i> Researcher at Uppsala University </i> </li>
+<li>Ikigai Law, <i> Law firm based in India </i> </li>
+<li>Mia Keyser, <i> New Harvest Research Fellow </i> </li>
+</ul>
+</p>
+
+<p>
+Read the full description of each interview here.
+</p>
+
+<p>
+<ul>
+<h3><i> Special thanks to our Future Farming webinar speakers: </i> </h3>
+<li>Mark Post, CSO & Co-founder of Mosa Meat</li>
+<li>Ruth Purcell, PhD Student</li>
+<li>Sara Peterson, Patent Information Specialist </li>
+<li>Ola Thomsson</li>
+<li>Tomas Linder</li>
+<li>Michael Saad</li>
+</ul>
+</p>
+
+<p>
+Watch the full recordings and read descriptions of all speakers here.
+</p>
+<h2> Entrepreneurship </h2>
+<h3> Drivhuset Uppsala </h3>
+<p>
+Special thanks to Erik Tosterud for setting up the Stakeholder workshop with our team. Also, for meeting up with both our Human Practice and Sponsoring team to pitch our project. Also for giving us important and noticeable feedback on how to talk professionally.
+</p>
+
+<h3> Charlie Carpene </h3>  <h6><i> Fullstack web developer </i></h6>
+<p>
+Thank you for provisioning us with some of the best prototyping tools and skills by accepting our invitation to our “Bio Scaling” workshop.
+</p>
+
+<h3> ASPYR Biomanufacturing </h3>
+<p>
+Thank you Nikhil Bharadwaj and Krishnakumar Ramachandran for contributing towards portraying how a prototyping pipeline works in real life from your start-up experiences.
+</p>
+
+<h3> Leo Groenewegen </h3>  <h6><i> Co-Founder and CEO at CellulaREvolution </i></h6>
+<p>
+Thank you for giving us an insight into industry and explaining how your bioreactors perform continuous cell culturing.
+</p>
+
+<h3> Alice Anlind </h3>  <h6><i> Research engineer at Vidilab </i></h6>
+<p>
+Thank you for giving our team a presentation of the work done at Vidilab for industry exposure.
+</p>
+
+</div>
+<!-- nu sponsordelen-->
+
+<div id=section3>
+<h1>Sponsors</h1>
+
+<p>We want to extend a very special thanks to all our sponsors. Without their support, this project would not have been possible.</p>
+
+<h2 style="color:red"> kolla alla texter sen! och gör clickable+fix bilderna </h2>
+<p>
+<div class="image right quarter" style="width:10vw">
+<img class="expandable_image" width="1050" height="1050" src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
+
+</div>
+<h3>
+The Faculty of Science and Technology at Uppsala University
+</h3>
+For the funding allowing our team to participate in the competition.
+</p>
+<hr>
+<p>
+<div class="image right quarter" style="width:10vw">
+<img class="expandable_image" width="1050" height="1050" src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
+
+</div>
+<h3>
+Department of Cell and Molecular Biology (ICM), Uppsala University
+</h3>
+Especially the head of department, Bengt Persson, for supporting our team financially, allowing us to have the materials needed to conduct our experiments.
+</p>
+
+<hr>
+<!-- ny sponsor-->
+
+
+<div class="image right quarter" style="width:10vw">
+<img class="expandable_image" width="1050" height="1050" src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
+
+</div>
+<h3>
+UTN, Uppsala union for Engineering and Science students
+</h3>
+<p>
+The Union support allowed us to arrange the “SynBio-Hour” event for sharing our project with UTN students and also purchase team hoodies.
+</p>
+<hr>
+<!-- ny sponsor-->
+<div class="image right quarter" style="width:10vw">
+<img class="expandable_image" width="1050" height="1050" src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
+
+</div>
+<h3>
+Genscript fixa loggan
+</h3>
+<p>
+For providing us with financial support
+</p>
+<hr>
+<!-- ny sponsor-->
+<p>
+<div class="image right quarter" style="width:10vw">
+<img class="expandable_image" width="1050" height="1050" src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
+
+</div>
+<h3>
+Promega
+</h3>
+For providing us with restriction enzymes and other important lab material.
+</p>
+
+<hr>
+<!-- ny sponsor-->
+<p>
+<div class="image right quarter" style="width:10vw">
+<img class="expandable_image" width="1050" height="1050" src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
+
+</div>
+<h3>
+Eurofins
+</h3>
+For sponsoring us with an overnight sequencing kit that allowed us to validate our constructs.
+</p>
+<hr>
+<!-- ny sponsor-->
+<p>
+<div class="image right quarter" style="width:10vw">
+<img class="expandable_image" width="1050" height="1050" src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
+
+</div>
+<h3>
+BIORAD FIXA LOGGAN
+</h3>
+Merck sponsored us with reagents and antibiotics.
+</p>
+<hr>
+<!-- ny sponsor-->
+<p>
+<div class="image right quarter" style="width:10vw">
+<img class="expandable_image" width="1050" height="1050" src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
+
+</div>
+<h3>
+Vidilab AB
+</h3>
+For supporting our team financially.
+</p>
+<hr>
+<!-- ny sponsor-->
+<p>
+<div class="image right quarter" style="width:10vw">
+<img class="expandable_image" width="1050" height="1050" src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
+
+</div>
+<h3>
+BioNordika AB ,BYT BILD
+</h3>
+Genious provided us with their software making it possible to...
+</p>
+<hr>
+<!-- ny sponsor-->
+<p>
+<div class="image right quarter" style="width:10vw">
+<img class="expandable_image" width="1050" height="1050" src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
+
+</div>
+<h3>
+
+New England Biolabs
+</h3>
+New England Biolabs provided us with several products. Enabling efficient conduction of our experiments .
+</p>
+
+
+<hr>
+<!-- ny sponsor-->
+<p>
+<div class="image right quarter" style="width:10vw">
+<img class="expandable_image" width="1050" height="1050" src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
+
+</div>
+<h3>
+Santa Cruz
+</h3>
+text?
+</p>
+<hr>
+<!-- ny sponsor-->
+<p>
+<div class="image left quarter" style="width:10vw">
+<img class="expandable_image" width="1050" height="1050" src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
+
+</div>
+<h3>
+IDT
+</h3>
+IDT provided us with 20kb of nucleotides, which was used to synthesis a lot of our constructs.
+</p>
+<hr>
+<!-- ny sponsor-->
+<p>
+<div class="image right quarter" style="width:10vw">
+<img class="expandable_image" width="1050" height="1050" src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
+
+</div>
+
+<hr>
+<!-- ny sponsor-->
+<p>
+<div class="image right quarter" style="width:10vw">
+<img class="expandable_image" width="1050" height="1050" src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
+
+</div>
+<h3>
+SnapGene
+</h3>
+SnapGene software that was provided to our team by its developers allowed us to perform codon optimization and primer design, among other functions.
+</p>
+<hr>
+<!-- ny sponsor-->
+<p>
+<div class="image right quarter" style="width:10vw">
+<img class="expandable_image" width="1050" height="1050" src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
+
+</div>
+<h3>
+Geneious fixa bild
+</h3>
+
+</p>
+<hr>
+<!-- ny sponsor-->
+<p>
+<div class="image right quarter" style="width:10vw">
+<img class="expandable_image" width="1050" height="1050" src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
+
+</div>
+<h3>
+Benchling
+</h3>
+By being provided with Benchling software our team could easily share and save protocols and notebooks digitally which made our work more efficient.
+</p>
+<hr>
+<!-- ny sponsor-->
+<p>
+<div class="image right quarter" style="width:10vw">
+<img class="expandable_image" width="1050" height="1050" src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
+
+</div>
+<h3>
+Cytiva byt bild
+</h3>
+for...... fixa här
+</p>
+<hr>
+<!-- ny sponsor-->
+<p>
+<div class="image right quarter" style="width:10vw">
+<img class="expandable_image" width="1050" height="1050" src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
+
+</div>
+<h3>
+EIT Health fixa bilden
+</h3>
+for... fixa också
+</p>
+<hr>
+<!-- ny sponsor-->
+<p>
+<div class="image right quarter" style="width:10vw">
+<img class="expandable_image" width="1050" height="1050" src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
+
+</div>
+<h3>
+Crimson
+</h3>
+For supporting us with our own designed postcards making it possible for us to join the  postcards project. <a href="https://crimson.se/" style=color:black;>Crimson</a> is Scandinavia's leading professional digital photo lab and printing company.  With over four decades of experience, they produce <a href="https://crimson.se/produkter" style=color:black;>photo products</a> and photographic exhibitions to artists, organisations, and companies.
+</p>
+<hr>
+<!-- ny sponsor-->
+<p>
+<div class="image right quarter" style="width:10vw">
+<img class="expandable_image" width="1050" height="1050" src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
+
+</div>
+<h3>
+Signlabs
+</h3>
+For sponsoring us with stickers with our logotype on given out to the team and other contributors.
+</p>
+<hr>
+<!-- ny sponsor-->
+<p>
+<div class="image right quarter" style="width:10vw">
+<img class="expandable_image" width="1050" height="1050" src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
+
+</div>
+<h3>
+Campusbokhandeln
+</h3>
+Campusbokhandeln provided us with pens and notebooks that eased our project and was very appreciated by our team.
+</p>
+<hr>
+<!-- ny sponsor-->
+<p>
+<div class="image right quarter" style="width:10vw">
+<img class="expandable_image" width="1050" height="1050" src="https://images.carriercms.com/image/upload/w_350,h_350,c_scale,dpr_3.0,q_auto,f_auto/v1549711818/kidde/products/fire-extinguishers/kidde-fire-extinguisher-FX340GW-2.jpg">
+
+</div>
+<h3>
+Red bull
+</h3>
+For joining our volleyboll game and giving us energy in terms of drinks and spirit.
+</p>
+</div> <!-- slut sponsordelen-->
+
+<div id="section4">
+<h1>iGEM 2021 Team Impact Grant</h1>
+<p>
+We are immensely honored to have been one of the 90 ambitious teams that received the iGEM 2021 Team Impacts Grant. This first-of-its-kind initiative was supported by the Frederick Gardner Cottrell Foundation and provided selected iGEM projects the opportunity to take their project to the next level. Needless to say, the grant has been extremely important to execute our work and we are incredibly grateful that the iGEM association saw the value behind our project.
+We were proud to be one of the teams which fit the criteria of this grant. We are proud to be one of the teams which tackles climate change, innovative agricultural solutions and even potential reduction of future global pandemics.
+You can read more about the iGEM 2021 Team Impact Grant <a href="https://2021.igem.org/Teams/Grants/Impact">here</a>.
+
+</p>
+<h2>Crowd Funding via INDIEGOGO</h2>
+<div class="image middle wide">
+<img class="expandable_image" width="940" height="788" src="https://2021.igem.org/wiki/images/6/65/T--Uppsala--indiegogo.png">
+</div>
+
+<p>We used Indiegogo as our crowd funding website by selling merch in turn for donations towards our project. Special thanks to our Indiegogo “backers” that trusted in our mission.
+</p>
+
+</div>
+
+<!-- INSERT GOOGLE DOC CONTENT ABOVE THIS LINE -->
+
+</div>
+
+
+</div>
+
+<script purpose="derive sidebar entries from user-generated content">
+            //for each child of the 'INSERT CONTENT HERE' section
+            let fgfuture_content=document.getElementById("fgfuture_content")
+            for(let child_num=0;child_num<fgfuture_content.children.length;child_num++){
+                let element=fgfuture_content.children[child_num]
+                //check if first element is header element
+                let header=element.children[0]
+                if(header.tagName!="H1" || header.innerText.length==0){
+                    window.alert("section "+element.id+" must have an <h1>Headline</h1> as first line!")
+                }
+                //get header text of this section
+                header=header.innerText
+
+                //insert horizontal line between header and text for that section
+                let horizontal_seperator=document.createElement("hr")
+                if(element.children.length>1){
+                    element.insertBefore(horizontal_seperator,element.children[1])
+                }else{
+                    element.appendChild(horizontal_seperator)
+                }
+
+                //get the sidebar dom element
+                let sidebar_list_container=document.getElementById("sidebar_list_container")
+
+                //create the invisible span element at the beginning of the section that serves as 'sroll-to' anchor for the section
+                let link_span=document.createElement("span")
+                link_span.setAttribute("id","section"+child_num+"_link")
+                element.insertBefore(link_span,element.children[0])
+
+                //create sidebar entry for the current section/its header
+                let new_element=document.createElement("li")
+                let new_span=document.createElement("span")
+                let new_a=document.createElement("a")
+                new_a.setAttribute("href","#section"+child_num+"_link")
+                new_a.innerText=header
+                new_span.setAttribute("id","span"+child_num)
+                new_span.appendChild(new_a)
+                new_element.classList.add("sidebar_list_section")
+                new_element.appendChild(new_span)
+
+                //add created sidebar entry to the sidebar
+                sidebar_list_container.appendChild(new_element)
+            }
+        </script>
+
+
+<script purpose="hightlight currently viewed section">
+            let offsets={}
+            let base=null;
+            /* this code is executed on load */
+            function get_section_offsets(){
+                for(element of document.getElementById("fgfuture_content").children){
+                    if(!base){
+                        let offset=0;
+                        
+                        let current_element=element;
+                        while(current_element){
+                            offset+=current_element.offsetTop;
+                            current_element=current_element.offsetParent;
+                        }
+                        base=offset;
+                    }
+                    offsets[element.id]=base
+                    base+=element.clientHeight
+                }
+            }
+
+            function highlight_current_section_in_sidebar(){
+                let current_scroll=document.body.scrollTop||document.documentElement.scrollTop||window.pageYOffset
+
+                let found=false
+                let index=0
+                for(element in offsets){
+                    const subtracted_negative_screen_fraction=0.67
+                    const added_positive_screen_fraction=0.15
+
+                    let above_lower=(offsets[element]+document.getElementById(element).clientHeight-window.innerHeight*subtracted_negative_screen_fraction)>=current_scroll
+                    let below_upper=offsets[element]>=(current_scroll+window.innerHeight*added_positive_screen_fraction)
+                    let above_lowest=(offsets[element]+document.getElementById(element).clientHeight)<=current_scroll
+                    let is_last_element_in_list=(index==(Object.keys(offsets).length-1))
+
+                    if(and(above_lower, !found)||and(below_upper, above_lowest)||and(is_last_element_in_list, !found)){
+                        if(found){
+                            document.getElementById("sidebar_list_container").children[index-1].classList.remove("current_section")
+                        }
+                        found=element
+                        document.getElementById("sidebar_list_container").children[index].classList.add("current_section")
+                    }else{
+                        document.getElementById("sidebar_list_container").children[index].classList.remove("current_section")
+                    }
+                    index+=1
+                }
+            }
+        </script>
+
+
+<style purpose="popup">
+            .popup{
+                text-decoration: underline;
+                color: blue;
+            }
+            .popup > span:not(.popup_content){
+                cursor:pointer;
+            }
+            .popup_content{
+                cursor:default;
+                display:inline-block;
+                color:black;
+                position:fixed;
+                width:20vh;
+                margin-top:0.5vh;
+                padding:1vh;
+                transform:translateX(-50%);
+                text-align: justify;
+                z-index:10;
+                background-color:white;
+                border:0.2vh solid black;
+            }
+            .popup_content_header{
+                font-size: 2.2vh;
+            }
+            .popup_content{
+                font-size: 1.5vh;
+            }
+        </style>
+
+<script purpose="popup initiaiziation">
+            for(element of document.getElementsByClassName("popup")){
+                console.log(element.children)
+                element.children[1].style.setProperty("display","none")
+                element.children[1].innerHTML="<span class='popup_content_header'>"+element.children[0].innerText+"</span><br><br>"+element.children[1].innerHTML
+
+                function open_popup(ev){
+                    let element=ev.target
+                    if(!element.classList.contains("popup")){
+                        element=element.parentElement
+                    }
+
+                    if(element.getAttribute("vanish_timer")){
+                        clearTimeout(element.getAttribute("vanish_timer"))
+                    }
+
+                    element.setAttribute("popped_up",true)
+                    let element_bb=element.getBoundingClientRect()
+                    element.children[1].style.setProperty("display","initial")
+                    let left_offset=element_bb.x+(element_bb.width/2) // centering of popup happens in css
+                    left_offset=max(element.children[1].getBoundingClientRect().width/2,left_offset) // make sure it does not leave the screen area to the left for text that is close to the left border
+                    left_offset=min(window.innerWidth-(element.children[1].getBoundingClientRect().width/2),left_offset) // make sure the popup does not leave the screen area on the right
+                    //the min/max caps above could probably be omitted on the wiki page since the main text area has enough padding on the left and right, but better to be safe than sorry (could also be adjusted to make sure the popup does not leave the text area, bu i do not think that it would a visual issue if it did)
+                    element.children[1].style.setProperty("left",left_offset+"px")
+                    element.children[1].style.setProperty("top",element_bb.bottom+"px")
+                }
+                function close_popup(ev){
+                    let element=ev.target
+                    if(!element.classList.contains("popup")){
+                        element=element.parentElement
+                    }
+
+                    //small gap between link and popup content is not valid popup surface, to moving the mouse from the link to the popup content leaves the container area, which closes the popup
+                    //this timeout means that the popup window is closed if the mouse is not positioned within the container area within 250ms after it left the area, ergo the popup remains visible while the mouse moves over the gap between the link and the popup
+                    //and 250ms looks short enough to make it seem like the popup would still automatically vanish when the user leaves the popup area with the mouse actively, to move it somewhere else
+                    element.setAttribute("vanish_timer",setTimeout(
+                        ()=>{
+                            element.setAttribute("popped_up",false)
+                            element.children[1].style.setProperty("display","none")
+                        },250
+                    ))
+                }
+
+                element.addEventListener("mouseenter",open_popup)
+                element.addEventListener("mouseleave",close_popup)
+            }
+        </script>
+
+
+<script purpose="expand images">
+            let style_document=document.styleSheets[0].rules || document.styleSheets[0].cssRules
+            let image_shrink_duration=0
+            for (rule of style_document){
+                if(rule.selectorText=="content_slice"){
+                    width=window.innerWidth*rule.style.width.slice(0,-2)/100
+                }
+                if(rule.selectorText=="actualcontent"){
+                    max_height=window.innerHeight*rule.style.height.slice(0,-1)/100
+                }
+                if(rule.selectorText==".image_shrink"){
+                    image_shrink_duration=rule.style.getPropertyValue("animation-duration").slice(0,-1)*1000
+                }
+            }
+
+            for(element of document.getElementsByClassName("expandable_image")){
+                element.addEventListener("click",expand_image)
+            }
+
+            function expand_image(ev){
+                let image_element=ev.target
+                let image_overlay=document.getElementById("image_overlay")
+                image_overlay.classList.remove("invisible")
+
+                if(image_overlay.children.length==2){
+                    image_overlay.removeChild(image_overlay.lastChild)
+                }
+
+                let big_image=document.createElement("img")
+                big_image.setAttribute("src",image_element.src)
+                big_image.classList.add("overlay_image")
+
+                image_overlay.appendChild(big_image)
+
+                big_image.style.setProperty("--width",image_element.getBoundingClientRect().width+"px")
+                big_image.style.setProperty("--height",image_element.getBoundingClientRect().height+"px")
+                big_image.style.setProperty("--left",image_element.getBoundingClientRect().left+image_element.width/2+"px")
+                big_image.style.setProperty("--top",image_element.getBoundingClientRect().top+image_element.height/2+"px")
+
+                let final_width=image_element.getAttribute("width")*0.5
+                let final_height=image_element.getAttribute("height")*0.5
+
+                big_image.style.setProperty("--left-end",window.innerWidth/2+"px")
+                big_image.style.setProperty("--top-end",window.innerHeight/2+"px")
+
+                big_image.style.setProperty("--overlay-width",final_width+"px")
+                big_image.style.setProperty("--overlay-height",final_height+"px")
+
+                big_image.classList.add("image_transition")
+
+                image_element.classList.toggle("pseudo-invisible")
+
+                image_overlay.image_element=image_element
+                
+                document.getElementById("pagecontent").classList.add("blurred_image_overlay")
+            }
+            function collapse_image(ev){
+                let image_overlay=document.getElementById("image_overlay")
+
+                image_overlay.children[1].classList.remove("image_transition")
+                image_overlay.children[1].classList.add("image_shrink")
+
+                document.getElementById("pagecontent").classList.remove("blurred_image_overlay")
+
+                setTimeout(()=>{
+                    document.getElementById("image_overlay").classList.add("invisible")
+                    image_overlay.image_element.classList.toggle("pseudo-invisible")
+                },image_shrink_duration)
+            }
+        </script>
+
+<style purpose="expand images">
+            .expandable_image{
+                cursor:zoom-in;
+                z-index:1;
+            }
+            /*the actual overlay panel*/
+            #image_overlay{
+                position:fixed;
+
+                left:0;
+                /* top offset (which is subtracted from height) is height of igem bar and navigation bar*/
+                top:calc(16px + 5vh);
+                height:calc(100% - 16px - 5vh);
+                width:100%;
+
+                float:left;
+
+                background-color: rgba(255,255,255,0.0);
+                z-index: 11;
+            }
+            #image_overlay:not(.invisible){
+                display:block; 
+            }
+            /*the image displayed within the overlay panel*/
+            .overlay_image{
+                position:relative;
+                transform:translateX(-50%) translateY(-50%);
+                width:var(--overlay-width);
+                height:var(--overlay-height);
+                left:var(--left-end);
+                top:var(--top-end);
+            }
+            .image_transition{
+                animation-name:into_center;
+                animation-duration:0.4s;
+            }
+            .image_shrink{
+                animation-name:from_center;
+                animation-duration:0.4s;
+            }
+            .invisible{
+                display:none;
+            }
+            .pseudo-invisible{
+                opacity:0.0;
+            }
+            @keyframes into_center{
+                from{
+                    width:var(--width);
+                    height:var(--height);
+                    left:var(--left);
+                    top:var(--top);
+                }
+                to{
+                    width:var(--overlay-width);
+                    height:var(--overlay-height);
+                    left:var(--left-end);
+                    top:var(--top-end);
+                }
+            }
+            @keyframes from_center{
+                from{
+                    width:var(--overlay-width);
+                    height:var(--overlay-height);
+                    left:var(--left-end);
+                    top:var(--top-end);
+                }
+                to{
+                    width:var(--width);
+                    height:var(--height);
+                    left:var(--left);
+                    top:var(--top);
+                }
+            }
+            .one_vertical_image_padding{
+                height:1em;
+                width:100%;
+            }
+            img{
+                display:block;
+            }
+        </style>
+
+
+<!-- sponsor and social media footer -->
+<div class="flexbox-container-socialmedia">
+    <div>
+        <a href="https://www.facebook.com/iGEMUppsala">
+            <img src="https://2021.igem.org/wiki/images/e/eb/T--Uppsala--facebook.png">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.instagram.com/igem.uppsala/">
+            <img src="https://2021.igem.org/wiki/images/b/ba/T--Uppsala--instagram.png">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.uu.se/">
+            <img class="upplogo" src="https://shop.uu.se/shop/ws45/82845/files/UU_logo_vit.png">
+        </a>
+    </div>
+    <div>
+        <a href="mailto:info@igemuppsala.se">
+            <img src="https://2021.igem.org/wiki/images/1/1e/T--Uppsala--mail.png">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.linkedin.com/company/igem-uppsala/mycompany/">
+            <img src="https://2021.igem.org/wiki/images/b/bc/T--Uppsala--linkedin.png">
+        </a>
+    </div>
+</div>
+
+<div class="grid-container-sponsors">
+    <div>
+        <a href="https://www.utn.se/">
+            <img src="https://2021.igem.org/wiki/images/8/8b/T--Uppsala--utnlogo.png">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.genscript.com/">
+            <img src="http://2014.igem.org/wiki/images/5/5a/York_Genscript_logo-1-.png">
+        </a>
+    </div>
+    <div>
+        <a href="https://worldwide.promega.com/">
+            <img src="https://2020.igem.org/wiki/images/0/05/T--UofUppsala--pro.png">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.bio-rad.com/">
+                <img src="https://2021.igem.org/wiki/images/f/fc/T--Uppsala--bioradlogo.png">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.bionordika.se/">
+                <img src="https://2021.igem.org/wiki/images/2/29/T--Uppsala--bionordikalogo.png">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.merck.com/">
+            <img src="https://2021.igem.org/wiki/images/9/9a/T--Uppsala--mercklogo.png">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.scbt.com/home">
+            <img src="https://2021.igem.org/wiki/images/f/fa/T--Uppsala--scbtlogo.png">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.snapgene.com/">
+            <img src="https://2020.igem.org/wiki/images/8/8c/T--UofUppsala--snap.png">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.eurofins.se/">
+            <img src="https://2020.igem.org/wiki/images/a/a4/T--UofUppsala--euro.png">
+        </a>
+    </div>
+    <div>
+        <a href="https://new-harvest.org/">
+            <img src="https://2021.igem.org/wiki/images/e/ec/T--Uppsala--newharvestreal.png">
+        </a>
+    </div>
+    <div>
+        <a href="https://testacenter.com/">
+            <img src="https://2021.igem.org/wiki/images/d/d6/T--Uppsala--testacenterreal.png">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.cytivalifesciences.com/en/at">
+            <img src="https://2021.igem.org/wiki/images/d/d4/T--Uppsala--cytiva.jpeg">
+        </a>
+    </div>
+</div>
+
+</body>
+</html>
