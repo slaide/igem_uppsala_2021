@@ -1,6 +1,6 @@
 
 let animation_functions=[]
-let disable_complex_animations=true
+let disable_complex_animations=false
 const cap_framerate=60
 
 let grass_front=document.getElementById('grass_front')
