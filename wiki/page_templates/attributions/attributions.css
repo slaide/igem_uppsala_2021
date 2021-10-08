@@ -1,0 +1,13 @@
+<style purpose="picturesattributions">
+        .picface{
+            display:flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+        
+        .roundpic{
+            border-radius:50%
+        }
+
+</style>
