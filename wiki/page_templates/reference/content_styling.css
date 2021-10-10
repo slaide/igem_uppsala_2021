@@ -15,6 +15,7 @@
     color:#6d1d23;
     font-family: UM, sans-serif;
     margin-left: 0.5vh;
+    display:block;
 }
 
 #fgfuture_content h1{
@@ -64,6 +65,10 @@
     padding-left: 3vh;
 }
 
+#fgfuture_content div{
+    position:relative;
+    overflow:auto;
+}
 #fgfuture_content div.image{
     /* make space for text around the image */
     display:inline-block;
@@ -107,7 +112,7 @@ div.image.right{
 }
 
 /* NORMAL PARAGRAPH*/
-.midcontenttext >p{
+.midcontenttext > p{
     font-weight:normal;
     font-size:1em;
     color:black;
@@ -131,4 +136,17 @@ div.image.right{
 
 #fgfuture_content tr:nth-child(even) {
     background-color: #dddddd;
+}
+
+#fgfuture div.quote{
+
+}
+#fgfuture span.quote.text::before{
+    content:'" ';
+}
+#fgfuture span.quote.text::after{
+    content:' "';
+}
+#fgfuture span.quote.source::before{
+    content:' - ';
 }
