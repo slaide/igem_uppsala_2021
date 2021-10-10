@@ -4,6 +4,10 @@
             for(let child_num=0;child_num<fgfuture_content.children.length;child_num++){
                 let element=fgfuture_content.children[child_num]
                 //check if first element is header element
+                if(element.tagName=="SCRIPT" || element.tagName=="STYLE"){
+                    continue;
+                }
+                
                 let header=element.children[0]
                 if(header.tagName!="H1" || header.innerText.length==0){
                     window.alert("section "+element.id+" must have an <h1>Headline</h1> as first line!")
