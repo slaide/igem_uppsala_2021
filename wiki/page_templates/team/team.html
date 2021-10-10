@@ -1,671 +1,2033 @@
-{{template_top.html}}
 
- <!-- page title-->
- <div id=parallaxtop>
-    <div id="page_header">
-        Team
-    </div>
+{{IGEM_TopBar}}
+
+<html lang="en">
+<head>
+<style real-href="remove_presets.css">
+.top_bar{
+    display:none;
+    height:0px;
+}
+.igem_column_wrapper{
+    width:auto;
+    max-width:none;
+}
+#globalWrapper{
+    padding-bottom:0;
+}
+.igem_content_wrapper .igem_column_wrapper a,.igem_content_wrapper .igem_column_wrapper a:hover{
+    font-weight: initial;
+    text-decoration-color: initial;
+    transition: initial;
+    -webkit-transition: initial;
+    -moz-transition: initial;
+    -ms-transition: initial;
+    -o-transition: initial;
+}
+h1,h2,h3,h4,h5,h6{
+    padding:0;
+    border:0;
+}
+#content{
+    line-height:normal;
+}
+
+</style>
+
+<style purpose="global">
+
+#globalWrapper {padding-bottom:0px;}
+
+@font-face {
+    font-family: UL;
+    src: url("https://2021.igem.org/wiki/images/5/56/T--Uppsala--Ubuntu-Light.ttf");
+}
+
+@font-face {
+    font-family: UM;
+    src: url("https://2021.igem.org/wiki/images/d/db/T--Uppsala--Ubuntu-Medium.ttf");
+}
+
+*{
+    margin:0;
+    border:0;
+    padding:0;
+    font-family: sans-serif;
+}
+
+a,a:visited{
+    text-decoration: none;
+    color: #6d1d23;
+}
+a:hover{
+    text-decoration: underline;
+    color: #426968;
+}
+
+body, html{
+    height: 100%;
+    width: 100%;
+    scroll-behavior: smooth;
+}
+
+hr{
+    height: 1px;
+    background-color: #6d1d23;
+    display: block;
+    width: auto;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+.blurred_image_overlay,.blurred_navigation_bar_open{
+    filter:blur(15px);
+}
+
+</style>
+
+<style purpose="header section and content container">
+#pagecontent{
+    display: grid;
+
+    grid-template-rows:calc(5vh + 50vh + 16px) auto;
+    grid-template-columns: 1fr 1fr 4fr 2fr;
+    background-color: #dce1de;
+}
+
+#parallaxtop {
+    height: calc(50vh + 5vh + 16px);
+
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    
+    overflow: hidden;
+    
+    grid-row: 1 / 2;
+    grid-column: 1 / 5;
+}
+/* some page header images may fit better if stretched to the correct size */
+#parallaxtop.stretch_background{
+    background-position: center calc( 5vh + 16px);
+    background-size: 100% 50vh;
+}
+/* some page header images may fit better if clipped instead of stretched */
+#parallaxtop:not(.stretch_background){
+    background-position: center;
+    background-size: cover;
+}
+
+#page_header{
+    display:inline-block;
+    position:relative;
+    width:auto;
+    height:auto;
+    left:50%;
+    top:calc( 50vh /2 + 5vh);
+    transform:translate(-50%,-50%);
+
+    text-align: center;
+    font-size: 6em;
+    color: #6d1d23;
+    font-family: UM, sans-serif;
+}
+
+</style>
+<style purpose="sidebar">
+#sidebar {
+    display:block;
+    position:relative;
+
+    width: 100%;
+
+    margin-top:5vh;
+    margin-left:1vh;
+    margin-right:1vh;
+
+    font-size: 2vh;
+    font-weight:600;
+
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+}
+#sticky_sidebar{
+    top:calc( 16px + 5vh);
+    position:sticky;
+}
+#sidebar_header{
+    padding-top:2vh;
+    font-size:3.5vh;
+    font-family: UM;
+}
+#sidebar a{
+    color:#6d1d23;
+    font-weight:bold;
+}
+#sidebar :hover{
+    color:#426968; 
+}
+#sidebar_list_container{
+    margin:0;
+    padding:0;
+    margin-left:1vw;
+    width:calc(100% - 1vw);
+    line-height: 1;
+}
+.sidebar_list_section{
+    display:block;
+    width:calc(100% - 2vh);
+    
+    color:#6d1d23;
+
+    margin-bottom: 2.2vh;
+
+    transition: all 0.2s;
+
+    font-family: UL;
+}
+.sidebar_list_section a{
+    font-size: 2vh;
+}
+.sidebar_list_section.current_section{
+    /* #6d1d23 */
+    border-left:1vh solid rgba(109,29,35,0.9);
+    padding-left:1vh;
+}
+.sidebar_list_section span:hover{
+    color:#426968;
+}
+.listsidebar{
+    margin-top: 0px;
+    padding:0;
+    width: 100%;
+    background-color: #dce1de;
+    height: 100%;
+}
+
+</style>
+
+<style purpose="text/main section and pre-defined styles for user-writable code">
+/* Actual content */
+#fgfuture_content{
+    background-color: #dce1de;
+
+    margin-top: 3.6vh;
+    padding-bottom: 5vh;
+
+    font-family: UL; 
+
+    grid-row: 2 / 3;
+    grid-column: 3 / 4;
+}
+
+#fgfuture_content h1,#fgfuture_content h2,#fgfuture_content h3{
+    color:#6d1d23;
+    font-family: UM, sans-serif;
+    margin-left: 0.5vh;
+    display:block;
+}
+
+#fgfuture_content h1{
+    font-size: 3vh;
+    margin-top: 1.5vh;
+    margin-bottom: 1.5vh;
+}
+#fgfuture_content h2{
+    font-size: 2.4vh;
+    margin-top:1.2vh;
+    margin-bottom: 1.2vh;
+}
+#fgfuture_content h3{
+    font-size: 1.8vh;
+    margin-top: 0.9vh;
+    margin-bottom: 0.9vh;
+}
+
+.explain{
+justify-content: center;
+display: flex;
+position: relative;
+align-items: center;
+flex-wrap: wrap;
+box-shadow: 1vh 1vh 3vh rgba(0,0,0,0.5);
+overflow: hidden;
+border-top: 1px solid rgba(255,255,255,0.5);
+border-left: 1px solid rgba(255, 255, 255, 0.5);
+border-radius: 2vh;
+margin-bottom: 2vh;
+}
+
+.explain > img{
+width: 8vh;
+height: 8vh;
+margin:2vh;
+}
+
+.teamcontainer{
+justify-content: center;
+display: flex;
+position: relative;
+align-items: center;
+flex-wrap: wrap;
+z-index: 1;
+
+
+}
+
+.teamcontainer .card{
+position: relative;
+width: 28vh;
+height:40vh;
+margin: 2vh;
+box-shadow: 1vh 1vh 4vh rgba(0, 0, 0, 0.5);
+border-radius: 2vh;
+background: rgba(255, 255, 255, 0.1);
+overflow: hidden;
+display: flex;
+justify-content: center;
+align-items: center;
+border-top: 1px solid rgba(255, 255, 255, 0.5);
+border-left: 1px solid rgba(255, 255, 255, 0.5);
+
+
+}
+
+.top-part{
+position: absolute;
+transition: 0.5s;
+
+}
+
+.top-part .subgroup-logo{
+position: fixed;
+
+
+
+}
+
+.teamcontainer .card:hover .top-part {
+transform: translateY(0px);
+opacity:1;
+position: absolute;
+}
+
+.teamcontainer .card:hover .top-part{
+transform:translateY(-5vh);
+opacity: 0;
+pointer-events: none;
+}
+
+
+.teamcontainer .card .content{
+
+text-align: center;
+transition: 0.5s;
+transform: translateY(5vh);
+opacity: 0;
+
+
+}
+
+.teamcontainer .card:hover .content{
+transform:translateY(0px);
+opacity: 1;
+
+}
+
+.teamcontainer .card .content > img{
+width:8vh;
+height:8vh;
+object-fit:fill;
+padding-bottom: -5vh;
+
+}
+
+.teamcontainer .card .content h3{
+font-size: 1.8em;
+color: #6d1d23;
+z-index: 1;
+padding-top: -4vh;
+}
+
+.teamcontainer .card .content > p{
+font-size: 1em;
+color: #426968;
+font-weight: 300;
+padding: 1vh;
+}
+
+.teamcontainer .card .content > a{
+position: relative;
+display: inline-block;
+padding: 0.5vh 0.8vh;
+margin-top: 2vh;
+background-attachment: #fff;
+color: #000;
+background: #fff;
+border-radius: 2vh;
+text-decoration: none;
+font-weight: 500;
+box-shadow: 0 0.3vh 0.7vh rgba(0, 0, 0, 0.2);
+background-image: url("/Users/tovejonsson/Desktop/Linked (1).png");
+background-position: center;
+background-size: 78%;
+background-repeat: no-repeat;
+width:10vh;
+height:2.2vh;
+} 
+
+/* styling applies to all text within the content area that is not a header */
+#fgfuture_content p,#fgfuture_content ul,#fgfuture_content ol,#fgfuture_content div.content_section>div{
+    margin-bottom: 0.5vh;
+    margin-top: 0.5vh;
+    
+    padding-bottom: 2vh;
+    
+    font-family: sans-serif;
+    font-size: 1.5vh;
+    
+    line-height: 1.5;
+}
+/* all elements listed in main content sections (the usual text you see on template pages) */
+#fgfuture_content p,#fgfuture_content div.content_section>div,#fgfuture_content ol,#fgfuture_content ul{
+    margin-left:2.5vh;
+}
+/* text paragraphs that are contained within a 'list of h3s' (used a lot on hp page) */
+#fgfuture_content ol > div > p{
+    margin-left:2.5vh;
+}
+
+/* add padding on left of lists to make sure the li-element markers are contained within list area, not outside! */
+#fgfuture_content ul{
+    list-style-type: disc;
+    padding-left: 2vh;
+}
+#fgfuture_content ol{
+    list-style-type: decimal;
+    padding-left: 3vh;
+}
+
+#fgfuture_content div{
+    
+}
+#fgfuture_content div.image{
+    /* make space for text around the image */
+    display:inline-block;
+    padding-bottom: 1vh;
+}
+#fgfuture_content div.image>p,#fgfuture_content div.image>p{
+    font-size: 1.2vh;
+    padding-top: 1vh;
+    padding-left: 0.5vh;
+    padding-right: 0.5vh;
+    text-align: justify;
+}
+/* make image float so that text can wrap around it */
+div.image.left{
+    float:left;
+    padding-right:2vh;
+}
+div.image.right{
+    float:right;
+    padding-left:2vh;
+}
+div.image.left{
+    float:left;
+    padding-right:2vh;
+}
+div.image.right{
+    float:right;
+    padding-left:2vh;
+}
+#fgfuture_content div.quarter{
+    width:25%;
+}
+#fgfuture_content div.half{
+    width:50%;
+}
+
+/* make sure images have expected size (the actual size specifications apply to their container, not themself) */
+#fgfuture_content div > img{
+   
+}
+
+/* NORMAL PARAGRAPH*/
+.midcontenttext > p{
+    font-weight:normal;
+    font-size:1em;
+    color:black;
+    line-height:1.8;
+    letter-spacing:0.05em;
+    margin-top: 3vh;
+}
+
+/* For tables */
+#fgfuture_content table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#fgfuture_content td, #fgfuture_content th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+#fgfuture_content tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+#fgfuture div.quote{
+
+}
+#fgfuture span.quote.text::before{
+    content:'" ';
+}
+#fgfuture span.quote.text::after{
+    content:' "';
+}
+#fgfuture span.quote.source::before{
+    content:' - ';
+}
+
+</style>
+
+<style purpose="sponsors">
+.flexbox-container-socialmedia{
+    width: auto;
+    height: 25vh;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    background-color: #426968;
+    justify-content: center;
+}
+
+
+.flexbox-container-socialmedia > div > a > img:not(img.upplogo){
+    margin-left: 3vw;
+    margin-right: 3vw;
+    filter: grayscale(50%);
+    margin-top: 7vh;
+    width: 5vw;
+}
+
+.flexbox-container-socialmedia > div > a > img:not(img.upplogo):hover{
+    filter:grayscale(0);
+    filter: brightness(130%);
+    filter: contrast(150%);
+
+}
+
+img.upplogo{
+    width: 10vw;
+    margin-top: 3vh;
+    margin-left: 3vw;
+    margin-right: 3vw;
+}
+
+
+.grid-container-sponsors{
+    height: 30vh;
+    display: grid;
+    padding-left:5%;
+    padding-right:5%;
+    padding-bottom:5vh;
+    width: 90%;
+    row-gap: 20%;
+    column-gap: 5%;
+    grid-template-columns:repeat(6,1fr);
+    grid-template-rows:repeat(2,1fr);
+    overflow: hidden;
+    background-color: #426968;
+}
+
+.grid-container-sponsors > div{
+    width:auto;
+    height:auto;
+}
+.grid-container-sponsors > div > a > img{
+    width:80%;
+    height:auto;
+    filter: grayscale(50%);
+    position:relative;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+}
+
+.grid-container-sponsors > div > a > img:hover{
+    filter:grayscale(0);
+    filter: brightness(130%);
+    filter: contrast(150%);
+}
+
+
+</style>
+
+<script purpose="general purpose functions">
+function and(a,b){if(a){ if(b){return true;} } return false;}
+function min(a,b){return (a<b)?a:b}
+function max(a,b){return (a>b)?a:b}
+</script>
+
+<!-- cross-page navigation bar -->
+<style real-href="navigation_bar">
+/*navigation bar*/
+#navigation_bar{
+    top:16px;
+    height:5vh;
+
+    position:fixed;
+    width:100%;
+
+    z-index:9;
+
+    display:grid;
+    /* left grid element has height 100% (5vh), and to contain the logo, the width needs to be calculated from the image's aspect ratio, with a width of 87px and height of 65px, the rest is math */
+    --logo-width: calc(5vh * 87.1333 / 65.35 );
+    grid-template-columns: var(--logo-width) calc(100% - var(--logo-width));
+    grid-template-rows: 100%;
+    
+    color:#6d1d23;
+    
+    background-color: transparent;
+}
+
+/* a elements when not hovering*/
+div.dropbtn,.navigation_dropdown_entry,.igem_content_wrapper .igem_column_wrapper a{
+    font-family: sans-serif;
+    transition: 0.1s;
+    font-weight: normal;
+    text-decoration: none;
+}
+.dropdown_content{
+    line-height:1.2;
+}
+div.dropbtn{
+    cursor:default;
+    font-size: 2.5vh;
+}
+li.hovering_over > div.dropbtn{
+    font-weight: bold;
+}
+/* override default link highlighting */
+#navigation_bar a:not(:hover),#navigation_bar div:not(:hover){
+    text-decoration: none;
+}
+/* a elements when hovering (override color and underline) */
+#navigation_bar a:hover,#navigation_bar div.dropbtn:hover{
+    /* reset igem bs */
+    font-weight: bold;
+}
+#navigation_bar a:hover{
+    text-decoration: underline;
+}
+
+/* navigation bar logo on left */
+/* img container */
+#navigation_bar_logo_container{
+    height:calc(5vh - 1px);
+
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+}
+/* set own background color to still have background when rest of navigation bar vanishes while scrolling */
+#navigation_bar_logo_container,.logotype{
+    background-color: #dce1de;
+}
+/* actual logo inside container */
+#navigation_bar_logo_container > img{
+    height:100%;
+}
+
+/* container for dropdown menus on right side of navigation bar */
+#dropdown-container{
+    display:grid;
+    height:calc( 5vh - 1px);
+
+    grid-template-columns: repeat(6,1fr);
+    grid-template-rows: 100%;
+    
+    /* invisible by default. making it invisible happens gradually */
+    transition: opacity 0.3s;
+    opacity: 0;
+    
+    /* reset igem bs */
+    padding:0;
+    margin:0;
+    
+    /* then set my own padding */
+    padding-left: 10%;
+    padding-right: 10%;
+    
+    overflow:hidden;
+    border-bottom: 1px solid black;
+    
+    background-color:#dce1de;
+}
+/* while either scrolling, or hovering mouse over the navigation menu area, show the menu overview instantly */
+#dropdown-container.scrolled_down,#dropdown-container.panel_opened{
+    transition: opacity 0s;
+    opacity: 1;
+}
+/* only while the panel is open (via mouse hover) show the extended menus, which include the links to other pages */
+#dropdown-container.panel_opened{
+    overflow:visible;
+}
+
+/* when not hovering over the navigation area, make all links see-through, that are not headlines (i.e. only the menu entries) */
+#dropdown-container:not(.panel_opened) a:not(.dropbtn){
+    opacity:0;
+}
+
+/* dropdown menus (containers) */
+.dropdown{
+    display:block;
+    height:40vh;
+    background-color: #dce1de;
+    border-bottom:1px solid black;
+    overflow:visible;
+}
+/* add border on left and right side of navigation SUB-menus (not all around menu, which would include borders crossing through the navigation bar itself) */
+.dropdown:first-child .dropdown_content{
+    border-left:1px solid black;
+}
+.dropdown:last-child .dropdown_content{
+    border-right:1px solid black;
+}
+/* to disable mouse-hover javascript events on see-through links below navigation bar, effectively remove them (except not really) */
+#dropdown-container:not(.panel_opened) .dropdown_content{
+    display:none;
+}
+/* header of dropdown menus (containing name of each category) */
+.dropbtn{
+    display:block;
+    position:absolute;
+
+    text-decoration: none;
+
+    top:calc( 2.5vh);
+    transform:translateY(-50%);
+}
+/* override text color of all links inside dropdown menu when hovering over the menu */
+.dropdown.hovering_over a{
+    font-weight: bold;
+}
+/* container for links inside dropdown menu */
+.dropdown_content{
+    position:absolute;
+    /* .dropdown's 40vh height - 5vh offset from top*/
+    height:35vh;
+
+    font-size: 2vh;
+
+    top:5vh;
+
+    --logo-width: calc(5vh * 87.1333 / 65.35 );
+    width:calc( (100% - var(--logo-width) ) * 0.8 / 6);
+}
+/* individual link inside dropdown menu */
+.dropdown_content > a{
+    display:block;
+    padding-left:10%;
+    padding-bottom:1vh;
+    padding-top:1vh;
+}
+/* individual link inside dropdown menu on hover (underline) */
+.dropdown_content > a:hover{
+    text-decoration:underline;
+}
+
+/* highlighting of current topic in dropdown */
+.current_topic{
+    font-style: italic;
+    font-weight: bolder;
+    font-size: 2.2vh;
+}
+
+</style>
+<script purpose="internal_open_close_navbar">
+function open_navbar(){
+    document.getElementById("navigation_bar").classList.add("fully_open")
+    document.getElementById("pagecontent").classList.add("blurred_navigation_bar_open")
+    //this is broken. blurring the main element makes the scrolly things lose their position setting
+    for(element of document.getElementsByClassName("scroll_thing")){
+        element.style.setProperty("filter","blur(15px)")
+    }
+}
+function close_navbar(){
+    document.getElementById("navigation_bar").classList.remove("fully_open")
+    document.getElementById("pagecontent").classList.remove("blurred_navigation_bar_open")
+    //this is broken. blurring the main element makes the scrolly things lose their position setting
+    for(element of document.getElementsByClassName("scroll_thing")){
+        element.style.setProperty("filter","initial")
+    }
+}
+
+/* open/close navigation bar while scrolling */
+window.addEventListener("wheel",(ev)=>{
+    let scroll_height=document.body.scrollTop||document.documentElement.scrollTop||window.pageYOffset
+    if(and(ev.deltaY>0,scroll_height>(window.innerHeight*0.5 + 16 /* scroll height has passed parallax top and login bar (which offsets parallax image) */))){
+        document.getElementById("dropdown-container").classList.remove("scrolled_down")
+    }else{
+        document.getElementById("dropdown-container").classList.add("scrolled_down")
+    }
+})
+
+</script>
+
+<!-- cross-page loading styling and code -->
+<style purpose="loading screen">
+            #loading_overlay{
+                position:fixed;
+                height:calc( 100vh - 16px);
+                width:100%;
+                background-color: #d9dfda;
+                top:16px;
+                z-index:11;
+            }
+            #loading_icon{
+                height:50%;
+                width:auto;
+                position:absolute;
+                left:50%;
+                top:50%;
+                transform:translate(-50%,-50%);
+            }
+            #loading_icon > img{
+                height:100%;
+                width:auto;
+            }
+        </style>
+
+<script purpose="undo_igem_bs.js">
+function undo_igem_bs(){
+    let element=document.getElementsByClassName("top_bar")[0]
+    if(element){
+        element.classList.remove("top_bar")
+        element.style="display:none;"
+    }
+    for(class_name of "clear extra_space".split(" ")){
+        for(element of document.getElementsByClassName(class_name)){
+            element.classList.remove(class_name)
+        }
+    }
+
+    let navigation_bar_list=document.getElementById("navigation_bar_list")
+    if(navigation_bar_list){
+        if(navigation_bar_list.style.getPropertyValue("display")=="none"){
+            navigation_bar_list.style=undefined
+        }
+        for(child of navigation_bar_list.children){
+            child.classList.remove("current_hub")
+            child.classList.remove("current_page")
+            child.style=undefined
+        }
+    }
+    for(dropdown of document.getElementsByClassName("dropdown")){
+        dropdown.style=""
+    }
+    //disable the 'p' at the end of the column wrapper content which is just blank white space at the bottom of the page for some reason
+    let igem_column_wrappers=document.getElementsByClassName("igem_column_wrapper")
+    for(igem_column_wrapper of igem_column_wrappers){
+        igem_column_wrapper.lastElementChild.style.display="none"
+    }
+    //disable a whole bunch of css styles applied to subelements of #content (which does NOT include the holy login bar)
+    let content_element=document.getElementById("content")
+    if(content_element){
+        content_element.id=""
+    }
+    for(classname of ["igem_content_wrapper","igem_column_wrapper"]){
+        let elements_in_class=document.getElementsByClassName(classname)
+        for(element of elements_in_class){
+            element.classList.remove(classname)
+        }
+    }
+}
+
+</script>
+<script purpose="on_load_code">
+/*
+clean up the existing stuff that is nothing but in the way of our page design (top bar with igem logo and navigation panel hidden behind a burger menu, and quite thick padding on the left and top of the screen)
+*/
+
+function on_load(){
+undo_igem_bs()
+
+//after the page has loaded, provide some additional time for all of the javascript to run, then actually remove the loading screen overlay
+setTimeout(()=>{
+undo_igem_bs()
+setTimeout(()=>{
+document.getElementById("loading_overlay").style="display:none;"
+},200)
+},1000)
+
+/* get_section_offsets-specific reset */
+base=null;
+get_section_offsets()
+highlight_current_section_in_sidebar()
+window.addEventListener("scroll",highlight_current_section_in_sidebar)
+}
+</script>
+</head>
+<body onload="on_load()" onresize="on_load()">
+<!-- cross-page loading screen -->
+<div id="loading_overlay">
+<div id="loading_icon">
+<img src="https://2021.igem.org/wiki/images/7/76/T--Uppsala--logo_animated.gif">
+<div style="font-size:3vh;text-align:center;padding-top:4vh;font-family: sans-serif;">LOADING</div>
+</div>
+</div>
+<div id="image_overlay" class="invisible">
+<div style="height:100px;width:100px;background-color:red;float:right;" onclick="collapse_image()"></div>
+</div>
+<!-- cross-page Navigation Menu with drop down -->
+<div id="navigation_bar" onmouseenter="open_navbar()" onmouseleave="close_navbar()">
+    <a id="navigation_bar_logo_container" href='https://2021.igem.org/Team:Uppsala'>
+        <img class="logotype" src="https://2021.igem.org/wiki/images/thumb/1/13/T--Uppsala--logotransparent.png/320px-T--Uppsala--logotransparent.png">
+    </a>
+    <ul id="dropdown-container" class="scrolled_down">
+        <li class="dropdown">
+            <div class="dropbtn">Project</div>
+            <div class="dropdown_content">
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Description">Description</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Proof_Of_Concept">Proof of Concept</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Engineering">Engineering Success</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Contribution">Contribution</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Software">Software tool</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <div class="dropbtn">Experiments</div>
+            <div class="dropdown_content">
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Results">Results</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Model">Modelling</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Experiments">Protocols</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Notebook">Notebook</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Parts">Parts</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Safety">Safety</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <div class="dropbtn">Human Practice</div>
+            <div class="dropdown_content">
+                <a href="https://2021.igem.org/Team:Uppsala/Human_Practices">Overview</a>
+                <a href="https://2021.igem.org/Team:Uppsala/Human_Practices">Integrated Human Practice</a>
+                <a href="https://2021.igem.org/Team:Uppsala/Implementation">Proposed Implementation</a>
+                <a href="https://2021.igem.org/Team:Uppsala/Education">Education</a>
+                <a href="https://2021.igem.org/Team:Uppsala/Inclusivity">Inclusion</a>
+                <a href="https://2021.igem.org/Team:Uppsala/Sustainable">Sustainable Development</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <div class="dropbtn">People</div>
+            <div class="dropdown_content">
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Team">Team</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Collaborations">Collaboration</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Attributions">Attribution</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Attributions">Sponsors</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <div class="dropbtn">Videos</div>
+            <div class="dropdown_content">
+                <a href="https://2021.igem.org/Team:Uppsala/Description">Final Presentation</a>
+                <a href="https://www.youtube.com/watch?v=avKlAK5-1ks">Promotional Video</a>
+                <a href="https://2021.igem.org/Team:Uppsala/Model">Molecular Dynamics</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <div class="dropbtn">Judging</div>
+            <div class="dropdown_content">
+                <a class="navigation_dropdown_entry" href="#">Judging Form</a>
+                <a class="navigation_dropdown_entry" href="#">Awards</a>
+            </div>
+        </li>
+    </ul>
+    <script purpose="dropdown_open_close">
+        for(dropdown of document.getElementsByClassName("dropdown")){
+            dropdown.addEventListener("mouseenter",function(ev){
+                function remove_hovering_highlighting(ev){
+                    ev.target.removeEventListener("mouseleave",remove_hovering_highlighting)
+                    ev.target.classList.remove("hovering_over")
+                }
+                ev.target.classList.add("hovering_over")
+                ev.target.addEventListener("mouseleave",remove_hovering_highlighting)
+            })
+        }
+        document.getElementById("navigation_bar").addEventListener("mouseenter",(ev)=>{
+            ev.target.children[1].classList.add("panel_opened")
+            ev.target.children[1].classList.add("scrolled_down")
+        })
+        document.getElementById("navigation_bar").addEventListener("mouseleave",(ev)=>{
+            ev.target.children[1].classList.remove("panel_opened")
+        })
+    </script>
+    <script purpose="highlight_current_topic_in_navbar">
+        function highlight_current_topic_in_navbar(){
+            const match_path_text=window.location.pathName || ""
+            const match_path_length=match_path_text.length
+            for(element of document.getElementsByClassName("dropdown_content")){
+                for(child of element.children){
+                    //const match_path_text="/Team:Uppsala/Model"
+                    if(child.getAttribute("href").substr(-match_path_length)==match_path_text){
+                        child.classList.add("current_topic")
+                    }
+                }
+            }
+        }
+    </script>
+</div>
+
+
+<div id="pagecontent">
+<!-- page title-->
+
+
+
+<!-- page title-->
+<div id=parallaxtop>
+<div id="page_header">
+Team
+</div>
 </div>
 
 <!--Sidebar-->
 <div id="sidebar">
-    <div id="sticky_sidebar">
-        <div id="sidebar_header">
-            <a href="#pagecontent">
-                Team
-            </a>
-        </div>
-        <hr>
-        <ul id="sidebar_list_container">
-            <!-- template for a single entry in this list. the real entries will be added at runtime
-                <li class="sidebar_list_section">
-                    <span id="span1">
-                        <a href="#section1_link">
-                            Lab Safety
-                        </a>
-                    </span>
-                </li>
-            -->
-        </ul>
-    </div>
+<div id="sticky_sidebar">
+<div id="sidebar_header">
+<a href="#pagecontent">
+Team
+</a>
+</div>
+<hr>
+<ul id="sidebar_list_container">
+<!-- template for a single entry in this list. the real entries will be added at runtime
+<li class="sidebar_list_section">
+<span id="span1">
+<a href="#section1_link">
+Lab Safety
+</a>
+</span>
+</li>
+-->
+</ul>
+</div>
 </div>
 
 <!--Actual content-->
 <div id="fgfuture_content">
 
-    <!-- INSERT GOOGLE DOC CONTENT BELOW THIS LINE -->
-    <!--.explain{
-            justify-content: center;
-            display: flex;
-            position: relative;
-            align-items: center;
-            flex-wrap: wrap;
-            box-shadow: 1vh 1vh 3vh rgba(0,0,0,0.5);
-            overflow: hidden;
-            border-top: 1px solid rgba(255,255,255,0.5);
-            border-left: 1px solid rgba(255, 255, 255, 0.5);
-            border-radius: 2vh;
-            margin-bottom: 2vh;
-        }
-
-        .explain > img{
-            width: 8vh;
-            height: 8vh;
-            margin:1vh;
-        }
-
-        .teamcontainer{
-            justify-content: center;
-            display: flex;
-            position: relative;
-            align-items: center;
-            flex-wrap: wrap;
-            z-index: 1;
-
-
-        }
-
-        .teamcontainer .card{
-            position: relative;
-            width: 28vh;
-            height:40vh;
-            margin: 2vh;
-            box-shadow: 1vh 1vh 4vh rgba(0, 0, 0, 0.5);
-            border-radius: 2vh;
-            background: rgba(255, 255, 255, 0.1);
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.5);
-            border-left: 1px solid rgba(255, 255, 255, 0.5);
-
-            
-        }
-
-        .top-part{
-            position: absolute;
-            transition: 0.5s;
-
-        }
-
-        .top-part .subgroup-logo{
-            position: fixed;
-            
-
-
-        }
-
-        .teamcontainer .card:hover .top-part {
-            transform: translateY(0px);
-            opacity:1;
-            position: absolute;
-        }
-
-        .teamcontainer .card:hover .top-part{
-            transform:translateY(-5vh);
-            opacity: 0;
-            pointer-events: none;
-        }
-
-
-        .teamcontainer .card .content{
-            padding: 1vh; 
-            text-align: center;
-            transition: 0.5s;
-            transform: translateY(5vh);
-            opacity: 0;
-            
-
-        }
-
-        .teamcontainer .card:hover .content{
-            transform:translateY(0px);
-            opacity: 1;
-            
-        }
-
-        .teamcontainer .card .content > img{
-            width:8vh;
-            height:8vh;
-            object-fit: fill;
-            padding-bottom: -5vh;
-        }
-
-        .teamcontainer .card .content h3{
-            font-size: 1.8em;
-            color: #6d1d23;
-            z-index: 1;
-            
-            padding-top: -4vh;
-        }
-
-        .teamcontainer .card .content > p{
-            font-size: 1em;
-            color: #426968;
-            font-weight: 300;
-            padding: 1vh;
-        }
-        
-        .teamcontainer .card .content > a{
-            position: relative;
-            display: inline-block;
-            padding: 0.5vh 0.8vh;
-            margin-top: 2vh;
-            background-attachment: #fff;
-            color: #000;
-            background: #fff;
-            border-radius: 2vh;
-            text-decoration: none;
-            font-weight: 500;
-            box-shadow: 0 0.3vh 0.7vh rgba(0, 0, 0, 0.2);
-            background-image: url("/Users/tovejonsson/Desktop/Linked (1).png");
-            background-position: center;
-            background-size: 78%;
-            background-repeat: no-repeat;
-            width:10vh;
-            height:2.2vh;
-        } -->
-    <div id="section1>">
-        <h1>Team members</h1>
-
-        <div class="explain">
-            <img src="/Users/tovejonsson/Desktop/Wiki logo test.png"> 
-            <p>:Wiki subgroup</p>
-            <img src="/Users/tovejonsson/Desktop/GD logo test (2).png">
-            <p>:Graphic Design subgroup</p>
-            <img src="/Users/tovejonsson/Desktop/modeling logo test.png"> 
-            <p>:Modeling subgroup</p>
-            <img src="/Users/tovejonsson/Desktop/HP logo test.png">
-            <p>:Human practices subgroup</p> 
-            <img src="/Users/tovejonsson/Desktop/Lab co logo test.png">
-            <p>:Lab coordinator subgroup</p>
-            <img src="/Users/tovejonsson/Desktop/spons logo test (1).png">
-            <p>:Sponsoring subgroup</p>
-            <img src="/Users/tovejonsson/Desktop/PM logo test.png">
-            <p>:Projectmanager</p>
-        </div>
-
-        <div class="teamcontainer">
-            
-            <div class="card">
-
-                <div class="top-part">
-                    <img src="/Users/tovejonsson/Desktop/DSC05123 (2).JPG" style="width: 49vh; padding-top: 2vh;">
-                    <div class="subgroup-logo">
-                        <img src="/Users/tovejonsson/Desktop/Wiki logo test.png">
-                        <img src="/Users/tovejonsson/Desktop/GD logo test (2).png">
-                    </div>
-                </div>
-
-                <div class="content">
-                    <img src="/Users/tovejonsson/Desktop/Wiki logo test.png">
-                    <img src="/Users/tovejonsson/Desktop/GD logo test (2).png">
-                    <h3>Tove Jonsson</h3>
-                    <h4>Wiki, Graphic Design</h4>
-                    <p>M. Sc. Molecular Biotechnology Engineering</p>
-                    <p>Bollnäs, Sweden</p>
-                    <a href="#"></a>
-
-                </div>
-
-                <div class="card">
-
-                    <div class="top-part">
-                        <img src="/Users/tovejonsson/Desktop/milenawiki.PNG" style="width: 45vh; padding-top: 3.3vh;">
-                    </div>
-
-                    <div class="content">
-                        <img src="/Users/tovejonsson/Desktop/GD logo test (2).png">
-                        <h3>Milena Trabert</h3>
-                        <h4>Graphic Design Coordinator</h4>
-                        <p>M. Sc. Bioinformatics</p>
-                        <p>Weigenheim, Germany</p>
-                        <a href="#"></a>
-
-                    </div>
-                </div>
-
-                <div class="card">
-
-                    <div class="top-part">
-                        <img src="/Users/tovejonsson/Desktop/Subashiniwiki.JPG" style="width: 60vh; padding-top: 0vh;">
-                    </div>
-
-                    <div class="content">
-                        <img src="/Users/tovejonsson/Desktop/modeling logo test.png">
-                        <img src="/Users/tovejonsson/Desktop/HP logo test.png">
-                        <h3>Subashini Kennedy</h3>
-                        <h4>Modeling Co-Coordinator, Human Practices</h4>
-                        <p>M. Sc. Pharmaceutical Modeling</p>
-                        <p>Tamilnadu, India</p>
-                        <a href="#"></a>
-
-                    </div>
-                </div>
-
-                <div class="card">
-
-                    <div class="top-part">
-                        <img src="/Users/tovejonsson/Desktop/Kopia av DSC05384 (2) (2).JPG" style="width: 55vh; padding-top: 3vh;">
-                    </div>
-
-                    <div class="content">
-                        
-                        <img src="/Users/tovejonsson/Desktop/modeling logo test.png">
-                        <h3 style="font-size: 3.3vh;">Niklas</h3>
-                        <h3 style="font-size: 3.3vh;">Eckert Elfving</h3>
-                        <h4>Modeling</h4>
-                        <p>M. Sc. Molecular Biotechnology Engineering</p>
-                        <p>Linköping, Sweden</p>
-                        <a href="#"></a>
-
-                    </div>
-                </div>
-
-                
-
-                <div class="card">
-
-                    <div class="top-part">
-                        <img src="/Users/tovejonsson/Desktop/gustafwiki.JPG" style="width: 47vh; padding-top: 3vh;">
-                    </div>
-
-                    <div class="content">
-                        <img src="/Users/tovejonsson/Desktop/Wiki logo test.png">
-                        <h3>Gustaf Hederoth</h3>
-                        <h4>Wiki</h4>
-                        <p>M. Sc. Molecular Biotechnology Engineering</p>
-                        <p>Stockholm, Sweden</p>
-                        <a href="#"></a>
-
-                    </div>
-                </div>
-
-                <div class="card">
-
-                    <div class="top-part">
-                        <img src="/Users/tovejonsson/Desktop/diogowiki.JPG" style="width: 55vh; padding-top: 0vh;">
-                    </div>
-
-                    <div class="content">
-                        <img src="/Users/tovejonsson/Desktop/Lab co logo test.png">
-                        <img src="/Users/tovejonsson/Desktop/HP logo test.png">
-                        <h3>Diogo Filipe</h3>
-                        <h4>Lab Coordinator, Human Practices</h4>
-                        <p>M. Sc. Immunology and Microbiology</p>
-                        <p>Lisbon, Portugal</p>
-                        <a href="#"></a>
-
-                    </div>
-                </div>
-
-                <div class="card">
-
-                    <div class="top-part">
-                        <img src="/Users/tovejonsson/Desktop/alexwiki.JPG" style="width: 65vh; padding-top: 3vh;">
-                    </div>
-
-                    <div class="content">
-                        <img src="/Users/tovejonsson/Desktop/Wiki logo test.png">
-                        <h3>Alexander Blomlöf</h3>
-                        <h4>Wiki</h4>
-                        <p>M. Sc. Molecular Biotechnology Engineering</p>
-                        <p>Stockholm, Sweden</p>
-                        <a href="#"></a>
-
-                    </div>
-                </div>
-
-                <div class="card">
-
-                    <div class="top-part">
-                        <img src="/Users/tovejonsson/Desktop/paarkaviwiki.JPG" style="width: 40vh; padding-top: 3vh;">
-                    </div>
-
-                    <div class="content">
-                        <img src="/Users/tovejonsson/Desktop/PM logo test.png">
-                        <h3 style="font-size: 3vh;">Paarkavi Udayakumar</h3>
-                        <h4>Project Manager</h4>
-                        <p>M. Sc. Drug Discovery and Development</p>
-                        <p>Chennai, India</p>
-                        <a href="#"></a>
-
-                    </div>
-                </div>
-
-                <div class="card">
-
-                    <div class="top-part">
-                        <img src="/Users/tovejonsson/Desktop/Maria-wiki.png" style="width: 43vh; padding-top: 3vh;">
-                    </div>
-
-                    <div class="content">
-                        <img src="/Users/tovejonsson/Desktop/HP logo test.png">
-                        <h3>Maria Ovezik</h3>
-                        <h4>Human Practices</h4>
-                        <p>M. Sc. Immunology and Microbiology</p>
-                        <p>Veria, Greece</p>
-                        <a href="#"></a>
-
-                    </div>
-                </div>
-
-                <div class="card">
-
-                    <div class="top-part">
-                        <img src="/Users/tovejonsson/Desktop/DSC04955.JPG" style="width: 75vh; padding-top: 3vh;">
-                    </div>
-
-                    <div class="content">
-                        <img src="/Users/tovejonsson/Desktop/spons logo test (1).png">
-                        <h3 style="font-size: 3vh;">Carolinne Norrman</h3>
-                        <h4>Socialmedia Coordinator, Sponsporing</h4>
-                        <p>M. Sc. Molecular Biotechnology Engineering</p>
-                        <p>Stockholm, Sweden</p>
-                        <a href="#"></a>
-
-                    </div>
-                </div>
-
-                <div class="card">
-
-                    <div class="top-part">
-                        <img src="/Users/tovejonsson/Desktop/DSC05035 (2).JPG" style="width: 50vh; padding-top: 3vh;">
-                    </div>
-
-                    <div class="content">
-                        <img src="/Users/tovejonsson/Desktop/Wiki logo test.png">
-                        <img src="/Users/tovejonsson/Desktop/spons logo test (1).png">
-                        <img src="/Users/tovejonsson/Desktop/Lab co logo test.png">
-                        <h3 style="font-size: 3vh;">Emelie Oscarsson </h3>
-                        <h4>Lab Coordinator, Wiki, Sponsoring</h4>
-                        <p>M. Sc. Cell and Molecular Biology</p>
-                        <p>Stockholm, Sweden</p>
-                        <a href="#"></a>
-
-                    </div>
-                </div>
-
-                <div class="card">
-
-                    <div class="top-part">
-                        <img src="/Users/tovejonsson/Desktop/NataliaWiki.jpg" style="width: 65vh; padding-top: 3vh;">
-                    </div>
-
-                    <div class="content">
-                        <img src="/Users/tovejonsson/Desktop/spons logo test (1).png">
-                        <img src="/Users/tovejonsson/Desktop/HP logo test.png">
-                        <h3 style="font-size: 2.8vh;">Natalia Reynisdottir</h3>
-                        <h4>Human Practices Coordinator, Sponsoring Coordinator, Socialmedia</h4>
-                        <p>M. Sc. Applied Biotechnology</p>
-                        <p>Reykjavik, Iceland</p>
-                        <a href="#"></a>
-
-                    </div>
-                </div>
-
-                <div class="card">
-
-                    <div class="top-part">
-                        <img src="/Users/tovejonsson/Desktop/DSC05519 (2).JPG" style="width: 48vh; padding-top: 2vh; filter: brightness(70%); filter:saturate(140%)">
-                    </div>
-
-                    <div class="content">
-                        <img src="/Users/tovejonsson/Desktop/PM logo test.png">
-                        <h3 style="font-size: 3vh;">Sebastian Uggla</h3>
-                        <h4>Project Manager</h4>
-                        <p>M. Sc. Bioinformatics</p>
-                        <p>Helsinki, Finland</p>
-                        <a href="#"></a>
-
-                    </div>
-                </div>
-
-                <div class="card">
-
-                    <div class="top-part">
-                        <img src="/Users/tovejonsson/Desktop/Andreeawiki.JPG" style="width: 40vh; padding-top: 3vh;">
-                    </div>
-
-                    <div class="content">
-                        <img src="/Users/tovejonsson/Desktop/GD logo test (2).png">
-                        <img src="/Users/tovejonsson/Desktop/modeling logo test.png">
-                        <h3 style="font-size: 3vh;">Andreea</h3>
-                        <h3 style="font-size: 3vh;">Carmen Ciobanu</h3>
-                        <h4>Modeling, Graphic design</h4>
-                        <p>M. Sc. Pharmaceutical Modelling</p>
-                        <p>Calafat, România</p>
-                        <a href="#"></a>
-
-                    </div>
-                </div>
-
-                <div class="card">
-
-                    <div class="top-part">
-                        <img src="/Users/tovejonsson/Desktop/Danwiki.JPG" style="width: 75vh; padding-top: -1vh;">
-                    </div>
-
-                    <div class="content">
-                        <img src="Users/tovejonsson/Desktop/Lab co logo test.png">
-                        <img src="/Users/tovejonsson/Desktop/HP logo test.png">
-                        <h3>Daniel Lake</h3>
-                        <h4>Lab Coordinator, Human Practices</h4>
-                        <p>M. Sc. Applied biotechnology</p>
-                        <p>Uppsala, Sweden</p>
-                        <a href="#"></a>
-
-                    </div>
-                </div>
-
-                <div class="card">
-
-                    <div class="top-part">
-                        <img src="/Users/tovejonsson/Desktop/Belawiki.jpeg" style="width: 66vh; padding-top: -3vh;">
-                    </div>
-
-                    <div class="content">
-                        <img src="/Users/tovejonsson/Desktop/GD logo test.png">
-                        <h3>Bela Soares</h3>
-                        <h4>Graphic design, Socialmedia</h4>
-                        <p>B. Sc. Molecular Biology</p>
-                        <p>Uppsala, Sweden</p>
-                        <a href="#"></a>
-
-                    </div>
-                </div>
-
-                <div class="card">
-
-                    <div class="top-part">
-                        <img src="/Users/tovejonsson/Desktop/Aditiwiki.JPG" style="width: 60vh; padding-top: 2vh;">
-                    </div>
-
-                    <div class="content">
-                        <img src="/Users/tovejonsson/Desktop/modeling logo test.png">
-                        <img src="/Users/tovejonsson/Desktop/spons logo test (1).png">
-                        <h3>Aditi Bahadur</h3>
-                        <h4>Modeling, Sponsoring</h4>
-                        <p>M. Sc. Pharmaceutical modelling</p>
-                        <p>Pune, India</p>
-                        <a href="#"></a>
-
-                    </div>
-                </div>
-
-                <div class="card">
-
-                    <div class="top-part">
-                        <img src="/Users/tovejonsson/Desktop/Tanyawiki.JPG" style="width: 50vh; padding-top: 3vh;">
-                    </div>
-
-                    <div class="content">
-                        <img src="/Users/tovejonsson/Desktop/Lab co logo test.png">
-                        <img src="/Users/tovejonsson/Desktop/spons logo test (1).png">
-                        <h3 style="font-size: 3vh;">Tanya Al-Khafaf</h3>
-                        <h4>Human Practices, Sponsoring</h4>
-                        <p>M. Sc. Molecular Biotechnology Engineering</p>
-                        <p>Uppsala, Sweden</p>
-                        <a href="#"></a>
-
-                    </div>
-                </div>
-
-                <div class="card">
-
-                    <div class="top-part">
-                        <img src="/Users/tovejonsson/Desktop/patrick.JPG" style="width: 75vh; padding-top: 3vh;">
-                    </div>
-
-                    <div class="content">
-                        <img src="/Users/tovejonsson/Desktop/modeling logo test.png">
-                        <img src="/Users/tovejonsson/Desktop/Wiki logo test.png">
-                        <h3>Patrick Henning</h3>
-                        <h4>Modeling Co-Coordinator , Wiki Coordinator</h4>
-                        <p>M. Sc. Bioinformatics</p>
-                        <p>Erlangen, Germany</p>
-                        <a href="#"></a>
-
-                    </div>
-                </div>
-                
-            </div>
-
-
-            <div id="section2>">
-            <h1>Advisor</h1>
-            <hr>
-
-            <div class="teamcontainer">
-                
-                <div class="card">
-
-                    <div class="top-part">
-                        <img src="/Users/tovejonsson/Desktop/Konradwiki.JPG" style="width: 90vh; padding-top: 3vh; padding-left: 4vh;">
-                        
-                    </div>
-
-                    <div class="content">
-                        
-                        <h3>Konrad Gras</h3>
-                        
-                        <p>Scientist at the Department of Cell and Molecular Biology</p>
-                        
-                        <a href="#"></a>
-
-                    </div>
-                </div>
-
-                
-
-            </div>
-
-            <div id="section3>">
-            <h1>Principal Investigators</h1>
-            <hr>
-
-            <div class="teamcontainer">
-                
-                <div class="card">
-
-                    <div class="top-part">
-                        <img src="/Users/tovejonsson/Desktop/DSC05131 (2).JPG" style="width: 45vh; padding-top: 3vh;">
-                        
-                    </div>
-
-                    <div class="content">
-                        
-                        <h3>Margareta Krabbe</h3>
-                        
-                        <p>Lecturer at the Department of Basic Education in Biology</p>
-                        
-                        <a href="#"></a>
-
-                    </div>
-                </div>
-
-                <div class="card">
-
-                    <div class="top-part">
-                        <img src="/Users/tovejonsson/Desktop/DSC05131 (2).JPG" style="width: 45vh; padding-top: 3vh;">
-                        
-                    </div>
-
-                    <div class="content">
-                        
-                        <h3>Anthony Forster</h3>
-                        
-                        <p> Professor at the Department of Cell and Molecular Biology</p>
-                        
-                        <a href="#"></a>
-
-                    </div>
-                </div>
-
-            </div>
-
-            
-                
-        </div>
-    
+<!-- INSERT GOOGLE DOC CONTENT BELOW THIS LINE -->
+<!--.explain{
+justify-content: center;
+display: flex;
+position: relative;
+align-items: center;
+flex-wrap: wrap;
+box-shadow: 1vh 1vh 3vh rgba(0,0,0,0.5);
+overflow: hidden;
+border-top: 1px solid rgba(255,255,255,0.5);
+border-left: 1px solid rgba(255, 255, 255, 0.5);
+border-radius: 2vh;
+margin-bottom: 2vh;
+}
+
+.explain > img{
+width: 8vh;
+height: 8vh;
+margin:1vh;
+}
+
+.teamcontainer{
+justify-content: center;
+display: flex;
+position: relative;
+align-items: center;
+flex-wrap: wrap;
+z-index: 1;
+
+
+}
+
+.teamcontainer .card{
+position: relative;
+width: 28vh;
+height:40vh;
+margin: 2vh;
+box-shadow: 1vh 1vh 4vh rgba(0, 0, 0, 0.5);
+border-radius: 2vh;
+background: rgba(255, 255, 255, 0.1);
+overflow: hidden;
+display: flex;
+justify-content: center;
+align-items: center;
+border-top: 1px solid rgba(255, 255, 255, 0.5);
+border-left: 1px solid rgba(255, 255, 255, 0.5);
+
+
+}
+
+.top-part{
+position: absolute;
+transition: 0.5s;
+
+}
+
+.top-part .subgroup-logo{
+position: fixed;
+
+
+
+}
+
+.teamcontainer .card:hover .top-part {
+transform: translateY(0px);
+opacity:1;
+position: absolute;
+}
+
+.teamcontainer .card:hover .top-part{
+transform:translateY(-5vh);
+opacity: 0;
+pointer-events: none;
+}
+
+
+.teamcontainer .card .content{
+padding: 1vh;
+text-align: center;
+transition: 0.5s;
+transform: translateY(5vh);
+opacity: 0;
+
+
+}
+
+.teamcontainer .card:hover .content{
+transform:translateY(0px);
+opacity: 1;
+
+}
+
+.teamcontainer .card .content > img{
+width:8vh;
+height:8vh;
+object-fit: fill;
+padding-bottom: -5vh;
+}
+
+.teamcontainer .card .content h3{
+font-size: 1.8em;
+color: #6d1d23;
+z-index: 1;
+
+padding-top: -4vh;
+}
+
+.teamcontainer .card .content > p{
+font-size: 1em;
+color: #426968;
+font-weight: 300;
+padding: 1vh;
+}
+
+.teamcontainer .card .content > a{
+position: relative;
+display: inline-block;
+padding: 0.5vh 0.8vh;
+margin-top: 2vh;
+background-attachment: #fff;
+color: #000;
+background: #fff;
+border-radius: 2vh;
+text-decoration: none;
+font-weight: 500;
+box-shadow: 0 0.3vh 0.7vh rgba(0, 0, 0, 0.2);
+background-image: url("/Users/tovejonsson/Desktop/Linked (1).png");
+background-position: center;
+background-size: 78%;
+background-repeat: no-repeat;
+width:10vh;
+height:2.2vh;
+} -->
+<div id="section1>">
+    <h1>Team members</h1>
+
+    <div class="explain">
+        <img src="/Users/tovejonsson/Desktop/Wiki logo test.png">
+        <!-- <p>:Wiki subgroup</p> -->
+        <img src="/Users/tovejonsson/Desktop/GD logo test (2).png">
+        <!-- <p>:Graphic Design subgroup</p> -->
+        <img src="/Users/tovejonsson/Desktop/modeling logo test.png">
+        <!-- <p>:Modeling subgroup</p> -->
+        <img src="/Users/tovejonsson/Desktop/HP logo test.png">
+        <!-- <p>:Human practices subgroup</p> -->
+        <img src="/Users/tovejonsson/Desktop/Lab co logo test.png">
+        <!-- <p>:Lab coordinator subgroup</p> -->
+        <img src="/Users/tovejonsson/Desktop/spons logo test (1).png">
+        <!-- <p>:Sponsoring subgroup</p> -->
+        <img src="/Users/tovejonsson/Desktop/PM logo test.png">
+        <!-- <p>:Projectmanager</p> -->
     </div>
-        <!--
-        <div class="image right quarter">
-        <img class="expandable_image" width="719" height="583" src="https://2021.igem.org/wiki/images/5/53/T--Uppsala--safe.jpg">
-        </div>
-    -->
-        
-        <div id="section2>">
-            <h1> Biobrick assembly protocols </h1>
 
-            <p> During the third week, the real lab work started! The primers had arrived and the team started with the biobrick assembly process. The goal was to create seven different versions of bovine FGF2. Together with our PI, Professor Anthony Forster, and our TA, Konrad Gras, different experiments were designed to create these versions. We cannot  thank Forster and Gras enough for their help with guiding us through these experiments. More details can be found on this page INSERT LINK. Down below the protocols of all the biobrick assembly work can be found. INSERT BUTTON. <a href = 'https://2021.igem.org/wiki/images/6/6b/T--Uppsala--biobrick-assembly.pdf'>Here</a>
-            </p> 
-            
-        </div>
-        <div id="section3>">
-            <h1> Small scale purification protocols </h1>
+    <div class="teamcontainer">
 
-            <p> When these seven different versions of bovine FGF2 had been created, we had to purify them. First we decided to do it at a small scale in the lab. Here we could troubleshoot and adjust the process for when we were doing an upscaled purification. For more information of the purification results, look HERE INSERT LINK.  Down below the protocols of all the small scale purification work can be found. INSERT BUTTON. <a href = 'https://2021.igem.org/wiki/images/6/60/T--Uppsala--small_scale.pdf'>Here</a>
-             </p>
-            
-        </div>
-        <div id="section4>">
-            <h1> Large scale purification protocols </h1>
+        <div class="card">
 
-            <p> The team also did a large scale purification at Cytiva Testa Center AB. The team successfully upscaled the purification process of the bovine FGF2 wild type protein. We want to thank Cytiva Testa Center AB for giving us the chance to upscale our project. Thanks to all of the employees and experts working at cytiva for helping us design the experiments and purify the protein. All protocols followed at Cytiva Testa Center AB can be found down below. INSERT BUTTON. <a href = 'https://2021.igem.org/wiki/images/a/ac/T--Uppsala--largescale.pdf'>Here</a>
-            </p>
-            
+
+            <div class="top-part">
+                <img src="/Users/tovejonsson/Desktop/DSC05123 (2).JPG" style="width: 49vh; padding-top: 2vh;">  
+            </div>
+    
+
+            <div class="content">
+                <img src="/Users/tovejonsson/Desktop/Wiki logo test.png">
+                <img src="/Users/tovejonsson/Desktop/GD logo test (2).png">
+                <h3>Tove Jonsson</h3>
+                <h4>Wiki, Graphic Design</h4>
+                <p>M. Sc. Molecular Biotechnology Engineering</p>
+                <p>Bollnäs, Sweden</p>
+                <a href="#"></a>
+
+            </div>
         
         </div>
-        
-        <div id='sec5'>
-            <h1> References </h1>
-            <p>
-                (1) Liljeruhm, J., Gullberg, E., &amp; Forster, A. C. (2014). “Synthetic biology: a lab manual”
-            </p>
-            
-            <p> (2) Thermo Fisher Scientific. (2012) “Thermo Scientific GeneJET Plasmid Miniprep Kit K0502, K0503” https://www.thermofisher.com/document-connect/document-connect.html?url=https%3A%2F%2Fassets.thermofisher.com%2FTFS-Assets%2FLSG%2Fmanuals%2FMAN0012655_GeneJET_Plasmid_Miniprep_UG.pdf  (Accessed Sep. 22, 2021)</p>
-            
-            <p> (3) Thermo Fisher Scientific. (2013) “Thermo Scientific DreamTaq DNA Polymerase”  https://assets.thermofisher.com/TFS-Assets/LSG/manuals/MAN0012037_DreamTaqDNAPolymerase_5x500U_UG.pdf (Accessed Sep. 22, 2021)</p>
-            
-            <p> (4) Thermo Fisher Scientific. (2015) “Thermo ScientificGeneJET PCR Purification Kit #K0701, #K0702” https://www.thermofisher.com/document-connect/document-connect.html?url=https%3A%2F%2Fassets.thermofisher.com%2FTFS-Assets%2FLSG%2Fmanuals%2FMAN0012662_GeneJET_PCR_Purification_UG.pdf (Accessed Sep. 22, 2021)</p>
-        
-            <p> (5) Eurofins Genomics. (2021) “Mix2Seq Sequncing Kit” https://eurofinsgenomics.eu/media/1587665/tubesequencing_flyer_dinlang_8seiter_wickelfalz.pdf (Accessed Sep. 22, 2021)</p>
-        
-            <p> (6) New England Bioloabs (2021) “Double Digest” https://international.neb.com/tools-and-resources/usage-guidelines/double-digests (Accessed Sep. 22, 2021)</p>
-        
-            <p>(7) New England Bioloabs (2021) “Ligation Protocol with T4 DNA Ligase (M0202)” https://international.neb.com/protocols/0001/01/01/dna-ligation-with-t4-dna-ligase-m0202 (Accessed Sep. 22, 2021) </p>
-        
-            <p>(8) Bio-Rad Laboratories (2021) “Quick Start™ Bradford Protein Assay” https://kirschner.med.harvard.edu/files/protocols/BioRad_proteinassay.pdf (Accessed Sep. 22, 2021)</p>
-            
-            <p>(9) Protocol were created together with experts at Cytiva Testa Center AB. https://testacenter.com/ </p>
-            
-        
+
+
+        <div class="card">
+
+
+            <div class="top-part">
+                <img src="/Users/tovejonsson/Desktop/milenawiki.PNG" style="width: 45vh; padding-top: 3.3vh;">
+            </div>
+
+            <div class="content">
+                <img src="/Users/tovejonsson/Desktop/GD logo test (2).png">
+                <h3>Milena Trabert</h3>
+                <h4>Graphic Design Coordinator</h4>
+                <p>M. Sc. Bioinformatics</p>
+                <p>Weigenheim, Germany</p>
+                <a href="#"></a>
+
+            </div>
+
         </div>
-        <!-- INSERT GOOGLE DOC CONTENT ABOVE THIS LINE -->
-    <!-- INSERT GOOGLE DOC CONTENT ABOVE THIS LINE -->
+
+        <div class="card">
+
+            <div class="top-part">
+                <img src="/Users/tovejonsson/Desktop/Subashiniwiki.JPG" style="width: 60vh; padding-top: 0vh;">
+            </div>
+
+            <div class="content">
+                <img src="/Users/tovejonsson/Desktop/modeling logo test.png">
+                <img src="/Users/tovejonsson/Desktop/HP logo test.png">
+                <h3>Subashini Kennedy</h3>
+                <h4>Modeling Co-Coordinator, Human Practices</h4>
+                <p>M. Sc. Pharmaceutical Modeling</p>
+                <p>Tamilnadu, India</p>
+                <a href="#"></a>
+            </div>
+        </div>
+
+        <div class="card">
+
+            <div class="top-part">
+                <img src="/Users/tovejonsson/Desktop/Kopia av DSC05384 (2) (2).JPG" style="width: 55vh; padding-top: 3vh;">
+            </div>
+
+            <div class="content">
+                <img src="/Users/tovejonsson/Desktop/modeling logo test.png">
+                <h3 style="font-size: 3.3vh;">Niklas</h3>
+                <h3 style="font-size: 3.3vh;">Eckert Elfving</h3>
+                <h4>Modeling</h4>
+                <p>M. Sc. Molecular Biotechnology Engineering</p>
+                <p>Linköping, Sweden</p>
+                <a href="#"></a>
+            </div>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <div class="top-part">
+                <img src="/Users/tovejonsson/Desktop/gustafwiki.JPG" style="width: 47vh; padding-top: 3vh;">
+            </div>
+
+            <div class="content">
+                <img src="/Users/tovejonsson/Desktop/Wiki logo test.png">
+                <h3>Gustaf Hederoth</h3>
+                <h4>Wiki</h4>
+                <p>M. Sc. Molecular Biotechnology Engineering</p>
+                <p>Stockholm, Sweden</p>
+                <a href="#"></a>
+            </div>
+        </div>
+
+        <div class="card">
+
+            <div class="top-part">
+                <img src="/Users/tovejonsson/Desktop/diogowiki.JPG" style="width: 55vh; padding-top: 0vh;">
+            </div>
+
+            <div class="content">
+                <img src="/Users/tovejonsson/Desktop/Lab co logo test.png">
+                <img src="/Users/tovejonsson/Desktop/HP logo test.png">
+                <h3>Diogo Filipe</h3>
+                <h4>Lab Coordinator, Human Practices</h4>
+                <p>M. Sc. Immunology and Microbiology</p>
+                <p>Lisbon, Portugal</p>
+                <a href="#"></a>
+
+            </div>
+        </div>
+
+        <div class="card">
+
+            <div class="top-part">
+                <img src="/Users/tovejonsson/Desktop/alexwiki.JPG" style="width: 65vh; padding-top: 3vh;">
+            </div>
+
+            <div class="content">
+                <img src="/Users/tovejonsson/Desktop/Wiki logo test.png">
+                <h3>Alexander Blomlöf</h3>
+                <h4>Wiki</h4>
+                <p>M. Sc. Molecular Biotechnology Engineering</p>
+                <p>Stockholm, Sweden</p>
+                <a href="#"></a>
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <div class="top-part">
+                <img src="/Users/tovejonsson/Desktop/paarkaviwiki.JPG" style="width: 40vh; padding-top: 3vh;">
+            </div>
+
+            <div class="content">
+                <img src="/Users/tovejonsson/Desktop/PM logo test.png">
+                <h3 style="font-size: 3vh;">Paarkavi Udayakumar</h3>
+                <h4>Project Manager</h4>
+                <p>M. Sc. Drug Discovery and Development</p>
+                <p>Chennai, India</p>
+                <a href="#"></a>
+
+            </div>
+        </div>
+
+        <div class="card">
+
+            <div class="top-part">
+                <img src="/Users/tovejonsson/Desktop/Maria-wiki.png" style="width: 43vh; padding-top: 3vh;">
+            </div>
+
+            <div class="content">
+                <img src="/Users/tovejonsson/Desktop/HP logo test.png">
+                <h3>Maria Ovezik</h3>
+                <h4>Human Practices</h4>
+                <p>M. Sc. Immunology and Microbiology</p>
+                <p>Veria, Greece</p>
+                <a href="#"></a>
+
+            </div>
+        </div>
+
+        <div class="card">
+
+            <div class="top-part">
+                <img src="/Users/tovejonsson/Desktop/DSC04955.JPG" style="width: 75vh; padding-top: 3vh;">
+            </div>
+
+            <div class="content">
+                <img src="/Users/tovejonsson/Desktop/spons logo test (1).png">
+                <h3 style="font-size: 3vh;">Carolinne Norrman</h3>
+                <h4>Socialmedia Coordinator, Sponsporing</h4>
+                <p>M. Sc. Molecular Biotechnology Engineering</p>
+                <p>Stockholm, Sweden</p>
+                <a href="#"></a>
+
+            </div>
+        </div>
+
+        <div class="card">
+
+            <div class="top-part">
+                <img src="/Users/tovejonsson/Desktop/DSC05035 (2).JPG" style="width: 50vh; padding-top: 3vh;">
+            </div>
+
+            <div class="content">
+                <img src="/Users/tovejonsson/Desktop/Wiki logo test.png">
+                <img src="/Users/tovejonsson/Desktop/spons logo test (1).png">
+                <img src="/Users/tovejonsson/Desktop/Lab co logo test.png">
+                <h3 style="font-size: 3vh;">Emelie Oscarsson </h3>
+                <h4>Lab Coordinator, Wiki, Sponsoring</h4>
+                <p>M. Sc. Cell and Molecular Biology</p>
+                <p>Stockholm, Sweden</p>
+                <a href="#"></a>
+
+            </div>
+        </div>
+
+        <div class="card">
+
+            <div class="top-part">
+                <img src="/Users/tovejonsson/Desktop/NataliaWiki.jpg" style="width: 65vh; padding-top: 3vh;">
+            </div>
+
+            <div class="content">
+                <img src="/Users/tovejonsson/Desktop/spons logo test (1).png">
+                <img src="/Users/tovejonsson/Desktop/HP logo test.png">
+                <h3 style="font-size: 2.8vh;">Natalia Reynisdottir</h3>
+                <h4>Human Practices Coordinator, Sponsoring Coordinator, Socialmedia</h4>
+                <p>M. Sc. Applied Biotechnology</p>
+                <p>Reykjavik, Iceland</p>
+                <a href="#"></a>
+
+            </div>
+        </div>
+
+        <div class="card">
+
+            <div class="top-part">
+                <img src="/Users/tovejonsson/Desktop/DSC05519 (2).JPG" style="width: 48vh; padding-top: 2vh; filter: brightness(70%); filter:saturate(140%)">
+            </div>
+
+            <div class="content">
+                <img src="/Users/tovejonsson/Desktop/PM logo test.png">
+                <h3 style="font-size: 3vh;">Sebastian Uggla</h3>
+                <h4>Project Manager</h4>
+                <p>M. Sc. Bioinformatics</p>
+                <p>Helsinki, Finland</p>
+                <a href="#"></a>
+            </div>
+        </div>
+
+        <div class="card">
+
+            <div class="top-part">
+                <img src="/Users/tovejonsson/Desktop/Andreeawiki.JPG" style="width: 40vh; padding-top: 3vh;">
+            </div>
+
+            <div class="content">
+                <img src="/Users/tovejonsson/Desktop/GD logo test (2).png">
+                <img src="/Users/tovejonsson/Desktop/modeling logo test.png">
+                <h3 style="font-size: 3vh;">Andreea</h3>
+                <h3 style="font-size: 3vh;">Carmen Ciobanu</h3>
+                <h4>Modeling, Graphic design</h4>
+                <p>M. Sc. Pharmaceutical Modelling</p>
+                <p>Calafat, România</p>
+                <a href="#"></a>
+            </div>
+        </div>
+
+        <div class="card">
+
+            <div class="top-part">
+                <img src="/Users/tovejonsson/Desktop/Danwiki.JPG" style="width: 75vh; padding-top: -1vh;">
+            </div>
+
+            <div class="content">
+                <img src="Users/tovejonsson/Desktop/Lab co logo test.png">
+                <img src="/Users/tovejonsson/Desktop/HP logo test.png">
+                <h3>Daniel Lake</h3>
+                <h4>Lab Coordinator, Human Practices</h4>
+                <p>M. Sc. Applied biotechnology</p>
+                <p>Uppsala, Sweden</p>
+                <a href="#"></a>
+
+            </div>
+        </div>
+
+        <div class="card">
+
+            <div class="top-part">
+                <img src="/Users/tovejonsson/Desktop/Belawiki.jpeg" style="width: 66vh; padding-top: -3vh;">
+            </div>
+
+            <div class="content">
+                <img src="/Users/tovejonsson/Desktop/GD logo test.png">
+                <h3>Bela Soares</h3>
+                <h4>Graphic design, Socialmedia</h4>
+                <p>B. Sc. Molecular Biology</p>
+                <p>Uppsala, Sweden</p>
+                <a href="#"></a>
+
+            </div>
+        </div>
+
+        <div class="card">
+
+            <div class="top-part">
+                <img src="/Users/tovejonsson/Desktop/Aditiwiki.JPG" style="width: 60vh; padding-top: 2vh;">
+            </div>
+
+            <div class="content">
+                <img src="/Users/tovejonsson/Desktop/modeling logo test.png">
+                <img src="/Users/tovejonsson/Desktop/spons logo test (1).png">
+                <h3>Aditi Bahadur</h3>
+                <h4>Modeling, Sponsoring</h4>
+                <p>M. Sc. Pharmaceutical modelling</p>
+                <p>Pune, India</p>
+                <a href="#"></a>
+
+            </div>
+        </div>
+
+        <div class="card">
+
+            <div class="top-part">
+                <img src="/Users/tovejonsson/Desktop/Tanyawiki.JPG" style="width: 50vh; padding-top: 3vh;">
+            </div>
+
+            <div class="content">
+                <img src="/Users/tovejonsson/Desktop/Lab co logo test.png">
+                <img src="/Users/tovejonsson/Desktop/spons logo test (1).png">
+                <h3 style="font-size: 3vh;">Tanya Al-Khafaf</h3>
+                <h4>Human Practices, Sponsoring</h4>
+                <p>M. Sc. Molecular Biotechnology Engineering</p>
+                <p>Uppsala, Sweden</p>
+                <a href="#"></a>
+
+            </div>
+        </div>
+
+        <div class="card">
+
+            <div class="top-part">
+                <img src="/Users/tovejonsson/Desktop/patrick.JPG" style="width: 75vh; padding-top: 3vh;">
+            </div>
+
+            <div class="content">
+                <img src="/Users/tovejonsson/Desktop/modeling logo test.png">
+                <img src="/Users/tovejonsson/Desktop/Wiki logo test.png">
+                <h3>Patrick Henning</h3>
+                <h4>Modeling Co-Coordinator , Wiki Coordinator</h4>
+                <p>M. Sc. Bioinformatics</p>
+                <p>Erlangen, Germany</p>
+                <a href="#"></a>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div id="section2>">
+    <h1>Advisor</h1>
+    
+
+    <div class="teamcontainer">
+
+        <div class="card">
+
+            <div class="top-part">
+                <img src="/Users/tovejonsson/Desktop/Konradwiki.JPG" style="width: 90vh; padding-top: 3vh; padding-left: 4vh;">
+
+            </div>
+
+            <div class="content">
+
+                <h3>Konrad Gras</h3>
+
+                <p>Scientist at the Department of Cell and Molecular Biology</p>
+
+            <a href="#"></a>
+
+        </div>
+    </div>
+
+
 
 </div>
 
-{{template_bottom.html}}
+<div id="section3>">
+    <h1>Principal Investigators</h1>
+
+
+    <div class="teamcontainer">
+
+        <div class="card">
+
+            <div class="top-part">
+                <img src="/Users/tovejonsson/Desktop/DSC05131 (2).JPG" style="width: 45vh; padding-top: 3vh;">
+
+            </div>
+
+            <div class="content">
+
+                <h3>Margareta Krabbe</h3>
+
+                <p>Lecturer at the Department of Basic Education in Biology</p>
+
+                <a href="#"></a>
+
+            </div>
+        </div> 
+
+        <div class="card">
+
+            <div class="top-part">
+                <img src="/Users/tovejonsson/Desktop/DSC05131 (2).JPG" style="width: 45vh; padding-top: 3vh;">
+
+            </div>
+
+            <div class="content">
+
+                <h3>Anthony Forster</h3>
+
+                <p> Professor at the Department of Cell and Molecular Biology</p>
+
+                <a href="#"></a>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+</div>
+
+
+<!--
+<div class="image right quarter">
+<img class="expandable_image" width="719" height="583" src="https://2021.igem.org/wiki/images/5/53/T--Uppsala--safe.jpg">
+</div>
+-->
+
+
+
+
+<!-- INSERT GOOGLE DOC CONTENT ABOVE THIS LINE -->
+<!-- INSERT GOOGLE DOC CONTENT ABOVE THIS LINE -->
+
+
+<script purpose="derive sidebar entries from user-generated content">
+            //for each child of the 'INSERT CONTENT HERE' section
+            let fgfuture_content=document.getElementById("fgfuture_content")
+            for(let child_num=0;child_num<fgfuture_content.children.length;child_num++){
+                let element=fgfuture_content.children[child_num]
+                //check if first element is header element
+                let header=element.children[0]
+                if(header.tagName!="H1" || header.innerText.length==0){
+                    window.alert("section "+element.id+" must have an <h1>Headline</h1> as first line!")
+                }
+                //get header text of this section
+                header=header.innerText
+
+                //insert horizontal line between header and text for that section
+                let horizontal_seperator=document.createElement("hr")
+                if(element.children.length>1){
+                    element.insertBefore(horizontal_seperator,element.children[1])
+                }else{
+                    element.appendChild(horizontal_seperator)
+                }
+
+                //get the sidebar dom element
+                let sidebar_list_container=document.getElementById("sidebar_list_container")
+
+                //create the invisible span element at the beginning of the section that serves as 'sroll-to' anchor for the section
+                let link_span=document.createElement("span")
+                link_span.setAttribute("id","section"+child_num+"_link")
+                element.insertBefore(link_span,element.children[0])
+
+                //create sidebar entry for the current section/its header
+                let new_element=document.createElement("li")
+                let new_span=document.createElement("span")
+                let new_a=document.createElement("a")
+                new_a.setAttribute("href","#section"+child_num+"_link")
+                new_a.innerText=header
+                new_span.setAttribute("id","span"+child_num)
+                new_span.appendChild(new_a)
+                new_element.classList.add("sidebar_list_section")
+                new_element.appendChild(new_span)
+
+                //add created sidebar entry to the sidebar
+                sidebar_list_container.appendChild(new_element)
+            }
+        </script>
+
+
+<script purpose="hightlight currently viewed section">
+            let offsets={}
+            let base=null;
+            /* this code is executed on load */
+            function get_section_offsets(){
+                for(element of document.getElementById("fgfuture_content").children){
+                    if(!base){
+                        let offset=0;
+                        
+                        let current_element=element;
+                        while(current_element){
+                            offset+=current_element.offsetTop;
+                            current_element=current_element.offsetParent;
+                        }
+                        base=offset;
+                    }
+                    offsets[element.id]=base
+                    base+=element.clientHeight
+                }
+            }
+
+            function highlight_current_section_in_sidebar(){
+                let current_scroll=document.body.scrollTop||document.documentElement.scrollTop||window.pageYOffset
+
+                let found=false
+                let index=0
+                for(element in offsets){
+                    const subtracted_negative_screen_fraction=0.67
+                    const added_positive_screen_fraction=0.15
+
+                    let above_lower=(offsets[element]+document.getElementById(element).clientHeight-window.innerHeight*subtracted_negative_screen_fraction)>=current_scroll
+                    let below_upper=offsets[element]>=(current_scroll+window.innerHeight*added_positive_screen_fraction)
+                    let above_lowest=(offsets[element]+document.getElementById(element).clientHeight)<=current_scroll
+                    let is_last_element_in_list=(index==(Object.keys(offsets).length-1))
+
+                    if(and(above_lower, !found)||and(below_upper, above_lowest)||and(is_last_element_in_list, !found)){
+                        if(found){
+                            document.getElementById("sidebar_list_container").children[index-1].classList.remove("current_section")
+                        }
+                        found=element
+                        document.getElementById("sidebar_list_container").children[index].classList.add("current_section")
+                    }else{
+                        document.getElementById("sidebar_list_container").children[index].classList.remove("current_section")
+                    }
+                    index+=1
+                }
+            }
+        </script>
+
+
+<style purpose="popup">
+            .popup{
+                text-decoration: underline;
+                color: blue;
+            }
+            .popup > span:not(.popup_content){
+                cursor:pointer;
+            }
+            .popup_content{
+                cursor:default;
+                display:inline-block;
+                color:black;
+                position:fixed;
+                width:20vh;
+                margin-top:0.5vh;
+                padding:1vh;
+                transform:translateX(-50%);
+                text-align: justify;
+                z-index:10;
+                background-color:white;
+                border:0.2vh solid black;
+            }
+            .popup_content_header{
+                font-size: 2.2vh;
+            }
+            .popup_content{
+                font-size: 1.5vh;
+            }
+        </style>
+
+<script purpose="popup initiaiziation">
+            for(element of document.getElementsByClassName("popup")){
+                console.log(element.children)
+                element.children[1].style.setProperty("display","none")
+                element.children[1].innerHTML="<span class='popup_content_header'>"+element.children[0].innerText+"</span><br><br>"+element.children[1].innerHTML
+
+                function open_popup(ev){
+                    let element=ev.target
+                    if(!element.classList.contains("popup")){
+                        element=element.parentElement
+                    }
+
+                    if(element.getAttribute("vanish_timer")){
+                        clearTimeout(element.getAttribute("vanish_timer"))
+                    }
+
+                    element.setAttribute("popped_up",true)
+                    let element_bb=element.getBoundingClientRect()
+                    element.children[1].style.setProperty("display","initial")
+                    let left_offset=element_bb.x+(element_bb.width/2) // centering of popup happens in css
+                    left_offset=max(element.children[1].getBoundingClientRect().width/2,left_offset) // make sure it does not leave the screen area to the left for text that is close to the left border
+                    left_offset=min(window.innerWidth-(element.children[1].getBoundingClientRect().width/2),left_offset) // make sure the popup does not leave the screen area on the right
+                    //the min/max caps above could probably be omitted on the wiki page since the main text area has enough padding on the left and right, but better to be safe than sorry (could also be adjusted to make sure the popup does not leave the text area, bu i do not think that it would a visual issue if it did)
+                    element.children[1].style.setProperty("left",left_offset+"px")
+                    element.children[1].style.setProperty("top",element_bb.bottom+"px")
+                }
+                function close_popup(ev){
+                    let element=ev.target
+                    if(!element.classList.contains("popup")){
+                        element=element.parentElement
+                    }
+
+                    //small gap between link and popup content is not valid popup surface, to moving the mouse from the link to the popup content leaves the container area, which closes the popup
+                    //this timeout means that the popup window is closed if the mouse is not positioned within the container area within 250ms after it left the area, ergo the popup remains visible while the mouse moves over the gap between the link and the popup
+                    //and 250ms looks short enough to make it seem like the popup would still automatically vanish when the user leaves the popup area with the mouse actively, to move it somewhere else
+                    element.setAttribute("vanish_timer",setTimeout(
+                        ()=>{
+                            element.setAttribute("popped_up",false)
+                            element.children[1].style.setProperty("display","none")
+                        },250
+                    ))
+                }
+
+                element.addEventListener("mouseenter",open_popup)
+                element.addEventListener("mouseleave",close_popup)
+            }
+        </script>
+
+
+<script purpose="expand images">
+            let style_document=document.styleSheets[0].rules || document.styleSheets[0].cssRules
+            let image_shrink_duration=0
+            for (rule of style_document){
+                if(rule.selectorText=="content_slice"){
+                    width=window.innerWidth*rule.style.width.slice(0,-2)/100
+                }
+                if(rule.selectorText=="actualcontent"){
+                    max_height=window.innerHeight*rule.style.height.slice(0,-1)/100
+                }
+                if(rule.selectorText==".image_shrink"){
+                    image_shrink_duration=rule.style.getPropertyValue("animation-duration").slice(0,-1)*1000
+                }
+            }
+
+            for(element of document.getElementsByClassName("expandable_image")){
+                element.addEventListener("click",expand_image)
+            }
+
+            function expand_image(ev){
+                let image_element=ev.target
+                let image_overlay=document.getElementById("image_overlay")
+                image_overlay.classList.remove("invisible")
+
+                if(image_overlay.children.length==2){
+                    image_overlay.removeChild(image_overlay.lastChild)
+                }
+
+                let big_image=document.createElement("img")
+                big_image.setAttribute("src",image_element.src)
+                big_image.classList.add("overlay_image")
+
+                image_overlay.appendChild(big_image)
+
+                big_image.style.setProperty("--width",image_element.getBoundingClientRect().width+"px")
+                big_image.style.setProperty("--height",image_element.getBoundingClientRect().height+"px")
+                big_image.style.setProperty("--left",image_element.getBoundingClientRect().left+image_element.width/2+"px")
+                big_image.style.setProperty("--top",image_element.getBoundingClientRect().top+image_element.height/2+"px")
+
+                let final_width=image_element.getAttribute("width")*0.5
+                let final_height=image_element.getAttribute("height")*0.5
+
+                big_image.style.setProperty("--left-end",window.innerWidth/2+"px")
+                big_image.style.setProperty("--top-end",window.innerHeight/2+"px")
+
+                big_image.style.setProperty("--overlay-width",final_width+"px")
+                big_image.style.setProperty("--overlay-height",final_height+"px")
+
+                big_image.classList.add("image_transition")
+
+                image_element.classList.toggle("pseudo-invisible")
+
+                image_overlay.image_element=image_element
+                
+                document.getElementById("pagecontent").classList.add("blurred_image_overlay")
+            }
+            function collapse_image(ev){
+                let image_overlay=document.getElementById("image_overlay")
+
+                image_overlay.children[1].classList.remove("image_transition")
+                image_overlay.children[1].classList.add("image_shrink")
+
+                document.getElementById("pagecontent").classList.remove("blurred_image_overlay")
+
+                setTimeout(()=>{
+                    document.getElementById("image_overlay").classList.add("invisible")
+                    image_overlay.image_element.classList.toggle("pseudo-invisible")
+                },image_shrink_duration)
+            }
+        </script>
+
+<style purpose="expand images">
+            .expandable_image{
+                cursor:zoom-in;
+                z-index:1;
+            }
+            /*the actual overlay panel*/
+            #image_overlay{
+                position:fixed;
+
+                left:0;
+                /* top offset (which is subtracted from height) is height of igem bar and navigation bar*/
+                top:calc(16px + 5vh);
+                height:calc(100% - 16px - 5vh);
+                width:100%;
+
+                float:left;
+
+                background-color: rgba(255,255,255,0.0);
+                z-index: 11;
+            }
+            #image_overlay:not(.invisible){
+                display:block; 
+            }
+            /*the image displayed within the overlay panel*/
+            .overlay_image{
+                position:relative;
+                transform:translateX(-50%) translateY(-50%);
+                width:var(--overlay-width);
+                height:var(--overlay-height);
+                left:var(--left-end);
+                top:var(--top-end);
+            }
+            .image_transition{
+                animation-name:into_center;
+                animation-duration:0.4s;
+            }
+            .image_shrink{
+                animation-name:from_center;
+                animation-duration:0.4s;
+            }
+            .invisible{
+                display:none;
+            }
+            .pseudo-invisible{
+                opacity:0.0;
+            }
+            @keyframes into_center{
+                from{
+                    width:var(--width);
+                    height:var(--height);
+                    left:var(--left);
+                    top:var(--top);
+                }
+                to{
+                    width:var(--overlay-width);
+                    height:var(--overlay-height);
+                    left:var(--left-end);
+                    top:var(--top-end);
+                }
+            }
+            @keyframes from_center{
+                from{
+                    width:var(--overlay-width);
+                    height:var(--overlay-height);
+                    left:var(--left-end);
+                    top:var(--top-end);
+                }
+                to{
+                    width:var(--width);
+                    height:var(--height);
+                    left:var(--left);
+                    top:var(--top);
+                }
+            }
+            .one_vertical_image_padding{
+                height:1em;
+                width:100%;
+            }
+            img{
+                display:block;
+            }
+        </style>
+
+
+<!-- sponsor and social media footer -->
+<div class="flexbox-container-socialmedia">
+    <div>
+        <a href="https://www.facebook.com/iGEMUppsala">
+            <img src="https://2021.igem.org/wiki/images/e/eb/T--Uppsala--facebook.png">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.instagram.com/igem.uppsala/">
+            <img src="https://2021.igem.org/wiki/images/b/ba/T--Uppsala--instagram.png">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.uu.se/">
+            <img class="upplogo" src="https://shop.uu.se/shop/ws45/82845/files/UU_logo_vit.png">
+        </a>
+    </div>
+    <div>
+        <a href="mailto:info@igemuppsala.se">
+            <img src="https://2021.igem.org/wiki/images/1/1e/T--Uppsala--mail.png">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.linkedin.com/company/igem-uppsala/mycompany/">
+            <img src="https://2021.igem.org/wiki/images/b/bc/T--Uppsala--linkedin.png">
+        </a>
+    </div>
+</div>
+
+<div class="grid-container-sponsors">
+    <div>
+        <a href="https://www.utn.se/">
+            <img src="https://2021.igem.org/wiki/images/8/8b/T--Uppsala--utnlogo.png">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.genscript.com/">
+            <img src="http://2014.igem.org/wiki/images/5/5a/York_Genscript_logo-1-.png">
+        </a>
+    </div>
+    <div>
+        <a href="https://worldwide.promega.com/">
+            <img src="https://2020.igem.org/wiki/images/0/05/T--UofUppsala--pro.png">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.bio-rad.com/">
+                <img src="https://2021.igem.org/wiki/images/f/fc/T--Uppsala--bioradlogo.png">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.bionordika.se/">
+                <img src="https://2021.igem.org/wiki/images/2/29/T--Uppsala--bionordikalogo.png">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.merck.com/">
+            <img src="https://2021.igem.org/wiki/images/9/9a/T--Uppsala--mercklogo.png">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.scbt.com/home">
+            <img src="https://2021.igem.org/wiki/images/f/fa/T--Uppsala--scbtlogo.png">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.snapgene.com/">
+            <img src="https://2020.igem.org/wiki/images/8/8c/T--UofUppsala--snap.png">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.eurofins.se/">
+            <img src="https://2020.igem.org/wiki/images/a/a4/T--UofUppsala--euro.png">
+        </a>
+    </div>
+    <div>
+        <a href="https://new-harvest.org/">
+            <img src="https://2021.igem.org/wiki/images/e/ec/T--Uppsala--newharvestreal.png">
+        </a>
+    </div>
+    <div>
+        <a href="https://testacenter.com/">
+            <img src="https://2021.igem.org/wiki/images/d/d6/T--Uppsala--testacenterreal.png">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.cytivalifesciences.com/en/at">
+            <img src="https://2021.igem.org/wiki/images/d/d4/T--Uppsala--cytiva.jpeg">
+        </a>
+    </div>
+</div>
+
+</body>
+</html>
