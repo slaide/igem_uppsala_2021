@@ -98,6 +98,15 @@ div.image.right{
     float:right;
     padding-left:2vh;
 }
+#fgfuture_content div.w10{
+    width:10%;
+}
+#fgfuture_content div.w15{
+    width:15%;
+}
+#fgfuture_content div.w20{
+    width:20%;
+}
 #fgfuture_content div.quarter{
     width:25%;
 }
@@ -138,15 +147,23 @@ div.image.right{
     background-color: #dddddd;
 }
 
-#fgfuture div.quote{
+#fgfuture_content div.quote{
 
 }
-#fgfuture span.quote.text::before{
+#fgfuture_content span.quote.text::before{
     content:'" ';
 }
-#fgfuture span.quote.text::after{
+#fgfuture_content span.quote.text::after{
     content:' "';
 }
-#fgfuture span.quote.source::before{
+#fgfuture_content span.quote.source::before{
     content:' - ';
+}
+
+#fgfuture_content a.button{
+    display:inline-block;
+    background-color: lightgrey;
+    padding:1.2vh;
+    border-radius:0.6vh;
+    border:1px solid black;
 }
