@@ -67,7 +67,7 @@
 }
 
 #fgfuture_content div{
-    overflow:auto;
+    overflow:hidden;
 }
 #fgfuture_content div.image{
     /* make space for text around the image */
