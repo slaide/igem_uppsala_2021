@@ -35,19 +35,20 @@
 }
 
 /* styling applies to all text within the content area that is not a header */
-#fgfuture_content p,#fgfuture_content ul,#fgfuture_content ol,#fgfuture_content div.content_section>div{
+#fgfuture_content p,#fgfuture_content ul,#fgfuture_content ol,#fgfuture_content div.content_section>div,#fgfuture_content span{
     margin-bottom: 0.5vh;
     margin-top: 0.5vh;
     
     padding-bottom: 2vh;
     
-    font-family: sans-serif;
-    font-size: 1.5vh;
-    
     line-height: 1.5;
 }
+#fgfuture_content p,#fgfuture_content ul,#fgfuture_content ol,#fgfuture_content div.content_section>div{
+    font-family: sans-serif;
+    font-size: 1.5vh;
+}
 /* all elements listed in main content sections (the usual text you see on template pages) */
-#fgfuture_content p,#fgfuture_content div.content_section>div,#fgfuture_content ol,#fgfuture_content ul{
+#fgfuture_content p,#fgfuture_content div.content_section>div{
     margin-left:2.5vh;
 }
 /* text paragraphs that are contained within a 'list of h3s' (used a lot on hp page) */
@@ -66,7 +67,6 @@
 }
 
 #fgfuture_content div{
-    position:relative;
     overflow:auto;
 }
 #fgfuture_content div.image{
@@ -98,6 +98,15 @@ div.image.right{
     float:right;
     padding-left:2vh;
 }
+#fgfuture_content div.w10{
+    width:10%;
+}
+#fgfuture_content div.w15{
+    width:15%;
+}
+#fgfuture_content div.w20{
+    width:20%;
+}
 #fgfuture_content div.quarter{
     width:25%;
 }
@@ -106,7 +115,7 @@ div.image.right{
 }
 
 /* make sure images have expected size (the actual size specifications apply to their container, not themself) */
-#fgfuture_content div > img{
+#fgfuture_content div.image > img{
     width:100%;
     height:auto;
 }
@@ -138,15 +147,23 @@ div.image.right{
     background-color: #dddddd;
 }
 
-#fgfuture div.quote{
+#fgfuture_content div.quote{
 
 }
-#fgfuture span.quote.text::before{
+#fgfuture_content span.quote.text::before{
     content:'" ';
 }
-#fgfuture span.quote.text::after{
+#fgfuture_content span.quote.text::after{
     content:' "';
 }
-#fgfuture span.quote.source::before{
+#fgfuture_content span.quote.source::before{
     content:' - ';
+}
+
+#fgfuture_content a.button{
+    display:inline-block;
+    background-color: lightgrey;
+    padding:1.2vh;
+    border-radius:0.6vh;
+    border:1px solid black;
 }
