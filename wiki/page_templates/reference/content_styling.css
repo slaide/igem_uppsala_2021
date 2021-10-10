@@ -67,7 +67,6 @@
 }
 
 #fgfuture_content div{
-    position:relative;
     overflow:auto;
 }
 #fgfuture_content div.image{
