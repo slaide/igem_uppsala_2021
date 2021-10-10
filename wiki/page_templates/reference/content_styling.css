@@ -35,19 +35,20 @@
 }
 
 /* styling applies to all text within the content area that is not a header */
-#fgfuture_content p,#fgfuture_content ul,#fgfuture_content ol,#fgfuture_content div.content_section>div{
+#fgfuture_content p,#fgfuture_content ul,#fgfuture_content ol,#fgfuture_content div.content_section>div,#fgfuture_content span{
     margin-bottom: 0.5vh;
     margin-top: 0.5vh;
     
     padding-bottom: 2vh;
     
-    font-family: sans-serif;
-    font-size: 1.5vh;
-    
     line-height: 1.5;
 }
+#fgfuture_content p,#fgfuture_content ul,#fgfuture_content ol,#fgfuture_content div.content_section>div{
+    font-family: sans-serif;
+    font-size: 1.5vh;
+}
 /* all elements listed in main content sections (the usual text you see on template pages) */
-#fgfuture_content p,#fgfuture_content div.content_section>div,#fgfuture_content ol,#fgfuture_content ul{
+#fgfuture_content p,#fgfuture_content div.content_section>div{
     margin-left:2.5vh;
 }
 /* text paragraphs that are contained within a 'list of h3s' (used a lot on hp page) */
@@ -115,7 +116,7 @@ div.image.right{
 }
 
 /* make sure images have expected size (the actual size specifications apply to their container, not themself) */
-#fgfuture_content div > img{
+#fgfuture_content div.image > img{
     width:100%;
     height:auto;
 }
