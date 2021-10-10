@@ -1,0 +1,140 @@
+.explain{
+    justify-content: center;
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-wrap: wrap;
+    box-shadow: 1vh 1vh 2vh rgba(0,0,0,0.5);
+    overflow: hidden;
+    border-top: 1px solid rgba(255,255,255,0.5);
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 2vh;
+    margin-bottom: 2vh;
+    margin:3vh;
+    }
+    
+    .explain > img{
+    width: 7.5vh;
+    height: 7.5vh;
+    margin:2vh;
+    }
+    
+    .teamcontainer{
+    justify-content: center;
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-wrap: wrap;
+    z-index: 1;
+    
+    
+    
+    }
+    
+    .teamcontainer .card{
+    position: relative;
+    width: 28vh;
+    height:40vh;
+    margin: 2vh;
+    box-shadow: 1vh 1vh 4vh rgba(0, 0, 0, 0.5);
+    border-radius: 2vh;
+    background: rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+
+    
+    
+    }
+    
+    .top-part{
+    position: absolute;
+    transition: 0.5s;
+    
+    }
+    
+    .top-part .subgroup-logo{
+    position: fixed;
+    
+    
+    
+    }
+
+    .teamcontainer .card .top-part < img{
+        
+    }
+    
+    
+    .teamcontainer .card:hover .top-part {
+    transform: translateY(0px);
+    opacity:1;
+    position: absolute;
+    }
+    
+    .teamcontainer .card:hover .top-part{
+    transform:translateY(-5vh);
+    opacity: 0;
+    pointer-events: none;
+    }
+    
+    
+    .teamcontainer .card .content{
+    padding: 1vh;
+    text-align: center;
+    transition: 0.5s;
+    transform: translateY(5vh);
+    opacity: 0;
+    
+    
+    }
+    
+    .teamcontainer .card:hover .content{
+    transform:translateY(0px);
+    opacity: 1;
+    
+    }
+    
+    .teamcontainer .card .content > img{
+    width:8vh;
+    height:8vh;
+    
+    padding-bottom: -5vh;
+    }
+    
+    .teamcontainer .card .content h3{
+    font-size: 1.8em;
+    color: #6d1d23;
+    z-index: 1;
+    
+    padding-top: -4vh;
+    }
+    
+    .teamcontainer .card .content > p{
+    font-size: 1em;
+    color: #426968;
+    font-weight: 300;
+    padding: 1vh;
+    }
+    
+    .teamcontainer .card .content > a{
+    position: relative;
+    display: inline-block;
+    padding: 0.5vh 0.8vh;
+    margin-top: 2vh;
+    background-attachment: #fff;
+    color: #000;
+    background: #fff;
+    border-radius: 2vh;
+    text-decoration: none;
+    font-weight: 500;
+    box-shadow: 0 0.3vh 0.7vh rgba(0, 0, 0, 0.2);
+    background-image: url("/Users/tovejonsson/Desktop/Linked (1).png");
+    background-position: center;
+    background-size: 78%;
+    background-repeat: no-repeat;
+    width:10vh;
+    height:2.2vh;
+    }
