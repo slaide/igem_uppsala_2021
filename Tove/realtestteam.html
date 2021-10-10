@@ -2,8 +2,188 @@
 <html>
     <head>
 
+        <meta charset="utf8">
+
+        <style>
+            *{
+            margin:0;
+            border:0;
+            padding:0;
+            font-family: U-M;
+        }
+
+
+        /* Font */
+        @font-face {
+                font-family: U-M;
+                src: url("../Ubuntu-Medium.ttf");
+        }
+
+        html{
+            scroll-behavior: smooth;
+        }
+
+        #igem_login_bar{
+            width:100%;
+            height:14px;
+            position: fixed;
+            z-index: 1000;
+            background-color: dimgray;
+            border: 2px solid black;
+        }
+        
+        /* PARALLAX */
+        .parallax{
+            width:100%;
+            height: 60vh; 
+            background-image: url("/Users/tovejonsson/Desktop/DSC05131 (2).JPG");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: top;
+            background-attachment: fixed;
+            /*margin-top: 10vh;*/
+
+        }
+
+        .infobox{
+            position: absolute;
+            text-align: center;
+            font-size: 7vh;
+            margin-left: 38%;
+            color: rgba(0,0,0,1.00);
+            top:20%;
+        }
+
+
+        /*NAVIGATION BAR*/
+        .menu{
+            margin-top:16px;
+            position: fixed;
+            width:100%;
+            background-color: #dce1de;
+            overflow: hidden;
+            height: 10%;
+            z-index: 1000;
+            font-size: 1.2em;
+            color: #6d1d23;
+        }
+        
+        .menu:hover{
+            overflow: visible;
+        }
+
+        .drop_down_background{
+          display: none;
+          position: absolute;
+          z-index:1;
+          background-color: #dce1de;
+          width: 90%;
+          height:460%;
+          margin-top: 4.2%;
+          margin-left: 5%;
+
+        }
+
+        .logotype{
+            float: left;
+            width:4.6%;
+            height:100%;
+            padding-left: 1vh;
+            padding-right: 20vh;
+        }
+
+        .menu:hover ~ .parallax,menu:hover ~ .main, .menu:hover ~ .grid_container_bottom, .menu:hover ~ .wrapper{
+            filter: blur(1vh);
+        }
+        </style>
+
+        <script>
+
+            /* FUNCTION FOR THE NAVIGATION BAR TO GO AWAY AFTER SCROLL */
+
+            window.onscroll= window.onscroll = function() {myFunction(), indexFunction1(), indexFunction2(), indexFunction3()};
+
+            function myFunction(){
+                if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300){
+                document.getElementById("menu").style.height = "0%";
+                }
+                else {
+                document.getElementById("menu").style.height = "10%";
+                }
+            }
+
+            /* SCRIPT FOR MAKING TEXT BOLD IN THE SIDEBAR */
+
+            function indexFunction1(){
+                if (document.documentElement.scrollTop > 700 && document.documentElement.scrollTop < 1800) {
+                    document.getElementById("span1").style.fontWeight="bold";
+                    document.getElementById("span1").style.textDecoration="underline";
+                } else {
+                document.getElementById("span1").style.fontWeight = "normal";
+                document.getElementById("span1").style.textDecoration="none";
+                }
+            }
+
+            function indexFunction2(){
+                if (document.documentElement.scrollTop > 1800 && document.documentElement.scrollTop < 2900) {
+                    document.getElementById("span2").style.fontWeight="bold";
+                    document.getElementById("span2").style.textDecoration="underline";
+                } else {
+                document.getElementById("span2").style.fontWeight = "normal";
+                document.getElementById("span2").style.textDecoration="none";
+                }
+            }
+
+            function indexFunction3(){
+                if (document.documentElement.scrollTop > 2900) {
+                    document.getElementById("span3").style.fontWeight="bold";
+                    document.getElementById("span3").style.textDecoration="underline";
+                } else {
+                document.getElementById("span3").style.fontWeight = "normal";
+                document.getElementById("span3").style.textDecoration="none";
+                }
+            }
+
+            
+
+        </script>
+
+
     </head>
     <body>
+
+        <div id="igem_login_bar">
+            IGEM LOGIN BAR
+        </div>
+
+        <div class="parallax">
+            <div class="infobox">
+                <h1 style="color: #6d1d23">Team</h1>
+            </div>
+        </div>
+
+        <div class="menu">
+            <div class="drop_down_background">
+            </div>
+
+            <a href="https://2021.igem.org/Team:Uppsala">
+                <img class="logotype" src="/Users/tovejonsson/Desktop/ezgif.com-gif-maker.gif">
+            </a>
+
+            <ul>
+                <il class="dropdown-1">
+                    <a href="javascript:void(0)" class="dropbtn">Project</a>
+
+                </il>
+            </ul>
+
+
+        </div>
+
+
+
+        
+        
         
     </body>
 </html>
