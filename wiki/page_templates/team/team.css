@@ -1,4 +1,4 @@
-.explain{
+.explain1{
     justify-content: center;
     display: flex;
     position: relative;
@@ -13,7 +13,7 @@
     margin:3vh;
     }
     
-    .explain > img{
+    .explain1 > img{
     width: 7.5vh;
     height: 7.5vh;
     margin:2vh;
@@ -27,8 +27,6 @@
     flex-wrap: wrap;
     z-index: 1;
     
-    
-    
     }
     
     .teamcontainer .card{
@@ -36,6 +34,8 @@
     width: 28vh;
     height:40vh;
     margin: 2vh;
+    margin-top: 3.7vh;
+    margin-bottom: 5vh;
     box-shadow: 1vh 1vh 4vh rgba(0, 0, 0, 0.5);
     border-radius: 2vh;
     background: rgba(255, 255, 255, 0.1);
@@ -63,9 +63,7 @@
     
     }
 
-    .teamcontainer .card .top-part < img{
-        
-    }
+   
     
     
     .teamcontainer .card:hover .top-part {
@@ -96,12 +94,14 @@
     opacity: 1;
     
     }
+
+
     
     .teamcontainer .card .content > img{
     width:8vh;
     height:8vh;
-    
     padding-bottom: -5vh;
+    object-fit: fill;
     }
     
     .teamcontainer .card .content h3{
@@ -110,6 +110,10 @@
     z-index: 1;
     
     padding-top: -4vh;
+    }
+
+    .teamcontainer .card .content h4{
+    font-size: 0.8em;
     }
     
     .teamcontainer .card .content > p{
