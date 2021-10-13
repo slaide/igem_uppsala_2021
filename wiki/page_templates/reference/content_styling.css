@@ -48,7 +48,7 @@
     font-size: 1.5vh;
 }
 /* all elements listed in main content sections (the usual text you see on template pages) */
-#fgfuture_content p,#fgfuture_content div.content_section>div{
+#fgfuture_content p,#fgfuture_content div.content_section>div,#fgfuture_content div.content_section>ul,#fgfuture_content div.content_section>ol{
     margin-left:2.5vh;
 }
 /* text paragraphs that are contained within a 'list of h3s' (used a lot on hp page) */
@@ -166,4 +166,15 @@ div.image.right{
     padding:1.2vh;
     border-radius:0.6vh;
     border:1px solid black;
+}
+
+#fgfuture_content span.popup_target{
+    color:#6d1d23;
+    font-weight: bold;
+    margin:0;
+    padding:0;
+}
+
+#fgfuture_content object.w100p{
+    width:100%;
 }

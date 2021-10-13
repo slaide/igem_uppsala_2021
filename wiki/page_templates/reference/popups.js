@@ -65,7 +65,6 @@ for(element of document.getElementsByClassName("popup")){
     element.addEventListener("mouseleave",close_popup_self)
 
     element.style.setProperty("display","none")
-    console.log(element)
 
     target_element.addEventListener("mouseenter",open_popup)
     target_element.addEventListener("mouseleave",close_popup)

@@ -1,6 +1,4 @@
 
-.popup{
-}
 .popup > span:not(.popup_content){
     cursor:pointer;
 }
@@ -9,7 +7,6 @@
     display:inline-block;
     color:black;
     position:fixed;
-    width:20vh;
     padding:1vh;
 
     transform:translateX(-50%);
@@ -19,6 +16,20 @@
     background-color:white;
     border:0.2vh solid black;
 }
+.popup:not(.w25):not(.w50){
+    width:15vw;
+}
+.popup.w25{
+    width:25vw;
+}
+.popup.w50{
+    width:50vw;
+}
+
+#fgfuture_content .popup object{
+    height:40vh;
+}
+
 .popup_content_header{
     text-decoration: underline;
     font-size: 2.2vh;
