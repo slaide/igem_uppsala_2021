@@ -76,10 +76,9 @@
 }
 #fgfuture_content div.image>p,#fgfuture_content div.image>p{
     font-size: 1.2vh;
-    padding-top: 1vh;
-    padding-left: 0.5vh;
-    padding-right: 0.5vh;
+    padding: 1vh;
     text-align: justify;
+    margin:0;
 }
 /* make image float so that text can wrap around it */
 div.image.left{
@@ -170,7 +169,7 @@ div.image.middle{
 }
 
 /* for use embedded into regular text */
-#fgfuture_content div.content_section > object.pdf_file{
+#fgfuture_content div.content_section > div > object.pdf_file{
     width:90%;
     left:5%;
     position:relative;
