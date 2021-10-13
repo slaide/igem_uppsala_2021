@@ -51,3 +51,9 @@
     grid-column: 2 / 3;
     font-size:1.8vh;
 }
+
+#fgfuture_content div > img {
+    width: 100%;
+    height: auto;
+    display:block;
+}
