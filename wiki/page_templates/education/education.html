@@ -33,7 +33,7 @@
                     <h2 class="quote">
                         <span class="quote text">Education is the most powerful weapon which you can use to change the world.</span>
                         <span class="quote source">Nelson Mandela</span>
-                    </h2> 
+                    </h2>
                     
                     <p>
                         Engaging with the public and our stakeholders has been the cornerstone of our project outside of the lab. Since our project has a wider aim of  improving the current food system, we put emphasis on understanding what effect it could have on both the economy and our environment. We have both looked into the benefits of having cultivated meat on the market and also considered what ethical concerns need to be taken into account. Farmer’s integrity has been important to us and we wanted to know how they can be incorporated in the conversation. To efficiently direct this information, we have approached the general public mainly through our social media. To that end, we started the following initiatives:
@@ -53,7 +53,16 @@
                 <div class="content_section" id="webinar">
                     <h1> Future Farming Webinar </h1>
 
-                    <h2> When you educate one person you can change a life, when you educate many you can change the world”- Shai Reshef </h2> 
+                    <div>
+                        <div class="image middle full">
+                            <img class="expandable_image" style="width:100%;height:auto;" width="2804" height="708" src="https://2021.igem.org/wiki/images/d/dc/T--Uppsala--webinar_banner.png" loading="lazy" alt="webinar speaker lineup, and a cow">
+                        </div>
+                    </div>
+
+                    <h2 class="quote">
+                        <span class="quote text">When you educate one person you can change a life, when you educate many you can change the world.</span>
+                        <span class="quote source">Shai Reshef</span>
+                    </h2>
 
                     <p>
                         Our team thought that the best way for us to spread awareness about Cellular Agriculture was by organizing a small conference. The original idea of the 
@@ -61,13 +70,42 @@
                         was to highlight current advances in traditional agriculture and introduce new emerging alternative agriculture, such as cellular agriculture. We wanted to connect this topic of discussion to entrepreneurship, science and sustainability. However, an event requiring the gathering of a large number of people in an enclosed space was still surrounded with scepticism at that time due to the ongoing pandemic. Since we were discouraged from seeing each other in real life, we thought that we should make the most out of the experience of an online event. Therefore, the event was brought to a global audience virtually. We managed to create our dream lineup of nine speakers from three different continents, Europe, America and Australia, and an audience from various different time zones. 
                     </p>
 
+
+                    <h2>Webinar Lineup</h2>
+                    <div id="webinar_lineup_container">
+                        <script purpose="schedule JSON setup">
+                            {{schedule.js}}
+                        </script>
+
+                        <div id="webinar_lineup_day1_head">Day 1<br>August 29th, 2021</div>
+                        <div id="webinar_lineup_day2_head">Day 2<br>August 30th, 2021</div>
+
+                        <div id="webinar_lineup_day1_content"></div>
+                        <div id="webinar_lineup_day2_content"></div>
+                        
+                        <script purpose="add lineup entries to dom">
+                            {{add_schedule_entries_to_dom.js}}
+                        </script>
+                    </div>
+
                     <h2 class="quote">
                         <span class="quote text">One great conversation can shift the direction of change forever.</span>
                         <span class="quote source">Linda Lambert</span>
                     </h2> 
                     <p>
-                        After a full day of formal presentations followed by Q&A, we provided a platform for both our webinar speakers and attendees to interact in a more informal way. We invited all participants to a new online platform called Sophya, a new emerging virtual world where people can assign an avatar to their persona. We encouraged the continuation of interactions there by communicating through pop-up camera windows, similar to Zoom but more interactive. We had embedded interesting articles and websites in the space and even provided some games as ice breakers for attendees. Since this platform is relatively new, and most of the webinar participants were unfamiliar with it, a Sophya guide was created by our team with instructions on how to log in and use the software. The number of people that joined us there was just right for interesting conversations to spark. We had informal discussions with people just like we would at regular physical conferences. Later, we even heard that some people received valuable advice for their iGEM projects. This was a platform where some acquaintances even met and elaborated on their shared interest in alternative proteins. We were thrilled about this addition to our webinar structure and had a lot of interesting interactions with the attendees.
+                        After a full day of formal presentations followed by Q&A, we provided a platform for both our webinar speakers and attendees to interact in a more informal way. We invited all participants to a new online platform called Sophya, a new emerging virtual world where people can assign an avatar to their persona. We encouraged the continuation of interactions there by communicating through pop-up camera windows, similar to Zoom but more interactive. We had embedded interesting articles and websites in the space and even provided some games as ice breakers for attendees.
                     </p>
+                    <p>
+                        Since this platform is relatively new, and most of the webinar participants were unfamiliar with it, a <span id="sophya_guide" class="popup_target">Sophya guide</span> was created by our team with instructions on how to log in and use the software. The number of people that joined us there was just right for interesting conversations to spark. We had informal discussions with people just like we would at regular physical conferences. Later, we even heard that some people received valuable advice for their iGEM projects. This was a platform where some acquaintances even met and elaborated on their shared interest in alternative proteins. We were thrilled about this addition to our webinar structure and had a lot of interesting interactions with the attendees.
+                    </p>
+
+                    <span class="popup w50" target="sophya_guide" id="sophya_guide_popup">
+                        <div class="popup_content_header">Sophya Instructions</div>
+                        <span class="popup_content">
+                            <object class="pdf_file w100p" type="application/pdf" data="https://2021.igem.org/wiki/images/8/87/T--Uppsala--sophya_instructions.pdf"></object>
+                        </span>
+                    </span>
+
                     <p>
                         You can follow our “Future Farming” webinar and Sophya journey <a href="#webinarlineup">below.</a>
                     </p>
@@ -100,25 +138,6 @@
                         </ul>
                     </div>
                 </div>
-                
-                <div class="content_section" id="webinarlineup">
-                    <h1>Webinar Lineup</h1>
-                    <div id="webinar_lineup_container">
-                        <script purpose="schedule JSON setup">
-                            {{schedule.js}}
-                        </script>
-
-                        <div id="webinar_lineup_day1_head">Day 1<br>August 29th, 2021</div>
-                        <div id="webinar_lineup_day2_head">Day 2<br>August 30th, 2021</div>
-
-                        <div id="webinar_lineup_day1_content"></div>
-                        <div id="webinar_lineup_day2_content"></div>
-                        
-                        <script purpose="add lineup entries to dom">
-                            {{add_schedule_entries_to_dom.js}}
-                        </script>
-                    </div>
-                </div>
 
                 <div class="content_section" id="workshops">
                     <h1> Workshops </h1>
@@ -135,7 +154,7 @@
                     <h2> DRIVHUSET Workshop </h2>
                     <div>
                         <div class="image middle half">
-                            <img class="expandable_image" width="1080" height="1080" src="https://2021.igem.org/wiki/images/4/48/T--Uppsala--drivhuset_workshop.gif" lazy alt="drivhuset workshop video snippets throughout the day">
+                            <img class="expandable_image" width="1080" height="1080" src="https://2021.igem.org/wiki/images/4/48/T--Uppsala--drivhuset_workshop.gif" loading="lazy" alt="drivhuset workshop video snippets throughout the day">
                         </div>
                     </div>
                     <p>
@@ -166,7 +185,7 @@
                     <h2> SynthEthics Workshop </h2>
                     <div>
                         <div class="image middle half">
-                            <img class="expandable_image" width="1080" height="1080" src="https://2021.igem.org/wiki/images/e/ed/T--Uppsala--synethics_workshop.gif" lazy alt="synethics workshop video snippets throughout the day">
+                            <img class="expandable_image" width="1080" height="1080" src="https://2021.igem.org/wiki/images/e/ed/T--Uppsala--synethics_workshop.gif" loading="lazy" alt="synethics workshop video snippets throughout the day">
                         </div>
                     </div>
                     <p>
@@ -220,6 +239,11 @@
                     <p>
                         For any synthetic biology project to maximize its impact in the world it has to be taken from the lab out into the real world. Throughout our research during the summer we came into contact with several people within the life-science community with prototyping experience and we decided to give all iGEM teams the opportunity to learn from them by organizing a webinar. Participants got to learn basic prototyping principles from a prototyping expert, received a virtual walkaround at Testa-center, a unique bio-prototyping facility in Uppsala, and heard about the experience of prototyping from a Dutch algae-based startup. We also gave a presentation on our own scale-up efforts planned for the following week.
                     </p>
+                    <div>
+                        <div class="image middle half">
+                            <img class="expandable_image" width="1080" height="1080" src="https://2021.igem.org/wiki/images/8/85/T--Uppsala--prototyping_event.gif" loading="lazy" alt="prototyping event highlights">
+                        </div>
+                    </div>
                 </div>
                 <div class="content_section" id="social_media_engagement">
                     <h1> Social Media engagement </h1>

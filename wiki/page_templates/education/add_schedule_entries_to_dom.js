@@ -20,7 +20,7 @@ for(let webinar_day of [["webinar_lineup_day1_content",schedule_day1],["webinar_
 
         let speaker_image_div=document.createElement("div")
         speaker_image_div.classList.add("webinar_entry_speaker_image")
-        speaker_image_div.innerHTML="<img src='"+(schedule[key].image||"https://th.bing.com/th/id/R.927fa5f474d3871303751f61107530c1?rik=ZZBvTAdkuxyRhQ&riu=http%3a%2f%2f1.bp.blogspot.com%2f-lUBtYiFt-9s%2fT7owG9DyamI%2fAAAAAAAAODc%2fQZHpXGrivvg%2fs1600%2fTobey%2bMaguire.jpg&ehk=jFtyBXCtoTqhpzFzPDoWmW7e56WwhaeLNIe2tdIR9vM%3d&risl=&pid=ImgRaw&r=0")+"'>"
+        speaker_image_div.innerHTML="<img src='"+schedule[key].image+"' loading='lazy'>"
         speaker_div.appendChild(speaker_image_div)
 
         let speaker_name_div=document.createElement("div")

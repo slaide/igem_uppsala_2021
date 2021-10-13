@@ -144,14 +144,11 @@ div.image.middle{
     background-color: #dddddd;
 }
 
-#fgfuture_content div.quote{
-
-}
 #fgfuture_content span.quote.text::before{
-    content:'" ';
+    content:'"';
 }
 #fgfuture_content span.quote.text::after{
-    content:' "';
+    content:'"';
 }
 #fgfuture_content span.quote.source::before{
     content:' - ';
@@ -172,22 +169,8 @@ div.image.middle{
     text-align: center;
 }
 
-#fgfuture_content span.popup_target{
-    color:#6d1d23;
-    font-weight: bold;
-    margin:0;
-    padding:0;
-}
-
-#fgfuture_content .popup object.w100p{
-    width:100%;
-}
-#fgfuture_content .popup video{
-    width:100%;
-}
-
 /* for use embedded into regular text */
-#fgfuture_content object.pdf_file{
+#fgfuture_content div.content_section > object.pdf_file{
     width:90%;
     left:5%;
     position:relative;

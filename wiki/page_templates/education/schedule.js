@@ -35,30 +35,20 @@ schedule_day1=[
         "topic":"INSIGHT INTO IGEM PROJECTS: Uppsala, Maastricht, Wageningen, Groningen",
         "image":"https://2021.igem.org/wiki/images/2/20/T--Uppsala--igem_uu_adjusted_background.png",
         "popup_content":["Project Summaries",`
+            <div>
+                <div class="image middle full">
+                    <img class="expandable_image" style="width:100%;height:auto;" width="910" height="724" src="https://2021.igem.org/wiki/images/7/7d/T--Uppsala--webinar_igem_teams.png" loading="lazy" alt="drivhuset workshop video snippets throughout the day">
+                </div>
+            </div>
             <ul>
             <li>
-                <h3>iGEM Uppsala</h3>
-                <p>Optimize a growth factor to reduce the cost of cultivated meat production<br><br>
-                <a href="https://2021.igem.org/Team:Uppsala">iGEM Uppsala wiki</a>
-                </p>
-            </li>
-            <li>
-                <h3>iGEM Maastricht</h3>
-                <p>Reduce methane emissions from cattle by genetically modifying cow feed<br><br>
                 <a href="https://2021.igem.org/Team:MSP-Maastricht">iGEM Maastricht wiki</a>
-                </p>
             </li>
             <li>
-                <h3>iGEM Wageningen</h3>
-                <p>Develop a biofilter for cattle stalls that can catch off harmful ammonia ánd methane emissions with the help of two bacteria<br><br>
                 <a href="https://2021.igem.org/Team:Wageningen_UR">iGEM Wageningen wiki</a>
-                </p>
             </li>
             <li>
-                <h3>iGEM Groningen</h3>
-                <p>Reduce ammonia emissions from cattle in a circular way via a feed additive and a filter device<br><br>
                 <a href="https://2021.igem.org/Team:Groningen">iGEM Groningen wiki</a>
-                </p>
             </li>
             </ul>
         `],
