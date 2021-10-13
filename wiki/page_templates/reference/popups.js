@@ -1,47 +1,72 @@
-<script purpose="popup initiaiziation">
-            for(element of document.getElementsByClassName("popup")){
-                console.log(element.children)
-                element.children[1].style.setProperty("display","none")
-                element.children[1].innerHTML="<span class='popup_content_header'>"+element.children[0].innerText+"</span><br><br>"+element.children[1].innerHTML
 
-                function open_popup(ev){
-                    let element=ev.target
-                    if(!element.classList.contains("popup")){
-                        element=element.parentElement
-                    }
+function open_popup(ev){
+    let element=ev.target
 
-                    if(element.getAttribute("vanish_timer")){
-                        clearTimeout(element.getAttribute("vanish_timer"))
-                    }
+    let target_id=element.getAttribute("popup")
+    let popup_element=document.getElementById(target_id)
+    popup_element.style.setProperty("display","initial")
 
-                    element.setAttribute("popped_up",true)
-                    let element_bb=element.getBoundingClientRect()
-                    element.children[1].style.setProperty("display","initial")
-                    let left_offset=element_bb.x+(element_bb.width/2) // centering of popup happens in css
-                    left_offset=max(element.children[1].getBoundingClientRect().width/2,left_offset) // make sure it does not leave the screen area to the left for text that is close to the left border
-                    left_offset=min(window.innerWidth-(element.children[1].getBoundingClientRect().width/2),left_offset) // make sure the popup does not leave the screen area on the right
-                    //the min/max caps above could probably be omitted on the wiki page since the main text area has enough padding on the left and right, but better to be safe than sorry (could also be adjusted to make sure the popup does not leave the text area, bu i do not think that it would a visual issue if it did)
-                    element.children[1].style.setProperty("left",left_offset+"px")
-                    element.children[1].style.setProperty("top",element_bb.bottom+"px")
-                }
-                function close_popup(ev){
-                    let element=ev.target
-                    if(!element.classList.contains("popup")){
-                        element=element.parentElement
-                    }
+    if(popup_element.getAttribute("vanish_timer")){
+        clearTimeout(popup_element.getAttribute("vanish_timer"))
+    }
 
-                    //small gap between link and popup content is not valid popup surface, to moving the mouse from the link to the popup content leaves the container area, which closes the popup
-                    //this timeout means that the popup window is closed if the mouse is not positioned within the container area within 250ms after it left the area, ergo the popup remains visible while the mouse moves over the gap between the link and the popup
-                    //and 250ms looks short enough to make it seem like the popup would still automatically vanish when the user leaves the popup area with the mouse actively, to move it somewhere else
-                    element.setAttribute("vanish_timer",setTimeout(
-                        ()=>{
-                            element.setAttribute("popped_up",false)
-                            element.children[1].style.setProperty("display","none")
-                        },250
-                    ))
-                }
+    let element_bb=element.getBoundingClientRect()
+    let left_offset=element_bb.x+(element_bb.width/2) // centering of popup happens in css
+    popup_element.style.setProperty("left",left_offset+"px")
 
-                element.addEventListener("mouseenter",open_popup)
-                element.addEventListener("mouseleave",close_popup)
-            }
-        </script>
+    let top_offset=element_bb.top+element_bb.height
+    popup_element.style.setProperty("top",top_offset+"px")
+}
+function close_popup(ev){
+    let element=ev.target
+
+    let target_id=element.getAttribute("popup")
+    let popup_element=document.getElementById(target_id)
+
+    //small gap between link and popup content is not valid popup surface, to moving the mouse from the link to the popup content leaves the container area, which closes the popup
+    //this timeout means that the popup window is closed if the mouse is not positioned within the container area within 250ms after it left the area, ergo the popup remains visible while the mouse moves over the gap between the link and the popup
+    //and 250ms looks short enough to make it seem like the popup would still automatically vanish when the user leaves the popup area with the mouse actively, to move it somewhere else
+    popup_element.setAttribute("vanish_timer",setTimeout(
+        ()=>{
+            popup_element.setAttribute("popped_up",false)
+            popup_element.style.setProperty("display","none")
+        },250
+    ))
+}
+function keep_open_popup(ev){
+    let popup_element=ev.target
+
+    if(popup_element.getAttribute("vanish_timer")){
+        clearTimeout(popup_element.getAttribute("vanish_timer"))
+    }
+}
+function close_popup_self(ev){
+    let popup_element=ev.target
+
+    popup_element.setAttribute("vanish_timer",setTimeout(
+        ()=>{
+            popup_element.setAttribute("popped_up",false)
+            popup_element.style.setProperty("display","none")
+        },250
+    ))
+}
+
+for(element of document.getElementsByClassName("popup")){
+    let target_attribute=element.getAttribute("target")
+
+    target_element=document.getElementById(target_attribute)
+    if(!element.id){
+        window.alert("popup does not have an id! check console for more info.")
+        console.log("popup does not have an id!",element)
+    }
+    target_element.setAttribute("popup",element.id)
+
+    element.addEventListener("mouseenter",keep_open_popup)
+    element.addEventListener("mouseleave",close_popup_self)
+
+    element.style.setProperty("display","none")
+    console.log(element)
+
+    target_element.addEventListener("mouseenter",open_popup)
+    target_element.addEventListener("mouseleave",close_popup)
+}
