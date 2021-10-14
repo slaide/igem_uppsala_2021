@@ -1,18 +1,20 @@
+{{IGEM_TopBar}}
+
 <html lang="en">
-    <head>
-    <style real-href="remove_presets.css">
-    .top_bar{
+<head>
+<style real-href="remove_presets.css">
+.top_bar{
     display:none;
     height:0px;
-    }
-    .igem_column_wrapper{
+}
+.igem_column_wrapper{
     width:auto;
     max-width:none;
-    }
-    #globalWrapper{
+}
+#globalWrapper{
     padding-bottom:0;
-    }
-    .igem_content_wrapper .igem_column_wrapper a,.igem_content_wrapper .igem_column_wrapper a:hover{
+}
+.igem_content_wrapper .igem_column_wrapper a,.igem_content_wrapper .igem_column_wrapper a:hover{
     font-weight: initial;
     text-decoration-color: initial;
     transition: initial;
@@ -20,80 +22,99 @@
     -moz-transition: initial;
     -ms-transition: initial;
     -o-transition: initial;
-    }
-    </style>
-    <style purpose="global">
-    #globalWrapper {padding-bottom:0px;}
-    
-    @font-face {
+}
+h1,h2,h3,h4,h5,h6{
+    padding:0;
+    border:0;
+}
+#content{
+    line-height:normal;
+}
+
+</style>
+
+<style purpose="global">
+
+#globalWrapper {padding-bottom:0px;}
+
+@font-face {
     font-family: UL;
     src: url("https://2021.igem.org/wiki/images/5/56/T--Uppsala--Ubuntu-Light.ttf");
-    src: url("./T--Uppsala--Ubuntu-Light.ttf");
-    }
-    
-    @font-face {
+}
+
+@font-face {
     font-family: UM;
     src: url("https://2021.igem.org/wiki/images/d/db/T--Uppsala--Ubuntu-Medium.ttf");
-    src: url("./T--Uppsala--Ubuntu-Medium.ttf");
-    }
-    
-    *{
+}
+
+*{
     margin:0;
     border:0;
     padding:0;
     font-family: sans-serif;
-    }
-    
-    a,a:visited{
+}
+
+a,a:visited{
     text-decoration: none;
     color: #6d1d23;
-    }
-    a:hover{
+}
+a:hover{
     text-decoration: underline;
     color: #426968;
-    }
-    
-    body, html{
+}
+
+body, html{
     height: 100%;
     width: 100%;
     scroll-behavior: smooth;
-    }
-    
-    hr{
+}
+
+hr{
     height: 1px;
     background-color: #6d1d23;
     display: block;
     width: auto;
     margin-top: 2vh;
     margin-bottom: 2vh;
-    }
-    .blurred_image_overlay,.blurred_navigation_bar_open{
+}
+.blurred_image_overlay,.blurred_navigation_bar_open{
     filter:blur(15px);
-    }
-    </style>
-    <style purpose="header section and content container">
-    #pagecontent{
+}
+
+</style>
+
+<style purpose="header section and content container">
+#pagecontent{
     display: grid;
-    
+
     grid-template-rows:calc(5vh + 50vh + 16px) auto;
     grid-template-columns: 1fr 1fr 4fr 2fr;
     background-color: #dce1de;
-    }
-    
-    #parallaxtop {
-    background-image: url(https://2021.igem.org/wiki/images/5/53/T--Uppsala--safe.jpg);
-    height: calc(50vh + 5vh);
-    background-attachment: fixed;
-    background-position: center;
+}
+
+#parallaxtop {
+    height: calc(50vh + 5vh + 16px);
+    background-image: url(https://2021.igem.org/wiki/images/c/c4/T--Uppsala--lab-banner.png);
+    background-size: contain;
     background-repeat: no-repeat;
-    background-size: cover;
+    
     overflow: hidden;
     
     grid-row: 1 / 2;
     grid-column: 1 / 5;
-    }
-    
-    #page_header{
+}
+/* some page header images may fit better if stretched to the correct size */
+#parallaxtop.stretch_background{
+    background-position: center calc( 5vh + 16px);
+    background-size: 100% 50vh;
+}
+/* some page header images may fit better if clipped instead of stretched */
+#parallaxtop:not(.stretch_background){
+    background-position: center;
+    background-size: cover;
+}
+
+#page_header{
     display:inline-block;
     position:relative;
     width:auto;
@@ -101,304 +122,262 @@
     left:50%;
     top:calc( 50vh /2 + 5vh);
     transform:translate(-50%,-50%);
-    
+
     text-align: center;
     font-size: 6em;
     color: #6d1d23;
     font-family: UM, sans-serif;
-    }
-    </style>
-    <style purpose="sidebar">
-    #sidebar {
+}
+
+</style>
+<style purpose="sidebar">
+#sidebar {
     display:block;
     position:relative;
-    
+
     width: 100%;
-    
+
     margin-top:5vh;
     margin-left:1vh;
     margin-right:1vh;
-    
+
     font-size: 2vh;
     font-weight:600;
-    
+
     grid-row: 2 / 3;
     grid-column: 1 / 2;
-    }
-    #sticky_sidebar{
+}
+#sticky_sidebar{
     top:calc( 16px + 5vh);
     position:sticky;
-    }
-    #sidebar_header{
+}
+#sidebar_header{
     padding-top:2vh;
     font-size:3.5vh;
     font-family: UM;
-    }
-    #sidebar a{
+}
+#sidebar a{
     color:#6d1d23;
     font-weight:bold;
-    }
-    #sidebar :hover{
-    color:#426968;
-    }
-    #sidebar_list_container{
+}
+#sidebar :hover{
+    color:#426968; 
+}
+#sidebar_list_container{
     margin:0;
     padding:0;
     margin-left:1vw;
     width:calc(100% - 1vw);
     line-height: 1;
-    }
-    .sidebar_list_section{
+}
+.sidebar_list_section{
     display:block;
     width:calc(100% - 2vh);
     
     color:#6d1d23;
-    
+
     margin-bottom: 2.2vh;
-    
+
     transition: all 0.2s;
-    
+
     font-family: UL;
-    }
-    .sidebar_list_section a{
+}
+.sidebar_list_section a{
     font-size: 2vh;
-    }
-    .sidebar_list_section.current_section{
+}
+.sidebar_list_section.current_section{
     /* #6d1d23 */
     border-left:1vh solid rgba(109,29,35,0.9);
     padding-left:1vh;
-    }
-    .sidebar_list_section span:hover{
+}
+.sidebar_list_section span:hover{
     color:#426968;
-    }
-    .listsidebar{
+}
+.listsidebar{
     margin-top: 0px;
     padding:0;
     width: 100%;
     background-color: #dce1de;
     height: 100%;
-    }
-    </style>
-    
-    <style purpose="text/main section and pre-defined styles for user-writable code">
-    /* Actual content */
-    #fgfuture_content{
+}
+
+</style>
+
+<style purpose="text/main section and pre-defined styles for user-writable code">
+/* Actual content */
+#fgfuture_content{
     background-color: #dce1de;
-    
+
     margin-top: 3.6vh;
-    
-    font-family: UL;
-    
+    padding-bottom: 5vh;
+
+    font-family: UL; 
+
     grid-row: 2 / 3;
     grid-column: 3 / 4;
-    }
-    
-    #fgfuture_content h1{
+}
+
+#fgfuture_content h1,#fgfuture_content h2,#fgfuture_content h3{
     color:#6d1d23;
     font-family: UM, sans-serif;
-    font-size: 3vh;
-    }
-    #section1,#section2,#section3{
+    margin-left: 0.5vh;
     display:block;
-    position:relative;
+}
+
+#fgfuture_content h1{
+    font-size: 3vh;
+    margin-top: 1.5vh;
+    margin-bottom: 1.5vh;
+}
+#fgfuture_content h2{
+    font-size: 2.4vh;
+    margin-top:1.2vh;
+    margin-bottom: 1.2vh;
+}
+#fgfuture_content h3{
+    font-size: 1.8vh;
+    margin-top: 0.9vh;
+    margin-bottom: 0.9vh;
+}
+
+/* styling applies to all text within the content area that is not a header */
+#fgfuture_content p,#fgfuture_content ul,#fgfuture_content ol,#fgfuture_content div.content_section>div,#fgfuture_content span{
+    margin-bottom: 0.5vh;
+    margin-top: 0.5vh;
     
-    height:auto;
-    width:100%;
+    padding-bottom: 2vh;
     
-    /* extend section, to include floating children (like images) */
-    overflow:auto;
-    }
-    #section1_link,#section2_link,#section3_link{
-    position:absolute;
-    top:-200px;
-    }
-    
-    div.image{
+    line-height: 1.5;
+}
+#fgfuture_content p,#fgfuture_content ul,#fgfuture_content ol,#fgfuture_content div.content_section>div{
+    font-family: sans-serif;
+    font-size: 1.5vh;
+}
+/* all elements listed in main content sections (the usual text you see on template pages) */
+#fgfuture_content p,#fgfuture_content div.content_section>div{
+    margin-left:2.5vh;
+}
+/* text paragraphs that are contained within a 'list of h3s' (used a lot on hp page) */
+#fgfuture_content ol > div > p{
+    margin-left:2.5vh;
+}
+
+/* add padding on left of lists to make sure the li-element markers are contained within list area, not outside! */
+#fgfuture_content ul{
+    list-style-type: disc;
+    padding-left: 2vh;
+}
+#fgfuture_content ol{
+    list-style-type: decimal;
+    padding-left: 3vh;
+}
+
+#fgfuture_content div{
+    overflow:hidden;
+}
+#fgfuture_content div.image{
     /* make space for text around the image */
     display:inline-block;
     padding-bottom: 1vh;
-    }
-    .igem_column_wrapper div.image>p,div.image>p{
+}
+#fgfuture_content div.image>p,#fgfuture_content div.image>p{
     font-size: 1.2vh;
     padding-top: 1vh;
     padding-left: 0.5vh;
     padding-right: 0.5vh;
     text-align: justify;
-    }
-    /* make image float so that text can wrap around it */
-    div.image.left{
+}
+/* make image float so that text can wrap around it */
+div.image.left{
     float:left;
     padding-right:2vh;
-    }
-    div.image.right{
+}
+div.image.right{
     float:right;
     padding-left:2vh;
-    }
-    div.image.left{
+}
+div.image.left{
     float:left;
     padding-right:2vh;
-    }
-    div.image.right{
+}
+div.image.right{
     float:right;
     padding-left:2vh;
-    }
-    div.quarter{
+}
+#fgfuture_content div.w10{
+    width:10%;
+}
+#fgfuture_content div.w15{
+    width:15%;
+}
+#fgfuture_content div.w20{
+    width:20%;
+}
+#fgfuture_content div.quarter{
     width:25%;
-    }
-    div.half{
+}
+#fgfuture_content div.half{
     width:50%;
-    }
-    
-    /* styling applies to all text within the content area that is not a header */
-    #fgfuture_content > div > p{
-    font-family: sans-serif;
-    font-size: 1.5vh;
-    padding-bottom: 2vh;
-    line-height: 1.5;
-    }
-    /* make sure images have expected size (the actual size specifications apply to their container, not themself) */
-    #fgfuture_content div > img{
+}
+
+/* make sure images have expected size (the actual size specifications apply to their container, not themself) */
+#fgfuture_content div.image > img{
     width:100%;
     height:auto;
-    }
-    
-    
-    
-    /* TEXT*/
-    .midcontenttext{
-    text-align: left;
-    font-size: 1.1em;
-    margin-top: 3.2vh;
-    }
-    
-    /*HEADERS*/
-    .midcontenttext > h1{
-    font-size: 2em;
-    color:#6d1d23;
-    text-align: center;
-    font-family: UM;
-    border: none;
-    }
-    .midcontenttext > h2{
-    font-size: 1.5em;
-    color: black;
-    text-align: center;
-    font-family: UM;
-    border:none;
-    margin-top: 3vh;
-    }
-    
-    .midcontenttext > h3{
-    font-size: 1.2em;
-    color: black;
-    text-align: center;
-    font-family: UL;
-    border:none;
-    margin-top: 3vh;
-    }
-    /* NORMAL PARAGRAPH*/
-    .midcontenttext >p{
+}
+
+/* NORMAL PARAGRAPH*/
+.midcontenttext > p{
     font-weight:normal;
     font-size:1em;
     color:black;
     line-height:1.8;
     letter-spacing:0.05em;
     margin-top: 3vh;
-    }
-    
-    /*
-    WHEN ADDING THE PICTURE DIV
-    DEFINE ITS WIDTH IN THE HTML SECTION TO MAKE THE IMG THE RIGHT SIZE
-    EX   ->
-    <div class="divrightpicture" style="width:30vw;">
-    */
-    .divrightpicture{
-    float: right;
-    margin-top: 3vh;
-    margin-left: 2vw;
-    margin-right: 2vw;
-    margin-bottom: 0;
-    }
-    
-    .divrightpicture > p{
-    font-weight:normal;
-    text-align: left;
-    font-size:0.9em;
-    color:black;
-    line-height:1.2;
-    letter-spacing:0.05em;
-    }
-    
-    .divrightpicture > img{
-    width: 100%;
-    cursor: zoom-in;
-    }
-    
-    .divmidpicture{
-    margin-top: 3vh;
-    margin-left: 50%;
-    transform: translateX(-50%);
-    margin-bottom: 0;
-    }
-    
-    .divmidpicture > p{
-    font-weight:normal;
-    text-align: left;
-    font-size:0.9em;
-    color:black;
-    line-height:1.2;
-    letter-spacing:0.05em;
-    margin-bottom: 2vh;
-    }
-    
-    .divmidpicture > img{
-    width: 100%;
-    cursor: zoom-in;
-    }
-    
-    .divleftpicture{
-    float: left;
-    margin-top: 3vh;
-    margin-left: 2vw;
-    margin-right: 2vw;
-    margin-bottom: 0;
-    }
-    
-    .divleftpicture > p{
-    font-weight:normal;
-    text-align: left;
-    font-size:0.9em;
-    color:black;
-    line-height:1.2;
-    letter-spacing:0.05em;
-    }
-    
-    .divleftpicture > img{
-    width: 100%;
-    cursor: zoom-in;
-    }
-    
-    /* For tables */
-    table {
+}
+
+/* For tables */
+#fgfuture_content table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
-    }
-    
-    td, th {
+}
+
+#fgfuture_content td, #fgfuture_content th {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
-    }
-    
-    tr:nth-child(even) {
+}
+
+#fgfuture_content tr:nth-child(even) {
     background-color: #dddddd;
-    }
-    </style>
-    
-    <style purpose="sponsors">
-    /* Sponsor part*/
-    .flexbox-container-socialmedia{
+}
+
+#fgfuture_content div.quote{
+
+}
+#fgfuture_content span.quote.text::before{
+    content:'" ';
+}
+#fgfuture_content span.quote.text::after{
+    content:' "';
+}
+#fgfuture_content span.quote.source::before{
+    content:' - ';
+}
+
+#fgfuture_content a.button{
+    display:inline-block;
+    background-color: lightgrey;
+    padding:1.2vh;
+    border-radius:0.6vh;
+    border:1px solid black;
+}
+
+</style>
+
+<style purpose="sponsors">
+.flexbox-container-socialmedia{
     width: auto;
     height: 25vh;
     display: flex;
@@ -406,33 +385,33 @@
     overflow: hidden;
     background-color: #426968;
     justify-content: center;
-    }
-    
-    
-    .flexbox-container-socialmedia > div > a > img:not(img.upplogo){
+}
+
+
+.flexbox-container-socialmedia > div > a > img:not(img.upplogo){
     margin-left: 3vw;
     margin-right: 3vw;
     filter: grayscale(50%);
     margin-top: 7vh;
     width: 5vw;
-    }
-    
-    .flexbox-container-socialmedia > div > a > img:not(img.upplogo):hover{
+}
+
+.flexbox-container-socialmedia > div > a > img:not(img.upplogo):hover{
     filter:grayscale(0);
     filter: brightness(130%);
     filter: contrast(150%);
-    
-    }
-    
-    img.upplogo{
+
+}
+
+img.upplogo{
     width: 10vw;
     margin-top: 3vh;
     margin-left: 3vw;
     margin-right: 3vw;
-    }
-    
-    
-    .grid-container-sponsors{
+}
+
+
+.grid-container-sponsors{
     height: 30vh;
     display: grid;
     padding-left:5%;
@@ -445,13 +424,13 @@
     grid-template-rows:repeat(2,1fr);
     overflow: hidden;
     background-color: #426968;
-    }
-    
-    .grid-container-sponsors > div{
+}
+
+.grid-container-sponsors > div{
     width:auto;
     height:auto;
-    }
-    .grid-container-sponsors > div > a > img{
+}
+.grid-container-sponsors > div > a > img{
     width:80%;
     height:auto;
     filter: grayscale(50%);
@@ -459,102 +438,104 @@
     left:50%;
     top:50%;
     transform:translate(-50%,-50%);
-    }
-    
-    .grid-container-sponsors > div > a > img:hover{
+}
+
+.grid-container-sponsors > div > a > img:hover{
     filter:grayscale(0);
     filter: brightness(130%);
     filter: contrast(150%);
-    }
-    
-    </style>
-    
-    <script purpose="general purpose functions">
-    function and(a,b){return (a+b)==2}
-    function min(a,b){return (a<b)?a:b}
-    function max(a,b){return (a>b)?a:b}
-    
-    </script>
-    
-    <!-- cross-page navigation bar -->
-    <style real-href="navigation_bar">
-    /*navigation bar*/
-    #navigation_bar{
+}
+
+
+</style>
+
+<script purpose="general purpose functions">
+function and(a,b){if(a){ if(b){return true;} } return false;}
+function min(a,b){return (a<b)?a:b}
+function max(a,b){return (a>b)?a:b}
+</script>
+
+<!-- cross-page navigation bar -->
+<style real-href="navigation_bar">
+/*navigation bar*/
+#navigation_bar{
     top:16px;
     height:5vh;
-    
+
     position:fixed;
     width:100%;
-    
+
     z-index:9;
-    
+
     display:grid;
     /* left grid element has height 100% (5vh), and to contain the logo, the width needs to be calculated from the image's aspect ratio, with a width of 87px and height of 65px, the rest is math */
     --logo-width: calc(5vh * 87.1333 / 65.35 );
     grid-template-columns: var(--logo-width) calc(100% - var(--logo-width));
     grid-template-rows: 100%;
-    }
     
-    /* a elements when not hovering*/
-    div.dropbtn,.navigation_dropdown_entry,.igem_content_wrapper .igem_column_wrapper a{
+    color:#6d1d23;
+    
+    background-color: transparent;
+}
+
+/* a elements when not hovering*/
+div.dropbtn,.navigation_dropdown_entry,.igem_content_wrapper .igem_column_wrapper a{
     font-family: sans-serif;
     transition: 0.1s;
     font-weight: normal;
-    color:black;
     text-decoration: none;
-    }
-    .dropdown_content > a{
-    color:black;
-    }
-    div.dropbtn{
+}
+.dropdown_content{
+    line-height:1.2;
+}
+div.dropbtn{
     cursor:default;
-    color:#6d1d23;
     font-size: 2.5vh;
-    }
-    li.hovering_over > div.dropbtn{
+}
+li.hovering_over > div.dropbtn{
     font-weight: bold;
-    }
-    /* override default link highlighting */
-    #navigation_bar a:not(:hover),#navigation_bar div:not(:hover){
+}
+/* override default link highlighting */
+#navigation_bar a:not(:hover),#navigation_bar div:not(:hover){
     text-decoration: none;
-    }
-    /* a elements when hovering (override color and underline) */
-    #navigation_bar a:hover,#navigation_bar div.dropbtn:hover{
-    color:#6d1d23;
+}
+/* a elements when hovering (override color and underline) */
+#navigation_bar a:hover,#navigation_bar div.dropbtn:hover{
     /* reset igem bs */
     font-weight: bold;
-    }
-    #navigation_bar a:hover{
+}
+#navigation_bar a:hover{
     text-decoration: underline;
-    }
-    
-    /* navigation bar logo on left */
-    /* img container */
-    #navigation_bar_logo_container{
+}
+
+/* navigation bar logo on left */
+/* img container */
+#navigation_bar_logo_container{
     height:calc(5vh - 1px);
-    
+
     border-bottom: 1px solid black;
     border-right: 1px solid black;
-    }
-    /* set own background color to still have background when rest of navigation bar vanishes while scrolling */
-    #navigation_bar_logo_container,.logotype{
+}
+/* set own background color to still have background when rest of navigation bar vanishes while scrolling */
+#navigation_bar_logo_container,.logotype{
     background-color: #dce1de;
-    }
-    /* actual logo inside container */
-    #navigation_bar_logo_container > img{
+}
+/* actual logo inside container */
+#navigation_bar_logo_container > img{
     height:100%;
-    }
-    
-    /* container for dropdown menus on right side of navigation bar */
-    #dropdown-container{
+}
+
+/* container for dropdown menus on right side of navigation bar */
+#dropdown-container{
     display:grid;
     height:calc( 5vh - 1px);
-    
+
     grid-template-columns: repeat(6,1fr);
     grid-template-rows: 100%;
     
-    /* manually transition background-color to preserve left/right padding background while the navigation menus vanish during scrolling */
-    transition: 0s background-color 1s;
+    /* invisible by default. making it invisible happens gradually */
+    transition: opacity 0.3s;
+    opacity: 0;
     
     /* reset igem bs */
     padding:0;
@@ -565,880 +546,892 @@
     padding-right: 10%;
     
     overflow:hidden;
-    }
-    /* while either scrolling, or hovering mouse over the navigation menu area, show the menu overview */
-    #dropdown-container.scrolled_down,#dropdown-container.panel_opened{
     border-bottom: 1px solid black;
     
-    background-color: #dce1de;
-    
-    transition: 0s background-color 0s;
-    }
-    /* only while the panel is open (via mouse hover), show the extended menus, which include the links to other pages */
-    #dropdown-container.panel_opened{
+    background-color:#dce1de;
+}
+/* while either scrolling, or hovering mouse over the navigation menu area, show the menu overview instantly */
+#dropdown-container.scrolled_down,#dropdown-container.panel_opened{
+    transition: opacity 0s;
+    opacity: 1;
+}
+/* only while the panel is open (via mouse hover) show the extended menus, which include the links to other pages */
+#dropdown-container.panel_opened{
     overflow:visible;
-    }
-    /* animate shrinking dropdown menus' height to 0 when scrolling down and not hovering the mouse over the navigation area */
-    #dropdown-container:not(.scrolled_down):not(.panel_opened) .dropdown{
-    height:0vh;
-    transition: 1s height;
-    }
-    #dropdown-container:not(.scrolled_down):not(.panel_opened) .dropdown{
-    height:0vh;
-    transition: 1s height;
-    border-bottom:0;
-    }
-    /* because overflow:hidden does not work, make the navigation menu headlines (.dropbtn) see-through when scrolling down and not hovering over the navigation area */
-    #dropdown-container:not(.scrolled_down):not(.panel_opened) .dropbtn{
+}
+
+/* when not hovering over the navigation area, make all links see-through, that are not headlines (i.e. only the menu entries) */
+#dropdown-container:not(.panel_opened) a:not(.dropbtn){
     opacity:0;
-    transition: 0.2s opacity 0.8s;
-    }
-    /* when not hovering over the navigation area, make all links see-through, that are not headlines (i.e. only the menu entries) */
-    #dropdown-container:not(.panel_opened) a:not(.dropbtn){
-    opacity:0;
-    }
-    /* dropdown menus (containers) */
-    .dropdown{
+}
+
+/* dropdown menus (containers) */
+.dropdown{
     display:block;
     height:40vh;
     background-color: #dce1de;
     border-bottom:1px solid black;
     overflow:visible;
-    }
-    /* add border on left and right side of navigation SUB-menus (not all around menu, which would include borders crossing through the navigation bar itself) */
-    .dropdown:first-child .dropdown_content{
+}
+/* add border on left and right side of navigation SUB-menus (not all around menu, which would include borders crossing through the navigation bar itself) */
+.dropdown:first-child .dropdown_content{
     border-left:1px solid black;
-    }
-    .dropdown:last-child .dropdown_content{
+}
+.dropdown:last-child .dropdown_content{
     border-right:1px solid black;
-    }
-    /* to disable mouse-hover javascript events on see-through links below navigation bar, effectively remove them (except not really) */
-    #dropdown-container:not(.panel_opened) .dropdown_content{
+}
+/* to disable mouse-hover javascript events on see-through links below navigation bar, effectively remove them (except not really) */
+#dropdown-container:not(.panel_opened) .dropdown_content{
     display:none;
-    }
-    /* header of dropdown menus (containing name of each category) */
-    .dropbtn{
+}
+/* header of dropdown menus (containing name of each category) */
+.dropbtn{
     display:block;
     position:absolute;
-    
+
     text-decoration: none;
-    
+
     top:calc( 2.5vh);
     transform:translateY(-50%);
-    }
-    /* override text color of all links inside dropdown menu when hovering over the menu */
-    .dropdown.hovering_over a{
-    color:#6d1d23;
+}
+/* override text color of all links inside dropdown menu when hovering over the menu */
+.dropdown.hovering_over a{
     font-weight: bold;
-    }
-    /* container for links inside dropdown menu */
-    .dropdown_content{
+}
+/* container for links inside dropdown menu */
+.dropdown_content{
     position:absolute;
     /* .dropdown's 40vh height - 5vh offset from top*/
     height:35vh;
-    
+
     font-size: 2vh;
-    
+
     top:5vh;
-    
+
     --logo-width: calc(5vh * 87.1333 / 65.35 );
     width:calc( (100% - var(--logo-width) ) * 0.8 / 6);
-    }
-    /* individual link inside dropdown menu */
-    .dropdown_content > a{
+}
+/* individual link inside dropdown menu */
+.dropdown_content > a{
     display:block;
     padding-left:10%;
     padding-bottom:1vh;
     padding-top:1vh;
-    }
-    /* individual link inside dropdown menu on hover (underline) */
-    .dropdown_content > a:hover{
+}
+/* individual link inside dropdown menu on hover (underline) */
+.dropdown_content > a:hover{
     text-decoration:underline;
-    }
-    
-    /* highlighting of current topic in dropdown */
-    .current_topic{
+}
+
+/* highlighting of current topic in dropdown */
+.current_topic{
     font-style: italic;
     font-weight: bolder;
     font-size: 2.2vh;
-    }
-    </style>
-    <script purpose="internal_open_close_navbar">
-    function open_navbar(){
+}
+
+</style>
+<script purpose="internal_open_close_navbar">
+function open_navbar(){
     document.getElementById("navigation_bar").classList.add("fully_open")
     document.getElementById("pagecontent").classList.add("blurred_navigation_bar_open")
     //this is broken. blurring the main element makes the scrolly things lose their position setting
     for(element of document.getElementsByClassName("scroll_thing")){
-    element.style.setProperty("filter","blur(15px)")
+        element.style.setProperty("filter","blur(15px)")
     }
-    }
-    function close_navbar(){
+}
+function close_navbar(){
     document.getElementById("navigation_bar").classList.remove("fully_open")
     document.getElementById("pagecontent").classList.remove("blurred_navigation_bar_open")
     //this is broken. blurring the main element makes the scrolly things lose their position setting
     for(element of document.getElementsByClassName("scroll_thing")){
-    element.style.setProperty("filter","initial")
+        element.style.setProperty("filter","initial")
     }
-    }
-    
-    /* open/close navigation bar while scrolling */
-    window.addEventListener("wheel",(ev)=>{
-    if(ev.deltaY>0){
-    document.getElementById("dropdown-container").classList.remove("scrolled_down")
+}
+
+/* open/close navigation bar while scrolling */
+window.addEventListener("wheel",(ev)=>{
+    let scroll_height=document.body.scrollTop||document.documentElement.scrollTop||window.pageYOffset
+    if(and(ev.deltaY>0,scroll_height>(window.innerHeight*0.5 + 16 /* scroll height has passed parallax top and login bar (which offsets parallax image) */))){
+        document.getElementById("dropdown-container").classList.remove("scrolled_down")
     }else{
-    document.getElementById("dropdown-container").classList.add("scrolled_down")
+        document.getElementById("dropdown-container").classList.add("scrolled_down")
     }
-    })
-    </script>
-    
-    <!-- cross-page loading styling and code -->
-    <style purpose="loading screen">
-    #loading_overlay{
-    position:fixed;
-    height:calc( 100vh - 16px);
-    width:100%;
-    background-color: #d9dfda;
-    top:16px;
-    z-index:11;
-    }
-    #loading_icon{
-    height:50%;
-    width:auto;
-    position:absolute;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
-    }
-    #loading_icon > img{
-    height:100%;
-    width:auto;
-    }
-    </style>
-    <script purpose="on_load_code">
-    /*
-    clean up the existing stuff that is nothing but in the way of our page design (top bar with igem logo and navigation panel hidden behind a burger menu, and quite thick padding on the left and top of the screen)
-    */
-    
-    function hide_igem_bs(){
+})
+
+</script>
+
+<!-- cross-page loading styling and code -->
+<style purpose="loading screen">
+            #loading_overlay{
+                position:fixed;
+                height:calc( 100vh - 16px);
+                width:100%;
+                background-color: #d9dfda;
+                top:16px;
+                z-index:11;
+            }
+            #loading_icon{
+                height:50%;
+                width:auto;
+                position:absolute;
+                left:50%;
+                top:50%;
+                transform:translate(-50%,-50%);
+            }
+            #loading_icon > img{
+                height:100%;
+                width:auto;
+            }
+        </style>
+
+<script purpose="undo_igem_bs.js">
+function undo_igem_bs(){
     let element=document.getElementsByClassName("top_bar")[0]
     if(element){
-    element.classList.remove("top_bar")
-    element.style="display:none;"
+        element.classList.remove("top_bar")
+        element.style="display:none;"
     }
     for(class_name of "clear extra_space".split(" ")){
-    for(element of document.getElementsByClassName(class_name)){
-    element.classList.remove(class_name)
+        for(element of document.getElementsByClassName(class_name)){
+            element.classList.remove(class_name)
+        }
     }
-    }
-    
+
     let navigation_bar_list=document.getElementById("navigation_bar_list")
     if(navigation_bar_list){
-    if(navigation_bar_list.style.getPropertyValue("display")=="none"){
-    navigation_bar_list.style=undefined
-    }
-    for(child of navigation_bar_list.children){
-    child.classList.remove("current_hub")
-    child.classList.remove("current_page")
-    child.style=undefined
-    }
+        if(navigation_bar_list.style.getPropertyValue("display")=="none"){
+            navigation_bar_list.style=undefined
+        }
+        for(child of navigation_bar_list.children){
+            child.classList.remove("current_hub")
+            child.classList.remove("current_page")
+            child.style=undefined
+        }
     }
     for(dropdown of document.getElementsByClassName("dropdown")){
-    dropdown.style=""
+        dropdown.style=""
     }
     //disable the 'p' at the end of the column wrapper content which is just blank white space at the bottom of the page for some reason
     let igem_column_wrappers=document.getElementsByClassName("igem_column_wrapper")
     for(igem_column_wrapper of igem_column_wrappers){
-    igem_column_wrapper.lastElementChild.style.display="none"
+        igem_column_wrapper.lastElementChild.style.display="none"
     }
+    //disable a whole bunch of css styles applied to subelements of #content (which does NOT include the holy login bar)
+    let content_element=document.getElementById("content")
+    if(content_element){
+        content_element.id=""
     }
-    
-    function on_load(){
-    hide_igem_bs()
-    
-    //after the page has loaded, provide some additional time for all of the javascript to run, then actually remove the loading screen overlay
-    setTimeout(()=>{
-    hide_igem_bs()
-    setTimeout(()=>{
-    document.getElementById("loading_overlay").style="display:none;"
-    },200)
-    },1000)
-    
-    /* get_section_offsets-specific reset */
-    base=null;
-    get_section_offsets()
-    highlight_current_section_in_sidebar()
-    window.addEventListener("scroll",highlight_current_section_in_sidebar)
+    for(classname of ["igem_content_wrapper","igem_column_wrapper"]){
+        let elements_in_class=document.getElementsByClassName(classname)
+        for(element of elements_in_class){
+            element.classList.remove(classname)
+        }
     }
-    </script>
-    </head>
-    <body onload="on_load()" onresize="on_load()">
-    <!-- cross-page loading screen -->
-    <div id="loading_overlay">
-    <div id="loading_icon">
-    <img src="https://2021.igem.org/wiki/images/7/76/T--Uppsala--logo_animated.gif">
-    <div style="font-size:3vh;text-align:center;padding-top:4vh;font-family: sans-serif;">LOADING</div>
-    </div>
-    </div>
-    <div id="image_overlay" class="invisible">
-    <div style="height:100px;width:100px;background-color:red;float:right;" onclick="collapse_image()"></div>
-    </div>
-    <!-- cross-page Navigation Menu with drop down -->
-    <div id="navigation_bar" onmouseenter="open_navbar()" onmouseleave="close_navbar()">
+}
+
+</script>
+<script purpose="on_load_code">
+/*
+clean up the existing stuff that is nothing but in the way of our page design (top bar with igem logo and navigation panel hidden behind a burger menu, and quite thick padding on the left and top of the screen)
+*/
+
+function on_load(){
+undo_igem_bs()
+
+//after the page has loaded, provide some additional time for all of the javascript to run, then actually remove the loading screen overlay
+setTimeout(()=>{
+undo_igem_bs()
+setTimeout(()=>{
+document.getElementById("loading_overlay").style="display:none;"
+},200)
+},1000)
+
+/* get_section_offsets-specific reset */
+base=null;
+get_section_offsets()
+highlight_current_section_in_sidebar()
+window.addEventListener("scroll",highlight_current_section_in_sidebar)
+}
+</script>
+</head>
+<body onload="on_load()" onresize="on_load()">
+<!-- cross-page loading screen -->
+<div id="loading_overlay">
+<div id="loading_icon">
+<img src="https://2021.igem.org/wiki/images/7/76/T--Uppsala--logo_animated.gif">
+<div style="font-size:3vh;text-align:center;padding-top:4vh;font-family: sans-serif;">LOADING</div>
+</div>
+</div>
+<div id="image_overlay" class="invisible">
+<div style="height:100px;width:100px;background-color:red;float:right;" onclick="collapse_image()"></div>
+</div>
+<!-- cross-page Navigation Menu with drop down -->
+<div id="navigation_bar" onmouseenter="open_navbar()" onmouseleave="close_navbar()">
     <a id="navigation_bar_logo_container" href='https://2021.igem.org/Team:Uppsala'>
-    <img class="logotype" src="https://2021.igem.org/wiki/images/thumb/1/13/T--Uppsala--logotransparent.png/320px-T--Uppsala--logotransparent.png">
+        <img class="logotype" src="https://2021.igem.org/wiki/images/thumb/1/13/T--Uppsala--logotransparent.png/320px-T--Uppsala--logotransparent.png">
     </a>
     <ul id="dropdown-container" class="scrolled_down">
-    <li class="dropdown">
-    <div class="dropbtn">Project</div>
-    <div class="dropdown_content">
-    <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Description">Description</a>
-    <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Proof_Of_Concept">Proof of Concept</a>
-    <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Engineering">Engineering Success</a>
-    <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Contribution">Contribution</a>
-    <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Software">Software tool</a>
-    </div>
-    </li>
-    <li class="dropdown">
-    <div class="dropbtn">Experiments</div>
-    <div class="dropdown_content">
-    <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Results">Results</a>
-    <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Model">Modeling</a>
-    <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Experiments">Protocols</a>
-    <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Notebook">Notebook</a>
-    <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Parts">Parts</a>
-    <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Safety">Safety</a>
-    </div>
-    </li>
-    <li class="dropdown">
-    <div class="dropbtn">Human Practice</div>
-    <div class="dropdown_content">
-    <a href="https://2021.igem.org/Team:Uppsala/Human_Practices">Overview</a>
-    <a href="https://2021.igem.org/Team:Uppsala/Human_Practices">Integrated Human Practice</a>
-    <a href="https://2021.igem.org/Team:Uppsala/Implementation">Proposed<br>Implementation</a>
-    <a href="https://2021.igem.org/Team:Uppsala/Education">Education</a>
-    <a href="https://2021.igem.org/Team:Uppsala/Inclusivity">Inclusion</a>
-    <a href="https://2021.igem.org/Team:Uppsala/Sustainable">Sustainable<br>Development</a>
-    </div>
-    </li>
-    <li class="dropdown">
-    <div class="dropbtn">People</div>
-    <div class="dropdown_content">
-    <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Team">Team</a>
-    <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Collaborations">Collaboration</a>
-    <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Attributions">Attribution</a>
-    <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Attributions">Sponsors</a>
-    </div>
-    </li>
-    <li class="dropdown">
-    <div class="dropbtn">Videos</div>
-    <div class="dropdown_content">
-    <a href="https://2021.igem.org/Team:Uppsala/Description">Final Presentation</a>
-    <a href="https://www.youtube.com/watch?v=avKlAK5-1ks">Promotional Video</a>
-    <a href="https://2021.igem.org/Team:Uppsala/Model">Molecular Dynamics</a>
-    </div>
-    </li>
-    <li class="dropdown">
-    <div class="dropbtn">Judging</div>
-    <div class="dropdown_content">
-    <a class="navigation_dropdown_entry" href="#">Judging Form</a>
-    <a class="navigation_dropdown_entry" href="#">Awards</a>
-    </div>
-    </li>
+        <li class="dropdown">
+            <div class="dropbtn">Project</div>
+            <div class="dropdown_content">
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Description">Description</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Proof_Of_Concept">Proof of Concept</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Engineering">Engineering Success</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Contribution">Contribution</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Software">Software tool</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <div class="dropbtn">Experiments</div>
+            <div class="dropdown_content">
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Results">Results</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Model">Modelling</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Experiments">Protocols</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Notebook">Notebook</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Parts">Parts</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Safety">Safety</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <div class="dropbtn">Human Practice</div>
+            <div class="dropdown_content">
+                <a href="https://2021.igem.org/Team:Uppsala/Human_Practices">Overview</a>
+                <a href="https://2021.igem.org/Team:Uppsala/Human_Practices">Integrated Human Practice</a>
+                <a href="https://2021.igem.org/Team:Uppsala/Implementation">Proposed Implementation</a>
+                <a href="https://2021.igem.org/Team:Uppsala/Education">Education</a>
+                <a href="https://2021.igem.org/Team:Uppsala/Inclusivity">Inclusion</a>
+                <a href="https://2021.igem.org/Team:Uppsala/Sustainable">Sustainable Development</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <div class="dropbtn">People</div>
+            <div class="dropdown_content">
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Team">Team</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Collaborations">Collaboration</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Attributions">Attribution</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Attributions">Sponsors</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <div class="dropbtn">Videos</div>
+            <div class="dropdown_content">
+                <a href="https://2021.igem.org/Team:Uppsala/Description">Final Presentation</a>
+                <a href="https://www.youtube.com/watch?v=avKlAK5-1ks">Promotional Video</a>
+                <a href="https://2021.igem.org/Team:Uppsala/Model">Molecular Dynamics</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <div class="dropbtn">Judging</div>
+            <div class="dropdown_content">
+                <a class="navigation_dropdown_entry" href="#">Judging Form</a>
+                <a class="navigation_dropdown_entry" href="#">Awards</a>
+            </div>
+        </li>
     </ul>
     <script purpose="dropdown_open_close">
-    for(dropdown of document.getElementsByClassName("dropdown")){
-    dropdown.addEventListener("mouseenter",function(ev){
-    function remove_hovering_highlighting(ev){
-    ev.target.removeEventListener("mouseleave",remove_hovering_highlighting)
-    ev.target.classList.remove("hovering_over")
-    }
-    ev.target.classList.add("hovering_over")
-    ev.target.addEventListener("mouseleave",remove_hovering_highlighting)
-    })
-    }
-    document.getElementById("navigation_bar").addEventListener("mouseenter",(ev)=>{
-    ev.target.children[1].classList.add("panel_opened")
-    ev.target.children[1].classList.add("scrolled_down")
-    })
-    document.getElementById("navigation_bar").addEventListener("mouseleave",(ev)=>{
-    ev.target.children[1].classList.remove("panel_opened")
-    })
+        for(dropdown of document.getElementsByClassName("dropdown")){
+            dropdown.addEventListener("mouseenter",function(ev){
+                function remove_hovering_highlighting(ev){
+                    ev.target.removeEventListener("mouseleave",remove_hovering_highlighting)
+                    ev.target.classList.remove("hovering_over")
+                }
+                ev.target.classList.add("hovering_over")
+                ev.target.addEventListener("mouseleave",remove_hovering_highlighting)
+            })
+        }
+        document.getElementById("navigation_bar").addEventListener("mouseenter",(ev)=>{
+            ev.target.children[1].classList.add("panel_opened")
+            ev.target.children[1].classList.add("scrolled_down")
+        })
+        document.getElementById("navigation_bar").addEventListener("mouseleave",(ev)=>{
+            ev.target.children[1].classList.remove("panel_opened")
+        })
     </script>
     <script purpose="highlight_current_topic_in_navbar">
-    function highlight_current_topic_in_navbar(){
-    const match_path_text=window.location.pathName || ""
-    const match_path_length=match_path_text.length
-    for(element of document.getElementsByClassName("dropdown_content")){
-    for(child of element.children){
-    //const match_path_text="/Team:Uppsala/Model"
-    if(child.getAttribute("href").substr(-match_path_length)==match_path_text){
-    child.classList.add("current_topic")
-    }
-    }
-    }
-    }
+        function highlight_current_topic_in_navbar(){
+            const match_path_text=window.location.pathName || ""
+            const match_path_length=match_path_text.length
+            for(element of document.getElementsByClassName("dropdown_content")){
+                for(child of element.children){
+                    //const match_path_text="/Team:Uppsala/Model"
+                    if(child.getAttribute("href").substr(-match_path_length)==match_path_text){
+                        child.classList.add("current_topic")
+                    }
+                }
+            }
+        }
     </script>
-    </div>
-    
-    <div id="pagecontent">
-    <!-- page title-->
-    
-    
-    
-    <!-- page title-->
-    <div id=parallaxtop>
-    <div id="page_header">
-    Safety
-    </div>
-    </div>
-    
-    <!--Sidebar-->
-    <div id="sidebar">
-    <div id="sticky_sidebar">
-    <div id="sidebar_header">
-    <a href="#pagecontent">
-    Safety
-    </a>
-    </div>
-    <hr>
-    <ul id="sidebar_list_container">
-    <!-- template for a single entry in this list. the real entries will be added at runtime
-    <li class="sidebar_list_section">
-    <span id="span1">
-    <a href="#section1_link">
-    Lab Safety
-    </a>
-    </span>
-    </li>
-    -->
-    </ul>
-    </div>
-    </div>
-    
-    <!--Actual content-->
-    <div id="fgfuture_content">
-    
-    <!-- INSERT GOOGLE DOC CONTENT BELOW THIS LINE -->
-    <div id="section1>">
-    <h1>General laboratory safety practices</h1>
-    <div class="image left quarter">
-        <img class="expandable_image" width="450" height="600" src="https://2021.igem.org/wiki/images/c/cb/T--Uppsala--symbols-jpg.jpeg">
-        </div>
-    <p>
-    During the first weeks of work in the lab, the team attended a workshop on biosafety and good laboratory practices. During this session the team members had the opportunity to practice correct pipetting, safe removal of gloves, and correct labelling and handling of dangerous chemicals that should be handled in the fume hood at all times.
-    </p>
-    <div class="image right quarter">
-        <img class="expandable_image" width="719" height="583" src="https://2021.igem.org/wiki/images/5/53/T--Uppsala--safe.jpg">
-        </div>
-    <p>
-    The team was offered the opportunity to have training on waste sorting and management by Uppsala University. During this training we were taught how to safely label and dispose of material that had been contaminated with either chemical or biological matter. Recycling was also a major topic during this training session and we were taught how to sort packaging from several lab supplies such as colored glass bottles, laboratory glass, electronic waste, regular paper or cardboard boxes and plastic packaging.
-    </p>
-    
-    <p>
-    Moreover, all members were introduced to the laboratories where we would be working on our project. All first aid stations, eye showers, and showers were shown to the team along with instructions on how to use these in the appropriate circumstances. The team members were also taught how to use fire extinguishers and which kind of fire extinguisher is indicated for different kinds of fire sources. We were also taught how to use a fire blanket and how we should proceed in case of a fire. This included pointing out the location of the emergency exits and also the meetup point outside the building.
-    </p>
-    
-    <div class="image left quarter">
-        <img class="expandable_image" width="800" height="600" src="https://2021.igem.org/wiki/images/7/72/T--Uppsala--autoclave.jpg">
-        </div>
-    <p>
-    The lab coordinators were introduced to how to correctly and safely use the autoclaves and other equipment used for cleaning and sterilizing lab material. The team also spent some days introducing all the members to basic laboratory work such as aseptic techniques, transformation, PCR, and agarose gel electrophoresis. All gel preparation, loading and electrophoresis were performed at designated stations in order to keep the handling of DNA dyes, such as SYBR safe, restricted to specific benches.
-    </div>
-    <div id='section2'>
-    <h1>The E. coli strains</h1>
-    <div class="image right quarter">
-        <img class="expandable_image" width="450" height="600" src="https://2021.igem.org/wiki/images/c/cf/T--Uppsala--burner.jpg">
-        </div>
-    <p>
-    The two strains of E. coli , that we work with in a BSL1 laboratory to construct various plasmids (DH5alpha) and express the proteins (BL21 DE3), are non-pathogenic and would quickly be outcompeted by natural bacteria if they were to be present in the environment. This is because, in nature, the optimized conditions that they experience in the laboratory are very unlikely to be achieved.They are also included in the iGEM white-list.
-    </p>
-    
-    <p>
-    However, the plasmid for expression possesses a kanamycin selection marker which led to us having to use this antibiotic to screen for transformants in the several cloning steps that our project required. If some kanamycin was to be accidentally released into the environment, it could certainly contribute to the increasing number of antibiotic-resistant bacteria which are a very pressing health concern [1]. At a point in our project we also used E. coli BL21 DE3, which contained a pLysS plasmid with a gene for chloramphenicol resistance. This meant that, in order to keep that plasmid, we had to use chloramphenicol which can have the same effects as kanamycin if leaked into the environment.
-    </p>
-    
-    <p>
-    Therefore, we worked carefully with these antimicrobial substances and disposed of them safely, by following the guidelines that were taught to the team. This was done to avoid any spills or leakage. The cells and all the glassware the team used were treated with Jodopax to kill the cells and avoid possible leakages into the environment.
-    </p>
-    </div>
-    <div id='sec3'>
-    <h1>The growth factor</h1>
-    <p>
-    The FGF2 growth factor that we optimized is a mammalian protein involved in cell signaling [2]. This growth factor is quite fragile and is not active for too long even when inside an animal’s body, which means that it would be rendered inactive even more easily, by the harsh conditions outside an animal’s body [3]. Even if it could remain active for a reasonable amount of time under these conditions, this growth factor binds specifically to its host’s FGF receptors [4] which means that it is very unlikely to affect other forms of life.
-    </p>
-    
-    <p>
-    Even though the risk is low, we always worked in the safest way possible to minimize the risks of leaking this growth factor into the environment.
-    </p>
-    </div>
-    <div id='sec31'>
-    <h1>Mammalian cell cultures</h1>
-    <div class="image left quarter">
-        <img class="expandable_image" width="450" height="600" src="https://2021.igem.org/wiki/images/a/a4/T--Uppsala--yellowbin.jpg">
-        </div>
-    <p>
-    The mammalian cell culture was carried out in a BSL2 laboratory inside a laminar flow hood. The cells themselves could present themselves as a potential source of infection if they were to be contaminated by human or animal pathogens during culturing. These pathogens could reach other individuals if the cells were not disposed of safely.
-    </p>
-    
-    <p>
-    Therefore, we always worked while following the university’s guidelines and safely disposed of contaminated material and mammalian cells in order to avoid possible leakages into the environment.
-    </p>
-    </div>
-    <div id='sec4'>
-    <h1>COVID-19 Measures</h1>
-    <p>
-    During the spring of 2021 all team meetings were held digitally to follow Uppsala University’s guidelines. Fortunately, during the summer months the team received an exemption from digital teaching which allowed us to work in the lab. However, during these months, guidelines such as physical distancing, mandatory face mask use in the lab, and regular disinfection of hands and surfaces were enforced to contain and minimize the chances of an outbreak. All team members were advised to stay home if they felt the slightest symptom and to get tested as soon as possible. Moreover, all team members had the option to virtually attend all the meetings held. Throughout the project the team worked following the guidelines from the Swedish Health Agency.
-    </p>
-    </div>
-    <div id='sec5'>
-    <h1>References</h1>
-    <p>
-    [1]	“Antibiotic resistance.” https://www.who.int/news-room/fact-sheets/detail/antibiotic-resistance (accessed Sep. 20, 2021).
-    </p>
-    
-    <p>
-    [2]	D. M. Ornitz and N. Itoh, “The Fibroblast Growth Factor signaling pathway,” Wiley Interdiscip. Rev. Dev. Biol., vol. 4, no. 3, pp. 215–266, Jun. 2015, doi: 10.1002/wdev.176.
-    </p>
-    
-    <p>
-    [3]	G. Chen, D. R. Gulbranson, P. Yu, Z. Hou, and J. A. Thomson, “Thermal Stability of Fibroblast Growth Factor Protein Is a Determinant Factor in Regulating Self-Renewal, Differentiation, and Reprogramming in Human Pluripotent Stem Cells,” Stem Cells Dayt. Ohio, vol. 30, no. 4, pp. 623–630, Apr. 2012, doi: 10.1002/stem.1021.
-    </p>
-    
-    <p>
-    [4]	D. M. Ornitz et al., “Receptor specificity of the fibroblast growth factor family,” J. Biol. Chem., vol. 271, no. 25, pp. 15292–15297, Jun. 1996, doi: 10.1074/jbc.271.25.15292.
-    </p>
-    
-    </div>
-    <!-- INSERT GOOGLE DOC CONTENT ABOVE THIS LINE -->
-    <!-- INSERT GOOGLE DOC CONTENT ABOVE THIS LINE -->
-    
-    </div>
-    
-    
-    </div>
-    
-    <script purpose="derive sidebar entries from user-generated content">
-                //for each child of the 'INSERT CONTENT HERE' section
-                let fgfuture_content=document.getElementById("fgfuture_content")
-                for(let child_num=0;child_num<fgfuture_content.children.length;child_num++){
-                    let element=fgfuture_content.children[child_num]
-                    //check if first element is header element
-                    let header=element.children[0]
-                    if(header.tagName!="H1" || header.innerText.length==0){
-                        window.alert("section "+element.id+" must have an <h1>Headline</h1> as first line!")
+</div>
+
+
+<div id="pagecontent">
+<!-- page title-->
+
+
+
+<!-- page title-->
+<div id=parallaxtop>
+
+</div>
+
+<!--Sidebar-->
+<div id="sidebar">
+<div id="sticky_sidebar">
+<div id="sidebar_header">
+<a href="#pagecontent">
+Safety
+</a>
+</div>
+<hr>
+<ul id="sidebar_list_container">
+<!-- template for a single entry in this list. the real entries will be added at runtime
+<li class="sidebar_list_section">
+<span id="span1">
+<a href="#section1_link">
+Lab Safety
+</a>
+</span>
+</li>
+-->
+</ul>
+</div>
+</div>
+
+<!--Actual content-->
+<div id="fgfuture_content">
+
+<!-- INSERT GOOGLE DOC CONTENT BELOW THIS LINE -->
+<div id="section1>">
+<h1>General laboratory safety practices</h1>
+<p>
+During the first weeks of work in the lab, the team attended a workshop on biosafety and good laboratory practices. During this session the team members had the opportunity to practice correct pipetting, safe removal of gloves, and correct labelling and handling of dangerous chemicals that should be handled in the fume hood at all times.
+</p>
+<div class="image right quarter">
+<img class="expandable_image" width="1438" height="1166" src="https://2021.igem.org/wiki/images/5/53/T--Uppsala--safe.jpg">
+<p> Figure 1. Fire extinguishers</p>
+</div>
+<p>
+The team was offered the opportunity to have training on waste sorting and management by Uppsala University. During this training we were taught how to safely label and dispose of material that had been contaminated with either chemical or biological matter. Recycling was also a major topic during this training session and we were taught how to sort packaging from several lab supplies such as colored glass bottles, laboratory glass, electronic waste, regular paper or cardboard boxes and plastic packaging.
+</p>
+
+<p>
+Moreover, all members were introduced to the laboratories where we would be working on our project. All first aid stations, eye showers, and showers were shown to the team along with instructions on how to use these in the appropriate circumstances. The team members were also taught how to use fire extinguishers and which kind of fire extinguisher is indicated for different kinds of fire sources. We were also taught how to use a fire blanket and how we should proceed in case of a fire. This included pointing out the location of the emergency exits and also the meetup point outside the building.
+</p>
+
+<div class="image left quarter">
+<img class="expandable_image" width="1600" height="1200" src="https://2021.igem.org/wiki/images/7/72/T--Uppsala--autoclave.jpg">
+<p>Figure 2. Autoclave</p>
+</div>
+<p>
+The lab coordinators were introduced to how to correctly and safely use the autoclaves and other equipment used for cleaning and sterilizing lab material. The team also spent some days introducing all the members to basic laboratory work such as aseptic techniques, transformation, PCR, and agarose gel electrophoresis. All gel preparation, loading and electrophoresis were performed at designated stations in order to keep the handling of DNA dyes, such as SYBR safe, restricted to specific benches.
+</div>
+
+<div id='section2'>
+<h1>The E. coli strains</h1>
+<div class="image right quarter">
+<img class="expandable_image" width="900" height="1200" src="https://2021.igem.org/wiki/images/c/cf/T--Uppsala--burner.jpg">
+<p>Figure 3. Bunsen Burner</p>
+</div>
+<p>
+The two strains of E. coli , that we work with in a BSL1 laboratory to construct various plasmids (DH5alpha) and express the proteins (BL21 DE3), are non-pathogenic and would quickly be outcompeted by natural bacteria if they were to be present in the environment. This is because, in nature, the optimized conditions that they experience in the laboratory are very unlikely to be achieved.They are also included in the iGEM white-list.
+</p>
+
+<p>
+However, the plasmid for expression possesses a kanamycin selection marker which led to us having to use this antibiotic to screen for transformants in the several cloning steps that our project required. If some kanamycin was to be accidentally released into the environment, it could certainly contribute to the increasing number of antibiotic-resistant bacteria which are a very pressing health concern [1]. At a point in our project we also used E. coli BL21 DE3, which contained a pLysS plasmid with a gene for chloramphenicol resistance. This meant that, in order to keep that plasmid, we had to use chloramphenicol which can have the same effects as kanamycin if leaked into the environment.
+</p>
+
+<p>
+Therefore, we worked carefully with these antimicrobial substances and disposed of them safely, by following the guidelines that were taught to the team. This was done to avoid any spills or leakage. The cells and all the glassware the team used were treated with Jodopax to kill the cells and avoid possible leakages into the environment.
+</p>
+</div>
+<div id='sec3'>
+<h1>The growth factor</h1>
+<div>
+<div class="image left quarter">
+<img class="expandable_image" width="900" height="1200" src="https://2021.igem.org/wiki/images/c/cb/T--Uppsala--symbols-jpg.jpeg">
+<p>Figure 4. Common hazard symbols</p>
+</div>
+<p>
+The FGF2 growth factor that we optimized is a mammalian protein involved in cell signaling [2]. This growth factor is quite fragile and is not active for too long even when inside an animal’s body, which means that it would be rendered inactive even more easily, by the harsh conditions outside an animal’s body [3]. Even if it could remain active for a reasonable amount of time under these conditions, this growth factor binds specifically to its host’s FGF receptors [4] which means that it is very unlikely to affect other forms of life.
+</p>
+
+<p>
+Even though the risk is low, we always worked in the safest way possible to minimize the risks of leaking this growth factor into the environment.
+</p>
+</div>
+</div>
+<div id='sec31'>
+<h1>Mammalian cell cultures</h1>
+<div>
+<div class="image left quarter">
+<img class="expandable_image" width="900" height="1200" src="https://2021.igem.org/wiki/images/a/a4/T--Uppsala--yellowbin.jpg">
+<p>Figure 5. Laboratory waste</p>
+</div>
+<p>
+The mammalian cell culture was carried out in a BSL2 laboratory inside a laminar flow hood. The cells themselves could present themselves as a potential source of infection if they were to be contaminated by human or animal pathogens during culturing. These pathogens could reach other individuals if the cells were not disposed of safely.
+</p>
+
+<p>
+Therefore, we always worked while following the university’s guidelines and safely disposed of contaminated material and mammalian cells in order to avoid possible leakages into the environment.
+</p>
+</div>
+</div>
+<div id='sec4'>
+<h1>COVID-19 Measures</h1>
+<p>
+During the spring of 2021 all team meetings were held digitally to follow Uppsala University’s guidelines. Fortunately, during the summer months the team received an exemption from digital teaching which allowed us to work in the lab. However, during these months, guidelines such as physical distancing, mandatory face mask use in the lab, and regular disinfection of hands and surfaces were enforced to contain and minimize the chances of an outbreak. All team members were advised to stay home if they felt the slightest symptom and to get tested as soon as possible. Moreover, all team members had the option to virtually attend all the meetings held. Throughout the project the team worked following the guidelines from the Swedish Health Agency.
+</p>
+</div>
+<div id='sec5'>
+<h1>References</h1>
+<p>
+[1]	“Antibiotic resistance.” <a href="https://www.who.int/news-room/fact-sheets/detail/antibiotic-resistance">https://www.who.int/news-room/fact-sheets/detail/antibiotic-resistance</a> (accessed Sep. 20, 2021).
+</p>
+
+<p>
+[2]	D. M. Ornitz and N. Itoh, “The Fibroblast Growth Factor signaling pathway,” Wiley Interdiscip. Rev. Dev. Biol., vol. 4, no. 3, pp. 215–266, Jun. 2015, doi: 10.1002/wdev.176.
+</p>
+
+<p>
+[3]	G. Chen, D. R. Gulbranson, P. Yu, Z. Hou, and J. A. Thomson, “Thermal Stability of Fibroblast Growth Factor Protein Is a Determinant Factor in Regulating Self-Renewal, Differentiation, and Reprogramming in Human Pluripotent Stem Cells,” Stem Cells Dayt. Ohio, vol. 30, no. 4, pp. 623–630, Apr. 2012, doi: 10.1002/stem.1021.
+</p>
+
+<p>
+[4]	D. M. Ornitz et al., “Receptor specificity of the fibroblast growth factor family,” J. Biol. Chem., vol. 271, no. 25, pp. 15292–15297, Jun. 1996, doi: 10.1074/jbc.271.25.15292.
+</p>
+
+</div>
+<!-- INSERT GOOGLE DOC CONTENT ABOVE THIS LINE -->
+<!-- INSERT GOOGLE DOC CONTENT ABOVE THIS LINE -->
+
+</div>
+
+
+</div>
+
+<script purpose="derive sidebar entries from user-generated content">
+            //for each child of the 'INSERT CONTENT HERE' section
+            let fgfuture_content=document.getElementById("fgfuture_content")
+            for(let child_num=0;child_num<fgfuture_content.children.length;child_num++){
+                let element=fgfuture_content.children[child_num]
+                //check if first element is header element
+                if(element.tagName=="SCRIPT" || element.tagName=="STYLE"){
+                    continue;
+                }
+                
+                let header=element.children[0]
+                if(header.tagName!="H1" || header.innerText.length==0){
+                    window.alert("section "+element.id+" must have an <h1>Headline</h1> as first line!")
+                }
+                //get header text of this section
+                header=header.innerText
+
+                //insert horizontal line between header and text for that section
+                let horizontal_seperator=document.createElement("hr")
+                if(element.children.length>1){
+                    element.insertBefore(horizontal_seperator,element.children[1])
+                }else{
+                    element.appendChild(horizontal_seperator)
+                }
+
+                //get the sidebar dom element
+                let sidebar_list_container=document.getElementById("sidebar_list_container")
+
+                //create the invisible span element at the beginning of the section that serves as 'sroll-to' anchor for the section
+                let link_span=document.createElement("span")
+                link_span.setAttribute("id","section"+child_num+"_link")
+                element.insertBefore(link_span,element.children[0])
+
+                //create sidebar entry for the current section/its header
+                let new_element=document.createElement("li")
+                let new_span=document.createElement("span")
+                let new_a=document.createElement("a")
+                new_a.setAttribute("href","#section"+child_num+"_link")
+                new_a.innerText=header
+                new_span.setAttribute("id","span"+child_num)
+                new_span.appendChild(new_a)
+                new_element.classList.add("sidebar_list_section")
+                new_element.appendChild(new_span)
+
+                //add created sidebar entry to the sidebar
+                sidebar_list_container.appendChild(new_element)
+            }
+        </script>
+
+
+<script purpose="hightlight currently viewed section">
+            let offsets={}
+            let base=null;
+            /* this code is executed on load */
+            function get_section_offsets(){
+                for(element of document.getElementById("fgfuture_content").children){
+                    if(!base){
+                        let offset=0;
+                        
+                        let current_element=element;
+                        while(current_element){
+                            offset+=current_element.offsetTop;
+                            current_element=current_element.offsetParent;
+                        }
+                        base=offset;
                     }
-                    //get header text of this section
-                    header=header.innerText
-    
-                    //insert horizontal line between header and text for that section
-                    let horizontal_seperator=document.createElement("hr")
-                    if(element.children.length>1){
-                        element.insertBefore(horizontal_seperator,element.children[1])
+                    offsets[element.id]=base
+                    base+=element.clientHeight
+                }
+            }
+
+            function highlight_current_section_in_sidebar(){
+                let current_scroll=document.body.scrollTop||document.documentElement.scrollTop||window.pageYOffset
+
+                let found=false
+                let index=0
+                for(element in offsets){
+                    const subtracted_negative_screen_fraction=0.67
+                    const added_positive_screen_fraction=0.15
+
+                    let above_lower=(offsets[element]+document.getElementById(element).clientHeight-window.innerHeight*subtracted_negative_screen_fraction)>=current_scroll
+                    let below_upper=offsets[element]>=(current_scroll+window.innerHeight*added_positive_screen_fraction)
+                    let above_lowest=(offsets[element]+document.getElementById(element).clientHeight)<=current_scroll
+                    let is_last_element_in_list=(index==(Object.keys(offsets).length-1))
+
+                    if(and(above_lower, !found)||and(below_upper, above_lowest)||and(is_last_element_in_list, !found)){
+                        if(found){
+                            document.getElementById("sidebar_list_container").children[index-1].classList.remove("current_section")
+                        }
+                        found=element
+                        document.getElementById("sidebar_list_container").children[index].classList.add("current_section")
                     }else{
-                        element.appendChild(horizontal_seperator)
+                        document.getElementById("sidebar_list_container").children[index].classList.remove("current_section")
                     }
-    
-                    //get the sidebar dom element
-                    let sidebar_list_container=document.getElementById("sidebar_list_container")
-    
-                    //create the invisible span element at the beginning of the section that serves as 'sroll-to' anchor for the section
-                    let link_span=document.createElement("span")
-                    link_span.setAttribute("id","section"+child_num+"_link")
-                    element.insertBefore(link_span,element.children[0])
-    
-                    //create sidebar entry for the current section/its header
-                    let new_element=document.createElement("li")
-                    let new_span=document.createElement("span")
-                    let new_a=document.createElement("a")
-                    new_a.setAttribute("href","#section"+child_num+"_link")
-                    new_a.innerText=header
-                    new_span.setAttribute("id","span"+child_num)
-                    new_span.appendChild(new_a)
-                    new_element.classList.add("sidebar_list_section")
-                    new_element.appendChild(new_span)
-    
-                    //add created sidebar entry to the sidebar
-                    sidebar_list_container.appendChild(new_element)
+                    index+=1
                 }
-            </script>
-    
-    
-    <script purpose="hightlight currently viewed section">
-                let offsets={}
-                let base=null;
-                /* this code is executed on load */
-                function get_section_offsets(){
-                    for(element of document.getElementById("fgfuture_content").children){
-                        if(!base){
-                            let offset=0;
-                            
-                            let current_element=element;
-                            while(current_element){
-                                offset+=current_element.offsetTop;
-                                current_element=current_element.offsetParent;
-                            }
-                            base=offset;
-                        }
-                        offsets[element.id]=base
-                        base+=element.clientHeight
+            }
+        </script>
+
+
+<style purpose="popup">
+            .popup{
+                text-decoration: underline;
+                color: blue;
+            }
+            .popup > span:not(.popup_content){
+                cursor:pointer;
+            }
+            .popup_content{
+                cursor:default;
+                display:inline-block;
+                color:black;
+                position:fixed;
+                width:20vh;
+                margin-top:0.5vh;
+                padding:1vh;
+                transform:translateX(-50%);
+                text-align: justify;
+                z-index:10;
+                background-color:white;
+                border:0.2vh solid black;
+            }
+            .popup_content_header{
+                font-size: 2.2vh;
+            }
+            .popup_content{
+                font-size: 1.5vh;
+            }
+        </style>
+
+<script purpose="popup initiaiziation">
+            for(element of document.getElementsByClassName("popup")){
+                console.log(element.children)
+                element.children[1].style.setProperty("display","none")
+                element.children[1].innerHTML="<span class='popup_content_header'>"+element.children[0].innerText+"</span><br><br>"+element.children[1].innerHTML
+
+                function open_popup(ev){
+                    let element=ev.target
+                    if(!element.classList.contains("popup")){
+                        element=element.parentElement
                     }
-                }
-    
-                function highlight_current_section_in_sidebar(){
-                    let current_scroll=document.body.scrollTop||document.documentElement.scrollTop||window.pageYOffset
-    
-                    let found=false
-                    let index=0
-                    for(element in offsets){
-                        const subtracted_negative_screen_fraction=0.67
-                        const added_positive_screen_fraction=0.15
-    
-                        let above_lower=(offsets[element]+document.getElementById(element).clientHeight-window.innerHeight*subtracted_negative_screen_fraction)>=current_scroll
-                        let below_upper=offsets[element]>=(current_scroll+window.innerHeight*added_positive_screen_fraction)
-                        let above_lowest=(offsets[element]+document.getElementById(element).clientHeight)<=current_scroll
-                        let is_last_element_in_list=(index==(Object.keys(offsets).length-1))
-    
-                        if(and(above_lower, !found)||and(below_upper, above_lowest)||and(is_last_element_in_list, !found)){
-                            if(found){
-                                document.getElementById("sidebar_list_container").children[index-1].classList.remove("current_section")
-                            }
-                            found=element
-                            document.getElementById("sidebar_list_container").children[index].classList.add("current_section")
-                        }else{
-                            document.getElementById("sidebar_list_container").children[index].classList.remove("current_section")
-                        }
-                        index+=1
+
+                    if(element.getAttribute("vanish_timer")){
+                        clearTimeout(element.getAttribute("vanish_timer"))
                     }
+
+                    element.setAttribute("popped_up",true)
+                    let element_bb=element.getBoundingClientRect()
+                    element.children[1].style.setProperty("display","initial")
+                    let left_offset=element_bb.x+(element_bb.width/2) // centering of popup happens in css
+                    left_offset=max(element.children[1].getBoundingClientRect().width/2,left_offset) // make sure it does not leave the screen area to the left for text that is close to the left border
+                    left_offset=min(window.innerWidth-(element.children[1].getBoundingClientRect().width/2),left_offset) // make sure the popup does not leave the screen area on the right
+                    //the min/max caps above could probably be omitted on the wiki page since the main text area has enough padding on the left and right, but better to be safe than sorry (could also be adjusted to make sure the popup does not leave the text area, bu i do not think that it would a visual issue if it did)
+                    element.children[1].style.setProperty("left",left_offset+"px")
+                    element.children[1].style.setProperty("top",element_bb.bottom+"px")
                 }
-            </script>
-    
-    
-    <style purpose="popup">
-                .popup{
-                    text-decoration: underline;
-                    color: blue;
-                }
-                .popup > span:not(.popup_content){
-                    cursor:pointer;
-                }
-                .popup_content{
-                    cursor:default;
-                    display:inline-block;
-                    color:black;
-                    position:fixed;
-                    width:20vh;
-                    margin-top:0.5vh;
-                    padding:1vh;
-                    transform:translateX(-50%);
-                    text-align: justify;
-                    z-index:10;
-                    background-color:white;
-                    border:0.2vh solid black;
-                }
-                .popup_content_header{
-                    font-size: 2.2vh;
-                }
-                .popup_content{
-                    font-size: 1.5vh;
-                }
-            </style>
-    
-    <script purpose="popup initiaiziation">
-                for(element of document.getElementsByClassName("popup")){
-                    console.log(element.children)
-                    element.children[1].style.setProperty("display","none")
-                    element.children[1].innerHTML="<span class='popup_content_header'>"+element.children[0].innerText+"</span><br><br>"+element.children[1].innerHTML
-    
-                    function open_popup(ev){
-                        let element=ev.target
-                        if(!element.classList.contains("popup")){
-                            element=element.parentElement
-                        }
-    
-                        if(element.getAttribute("vanish_timer")){
-                            clearTimeout(element.getAttribute("vanish_timer"))
-                        }
-    
-                        element.setAttribute("popped_up",true)
-                        let element_bb=element.getBoundingClientRect()
-                        element.children[1].style.setProperty("display","initial")
-                        let left_offset=element_bb.x+(element_bb.width/2) // centering of popup happens in css
-                        left_offset=max(element.children[1].getBoundingClientRect().width/2,left_offset) // make sure it does not leave the screen area to the left for text that is close to the left border
-                        left_offset=min(window.innerWidth-(element.children[1].getBoundingClientRect().width/2),left_offset) // make sure the popup does not leave the screen area on the right
-                        //the min/max caps above could probably be omitted on the wiki page since the main text area has enough padding on the left and right, but better to be safe than sorry (could also be adjusted to make sure the popup does not leave the text area, bu i do not think that it would a visual issue if it did)
-                        element.children[1].style.setProperty("left",left_offset+"px")
-                        element.children[1].style.setProperty("top",element_bb.bottom+"px")
+                function close_popup(ev){
+                    let element=ev.target
+                    if(!element.classList.contains("popup")){
+                        element=element.parentElement
                     }
-                    function close_popup(ev){
-                        let element=ev.target
-                        if(!element.classList.contains("popup")){
-                            element=element.parentElement
-                        }
-    
-                        //small gap between link and popup content is not valid popup surface, to moving the mouse from the link to the popup content leaves the container area, which closes the popup
-                        //this timeout means that the popup window is closed if the mouse is not positioned within the container area within 250ms after it left the area, ergo the popup remains visible while the mouse moves over the gap between the link and the popup
-                        //and 250ms looks short enough to make it seem like the popup would still automatically vanish when the user leaves the popup area with the mouse actively, to move it somewhere else
-                        element.setAttribute("vanish_timer",setTimeout(
-                            ()=>{
-                                element.setAttribute("popped_up",false)
-                                element.children[1].style.setProperty("display","none")
-                            },250
-                        ))
-                    }
-    
-                    element.addEventListener("mouseenter",open_popup)
-                    element.addEventListener("mouseleave",close_popup)
+
+                    //small gap between link and popup content is not valid popup surface, to moving the mouse from the link to the popup content leaves the container area, which closes the popup
+                    //this timeout means that the popup window is closed if the mouse is not positioned within the container area within 250ms after it left the area, ergo the popup remains visible while the mouse moves over the gap between the link and the popup
+                    //and 250ms looks short enough to make it seem like the popup would still automatically vanish when the user leaves the popup area with the mouse actively, to move it somewhere else
+                    element.setAttribute("vanish_timer",setTimeout(
+                        ()=>{
+                            element.setAttribute("popped_up",false)
+                            element.children[1].style.setProperty("display","none")
+                        },250
+                    ))
                 }
-            </script>
-    
-    
-    <script purpose="expand images">
-                let style_document=document.styleSheets[0].rules || document.styleSheets[0].cssRules
-                let image_shrink_duration=0
-                for (rule of style_document){
-                    if(rule.selectorText=="content_slice"){
-                        width=window.innerWidth*rule.style.width.slice(0,-2)/100
-                    }
-                    if(rule.selectorText=="actualcontent"){
-                        max_height=window.innerHeight*rule.style.height.slice(0,-1)/100
-                    }
-                    if(rule.selectorText==".image_shrink"){
-                        image_shrink_duration=rule.style.getPropertyValue("animation-duration").slice(0,-1)*1000
-                    }
+
+                element.addEventListener("mouseenter",open_popup)
+                element.addEventListener("mouseleave",close_popup)
+            }
+        </script>
+
+
+<script purpose="expand images">
+            let style_document=document.styleSheets[0].rules || document.styleSheets[0].cssRules
+            let image_shrink_duration=0
+            for (rule of style_document){
+                if(rule.selectorText=="content_slice"){
+                    width=window.innerWidth*rule.style.width.slice(0,-2)/100
                 }
-    
-                for(element of document.getElementsByClassName("expandable_image")){
-                    element.addEventListener("click",expand_image)
+                if(rule.selectorText=="actualcontent"){
+                    max_height=window.innerHeight*rule.style.height.slice(0,-1)/100
                 }
-    
-                function expand_image(ev){
-                    let image_element=ev.target
-                    let image_overlay=document.getElementById("image_overlay")
-                    image_overlay.classList.remove("invisible")
-    
-                    if(image_overlay.children.length==2){
-                        image_overlay.removeChild(image_overlay.lastChild)
-                    }
-    
-                    let big_image=document.createElement("img")
-                    big_image.setAttribute("src",image_element.src)
-                    big_image.classList.add("overlay_image")
-    
-                    image_overlay.appendChild(big_image)
-    
-                    big_image.style.setProperty("--width",image_element.getBoundingClientRect().width+"px")
-                    big_image.style.setProperty("--height",image_element.getBoundingClientRect().height+"px")
-                    big_image.style.setProperty("--left",image_element.getBoundingClientRect().left+image_element.width/2+"px")
-                    big_image.style.setProperty("--top",image_element.getBoundingClientRect().top+image_element.height/2+"px")
-    
-                    let final_width=image_element.getAttribute("width")*0.5
-                    let final_height=image_element.getAttribute("height")*0.5
-    
-                    big_image.style.setProperty("--left-end",window.innerWidth/2+"px")
-                    big_image.style.setProperty("--top-end",window.innerHeight/2+"px")
-    
-                    big_image.style.setProperty("--overlay-width",final_width+"px")
-                    big_image.style.setProperty("--overlay-height",final_height+"px")
-    
-                    big_image.classList.add("image_transition")
-    
-                    image_element.classList.toggle("pseudo-invisible")
-    
-                    image_overlay.image_element=image_element
-                    
-                    document.getElementById("pagecontent").classList.add("blurred_image_overlay")
+                if(rule.selectorText==".image_shrink"){
+                    image_shrink_duration=rule.style.getPropertyValue("animation-duration").slice(0,-1)*1000
                 }
-                function collapse_image(ev){
-                    let image_overlay=document.getElementById("image_overlay")
-    
-                    image_overlay.children[1].classList.remove("image_transition")
-                    image_overlay.children[1].classList.add("image_shrink")
-    
-                    document.getElementById("pagecontent").classList.remove("blurred_image_overlay")
-    
-                    setTimeout(()=>{
-                        document.getElementById("image_overlay").classList.add("invisible")
-                        image_overlay.image_element.classList.toggle("pseudo-invisible")
-                    },image_shrink_duration)
+            }
+
+            for(element of document.getElementsByClassName("expandable_image")){
+                element.addEventListener("click",expand_image)
+            }
+
+            function expand_image(ev){
+                let image_element=ev.target
+                let image_overlay=document.getElementById("image_overlay")
+                image_overlay.classList.remove("invisible")
+
+                if(image_overlay.children.length==2){
+                    image_overlay.removeChild(image_overlay.lastChild)
                 }
-            </script>
-    
-    <style purpose="expand images">
-                .expandable_image{
-                    cursor:zoom-in;
-                    z-index:1;
+
+                let big_image=document.createElement("img")
+                big_image.setAttribute("src",image_element.src)
+                big_image.classList.add("overlay_image")
+
+                image_overlay.appendChild(big_image)
+
+                big_image.style.setProperty("--width",image_element.getBoundingClientRect().width+"px")
+                big_image.style.setProperty("--height",image_element.getBoundingClientRect().height+"px")
+                big_image.style.setProperty("--left",image_element.getBoundingClientRect().left+image_element.width/2+"px")
+                big_image.style.setProperty("--top",image_element.getBoundingClientRect().top+image_element.height/2+"px")
+
+                let final_width=image_element.getAttribute("width")*0.5
+                let final_height=image_element.getAttribute("height")*0.5
+
+                big_image.style.setProperty("--left-end",window.innerWidth/2+"px")
+                big_image.style.setProperty("--top-end",window.innerHeight/2+"px")
+
+                big_image.style.setProperty("--overlay-width",final_width+"px")
+                big_image.style.setProperty("--overlay-height",final_height+"px")
+
+                big_image.classList.add("image_transition")
+
+                image_element.classList.toggle("pseudo-invisible")
+
+                image_overlay.image_element=image_element
+                
+                document.getElementById("pagecontent").classList.add("blurred_image_overlay")
+            }
+            function collapse_image(ev){
+                let image_overlay=document.getElementById("image_overlay")
+
+                image_overlay.children[1].classList.remove("image_transition")
+                image_overlay.children[1].classList.add("image_shrink")
+
+                document.getElementById("pagecontent").classList.remove("blurred_image_overlay")
+
+                setTimeout(()=>{
+                    document.getElementById("image_overlay").classList.add("invisible")
+                    image_overlay.image_element.classList.toggle("pseudo-invisible")
+                },image_shrink_duration)
+            }
+        </script>
+
+<style purpose="expand images">
+            .expandable_image{
+                cursor:zoom-in;
+                z-index:1;
+            }
+            /*the actual overlay panel*/
+            #image_overlay{
+                position:fixed;
+
+                left:0;
+                /* top offset (which is subtracted from height) is height of igem bar and navigation bar*/
+                top:calc(16px + 5vh);
+                height:calc(100% - 16px - 5vh);
+                width:100%;
+
+                float:left;
+
+                background-color: rgba(255,255,255,0.0);
+                z-index: 11;
+            }
+            #image_overlay:not(.invisible){
+                display:block; 
+            }
+            /*the image displayed within the overlay panel*/
+            .overlay_image{
+                position:relative;
+                transform:translateX(-50%) translateY(-50%);
+                width:var(--overlay-width);
+                height:var(--overlay-height);
+                left:var(--left-end);
+                top:var(--top-end);
+            }
+            .image_transition{
+                animation-name:into_center;
+                animation-duration:0.4s;
+            }
+            .image_shrink{
+                animation-name:from_center;
+                animation-duration:0.4s;
+            }
+            .invisible{
+                display:none;
+            }
+            .pseudo-invisible{
+                opacity:0.0;
+            }
+            @keyframes into_center{
+                from{
+                    width:var(--width);
+                    height:var(--height);
+                    left:var(--left);
+                    top:var(--top);
                 }
-                /*the actual overlay panel*/
-                #image_overlay{
-                    position:fixed;
-    
-                    left:0;
-                    /* top offset (which is subtracted from height) is height of igem bar and navigation bar*/
-                    top:calc(16px + 5vh);
-                    height:calc(100% - 16px - 5vh);
-                    width:100%;
-    
-                    float:left;
-    
-                    background-color: rgba(255,255,255,0.0);
-                    z-index: 11;
-                }
-                #image_overlay:not(.invisible){
-                    display:block; 
-                }
-                /*the image displayed within the overlay panel*/
-                .overlay_image{
-                    position:relative;
-                    transform:translateX(-50%) translateY(-50%);
+                to{
                     width:var(--overlay-width);
                     height:var(--overlay-height);
                     left:var(--left-end);
                     top:var(--top-end);
                 }
-                .image_transition{
-                    animation-name:into_center;
-                    animation-duration:0.4s;
+            }
+            @keyframes from_center{
+                from{
+                    width:var(--overlay-width);
+                    height:var(--overlay-height);
+                    left:var(--left-end);
+                    top:var(--top-end);
                 }
-                .image_shrink{
-                    animation-name:from_center;
-                    animation-duration:0.4s;
+                to{
+                    width:var(--width);
+                    height:var(--height);
+                    left:var(--left);
+                    top:var(--top);
                 }
-                .invisible{
-                    display:none;
-                }
-                .pseudo-invisible{
-                    opacity:0.0;
-                }
-                @keyframes into_center{
-                    from{
-                        width:var(--width);
-                        height:var(--height);
-                        left:var(--left);
-                        top:var(--top);
-                    }
-                    to{
-                        width:var(--overlay-width);
-                        height:var(--overlay-height);
-                        left:var(--left-end);
-                        top:var(--top-end);
-                    }
-                }
-                @keyframes from_center{
-                    from{
-                        width:var(--overlay-width);
-                        height:var(--overlay-height);
-                        left:var(--left-end);
-                        top:var(--top-end);
-                    }
-                    to{
-                        width:var(--width);
-                        height:var(--height);
-                        left:var(--left);
-                        top:var(--top);
-                    }
-                }
-                .one_vertical_image_padding{
-                    height:1em;
-                    width:100%;
-                }
-                img{
-                    display:block;
-                }
-            </style>
-    
-    
-    <!-- sponsor and social media footer -->
-    <div class="flexbox-container-socialmedia">
-        <div>
-            <a href="https://www.facebook.com/iGEMUppsala">
-                <img src="https://2021.igem.org/wiki/images/e/eb/T--Uppsala--facebook.png">
-            </a>
-        </div>
-        <div>
-            <a href="https://www.instagram.com/igem.uppsala/">
-                <img src="https://2021.igem.org/wiki/images/b/ba/T--Uppsala--instagram.png">
-            </a>
-        </div>
-        <div>
-            <a href="https://www.uu.se/">
-                <img class="upplogo" src="https://shop.uu.se/shop/ws45/82845/files/UU_logo_vit.png">
-            </a>
-        </div>
-        <div>
-            <a href="mailto:info@igemuppsala.se">
-                <img src="https://2021.igem.org/wiki/images/1/1e/T--Uppsala--mail.png">
-            </a>
-        </div>
-        <div>
-            <a href="https://www.linkedin.com/company/igem-uppsala/mycompany/">
-                <img src="https://2021.igem.org/wiki/images/b/bc/T--Uppsala--linkedin.png">
-            </a>
-        </div>
+            }
+            .one_vertical_image_padding{
+                height:1em;
+                width:100%;
+            }
+        </style>
+
+
+<!-- sponsor and social media footer -->
+<div class="flexbox-container-socialmedia">
+    <div>
+        <a href="https://www.facebook.com/iGEMUppsala">
+            <img src="https://2021.igem.org/wiki/images/e/eb/T--Uppsala--facebook.png">
+        </a>
     </div>
-    
-    <div class="grid-container-sponsors">
-        <div>
-            <a href="https://www.utn.se/">
-                <img src="https://2021.igem.org/wiki/images/8/8b/T--Uppsala--utnlogo.png">
-            </a>
-        </div>
-        <div>
-            <a href="https://www.genscript.com/">
-                <img src="http://2014.igem.org/wiki/images/5/5a/York_Genscript_logo-1-.png">
-            </a>
-        </div>
-        <div>
-            <a href="https://worldwide.promega.com/">
-                <img src="https://2020.igem.org/wiki/images/0/05/T--UofUppsala--pro.png">
-            </a>
-        </div>
-        <div>
-            <a href="https://www.bio-rad.com/">
-                    <img src="https://2021.igem.org/wiki/images/f/fc/T--Uppsala--bioradlogo.png">
-            </a>
-        </div>
-        <div>
-            <a href="https://www.bionordika.se/">
-                    <img src="https://2021.igem.org/wiki/images/2/29/T--Uppsala--bionordikalogo.png">
-            </a>
-        </div>
-        <div>
-            <a href="https://www.merck.com/">
-                <img src="https://2021.igem.org/wiki/images/9/9a/T--Uppsala--mercklogo.png">
-            </a>
-        </div>
-        <div>
-            <a href="https://www.scbt.com/home">
-                <img src="https://2021.igem.org/wiki/images/f/fa/T--Uppsala--scbtlogo.png">
-            </a>
-        </div>
-        <div>
-            <a href="https://www.snapgene.com/">
-                <img src="https://2020.igem.org/wiki/images/8/8c/T--UofUppsala--snap.png">
-            </a>
-        </div>
-        <div>
-            <a href="https://www.eurofins.se/">
-                <img src="https://2020.igem.org/wiki/images/a/a4/T--UofUppsala--euro.png">
-            </a>
-        </div>
-        <div>
-            <a href="https://new-harvest.org/">
-                <img src="https://2021.igem.org/wiki/images/e/ec/T--Uppsala--newharvestreal.png">
-            </a>
-        </div>
-        <div>
-            <a href="https://testacenter.com/">
-                <img src="https://2021.igem.org/wiki/images/d/d6/T--Uppsala--testacenterreal.png">
-            </a>
-        </div>
-        <div>
-            <a href="https://www.cytivalifesciences.com/en/at">
-                <img src="https://2021.igem.org/wiki/images/d/d4/T--Uppsala--cytiva.jpeg">
-            </a>
-        </div>
+    <div>
+        <a href="https://www.instagram.com/igem.uppsala/">
+            <img src="https://2021.igem.org/wiki/images/b/ba/T--Uppsala--instagram.png">
+        </a>
     </div>
-    
-    </body>
-    </html>
-    
+    <div>
+        <a href="https://www.uu.se/">
+            <img class="upplogo" src="https://shop.uu.se/shop/ws45/82845/files/UU_logo_vit.png">
+        </a>
+    </div>
+    <div>
+        <a href="mailto:info@igemuppsala.se">
+            <img src="https://2021.igem.org/wiki/images/1/1e/T--Uppsala--mail.png">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.linkedin.com/company/igem-uppsala/mycompany/">
+            <img src="https://2021.igem.org/wiki/images/b/bc/T--Uppsala--linkedin.png">
+        </a>
+    </div>
+</div>
+
+<div class="grid-container-sponsors">
+    <div>
+        <a href="https://www.utn.se/">
+            <img src="https://2021.igem.org/wiki/images/8/8b/T--Uppsala--utnlogo.png">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.genscript.com/">
+            <img src="http://2014.igem.org/wiki/images/5/5a/York_Genscript_logo-1-.png">
+        </a>
+    </div>
+    <div>
+        <a href="https://worldwide.promega.com/">
+            <img src="https://2020.igem.org/wiki/images/0/05/T--UofUppsala--pro.png">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.bio-rad.com/">
+                <img src="https://2021.igem.org/wiki/images/f/fc/T--Uppsala--bioradlogo.png">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.bionordika.se/">
+                <img src="https://2021.igem.org/wiki/images/2/29/T--Uppsala--bionordikalogo.png">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.merck.com/">
+            <img src="https://2021.igem.org/wiki/images/9/9a/T--Uppsala--mercklogo.png">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.scbt.com/home">
+            <img src="https://2021.igem.org/wiki/images/f/fa/T--Uppsala--scbtlogo.png">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.snapgene.com/">
+            <img src="https://2020.igem.org/wiki/images/8/8c/T--UofUppsala--snap.png">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.eurofins.se/">
+            <img src="https://2020.igem.org/wiki/images/a/a4/T--UofUppsala--euro.png">
+        </a>
+    </div>
+    <div>
+        <a href="https://new-harvest.org/">
+            <img src="https://2021.igem.org/wiki/images/e/ec/T--Uppsala--newharvestreal.png">
+        </a>
+    </div>
+    <div>
+        <a href="https://testacenter.com/">
+            <img src="https://2021.igem.org/wiki/images/d/d6/T--Uppsala--testacenterreal.png">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.cytivalifesciences.com/en/at">
+            <img src="https://2021.igem.org/wiki/images/d/d4/T--Uppsala--cytiva.jpeg">
+        </a>
+    </div>
+</div>
+
+</body>
+</html>

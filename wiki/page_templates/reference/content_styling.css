@@ -76,10 +76,9 @@
 }
 #fgfuture_content div.image>p,#fgfuture_content div.image>p{
     font-size: 1.2vh;
-    padding-top: 1vh;
-    padding-left: 0.5vh;
-    padding-right: 0.5vh;
+    padding: 1vh;
     text-align: justify;
+    margin:0;
 }
 /* make image float so that text can wrap around it */
 div.image.left{
@@ -90,13 +89,10 @@ div.image.right{
     float:right;
     padding-left:2vh;
 }
-div.image.left{
-    float:left;
-    padding-right:2vh;
-}
-div.image.right{
-    float:right;
-    padding-left:2vh;
+div.image.middle{
+    position:relative;
+    left:50%;
+    transform:translateX(-50%);
 }
 #fgfuture_content div.w10{
     width:10%;
@@ -147,14 +143,11 @@ div.image.right{
     background-color: #dddddd;
 }
 
-#fgfuture_content div.quote{
-
-}
 #fgfuture_content span.quote.text::before{
-    content:'" ';
+    content:'"';
 }
 #fgfuture_content span.quote.text::after{
-    content:' "';
+    content:'"';
 }
 #fgfuture_content span.quote.source::before{
     content:' - ';
@@ -167,14 +160,26 @@ div.image.right{
     border-radius:0.6vh;
     border:1px solid black;
 }
-
-#fgfuture_content span.popup_target{
-    color:#6d1d23;
-    font-weight: bold;
-    margin:0;
-    padding:0;
+#fgfuture_content a.button.wide{
+    margin-top: 0.5vh;
+    padding:0.7vh;
+    margin-right: 3vh;
+    width:calc( 100% - 2 * 0.7vh - 2 * 1px - 3vh );
+    text-align: center;
 }
 
-#fgfuture_content object.w100p{
-    width:100%;
+/* for use embedded into regular text */
+#fgfuture_content div.content_section > div > object.pdf_file{
+    width:90%;
+    left:5%;
+    position:relative;
+    height: 50vh;
+}
+
+#fgfuture_content .link_target{
+    position:relative;
+    float:left;
+    /* fallback for browsers where min() is not supported */
+    top: -100px;
+    top: min( -100px, -15vh );
 }

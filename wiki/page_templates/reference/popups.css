@@ -1,13 +1,13 @@
 
-.popup > span:not(.popup_content){
+#fgfuture_content .popup > span:not(.popup_content){
     cursor:pointer;
 }
-.popup{
+#fgfuture_content .popup{
     cursor:default;
     display:inline-block;
     color:black;
     position:fixed;
-    padding:1vh;
+    padding:2vh;
 
     transform:translateX(-50%);
 
@@ -15,14 +15,15 @@
     z-index:10;
     background-color:white;
     border:0.2vh solid black;
+    border-radius:2vh;
 }
-.popup:not(.w25):not(.w50){
+#fgfuture_content .popup:not(.w25):not(.w50){
     width:15vw;
 }
-.popup.w25{
+#fgfuture_content .popup.w25{
     width:25vw;
 }
-.popup.w50{
+#fgfuture_content .popup.w50{
     width:50vw;
 }
 
@@ -30,11 +31,33 @@
     height:40vh;
 }
 
-.popup_content_header{
+#fgfuture_content .popup_content_header{
     text-decoration: underline;
     font-size: 2.2vh;
     margin-bottom:2vh;
 }
-.popup_content{
+#fgfuture_content .popup_content{
     font-size: 1.5vh;
+    display:block;
+    /* subtract padding, twice */
+    width:100%;
+}
+#fgfuture_content .popup_content>div,#fgfuture_content .popup_content>p{
+    display:block;
+    width:100%;
+}
+
+#fgfuture_content span.popup_target{
+    color:#6d1d23;
+    font-weight: bold;
+    margin:0;
+    padding:0;
+    display:inline-block;
+}
+
+#fgfuture_content .popup object.w100p{
+    width:100%;
+}
+#fgfuture_content .popup video{
+    width:100%;
 }
