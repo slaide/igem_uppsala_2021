@@ -175,3 +175,9 @@ div.image.middle{
     position:relative;
     height: 50vh;
 }
+
+#fgfuture_content .link_target{
+    position:relative;
+    float:left;
+    top:-200px;
+}

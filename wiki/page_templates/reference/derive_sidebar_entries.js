@@ -29,6 +29,7 @@
                 //create the invisible span element at the beginning of the section that serves as 'sroll-to' anchor for the section
                 let link_span=document.createElement("span")
                 link_span.setAttribute("id","section"+child_num+"_link")
+                link_span.classList.add("link_target")
                 element.insertBefore(link_span,element.children[0])
 
                 //create sidebar entry for the current section/its header
