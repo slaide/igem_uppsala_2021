@@ -95,7 +95,7 @@ hr{
 
 #parallaxtop {
     height: calc(50vh + 5vh + 16px);
-    background-image: url(https://2021.igem.org/wiki/images/4/44/T--Uppsala--prot-bannerv2-png.jpeg);
+    background-image: url(https://2021.igem.org/wiki/images/1/16/T--Uppsala--doubblemut.png);
 
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -875,7 +875,7 @@ window.addEventListener("scroll",highlight_current_section_in_sidebar)
 <!-- page title-->
 <div id=parallaxtop>
 <div id="page_header">
-SUSTAINABLE DEVELOPMENT
+Parts
 </div>
 </div>
 
@@ -884,7 +884,7 @@ SUSTAINABLE DEVELOPMENT
 <div id="sticky_sidebar">
 <div id="sidebar_header">
 <a href="#pagecontent">
-SUSTAINABLE DEVELOPMENT
+Parts
 </a>
 </div>
 <hr>
@@ -905,147 +905,418 @@ Lab Safety
 <!--Actual content-->
 <div id="fgfuture_content">
 
+<!--
+table {
+font-family: arial, sans-serif;
+border-collapse: collapse;
+width: 100%;
+}
+
+td, th {
+border: 1px solid #dddddd;
+text-align: left;
+padding: 8px;
+}
+
+tr:nth-child(even) {
+background-color: #dddddd;
+}
+
+-->
+
 <!-- INSERT GOOGLE DOC CONTENT BELOW THIS LINE -->
-<div id='sec1'>
-<h1> Development goals we tried to tackle </h1>
-<p>Our project contributes to numerous sustainable development goals of the UN.</p>
+<div id="section1>">
+<h1>Basic Parts</h1>
+<p>Below follows two tables of iGEM Uppsala 21’s basic and composite parts. Our favourite parts which we nominate to the best parts awards are marked with a ❤. Our parts were created by first designing the FGF2 fusion protein using SnapGene and Integrated DNA Technologies (IDT) followed by BioBrick assembly using PCR amplification and ligation of our FGF2 gene with a pET backbone [1][2]. Some of the parts were finalized using PCR mutagenesis.</p>
 
-<h2>Climate Action</h2>
-<div>
-<div class="image left quarter">
-<img class="expandable_image" width="800" height="1200"  src="https://2021.igem.org/wiki/images/thumb/3/3b/T--Uppsala--goal13.png/450px-T--Uppsala--goal13.png">
-<p>
-Figure 1. Climate action.
-</p>
+
+<table>
+<tr>
+<th>Favourite</th>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Designer</th>
+<th>Length</th>
+</tr>
+<tr>
+<td>❤</td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934005" target="_blank"><b>BBa_K3934005</b></a>
+</td>
+<td>Coding</td>
+<td>Bovine growth factor FGF2 designed to increase affinity to the FGFR2 receptor, making it induce cell proliferation with higher efficiency.</td>
+<td>Emelie Oscarsson</td>
+<td>468 bp</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934000" target="_blank"><b>BBa_K3934000</b></a></td>
+<td>Coding</td>
+<td>Bovine growth factor FGF2wt which induces cell proliferation.</td>
+<td>Diogo Filipe</td>
+<td>468 bp</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934001" target="_blank"><b>BBa_K3934001</b></a>
+</td>
+<td>Coding</td>
+<td>Thermostably enhanced bovine growth factor which induces cell proliferation.</td>
+<td>Diogo Filipe</td>
+<td>468 bp</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<a href="http://parts.igem.org/PartBBa_K3934002" target="_blank"><b>BBa_K3934002</b></a>
+</td>
+
+<td>Coding</td>
+<td>Chimera of bovine growth factors FGF2 and FGF1 with increased stability, decreased heparin dependency and decreased trypsin degradation compared to FGF2 wt.</td>
+<td>Daniel Lake</td>
+<td>467 bp</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934003" target="_blank"><b>BBa_K3934003</b></a></td>
+<td>Coding</td>
+<td>Bovine growth factor FGF2 designed to increase affinity to the FGFR2 receptor, making it induce cell proliferation with higher efficiency.</td>
+<td>Emelie Oscarsson</td>
+<td>468 bp</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934004" target="_blank"><b>BBa_K3934004</b></a></td>
+<td>Coding</td>
+<td>Bovine growth factor FGF2 designed to increase affinity to the FGFR2 receptor, making it induce cell proliferation with higher efficiency.</td>
+<td>Emelie Oscarsson</td>
+<td>468 bp</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934006" target="_blank"><b>BBa_K3934006</b></a></td>
+<td>Coding</td>
+<td>Bovine growth factor FGF2 designed to increase affinity to the FGFR2 receptor, making it induce cell proliferation with higher efficiency.</td>
+<td>Emelie Oscarsson</td>
+<td>468 bp</td>
+</tr>
+
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934008" target="_blank"><b>BBa_K3934008</b></a></td>
+<td>Coding</td>
+<td>Thioredoxin used as a fusion protein to increase solubility..</td>
+<td>iGEM Uppsala 21</td>
+<td>327 bp</td>
+</tr>
+
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934015" target="_blank"><b>BBa_J64997</b></a></td>
+<td>Tag</td>
+<td>6xHis-tag for protein purification.</td>
+<td>iGEM Uppsala 21</td>
+<td></td>
+</tr>
+
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934016" target="_blank"><b>BBa_K3934016</b></a></td>
+<td>Kinase site</td>
+<td>Enterokinase site used to cleave fusion proteins.</td>
+<td>iGEM Uppsala 21</td>
+<td></td>
+</tr>
+
+</table>
+
+<h2>Favourite Basic Part</h2>
+
+<p>For the best basic part we nominate a mutant version of the bovine FGF2 protein (<a href="http://parts.igem.org/Part:BBa_K3934005" target="_blank"><b>BBa_K3934005</b></a>).  FGF2 is a mammalian growth factor which amongst other things signals cell proliferation [3]. It is one of the most important, and most expensive, components of serum free growth medium used in cellular agriculture to cultivate meat [4]. To decrease the costs of cultivated meat production in order to make it available on the food market, the growth medium needs to be optimized. This would enable a more environmentally friendly alternative to meat consumption. This part has 2 point mutations in the site where the protein binds to its receptor FGFR2 to induce cell growth. These point mutations were designed in PyMOL [5] using rational design and free energy perturbation (FEP) was performed using the molecular dynamics software package Q [6] to evaluate the effects of these single point mutations in silico. The mutations were shown to increase the binding affinity to its receptor and we hypothesize that this will lead to increased mitotic signalling so that less FGF2 will be needed in the serum free growth medium for cultivating meat, decreasing the cost of it. The part has been successfully expressed.</p>
 </div>
-<p style="margin-top: 10vh;">
-Current farming activities are a major contributor to greenhouse gas emissions, with the largest methane contribution coming from the digestion of plant material by cows [1]. Cellular agriculture undercuts this problem as no plant material needs to be digested in order to be metabolised by the cell. Cellular agriculture can cut emissions associated with farming by up to 90% by 2035 according to the think tank Rethinkx [2]. </p>
+<div id='section2'>
+<h1>Composite Parts</h1>
+
+<table>
+<tr>
+<th>Favourite</th>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Designer</th>
+<th>Length</th>
+</tr>
+<tr>
+<td>❤</td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934007" target="_blank"><b>BBa_K3934007</b></a>
+</td>
+<td>Composite</td>
+<td>Bovine growth factor FGF2wt which induces cell proliferation.</td>
+<td>Diogo Filipe</td>
+<td>943 bp</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934013" target="_blank"><b>BBa_K3934013</b></a></td>
+<td>Composite</td>
+<td>Bovine growth factor FGF2 designed to increase affinity to the FGFR2 receptor, making it induce cell proliferation with higher efficiency.</td>
+<td>Emelie Oscarsson</td>
+<td>943 bp</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934009" target="_blank"><b>BBa_K3934009</b></a>
+</td>
+<td>Composite</td>
+<td>Chimera of bovine growth factors FGF2 and FGF1 with increased stability, decreased heparin dependency and decreased trypsin degradation compared to FGF2 wt.</td>
+<td>Daniel Lake</td>
+<td>942 bp</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<a href="http://parts.igem.org/Part:BBa_K3934010" target="_blank"><b>BBa_K3934010</b></a>
+</td>
+
+<td>Composite</td>
+<td>Bovine growth factor FGF2 designed to increase affinity to the FGFR2 receptor, making it induce cell proliferation with higher efficiency.</td>
+<td>Emelie Oscarsson</td>
+<td>943 bp</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934011" target="_blank"><b>BBa_K3934011</b></a></td>
+<td>Composite</td>
+<td>Bovine growth factor FGF2 designed to increase affinity to the FGFR2 receptor, making it induce cell proliferation with higher efficiency.</td>
+<td>Emelie Oscarsson</td>
+<td>943 bp</td>
+</tr>
+
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934012" target="_blank"><b>BBa_K3934012</b></a></td>
+<td>Composite</td>
+<td>Thermostably enhanced bovine growth factor which induces cell proliferation.</td>
+<td>Diogo Filipe</td>
+<td>943 bp</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934014" target="_blank"><b>BBa_K3934014</b></a></td>
+<td>Composite</td>
+<td>Bovine growth factor FGF2 designed to increase affinity to the FGFR2 receptor, making it induce cell proliferation with higher efficiency.</td>
+<td>Emelie Oscarsson</td>
+<td>943 bp</td>
+</tr>
+
+</table>
+
+
+<h2>Favourite Composite Part</h2>
+<p>For the best composite part we nominate the bovine FGF2wt gene (<a href="http://parts.igem.org/Part:BBa_K3934007" target="_blank"><b>BBa_K3934007</b></a>). This part encodes for a biobrick part of the bovine FGF2wt protein used in growth medium for cultivated meat in the field and industry of cellular agriculture. Our FGF2 biobrick enables researchers and companies to more economically favourably access FGF2 for research and protein engineering towards an optimized FGF2. The part has been successfully expressed and purified on both a small scale and a large scale. By making FGF2 more accessible further research can be more easily conducted to one day reach the goal of a global lifestyle where what we eat does not harm our planet the way it does today.</p>
+
 
 </div>
-<h2>Life on land</h2>
+<div id='sec3'>
+<h1>Parts Collection</h1>
+<p>Our part collection consists of different FGF2 versions. Except for the wt FGF2, they are all designed to in different ways optimize this growth factor to the means of a more economically favourable cultivated meat production. This includes increased thermostability, decreased heparin dependency, decreased trypsin degradation and increased receptor binding affinity. By exploring different ways to improve FGF2 we hoped to identify a range of improvements that in the future could potentially be combined to obtain a significantly more effective FGF2.</p>
 
-<div>
 
-<div class="image left quarter">
-<img class="expandable_image" width="800" height="1200"  src="https://2021.igem.org/wiki/images/thumb/1/10/T--Uppsala--goal15.png/450px-T--Uppsala--goal15.png">
+<table>
+<tr>
+<th>Favourite</th>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Designer</th>
+<th>Length</th>
+</tr>
+<tr>
+<td>❤</td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934005" target="_blank"><b>BBa_K3934005</b></a>
+</td>
+<td>Coding</td>
+<td>Bovine growth factor FGF2 designed to increase affinity to the FGFR2 receptor, making it induce cell proliferation with higher efficiency.</td>
+<td>Emelie Oscarsson</td>
+<td>468 bp</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934000" target="_blank"><b>BBa_K3934000</b></a></td>
+<td>Coding</td>
+<td>Bovine growth factor FGF2wt which induces cell proliferation.</td>
+<td>Diogo Filipe</td>
+<td>468 bp</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934001" target="_blank"><b>BBa_K3934001</b></a>
+</td>
+<td>Coding</td>
+<td>Thermostably enhanced bovine growth factor which induces cell proliferation.</td>
+<td>Diogo Filipe</td>
+<td>468 bp</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<a href="http://parts.igem.org/PartBBa_K3934002" target="_blank"><b>BBa_K3934002</b></a>
+</td>
 
-<p>
-Figure 2. Life on land.
-</p>
+<td>Coding</td>
+<td>Chimera of bovine growth factors FGF2 and FGF1 with increased stability, decreased heparin dependency and decreased trypsin degradation compared to FGF2 wt.</td>
+<td>Daniel Lake</td>
+<td>467 bp</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934003" target="_blank"><b>BBa_K3934003</b></a></td>
+<td>Coding</td>
+<td>Bovine growth factor FGF2 designed to increase affinity to the FGFR2 receptor, making it induce cell proliferation with higher efficiency.</td>
+<td>Emelie Oscarsson</td>
+<td>468 bp</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934004" target="_blank"><b>BBa_K3934004</b></a></td>
+<td>Coding</td>
+<td>Bovine growth factor FGF2 designed to increase affinity to the FGFR2 receptor, making it induce cell proliferation with higher efficiency.</td>
+<td>Emelie Oscarsson</td>
+<td>468 bp</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934006" target="_blank"><b>BBa_K3934006</b></a></td>
+<td>Coding</td>
+<td>Bovine growth factor FGF2 designed to increase affinity to the FGFR2 receptor, making it induce cell proliferation with higher efficiency.</td>
+<td>Emelie Oscarsson</td>
+<td>468 bp</td>
+</tr>
+
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934008" target="_blank"><b>BBa_K3934008</b></a></td>
+<td>Coding</td>
+<td>Thioredoxin used as a fusion protein to increase solubility..</td>
+<td>iGEM Uppsala 21</td>
+<td>327 bp</td>
+</tr>
+
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934015" target="_blank"><b>BBa_J64997</b></a></td>
+<td>Tag</td>
+<td>6xHis-tag for protein purification.</td>
+<td>iGEM Uppsala 21</td>
+<td></td>
+</tr>
+
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934016" target="_blank"><b>BBa_K3934016</b></a></td>
+<td>Kinase site</td>
+<td>Enterokinase site used to cleave fusion proteins.</td>
+<td>iGEM Uppsala 21</td>
+<td></td>
+</tr>
+
+<tr>
+<td>❤</td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934007" target="_blank"><b>BBa_K3934007</b></a>
+</td>
+<td>Composite</td>
+<td>Bovine growth factor FGF2wt which induces cell proliferation.</td>
+<td>Diogo Filipe</td>
+<td>943 bp</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934013" target="_blank"><b>BBa_K3934013</b></a></td>
+<td>Composite</td>
+<td>Bovine growth factor FGF2 designed to increase affinity to the FGFR2 receptor, making it induce cell proliferation with higher efficiency.</td>
+<td>Emelie Oscarsson</td>
+<td>943 bp</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934009" target="_blank"><b>BBa_K3934009</b></a>
+</td>
+<td>Composite</td>
+<td>Chimera of bovine growth factors FGF2 and FGF1 with increased stability, decreased heparin dependency and decreased trypsin degradation compared to FGF2 wt.</td>
+<td>Daniel Lake</td>
+<td>942 bp</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<a href="http://parts.igem.org/Part:BBa_K3934010" target="_blank"><b>BBa_K3934010</b></a>
+</td>
+
+<td>Composite</td>
+<td>Bovine growth factor FGF2 designed to increase affinity to the FGFR2 receptor, making it induce cell proliferation with higher efficiency.</td>
+<td>Emelie Oscarsson</td>
+<td>943 bp</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934011" target="_blank"><b>BBa_K3934011</b></a></td>
+<td>Composite</td>
+<td>Bovine growth factor FGF2 designed to increase affinity to the FGFR2 receptor, making it induce cell proliferation with higher efficiency.</td>
+<td>Emelie Oscarsson</td>
+<td>943 bp</td>
+</tr>
+
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934012" target="_blank"><b>BBa_K3934012</b></a></td>
+<td>Composite</td>
+<td>Thermostably enhanced bovine growth factor which induces cell proliferation.</td>
+<td>Diogo Filipe</td>
+<td>943 bp</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934014" target="_blank"><b>BBa_K3934014</b></a></td>
+<td>Composite</td>
+<td>Bovine growth factor FGF2 designed to increase affinity to the FGFR2 receptor, making it induce cell proliferation with higher efficiency.</td>
+<td>Emelie Oscarsson</td>
+<td>943 bp</td>
+</tr>
+
+</table>
+
+
 </div>
 
-<p style="margin-top: 10vh;">
-Large amounts of land are needed for cattle to roam and feed, with over 71% of EU land being dedicated to feeding large herds of cattle [3]. Cellular agriculture has the ability to slash this figure by 95%, freeing up more land for an expanding population or allowing nature to reclaim large areas of land [4]. In addition, some habitats which were lost to bovine farming such as forests or wetlands can be reclaimed as the need for bovine related farming practices decrease. </p>
-
-</div>
-
-<h2>Responsible consumption and production</h2>
-
-<div>
-
-<div class="image left quarter">
-<img class="expandable_image" width="800" height="1200"src="https://2021.igem.org/wiki/images/thumb/4/46/T--Uppsala--goal12.png/450px-T--Uppsala--goal12.png">
-<p>
-
-Figure 3. Responsible consumption and production.
-</p>
-</div>
-
-
-<p style="margin-top: 10vh;">The earth's resources are being consumed faster than they can be replenished. The need for sustainable systems is greater than ever, especially if we are to feed the growing population of our planet. Furthermore, the effects of climate change are putting more pressure on these resources. Cellular agriculture has the potential to be far more resource efficient than current cattle farming. </p>
-
-
-</div>
-
-<h2>Industry, innovation and infrastructure</h2>
-
-<div>
-
-<div class="image left quarter">
-<img class="expandable_image" width="800" height="1200"  src="https://2021.igem.org/wiki/images/thumb/a/af/T--Uppsala--goal9.png/450px-T--Uppsala--goal9.png">
-<p>
-Figure 4. Industry innovation and infrastructure.
-</p>
-</div>
-
-
-<p style="margin-top: 10vh;">One major bottleneck for cellular agriculture today is the high cost of production of FGF2, as it is a critical component of growth media used to grow cells. Our project aims to lower the cost of production through producing more efficient variants and also proving that these can at least be upscaled to 2.5L bioreactors. </p>
-
-</div>
-
-</div>
-<div id='secA'>
-<h1>Other UN goals our project relates to</h1>
-<div class="image middle half" style="margin-left:50%; transform: translateX(-50%);">
-<img class="expandable_image" width="1200" height="1200" src="https://2021.igem.org/wiki/images/thumb/0/0d/T--Uppsala--othergoals.png/600px-T--Uppsala--othergoals.png">
-<p>
-Figure 5. Other UN goals.
-</p>
-</div>
-
-
-<h2>Zero hunger</h2>
-<p>Cellular agriculture has the potential to sustainably feed the growing global population. <p>
-<h2>Sustainable cities and communities</h2>
-<p>Cellular agriculture can be domestically produced almost anywhere, allowing communities to be less dependent on imported food. This can be especially useful in light of the covid pandemic when borders were closed. </p>
-<h2>Clean water and sanitation</h2>
-<p>Countries around the globe are facing alarming water shortages, and cattle farming is very water intensive. Traditional beef farming uses a staggering 15,415 L of water for 1kg of beef. Cellular agriculture can slash this figure by 96% and significantly reduce contamination through pesticides, fertilizers and pathogens [7]. </p>
-<h2>Life below water</h2>
-<p>The closely related cellular aquaculture has the potential to reduce the overfishing of our oceans. </p>
-
-
-</div>
-<div id='sec2'>
-<h1>Conclusion</h1>
-<p>Our team worked hard to ensure that we were well informed with real world consequences of our project and how a thriving cellular agriculture would affect various stakeholders. These stakeholders ranged from farmers and companies currently working in cellular agriculture. We did this in order to get a more real world view of how our project would address the sustainable development goals. We conducted a farmers survey to evaluate the views farmers had on cellular agriculture and their concerns. We also arranged interviews and tried to get a better understanding of some of the consequences of a future with less cattle farming and how this related to the UN goal<b> Life on Land. </b> </p>
-
-
-<p>We discovered that cattle grazing provides a major ecosystem service to grassland habitats and reducing the number of cattle could have serious consequences on large grassland ecosystems. Primarily due to the fact that cattle grazing keeps large grasslands healthy and diverse by stopping certain species from dominating these habitats, as most grassland ecosystems are adapted to intense grazing through megaherbivores [5]. Furthermore, cows prevent re-forestation of large swaths of land and are consequently important in preventing reforestation where it is not wanted. </p>
-
-
-<p>Furthermore, we arranged interviews with experts working in cellular agriculture  to evaluate the impacts of improving FGF2. These interviews confirmed how beneficial a more efficient FGF2 would be to <b>Industry and innovation. </b> </p>
-
-<p>There are many studies which address how cellular agriculture has the potential to combat the effects of climate change. The Webinar we hosted gathered experts from diverse backgrounds to speak on how synthetic biology can improve the current agricultural system and spoke on how it can be used for <b>Climate action.</b> </p>
-
-</div>
-
-<div id='sec4'>
+<div id='sec5'>
 <h1>References</h1>
-<p>
-[1] Gerber, P.J., Steinfeld, H., Henderson, B., Mottet, A., Opio, C., Dijkman, J., Falcucci, A. & Tempio, G. 2013. Tackling climate change through livestock – A global assessment of emissions and mitigation opportunities. Food and Agriculture Organization of the United Nations (FAO),Rome
+
+<p>[1] L. Du, R. Gao, and A. C. Forster, “Engineering multigene expression in vitro and in vivo with small terminators for T7 RNA polymerase,” Biotechnol. Bioeng., vol. 104, no. 6, pp. 1189–1196, 2009, doi: 10.1002/bit.22491.
 </p>
 
-<p>
+<p>[2] L. Du, S. Villarreal, and A. C. Forster, “Multigene expression in vivo: Supremacy of large versus small terminators for T7 RNA polymerase,” Biotechnol. Bioeng., vol. 109, no. 4, pp. 1043–1050, 2012, doi: 10.1002/bit.24379.</p>
 
-[2] Rethinkx. Food and agriculture. Rethinkx (visited 12/09/21) <a href="https://www.rethinkx.com/food-and-agriculture">https://www.rethinkx.com/food-and-agriculture</a>
+<p>[3] A. N. Plotnikov, S. R. Hubbard, J. Schlessinger, and M. Mohammadi, ‘Crystal Structures of Two FGF-FGFR Complexes Reveal the Determinants of Ligand-Receptor Specificity’, Cell, vol. 101, no. 4, pp. 413–424, May 2000, doi: 10.1016/S0092-8674(00)80851-X.</p>
 
-</p>
+<p>[4] E. Swartz. “Meeting the Needs of the Cell-Based Meat Industry,” American Institute of
+Chemical Engineers (AIChE), Okt. 2019. Accessed on: Okt. 04, 2021. [Online].
+Available:
+<a href="https://gfi.org/wp-content/uploads/2021/01/Cell-Based_Meat_CEP_Oct2019.pdf">https://gfi.org/wp-content/uploads/2021/01/Cell-Based_Meat_CEP_Oct2019.pdf</a></p>
 
-<p>
-[3] Eurostat. Archive:Small and large farms in the EU – statistics from the farm structure survey, data from October 2016. Available at
-<a href="https://ec.europa.eu/eurostat/statistics-ex-
-plained/index.php?title=Archive:Small_and_large_farms_in_the_EU_-_statistics_from_the_farm_structure_survey&direction=next&oldid=406560">https://ec.europa.eu/eurostat/statistics-ex-
-plained/index.php?title=Archive:Small_and_large_farms_in_the_EU_-_statistics_from_the_farm_structure_survey&direction=next&oldid=406560</a>
 
-</p>
+<p>[5] The PyMOL Molecular Graphics System, Version 2.0 Schrödinger, LLC.</p>
 
-<p>
-[4] Tuomisto, H. L. & M. J. Teixeira de Mattos (2011): Environmental Impacts of Cultured Meat Production. Environmental Science & Technology 45(14), 6117–6123. doi:10.1021/es200130u
-</p>
 
-<p>
-[5] Witman, S. (2018), Critical role of grazing animals in an ecosystem, Eos, 99, <a href="https://doi.org/10.1029/2018EO091093">https://doi.org/10.1029/2018EO091093</a> Published on 30 January 2018.
-</p>
-
-<p>
-[6] Fox T., Fimeche C. (2013) Global Food: Waste Not, Want Not. Institution of Mechanical Engineers; London, UK.
-</p>
-<p>
-[7] Tuomisto, H. L. & M. J. Teixeira de Mattos (2011): Environmental Impacts of Cultured Meat Production. Environmental Science & Technology 45(14), 6117–6123. doi:10.1021/es200130u
-</p>
-
+<p>[6] QresFEP: An Automated Protocol for Free Energy Calculations of Protein Mutations in Q
+Willem Jespers, Geir V. Isaksen, Tor A.H. Andberg, Silvana Vasile, Amber van Veen,
+Johan Åqvist, Bjørn Olav Brandsdal, and Hugo Gutiérrez-de-Terán
+Journal of Chemical Theory and Computation 2019 15 (10), 5461-5473
+DOI: 10.1021/acs.jctc.9b00538</p>
 
 </div>
+<!-- INSERT GOOGLE DOC CONTENT ABOVE THIS LINE -->
+<!-- INSERT GOOGLE DOC CONTENT ABOVE THIS LINE -->
+
 </div>
 
 
@@ -1152,112 +1423,83 @@ plained/index.php?title=Archive:Small_and_large_farms_in_the_EU_-_statistics_fro
 
 
 <style purpose="popup">
+            .popup{
+                text-decoration: underline;
+                color: blue;
+            }
+            .popup > span:not(.popup_content){
+                cursor:pointer;
+            }
+            .popup_content{
+                cursor:default;
+                display:inline-block;
+                color:black;
+                position:fixed;
+                width:20vh;
+                margin-top:0.5vh;
+                padding:1vh;
+                transform:translateX(-50%);
+                text-align: justify;
+                z-index:10;
+                background-color:white;
+                border:0.2vh solid black;
+            }
+            .popup_content_header{
+                font-size: 2.2vh;
+            }
+            .popup_content{
+                font-size: 1.5vh;
+            }
+        </style>
 
-.popup{
-}
-.popup > span:not(.popup_content){
-    cursor:pointer;
-}
-.popup{
-    cursor:default;
-    display:inline-block;
-    color:black;
-    position:fixed;
-    width:20vh;
-    padding:1vh;
-
-    transform:translateX(-50%);
-
-    text-align: justify;
-    z-index:10;
-    background-color:white;
-    border:0.2vh solid black;
-}
-.popup_content_header{
-    text-decoration: underline;
-    font-size: 2.2vh;
-    margin-bottom:2vh;
-}
-.popup_content{
-    font-size: 1.5vh;
-}
-
-</style>
 <script purpose="popup initiaiziation">
+            for(element of document.getElementsByClassName("popup")){
+                console.log(element.children)
+                element.children[1].style.setProperty("display","none")
+                element.children[1].innerHTML="<span class='popup_content_header'>"+element.children[0].innerText+"</span><br><br>"+element.children[1].innerHTML
 
-function open_popup(ev){
-    let element=ev.target
+                function open_popup(ev){
+                    let element=ev.target
+                    if(!element.classList.contains("popup")){
+                        element=element.parentElement
+                    }
 
-    let target_id=element.getAttribute("popup")
-    let popup_element=document.getElementById(target_id)
-    popup_element.style.setProperty("display","initial")
+                    if(element.getAttribute("vanish_timer")){
+                        clearTimeout(element.getAttribute("vanish_timer"))
+                    }
 
-    if(popup_element.getAttribute("vanish_timer")){
-        clearTimeout(popup_element.getAttribute("vanish_timer"))
-    }
+                    element.setAttribute("popped_up",true)
+                    let element_bb=element.getBoundingClientRect()
+                    element.children[1].style.setProperty("display","initial")
+                    let left_offset=element_bb.x+(element_bb.width/2) // centering of popup happens in css
+                    left_offset=max(element.children[1].getBoundingClientRect().width/2,left_offset) // make sure it does not leave the screen area to the left for text that is close to the left border
+                    left_offset=min(window.innerWidth-(element.children[1].getBoundingClientRect().width/2),left_offset) // make sure the popup does not leave the screen area on the right
+                    //the min/max caps above could probably be omitted on the wiki page since the main text area has enough padding on the left and right, but better to be safe than sorry (could also be adjusted to make sure the popup does not leave the text area, bu i do not think that it would a visual issue if it did)
+                    element.children[1].style.setProperty("left",left_offset+"px")
+                    element.children[1].style.setProperty("top",element_bb.bottom+"px")
+                }
+                function close_popup(ev){
+                    let element=ev.target
+                    if(!element.classList.contains("popup")){
+                        element=element.parentElement
+                    }
 
-    let element_bb=element.getBoundingClientRect()
-    let left_offset=element_bb.x+(element_bb.width/2) // centering of popup happens in css
-    popup_element.style.setProperty("left",left_offset+"px")
+                    //small gap between link and popup content is not valid popup surface, to moving the mouse from the link to the popup content leaves the container area, which closes the popup
+                    //this timeout means that the popup window is closed if the mouse is not positioned within the container area within 250ms after it left the area, ergo the popup remains visible while the mouse moves over the gap between the link and the popup
+                    //and 250ms looks short enough to make it seem like the popup would still automatically vanish when the user leaves the popup area with the mouse actively, to move it somewhere else
+                    element.setAttribute("vanish_timer",setTimeout(
+                        ()=>{
+                            element.setAttribute("popped_up",false)
+                            element.children[1].style.setProperty("display","none")
+                        },250
+                    ))
+                }
 
-    let top_offset=element_bb.top+element_bb.height
-    popup_element.style.setProperty("top",top_offset+"px")
-}
-function close_popup(ev){
-    let element=ev.target
+                element.addEventListener("mouseenter",open_popup)
+                element.addEventListener("mouseleave",close_popup)
+            }
+        </script>
 
-    let target_id=element.getAttribute("popup")
-    let popup_element=document.getElementById(target_id)
-
-    //small gap between link and popup content is not valid popup surface, to moving the mouse from the link to the popup content leaves the container area, which closes the popup
-    //this timeout means that the popup window is closed if the mouse is not positioned within the container area within 250ms after it left the area, ergo the popup remains visible while the mouse moves over the gap between the link and the popup
-    //and 250ms looks short enough to make it seem like the popup would still automatically vanish when the user leaves the popup area with the mouse actively, to move it somewhere else
-    popup_element.setAttribute("vanish_timer",setTimeout(
-        ()=>{
-            popup_element.setAttribute("popped_up",false)
-            popup_element.style.setProperty("display","none")
-        },250
-    ))
-}
-function keep_open_popup(ev){
-    let popup_element=ev.target
-
-    if(popup_element.getAttribute("vanish_timer")){
-        clearTimeout(popup_element.getAttribute("vanish_timer"))
-    }
-}
-function close_popup_self(ev){
-    let popup_element=ev.target
-
-    popup_element.setAttribute("vanish_timer",setTimeout(
-        ()=>{
-            popup_element.setAttribute("popped_up",false)
-            popup_element.style.setProperty("display","none")
-        },250
-    ))
-}
-
-for(element of document.getElementsByClassName("popup")){
-    let target_attribute=element.getAttribute("target")
-
-    target_element=document.getElementById(target_attribute)
-    if(!element.id){
-        window.alert("popup does not have an id! check console for more info.")
-        console.log("popup does not have an id!",element)
-    }
-    target_element.setAttribute("popup",element.id)
-
-    element.addEventListener("mouseenter",keep_open_popup)
-    element.addEventListener("mouseleave",close_popup_self)
-
-    element.style.setProperty("display","none")
-    console.log(element)
-
-    target_element.addEventListener("mouseenter",open_popup)
-    target_element.addEventListener("mouseleave",close_popup)
-}
-
-</script>
 
 <script purpose="expand images">
             let style_document=document.styleSheets[0].rules || document.styleSheets[0].cssRules
