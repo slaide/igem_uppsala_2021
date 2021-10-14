@@ -15,7 +15,23 @@ function open_popup(ev){
     popup_element.style.setProperty("left",left_offset+"px")
 
     let top_offset=element_bb.top+element_bb.height
+    top_offset=min(window.innerHeight-popup_element.getBoundingClientRect().height,top_offset)
     popup_element.style.setProperty("top",top_offset+"px")
+
+    for(popup_content_child of popup_element.children[1].children){
+        if(popup_content_child.tagName=="VIDEO"){
+            if(!popup_content_child.getAttribute("has_started_loading")){
+                popup_content_child.load();
+                popup_content_child.setAttribute("has_started_loading","true")
+            }
+                    
+            popup_content_child.play().then(
+                (_result)=>{
+                    popup_element.children[1].children[0].style.setProperty("display","none");
+                }
+            ).catch(err=>{})
+        }
+    }
 }
 function close_popup(ev){
     let element=ev.target
@@ -30,6 +46,13 @@ function close_popup(ev){
         ()=>{
             popup_element.setAttribute("popped_up",false)
             popup_element.style.setProperty("display","none")
+
+            //pause playback when the popup closes to not confuse the user
+            for(popup_content_child of popup_element.children[1].children){
+                if(popup_content_child.tagName=="VIDEO"){
+                    popup_content_child.pause()
+                }
+            }
         },250
     ))
 }
@@ -47,6 +70,13 @@ function close_popup_self(ev){
         ()=>{
             popup_element.setAttribute("popped_up",false)
             popup_element.style.setProperty("display","none")
+
+            //pause playback when the popup closes to not confuse the user
+            for(popup_content_child of popup_element.children[1].children){
+                if(popup_content_child.tagName=="VIDEO"){
+                    popup_content_child.pause()
+                }
+            }
         },250
     ))
 }
@@ -65,7 +95,6 @@ for(element of document.getElementsByClassName("popup")){
     element.addEventListener("mouseleave",close_popup_self)
 
     element.style.setProperty("display","none")
-    console.log(element)
 
     target_element.addEventListener("mouseenter",open_popup)
     target_element.addEventListener("mouseleave",close_popup)

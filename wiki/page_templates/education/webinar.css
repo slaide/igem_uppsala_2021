@@ -15,9 +15,9 @@
 }
 #webinar_lineup_day1_content > div ,#webinar_lineup_day2_content > div{
     display:grid;
-    grid-template-rows: 2vh auto;
+    grid-template-rows: 2vh auto auto;
     grid-template-columns: 1fr 2.5fr;
-    grid-column-gap: 0.6vh;
+    grid-column-gap: 2vh;
     margin-bottom:1.5vh;
 }
 
@@ -27,7 +27,7 @@
     font-size:1.4vh;
 }
 .webinar_entry_speaker{
-    grid-row: 1 / 3;
+    grid-row: 1 / 4;
     grid-column: 1 / 2;
 }
 .webinar_entry_speaker_image{
@@ -50,4 +50,14 @@
     grid-row: 2 / 3;
     grid-column: 2 / 3;
     font-size:1.8vh;
+}
+.webinar_entry_recording{
+    grid-row: 3 / 4;
+    grid-column: 2 / 3;
+}
+
+#fgfuture_content div > img {
+    width: 100%;
+    height: auto;
+    display:block;
 }

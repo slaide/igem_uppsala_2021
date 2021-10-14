@@ -70,12 +70,14 @@
                     <div class="content_section" id="solving_bugs">
                         <h1>Solving software bugs</h1>
                         <p>
-                            <span class="popup">
-                                <span>QresFEP</span>
-                                <span class="popup_content">QresFEP is a program, but also includes additional software to pre- and post-process Q in-/output. For brevity, we refer to all software included in QresFEP by 'QresFEP'.</span>
-                            </span>
-                            turned out to be harder to use than we expected. We are not quite sure what the essential cause of our issues was, but briefly, we had to run the software many times while looking for the source of the issues.
+                            <span id="qresfep_brevity_popup_target" class="popup_target">QresFEP</span> turned out to be harder to use than we expected. We are not quite sure what the essential cause of our issues was, but briefly, we had to run the software many times while looking for the source of the issues.
                         </p>
+                        <span class="popup" target="qresfep_brevity_popup_target" id="qresfep_brevity_popup">
+                            <div class="popup_content_header">QresFEP</div>
+                            <span class="popup_content">
+                                QresFEP is a program, but also includes additional software to pre- and post-process Q in-/output. For brevity, we refer to all software included in QresFEP by 'QresFEP'.
+                            </span>
+                        </span>
                         <p>
                             We had no major problems solving the bugs, once we found the root causes, but what we ended up with afterwards was an extremely tedious process that we had to repeat for <i>every single simulation</i>:
                         </p>
@@ -118,16 +120,15 @@
                         </p>
                         <ul>
                             <li>One function runs all setup steps based on user-provided protein structure files for the protein and the receptor (only wild type structures required). This code encapsulates the initial, fully automated pymol mutation and all QresFEP plus intermediate steps.</li>
-                            <li>A second function can be used to submit all simulations to UPPMAX, which would otherwise need to be done manually for each
-                                <span class="popup">
-                                    <span>replicate.</span>
-                                    <span class="popup_content">
-                                        In our case: we had 8 mutations to evaluate. For each mutation, we need to run 4 simulations, one for: wildtype FGF2, mutant FGF2, FGF2-receptor complex with wildtype FGF2, plus the complex with the mutatant FGF2. For each simulation, to achieve statistically significant results, we ran 10 replicates. So, in total, we had to run 8 * 4 * 10 = 320 individual simulations.
-                                    </span>
-                                </span>
-                            </li>
+                            <li>A second function can be used to submit all simulations to UPPMAX, which would otherwise need to be done manually for each <span id="qresfep_md_replicates_popup_target" class="popup_target">replicate.</span></li>
                             <li>The third and last function then applies the QresFEP provided analysis script to the output from the simulations on UPPMAX and combines the output from all analyses into one stability value per mutation, based on the thermodynamic cycle.</li>
                         </ul>
+                        <span class="popup" target="qresfep_md_replicates_popup_target" id="qresfep_md_replicates_popup">
+                            <div class="popup_content_header">Replicates</div>
+                            <span class="popup_content">
+                                In our case: we had 8 mutations to evaluate. For each mutation, we need to run 4 simulations, one for: wildtype FGF2, mutant FGF2, FGF2-receptor complex with wildtype FGF2, plus the complex with the mutatant FGF2. For each simulation, to achieve statistically significant results, we ran 10 replicates. So, in total, we had to run 8 * 4 * 10 = 320 individual simulations.
+                            </span>
+                        </span>
                         <p>
                             The code can be found on <a href="ThisLinkWillChangeBecauseTheRepositoryOwnershipMustBeTransferredToIgemBeforeTheWikiFreeze.com">github</a>. It includes documentation for the functions mentioned above and instructions on how to set up the software environment. The repository also includes the python code and protein structure files for an example on how to use our software.
                         </p>
