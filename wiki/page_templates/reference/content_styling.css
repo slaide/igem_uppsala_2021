@@ -109,8 +109,14 @@ div.image.middle{
 #fgfuture_content div.quarter{
     width:25%;
 }
+#fgfuture_content div.third{
+    width:33.3333%;
+}
 #fgfuture_content div.half{
     width:50%;
+}
+div.image.stacked{
+    padding:0;
 }
 
 /* make sure images have expected size (the actual size specifications apply to their container, not themself) */
