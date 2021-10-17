@@ -31,6 +31,12 @@ function open_popup(ev){
                 }
             ).catch(err=>{})
         }
+
+        if(popup_content_child.tagName=="OBJECT"){
+            if(!popup_content_child.getAttribute("data")){
+                popup_content_child.setAttribute("data",popup_content_child.getAttribute("future_data"))
+            }
+        }
     }
 }
 function close_popup(ev){
