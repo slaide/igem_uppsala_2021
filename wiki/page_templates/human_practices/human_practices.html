@@ -23,129 +23,40 @@
                 <style purpose="hp specific decoration">
                     {{hp_style.css}}
                 </style>
-                <script purpose="integrated/hp_switcher">
-                    {{integrated_hp_panel_switcher.js}}
-                </script>
 
                 <!-- INSERT GOOGLE DOC CONTENT BELOW THIS LINE -->
 
-                <div id="page_switcher">
-                    <div class="hp_section_header active_section" onclick="switch_hp('standard')">
+                <div id="page_switcher" class="page_tab_switcher">
+                    <div target_section="human_practices_content">
                         <div>Human Practice</div>
                     </div>
-                    <div class="hp_section_header" onclick="switch_hp('integrated')">
+                    <div target_section="integrated_human_practices_content">
+                        <div>Integrated HP</div>
+                    </div>
+                    <div target_section="integrated_human_practices_content">
                         <div>Integrated HP</div>
                     </div>
                 </div>
 
-                {{hp.html}}
+                <div id="human_practices_content" class="tab_section">
+                    {{hp.html}}
+                </div>
 
-                {{integrated_hp.html}}
+                <div id="integrated_human_practices_content" class="tab_section">
+                    {{integrated_hp.html}}
+                </div>
+
+                <script purpose="panel_switcher">
+                    {{panel_switcher.js}}
+                </script>
+                <style>
+                    {{panel_switcher.css}}
+                </style>
 
                 <!-- INSERT GOOGLE DOC CONTENT ABOVE THIS LINE -->
                 
             </div>
 
         </div>
-
-        <script purpose="derive sidebar entries from user-generated content">
-            function derive_sidebar_content(){
-                //for each child of the 'INSERT CONTENT HERE' section
-                for(hp_section_name of ["human_practices_content","integrated_human_practices_content"]){
-                    let section_element=document.getElementById(hp_section_name)
-                    for(element of section_element.children){
-                        //check if first element is header element
-                        let header=element.children[0]
-                        if(header.tagName!="H1" || header.innerText.length==0){
-                            window.alert("section "+element.id+" must have an <h1>Headline</h1> as first line!")
-                        }
-                        //get header text of this section
-                        header=header.innerText
-
-                        //insert horizontal line between header and text for that section
-                        let horizontal_seperator=document.createElement("hr")
-                        if(element.children.length>1){
-                            element.insertBefore(horizontal_seperator,element.children[1])
-                        }else{
-                            element.appendChild(horizontal_seperator)
-                        }
-
-                        //get the sidebar dom element
-                        let sidebar_list_container=document.getElementById("sidebar_list_container")
-
-                        //create the invisible span element at the beginning of the section that serves as 'sroll-to' anchor for the section
-                        let link_span=document.createElement("span")
-                        //link_span.setAttribute("id","section"+child_num+"_link")
-                        element.insertBefore(link_span,element.children[0])
-
-                        //create sidebar entry for the current section/its header
-                        let new_element=document.createElement("li")
-                        let new_span=document.createElement("span")
-                        let new_a=document.createElement("a")
-                        //new_a.setAttribute("href","#section"+child_num+"_link")
-                        new_a.innerText=header
-                        //new_span.setAttribute("id","span"+child_num)
-                        new_span.appendChild(new_a)
-                        new_element.classList.add("sidebar_list_section")
-                        new_element.appendChild(new_span)
-
-                        //add created sidebar entry to the sidebar
-                        sidebar_list_container.appendChild(new_element)
-                    }
-                }
-            }
-            derive_sidebar_content()
-        </script>
-
-        <script purpose="hightlight currently viewed section">
-            let offsets={}
-            let base=null;
-            /* this code is executed on load */
-            function get_section_offsets(){
-                for(element of document.getElementById("fgfuture_content").children){
-                    if(!base){
-                        let offset=0;
-                        
-                        let current_element=element;
-                        while(current_element){
-                            offset+=current_element.offsetTop;
-                            current_element=current_element.offsetParent;
-                        }
-                        base=offset;
-                    }
-                    offsets[element.id]=base
-                    base+=element.clientHeight
-                }
-            }
-
-            function highlight_current_section_in_sidebar(){
-                let current_scroll=document.body.scrollTop||document.documentElement.scrollTop||window.pageYOffset
-
-                let found=false
-                let index=0
-                for(element in offsets){
-                    /*
-                    const subtracted_negative_screen_fraction=0.67
-                    const added_positive_screen_fraction=0.15
-
-                    let above_lower=(offsets[element]+document.getElementById(element).clientHeight-window.innerHeight*subtracted_negative_screen_fraction)>=current_scroll
-                    let below_upper=offsets[element]>=(current_scroll+window.innerHeight*added_positive_screen_fraction)
-                    let above_lowest=(offsets[element]+document.getElementById(element).clientHeight)<=current_scroll
-                    let is_last_element_in_list=(index==(Object.keys(offsets).length-1))
-
-                    if(and(above_lower, !found)||and(below_upper, above_lowest)||and(is_last_element_in_list, !found)){
-                        if(found){
-                            document.getElementById("sidebar_list_container").children[index-1].classList.remove("current_section")
-                        }
-                        found=element
-                        document.getElementById("sidebar_list_container").children[index].classList.add("current_section")
-                    }else{
-                        document.getElementById("sidebar_list_container").children[index].classList.remove("current_section")
-                    }
-                    index+=1
-                    */
-                }
-            }
-        </script>
         
-{{template_bottom_hp.html}}
+{{template_bottom_tabbed.html}}

@@ -1,0 +1,57 @@
+
+#page_switcher{
+    display:flex;
+    height:5vh;
+    grid-row-gap: 1vh;
+    font-size:3vh;
+    cursor: pointer;
+}
+
+#page_switcher .section_header{
+    flex: 1 0;
+    height:calc( 5vh - 2px);
+}
+.section_header{
+    font-size:2.5vh;
+    text-align: center;
+    /*transparent border used as placeholder for solid black border on active panel (border adds to box size which moves the contained text. this placeholder avoids 'jumping' text on becoming active) */
+    border-top:1px solid transparent;
+    border-left:1px solid transparent;
+    border-right:1px solid transparent;
+    border-bottom:1px solid black;
+    cursor:default;
+}
+/* change border to show selected section */
+.section_header.active_tab{
+    border-top:1px solid black;
+    border-left:1px solid black;
+    border-right:1px solid black;
+    border-bottom:1px solid transparent;
+}
+.section_header:hover:not(.active_tab){
+    text-decoration: underline;
+    cursor:pointer;
+}
+
+/* not quite sure if the currently active, or the NOT active section should have a grey header */
+.section_header.active_tab > div{
+    color:grey;
+}
+/* make header text vertically centered */
+.section_header > div{
+    position:relative;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+
+/* the actual tabbed pages */
+.tab_section{
+    padding-top: 3vh;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+.tab_section:not(.active_section){
+    display:none;
+}
