@@ -3,75 +3,12 @@
     grid-template-columns: 1fr 0.5fr 4fr 1.5fr;
 }
 /* add padding to the hp page area that is surrounded by borders to make the inner content the same size as all other pages */
-.hp_section{
+.tab_section{
     /* regular templates have 1+1+4+2 fr size. here it has 1+0.5+4+1.5 fr size, which means 1/8th of the width can be padding on the whole width. split in 2 equal parts for the left/right side */
     padding-left:calc( 1 / 8 / 2 * 100% );
     padding-right:calc( 1 / 8 / 2 * 100% );
     /* padding-bottom should be the same value as above, but this would only be possible using javascript. using vw as approximation of width% (the difference being the scrollbar at the side of the page) should be close enough though. */
     padding-bottom: 3vh;
-}
-
-#page_switcher{
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 5vh;
-    height:5vh;
-    grid-row-gap: 1vh;
-    font-size:3vh;
-    cursor: pointer;
-}
-
-/* HP header */
-#page_switcher:first-child{
-    grid-row: 1 / 2;
-    grid-column: 1 / 2;
-}
-/* Integrated HP header */
-#page_switcher:last-child{
-    grid-row: 1 / 2;
-    grid-column: 2 / 3;
-}
-.hp_section_header{
-    font-size:2.5vh;
-    text-align: center;
-    /*transparent border used as placeholder for solid black border on active panel (border adds to box size which moves the contained text. this placeholder avoids 'jumping' text on becoming active) */
-    border-top:1px solid transparent;
-    border-left:1px solid transparent;
-    border-right:1px solid transparent;
-    border-bottom:1px solid black;
-    cursor:default;
-}
-/* change border to show selected section */
-.hp_section_header.active_section{
-    border-top:1px solid black;
-    border-left:1px solid black;
-    border-right:1px solid black;
-    border-bottom:1px solid transparent;
-}
-.hp_section_header:hover:not(.active_section){
-    text-decoration: underline;
-    cursor:pointer;
-}
-
-/* not quite sure if the currently active, or the NOT active section should have a grey header */
-.hp_section_header.active_section > div{
-    color:grey;
-}
-/* make header text vertically centered */
-.hp_section_header > div{
-    position:relative;
-    top:50%;
-    transform:translateY(-50%);
-}
-
-.hp_section{
-    padding-top: 3vh;
-    border-bottom: 1px solid black;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-}
-.hp_section:not(.active_section){
-    display:none;
 }
 
 .integrated_hp_timeline_entry{
