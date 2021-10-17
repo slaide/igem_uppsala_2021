@@ -33,11 +33,11 @@ schedule_day1=[
     {
         "speaker":"iGEM Projects",
         "topic":"INSIGHT INTO IGEM PROJECTS: Uppsala, Maastricht, Wageningen, Groningen",
-        "image":"https://2021.igem.org/wiki/images/2/20/T--Uppsala--igem_uu_adjusted_background.png",
+        "image":"https://2021.igem.org/wiki/images/5/51/T--Uppsala--igem_uppsala_small_logo.jpg",
         "popup_content":["Project Summaries",`
             <div>
                 <div class="image middle full">
-                    <img class="expandable_image" style="width:100%;height:auto;" width="910" height="724" src="https://2021.igem.org/wiki/images/7/7d/T--Uppsala--webinar_igem_teams.png" loading="lazy" alt="drivhuset workshop video snippets throughout the day">
+                    <img class="expandable_image" style="width:100%;height:auto;" width="910" height="724" src="https://2021.igem.org/wiki/images/5/5f/T--Uppsala--webinar_igem_teams.jpg" loading="lazy" alt="drivhuset workshop video snippets throughout the day">
                 </div>
             </div>
             <ul>
@@ -79,7 +79,7 @@ schedule_day1=[
     {
         speaker:"Sophya Virtual World",
         topic:"Informal networking and socialization starts",
-        "image":"https://2021.igem.org/wiki/images/d/de/T--Uppsala--sophya.png",
+        "image":"https://2021.igem.org/wiki/images/f/f2/T--Uppsala--sophya.jpg",
         popup_content:[
             "Sophya Platform",
             `
@@ -112,7 +112,7 @@ schedule_day2=[
     {
         "speaker":"Michael Saad",
         "topic":"Perspectives for Cellular Aquaculture",
-        "image":"https://2021.igem.org/wiki/images/1/1c/T--Uppsala--michael_saad.png",
+        "image":"https://2021.igem.org/wiki/images/3/36/T--Uppsala--michael_saad.jpg",
         recording:"https://2021.igem.org/wiki/images/3/30/T--Uppsala--webinar_recording_saad.mp4",
         youtube:"https://www.youtube.com/watch?v=W7c84EmA1Ys",
         time:["18.00"]
@@ -120,7 +120,7 @@ schedule_day2=[
     {
         "speaker":"Paul Shapiro",
         "topic":"FERMENTING THE FUTURE: Turning Microbes into Meat",
-        "image":"https://2021.igem.org/wiki/images/2/27/T--Uppsala--paul_shapiro.jpeg",
+        "image":"https://2021.igem.org/wiki/images/4/4d/T--Uppsala--paul_shapiro.jpg",
         recording:"https://2021.igem.org/wiki/images/9/9c/T--Uppsala--webinar_recording_paul.mp4",
         youtube:"https://www.youtube.com/watch?v=40G_qyLJ38c",
         time:["19.00"]
@@ -128,7 +128,7 @@ schedule_day2=[
     {
         "speaker":"Irfan Tahir",
         "topic":"How Can We Make Cellular Agriculture More Accessible For Farmers?",
-        "image":"https://2021.igem.org/wiki/images/7/75/T--Uppsala--irfan_tahir.png",
+        "image":"https://2021.igem.org/wiki/images/a/a1/T--Uppsala--irfan_tahir.jpg",
         recording:"https://2021.igem.org/wiki/images/6/6b/T--Uppsala--webinar_recording_irfan.mp4",
         youtube:"https://www.youtube.com/watch?v=-S7WKkAryB8",
         time:["19.30"]
@@ -136,7 +136,7 @@ schedule_day2=[
     {
         "speaker":"Abi Aspen Glencross",
         "topic":"From Lab Grown Meat to field of Wheat - and back again",
-        "image":"https://2021.igem.org/wiki/images/2/25/T--Uppsala--abi_glencross.png",
+        "image":"https://2021.igem.org/wiki/images/9/9b/T--Uppsala--abi_glencross.jpg",
         recording:"https://2021.igem.org/wiki/images/f/fb/T--Uppsala--webinar_recording_abi.mp4",
         youtube:"https://www.youtube.com/watch?v=9MOv0_2ynP8",
         time:["20.00"]
@@ -144,7 +144,7 @@ schedule_day2=[
     {
         speaker:"Sophya Virtual World",
         topic:"Informal networking and socialization starts",
-        "image":"https://2021.igem.org/wiki/images/d/de/T--Uppsala--sophya.png",
+        "image":"https://2021.igem.org/wiki/images/f/f2/T--Uppsala--sophya.jpg",
         __popup_content:[
             "Sophya Platform",
             `
