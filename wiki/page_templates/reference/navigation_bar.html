@@ -30,7 +30,7 @@
                 <a href="https://2021.igem.org/Team:Uppsala/Human_Practices">Overview</a>
                 <a href="https://2021.igem.org/Team:Uppsala/Human_Practices">Integrated<br>Human Practice</a>
                 <a href="https://2021.igem.org/Team:Uppsala/Implementation">Proposed<br>Implementation</a>
-                <a href="https://2021.igem.org/Team:Uppsala/Education">Education</a>
+                <a href="https://2021.igem.org/Team:Uppsala/Communication">Communication</a>
                 <a href="https://2021.igem.org/Team:Uppsala/Inclusivity">Inclusivity</a>
                 <a href="https://2021.igem.org/Team:Uppsala/Sustainable">Sustainable<br>Development</a>
             </div>
@@ -60,37 +60,4 @@
             </div>
         </li>
     </ul>
-    <script purpose="dropdown_open_close">
-        for(dropdown of document.getElementsByClassName("dropdown")){
-            dropdown.addEventListener("mouseenter",function(ev){
-                function remove_hovering_highlighting(ev){
-                    ev.target.removeEventListener("mouseleave",remove_hovering_highlighting)
-                    ev.target.classList.remove("hovering_over")
-                }
-                ev.target.classList.add("hovering_over")
-                ev.target.addEventListener("mouseleave",remove_hovering_highlighting)
-            })
-        }
-        document.getElementById("navigation_bar").addEventListener("mouseenter",(ev)=>{
-            ev.target.children[1].classList.add("panel_opened")
-            ev.target.children[1].classList.add("scrolled_down")
-        })
-        document.getElementById("navigation_bar").addEventListener("mouseleave",(ev)=>{
-            ev.target.children[1].classList.remove("panel_opened")
-        })
-    </script>
-    <script purpose="highlight_current_topic_in_navbar">
-        function highlight_current_topic_in_navbar(){
-            const match_path_text=window.location.pathName || ""
-            const match_path_length=match_path_text.length
-            for(element of document.getElementsByClassName("dropdown_content")){
-                for(child of element.children){
-                    //const match_path_text="/Team:Uppsala/Model"
-                    if(child.getAttribute("href").substr(-match_path_length)==match_path_text){
-                        child.classList.add("current_topic")
-                    }
-                }
-            }
-        }
-    </script>
 </div>

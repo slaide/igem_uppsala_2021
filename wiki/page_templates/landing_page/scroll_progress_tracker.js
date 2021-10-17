@@ -1,7 +1,7 @@
 
 function scroll_height_fraction(){
     /*damn this is bad*/
-    const scroll_range=document.getElementById("fgfuture_main").clientHeight-window.innerHeight+16
+    const scroll_range=document.getElementById("pagecontent").clientHeight-window.innerHeight+16
     let current_scroll=document.body.scrollTop||document.documentElement.scrollTop||window.pageYOffset
 
     return current_scroll/scroll_range
