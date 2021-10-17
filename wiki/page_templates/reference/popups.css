@@ -33,11 +33,12 @@
 
 #fgfuture_content .popup_content_header{
     text-decoration: underline;
-    font-size: 2.2vh;
+    font-size: var(--popup-header);
     margin-bottom:2vh;
 }
 #fgfuture_content .popup_content{
-    font-size: 1.5vh;
+    font-size: var(--text-size-regular);
+
     display:block;
     /* subtract padding, twice */
     width:100%;

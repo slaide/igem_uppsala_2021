@@ -40,13 +40,13 @@ for(let webinar_day of [["webinar_lineup_day1_content",schedule_day1],["webinar_
         if(schedule[key].recording){
             let video_div=document.createElement("div")
             video_div.classList.add("webinar_entry_recording")
-            video_div.innerHTML=`<a id='webinar_recording_${speaker_first_name}_popup_target' href='' class='button wide'>${speaker_first_name}'s recording</a>`
+            video_div.innerHTML=`<span id='webinar_recording_${speaker_first_name}_popup_target' class='button wide'>${speaker_first_name}'s recording</span>`
             outer_div.appendChild(video_div)
         }
         if(schedule[key].popup_content){
             let popup_button=document.createElement("div")
             popup_button.classList.add("webinar_entry_recording")
-            popup_button.innerHTML=`<a id='webinar_recording_${speaker_first_name}_popup_target' href='' class='button wide'>${schedule[key].popup_content[0]}</a>`
+            popup_button.innerHTML=`<span id='webinar_recording_${speaker_first_name}_popup_target' class='button wide'>${schedule[key].popup_content[0]}</span>`
             outer_div.appendChild(popup_button)
         }
 
