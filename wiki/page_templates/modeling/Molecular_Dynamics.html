@@ -1,0 +1,157 @@
+<div id="section1>">
+    <h1>Introduction</h1>
+        <p>
+Molecular dynamics is the computational process of simulating the movements and interactions of atoms in molecular systems in order to understand and predict the properties of molecules [8]. In our project we used molecular dynamics in order to predict the effect of single point mutations on protein-protein interaction. The result that we obtained by using molecular dynamics in silico was used to determine what mutations that we were to induce to FGF2 in vivo in the wet lab.     
+        </p>
+
+        <p>
+            We did not have enough time to evaluate all mutations using molecular dynamics. Instead, once the mutation pool had been filtered and reduced according to the process described in mutation selection, we went on to evaluate the remaining 8 mutations through the molecular dynamics software package Q. We generously received guidance from Hugo Guitérrez de Téran and his colleagues throughout the process. In addition, they prepared input structure files with correct formatting for use of additional scripts in Q and helped us to apply the same technique for our other mutations. We further automated the process of setting up files for the simulations. Read more about our own pipeline on the software tool page. We were able to perform the simulations for these 8 mutations thanks to resources provided to us by the Swedish National Infrastructure for Computing (SNIC) at UPPMAX, partially funded by the Swedish Research Council through grant agreement no. 2018-05973.
+        </p>
+</div>
+
+<div id="section2>">
+    <h1>Theory</h1>
+    <p>
+        The molecular dynamics software package Q can be used to simulate and calculate the change in free energy during the annihilation of any of the natural amino acids, except for proline, into an alanine residue. A process called free energy perturbation or “FEP”. Each amino acid is annihilated to alanine in a given number of steps. During the annihilation steps, the amino acid gradually loses its chemical and physical properties until it by the end of the annihilation has “become” an alanine residue. For all amino acids, these annihilation steps are further divided into smaller time steps, so-called lambda windows, during which the molecular dynamics sampling occurs in the form of short simulations. During the simulations, new coordinates for each atom are calculated as well as the free energy at that point in time. The difference in free energy between two simulations is determined with Zwanzig’s exponential formula: 
+        
+        G=GB-GA= --1m=1n-1ln⟨exp(-(Um+1-Um))⟩A 
+        
+        In this formula G is the difference in Gibbs free energy, U is the potential energy, =1/kT, and Um=(1-m)UA+mUB. Herein k is the Boltzmann constant and T is the temperature. The indices A and B stand for the initial and the final potentials of a given lambda window in a given simulation. The index m indicates what lambda window is being sampled and n is the number of interposing lambda states. 
+    </p>
+        
+        <p>
+        By following the scheme of a thermodynamic cycle, the energy values estimated by the simulations can be used to calculate an estimation of not only alanine mutations but rather the effect of any single point mutation on protein characteristics.            
+        </p>
+        
+        <imgtext>
+        General scheme of a thermodynamic cycle [4]. 
+        </imgtext>
+        
+        <p>
+        The molecular simulation software Q requires information of the molecules in the form of topology files in order to perform the simulations. The setup of the required input files has been automated by its developers and users in the form of additional scripts. In that way, the setup and running of Q have become very user-friendly. 
+        </p>
+        
+        <p>
+        In addition to the estimated energy values, the simulations produce trajectory files, containing information on the position and energy of all atoms during the simulation. These trajectories can be used to visualize and analyze the whole simulation. See video below. 
+        </p>
+        
+        <p>
+        (rotation of the complex with sphere upon it) -> next to (Video of sphere and annihilation)   
+        </p>
+        
+</div>
+
+<div id="section3">
+    <h1>Method</h1>
+
+    <p>
+        As previously stated, Q can predict the change in free energy during the annihilation of an amino acid to alanine, and this can be used to evaluate the effect of single-point mutations. Q has mainly been used to evaluate the effect of single point mutations on protein-small ligand interactions but for our project, we needed to estimate the effect on protein-protein interactions. This was done by combining the scheme of the thermodynamic cycles associated with the bound complex formation of the protein-protein interaction with the unbound state, see figure X.  
+    </p>
+
+    <img src=”name.png”>
+
+    <imgtext>
+    Figure X: Example of a combined thermodynamic cycle for mutation Q54K. In the middle is the shared alanine leg for Q54A and K54A. The FEP arrows represent ΔG values that we can obtain by the use of FEP in Q. Once the FEP arrow values are obtained they can be used in equation X to calculate the final  ΔΔG value for the mutation.
+    </imgtext>
+
+
+    <p>
+        Equation X: G =(Gholowt-Gapowt)-(Gholomut-Gapomut)
+    </p>
+
+    <p>
+        Similar thermodynamic cycles were created for all eight remaining mutations in the final mutation pool after the mutation filtration. The Q simulations provide values for the FEP arrows within the thermodynamic cycle that can then be used according to equation X, in order to obtain the final ΔΔG value. A lower ΔΔG corresponds to a more stable structure indicating a stronger interaction between the receptor and FGF2. Thus, negative ΔΔG indicates improving mutations which means that the mutant FGF2 binds stronger to the receptor compared to the wt FGF2. See calculation example for Q54K below.
+    </p> 
+
+</div> 
+
+<div id="section4">
+    <h1>Calculation example Q54K:</h1>
+    <p>
+Here is an example of how to use the ΔG:s obtained from Q simulations in order to calculate the final ΔΔG for the mutation. 
+(Add full interaction video next to calculation example)
+    </p>
+    <p>
+Gholowt=40.99 ± 0.25
+Gapowt=40.94 ± 0.33 
+Gholomut= -21.91 ± 1.88
+Gapomut= -22.86 ± 0.32
+G =(Gholowt-Gapowt)-(Gholomut-Gapomut)
+G =(40.99-40.94)-(-21.91-(-22.86))=(0.05)-(0.95)= -0.9
+    </p>
+
+    <img src=”name.png”>
+
+    <imgtext>
+        Figure X: Free energy difference over time for the four simulations required to close the thermodynamic cycle for Q54K mutation. Cumulative lambda is on the x-axis and ΔG in kcal/mol is on the y-axis. Light blue lines represent individual replicate simulations and the dark blue line is the average of ten individual replicate simulations. Graph A is K54A apo simulation, graph B is Q54A apo simulation,  graph C is K54A holo simulation and graph D is Q54A holo simulation.
+    </imgtext>
+    <p>
+</div>
+
+<div id="section5">
+    <h1>Results</h1>
+
+    <p>
+The resulting ΔΔG values from the molecular dynamics simulations using Q are presented below in table X. Lower ΔΔG indicates a stronger interaction between the receptor and FGF2 and thus a higher affinity. Therefore the three mutations with the lowest ΔΔG values were chosen to be used in the mutagenesis experiments in the wet lab. These were Q54K, L98M and V88I. Our standard error of the mean values were bigger in magnitude compared to the calculated ΔΔG. However, since the mutations had made it through the rest of the filtering process as well as having low mean ΔΔG, we felt confident enough to move forward in the wet lab with the mutations with the three lowest mean values anyway.
+
+
+Table X: Mean ΔΔG values and standard error of the mean obtained using molecular dynamics through Q for all mutations in the final mutation pool. 
+    </p>
+    <!--ADD THE TABLE-->
+</div>
+
+<div id="section6">
+    <h1>Assumptions</h1> [Andreea]
+
+    <p>
+Molecular mechanics' goal is to represent the interaction between molecules in a similar way as classical physics. Even though this field has greatly developed in the last years, there are still several assumptions the technique is based on.
+    </p>
+    <p>
+Firstly, the parameters the simulation relies on are imperfect. For example, the calculation of free energies is based on being able to compute free energy differences, which is not a very accurate procedure. Further on, the limited polarization effect has to be taken into consideration. This means that the partial charges are fixed, but the waters present in the molecule can still re-orient leading to errors. Moreover, the method relies on results from force field calculation for potential and force. However, these results are inexact leading to miscalculations. For example, for aromatic/ aromatic and charged/ aromatic interaction, a more in-depth electrostatics representation than what the force field can currently provide. 
+Nonetheless, through the determination of averages over a longer period of time, a better determination of the system's properties can be portrayed. In addition, it has to be mentioned that several simulations have to contain the presence of the same event, in order to regard it as significant. Error estimates determinations for the calculated properties should help in providing a more exact simulation. The principle behind it relies on observing the difference between an estimated value and a true known value of the analyzed parameter, which helps evaluate the protein.
+    </p>
+    <p>
+Furthermore our receptor protein FGFR2 is part of a receptor complex that in reality is embedded in a cellular membrane, but in the simulation the system is solvated in water. This could potentially lead to differences between the results from the simulation and results that one might get from performing and quantifying the mutation in vivo.
+    </p>
+
+</div>
+
+<div id="section7">
+    <h1>Video making</h1>
+    <p>
+        The picture and video representation on this page were made in VMD. The videos were made by screen recording the VMD session and then edited using Adobe Premiere. 
+    </p>
+</div>
+
+<div id="section8">
+<h1> References</h1>
+<p>
+[1] QresFEP: An Automated Protocol for Free Energy Calculations of Protein Mutations in Q Willem Jespers, Geir V. Isaksen, Tor A.H. Andberg, Silvana Vasile, Amber van Veen, Johan Åqvist, Bjørn Olav Brandsdal, and Hugo Gutiérrez-de-Terán
+Journal of Chemical Theory and Computation 2019 15 (10), 5461-5473
+DOI: 10.1021/acs.jctc.9b00538
+</p>
+<p>
+[2] Jespers, W., Esguerra, M., Åqvist, J. et al. QligFEP: an automated workflow for small molecule free energy calculations in Q. J Cheminform 11, 26 (2019). https://doi.org/10.1186/s13321-019-0348-5
+</p>
+<p>
+[3] Jespers W., Åqvist J., Gutiérrez-de-Terán H. (2021) Free Energy Calculations for Protein–Ligand Binding Prediction. In: Ballante F. (eds) Protein-Ligand Interactions and Drug Design. Methods in Molecular Biology, vol 2266. Humana, New York, NY. https://doi.org/10.1007/978-1-0716-1209-5_12
+</p>
+<p>
+[4] General Scheme of the thermodynamic cycle, Schrodinger: Binding affinity prediction, Stability Prediction
+</p>
+<p>
+[5] Humphrey, W., Dalke, A. & Schulten, K. VMD: Visual molecular dynamics. J. Mol. Graph. 14, 33–38 (1996).
+</p>
+<p>
+[6] Desta IT, Porter KA, Xia B, Kozakov D, Vajda S. Performance and Its Limits in Rigid Body Protein-Protein Docking. Structure. 2020 Sep; 28 (9):1071-1081.  doi
+</p>
+<p>
+[7] Limiting Assumptions in Molecular Modeling: Electrostatics, January 2013, Garland R Marshall, Washington University. ResearchGate
+</p>
+<p>
+[8] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4655909/
+</p>
+</div>
+
+
+</div>
