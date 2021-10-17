@@ -1,4 +1,11 @@
 /*navigation bar*/
+
+#navigation_bar *{
+    --navigation-bar-header:2.5vh;
+    --navigation-bar-link:2vh;
+    --navigation-bar-link-current: var(--header-h3);
+}
+
 #navigation_bar{
     top:16px;
     height:5vh;
