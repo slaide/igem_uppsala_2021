@@ -1,20 +1,20 @@
 {{IGEM_TopBar}}
 <html>
     <head>
-        <script real-src="https://cdn.jsdelivr.net/npm/warpjs@1.0.8/dist/warp.js">
-            {{warp.js}}
-        </script>
-        <script purpose="js_mutable_svg">
-            {{landscape_embedded_svgs.js}}
-        </script>
-        <style real-href="remove_presets.css">
-            {{remove_igem_presets.css}}
-        </style>
-        <style purpose="global">
-            {{global_basic.css}}
-        </style>
+        <!-- warp.js -->
+        <script src="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/js/warp.js&action=raw&ctype=text/javascript"></script>
+
+        <!-- landscape_embedded_svgs.js -->
+        <script src="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/js/landscape_embedded_svgs.js&action=raw&ctype=text/javascript"></script>
+
+        <!-- remove_igem_presets.css -->
+        <link rel="stylesheet" type="text/css" href="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/css/remove_igem_presets.css&action=raw&ctype=text/css">
+
+        <!-- global_basic.css -->
+        <link rel="stylesheet" type="text/css" href="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/css/global_basic.css&action=raw&ctype=text/css">
+
         <style real-href="main.css">
-            #fgfuture_main{
+            #pagecontent{
                 height:auto;
                 width:100%;
                 /*font used by igem on the wiki wrapper*/
@@ -38,35 +38,35 @@
                 overflow:hidden;
             }
             /*applies to all divs with an onmouseenter event handler*/
-            #fgfuture_main div[onmouseenter]{
+            #pagecontent div[onmouseenter]{
                 cursor:pointer;
             }
         </style>
-        <style real-href="main_1.css">
-            {{panel1.css}}
-        </style>
-        <style real-href="main_2.css">
-            {{panel2.css}}
-        </style>
-        <style real-href="main_3.css">
-            {{panel3.css}}
-        </style>
-        <style real-href="scrolling.css">
-            {{scroll_progress_tracker.css}}
-        </style>
 
-        <!-- cross-page loading screen -->
-        {{loading_screen.css}}
+        <!-- panel1.css -->
+        <link rel="stylesheet" type="text/css" href="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/css/panel1.css&action=raw&ctype=text/css">
+        <!-- panel2.css -->
+        <link rel="stylesheet" type="text/css" href="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/css/panel2.css&action=raw&ctype=text/css">
+        <!-- panel3.css -->
+        <link rel="stylesheet" type="text/css" href="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/css/panel3.css&action=raw&ctype=text/css">
+
+        <!-- scroll_progress_tracker.css -->
+        <link rel="stylesheet" type="text/css" href="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/css/scroll_progress_tracker.css&action=raw&ctype=text/css">
+
+        <!-- loading_screen.css -->
+        <link rel="stylesheet" type="text/css" href="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/css/loading_screen.css&action=raw&ctype=text/css">
         
-        <script purpose="general purpose functions">
-            function and(a,b){if(a){ if(b){return true;} } return false;}
-            function min(a,b){return (a<b)?a:b}
-            function max(a,b){return (a>b)?a:b}
-        </script>
+        <!-- general purpose js -->
+        <script src="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/js/general_purpose.js&action=raw&ctype=text/javascript"></script>
+        
+        <!-- undo_igem_bs.js -->
+        <script src="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/js/undo_igem_bs.js&action=raw&ctype=text/javascript"></script>
 
-        <script purpose="undo_igem_bs.js">
-            {{undo_igem_bs.js}}
-        </script>
+        <!-- navigation_bar.css -->
+        <link rel="stylesheet" type="text/css" href="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/css/navigation_bar.css&action=raw&ctype=text/css">
+        <!-- navigation_bar.js -->
+        <script src="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/js/navigation_bar.js&action=raw&ctype=text/javascript"></script>
+
         <script purpose="on_load_code">
             /*
             clean up the existing stuff that is nothing but in the way of our page design (top bar with igem logo and navigation panel hidden behind a burger menu, and quite thick padding on the left and top of the screen)
@@ -113,14 +113,6 @@
                 highlight_current_topic_in_navbar()
             }
         </script>
-
-        <!-- cross-page navigation bar -->
-        <style real-href="navigation_bar">
-            {{navigation_bar.css}}
-        </style>
-        <script purpose="internal_open_close_navbar">
-            {{navigation_bar_landing_page.js}}
-        </script>
     </head>
     <body onload="on_load()" onresize="scale_steak()">
         <!-- cross-page loading screen -->
@@ -132,9 +124,11 @@
         </div>
         <!-- cross-page Navigation Menu with drop down -->
         {{navigation_bar.html}}
+        <!-- navigation_bar_immediate.js -->
+        <script src="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/js/navigation_bar_immediate.js&action=raw&ctype=text/javascript"></script>
 
         <!-- landing page main content -->
-        <main id="fgfuture_main">
+        <main id="pagecontent">
             <div class="panel">
                 {{panel1.html}}
             </div>
@@ -143,9 +137,9 @@
             </div>
             <div class="panel">
                 {{panel2.html}}
-                <script purpose="hover_expand_problem_information">
-                    {{panel2_issue_text_expand.js}}
-                </script>
+                
+                <!-- panel2_issue_text_expand.js -->
+                <script src="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/js/panel2_issue_text_expand.js&action=raw&ctype=text/javascript"></script>
             </div>
             <div class="panel" style="background-color:#CCE0DD; height:auto;">
                 {{panel3.html}}
@@ -162,16 +156,13 @@
                 <img src="https://2021.igem.org/wiki/images/e/e9/T--Uppsala--logo_flask.svg" id="logo_flask"  loading="lazy">
             </div>
 
-            <script purpose="scrolling_icons_screen_bottom">
-                {{scroll_progress_tracker.js}}
-            </script>
+            <!-- scroll_progress_tracker.js -->
+            <script src="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/js/scroll_progress_tracker.js&action=raw&ctype=text/javascript"></script>
         </main>
-        <!-- landing page specific code used to scale some js-dependent stuff -->
-        <script purpose="rescaling_code">
-            {{panel2_scale_steak.js}}
-        </script>
-        <script purpose="grass_animation">
-            {{panel1_grass_waving_animation.js}}
-        </script>
+
+        <!-- panel2_scale_steak.js -->
+        <script src="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/js/panel2_scale_steak.js&action=raw&ctype=text/javascript"></script>
+        <!-- panel1_grass_waving_animation.js -->
+        <script src="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/js/panel1_grass_waving_animation.js&action=raw&ctype=text/javascript"></script>
     </body>
 </html>
