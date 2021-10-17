@@ -34,8 +34,8 @@ function move_scrollable_elements(){
         }
 
         const animation_duration=1 /*seconds*/ /*also not very precise due to the use of requestAnimationFrame*/
-        const animation_delta=1/framerate
 
+        /* after 150% of animation duration in seconds, make scroll-progress logo re-appear */
         setTimeout(()=>{
         for(element of document.getElementsByClassName("scroll_thing")){
             element.classList.remove("invisible")
@@ -45,7 +45,7 @@ function move_scrollable_elements(){
         const animation_frames=animation_duration*framerate
         let i=0
 
-        animation_interval_object=setInterval(()=>requestAnimationFrame(function(){
+        function move_logo(){
             //20% is max width of text, head should be placed on left half of screen, half way between left edge of screen and left edge of text
             const left_start=0.5
             const left_target=(1-0.2)/4
@@ -64,10 +64,11 @@ function move_scrollable_elements(){
 
             i+=1
 
-            if(i>animation_frames){
-                clearInterval(animation_interval_object)
+            if(i<=animation_frames){
+                requestAnimationFrame(move_logo)
             }
-        }),animation_delta*1000)
+        }
+        requestAnimationFrame(move_logo)
     }}
 }
 
