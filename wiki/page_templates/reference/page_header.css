@@ -24,8 +24,8 @@
 }
 /* some page header images may fit better if clipped instead of stretched */
 #parallaxtop:not(.stretch_background){
-    background-position: center;
-    background-size: cover;
+    background-position: center calc( 50% - 25vh + 5vh + 16px);
+    background-size: 100% auto;
 }
 
 #page_header{
