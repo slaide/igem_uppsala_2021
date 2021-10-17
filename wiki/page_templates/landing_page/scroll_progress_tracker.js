@@ -26,8 +26,8 @@ function move_scrollable_elements(){
         document.getElementById("logo_flask").style=""
     }
 
-    if(!animation_interval_object){if(current_fraction>0.999){
-        logo_animation_has_played=false
+    if(!logo_animation_has_played){if(current_fraction>0.999){
+        logo_animation_has_played=true
 
         for(element of document.getElementsByClassName("scroll_thing")){
             element.classList.add("invisible")
@@ -68,6 +68,7 @@ function move_scrollable_elements(){
                 requestAnimationFrame(move_logo)
             }
         }
+
         requestAnimationFrame(move_logo)
     }}
 }
