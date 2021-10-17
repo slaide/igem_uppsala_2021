@@ -24,3 +24,16 @@ window.addEventListener("wheel",(ev)=>{
         document.getElementById("dropdown-container").classList.add("scrolled_down")
     }
 })
+
+function highlight_current_topic_in_navbar(){
+    const match_path_text=window.location.pathName || ""
+    const match_path_length=match_path_text.length
+    for(element of document.getElementsByClassName("dropdown_content")){
+        for(child of element.children){
+            //const match_path_text="/Team:Uppsala/Model"
+            if(child.getAttribute("href").substr(-match_path_length)==match_path_text){
+                child.classList.add("current_topic")
+            }
+        }
+    }
+}
