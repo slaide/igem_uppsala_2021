@@ -34,7 +34,7 @@
     width:auto;
     height:auto;
     left:50%;
-    top:calc( 50vh /2 + 5vh);
+    top:calc( 50vh / 2 + 5vh);
     transform:translate(-50%,-50%);
 
     text-align: center;
