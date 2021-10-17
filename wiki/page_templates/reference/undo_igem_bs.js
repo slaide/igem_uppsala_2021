@@ -24,19 +24,24 @@ function undo_igem_bs(){
     for(dropdown of document.getElementsByClassName("dropdown")){
         dropdown.style=""
     }
-    //disable the 'p' at the end of the column wrapper content which is just blank white space at the bottom of the page for some reason
-    let igem_column_wrappers=document.getElementsByClassName("igem_column_wrapper")
-    for(igem_column_wrapper of igem_column_wrappers){
-        igem_column_wrapper.lastElementChild.style.display="none"
-    }
     //disable a whole bunch of css styles applied to subelements of #content (which does NOT include the holy login bar)
     let content_element=document.getElementById("content")
     if(content_element){
         content_element.id=""
     }
     for(classname of ["igem_content_wrapper","igem_column_wrapper"]){
+
         let elements_in_class=document.getElementsByClassName(classname)
         for(element of elements_in_class){
+            //mainly disable the 'p' at the end of the column wrapper content which is just blank white space at the bottom of the page for some reason, but also just remove all other things that are unexpected there
+            let igem_column_wrappers=document.getElementsByClassName(classname)
+            for(igem_column_wrapper of igem_column_wrappers){
+                for(child of igem_column_wrapper.children){
+                    if(child.tagName=="P"){
+                        child.style="display:none;"
+                    }
+                }
+            }
             element.classList.remove(classname)
         }
     }
