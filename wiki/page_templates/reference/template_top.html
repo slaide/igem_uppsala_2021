@@ -57,6 +57,8 @@
                 get_section_offsets()
                 highlight_current_section_in_sidebar()
                 window.addEventListener("scroll",highlight_current_section_in_sidebar)
+
+                highlight_current_topic_in_navbar()
             }
         </script>
     </head>
@@ -75,6 +77,8 @@
         </div>
         <!-- cross-page Navigation Menu with drop down -->
         {{navigation_bar.html}}
+        <!-- navigation_bar_immediate.js -->
+        <script src="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/js/navigation_bar_immediate.js&action=raw&ctype=text/javascript"></script>
 
         <div id="pagecontent">
             <!-- page title-->
