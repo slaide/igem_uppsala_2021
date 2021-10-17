@@ -1,3 +1,9 @@
+* {
+    --webinar-lineup-day-header:3vh;
+    --webinar-lineup-time:1.65vh;
+    --webinar-lineup-speaker:1.85vh;
+    --webinar-lineup-topic:2vh;
+}
 
 #webinar_lineup_container{
     display:grid;
@@ -7,7 +13,7 @@
     grid-row-gap: 2vh;
 }
 #webinar_lineup_day1_head,#webinar_lineup_day2_head{
-    font-size:3vh;
+    font-size:var(--webinar-lineup-day-header);
     margin:0.5vh;
     text-align: center;
 }
@@ -15,7 +21,7 @@
 }
 #webinar_lineup_day1_content > div ,#webinar_lineup_day2_content > div{
     display:grid;
-    grid-template-rows: 2vh auto auto;
+    grid-template-rows: auto auto auto;
     grid-template-columns: 1fr 2.5fr;
     grid-column-gap: 2vh;
     margin-bottom:1.5vh;
@@ -24,7 +30,7 @@
 .webinar_entry_timerange{
     grid-row: 1 / 2;
     grid-column: 2 / 3;
-    font-size:1.4vh;
+    font-size:var(--webinar-lineup-time);
 }
 .webinar_entry_speaker{
     grid-row: 1 / 4;
@@ -43,17 +49,18 @@
     max-width: 100%;
 }
 .webinar_entry_speaker_name{
-    font-size:1.6vh;
+    font-size:var(----webinar-lineup-speaker);
     text-align: center;
 }
 .webinar_entry_topic{
     grid-row: 2 / 3;
     grid-column: 2 / 3;
-    font-size:1.8vh;
+    font-size:var(----webinar-lineup-topic);
 }
 .webinar_entry_recording{
     grid-row: 3 / 4;
     grid-column: 2 / 3;
+    cursor:default;
 }
 
 #fgfuture_content div > img {

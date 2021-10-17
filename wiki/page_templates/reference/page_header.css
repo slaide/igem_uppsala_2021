@@ -38,7 +38,10 @@
     transform:translate(-50%,-50%);
 
     text-align: center;
+
+    /* only placeholder text, so this font size does not matter */
     font-size: 6em;
+
     color: #6d1d23;
     font-family: UM, sans-serif;
 }
