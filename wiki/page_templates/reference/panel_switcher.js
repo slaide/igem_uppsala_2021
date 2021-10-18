@@ -1,3 +1,5 @@
+var tab_switcher_ids=[]
+
 for(element of document.getElementsByClassName("page_tab_switcher")){
     for(child of element.children){
         /* add proper styling to all elements that _should_ function as section_headers */
@@ -27,6 +29,11 @@ for(element of document.getElementsByClassName("page_tab_switcher")){
         }
 
         child.addEventListener("click",activate_section)
+
+        tab_switcher_ids.push({
+            id:child,
+            target:child.getAttribute("target_section")
+        })
     }
 
     /* automatically select the first section_header on page load */
