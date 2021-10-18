@@ -125,7 +125,7 @@ const pages=[
         entries:[
             {
                 name:"Judging Form",
-                link:"https://2021.igem.org/Team:Uppsala"
+                link:"https://igem.org/2021_Judging_Form?id=3934"
             },
             {
                 name:"Awards",
