@@ -42,6 +42,8 @@
     display:block;
     /* subtract padding, twice */
     width:100%;
+    margin:0;
+    padding:0;
 }
 #fgfuture_content .popup_content>div,#fgfuture_content .popup_content>p{
     display:block;
