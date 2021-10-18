@@ -174,11 +174,3 @@ div.image.stacked{
     position:relative;
     height: 50vh;
 }
-
-#fgfuture_content .link_target{
-    position:relative;
-    float:left;
-    /* fallback for browsers where min() is not supported */
-    top: -100px;
-    top: min( -100px, -15vh );
-}
