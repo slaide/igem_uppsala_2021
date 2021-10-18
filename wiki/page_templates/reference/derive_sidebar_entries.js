@@ -27,7 +27,7 @@ for(let child_num=0;child_num<fgfuture_content.children.length;child_num++){
 
     //create the invisible span element at the beginning of the section that serves as 'sroll-to' anchor for the section
     let link_span=document.createElement("span")
-    link_span.setAttribute("id","section"+child_num+"_link")
+    link_span.setAttribute("id",element.id+"_link")
     link_span.classList.add("link_target")
     element.insertBefore(link_span,element.children[0])
 
@@ -35,7 +35,7 @@ for(let child_num=0;child_num<fgfuture_content.children.length;child_num++){
     let new_element=document.createElement("li")
     let new_span=document.createElement("span")
     let new_a=document.createElement("a")
-    new_a.setAttribute("href","#section"+child_num+"_link")
+    new_a.setAttribute("href","#"+element.id+"_link")
     new_a.innerText=header
     new_span.setAttribute("id","span"+child_num)
     new_span.appendChild(new_a)
