@@ -32,9 +32,7 @@
 #sidebar_list_container{
     margin:0;
     padding:0;
-    margin-left:1vw;
     width:calc(100% - 1vw);
-    line-height: 1;
 }
 .sidebar_list_section{
     display:block;
@@ -47,12 +45,14 @@
     transition: all 0.2s;
 
     font-family: UL;
+
+    margin-left:1vw;
 }
 .sidebar_list_section a{
     font-size:var(--sidebar-section-link);
 }
 .sidebar_list_section.current_section{
-    /* #6d1d23 */
+    /* #6d1d23 , but slightly transparent */
     border-left:1vh solid rgba(109,29,35,0.9);
     padding-left:1vh;
 }
@@ -71,4 +71,14 @@
     position:relative;
     float:left;
     top: -100px;
+}
+
+/* the rules below only apply to tabbed layouts */
+.sidebar_tabbed_list_section_header{
+    font-size:2.3vh;
+    margin-bottom:2.2vh; /*decrease?*/
+}
+.sidebar_tabbed_list_section{
+    margin-left:1vh;
+    margin-bottom:2.2vh; /*decrease?*/
 }
