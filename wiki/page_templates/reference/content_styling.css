@@ -115,8 +115,14 @@ div.image.middle{
 #fgfuture_content div.half{
     width:50%;
 }
+#fgfuture_content div.full{
+    width:100%;
+}
 div.image.stacked{
     padding:0;
+}
+#fgfuture_content div.content_section > div.image.full{
+    margin-left:0;
 }
 
 /* make sure images have expected size (the actual size specifications apply to their container, not themself) */
