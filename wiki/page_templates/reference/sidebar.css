@@ -81,4 +81,5 @@
 .sidebar_tabbed_list_section{
     margin-left:1vh;
     margin-bottom:2.2vh; /*decrease?*/
+    cursor:pointer;
 }

@@ -41,6 +41,8 @@
             clean up the existing stuff that is nothing but in the way of our page design (top bar with igem logo and navigation panel hidden behind a burger menu, and quite thick padding on the left and top of the screen)
             */
 
+            var layout_is_tabbed=false
+
             function on_load(){
                 undo_igem_bs()
 
@@ -59,6 +61,19 @@
                 window.addEventListener("scroll",highlight_current_section_in_sidebar)
 
                 highlight_current_topic_in_navbar()
+
+                if(layout_is_tabbed){
+                    let target_hash=window.location.hash
+                    if(and(target_hash,target_hash.length>1)){
+                        link_postfix_start=target_hash.indexOf("_link")
+                        if(link_postfix_start>-1){
+                            target_hash=target_hash.substr(1,link_postfix_start-1)
+                        }else{
+                            target_hash=target_hash.substr(1)
+                        }
+                        activate_tabbed_section_from_target_id(target_hash)
+                    }
+                }
             }
         </script>
     </head>

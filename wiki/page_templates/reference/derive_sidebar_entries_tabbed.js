@@ -11,6 +11,43 @@ function find_tabbed_section_containing_id(id){
     return null
 }
 
+function activate_tabbed_section_from_target_id(target_id){
+    let target_tab_id=find_tabbed_section_containing_id(target_id)
+    if(!target_tab_id){
+        window.alert("something went wrong (2)")
+    }
+
+    let target_tab;
+    for(tab_switcher_element of tab_switcher_ids){
+        if(tab_switcher_element.target==target_tab_id){
+            target_tab=tab_switcher_element.id
+        }
+    }
+    if(!target_tab){
+        window.alert("something went wrong (3)")
+    }
+
+    activate_section({target:target_tab})
+    setTimeout(()=>{
+        window.location.hash="#"+target_id+"_link"
+    },10)
+}
+function activate_tabbed_section_from_sidebar(event){
+    let event_target=event.target
+    if(event_target.tagName!="LI"){
+        event_target=event_target.parentElement
+    }
+    if(event_target.tagName!="LI"){
+        event_target=event_target.parentElement
+    }
+    if(event_target.tagName!="LI"){
+        console.log(event.target,event_target)
+        window.alert("something went wrong (1)")
+    }
+
+    activate_tabbed_section_from_target_id(event_target.getAttribute("target_id"))
+}
+
 function derive_sidebar_content(){
     //get the sidebar dom element
     let sidebar_list_container=document.getElementById("sidebar_list_container")
@@ -62,38 +99,7 @@ function derive_sidebar_content(){
             new_element.classList.add("sidebar_tabbed_list_section")
             new_element.setAttribute("target_id",element.id)
 
-            new_element.addEventListener("click",(event)=>{
-                let target=event.target
-                if(target.tagName!="LI"){
-                    target=target.parentElement
-                }
-                if(target.tagName!="LI"){
-                    target=target.parentElement
-                }
-                if(target.tagName!="LI"){
-                    console.log(event.target,target)
-                    window.alert("something went wrong (1)")
-                }
-
-                let target_tab_id=find_tabbed_section_containing_id(target.getAttribute("target_id"))
-                if(!target_tab_id){
-                    window.alert("something went wrong (2)")
-                }
-                let target_tab;
-                for(tab_switcher_element of tab_switcher_ids){
-                    if(tab_switcher_element.target==target_tab_id){
-                        target_tab=tab_switcher_element.id
-                    }
-                }
-                if(!target_tab){
-                    window.alert("something went wrong (3)")
-                }
-
-                activate_section({target:target_tab})
-                setTimeout(()=>{
-                    window.location.hash="#"+target.getAttribute("target_id")+"_link"
-                },10)
-            })
+            new_element.addEventListener("click",activate_tabbed_section_from_sidebar)
 
             let new_span=document.createElement("span")
             let new_a=document.createElement("a")
