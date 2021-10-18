@@ -16,6 +16,7 @@ function open_popup(ev){
 
     let top_offset=element_bb.top+element_bb.height
     top_offset=min(window.innerHeight-popup_element.getBoundingClientRect().height,top_offset)
+    top_offset=max(top_offset,0)
     popup_element.style.setProperty("top",top_offset+"px")
 
     for(popup_content_child of popup_element.children[1].children){

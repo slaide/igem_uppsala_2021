@@ -16,6 +16,10 @@
     background-color:white;
     border:0.2vh solid black;
     border-radius:2vh;
+
+    max-height: 100vh;
+
+    overflow:scroll;
 }
 #fgfuture_content .popup:not(.w25):not(.w50){
     width:15vw;
