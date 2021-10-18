@@ -107,16 +107,16 @@ const pages=[
         name:"Videos",
         entries:[
             {
-                name:"Team",
-                link:"https://2021.igem.org/Team:Uppsala/Final<br>Presentation"
+                name:"Final<br>Presentation",
+                link:"https://2021.igem.org/Team:Uppsala/Description"
             },
             {
-                name:"Collaboration",
-                link:"https://2021.igem.org/Team:Uppsala/Promotional<br>Video"
+                name:"Promotional<br>Video",
+                link:"https://www.youtube.com/watch?v=avKlAK5-1ks"
             },
             {
-                name:"Attribution",
-                link:"https://2021.igem.org/Team:Uppsala/Molecular<br>Dynamics"
+                name:"Molecular<br>Dynamics",
+                link:"https://2021.igem.org/Team:Uppsala/Model"
             },
         ]
     },
@@ -125,11 +125,11 @@ const pages=[
         entries:[
             {
                 name:"Judging Form",
-                link:"https://2021.igem.org/Team:Uppsala/Promotional<br>Video"
+                link:"https://2021.igem.org/Team:Uppsala"
             },
             {
                 name:"Awards",
-                link:"https://2021.igem.org/Team:Uppsala/Molecular<br>Dynamics"
+                link:"https://2021.igem.org/Team:Uppsala"
             },
         ]
     },
