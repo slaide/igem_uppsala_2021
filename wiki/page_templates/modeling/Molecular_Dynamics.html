@@ -14,9 +14,13 @@ Molecular dynamics is the computational process of simulating the movements and 
         <p>
         The molecular dynamics software package Q can be used to simulate and calculate the change in free energy during the annihilation of any of the natural amino acids, except for proline, into an alanine residue. A process called free energy perturbation or “FEP”. Each amino acid is annihilated to alanine in a given number of steps. During the annihilation steps, the amino acid gradually loses its chemical and physical properties until it by the end of the annihilation has “become” an alanine residue. For all amino acids, these annihilation steps are further divided into smaller time steps, so-called lambda windows, during which the molecular dynamics sampling occurs in the form of short simulations. During the simulations, new coordinates for each atom are calculated as well as the free energy at that point in time. The difference in free energy between two simulations is determined with Zwanzig’s exponential formula: 
         </p>
-        G=GB-GA= --1m=1n-1ln⟨exp(-(Um+1-Um))⟩A 
         <p>
-        In this formula G is the difference in Gibbs free energy, U is the potential energy, =1/kT, and Um=(1-m)UA+mUB. Herein k is the Boltzmann constant and T is the temperature. The indices A and B stand for the initial and the final potentials of a given lambda window in a given simulation. The index m indicates what lambda window is being sampled and n is the number of interposing lambda states. 
+            \[
+                \Delta G=G_B - G_A= - \beta ^{-1}  \sum_{m=1}^{n-1}ln(e^{- \beta(U_{m+1} - U_m)})_A
+            \]
+        </p>
+        <p>
+        In this formula G is the difference in Gibbs free energy, U is the potential energy, \( \beta = {1 \over kT}\), and \(U_m = (1-\lambda_m)U_A + \lambda_m U_B\). Herein k is the Boltzmann constant and T is the temperature. The indices A and B stand for the initial and the final potentials of a given lambda window in a given simulation. The index m indicates what lambda window is being sampled and n is the number of interposing lambda states. 
         </p>
         
         <p>
