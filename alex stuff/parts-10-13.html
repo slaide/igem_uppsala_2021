@@ -95,9 +95,9 @@ hr{
 
 #parallaxtop {
     height: calc(50vh + 5vh + 16px);
-    background-image: url(https://2021.igem.org/wiki/images/1/16/T--Uppsala--doubblemut.png);
+    background-image: url(https://2021.igem.org/wiki/images/9/9b/T--Uppsala--parts_banner4.jpg);
 
-    background-attachment: fixed;
+    background-size: contain;
     background-repeat: no-repeat;
     
     overflow: hidden;
@@ -874,9 +874,7 @@ window.addEventListener("scroll",highlight_current_section_in_sidebar)
 
 <!-- page title-->
 <div id=parallaxtop>
-<div id="page_header">
-Parts
-</div>
+
 </div>
 
 <!--Sidebar-->
@@ -925,10 +923,17 @@ background-color: #dddddd;
 -->
 
 <!-- INSERT GOOGLE DOC CONTENT BELOW THIS LINE -->
-<div id="section1>">
-<h1>Basic Parts</h1>
-<p>Below follows two tables of iGEM Uppsala 21’s basic and composite parts. Our favourite parts which we nominate to the best parts awards are marked with a ❤. Our parts were created by first designing the FGF2 fusion protein using SnapGene and Integrated DNA Technologies (IDT) followed by BioBrick assembly using PCR amplification and ligation of our FGF2 gene with a pET backbone [1][2]. Some of the parts were finalized using PCR mutagenesis.</p>
 
+<div id="section1>">
+
+<h1>Parts</h1>
+
+<p>Below follows two tables of iGEM Uppsala 21’s basic and composite parts. Our favourite parts which we nominate to the best parts awards are marked with a ❤. Our parts were created by first designing the FGF2 fusion protein using SnapGene and Integrated DNA Technologies (IDT) followed by BioBrick assembly using PCR amplification and ligation of our FGF2 gene with a pET backbone [1][2]. Some of the parts were finalized using PCR mutagenesis.</p>
+</div>
+
+<div id="section2>">
+
+<h1>Basic Parts</h1>
 
 <table>
 <tr>
@@ -1012,7 +1017,7 @@ background-color: #dddddd;
 
 <tr>
 <td></td>
-<td><a href="http://parts.igem.org/Part:BBa_K3934015" target="_blank"><b>BBa_J64997</b></a></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934015" target="_blank"><b>BBa_K3934015</b></a></td>
 <td>Tag</td>
 <td>6xHis-tag for protein purification.</td>
 <td>iGEM Uppsala 21</td>
@@ -1034,7 +1039,7 @@ background-color: #dddddd;
 
 <p>For the best basic part we nominate a mutant version of the bovine FGF2 protein (<a href="http://parts.igem.org/Part:BBa_K3934005" target="_blank"><b>BBa_K3934005</b></a>).  FGF2 is a mammalian growth factor which amongst other things signals cell proliferation [3]. It is one of the most important, and most expensive, components of serum free growth medium used in cellular agriculture to cultivate meat [4]. To decrease the costs of cultivated meat production in order to make it available on the food market, the growth medium needs to be optimized. This would enable a more environmentally friendly alternative to meat consumption. This part has 2 point mutations in the site where the protein binds to its receptor FGFR2 to induce cell growth. These point mutations were designed in PyMOL [5] using rational design and free energy perturbation (FEP) was performed using the molecular dynamics software package Q [6] to evaluate the effects of these single point mutations in silico. The mutations were shown to increase the binding affinity to its receptor and we hypothesize that this will lead to increased mitotic signalling so that less FGF2 will be needed in the serum free growth medium for cultivating meat, decreasing the cost of it. The part has been successfully expressed.</p>
 </div>
-<div id='section2'>
+<div id='section3'>
 <h1>Composite Parts</h1>
 
 <table>
@@ -1117,7 +1122,7 @@ background-color: #dddddd;
 
 
 </div>
-<div id='sec3'>
+<div id='sec4'>
 <h1>Parts Collection</h1>
 <p>Our part collection consists of different FGF2 versions. Except for the wt FGF2, they are all designed to in different ways optimize this growth factor to the means of a more economically favourable cultivated meat production. This includes increased thermostability, decreased heparin dependency, decreased trypsin degradation and increased receptor binding affinity. By exploring different ways to improve FGF2 we hoped to identify a range of improvements that in the future could potentially be combined to obtain a significantly more effective FGF2.</p>
 
@@ -1191,33 +1196,6 @@ background-color: #dddddd;
 <td>Bovine growth factor FGF2 designed to increase affinity to the FGFR2 receptor, making it induce cell proliferation with higher efficiency.</td>
 <td>Emelie Oscarsson</td>
 <td>468 bp</td>
-</tr>
-
-<tr>
-<td></td>
-<td><a href="http://parts.igem.org/Part:BBa_K3934008" target="_blank"><b>BBa_K3934008</b></a></td>
-<td>Coding</td>
-<td>Thioredoxin used as a fusion protein to increase solubility..</td>
-<td>iGEM Uppsala 21</td>
-<td>327 bp</td>
-</tr>
-
-<tr>
-<td></td>
-<td><a href="http://parts.igem.org/Part:BBa_K3934015" target="_blank"><b>BBa_J64997</b></a></td>
-<td>Tag</td>
-<td>6xHis-tag for protein purification.</td>
-<td>iGEM Uppsala 21</td>
-<td></td>
-</tr>
-
-<tr>
-<td></td>
-<td><a href="http://parts.igem.org/Part:BBa_K3934016" target="_blank"><b>BBa_K3934016</b></a></td>
-<td>Kinase site</td>
-<td>Enterokinase site used to cleave fusion proteins.</td>
-<td>iGEM Uppsala 21</td>
-<td></td>
 </tr>
 
 <tr>
