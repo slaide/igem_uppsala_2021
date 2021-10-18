@@ -44,7 +44,7 @@ const pages=[
                 link:"https://2021.igem.org/Team:Uppsala/Notebook"
             },
             {
-                name:"Parts tool",
+                name:"Parts",
                 link:"https://2021.igem.org/Team:Uppsala/Parts"
             },
             {
@@ -62,7 +62,7 @@ const pages=[
             },
             {
                 name:"Integrated<br>Human Practice",
-                link:"https://2021.igem.org/Team:Uppsala/Human_Practices"
+                link:"https://2021.igem.org/Team:Uppsala/Human_Practices#ihp_introduction_link"
             },
             {
                 name:"Proposed<br>Implementation",
@@ -107,7 +107,7 @@ const pages=[
         name:"Videos",
         entries:[
             {
-                name:"Final<br>Presentation",
+                name:"* Final<br>Presentation",
                 link:"https://2021.igem.org/Team:Uppsala/Description"
             },
             {
@@ -128,7 +128,7 @@ const pages=[
                 link:"https://igem.org/2021_Judging_Form?id=3934"
             },
             {
-                name:"Awards",
+                name:"* Awards",
                 link:"https://2021.igem.org/Team:Uppsala"
             },
         ]
