@@ -41,15 +41,15 @@ schedule_day1=[
                 </div>
             </div>
             <ul>
-            <li>
-                <a href="https://2021.igem.org/Team:MSP-Maastricht">iGEM Maastricht wiki</a>
-            </li>
-            <li>
-                <a href="https://2021.igem.org/Team:Wageningen_UR">iGEM Wageningen wiki</a>
-            </li>
-            <li>
-                <a href="https://2021.igem.org/Team:Groningen">iGEM Groningen wiki</a>
-            </li>
+                <li>
+                    <a href="https://2021.igem.org/Team:MSP-Maastricht">iGEM Maastricht wiki</a>
+                </li>
+                <li>
+                    <a href="https://2021.igem.org/Team:Wageningen_UR">iGEM Wageningen wiki</a>
+                </li>
+                <li>
+                    <a href="https://2021.igem.org/Team:Groningen">iGEM Groningen wiki</a>
+                </li>
             </ul>
         `],
         "time":["10.30"]
