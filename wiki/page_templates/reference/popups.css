@@ -17,7 +17,7 @@
     border:0.2vh solid black;
     border-radius:2vh;
 
-    max-height: 100vh;
+    max-height: calc( 90vh - 16px);
 
     overflow:scroll;
 }
