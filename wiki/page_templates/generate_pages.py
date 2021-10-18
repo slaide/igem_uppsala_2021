@@ -47,8 +47,9 @@ for folder in os.listdir(cwd):
         print(html_center_file+" does not exist in folder "+folder)
     
     with open(html_center_file,"r",encoding="utf-8") as html_center_file:
-        #do it twice to resolve nested templates
+        #do it thrice to resolve nested templates
         generated_html_code=resolve_templates(html_center_file.readlines(),folder)
+        generated_html_code=resolve_templates(generated_html_code.splitlines(),folder)
         generated_html_code=resolve_templates(generated_html_code.splitlines(),folder)
     
     out_file=out_folder+"/"+folder+".html"

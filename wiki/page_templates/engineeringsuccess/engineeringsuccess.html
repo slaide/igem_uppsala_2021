@@ -1,7 +1,7 @@
 {{template_top.html}}
 
             <!-- page title-->
-            <div id=parallaxtop>
+            <div id=parallaxtop style="background-image: url('https://2021.igem.org/wiki/images/0/0b/T--Uppsala--engisuccbanner2png.png');">
                 <div id="page_header">
                     Engineering Success
                 </div>
@@ -38,24 +38,20 @@
 
     <h1>Cycle 1: Design of the strains </h1>
 
-    <div class="image middle full" style="width:25vw;">
-        <img class="expandable_image" width="1000" height="1000" src="https://2021.igem.org/wiki/images/6/6e/T--Uppsala--igemengineering.png">
-        </div>
-
     <h2>Design </h2>
-    <p>FGF2 is the limiting factor for cell growth in cellular agriculture companies, as it is so unstable and therefore expensive. In order to make cellular agriculture cheaper and more accessible, we decided we would try to express more stable and therefore cheaper variants of FGF2, we also tried to scale up production of FGF2 which would in turn also lower the cost. The team examined literature that had been published by research groups who had expressed FGF2 in different organisms and decided that E. coli would be the simplest to culture. We then looked at research papers which had improved protein stability and found two promising variants we wanted to test, namely hyperstable FGF2 (FGFhs) [1] and FGF chimera (FGFC) [2]. In addition, we also expressed FGF2 wild type and other mutant variants, which we had designed ourselves [3]. We designed FGF2 mutants which would have a stronger binding affinity to fibroblast growth factor receptors (FGFRs) which you can read about here. 
+    <p>Design 
+FGF2 is the limiting factor for cell growth in cellular agriculture companies, as it is so unstable and therefore expensive. In order to make cellular agriculture cheaper and more accessible, we decided we would try to express more stable and therefore cheaper variants of FGF2, we also tried to scale up production of FGF2 which would in turn also lower the cost. The team examined literature that had been published by research groups who had expressed FGF2 in different organisms and decided that E. coli would be the simplest to culture. We then looked at research papers which had improved protein stability and found two promising variants we wanted to test, namely hyperstable FGF2 (FGFhs) [1] and FGF chimera (FGFC) [2]. In addition, we also expressed FGF2 wild type and other mutant variants, which we had designed ourselves [3]. We conducted extensive modelling in order to design FGF2 mutants which would have a stronger binding affinity to fibroblast growth factor receptors (FGFRs), you can read more about our modelling efforts <a href=”https://2021.igem.org/Team:Uppsala/Model”>here</a>. 
     </p>
     
     <p>
-    Three FGF2 constructs were initially ordered from Integrated DNA Technologies (IDT) and were initially designed to be compatible with a non-inducible vector found in the iGEM distribution kit.
-    Previous studies on expression of FGF2 had all used inducible vectors, as it seemed that the FGF2 gene could potentially be toxic to the cell if its expression was unchecked, which is the case with non-inducible vectors. The vector was therefore changed to the inducible pET 28a+ vector, as pET vectors had previously been used for expression of FGF2 in E. coli [3]. Our FGF2 inserts which we ordered from IDT were not compatible with the new pET vector. In order to make them compatible, primers were used to add the correct restriction sequences to the 5’ and 3’  end of the FGF2 inserts through PCR. A terminator sequence was also added to one of the primers, for all of the constructs making a roughly 90 bp reverse primer. 
-    </p>
-    <p>
-    One of the problems highlighted in literature was that FGF2 has low solubility and stability [4]. This resulted in the addition of one protein which could increase the solubility of FGF2 and contribute to its stability. We would also need to design a construct which would allow this to be purified and removed so that we only end up with the FGF2 variants in the end. The protein we decided to use was called thioredoxin, and once FGF2 had been cleaved from thioredoxin, it could be extracted through a heparin column.  
+    Three FGF2 constructs were initially ordered from Integrated DNA Technologies (IDT) and were initially designed to be compatible with a non-inducible vector found in the iGEM distribution kit. <br>
+    Previous studies on expression of FGF2 had all used inducible vectors, as it seemed that the FGF2 gene could potentially be toxic to the cell if its expression was unchecked, which is the case with non-inducible vectors. The vector was therefore changed to the inducible pET 28a+ vector, as pET vectors had previously been used for expression of FGF2 in E. coli [3]. Our FGF2 inserts which we ordered from IDT were not compatible with the new pET vector. In order to make them compatible, primers were used to add the correct restriction sequences to the 5’ and 3’  end of the FGF2 inserts through PCR. A terminator sequence was also added to one of the primers, for all of the constructs making a roughly 90 bp reverse primer. <br>
+    One of the problems highlighted in literature was that FGF2 has low solubility and stability [4]. It was therefore needed another protein which could increase the solubility of FGF2 and  contribute to its stability if possible. We would also need to design a construct which would allow this to be purified and removed so that we only end up with the FGF2 variants in the end. The protein we decided to use was called thioredoxin, and once FGF2 had been cleaved from thioredoxin, it could be extracted through a heparin column.
+ 
     </p>
     
     <h2>Build </h2>
-    <p>The desired plasmid construct would be inducible and have the T7 promoter, lac repressor, ribosome binding site (RBS), our inserted FGF2 sequence and a terminator in that specific order. One advantage with the pET vector is the ability to control the expression of FGF2 which avoids harming the E. coli strain. The FGF2 construct contained thioredoxin which was added to increase solubility of the protein, followed by a his tag, an enterokinase site and then the FGF2 protein variant. The histidine tag was used so that the protein could be separated with affinity chromatography and the enterokinase site’s purpose was so thioredoxin could be separated from FGF2. 
+    <p>The desired plasmid construct would be inducible and have the T7 promoter, lac repressor, ribosome binding site (RBS), our inserted FGF2 sequence and a terminator in that order. One advantage with the pET promoter is the ability to  control the expression of FGF2 to avoid harming the E. coli strain. The FGF2 construct contained thioredoxin which was added to increase solubility of the protein, followed by a his tag, an enterokinase site and then the FGF2 protein variant. The histidine tag was used so that the protein could be separated with affinity chromatography and the enterokinase site’s purpose was so thioredoxin could be separated from FGF2. 
     </p>
     
     <h2>Test</h2>
@@ -86,7 +82,8 @@
     </p>
     
     <h2>Improve</h2>
-    <p>We therefore tried another brand of BL21 and the bands for FGF2 improved even when the experimental conditions for expression remained the same. Although we did not have time to test all variants with the new brand of BL21 cells, we did get expression on FGFC, FGFhs, the wild type and mutant although the bands were not extremely clear. The wild type FGF2 had the most clear expression. 
+    <p>
+        We therefore tried another brand of BL21 and the bands for FGF2 improved even when the experimental conditions for expression remained the same. Although we did not have time to test all variants with the new brand of BL21 cells, we did get expression on FGFC, FGFhs, the wild type and mutant although the bands were not extremely clear. The wild type FGF2 had the most clear expression. 
     </p>
 </div>
 <div class="content_section" id="section2">
@@ -101,11 +98,16 @@
     </p>
     
     <h2>Test</h2>
-    <p>FGF2 wild type was the only variant which seemed to have successful expression on a large scale, FGF2hs did not produce bands of the right size. When FGF2 wild type was run on the his tag column it showed an elution peak at a high concentration, meaning that a protein had bound strongly to the column. The other variants were purified on a small scale and SDS-PAGE gels showed that 4 of the variants had bands of the right size after purification, meaning that a protein was of the same size as our FGF2 thioredoxin construct. 
+    <p>
+        FGF2 wild type was the only variant which seemed to have successful expression on a large scale, FGF2hs did not produce bands of the right size. When FGF2 wild type was run on the his tag column it showed an elution peak at a high concentration, meaning that a protein had bound strongly to the column. The other variants were purified on a small scale and SDS-PAGE gels showed that 4 of the variants had bands of the right size after purification, meaning that a protein was of the same size as our FGF2 thioredoxin construct. 
     </p>
     
     <h2>Reflection</h2>
-    <p>Our team went through a total of 3 engineering cycles over the course of our lab period, and went on to successfully express all FGF2 variants by the end of the summer. The problems we encountered in the lab were completely new to us, but were overcome through applying what we had learnt from the previous design cycle or through troubleshooting. In some cases when we were unsure about the root cause of the problem, control experiments were conducted to test hypotheses and redirect our thinking to the right track. Through using the scientific method and eliminating possibilities, we were able to move on to the next steps of the design cycle, and improve our designs until we were eventually successful in producing all FGF constructs. 
+    <p>Our team went through a total of 3 engineering cycles over the course of our lab period, and went on to successfully express all FGF2 variants by the end of the summer. The problems we encountered in the lab were completely new to us, but were overcome through applying what we had learnt from the previous design cycle or through troubleshooting. In some cases when we were unsure about  the root cause of the problem , control experiments were conducted to test hypotheses and redirect our thinking to the right track. Through using the scientific method and eliminating possibilities, we were able to move on to the next steps of the design cycle, and improve our designs until we were eventually successful in producing all FGF constructs. 
+    </p>
+
+    <p>
+        We consider as our engineering success the creation and measurement of our FGF2 basic parts that you can read about <a href=”https://2021.igem.org/Team:Uppsala/Parts”>here</a>!
     </p>
 </div>
 <div class="content_section" id="section3">

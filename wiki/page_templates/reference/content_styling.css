@@ -10,6 +10,9 @@
     grid-row: 2 / 3;
     grid-column: 3 / 4;
 }
+#fgfuture_content a{
+    text-decoration: underline;
+}
 
 #fgfuture_content h1,#fgfuture_content h2,#fgfuture_content h3{
     color:#6d1d23;
@@ -19,17 +22,17 @@
 }
 
 #fgfuture_content h1{
-    font-size: 3vh;
+    font-size: var(--header-h1);
     margin-top: 1.5vh;
     margin-bottom: 1.5vh;
 }
 #fgfuture_content h2{
-    font-size: 2.4vh;
+    font-size: var(--header-h2);
     margin-top:1.2vh;
     margin-bottom: 1.2vh;
 }
 #fgfuture_content h3{
-    font-size: 1.8vh;
+    font-size: var(--header-h3);
     margin-top: 0.9vh;
     margin-bottom: 0.9vh;
 }
@@ -45,7 +48,7 @@
 }
 #fgfuture_content p,#fgfuture_content ul,#fgfuture_content ol,#fgfuture_content div.content_section>div{
     font-family: sans-serif;
-    font-size: 1.5vh;
+    font-size: var(--text-size-regular);
 }
 /* all elements listed in main content sections (the usual text you see on template pages) */
 #fgfuture_content p,#fgfuture_content div.content_section>div,#fgfuture_content div.content_section>ul,#fgfuture_content div.content_section>ol{
@@ -75,7 +78,7 @@
     padding-bottom: 1vh;
 }
 #fgfuture_content div.image>p,#fgfuture_content div.image>p{
-    font-size: 1.2vh;
+    font-size: var(--image-caption-inline);
     padding: 1vh;
     text-align: justify;
     margin:0;
@@ -106,24 +109,20 @@ div.image.middle{
 #fgfuture_content div.quarter{
     width:25%;
 }
+#fgfuture_content div.third{
+    width:33.3333%;
+}
 #fgfuture_content div.half{
     width:50%;
+}
+div.image.stacked{
+    padding:0;
 }
 
 /* make sure images have expected size (the actual size specifications apply to their container, not themself) */
 #fgfuture_content div.image > img{
     width:100%;
     height:auto;
-}
-
-/* NORMAL PARAGRAPH*/
-.midcontenttext > p{
-    font-weight:normal;
-    font-size:1em;
-    color:black;
-    line-height:1.8;
-    letter-spacing:0.05em;
-    margin-top: 3vh;
 }
 
 /* For tables */
@@ -153,14 +152,14 @@ div.image.middle{
     content:' - ';
 }
 
-#fgfuture_content a.button{
+#fgfuture_content .button{
     display:inline-block;
     background-color: lightgrey;
     padding:1.2vh;
     border-radius:0.6vh;
     border:1px solid black;
 }
-#fgfuture_content a.button.wide{
+#fgfuture_content .button.wide{
     margin-top: 0.5vh;
     padding:0.7vh;
     margin-right: 3vh;
@@ -174,12 +173,4 @@ div.image.middle{
     left:5%;
     position:relative;
     height: 50vh;
-}
-
-#fgfuture_content .link_target{
-    position:relative;
-    float:left;
-    /* fallback for browsers where min() is not supported */
-    top: -100px;
-    top: min( -100px, -15vh );
 }

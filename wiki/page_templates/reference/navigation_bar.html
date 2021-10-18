@@ -3,94 +3,11 @@
         <img class="logotype" src="https://2021.igem.org/wiki/images/thumb/1/13/T--Uppsala--logotransparent.png/320px-T--Uppsala--logotransparent.png">
     </a>
     <ul id="dropdown-container" class="scrolled_down">
-        <li class="dropdown">
-            <div class="dropbtn">Project</div>
-            <div class="dropdown_content">
-                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Description">Description</a>
-                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Proof_Of_Concept">Proof of Concept</a>
-                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Engineering">Engineering<br>Success</a>
-                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Contribution">Contribution</a>
-                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Software">Software tool</a>
-            </div>
-        </li>
-        <li class="dropdown">
-            <div class="dropbtn">Experiments</div>
-            <div class="dropdown_content">
-                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Results">Results</a>
-                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Model">Modelling</a>
-                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Experiments">Protocols</a>
-                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Notebook">Notebook</a>
-                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Parts">Parts</a>
-                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Safety">Safety</a>
-            </div>
-        </li>
-        <li class="dropdown">
-            <div class="dropbtn">Human Practice</div>
-            <div class="dropdown_content">
-                <a href="https://2021.igem.org/Team:Uppsala/Human_Practices">Overview</a>
-                <a href="https://2021.igem.org/Team:Uppsala/Human_Practices">Integrated<br>Human Practice</a>
-                <a href="https://2021.igem.org/Team:Uppsala/Implementation">Proposed<br>Implementation</a>
-                <a href="https://2021.igem.org/Team:Uppsala/Education">Education</a>
-                <a href="https://2021.igem.org/Team:Uppsala/Inclusivity">Inclusivity</a>
-                <a href="https://2021.igem.org/Team:Uppsala/Sustainable">Sustainable<br>Development</a>
-            </div>
-        </li>
-        <li class="dropdown">
-            <div class="dropbtn">People</div>
-            <div class="dropdown_content">
-                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Team">Team</a>
-                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Collaborations">Collaboration</a>
-                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Attributions">Attribution</a>
-                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Attributions">Sponsors</a>
-            </div>
-        </li>
-        <li class="dropdown">
-            <div class="dropbtn">Videos</div>
-            <div class="dropdown_content">
-                <a href="https://2021.igem.org/Team:Uppsala/Description">Final<br>Presentation</a>
-                <a href="https://www.youtube.com/watch?v=r-pyffud3MM">Promotional<br>Video</a>
-                <a href="https://2021.igem.org/Team:Uppsala/Model">Molecular<br>Dynamics</a>
-            </div>
-        </li>
-        <li class="dropdown">
-            <div class="dropbtn">Judging</div>
-            <div class="dropdown_content">
-                <a class="navigation_dropdown_entry" href="#">Judging Form</a>
-                <a class="navigation_dropdown_entry" href="#">Awards</a>
-            </div>
-        </li>
+        <!-- navigation bar entries will be generated here -->
     </ul>
-    <script purpose="dropdown_open_close">
-        for(dropdown of document.getElementsByClassName("dropdown")){
-            dropdown.addEventListener("mouseenter",function(ev){
-                function remove_hovering_highlighting(ev){
-                    ev.target.removeEventListener("mouseleave",remove_hovering_highlighting)
-                    ev.target.classList.remove("hovering_over")
-                }
-                ev.target.classList.add("hovering_over")
-                ev.target.addEventListener("mouseleave",remove_hovering_highlighting)
-            })
-        }
-        document.getElementById("navigation_bar").addEventListener("mouseenter",(ev)=>{
-            ev.target.children[1].classList.add("panel_opened")
-            ev.target.children[1].classList.add("scrolled_down")
-        })
-        document.getElementById("navigation_bar").addEventListener("mouseleave",(ev)=>{
-            ev.target.children[1].classList.remove("panel_opened")
-        })
-    </script>
-    <script purpose="highlight_current_topic_in_navbar">
-        function highlight_current_topic_in_navbar(){
-            const match_path_text=window.location.pathName || ""
-            const match_path_length=match_path_text.length
-            for(element of document.getElementsByClassName("dropdown_content")){
-                for(child of element.children){
-                    //const match_path_text="/Team:Uppsala/Model"
-                    if(child.getAttribute("href").substr(-match_path_length)==match_path_text){
-                        child.classList.add("current_topic")
-                    }
-                }
-            }
-        }
-    </script>
+    <!-- navigation_bar_pages.js -->
+    <script src="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/js/navigation_bar_pages.js&action=raw&ctype=text/javascript"></script>
+
+    <!-- navigation_bar_generate_entries.js -->
+    <script src="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/js/navigation_bar_generate_entries.js&action=raw&ctype=text/javascript"></script>
 </div>

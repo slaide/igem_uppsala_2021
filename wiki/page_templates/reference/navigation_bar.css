@@ -1,4 +1,11 @@
 /*navigation bar*/
+
+#navigation_bar *{
+    --navigation-bar-header:2.5vh;
+    --navigation-bar-link:2vh;
+    --navigation-bar-link-current: var(--header-h3);
+}
+
 #navigation_bar{
     top:16px;
     height:5vh;
@@ -31,7 +38,7 @@ div.dropbtn,.navigation_dropdown_entry,.igem_content_wrapper .igem_column_wrappe
 }
 div.dropbtn{
     cursor:default;
-    font-size: 2.5vh;
+    font-size:var(--navigation-bar-header);
 }
 li.hovering_over > div.dropbtn{
     font-weight: bold;
@@ -109,7 +116,7 @@ li.hovering_over > div.dropbtn{
 /* dropdown menus (containers) */
 .dropdown{
     display:block;
-    height:40vh;
+    height:43vh;
     background-color: #dce1de;
     border-bottom:1px solid black;
     overflow:visible;
@@ -142,10 +149,10 @@ li.hovering_over > div.dropbtn{
 /* container for links inside dropdown menu */
 .dropdown_content{
     position:absolute;
-    /* .dropdown's 40vh height - 5vh offset from top*/
-    height:35vh;
+    /* .dropdown's 43vh height - 5vh offset from top*/
+    height:38vh;
 
-    font-size: 2vh;
+    font-size:var(--navigation-bar-link);
 
     top:5vh;
 
@@ -168,5 +175,5 @@ li.hovering_over > div.dropbtn{
 .current_topic{
     font-style: italic;
     font-weight: bolder;
-    font-size: 2.2vh;
+    font-size: var(--navigation-bar-link-current);
 }

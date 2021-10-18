@@ -1,0 +1,448 @@
+{{template_top.html}}
+
+            <!-- page title-->
+            <div id=parallaxtop style="background-image: url('https://2021.igem.org/wiki/images/8/80/T--Uppsala--resultbanner.png');"></div>
+
+
+
+            <!--Sidebar-->
+            <div id="sidebar">
+                <div id="sticky_sidebar">
+                    <div id="sidebar_header">
+                        <a href="#pagecontent">
+                            Notebook
+                        </a>
+                    </div>
+                    <hr>
+                    <ul id="sidebar_list_container">
+                        <!-- template for a single entry in this list. the real entries will be added at runtime
+                            <li class="sidebar_list_section">
+                                <span id="span1">
+                                    <a href="#section1_link">
+                                        Lab Safety
+                                    </a>
+                                </span>
+                            </li>
+                        -->
+                    </ul>
+                </div>
+            </div>
+
+            <!--Actual content-->
+            <div id="fgfuture_content">
+
+                <!-- INSERT GOOGLE DOC CONTENT BELOW THIS LINE -->
+<div class="content_section" id="labintro">
+    <h1> Assembly of the constructs </h1>
+
+        <p>
+            The team obtained three different FGF constructs from IDT. These contained either the bovine wild-type FGF2 (FGF2 wt), a hyperstable version of the bovine wt FGF2 (FGF2hs) that was designed by the team using mutations described previously [1], or a chimera between the bovine wt FGF1 and bovine wt FGF2 (FGFC) that was designed by the team based on an earlier publication [2]. All genes were ordered with a thioredoxin tag and a six histidine tag on their 5’ end. The genes came in pUC plasmids.
+        </p>
+        </div>
+        <div class="content_section" id="1">
+    <h1>Adding the T7 terminator to the initial FGF2 constructs</h1>
+
+        <p>Since the Biobrick pET vector [3], [4] had its terminator within the SpeI and NdeI cleavage sites we had to add the T7 terminator and a NdeI cleavage site to the ordered sequence before digesting and ligating it to our vector of choice.
+            This was done by using PCR with the same forward primer for all three constructs but a total of three reverse primers (Table I), since each one was specific for one of the three constructs.
+        </p>
+
+    <p>Table I - Primer sequences used to add the T7 terminator and the NdeI site to the three constructs.</p>
+
+    <table>
+        <tr>
+          <th>Sequence <i>(sequences in red are overhangs)</i></th>
+          <th>Function</th>
+        </tr>
+
+        <tr>
+          <td>5’-<ruppsala style="color:red; margin:0;">CATATG</ruppsala>TCTAGAATGTCTGACAAGATTATTCATCTTAC-3’</td>
+          <td>Forward primer used for all three reactions.</td>
+        </tr>
+
+        <tr>
+            <td>5’-<ruppsala style="color:red; margin:0;">ACTAGTAGTTCCTCCTTTCAGCAAAAAACCCCTCAAGA<br>CCCGTTTAGAGGCCCCAAGGGGTTATGCTAG</ruppsala>CTGCAGTT<br>AACTCTTGGCACTC-3’</td>
+            <td>Reverse primer for FGF2 wt.</td>
+        </tr>
+
+        <tr>
+            <td>5’-<ruppsala style="color:red; margin:0;">ACTAGTAGTTCCTCCTTTCAGCAAAAAACCCCTCAAGA<br>CCCGTTTAGAGGCCCCAAGGGGTTATGCTAG</ruppsala>CTGCAGGT<br>CCGAGGATAC-3’</td>
+            <td>Reverse primer for the chimeric FGFC.</td>
+        </tr>
+
+        <tr>
+            <td>5’-<ruppsala style="color:red; margin:0;">ACTAGTAGTTCCTCCTTTCAGCAAAAAACCCCTCAAGA<br>CCCGTTTAGAGGCCCCAAGGGGTTATGCTAG</ruppsala>CTGCAGTT<br>ATGATTTGGCTGAC-3’</td>
+            <td>Reverse primer for the FGF2hs.</td>
+        </tr>
+
+      </table>  
+
+        <p>
+
+            After weeks of attempts with different conditions and polymerases the team was finally able to add the terminator to the construct. The successful reaction was done using Q5® High-Fidelity DNA Polymerase from New England Biolabs Inc. (NEB) while following the manufacturer’s instructions and the following PCR conditions:
+        </p>
+    <!-- fixa tabell med PCR program-->
+        <p style="color:red">pcr tabell!?</p>
+    <table>
+        <tr>
+            <th>Step</th>
+            <th>Temperature</th>
+            <th>Time</th>
+            <th>Cycles</th>
+        </tr>
+
+        <tr>
+            <td>Initial Denaturation</td>
+            <td>98°C</td>
+            <td>30 seconds</td>
+            <td>1</td>
+        </tr>
+        
+
+        <tr>
+            <td>Denaturation<br>
+            Annealing<br>
+            Elongation</td>
+            <td>98°C<br>
+                64°C<br>
+                72°C</td>
+            <td>10 seconds<br>30 seconds<br>30 seconds</td>
+            <td>30</td>
+        </tr>
+       
+        <tr>
+            <td>Final Elongation</td>
+            <td>72°C</td>
+            <td>2 minutes</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>Hold</td>
+            <td>4°C</td>
+            <td>Infinite</td>
+            <td>1</td>
+        </tr>
+    </table>
+
+        <p>
+            The team got bands with the expected number of base pairs (Figure 1).
+        </p>
+    <!-- bild på gel-->
+
+    <div class="image left half">
+        <img class="expandable_image" width="1380" height="1740" src="https://2021.igem.org/wiki/images/f/f6/T--Uppsala--res1.png">
+    <p> Figure 1. After PCR to add the T7 terminator to the FGF2 genes the products were visualized after being separated in a 1% agarose gel with 1X SYBR Safe. The electrophoresis was performed for 1 hour at 100 V and the results were visualized on a UV table. Lanes 1,2, and 3 are lanes with the hyper stable FGF2 product.
+    </p>    
+    </div>
+    
+        
+        <p>
+            Figure 1 - After PCR to add the T7 terminator to the FGF2 genes the products were visualized after being separated in a 1% agarose gel with 1X SYBR Safe. The electrophoresis was performed for 1 hour at 100 V and the results were visualized on a UV table. 1 - Sample X; 2 - Colony Y; 3 - ...
+            hsFGF2: Lanes 1,2, and 3 are lanes with the product.
+        </p>
+
+    <!-- bild på gel-->
+        
+    <div class="image left half">
+        <img class="expandable_image" width="1730" height="1640" src="https://2021.igem.org/wiki/images/4/4d/T--Uppsala--res2.png">
+    <p> Figure 2. Gel electrophoresis of FGF2wt with a terminator and restriction sites added (group 1)  Lane 1-3 are three colonies all showing a band corresponding to the size of the FGF2 gene with an added terminator.
+    </p>    
+    </div>
+    
+        <p>
+            Figure 2 - Gel electrophoresis of FGF2wt with a terminator and restriction sites added (group 1)  Lane 1-3 are three colonies all showing a band corresponding to the size of the FGF2 gene with an added terminator.
+        </p>
+    <!-- bild på gel-->
+        
+    <div class="image left half">
+        <img class="expandable_image" width="1232" height="922" src="https://2021.igem.org/wiki/images/6/6b/T--Uppsala--res3.png">
+    <p> Figure 3. Gel electrophoresis of FGFC with a terminator and restriction sites added (group 2)  Lane 1-3 are three colonies all showing a band corresponding to the size of the FGF2 gene with an added terminator.
+    </p>    
+    </div>
+    
+        <p>
+            Figure 3 - Gel electrophoresis of FGFC with a terminator and restriction sites added (group 2)  Lane 1-3 are three colonies all showing a band corresponding to the size of the FGF2 gene with an added terminator.
+        </p>
+
+    <h2>
+        Adding 6 bp to each restriction site
+    </h2>
+
+        <p>
+            After adding the terminator to the three constructs the team realized that more baseparis needed to flank the sequences for efficient digestion so these were added using a single forward primer and three reverse primers. Each one of these three was specific to one of the three constructs (Table II). The reaction was successful (Figure 2).
+        </p>
+
+    <!--tabell2 med sekvenser-->
+    <table>
+        <tr>
+          <th>Sequence <i>(sequences in red are the extra base pairs)</i></th>
+          <th>Function</th>
+        </tr>
+
+        <tr>
+          <td>5’-<ruppsala style="color:red; margin:0;">TAGTAG</ruppsala>CATATGTCTAGAATGTCTGACAAGATTATTCA-3’</td>
+          <td>Forward primer used for all three reactions.</td>
+        </tr>
+
+        <tr>
+            <td>5’-<ruppsala style="color:red; margin:0;">TAGTAG</ruppsala>ACTAGTAGTTCCTCCTTTCAGCA-3’</td>
+            <td>Reverse primer for FGF2 wt.</td>
+        </tr>
+
+        <tr>
+            <td>5’-<ruppsala style="color:red; margin:0;">TAGTAG</ruppsala>ACTAGTAGTTCCTCCTTTCAGCA-3’</td>
+            <td>Reverse primer for FGFC.</td>
+        </tr>
+
+        <tr>
+            <td>5’-<ruppsala style="color:red; margin:0;">TAGTAG</ruppsala>ACTAGTAGTTCCTCCTTTCAGC-3’</td>
+            <td>Reverse primer for FGF2hs.</td>
+        </tr>
+
+      </table>  
+ <!-- bild på gel-->
+      <div class="image left half">
+        <img class="expandable_image" width="1192" height="2154" src="https://2021.igem.org/wiki/images/b/b0/T--Uppsala--res4.png">
+    <p> Figure 4. Gel electrophoresis of FGFHS with a terminator and restriction sites added (group 3)  Lane 1-3 are three colonies all showing a band corresponding to the size of the FGF2 gene with an added terminator.
+    </p>    
+    </div>
+    
+
+</div>
+    <div class="content_section" id="3">
+    <h1>
+        Double digestion, ligation and transformation
+    </h1>
+
+        <p>
+            The team decided to perform a double digestion since separate digestion steps resulted in low yields due to many purification steps. We followed NEB’s recommendation on a double digestion with SpeI and NdeI. After digestion, the DNA was purified cleaned and concentrated using the Monarch® PCR & DNA Cleanup Kit from NEB while following the manufacturer’s instructions. Finally, each of the three constructs were was individually ligated to the Biobrick pET plasmid. This was done by using T4 DNA Ligase from NEB while following the manufacturer’s instructions.
+            In the last step the ligation product was transformed into E. coli DH5 alpha cells that the team had made competent earlier (link protocol). The transformation protocol followed is also described on our protocol list (link protocol). The success of the whole assembly was assessed by colony PCR (Figure 3) and confirmed by sequencing performed by Eurofins.
+        </p>
+    
+     <!-- bild på gel5?-->
+     <div class="image left half">
+        <img class="expandable_image" width="2336" height="2022" src="https://2021.igem.org/wiki/images/a/a5/T--Uppsala--res5.png">
+    <p> Figure 5. The 8th sample on the bottom is a good example of a successful band. These were all samples of the hyperstable variant of FGF2. The 8th sample showed a positive result from sequencing. 
+    </p>    
+    </div>
+    
+        <p>
+            hsFGF2: 8th sample on the bottom is a good example of a successful band.
+        </p>
+
+    <!-- bild på gel-->
+    <div class="image left half">
+        <img class="expandable_image" width="2454" height="1270" src="https://2021.igem.org/wiki/images/1/1c/T--Uppsala--res6.png">
+    <p> Figure 6. FGF2 wild type constructs are in all lanes. Sample 1, 2, 3 and 4 were all sent for sequencing. Sample 2 and 3 returned with the correct sequence.
+    </p>    
+    </div>
+    
+    <!-- bild på en till gel-->
+
+<div class="image left half">
+    <img class="expandable_image" width="2204" height="1524" src="https://2021.igem.org/wiki/images/thumb/c/c5/T--Uppsala--res7.png/800px-T--Uppsala--res7.png">
+<p> Figure 7. FGF2 chimera constructs are in all lanes. 4 Colonies were sent for sequencing.
+</p>    
+</div>
+
+
+        <p>
+            FGFC- All samples from colony PCR produced the sized right bands. 4 colonies were sent for sequencing. 
+        </p>
+
+    <h2>
+        Transformation into BL21 (DE3).
+    </h2>
+
+        <p>
+            The team spent several weeks trying to get good levels of expression on several brands of E. coli  BL21 (DE3) with different amounts of IPTG but in the end the cells from NEB were the ones that presented positive results so these are the ones that we are going to describe.
+            Since the team was able to assemble the construct on the vector, the final step was to transform it into E. coli BL21 (DE3) cells for expression. The plasmid was purified using the Monarch® Plasmid Miniprep Kit from NEB following the company’s instructions. The plasmids containing the three genes were transformed into NEB’s competent E. coli BL21(DE3) cells using the manufacturer’s instructions. The success of the procedure was assessed by PCR (Figure W) and sequencing (Eurofins) as done in previous transformation steps..
+        </p>
+</div>
+ <div class="content_section" id="5">
+    <h1>
+        Mutagenesis
+    </h1>
+
+        <p>
+            Phosphorylated primers containing the mutations were used for PCR mutagenesis to mutate the FGF2 wt gene. The mutations were L98M, Q54K and V88I. Three separate single mutants (FGF2 L98M, FGF2 Q54K, and FGF2 V88I) were made with PCR and the amplicons contained the entire mutated plasmids and were ligated using T4 DNA ligase. The mutant plasmids were then transformed into E.coli DH5ɑ cells and a colony PCR performed to confirm the PCR (Figure 4). To confirm successful mutagenesis the amplicons were sequenced using Sanger sequencing. One double mutant was also made by repeating the process on Q54K with the L98M primers (FGF2 Q54K+L98M). All plasmids were purified and transformed into E.coli BL21 (DE3) competent cells from NEB. To confirm transformation a colony PCR and gel electrophoresis was performed (Figure 5). 
+        </p>
+    <!-- bild på gel-->
+    <!-- bild på gel igen-->
+        <p>
+            BL21 transformation of mutants, the first two samples of each mutant was chosen
+            Figure 5 - 
+        </p>
+</div>
+<div class="content_section" id="6">
+    <h1>
+        Expression of the FGF2 variants
+    </h1>
+
+        <p>
+            The NEB E. coli BL21 (DE3) cells that had been transformed with the pET plasmid containing either FGF2 wt, FGF2hs, FGFC, FGF2 V88I, FGF2 Q54K, or FGF2 L98M. were cultured in LB medium supplemented with kanamycin 50 ug/ml overnight at 37 ºC and 220 rpm. In the next morning, the culture was diluted by taking 2 ml of the overnight and adding it to 100 ml of LB medium supplemented with kanamycin 50 ug/ml. When the cultured achieved an OD600=0.6 the cells were induced using IPTG 1 mM. The cells were incubated at 37 ºC and 220 rpm for 6 hours. Samples of the culture were then analyzed through SDS PAGE (Figure 6).
+        </p>
+     <!-- bild på geler 4 st?!-->
+
+        <p>
+            Figure 6: The cell cultures used for expression (induced with 1 mM IPTG) were prepared and then analyzed through SDS PAGE. A culture containing the pET plasmid with the IF3 gene was used as a control. The 12% polyacrylamide gel loaded the samples was submitted to 200 V and 0.04 A for 90  minutes. The gel was stained with coomassie brilliant blue. A - Expression of FGF2 wt, lane with “U” shows the uninduced control; B - Expression of FGF2 Q54K, FGF2hs, and FGFC, lanes with “U” show the uninduced controls; C - Expression of FGF2 L98M,  lane with “U” shows the uninduced control; D - Expression of FGF2 V88I, lane with “U” shows the uninduced control.
+        </p>
+
+        <p>
+            It is noticeable that the expression of FGF2 wt (Figure 6A), FGF2hs and FGFC (Figure 6B) seems to be higher than the expression of FGF2 L98M (Figure 6C) and FGF2 V88I (Figure 6D) when we compare the bands visible at around 30 kDa. However, since the constructs only differ in a single codon, we hypothesize that this might be due to differences in the starting inoculum or due to some slight differences in the handling of the different cultures by different members of the team.
+        </p>
+
+    <h2>
+        Purification of recombinant FGF2 variants.
+    </h2>
+
+        <p>
+            The NEB E. coli BL21 (DE3) cells containing the pET vector with FGF2 wt, FGFhs, FGFC, and FGF2 L98M were lysed using a french press at 1 kBa after expression. The lysate was spun for 20 at 17000 rpm twice in a SS-34 rotor in a Sorval RC 6 Plus centrifuge.
+            The clear lysate was purified using a GraviTrap column following the manufacturer’s instructions. The clear lysate and elution samples were analyzed through an SDS PAGE (Figure 7).
+        </p>
+
+        <!-- bild på geler-->
+
+        <p>
+            Figure 7: The E. coli BL21 (DE3) cells containing the pET vector with FGF2 wt, FGF2hs, FGFC, and FGF2 L98M were lysed using a french press. The cleared cellular lysates (before purification with the column) and the elutions from the GraviTrap columns were analyzed by SDS-PAGE. The 12% polyacrylamide gel containing the samples was submitted to 200 V and 0.04 A for 90 minutes. The gel was stained with coomassie brilliant blue. B-C: FGFC cellular clear lysate before purification; B-HS: FGF2hs celular clear lysate before purification; B-L98M: FGF2 L98M celular clear lysate before purification; B-WT: FGF2 wt celular clear lysate before purification; E-C: FGFC eluted from the GraviTrap column; E-HS: FGF hs eluted from the GraviTrap column; E-L98M: FGF2 L98M eluted from the GraviTrap column; E-WT: FGF2 wt eluted from the GraviTrap column.
+        </p>
+
+        <p>
+            From this very crude and initial step used for purification we were able to see that we were able to purify a visible band at around 35 kDa in the lane where the sample that contained FGF2 hs was loaded. We suspect that this band with a higher molecular weight might be due to aggregation of FGFhs with other proteins. However, if this were to be FGF2hs it would be a sign that we would have enough to continue purification with confidence since we had a good amount of this protein even though it was aggregated,
+            In the same SDS PAGE we were also able to notice faded bands of FGF2 L98M and FGF wt at around 35 kDa like we see on the FGF2hs lane. This meant that we might have lost some of the protein during the cell lysis step, the several centrifugations, or the nickel column purification that we submitted the sample to. It might also be due to the natural instability seen in FGF2 [5] which could result in fast degradation of the expressed protein during the time that the team took to purify it.
+            No bands of the desired size are visible on the lane where the sample containing FGFC was loaded. We think that loss of protein and its intrinsic instability might be responsible for this.
+        </p>
+</div>
+<div class="content_section" id="8">
+    <h1>
+        Testa upscaling
+    </h1>
+        <p>
+            <b>Overexpression in Bioreactor</b>
+        </p>
+
+        <p>
+            Overexpression was performed in 5 L bioreactors (Ez2 controller from Applikon). In order to maintain pH levels and keep foam from forming and clogging the bioreactor inlets, the bioreactor was coupled with a base (25% NH3) so that the solution could be pH regulated during expression and an anti-foam solution. A control tower was connected to the bioreactor to monitor and regulate pH levels and oxygen flow. A vitamin solution, trace A & B solutions and 50µg/ml of kanamycin was added to the bioreactor before inoculation. Approximately 50 mL of overnight culture of E.coli BL21 (DE3) pLysS containing the FGF2 plasmid was inoculated in 2.5 L of cultivation media which gave a final OD600 value of 0.091. See our Lab Notebook on our wiki page for more information on overexpression in the bioreactor.  (https://2021.igem.org/Team:Uppsala/Experiments).
+        </p>
+        
+        <p>
+            OD was measured every 30 minutes to monitor the growth of the bacteria. At OD600 3.12 induction with 1 mM IPTG was performed. Before induction a small sample was collected and kept in 37 °C with 150 rpm shaking as a negative control. After induction OD was measured every hour for three hours (figure 8). The bioreactor ran for 7.5 h more to a total of 14 h. 
+        </p>
+        
+        <!-- bild på graf för tillväxt-->
+        <p>
+            Figure 8. Optical density as a function of time for growth of E.coli cells expressing FGF2wt. 
+        </p>
+
+        <p>
+            To confirm that FGF2 was overexpressed, a sample from the bioreactor and the negative control was run on an SDS-PAGE gel. A 12% polyacrylamide gel containing the samples was submitted to 200 V and 0.04 A for 90  minutes. A band the size of FGF2 is visible in the induced sample, but not from the uninduced sample, confirming overexpression on a large scale (figure 9).
+        </p>
+
+        <!-- bild på gel-->
+
+        <p>
+            Figure 9. SDS-PAGE gel of FGF2 proteins expressed in E.coli (DE3) pLysS competent cells. From the left: induced FGF2, induced FGF2, induced hyperstable version of FGF2 (not relevant here), protein ladder, un-induced FGF2, un-induced hyperstable version of FGF2 (not relevant here). All induced samples are induced with 1 mM IPTG. Bands corresponding to the size of FGF2 (30.8 kDa) are visible for induced cells but not for un-induced cells.
+        </p>
+</div>
+<div class="content_section" id="9">
+    <h1>
+        Purification
+    </h1>
+        <p>
+            After confirming overexpression, purification was performed with IMAC using an ÄKTA PURE 125 system. The column was packed with Capto Chelating resin and charged with 0.1 M NiSO4. To remove any unbound nickel, the column was washed with lysis buffer (20 mM TRIS pH 7.5, 10 mM MgCl2 and 200 mM NaCl). The 2.5 L culture from the bioreactors were spun down for 30 min at 12 000 rpm twice, removing the supernatant in between. The pellet was resuspended in lysis buffer. To break down the E.coli DNA DNAse was added to the sample before using a french press (EmulsiFlex-C55A from Avestin) to lyse the cells. The sample was run through the french press at 800 bar 3-4 times. The now lysed cells were centrifuged again and the supernatant containing FGF2 was then run through the Ni-charged column. The flow through was collected and the column washed twice, both washes were collected. Elution was collected in fractions as the elution buffer (20 mM tris pH 7.5, 10 mM MgCl2 and 200 mM NaCl, 500 mM Imidazole pH 7.5) was added with a gradient, slowly increasing the imidazole concentration. This was done since the optimal imidazole concentration for FGF2 elution was unknown. Light absorbance, corresponding to presence of protein, was measured throughout the process to monitor when protein flowed out of the column (figure 10). s
+        </p>
+        <!-- bild på testa imac graf-->
+
+        <p>
+            Figure 10. Data showing overexpression of FGF2 in a 5 L bioreactor. Blue line: absorbance in mAU (milli-absorbance units), y-axis values to the left. Red line: imidazole concentration, y-axis values to the right. Yellow line: column pressure.
+        </p>
+
+        <p>
+            Large amounts of protein was seen in the flow through, and two clear peaks were observed during the second wash when the imidazole concentration was 2%. During the elution there was one clear peak followed by a plateau and this was seen at imidazole concentrations ~140 mM and 220 mM respectively. To analyse in which fractions FGF2 was present, an SDS-PAGE gel was run with flow through, wash 1, wash 2 and fractions B1-C1 (figure 11). A 12% polyacrylamide gel containing the samples was submitted to 200 V and 0.04 A for 90  minutes.
+        </p>
+        <!-- bild på gel-->
+
+        <p>
+            Figure 11. SDS-PAGE gel of purified FGF2 protein expressed on a large scale. From the left: lysate flowthrough, wash 1, wash 2, fraction B1, fraction B2, protein ladder, fraction B3, fraction B4, fraction B5, fraction C1. Bands corresponding to the size of FGF2 (30.8 kDa) are visible in fractions B5 and C1. 
+        </p>
+
+        <p>
+            No band corresponding to the size of FGF2 was seen in the flow through or the washes. In fractions B1-B3, corresponding to the first peak in the purification, thick bands are visible of ~39 kDa. In fractions B5-C1. corresponding to the shoulder peak, thick bands are visible corresponding to the size of FGF2. The first peak could be a protein with 3-5 His in a row, causing it to bind to the IMAC column, but eluting at a lower imidazole concentration than FGF2, which has 6 His in a row. The gel nonetheless confirms that FGF2 was successfully purified on a large scale. 
+        </p>
+
+
+    <h2>
+        Bradford Assay
+    </h2>
+
+        <p>
+            The fractions containing FGF2 were spin concentrated (Amicon spin concentrators) and the imidazole washed away with a reaction buffer (20 mM Tris-HCl, 50 mM NaCl, 2 mM CaCl2 (pH 8.0)) using the same spin concentrators which were used for protein purification on the small scale. The protein concentration was measured using a Bradford Assay from Bio-Rad [6]. A standard curve was created using BSA. OD595 for the sample was measured and the standard curve used to calculate the amount of expressed protein (figure 12). The total concentration of FGF2 was 147 mg/mL and the total protein yield from large scale production was 1.6 g of FGF2.
+        </p>
+
+    <!-- bild på koncentrationsgraf-->
+        <p>
+            Figure 12 - Standard curve for the Bradford assay determined by measuring the absorbance of different concentrations of BSA at 595 nm.
+        </p>
+</div>
+<div class="content_section" id="11">
+    <h1>
+        Future prospects
+    </h1>
+
+        <p>
+            After the nickel column purification step the team aimed to cleave the thioredoxin and histidine tags by using enterokinase. This enzyme would cut exactly on the C terminus of each FGF2 variant since we added an enterokinase cleavage site (DDDK) between the tags and the protein. Afterwards, the protein of interest could be separated from the tags in one of two possible ways. The first option would be to use an heparin column since it is known that FGF2 binds heparin [7]. This would then allow us to wash away the tags. The second option would be to use the nickel column again since the His tag, linked to the thioredoxin, would bind the nickel ions in the column and the FGF2 variants could be washed from the column. 
+            With the growth factors purified, the team would then be ready to test them on mammalian cell lines to compare their action with the one from commercial FGF2. The team planned to grow bovine aortic endothelial cells, since endothelial cells express FGF receptors and respond well to the presence of FGF [8] and NIH/3T3 cells, since these cells had been used before to compare commercially obtained FGF2 with recombinant FGF2 produced in a research laboratory [9]. The cells would be grown in DMEM supplemented with either commercial FGF2 or one of the FGF2 variants produced by the team. Finally, through an MTT assay, we would be able to show if the cells were growing faster with our enhanced version of the growth factor [9], [10].
+        </p>
+</div>
+
+<div class="content_section" id="references">
+    <h1>
+            References
+    </h1>
+
+        <p>
+            [1]	P. Dvorak et al., “Expression and potential role of fibroblast growth factor 2 and its receptors in human embryonic stem cells,” Stem Cells Dayt. Ohio, vol. 23, no. 8, pp. 1200–1211, Sep. 2005, doi: 10.1634/stemcells.2004-0303.
+        </p>
+
+        <p>
+            [2]	K. Motomura et al., “An FGF1:FGF2 chimeric growth factor exhibits universal FGF receptor specificity, enhanced stability and augmented activity useful for epithelial proliferation and radioprotection,” Biochim. Biophys. Acta, vol. 1780, no. 12, pp. 1432–1440, Dec. 2008, doi: 10.1016/j.bbagen.2008.08.001.
+        </p>
+
+        <p>
+            [3]	L. Du, R. Gao, and A. C. Forster, “Engineering multigene expression in vitro and in vivo with small terminators for T7 RNA polymerase,” Biotechnol. Bioeng., vol. 104, no. 6, pp. 1189–1196, 2009, doi: 10.1002/bit.22491.
+        </p>
+
+        <p>
+            [4]	L. Du, S. Villarreal, and A. C. Forster, “Multigene expression in vivo: Supremacy of large versus small terminators for T7 RNA polymerase,” Biotechnol. Bioeng., vol. 109, no. 4, pp. 1043–1050, 2012, doi: 10.1002/bit.24379.
+        </p>
+
+        <p>
+            [5]	G. Chen, D. R. Gulbranson, P. Yu, Z. Hou, and J. A. Thomson, “Thermal Stability of Fibroblast Growth Factor Protein Is a Determinant Factor in Regulating Self-Renewal, Differentiation, and Reprogramming in Human Pluripotent Stem Cells,” Stem Cells Dayt. Ohio, vol. 30, no. 4, pp. 623–630, Apr. 2012, doi: 10.1002/stem.1021.
+        </p>
+
+        <p>
+            [6]	M. M. Bradford, “A rapid and sensitive method for the quantitation of microgram quantities of protein utilizing the principle of protein-dye binding,” Anal. Biochem., vol. 72, pp. 248–254, May 1976, doi: 10.1006/abio.1976.9999.
+        </p>
+
+        <p>
+            [7]	D. M. Ornitz et al., “Receptor specificity of the fibroblast growth factor family,” J. Biol. Chem., vol. 271, no. 25, pp. 15292–15297, Jun. 1996, doi: 10.1074/jbc.271.25.15292.
+        </p>
+
+        <p>
+            [8]	S. S. Oladipupo et al., “Endothelial cell FGF signaling is required for injury response but not for vascular homeostasis,” Proc. Natl. Acad. Sci., vol. 111, no. 37, pp. 13379–13384, Sep. 2014, doi: 10.1073/pnas.1324235111.
+        </p>
+
+        <p>
+            [9]	M. R. Soleyman, M. Khalili, B. Khansarinejad, and M. Baazm, “High-level Expression and Purification of Active Human FGF-2 in Escherichia coli by Codon and Culture Condition Optimization,” Iran. Red Crescent Med. J., vol. 18, no. 2, p. e21615, Jan. 2016, doi: 10.5812/ircmj.21615.
+        </p>
+
+        <p>
+            [10]	Y. Rai et al., “Mitochondrial biogenesis and metabolic hyperactivation limits the application of MTT assay in the estimation of radiation induced growth inhibition,” Sci. Rep., vol. 8, no. 1, p. 1531, Jan. 2018, doi: 10.1038/s41598-018-19930-w.
+        </p>
+
+</div>
+
+                <!-- INSERT GOOGLE DOC CONTENT ABOVE THIS LINE -->
+
+            </div>
+
+{{template_bottom.html}}

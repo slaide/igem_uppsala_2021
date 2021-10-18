@@ -1,10 +1,6 @@
 {{template_top.html}}
             <!-- page title-->
-            <div id=parallaxtop>
-                <div id="page_header">
-                    Software tool
-                </div>
-            </div>
+            <div id=parallaxtop class="stretch_background" style="background-image:url('https://2021.igem.org/wiki/images/a/a2/T--Uppsala--software_tool_banner.jpg');"></div>
 
             <!--Sidebar-->
             <div id="sidebar">
@@ -129,6 +125,20 @@
                                 In our case: we had 8 mutations to evaluate. For each mutation, we need to run 4 simulations, one for: wildtype FGF2, mutant FGF2, FGF2-receptor complex with wildtype FGF2, plus the complex with the mutatant FGF2. For each simulation, to achieve statistically significant results, we ran 10 replicates. So, in total, we had to run 8 * 4 * 10 = 320 individual simulations.
                             </span>
                         </span>
+                        <div>
+                            <div class="image left half stacked">
+                                <img class="expandable_image" width="3000" height="3300" src="https://2021.igem.org/wiki/images/b/bb/T--Uppsala--software_pipeline_without_our_tool.png" loading="lazy">
+                                <p>
+                                    Figure 1. Without our software tool
+                                </p>
+                            </div>
+                            <div class="image right half stacked">
+                                <img class="expandable_image" width="3000" height="3300" src="https://2021.igem.org/wiki/images/d/d6/T--Uppsala--software_pipeline_with_our_tool.png" loading="lazy">
+                                <p>
+                                    Figure 2. With our software tool
+                                </p>
+                            </div>
+                        </div>
                         <p>
                             The code can be found on <a href="ThisLinkWillChangeBecauseTheRepositoryOwnershipMustBeTransferredToIgemBeforeTheWikiFreeze.com">github</a>. It includes documentation for the functions mentioned above and instructions on how to set up the software environment. The repository also includes the python code and protein structure files for an example on how to use our software.
                         </p>

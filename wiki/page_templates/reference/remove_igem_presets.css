@@ -25,3 +25,11 @@ h1,h2,h3,h4,h5,h6{
 #content{
     line-height:normal;
 }
+#pagecontent ul{
+    list-style-image:unset;
+    line-height:normal;
+}
+#pagecontent ol{
+    list-style-image:unset;
+    line-height:normal;
+}
