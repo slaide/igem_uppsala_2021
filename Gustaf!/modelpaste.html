@@ -1,0 +1,422 @@
+<div class="content_section" id="sectionhomology">
+
+    <h1> Homology model: Chimera FGFC </h1> 
+                                                                                                  <!--      Written by Andreea -->
+ 
+    <p>
+        To improve the stability of FGF2, one of the undertaken approaches involved expressing a chimera FGFC, a fusion protein of the proteins FGF1 and FGF2. In order to form the chimera, we were inspired by the paper by Kaori Motomura, et al. [1]. The researchers used a chimera made up of human FGF1 and FGF2, with the final goal to use it as a therapeutic agent. By exchanging parts of FGF1 with corresponding parts of FGF2, they improved the stability of the protein and obtained the desired level of cell proliferation induction. We used these results to make a FASTA file of a bovine FGF1 and FGF2 chimera (FGFC) protein by taking the sequence of FGF1 and replacing the amino acids 41 to 83 with the corresponding region from FGF2, see Figure 1. The resulting protein is theorized to be more stable and in need of less heparin interaction [1]. 
+    </p>
+    <p>
+        However, there is no crystal structure available for this protein or the bovine version that was created by us. For this reason a homology model was applied to gain insightful information about the new protein structure.
+    </p>
+
+
+        <!--  vet ej vilken bild eller mått-->
+        <div class="image middle half">
+            <img class="expandable_image" width="1300" height="1092" src="https://2021.igem.org/wiki/images/6/65/T--Uppsala--indiegogo.png">
+            <p>
+                Figure 1: Protein sequences of FGF1 and FGF2 on top. Sequence of FGFC color coded at the bottom to show which parts of the sequence come from FGF1 and FGF2 respectively.
+            </p>
+            </div>
+ 
+    <p> 
+        In order to determine possible properties of our structure, we searched for sequences that are similar to FGFC in the Bioperl interface of BLASTTP [23]  in order to find proteins with very similar sequences and their structures. This is useful to be done before performing a homology model, as a back-up plan in case the 3D structure can not be constructed. For the results see Figure 2.
+    </p>
+ 
+    <!--  color key for alignment scores bild-->
+    <div class="image middle half">
+        <img class="expandable_image" width="1300" height="1092" src="https://2021.igem.org/wiki/images/6/65/T--Uppsala--indiegogo.png">
+        <p>
+            Figure 2: Protein sequences with the highest sequence similarity to FGFC, as determined by the Biopearl interface of BLASTTP [23]. The scores of each sequence are based on how many nucleotides they have in common with our query.
+        </p>
+        </div>
+ 
+    <p>
+        Homology modelling relies on the alignment of an amino acid sequence with an unknown structure, the target, to a known structure, the template, that has a high sequence identity. This way we can use the structure information from a very similar sequence to predict the structure of the unknown target protein. The modelling was performed using SWISS-MODEL [11] at default settings. For the resulting target structure see Figure 3. SWISS-MODEL seems to be good at modelling secondary structures like helices and sheets, but have problems with more unorganized parts like the loops. 
+    </p>
+
+
+    <!-- vet ej mått än-->
+    <div class="image middle half">
+        <img class="expandable_image" width="1300" height="1092" src="https://2021.igem.org/wiki/images/8/80/T--Uppsala--homology-fgfc.png">
+        <p>
+            Figure 3: Homology Model Structure of FGFC based on the FASTA code previously mentioned. Blue parts illustrate regions with high confidence. Red parts represent regions which have the highest error
+        </p>
+    </div>
+ 
+    <p>
+        The new structure was evaluated based on the consideration of several criteria provided by SWISS-MODEL [20]. The first parameter taken into account when analyzing is Qmean, it represents an estimation of geometrical properties and helps with the estimation of global and local quality. The closer the value of Qmean to 0, the better the model is considered. Our model's Qmean score is -2.03. We interpret this to be a good model. 
+    </p>
+    <p>
+        The second parameter is Global Model Quality Estimation (GMQE) [20], which estimates the quality based on properties extracted from target-template alignments and the template structure. Possible results are between 0 and 1, a higher value indicates higher reliability. Our model's GMQE value is 0.69, indicating an adequate model.
+    </p>
+ 
+ 
+ 
+    <p>
+        In addition, the Z-score [20]  is compared with a non-redundant set of PDB structures. It is a representation of how compatible the created model is with proteins with similar structures. This is done through the comparison of our model to other similar and stable models from a structural perspective. It is calculated by computing how many standard deviations from the mean our model score includes when compared with a given score for a large number of experimentally analyzed structures. Values that are closer to 0 represent better models, signaling fewer differences when compared with a stable structure. In our case, the Z-score obtained was between 1 and 2, as shown on the default setting of Swiss Pro, which indicates a competent model, while models with a score of 4 or more are considered insufficient. Figure 4 illustrates the Z-scores and includes a representation of where our model (represented with a red star) is placed compared with highly precise models (represented with dark grey colored dots). 
+    </p>
+ 
+    <!-- vet ej mått än-->
+    <div class="image middle half">
+        <img class="expandable_image" width="1300" height="1092" src="https://2021.igem.org/wiki/images/b/ba/T--Uppsala--homolgy-z-score.png”">
+        <p>
+            Figure 4: the Z-scores of many models. The models are sorted by protein size on the X-Axis, while the Y-axis indicates the normalized QMEAN4 score, an error measure. The dark grey points represent very good models, their z-score is 0 or very close to 0. When proceeding further away from the X-axis, the color of the dots becomes light grey and the z-score values are around 1 to 2. This indicates less similarity with stable proteins. Our model is represented by a red star and it has a Z-score between 1 and 2. This still means that the protein is likely stable but the stability is not as certain as it would be with a score of less than 1.
+        </p>
+    </div>
+
+ 
+    <p>
+        Moreover, a closer inspection of the structures was done by using Ramachandran plots. A Ramachandran plot shows energetically stable regions in a protein by plotting the dihedral angles \( \Phi \) and \( \Psi \) of the polypeptide backbone [20]. This shows energetically stable and unstable regions in the sequence and enables structure validation. 
+    </p>
+    <p>
+        The Ramachandran plot in Figure 5 was made with the default function in Swiss Pro [20]. It provides an overall score based on a mean of the scores of all amino acids and additional information about protein structures that have unlikely stereochemistry. The value of the score was 90.77. As a reference, everything over 90 is considered a valuable and reliable result.
+    </p>
+ 
+    <!-- vet ej mått än-->
+    <div class="image middle half">
+        <img class="expandable_image" width="1300" height="1092" src="https://2021.igem.org/wiki/images/3/3e/T--Uppsala--homology-ramachandran.png”">
+        <p>
+            Figure 5: Ramachandran plot for the modeled FGFC structure. Each amino acid is pictured as a dot defined by the torsional angles \( \Phi \) and (\ \Psi \). The blue dots show regions with high confidence while the red dots are regions with high error probability.
+        </p>
+    </div>
+ 
+    <p>
+        Furthermore, the model was evaluated with ERRAT2  [15]. This program analyzes proteins by looking at the bonded and non-bonded interactions between the amino acids with the help of error functions. It does so through the comparison of the new protein results with statistics from other highly refined proteins and thus predicting their likelihood to have an error. It is considered an overall quality indicator, since it analyzes one amino acid at a time and takes the mean of all of them. 
+    </p>
+    <p>
+        In order to judge the quality of our model, we have to look at the overall score in ERRAT2, which has to be over 50. The value obtained in our case is 92.742, which indicates a high-quality model. The attached picture shows how the functions of the error have been calculated over for our chimera so the final score is obtained. 
+    </p>
+
+    <!-- vet ej mått än-->
+    <div class="image middle half">
+        <img class="expandable_image" width="1300" height="1092" src="https://2021.igem.org/wiki/images/3/37/T--Uppsala--math-modelling-errat2.png.png">
+        <p>
+            Figure 6: The x-axis shows the residue number of the amino acids in the protein, while the error score obtained by each of them is on the y-axis. The yellow bars are regions where the protein 
+            could have an error of function. However, the overall error of function is a mean of each protein's error of function. In our case, the value is 92.74, which indicates a high-quality model. Any protein with a score over 50 is considered to have good stability.
+        </p>
+    </div>
+
+    <!-- vet ej mått än vilken är figurtexten?!?!-->
+    <h3 style="color:Red">WRONG FIGURE TEXT</h3>
+    <div class="image middle half">
+        <img class="expandable_image" width="1300" height="1092" src="https://2021.igem.org/wiki/images/b/bd/T--Uppsala--homology-molprobity-results.png">
+        <p>
+            Figure 7: Nonetheless, MolProbity [25] has also been used in order to evaluate the new FGFC structure. The access to MolProbity, version 4.4 was provided aswell through SwissPro[20].
+It is used for an overall validation of the structure and its strenght comes from hydrogen bonds optimisation and  the analysis of over-all atoms bonds as stated in Vicent B. Chain et al research named MolProbity all atom structure validation for macromolecular crystallography  [13] It provides overall statics of evaluation while providing flags for problem areas.
+The overall values provided by the MolProbity algorithm are visible in Figure 7.
+
+<br>
+<br>
+Figure 7: MolProbity score and parameters calculation
+    The overall score is 2.11 and it sums up all the geometric score in one that defines the quality. Lower values are better, which means our protein is a pomising one.
+    The clash score is done for all atoms and represents the rates of sterics. As a references, the lower the number, the better. For our case is 7.18, which indicates a favorable result. Ramachandran favoured and outliners represent the numbers of favorable or poor phi/psi angles for amino acids. In our case 90.77% are considered favorable to behave well and 0.77% are expected to have an error. 
+    The rotamers outliners are defining the geometry of the aminoacid chain. For example, if the rotamers are over 1,5 can be concerning. Our value is 1.77% which can lead to error. 
+     Bad angles, bad bonds and cis non-proline refer to the number of aminoacids that are having bad geometry or other chemical parameters. In our case the values are 0, 17 and 2 which are fairly small values and means the protein is unlikely to have the mentioned problems.
+        </p>
+    </div>
+ 
+
+ <p>
+ Based on the results obtained with help of Swiss Model default settings- Qmean which value is -2.03, GMQE with 0.69, Z-scores between 1 and 2, Ramachandran plot with an overall score of 90.70,  Errat2 with a value of 92.70  as well as MolProbity with a value of 2.11 we decided to proceed with our chimera FGFC for wet-lab experiments.
+</p>
+
+
+</div>
+<!-- new section-->
+
+<div class="content_section" id="sectionbioreactormodel">
+<h1>Bioreactor Model</h1>
+    <h2>The theory behind the Bioreactor Model </h2>
+    <p>
+        Complex bioprocesses like cell growth need further investigation to understand how the regulatory operations are connected. In order to do so, a first step is to perform mathematical modelling of our cell growth. The bioreactor model was defined based on the wet-lab methods used by the team and on the metabolism pathways the cell uses in our growth media. 
+    </p>
+    <p>
+        To see how our cells grow in general, we made some small scale measurements using two of our E. coli strains in LB media, see Figure 7. The growth seems to follow a sigmoid curve, for this reason we will assume that the growth model follows a logistic curve.
+        This model has two important assumptions: ideal conditions for growth, and the same probability to grow and multiply for each cell. The cell concentration in a bioreactor can be measured by the optical density of the media, the OD value. Simplified, It measures the opaqueness of the media, and the more opaque it is, the higher is the cell concentration.  
+    </p>
+
+    <p>
+        The math of our bioreactor model was based on the logistic model for batch bioreactors in [4]. OD values are directly proportional to concentration, and therefore the rate of change of OD values can be assumed as equivalent to the rate of change of cell number in the system. This can be represented with the following relationship:  
+        \[ \frac{dX}{dt}= \mu X(t) \]
+        In the above equation, \( dX/dt \) represents the change of cell concentration \(X\) over time, which is equal to a rate constant \( \mu \) multiplied with the cell concentration at a certain time \(t\).  When this differential equation is solved, it results in a function of exponential growth for \(X\), 
+        \[ X(t) = e^{\mu t} \]
+        Limiting factors can be added to inhibit the exponential growth, making the curve sigmoidal in nature. This results in the following differential equation for our model: 
+        \[
+        \frac{dX}{dt} \; = \; \mu_m X(t) \cdot \left( 1 - \frac{X(t)}{X_m} \right)
+        \]
+        \( \mu _m\) is the maximum growth rate that the bacteria can reach, and \(X_m\) is the maximal possible cell density.
+    </p>
+
+    <!-- vet ej mått än-->
+    <div class="image middle half">
+        <img class="expandable_image" width="1300" height="1092" src="https://2021.igem.org/wiki/images/3/3e/T--Uppsala--math-modelling-growth-measurement.png">
+        <p>
+            Figure 8: Cell growth of E. coli containing either the hyperstable or wildtype variant of our FGF2 construct measured at Testa center. The sigmoid shape that characterizes this kind of cell growth is visible for both strains of bacteria.
+        </p>
+    </div>
+
+</div>
+<!-- new section-->
+
+<div class="content_section" id="sectionbioreactormodel">
+    <h1>Bioreactor Model Specifics </h1>
+
+    <p>
+        The cells we used for our experiments contained a plasmid with either the hyperstable or the wildtype FGF2 constructs. We used a bioreactor located in Testa center, Uppsala to scale up the protein expression. 
+    </p>
+
+    <p>
+        In order to accurately model the cell growth in the system, specific information about the bioreactor was needed. The bioreactor used is a batch type, in which the cell cultures are introduced at the start of the process without further addition or removal of medium or substances during the experiment [5]. Secondly, it is a stirred-type bioreactor, illustrated in Figure 8, which means that for the concentration to reach a steady state, a constant volume and homogenous distribution of all substances in the tank is needed. These two assumptions simplify our model greatly as we do not have to include cells added at a later date or substrate concentration fluctuations in the tank. 
+    </p>
+
+
+        <div class="image middle half">
+            <img class="expandable_image" width="1300" height="1092" src="https://2021.igem.org/wiki/images/0/02/T--Uppsala--math-modelling-batch-bioreactor.png">
+            <p>
+                Figure 9: Scheme of a batch stirred bench-scale bioreactor   
+            </p>
+        </div>
+
+        <p>
+        The following assumptions were made in order to build the model:
+         <ul>
+             <li>Media parameters like pH, temperature, viscosity, etc are optimized and stay constant during the runtime of the experiment</li>
+             <li>The provided substrates on which the biomass will grow are consumed mostly oxidatively (the bacteria consume glycerol and make acetate)</li>
+             <li>The bioreactor mainly produces biomass, water, carbon dioxide and acetate</li>
+         </ul> 
+        </p>
+
+        <h2> Cell metabolism</h2> 
+            <p>
+                As we have mentioned before, for the kind of sigmoid curve that we have observed, we have a growth limiting factor in the system that is dependent on the cell concentration. In our case, this was caused by the inhibitory effect of the acetate that the bacteria produce when they metabolize glycerol. But there are many other media components that also influence the cell growth rate. This means that to proceed further, a deeper understanding of cell physiology had to be developed to determine the exact substrate utilization that the bacteria are capable of. So we analyzed the effect that other media components have on the cellular metabolism. The media components that are relevant here can be seen in Table 1.
+            </p>
+
+        <p> <b>Table 1</b></p>
+            <p>
+                Partial media composition that was used in our Bioreactor experiments. 
+                Each of the media components have a  specifical influence on the cell growth as follows: ammonium sulfate, sodium sulfate and ammonium chloride are inhibiting the cell growth. The role of  vitamin solution is to be co-factors for many enzymes, helping with improving proliferation of cells as Heino Büntemeyer et al has stated in Role of vitamins in cell culture media  [11] . Thiamine is an enzyme cofactor leading to the enhament of cell growth [14]. The minerals MgSO4x7H20 are improving cell proliferation as well [15]. Na3 citrate x2H2O is also promoting cell growth  in anaerob proceses[16] . Glycerol is used as a carbon source by the cell in order to grow, shown to improve the yield productivity compared with glucose, fitted for anaerob reactions like stated in Julian Kopp et al in Impact of Glycerol as Carbon Source[12]. For complete list see <a href="https://2021.igem.org/Team:Uppsala/Experiments">Protocols</a>.
+            </p>
+
+            <table>
+                <tr>
+                  <th>Components</th>
+                  <th>Amounts</th>
+                </tr>
+        
+                <tr>
+                  <td>Ammonium Sulfate</td>
+                  <td>5 g</td>
+                </tr>
+        
+                <tr>
+                    <td>Na3 citrat 2H2O</td>
+                    <td>2 g</td>
+                </tr>
+        
+                <tr>
+                    <td>Ammonium Chloride</td>
+                    <td>1 g</td>
+                </tr>
+        
+                <tr>
+                    <td>Sodium Sulfate</td>
+                    <td>4 g</td>
+                </tr>
+
+                <tr>
+                    <td>MgSO4 x 7H2O</td>
+                    <td>2.5 g</td>
+                </tr>
+
+                <tr>
+                    <td>Vitamin solution</td>
+                    <td>1.5 g</td>
+                </tr>
+
+                <tr>
+                    <td>Thiamine</td>
+                    <td>0.15 g</td>
+                </tr>
+
+                <tr>
+                    <td>Glycerol 85%</td>
+                    <td>13.33 g</td>
+                </tr>
+        
+              </table>  
+
+
+        <p>
+            In a bioreactor model, the nutrients that are consumed by the cells in order to grow are summarized as the substrate. All components are introduced in the tank at the start of the process. In our case, the total mass of the substrate was 17.48 g and consisted of 11.33 g of pure glycerol (due to the dilution) , 1.5 g of a vitamin mix, 2.5 g MgSO4X7H2O, 0.15 g of thiamine, and 2 g of Na3 citrate 2H2O. The final volume of the total solution was 2.5 L. 
+            However, according to the paper by Tianwen Zhen et al. on assisted utilisation of glycerol, we realized that a concentration over 65% in glycerol could have an inhibitory effect on cell growth[19]. Moreover, the  5 g of ammonium sulfate, 1 g of ammonium chloride ,and 4 g of sodium sulfate limit the growth as well. After carefully considering this, as well as fitting the parameter on our deterministic obtained curve, we proceeded with 2.91 g for the substrate S for our model. For the glycerol metabolism that E. coli mainly use, see Figure 10.
+        </p>
+
+
+        <div class="image middle half">
+            <img class="expandable_image" width="1300" height="1092" src="https://2021.igem.org/wiki/images/a/a6/T--Uppsala--math-modelling-metabolism.png">
+            <p>
+                Figure 10: Simplified glycerol metabolism in E.coli. 
+            </p>
+        </div>
+
+        <p>
+            A question that was very relevant for our project is how much quantity of bacteria we can grow from a given amount of substrate. This can be evaluated with the yield coefficient \(Y_{x/s}\), defined as the mass of bacteria \(X\) at the end of the experiment divided by the mass of substrate \(S\) introduced at the beginning. The following calculations are based on the logistic growth model for a batch bioreactor based on Michael Kerckhove s research named From Population Dynamics to Partial Differential Equations[17] and Peng Xu s paper named Analytical solution for a hybrid Logistic‐Monod cell growth model in batch and continuous stirred tank reactor culture[4].
+        </p>
+
+        <p>
+            Logistic growth starts exponentially, but slows down when the maximum concentration of bacteria \(X_m\) is approached. In our case, a high concentration of bacteria results in a high amount of acetate, increasing the growth inhibition. The yield coefficient is influenced by the self-inhibitory factor, since the point when the steady state is reached determines the maximum amount of biomass that is supported by the bioreactor. The maximum specific cell growth rate is \( \mu_m \) and we determined it to be 1.1 \( \frac{1}{h} \) by fitting the model to our data. According to [citation], the amount of \( \mu_m \) can vary between 1 to 1.5 \(\frac{1}{h}\) for under 10 L bioreactors.
+        </p>
+
+        <p>
+            In order to find the correct value \( X_m \) for the self-inhibitory factor, we tested different values in logistic models to see in which range the true value should be for our data. from these tests, we decided to choose 2 g/L for \(X_m \). 
+        </p>
+        <p>
+            For the initial cell concentration at the beginning of the experiment \( X_ 0 \) we chose 0.0087 g which was based on the first measurement done at Testa center. After the end of the experiment, the cells were separated from the media by centrifugation, which resulted in 1.6 g of cell mass. The yield \(Y_{X/S} \) was fitted to the model, resulting in a value of 0.55 mg cells/mg substrate. From this, we calculated 2.91 g for the substrate value \(S\). 
+        </p>
+
+
+        <p style="color:red">
+            For our model plotted together with our measured data, see Figure 11. For R-code[2 click here* add pathway to the R code.*
+        </p>
+
+            <div class="image middle half">
+                <img class="expandable_image" width="1300" height="1092" src="https://2021.igem.org/wiki/images/c/cc/T--Uppsala--math-modelling-result.png">
+                <p>
+                    Figure 11: Growth curve based on the bioreactor growth model. The amount of cells in the bioreactor (y-axis) over time (x-axis).
+                </p>
+            </div>
+
+        <p>
+            In our research, we found the important parameters to correctly model the cell growth for our bioreactor experiments. This model can be used to predict further up-scale experiments that we could do, for example using a higher starting concentration of bacteria. This means, we could predict the amount of cells in the bioreactor at any time during those experiments. This enables us to find the optimal time to stop future experiments so that they result in a high amount of biomass, but also stay short enough to be manageable. 
+        </p>
+
+        <p>
+            However, our model is likely not a perfect predictor for several reasons. When looking at the data points measured at Testa center and comparing them to an idealized logistic growth curve, it is possible that the bacteria hadn’t reached a steady state yet, since we only had limited time for our experiment, so our measured biomass of 1.6 g that we used as a model parameter may be too low. Moreover, the limiting growth substances used in the media have a similar reductive effect that we misestimated. 
+        </p>
+
+        <p>
+            This analysis could be expanded by upscaling our project by creating a model for continuously stirred tank reactor (CSTR) culture. The volume of these tanks ranges between 50-2000 L and the substances are maintained at a homogenous state inside. It is very similar to a batch bioreactor but has, in addition, a plug flow reactor. The plug flow reactor assures the continuous feeding of the cells while preserving the same conditions inside the tank during the whole experiment time. This improves on the batch bioreactor, where the substrate is not replenished during the runtime of the experiment. A batch Bioreactor and a CSTR are illustrated in Figure 12.
+        </p>
+
+        <div class="image middle half">
+            <img class="expandable_image" width="1300" height="1092" src="https://2021.igem.org/wiki/images/8/86/T--Uppsala--math-modelling-ending-bioreactors.png">
+            <p>
+                Figure 12: From Batch Bioreactor to CSTR. 
+                (A )Batch Bioreactor and its structural characteristics. (B) Continuously stirred tank reactor (CSTR).
+            </p>
+        </div>
+
+        
+        <p>
+            The main characteristic to take in consideration for a CSTR model is that it is based on the steady-state substrate and cell concentration in CSTR. Further on, as the dilution rate increases in the tank, the substrate concentration increases with the cell concentration decreasing at the outlet flow. All the above mentioned points formed a foundation for our ideas in order to build this model.
+        </p>
+    
+
+</div>
+
+<div class="content_section" id="sectionreferencesmodels">
+    <h1>References</h1>>
+ 
+    <p>
+    [1]
+    K. Motomura et al., “An FGF1:FGF2 chimeric growth factor exhibits universal FGF receptor specificity, enhanced stability and augmented activity useful for epithelial proliferation and radioprotection,” Biochimica et Biophysica Acta (BBA) - General Subjects, vol. 1780, no. 12, pp. 1432–1440, Dec. 2008, doi: 10.1016/j.bbagen.2008.08.001.
+    </p>
+    <p>
+    [2]
+    L. Mariani, L. Alberghina, and E. Martegani, “Mathematical Modelling of Cell Growth and Proliferation,” IFAC Proceedings Volumes, vol. 21, no. 1, pp. 269–274, Apr. 1988, doi: 10.1016/s1474-6670(17)57566-7.
+    </p>
+    <p>
+    [3]
+    J. Horowitz, M. D. Normand, M. G. Corradini, and M. Peleg, “Probabilistic Model of Microbial Cell Growth, Division, and Mortality,” Applied and Environmental Microbiology, vol. 76, no. 1, pp. 230–242, Jan. 2010, doi: 10.1128/aem.01527-09.
+    </p>
+    <p>
+    [4]
+    P. Xu, “Analytical solution for a hybrid Logistic‐Monod cell growth model in batch and continuous stirred tank reactor culture,” Biotechnology and Bioengineering, vol. 117, no. 3, pp. 873–878, Dec. 2019, doi: 10.1002/bit.27230.
+    </p>
+    <p>
+    [5]
+    N. Parolini, “A model for cell growth in batch bioreactors,” Tesi di laurea Magistrale, Politecnico Milano, ING II - Facolta’ di Ingegneria dei Sistemi, 2010.
+    </p>
+    <p>
+    [6]
+    T. Yamamotoya et al., “Glycogen is the primary source of glucose during the lag phase of E. coli proliferation,” Biochimica et Biophysica Acta (BBA) - Proteins and Proteomics, vol. 1824, no. 12, pp. 1442–1448, Dec. 2012, doi: 10.1016/j.bbapap.2012.06.010.
+    </p>
+     
+    <p>
+    [7]
+    D. Gent, J. Johnson, G. O’Connor, E. Holland, S. May, and S. Larson, “Laboratory Demonstration of Abiotic Technologies for Removal of RDX from a Process Waste Stream,” Jun. 2010. Accessed: Oct. 16, 2021. [Online]. Available: https://apps.dtic.mil/sti/citations/ADA529314.
+    </p>
+    <p>
+    [8]
+    O. V. Sobolev et al., “A Global Ramachandran Score Identifies Protein Structures with Unlikely Stereochemistry,” Structure, vol. 28, no. 11, pp. 1249-1258.e2, Nov. 2020, doi: 10.1016/j.str.2020.08.005.
+    </p>
+    <p>
+    [9]
+    T. Zheng et al., “Microbial fuel cell-assisted utilization of glycerol for succinate production by mutant of Actinobacillus succinogenes,” Biotechnology for Biofuels, vol. 14, no. 1, Jan. 2021, doi: 10.1186/s13068-021-01882-5.
+    </p>
+    <p>
+    [10]
+    G. N. Ramachandran, C. Ramakrishnan, and V. Sasisekharan, “Stereochemistry of polypeptide chain configurations,” Journal of Molecular Biology, vol. 7, no. 1, pp. 95–99, Jul. 1963, doi: 10.1016/s0022-2836(63)80023-6.
+    </p>
+    <p>
+    [11]
+    ‌Heino Büntemeyer  Jürgen Lehmann The Role of Vitamins in Cell Culture Media,January 2001, DOI:10.1007/978-94-010-0369-8_45, In book: Animal Cell Technology: From Target to Market (pp.204-206)
+    </p>
+    <p>
+    [12]
+    Kopp J, Slouka C, Ulonska S, et al. Impact of Glycerol as Carbon Source onto Specific Sugar and Inducer Uptake Rates and Inclusion Body Productivity in E. coli BL21(DE3). Bioengineering (Basel). 2017;5(1):1. Published 2017 Dec 21. doi:10.3390/bioengineering5010001
+    </p>
+    <p>
+      [13]  
+    Chen VB, Arendall WB 3rd, Headd JJ, et al. MolProbity: all-atom structure validation for macromolecular crystallography. Acta Crystallogr D Biol Crystallogr. 2010;66(Pt 1):12-21. doi:10.1107/S0907444909042073
+    </p>
+    <p>
+     [14]  
+    Ingrid M. Keseler, Amanda Mackie, Alberto Santos-Zavaleta, Richard Billington, César Bonavides-Martínez, Ron Caspi, Carol Fulcher, Socorro Gama-Castro, Anamika Kothari, Markus Krummenacker, Mario Latendresse, Luis Muñiz-Rascado, Quang Ong, Suzanne Paley, Martin Peralta-Gil, Pallavi Subhraveti, David A. Velázquez-Ramírez, Daniel Weaver, Julio Collado-Vides, Ian Paulsen, Peter D. Karp, The EcoCyc database: reflecting new knowledge about Escherichia coli K-12, Nucleic Acids Research, Volume 45, Issue D1, January 2017, Pages D543–D550, https://doi.org/10.1093/nar/gkw1003
+    </p>
+    <p>
+    [15]
+    </p>
+    <p>
+    [16] https://www.evo-ed.org/Pages/Ecoli/cellbio.html
+    </p>
+    <p>
+    [17]Kerckhove, Michael. "From Population Dynamics to Partial Differential Equations." The Mathematica Journal 14 (2012). doi:10.3888/tmj.14-9.
+    </p>
+    <p>
+    [18]
+    </p>
+    <p>
+    [19]
+    Zheng, T., Xu, B., Ji, Y. et al. Microbial fuel cell-assisted utilization of glycerol for succinate production by mutant of Actinobacillus succinogenes . Biotechnol Biofuels 14, 23 (2021). https://doi.org/10.1186/s13068-021-01882-5
+    </p>
+     
+     
+    <h2>Tools</h2>
+    <p>
+    [20]
+    A. Waterhouse et al., “SWISS-MODEL: homology modelling of protein structures and complexes,” Nucleic Acids Research, vol. 46, no. W1, pp. W296–W303, May 2018, doi: 10.1093/nar/gky427.
+    </p>
+    <p>
+    [21]
+    H. Wickham et al., “Create Elegant Data Visualisations Using the Grammar of Graphics,” Tidyverse.org, 2019. https://ggplot2.tidyverse.org/ (accessed Oct. 16, 2021).
+    </p>
+    <p>
+    [22]
+    RStudio Team (2021), “RStudio,” RStudio, Feb. 21, 2019. https://www.rstudio.com/ (accessed Oct. 16, 2021).
+    </p>
+    <p>
+    [23]
+    J. E. Stajich, “The Bioperl Toolkit: Perl Modules for the Life Sciences,” Genome Research, vol. 12, no. 10, pp. 1611–1618, Oct. 2002, doi: 10.1101/gr.361602.
+    </p>
+    <p>
+    [24]
+    “SAVESv6.0 - Structure Validation Server,” saves.mbi.ucla.edu. https://saves.mbi.ucla.edu (accessed Oct. 16, 2021).
+    </p>
+    <p>
+    [25]
+    V. B. Chen et al., “MolProbity: all-atom structure validation for macromolecular crystallography,” Acta Crystallographica Section D Biological Crystallography, vol. 66, no. 1, pp. 12–21, Dec. 2009, doi: 10.1107/s0907444909042073.
+    </p>
+</div>    
+
