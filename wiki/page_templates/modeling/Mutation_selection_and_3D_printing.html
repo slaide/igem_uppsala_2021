@@ -1,0 +1,111 @@
+<div id="section1>">
+    <h1>Introduction</h1>
+
+    <p>
+        As the project idea was formed, that is, reducing the cost of cultivated meat by optimizing the growth factor FGF2, it became clear that the dry lab would become an important part of the process. It was believed that our approach to improve the binding affinity between FGF2 and its receptor FGFR2 by site directed mutagenesis, would be greatly benefited from in silico modeling. The idea being that if we could evaluate the effect of mutations computationally, we would be able to pinpoint mutations that are more likely to work. This is useful due to the fact that there are 20 possible natural amino acids for each position within a given protein chain. To produce mutant proteins in the lab for every possible amino acid in each position is an unreasonable amount of work, and without any guarantee of success.
+        At the beginning we explored different softwares available to predict mutation effects in silico but we wanted to be sure about our results. Therefore, we consulted with experts in this field at Uppsala University and they suggested using free energy perturbation (FEP) through the molecular dynamics software package Q. With Q, we were able to estimate the effect of single point mutations computationally. This allowed us to proceed in the lab with the single point mutations that had satisfactory in silico estimation results, thus saving us extensive lab work and increasing the chance of successful results.    
+        </p>
+        
+
+
+</div>
+
+<div id="section2>">
+    <h1>Structure selection</h1>
+    <p>
+        Our project initially started with research using UniProt and the Protein Data Bank (PDB) to find sequences and crystal structures of the bovine growth factor FGF2, and its receptor bovine FGFR2.There was no crystal structure for bovine FGF2 available, only for human FGF2. To see if the bovine protein may have a similar 3D structure, we performed a sequence alignment using Clustal Omega to assess the homology of the two proteins. As the sequences were found to have very high sequence identity - they only differed by two residues. The crystal structure of human FGF2 bound to human FGFR2 was chosen as the target structure. The crystal structure for human FGF2 was visually examined in PyMOL to search for plausible mutation sites. Furthermore, homology modeling of bovine FGF2 with human FGF2 as template on Swiss-Prot showed that the 3D structure of bovine FGF2 was very likely to be nearly identical to the 3D structure of human FGF2 which gave further support for the choice of the human FGF2 crystal structure as a target to identify mutations. The human FGF2 protein and receptor structure can be seen in figure 1. 
+    </p>
+        
+
+        
+</div>
+
+<div id="section3">
+    <h1>Method</h1>
+
+    <p>
+        As previously stated, Q can predict the change in free energy during the annihilation of an amino acid to alanine, and this can be used to evaluate the effect of single-point mutations. Q has mainly been used to evaluate the effect of single point mutations on protein-small ligand interactions but for our project, we needed to estimate the effect on protein-protein interactions. This was done by combining the scheme of the thermodynamic cycles associated with the bound complex formation of the protein-protein interaction with the unbound state, see figure X.  
+    </p>
+
+    <img src=”name.png”>
+
+    <imgtext>
+    Figure X: Example of a combined thermodynamic cycle for mutation Q54K. In the middle is the shared alanine leg for Q54A and K54A. The FEP arrows represent ΔG values that we can obtain by the use of FEP in Q. Once the FEP arrow values are obtained they can be used in equation X to calculate the final  ΔΔG value for the mutation.
+    </imgtext>
+
+
+    <p>
+        Equation X: G =(Gholowt-Gapowt)-(Gholomut-Gapomut)
+    </p>
+
+    <p>
+        Similar thermodynamic cycles were created for all eight remaining mutations in the final mutation pool after the mutation filtration. The Q simulations provide values for the FEP arrows within the thermodynamic cycle that can then be used according to equation X, in order to obtain the final ΔΔG value. A lower ΔΔG corresponds to a more stable structure indicating a stronger interaction between the receptor and FGF2. Thus, negative ΔΔG indicates improving mutations which means that the mutant FGF2 binds stronger to the receptor compared to the wt FGF2. See calculation example for Q54K below.
+    </p> 
+
+</div> 
+
+<div id="section4">
+    <h1>Calculation example Q54K:</h1>
+    <p>
+Here is an example of how to use the ΔG:s obtained from Q simulations in order to calculate the final ΔΔG for the mutation. 
+(Add full interaction video next to calculation example)
+    </p>
+    <p>
+Gholowt=40.99 ± 0.25
+Gapowt=40.94 ± 0.33 
+Gholomut= -21.91 ± 1.88
+Gapomut= -22.86 ± 0.32
+G =(Gholowt-Gapowt)-(Gholomut-Gapomut)
+G =(40.99-40.94)-(-21.91-(-22.86))=(0.05)-(0.95)= -0.9
+    </p>
+
+    <img src=”name.png”>
+
+    <imgtext>
+        Figure X: Free energy difference over time for the four simulations required to close the thermodynamic cycle for Q54K mutation. Cumulative lambda is on the x-axis and ΔG in kcal/mol is on the y-axis. Light blue lines represent individual replicate simulations and the dark blue line is the average of ten individual replicate simulations. Graph A is K54A apo simulation, graph B is Q54A apo simulation,  graph C is K54A holo simulation and graph D is Q54A holo simulation.
+    </imgtext>
+    <p>
+</div>
+
+<div id="section5">
+    <h1>Results</h1>
+
+    <p>
+The resulting ΔΔG values from the molecular dynamics simulations using Q are presented below in table X. Lower ΔΔG indicates a stronger interaction between the receptor and FGF2 and thus a higher affinity. Therefore the three mutations with the lowest ΔΔG values were chosen to be used in the mutagenesis experiments in the wet lab. These were Q54K, L98M and V88I. Our standard error of the mean values were bigger in magnitude compared to the calculated ΔΔG. However, since the mutations had made it through the rest of the filtering process as well as having low mean ΔΔG, we felt confident enough to move forward in the wet lab with the mutations with the three lowest mean values anyway.
+
+
+Table X: Mean ΔΔG values and standard error of the mean obtained using molecular dynamics through Q for all mutations in the final mutation pool. 
+    </p>
+    <!--ADD THE TABLE-->
+</div>
+
+<div id="section6">
+    <h1>Assumptions</h1> [Andreea]
+
+    <p>
+Molecular mechanics' goal is to represent the interaction between molecules in a similar way as classical physics. Even though this field has greatly developed in the last years, there are still several assumptions the technique is based on.
+    </p>
+    <p>
+Firstly, the parameters the simulation relies on are imperfect. For example, the calculation of free energies is based on being able to compute free energy differences, which is not a very accurate procedure. Further on, the limited polarization effect has to be taken into consideration. This means that the partial charges are fixed, but the waters present in the molecule can still re-orient leading to errors. Moreover, the method relies on results from force field calculation for potential and force. However, these results are inexact leading to miscalculations. For example, for aromatic/ aromatic and charged/ aromatic interaction, a more in-depth electrostatics representation than what the force field can currently provide. 
+Nonetheless, through the determination of averages over a longer period of time, a better determination of the system's properties can be portrayed. In addition, it has to be mentioned that several simulations have to contain the presence of the same event, in order to regard it as significant. Error estimates determinations for the calculated properties should help in providing a more exact simulation. The principle behind it relies on observing the difference between an estimated value and a true known value of the analyzed parameter, which helps evaluate the protein.
+    </p>
+    <p>
+Furthermore our receptor protein FGFR2 is part of a receptor complex that in reality is embedded in a cellular membrane, but in the simulation the system is solvated in water. This could potentially lead to differences between the results from the simulation and results that one might get from performing and quantifying the mutation in vivo.
+    </p>
+
+</div>
+
+<div id="section7">
+    <h1>Video making</h1>
+    <p>
+        The picture and video representation on this page were made in VMD. The videos were made by screen recording the VMD session and then edited using Adobe Premiere. 
+    </p>
+</div>
+
+<div id="section8">
+<h1> References</h1>
+
+</div>
+
+
+</div>
