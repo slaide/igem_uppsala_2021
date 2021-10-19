@@ -1,6 +1,26 @@
 <div id="section1>">
     <h1>Introduction</h1>
 
+    
+                <!--
+table {
+font-family: arial, sans-serif;
+border-collapse: collapse;
+width: 100%;
+}
+
+td, th {
+border: 1px solid #dddddd;
+text-align: left;
+padding: 8px;
+}
+
+tr:nth-child(even) {
+background-color: #dddddd;
+}
+
+                -->
+
     <p>
         As the project idea was formed, that is, reducing the cost of cultivated meat by optimizing the growth factor FGF2, it became clear that the dry lab would become an important part of the process. It was believed that our approach to improve the binding affinity between FGF2 and its receptor FGFR2 by site directed mutagenesis, would be greatly benefited from in silico modeling. The idea being that if we could evaluate the effect of mutations computationally, we would be able to pinpoint mutations that are more likely to work. This is useful due to the fact that there are 20 possible natural amino acids for each position within a given protein chain. To produce mutant proteins in the lab for every possible amino acid in each position is an unreasonable amount of work, and without any guarantee of success.
         At the beginning we explored different softwares available to predict mutation effects in silico but we wanted to be sure about our results. Therefore, we consulted with experts in this field at Uppsala University and they suggested using free energy perturbation (FEP) through the molecular dynamics software package Q. With Q, we were able to estimate the effect of single point mutations computationally. This allowed us to proceed in the lab with the single point mutations that had satisfactory in silico estimation results, thus saving us extensive lab work and increasing the chance of successful results.    
@@ -283,6 +303,24 @@ FoldX[4] estimates the vital interactions contributing to the stability of prote
             <td>E58F</td>
             <td>1.046</td>
             <td>4.899</td>
+          </tr>
+
+          <tr>
+            <td>K46E</td>
+            <td>2.134</td>
+            <td>-12.453</td>
+          </tr>
+
+          <tr>
+            <td>K46D</td>
+            <td>0.782</td>
+            <td>-7.769</td>
+          </tr>
+
+          <tr>
+            <td>K46P</td>
+            <td>0.782</td>
+            <td>-7.769</td>
           </tr>
 
       </table> 
