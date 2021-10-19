@@ -1,0 +1,347 @@
+<div id="section1>">
+    <h1>Introduction</h1>
+
+    
+                <!--
+table {
+font-family: arial, sans-serif;
+border-collapse: collapse;
+width: 100%;
+}
+
+td, th {
+border: 1px solid #dddddd;
+text-align: left;
+padding: 8px;
+}
+
+tr:nth-child(even) {
+background-color: #dddddd;
+}
+
+                -->
+
+    <p>
+        As the project idea was formed, that is, reducing the cost of cultivated meat by optimizing the growth factor FGF2, it became clear that the dry lab would become an important part of the process. It was believed that our approach to improve the binding affinity between FGF2 and its receptor FGFR2 by site directed mutagenesis, would be greatly benefited from in silico modeling. The idea being that if we could evaluate the effect of mutations computationally, we would be able to pinpoint mutations that are more likely to work. This is useful due to the fact that there are 20 possible natural amino acids for each position within a given protein chain. To produce mutant proteins in the lab for every possible amino acid in each position is an unreasonable amount of work, and without any guarantee of success.
+        At the beginning we explored different softwares available to predict mutation effects in silico but we wanted to be sure about our results. Therefore, we consulted with experts in this field at Uppsala University and they suggested using free energy perturbation (FEP) through the molecular dynamics software package Q. With Q, we were able to estimate the effect of single point mutations computationally. This allowed us to proceed in the lab with the single point mutations that had satisfactory in silico estimation results, thus saving us extensive lab work and increasing the chance of successful results.    
+        </p>
+        
+
+
+</div>
+
+<div id="section2>">
+    <h1>Structure selection</h1>
+    <p>
+        Our project initially started with research using UniProt and the Protein Data Bank (PDB) to find sequences and crystal structures of the bovine growth factor FGF2, and its receptor bovine FGFR2.There was no crystal structure for bovine FGF2 available, only for human FGF2. To see if the bovine protein may have a similar 3D structure, we performed a sequence alignment using Clustal Omega to assess the homology of the two proteins. As the sequences were found to have very high sequence identity - they only differed by two residues. The crystal structure of human FGF2 bound to human FGFR2 was chosen as the target structure. The crystal structure for human FGF2 was visually examined in PyMOL to search for plausible mutation sites. Furthermore, homology modeling of bovine FGF2 with human FGF2 as template on Swiss-Prot showed that the 3D structure of bovine FGF2 was very likely to be nearly identical to the 3D structure of human FGF2 which gave further support for the choice of the human FGF2 crystal structure as a target to identify mutations. The human FGF2 protein and receptor structure can be seen in Figure 1. 
+    </p>
+    <div class="image middle half">
+        <img class="expandable_image" width="1564" height="955" src="https://2021.igem.org/wiki/images/6/67/T--Uppsala--FGF2andFGFR2.png">
+    <p> Figure 1. Structure used to identify plausible mutations. PDB code 1EV2. </p>    
+    </div>
+
+        
+</div>
+
+<div id="section3">
+    <h1>Initial mutation pool</h1>
+<p>
+The search for mutations was conducted in the GUI in pyMOL. We explored the binding site of FGF2 with its receptor and analysed the existing interactions to see if we could find holes in the structure which we could fill by inserting larger residues. By comparing the amino acid sequence of FGF2 to that of other FGFs, differences in the binding site were identified and the possible effect these alternative residues could have in FGF2 were investigated. We also looked for natural or synthetic mutations that had been found in analogous structures to FGF2 in existing literature. We wanted to improve the existing interactions and to mutate residues to create new interactions. Some sites were excluded directly because of high side chain clash scores in PyMOL. The resulting first mutation pool, consisting of positions that seemed likely to be apt for improving mutations, is presented here:
+</p>
+
+  
+</div>
+
+<div id="section5">
+    <h1>Filtering of mutations</h1>
+<p>
+Optimally, all sites within the mutation pool would be evaluated using molecular dynamics simulations. However, as free energy perturbation is computationally demanding and our computing power resources were limited, other means of evaluating the mutations were used in order to reduce the size of the mutation pool. These included: <a href="http://foldxsuite.crg.eu/">FoldX</a> through the GUI In <a href="http://www.yasara.org/index.html">Yasara</a>, the residue scanning tool within the Maestro suite, docking on cluspro and evaluation in Dynamut. In Yasara, the PDB-file of human FGF2 in complex with FGFR2 was loaded and prepared using a repair module within the FoldX suite. Then, a residue scanning tool within the FoldX suite was used to evaluate the effect of mutating the remaining nineteen natural amino acids. In maestro, the structure was loaded and repaired similarly, but the residue scanning tool within the Maestro suite gave information on the effect of both affinity and stability. For ClusPro, the structure of FGFR2 and differently mutated versions of FGF2 were submitted for docking. The calculated delta gibbs free energy of the suggested binding mode was chosen and compared to the wild type. All combined, this resulted in a reduction of the mutation pool from 36 to a size of 8 mutations that were to be evaluated computationally using molecular dynamics through the molecular dynamics software <a>package Q</a> developed at Uppsala University.
+</p>
+
+<div class="image middle half">
+    <img class="expandable_image" width="1122" height="1086" src="https://2021.igem.org/wiki/images/3/39/T--Uppsala--mut-sel-2.png">
+<p> Figure 2. Different tools used to evaluate and filter mutations </p>    
+</div>
+
+<h2> SAAFE-SEQ </h2>:
+<p> 
+SAAFE-SEQ[1] uses a machine learning algorithm to predict the change in stability of a protein upon single mutation. For each mutation, it combines the sequence information and  amino acid properties to determine the change in free energy to predict the stability. The delta Gibbs free energy provides us with the information on whether the mutations are stabilizing or destabilizing the protein structure.It takes our wild type protein fasta sequence and mutation position, wild type and mutant amino acid as input. 
+</p>
+
+<h2>Dynamut</h2>
+<p>
+Most of the software tools use static structure based approaches for assessing the impact of mutations on protein structure because of high computational costs. As proteins are highly mobile molecules we used Dynamut[2] which visualizes and analyzes protein dynamics.It estimates the impact of mutations on protein dynamics and stability resulting from vibrational entropy changes.
+</p>
+
+<h2>Cluspro</h2>:
+<p>
+Cluspro[3] uses the PDB codes as input for protein-protein docking, and returns a ranked list of complexes, ordered by clustering properties. We worked with PDB files of FGF2 and the receptor FGFR, then used ClusPro to dock them which resulted in a change in free energy values. After that, we mutated the FGF2 and docked that with FGFR to get the change in free energy values of the mutated complex. Finally we compared the stability of the formed mutant complex with wild type docking pose by analyzing the values returned by docking the wild type and the mutant. 
+</p>
+
+<h2>FoldX</h2>: 
+<p>
+FoldX[4] estimates the vital interactions contributing to the stability of proteins as well as complexes. It distinguishes itself from other software by using full atomic descriptions. It takes various energy terms into account, including differences in solvation energy for apolar and polar groups, free energy of inter- and intramolecular hydrogen bonds, and electrostatic contributions of charged groups.By installing the FoldX plugin for YASARA, the FoldX tools can be accessed  in the 3D graphical YASARA interface. We used the position scanning module within FoldX in order to get the results in Table 1.</p>
+
+<table>
+    <p>Table 1. Delta Delta gibbs free energy from FoldX.</p>
+    <tr>
+      <th>Position</th>
+      <th>Lowest (kcal/mol)</th>
+      <th>Second lowest (kcal/mol)</th>
+      <th>Thrid lowest</th>
+    </tr>
+    <tr>
+      <td>M142X</td>
+      <td><b>M142L</b> 0.38926</td>
+      <td><b>M142I</b> 0.791585</td>
+      <td><b>M142N</b> 1.32906</td>
+    </tr>
+    <tr>
+
+            <td>P141X</td>
+            <td><b>P141L</b> 1.34137</td>
+            <td><b>P141V</b> 1.6697</td>
+            <td><b>P141I</b> 1.67707</td>
+
+    </tr>
+    <tr>
+
+    <td>G28X</td>
+    <td><b>G28A</b> 5.35588</td>
+    <td><b>G28S</b> 6.6389</td>
+    <td><b>G28C</b> 8.16446</td>
+
+    </tr>
+    <tr>
+        <td>Q54X</td>
+        <td><b>Q54R</b> -2.39739</td>
+        <td><b>Q54I</b> -1.28936</td>
+        <td><b>Q54K</b> -1.27196</td>
+    </tr>
+    <tr>
+        <td>L98X</td>
+        <td><b>L98I</b> 0.585657</td>
+        <td><b>L98M</b> 0.641692</td>
+        <td><b>L98P</b> 0.94977</td>
+    </tr>
+    <tr>
+        <td>F93X</td>
+        <td><b>F93W</b> -0.263676</td>
+        <td><b>F93L</b> 0.559059</td>
+        <td><b>F93Y</b> 0.614088</td>
+    </tr>
+    <tr>
+        <td>V88X</td>
+        <td><b>V88I</b> -0.393335</td>
+        <td><b>V88L</b> 0.30579</td>
+        <td><b>V88M</b> 0.409882</td>
+
+      </tr>
+
+      <tr>
+        <td>Q56X</td>
+        <td><b>Q56M</b> -0.789795</td>
+        <td><b>Q56K</b> 0.273197</td>
+        <td><b>Q56I</b> 0.399764</td>
+      </tr>
+      <tr>
+
+        <td>E58X</td>
+        <td><b>E58L</b> -1.52055</td>
+        <td><b>E58I</b> -1.19611</td>
+        <td><b>E58F</b> -1.18686</td>
+
+      </tr>
+
+      <tr>
+        <td>K44X</td>
+        <td><b>K46P</b> -1.03922</td>
+        <td><b>K46E</b> -0.647498</td>
+        <td><b>K46D</b> -0.547631</td>
+      </tr>
+
+  </table> 
+  
+  <h2>Residue Scanning</h2>
+
+  <p>
+    We used the residue scanning panel in Maestro from Schrödinger[5] .The panel helped us to scan our proteins for residues that are suitable for mutations based on solvent accessible surface area and distances with other residues and also allows manual selection.To produce mutated structures,we used the mutations based on the findings from PyMOL. As a result, it returned the relative change in thermal stability of a single protein as well as its binding affinity compared to the original protein as mentioned in Table 2, which helped us to move further in the process of evaluating the mutations.
+    </p>
+
+    <table>
+        <p>Table 2. Delta affinity and stability values from residue scanning. Green ones are negative, indicating increased affinity or stability, and thus potential mutations for further evaluation.</p>
+        <tr>
+          <th>Mutations</th>
+          <th>Delta affinity (kcal/mol)</th>
+          <th>Delta stability (kcal/mol)</th>
+        </tr>
+        <tr>
+          <td>M142I</td>
+          <td>5.156</td>
+          <td>0.359</td>
+        </tr>
+        <tr>
+            <td>M142N</td>
+            <td>7.29</td>
+            <td>16.33</td>
+    
+        </tr>
+        <tr>
+            <td>P141L</td>
+            <td>-1.398</td>
+            <td>8.850</td>
+    
+        </tr>
+        <tr>
+            <td>P141V</td>
+            <td>0.581</td>
+            <td>2.787</td>
+        </tr>
+        <tr>
+     
+                <td>P141I</td>
+                <td>-3.309</td>
+                <td>5.798</td>
+         
+        </tr>
+        <tr>
+            <td>G28A</td>
+            <td>0.028</td>
+            <td>6.492</td>
+        </tr>
+        <tr>
+            <td>G28S</td>
+            <td>-0.656</td>
+            <td>9.946</td>
+          </tr>
+    
+          <tr>
+            <td>Q54R</td>
+            <td>-7.796</td>
+            <td>0.526</td>
+          </tr>
+          <tr>
+            <td>Q54I</td>
+            <td>1.093</td>
+            <td>2.929</td>
+          </tr>
+    
+          <tr>
+            <td>Q54K</td>
+            <td>-4.074</td>
+            <td>11.392</td>
+          </tr>
+
+
+          <tr>
+            <td>L98I</td>
+            <td>0.260</td>
+            <td>2.667</td>
+          </tr>
+
+          <tr>
+            <td>L98M</td>
+            <td>-7.205</td>
+            <td>2.066</td>
+          </tr>
+
+          <tr>
+            <td>F93W</td>
+            <td>-1.303</td>
+            <td>10.466</td>
+          </tr>
+
+          <tr>
+            <td>F93L</td>
+            <td>-1.906</td>
+            <td>1.047</td>
+          </tr>
+
+          <tr>
+            <td>F93Y</td>
+            <td>-0.121</td>
+            <td>-0.672</td>
+          </tr>
+
+          <tr>
+            <td>V88I</td>
+            <td>-1.298</td>
+            <td>-3.134</td>
+          </tr>
+
+          <tr>
+            <td>V88L</td>
+            <td>6.29</td>
+            <td>-1.070</td>
+          </tr>
+    
+          <tr>
+            <td>V88M</td>
+            <td>-3.456</td>
+            <td>7.171</td>
+          </tr>
+
+          <tr>
+            <td>Q56M</td>
+            <td>9.456</td>
+            <td>-7.723</td>
+          </tr>
+
+          <tr>
+            <td>E58L</td>
+            <td>3.518</td>
+            <td>-0.972</td>
+          </tr>
+
+          <tr>
+            <td>E58I</td>
+            <td>0.985</td>
+            <td>-0.039</td>
+          </tr>
+
+          <tr>
+            <td>E58F</td>
+            <td>1.046</td>
+            <td>4.899</td>
+          </tr>
+
+          <tr>
+            <td>K46E</td>
+            <td>2.134</td>
+            <td>-12.453</td>
+          </tr>
+
+          <tr>
+            <td>K46D</td>
+            <td>0.782</td>
+            <td>-7.769</td>
+          </tr>
+
+          <tr>
+            <td>K46P</td>
+            <td>0.782</td>
+            <td>-7.769</td>
+          </tr>
+
+      </table> 
+
+    
+
+</div>
+
+<div id="section6">
+ 
+
+</div>
+
+<div id="section7">
+
+</div>
+
+<div id="section8">
+<h1> References</h1>
+
+</div>
+
+
+</div>
