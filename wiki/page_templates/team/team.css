@@ -11,12 +11,25 @@
     border-radius: 2vh;
     margin-bottom: 2vh;
     margin:3vh;
+   
+    }
+
+    .explain1 > div{
+    margin: 2vh;
+    width: 15vh;
+    
+    
+    }
+
+    .explain1 > div > h3{
+        
     }
     
-    .explain1 > img{
-    width: 7.5vh;
-    height: 7.5vh;
-    margin:2vh;
+    
+    .explain1 > div >img{
+    margin-left: 4vh;
+    
+    
     }
     
     .teamcontainer{
@@ -33,7 +46,7 @@
     position: relative;
     width: 28vh;
     height:40vh;
-    margin: 2vh;
+    margin: 6vh;
     margin-top: 3.7vh;
     margin-bottom: 5vh;
     box-shadow: 1vh 1vh 4vh rgba(0, 0, 0, 0.5);
