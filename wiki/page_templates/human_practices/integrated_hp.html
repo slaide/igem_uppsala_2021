@@ -82,7 +82,8 @@
             position:relative;
         }
         .expert_interview_tree_leaf{
-            background-color:rgba(255,0,0,0.5);
+            background-color:#426968;
+            opacity:0.5;
             width:100px;
             height:100px;
             position:absolute;
@@ -92,14 +93,14 @@
         }
         @keyframes pulse_interview{
             0%,40%,100%{
-                background-color:rgba(255,0,0,0.0);
+                opacity:0;
             }
             20%{
-                background-color:rgba(255,0,0,0.3);
+                opacity:0.6;
             }
         }
     </style>
-    <div id="tree_steak_container" style="background-image: url('https://2021.igem.org/wiki/images/2/2f/T--Uppsala--integrated_hp_expert_interview_tree_steak.png'); background-size:contain;border:1px solid black;">
+    <div id="tree_steak_container" style="background-image: url('https://2021.igem.org/wiki/images/2/2f/T--Uppsala--integrated_hp_expert_interview_tree_steak.png'); background-size:contain;">
         <div id="expert_interview_stefan" style="
             left:calc( 30vw * 6 / 100);
             top:calc( 40vw * 13.5 / 100);
@@ -237,7 +238,8 @@
                     who:"Ikigai law is a law firm in India that provides legal and strategic advice to new age businesses and startups that thrive on technology and business level innovation.",
                     why:"In our search for current laws and regulations around cultivated meat, we came across a <a href='https://www.ikigailaw.com/overview-regulatory-issues-surrounding-cultivated-meat/#acceptLicense'>blog</a> written by Ikigai law which breaks down the regulations issues around cultivated meat and novel food products in general [4]. As the <a href='https://gfi.org/blog/cultivated-meat-singapore/'>food authority of Singapore has accepted cultivated chicken,</a> we were eager to know the acceptance level of different authorities around the world and we believed that Ikigai law can be a productive resource in that matter.",
                     implementation:"After we explained our project idea, we  asked them about the reason behind food and regulatory authorities being a bottleneck for cultivated meat marketing. They walked us through the categories under novel food production and pinpointed the differences between the authorities. In addition, we inquired about what can be done to overcome this hurdle and gained some insights. Finally, they connected us with people working in the regulatory field at Good Food Institute India as they are one of the pioneers in alternative proteins.",
-                    target:"expert_interview_ikigai"
+                    target:"expert_interview_ikigai",
+                    width:"half"
                 },
                 {
                     name:"Good Food Institute India",
@@ -251,28 +253,28 @@
 
             for(interview of expert_interview_participants){
                 document.write(`
-                    <span class="popup w50" target="${interview.target}" id="${interview.target}_popup">
+                    <span class="popup w50 rightbound" target="${interview.target}" id="${interview.target}_popup" style="width:42vw;">
                         <div class="popup_content_header">Expert Interview with ${interview.name}</div>
                         <span class="popup_content">
                             <div>
-                                <div class="image middle half">
+                                <div class="image left ${interview.width || "half"} stacked">
                                     <img loading='lazy' src="${interview.zoom}">
                                 </div>
+                                <div class="image right half stacked">
+                                    <div style="padding-left: 5%;">
+                                        <h3>Who</h3>
+                                        <p>${interview.who}</p>
+                                    </div>
+                                </div>
                             </div>
-                            <ul>
-                                <li>
-                                    <h3>Who</h3>
-                                    <p>${interview.who}</p>
-                                </li>
-                                <li>
-                                    <h3>Why</h3>
-                                    <p>${interview.why}</p>
-                                </li>
-                                <li>
-                                    <h3>Implementation</h3>
-                                    <p>${interview.implementation}</p>
-                                </li>
-                            </ul>
+                            <div --style="padding-left: 5%;">
+                                <h3>Why</h3>
+                                <p>${interview.why}</p>
+                            </div>
+                            <div>
+                                <h3>Implementation</h3>
+                                <p>${interview.implementation}</p>
+                            </div>
                         </span>
                     </span>
                 `)
