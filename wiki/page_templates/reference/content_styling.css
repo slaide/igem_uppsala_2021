@@ -83,6 +83,7 @@
     text-align: justify;
     margin:0;
 }
+
 /* make image float so that text can wrap around it */
 div.image.left{
     float:left;
@@ -97,6 +98,7 @@ div.image.middle{
     left:50%;
     transform:translateX(-50%);
 }
+
 #fgfuture_content div.w10{
     width:10%;
 }
@@ -118,9 +120,20 @@ div.image.middle{
 #fgfuture_content div.full{
     width:100%;
 }
-div.image.stacked{
-    padding:0;
+
+#fgfuture_content div.image.stacked.left{
+    padding-right:1vh;
 }
+#fgfuture_content div.image.stacked.right{
+    padding-left:1vh;
+}
+#fgfuture_content div.image.stacked.half{
+    width:calc( 50% - 1vh);
+}
+#fgfuture_content div.image.stacked.third{
+    width:calc( 33.3333% - 1vh);
+}
+
 #fgfuture_content div.content_section > div.image.full{
     margin-left:0;
 }
