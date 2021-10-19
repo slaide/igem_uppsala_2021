@@ -11,8 +11,15 @@ function open_popup(ev){
     }
 
     let element_bb=element.getBoundingClientRect()
-    let left_offset=element_bb.x+(element_bb.width/2) // centering of popup happens in css
-    popup_element.style.setProperty("left",left_offset+"px")
+
+    if(popup_element.classList.contains("rightbound")){
+        popup_element.style.setProperty("right","2.5vh")
+        popup_element.style.setProperty("position","fixed")
+        popup_element.style.setProperty("transform","none")
+    }else{
+        let left_offset=element_bb.x+(element_bb.width/2) // centering of popup happens in css
+        popup_element.style.setProperty("left",left_offset+"px")
+    }
 
     let top_offset=element_bb.top+element_bb.height
     top_offset=min(window.innerHeight-(popup_element.getBoundingClientRect().height+window.innerHeight*0.05),top_offset)
