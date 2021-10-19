@@ -74,6 +74,15 @@
                         activate_tabbed_section_from_target_id(target_hash)
                     }
                 }
+
+                //this can be a potential fix for content reflow for lazy-loaded images
+                //but because most images have been massively reduced in file-size, this might not actually be an issue
+                for(image_element of document.getElementsByTagName("img")){
+                    //console.log(image_element)
+                    let width=image_element.getAttribute("width")
+                    let height=image_element.getAttribute("height")
+                    //image_element.style.setProperty("padding-bottom",(width/height*100)+"%")
+                }
             }
         </script>
     </head>

@@ -128,6 +128,10 @@ const pages=[
                 link:"https://igem.org/2021_Judging_Form?id=3934"
             },
             {
+                name:"Education<br>Summary",
+                link:"https://2021.igem.org/Team:Uppsala/Education"
+            },
+            {
                 name:"* Awards",
                 link:"https://2021.igem.org/Team:Uppsala"
             },
