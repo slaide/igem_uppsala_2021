@@ -1,7 +1,12 @@
-<div class="content_section" id="sectionhomology">
+<div id="section12345>">
+    <h1>Homology model: Chimera FGFC</h1> 
 
-    <h1> Homology model: Chimera FGFC </h1> 
- 
+    <p>
+        hejhej
+    </p>
+</div>
+ <!--
+     
     <p>
         To improve the stability of FGF2, one of the undertaken approaches involved expressing a chimera FGFC, a fusion protein of the proteins FGF1 and FGF2. In order to form the chimera, we were inspired by the paper by Kaori Motomura, et al. [1]. The researchers used a chimera made up of human FGF1 and FGF2, with the final goal to use it as a therapeutic agent. By exchanging parts of FGF1 with corresponding parts of FGF2, they improved the stability of the protein and obtained the desired level of cell proliferation induction. We used these results to make a FASTA file of a bovine FGF1 and FGF2 chimera (FGFC) protein by taking the sequence of FGF1 and replacing the amino acids 41 to 83 with the corresponding region from FGF2, see Figure 1. The resulting protein is theorized to be more stable and in need of less heparin interaction [1]. 
     </p>
@@ -9,20 +14,22 @@
         However, there is no crystal structure available for this protein or the bovine version that was created by us. For this reason a homology model was applied to gain insightful information about the new protein structure.
     </p>
 
-
+-->
         <!--  vet ej vilken bild eller mått-->
+
+    <!--
         <div class="image middle half">
             <img class="expandable_image" width="1300" height="1092" src="https://2021.igem.org/wiki/images/6/65/T--Uppsala--indiegogo.png">
             <p>
                 Figure 1: Protein sequences of FGF1 and FGF2 on top. Sequence of FGFC color coded at the bottom to show which parts of the sequence come from FGF1 and FGF2 respectively.
             </p>
-            </div>
+        </div>
  
     <p> 
         In order to determine possible properties of our structure, we searched for sequences that are similar to FGFC in the Bioperl interface of BLASTTP [23]  in order to find proteins with very similar sequences and their structures. This is useful to be done before performing a homology model, as a back-up plan in case the 3D structure can not be constructed. For the results see Figure 2.
     </p>
  
-    <!--  color key for alignment scores bild-->
+    
     <div class="image middle half">
         <img class="expandable_image" width="1300" height="1092" src="https://2021.igem.org/wiki/images/6/65/T--Uppsala--indiegogo.png">
         <p>
@@ -35,7 +42,7 @@
     </p>
 
 
-    <!-- vet ej mått än-->
+    
     <div class="image middle half">
         <img class="expandable_image" width="1300" height="1092" src="https://2021.igem.org/wiki/images/8/80/T--Uppsala--homology-fgfc.png">
         <p>
@@ -56,9 +63,9 @@
         In addition, the Z-score [20]  is compared with a non-redundant set of PDB structures. It is a representation of how compatible the created model is with proteins with similar structures. This is done through the comparison of our model to other similar and stable models from a structural perspective. It is calculated by computing how many standard deviations from the mean our model score includes when compared with a given score for a large number of experimentally analyzed structures. Values that are closer to 0 represent better models, signaling fewer differences when compared with a stable structure. In our case, the Z-score obtained was between 1 and 2, as shown on the default setting of Swiss Pro, which indicates a competent model, while models with a score of 4 or more are considered insufficient. Figure 4 illustrates the Z-scores and includes a representation of where our model (represented with a red star) is placed compared with highly precise models (represented with dark grey colored dots). 
     </p>
  
-    <!-- vet ej mått än-->
+    
     <div class="image middle half">
-        <img class="expandable_image" width="1300" height="1092" src="https://2021.igem.org/wiki/images/b/ba/T--Uppsala--homolgy-z-score.png”">
+        <img class="expandable_image" width="1300" height="1092" src="https://2021.igem.org/wiki/images/b/ba/T--Uppsala--homolgy-z-score.png">
         <p>
             Figure 4: the Z-scores of many models. The models are sorted by protein size on the X-Axis, while the Y-axis indicates the normalized QMEAN4 score, an error measure. The dark grey points represent very good models, their z-score is 0 or very close to 0. When proceeding further away from the X-axis, the color of the dots becomes light grey and the z-score values are around 1 to 2. This indicates less similarity with stable proteins. Our model is represented by a red star and it has a Z-score between 1 and 2. This still means that the protein is likely stable but the stability is not as certain as it would be with a score of less than 1.
         </p>
@@ -72,7 +79,7 @@
         The Ramachandran plot in Figure 5 was made with the default function in Swiss Pro [20]. It provides an overall score based on a mean of the scores of all amino acids and additional information about protein structures that have unlikely stereochemistry. The value of the score was 90.77. As a reference, everything over 90 is considered a valuable and reliable result.
     </p>
  
-    <!-- vet ej mått än-->
+    
     <div class="image middle half">
         <img class="expandable_image" width="1300" height="1092" src="https://2021.igem.org/wiki/images/3/3e/T--Uppsala--homology-ramachandran.png”">
         <p>
@@ -87,30 +94,31 @@
         In order to judge the quality of our model, we have to look at the overall score in ERRAT2, which has to be over 50. The value obtained in our case is 92.742, which indicates a high-quality model. The attached picture shows how the functions of the error have been calculated over for our chimera so the final score is obtained. 
     </p>
 
-    <!-- vet ej mått än-->
+    
     <div class="image middle half">
-        <img class="expandable_image" width="1300" height="1092" src="https://2021.igem.org/wiki/images/3/37/T--Uppsala--math-modelling-errat2.png.png">
+        <img class="expandable_image" width="1300" height="1092" src="https://2021.igem.org/wiki/images/3/37/T--Uppsala--math-modelling-errat2.png">
         <p>
             Figure 6: The x-axis shows the residue number of the amino acids in the protein, while the error score obtained by each of them is on the y-axis. The yellow bars are regions where the protein 
             could have an error of function. However, the overall error of function is a mean of each protein's error of function. In our case, the value is 92.74, which indicates a high-quality model. Any protein with a score over 50 is considered to have good stability.
         </p>
     </div>
 
-    <!-- vet ej mått än vilken är figurtexten?!?!-->
+    
     <h3 style="color:Red">WRONG FIGURE TEXT</h3>
     <div class="image middle half">
         <img class="expandable_image" width="1300" height="1092" src="https://2021.igem.org/wiki/images/b/bd/T--Uppsala--homology-molprobity-results.png">
         <p>
             Figure 7: Nonetheless, MolProbity [25] has also been used in order to evaluate the new FGFC structure. The access to MolProbity, version 4.4 was provided aswell through SwissPro[20].
-It is used for an overall validation of the structure and its strenght comes from hydrogen bonds optimisation and  the analysis of over-all atoms bonds as stated in Vicent B. Chain et al research named MolProbity all atom structure validation for macromolecular crystallography  [13] It provides overall statics of evaluation while providing flags for problem areas.
-The overall values provided by the MolProbity algorithm are visible in Figure 7.
+            It is used for an overall validation of the structure and its strenght comes from hydrogen bonds optimisation and  the analysis of over-all atoms bonds as stated in Vicent B. Chain et al research named MolProbity all atom structure validation for macromolecular crystallography  [13] It provides overall statics of evaluation while providing flags for problem areas.
+            The overall values provided by the MolProbity algorithm are visible in Figure 7.
+            -->
 <!--
 Figure 7: MolProbity score and parameters calculation
     The overall score is 2.11 and it sums up all the geometric score in one that defines the quality. Lower values are better, which means our protein is a pomising one.
     The clash score is done for all atoms and represents the rates of sterics. As a references, the lower the number, the better. For our case is 7.18, which indicates a favorable result. Ramachandran favoured and outliners represent the numbers of favorable or poor phi/psi angles for amino acids. In our case 90.77% are considered favorable to behave well and 0.77% are expected to have an error. 
     The rotamers outliners are defining the geometry of the aminoacid chain. For example, if the rotamers are over 1,5 can be concerning. Our value is 1.77% which can lead to error. 
      Bad angles, bad bonds and cis non-proline refer to the number of aminoacids that are having bad geometry or other chemical parameters. In our case the values are 0, 17 and 2 which are fairly small values and means the protein is unlikely to have the mentioned problems.
-     -->
+     
         </p>
     </div>
  
@@ -121,11 +129,13 @@ Figure 7: MolProbity score and parameters calculation
 
 
 </div>
+-->
 <!-- new section-->
-
-<div class="content_section" id="sectionbioreactormodel">
+<!--
+<div id="section2>">
 <h1>Bioreactor Model</h1>
     <h2>The theory behind the Bioreactor Model </h2>
+  
     <p>
         Complex bioprocesses like cell growth need further investigation to understand how the regulatory operations are connected. In order to do so, a first step is to perform mathematical modelling of our cell growth. The bioreactor model was defined based on the wet-lab methods used by the team and on the metabolism pathways the cell uses in our growth media. 
     </p>
@@ -146,7 +156,7 @@ Figure 7: MolProbity score and parameters calculation
         \( \mu _m\) is the maximum growth rate that the bacteria can reach, and \(X_m\) is the maximal possible cell density.
     </p>
 
-    <!-- vet ej mått än-->
+    
     <div class="image middle half">
         <img class="expandable_image" width="1300" height="1092" src="https://2021.igem.org/wiki/images/3/3e/T--Uppsala--math-modelling-growth-measurement.png">
         <p>
@@ -155,9 +165,8 @@ Figure 7: MolProbity score and parameters calculation
     </div>
 
 </div>
-<!-- new section-->
 
-<div class="content_section" id="sectionbioreactormodel">
+<div id="section3>">
     <h1>Bioreactor Model Specifics </h1>
 
     <p>
@@ -312,8 +321,8 @@ Figure 7: MolProbity score and parameters calculation
     
 
 </div>
-<!-- new section-->
-<div class="content_section" id="sectionreferencesmodels">
+
+<div id="section4>">
     <h1>References</h1>
  
     <p>
@@ -418,3 +427,4 @@ Figure 7: MolProbity score and parameters calculation
     </p>
 </div>    
 
+-->
