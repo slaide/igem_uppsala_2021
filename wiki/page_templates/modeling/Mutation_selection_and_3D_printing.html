@@ -30,8 +30,7 @@ background-color: #dddddd;
 
 </div>
 
-<div id="sectionB>">
-    <h1>Structure selection</h1>
+    <h2>Structure selection</h2>
     <p>
         Our project initially started with research using UniProt and the Protein Data Bank (PDB) to find sequences and crystal structures of the bovine growth factor FGF2, and its receptor bovine FGFR2.There was no crystal structure for bovine FGF2 available, only for human FGF2. To see if the bovine protein may have a similar 3D structure, we performed a sequence alignment using Clustal Omega to assess the homology of the two proteins. As the sequences were found to have very high sequence identity - they only differed by two residues. The crystal structure of human FGF2 bound to human FGFR2 was chosen as the target structure. The crystal structure for human FGF2 was visually examined in PyMOL to search for plausible mutation sites. Furthermore, homology modeling of bovine FGF2 with human FGF2 as template on Swiss-Prot showed that the 3D structure of bovine FGF2 was very likely to be nearly identical to the 3D structure of human FGF2 which gave further support for the choice of the human FGF2 crystal structure as a target to identify mutations. The human FGF2 protein and receptor structure can be seen in Figure 1. 
     </p>
@@ -41,16 +40,15 @@ background-color: #dddddd;
     </div>
 
         
-</div>
 
-<div id="sectionC">
-    <h1>Initial mutation pool</h1>
+
+    <h2>Initial mutation pool</h2>
 <p>
 The search for mutations was conducted in the GUI in pyMOL. We explored the binding site of FGF2 with its receptor and analysed the existing interactions to see if we could find holes in the structure which we could fill by inserting larger residues. By comparing the amino acid sequence of FGF2 to that of other FGFs, differences in the binding site were identified and the possible effect these alternative residues could have in FGF2 were investigated. We also looked for natural or synthetic mutations that had been found in analogous structures to FGF2 in existing literature. We wanted to improve the existing interactions and to mutate residues to create new interactions. Some sites were excluded directly because of high side chain clash scores in PyMOL. The resulting first mutation pool, consisting of positions that seemed likely to be apt for improving mutations, is presented here:
 </p>
 
   
-</div>
+
 
 <div id="sectionD">
     <h1>Filtering of mutations</h1>
@@ -333,7 +331,28 @@ FoldX[4] estimates the vital interactions contributing to the stability of prote
         F93Y &nbsp;&nbsp;&nbsp;&nbsp;F93L&nbsp;&nbsp;&nbsp;&nbsp;F93W &nbsp;&nbsp;&nbsp;&nbsp;L98M <br>
         </p>
 
-    
+
+          <h2>Tools Used</h2>
+          <p> <a href="http://compbio.clemson.edu/SAAFEC-SEQ/#started">SAAFE-SEQ</a></p>
+          
+          <p>
+            <a href="http://biosig.unimelb.edu.au/dynamut/prediction">DynaMUT</a>
+          </p>
+          
+          <p>
+            <a href="http://foldxsuite.crg.eu/">FoldX</a>
+          </p>
+          <p>
+            <a href="https://cluspro.org/publications.php">ClusPro</a>
+          </p>
+          
+          <p>
+            <a href="https://www.schrodinger.com/sites/default/files/s3/mkt/Documentation/current/docs/Documentation.htm#bioluminate_help/residue_scanning.html?Highlight=residue%20scanning">Residue Scanning in Maestro from Schrodinger</a>
+          </p>
+          
+          <p>
+            <a href="https://openwetware.org/wiki/UCSF_Chimera_for_3D_Printing">Chimera</a>
+          </p>
 
 </div>
 
@@ -345,12 +364,12 @@ Having U-Print, a dedicated facility for 3D printing, at Uppsala university, ins
 </p>
 <div>
 
-<div class="image left half" style="width: 24vw;">
+<div class="image left half" style="width: 23vw;">
   <img class="expandable_image" width="1004" height="1024" src="https://2021.igem.org/wiki/images/3/32/T--Uppsala--3D-1.png">
 <p> Figure 3 and Figure 4. Solid Surface file of FGF2. </p>    
 </div>
 
-<div class="image right half" style="width: 24vw;">
+<div class="image right half" style="width: 23vw;">
   <img class="expandable_image" width="1024" height="892" src="https://2021.igem.org/wiki/images/1/1e/T--Uppsala--3D-2.png">   
 </div>
 </div>
@@ -361,14 +380,14 @@ Having U-Print, a dedicated facility for 3D printing, at Uppsala university, ins
 
   <div>
 
-    <div class="image left half" style="width: 24vw;">
+    <div class="image left half" style="width: 23vw;">
       <img class="expandable_image" width="1024" height="682" src="https://2021.igem.org/wiki/images/4/4f/T--Uppsala--fgf.jpg">
     <p> Figure 5. Structure of Fibroblast Growth Factor 2. 
       <i>3D printing was performed at U-PRINT: Uppsala University’s 3D-printing facility at the Disciplinary Domain of Medicine and Pharmacy.</i>
        </p>    
     </div>
     
-    <div class="image right half" style="width: 24vw;">
+    <div class="image right half" style="width: 23vw;">
       <img class="expandable_image" width="1024" height="892" src="https://2021.igem.org/wiki/images/thumb/a/a9/T--Uppsala--recept.jpg/600px-T--Uppsala--recept.jpg.png">   
     
       <p> Figure 6. Structure of Fibroblast Growth Factor receptor. 
@@ -382,36 +401,8 @@ Having U-Print, a dedicated facility for 3D printing, at Uppsala university, ins
     <p>
       We wanted to explore and educate ourselves with different technologies and tried to integrate them into our project. Visual representation of FGF2 is one of the important benefits for creating a 3D model of our protein. In addition to the protein structure, U-Print helped us to print the receptor structure. 
       </p>
-</div>
 
-<div id="sectionF">
-<h1>Tools Used</h1>
-<p> <a href="http://compbio.clemson.edu/SAAFEC-SEQ/#started">SAAFE-SEQ</a></p>
-
-<p>
-  <a href="http://biosig.unimelb.edu.au/dynamut/prediction">DynaMUT</a>
-</p>
-
-<p>
-  <a href="http://foldxsuite.crg.eu/">FoldX</a>
-</p>
-<p>
-  <a href="https://cluspro.org/publications.php">ClusPro</a>
-</p>
-
-<p>
-  <a href="https://www.schrodinger.com/sites/default/files/s3/mkt/Documentation/current/docs/Documentation.htm#bioluminate_help/residue_scanning.html?Highlight=residue%20scanning">Residue Scanning in Maestro from Schrodinger</a>
-</p>
-
-<p>
-  <a href="https://openwetware.org/wiki/UCSF_Chimera_for_3D_Printing">Chimera</a>
-</p>
-
-
-</div>
-
-<div id="sectionG">
-<h1> References</h1>
+<h2> References</h2>
 <p>
   [1] SAAFEC-SEQ: A Sequence-Based Method for Predicting the Effect of Single Point Mutations on Protein Thermodynamic Stability. DOI: <a href="https://www.mdpi.com/1422-0067/22/2/606">10.3390/ijms22020606</a>
 </p>
