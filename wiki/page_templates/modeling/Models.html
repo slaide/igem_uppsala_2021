@@ -1,28 +1,11 @@
 <div id="section12345>">
     <h1>Homology model: Chimera FGFC</h1> 
-
-    <p>
-        hejhej
-    </p>
-
-
-     
     <p>
         To improve the stability of FGF2, one of the undertaken approaches involved expressing a chimera FGFC, a fusion protein of the proteins FGF1 and FGF2. In order to form the chimera, we were inspired by the paper by Kaori Motomura, et al. [1]. The researchers used a chimera made up of human FGF1 and FGF2, with the final goal to use it as a therapeutic agent. By exchanging parts of FGF1 with corresponding parts of FGF2, they improved the stability of the protein and obtained the desired level of cell proliferation induction. We used these results to make a FASTA file of a bovine FGF1 and FGF2 chimera (FGFC) protein by taking the sequence of FGF1 and replacing the amino acids 41 to 83 with the corresponding region from FGF2, see Figure 1. The resulting protein is theorized to be more stable and in need of less heparin interaction [1]. 
     </p>
     <p>
         However, there is no crystal structure available for this protein or the bovine version that was created by us. For this reason a homology model was applied to gain insightful information about the new protein structure.
     </p>
-
-
-        <!--  vet ej vilken bild eller mått-->
-
-        <div class="image middle half">
-            <img class="expandable_image" width="1300" height="1092" src="https://2021.igem.org/wiki/images/6/65/T--Uppsala--indiegogo.png">
-            <p>
-                Figure 1: Protein sequences of FGF1 and FGF2 on top. Sequence of FGFC color coded at the bottom to show which parts of the sequence come from FGF1 and FGF2 respectively.
-            </p>
-        </div>
  
     <p> 
         In order to determine possible properties of our structure, we searched for sequences that are similar to FGFC in the Bioperl interface of BLASTTP [23]  in order to find proteins with very similar sequences and their structures. This is useful to be done before performing a homology model, as a back-up plan in case the 3D structure can not be constructed. For the results see Figure 2.
@@ -30,7 +13,7 @@
  
     
     <div class="image middle half">
-        <img class="expandable_image" width="1300" height="1092" src="https://2021.igem.org/wiki/images/6/65/T--Uppsala--indiegogo.png">
+        <img class="expandable_image" width="1300" height="1092" src="https://2021.igem.org/wiki/images/7/76/T--Uppsala--math-modelling-bioperl.png">
         <p>
             Figure 2: Protein sequences with the highest sequence similarity to FGFC, as determined by the Biopearl interface of BLASTTP [23]. The scores of each sequence are based on how many nucleotides they have in common with our query.
         </p>
@@ -80,7 +63,7 @@
  
     
     <div class="image middle half">
-        <img class="expandable_image" width="1300" height="1092" src="https://2021.igem.org/wiki/images/3/3e/T--Uppsala--homology-ramachandran.png”">
+        <img class="expandable_image" width="1300" height="1092" src="https://2021.igem.org/wiki/images/3/3e/T--Uppsala--homology-ramachandran.png">
         <p>
             Figure 5: Ramachandran plot for the modeled FGFC structure. Each amino acid is pictured as a dot defined by the torsional angles \( \Phi \) and (\ \Psi \). The blue dots show regions with high confidence while the red dots are regions with high error probability.
         </p>
@@ -107,18 +90,14 @@
         It is used for an overall validation of the structure and its strenght comes from hydrogen bonds optimisation and  the analysis of over-all atoms bonds as stated in Vicent B. Chain et al research named MolProbity all atom structure validation for macromolecular crystallography  [13] It provides overall statics of evaluation while providing flags for problem areas.
         The overall values provided by the MolProbity algorithm are visible in Figure 7.
     </p>
-    <h3 style="color:Red">WRONG FIGURE TEXT</h3>
     <div class="image middle half">
         <img class="expandable_image" width="1300" height="1092" src="https://2021.igem.org/wiki/images/b/bd/T--Uppsala--homology-molprobity-results.png">
         <p>
-            
-
 Figure 7: MolProbity score and parameters calculation
     The overall score is 2.11 and it sums up all the geometric score in one that defines the quality. Lower values are better, which means our protein is a pomising one.
     The clash score is done for all atoms and represents the rates of sterics. As a references, the lower the number, the better. For our case is 7.18, which indicates a favorable result. Ramachandran favoured and outliners represent the numbers of favorable or poor phi/psi angles for amino acids. In our case 90.77% are considered favorable to behave well and 0.77% are expected to have an error. 
     The rotamers outliners are defining the geometry of the aminoacid chain. For example, if the rotamers are over 1,5 can be concerning. Our value is 1.77% which can lead to error. 
      Bad angles, bad bonds and cis non-proline refer to the number of aminoacids that are having bad geometry or other chemical parameters. In our case the values are 0, 17 and 2 which are fairly small values and means the protein is unlikely to have the mentioned problems.
-     
         </p>
     </div>
  
