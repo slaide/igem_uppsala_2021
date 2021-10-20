@@ -1,4 +1,4 @@
-.explain1{
+    .explain1{
     justify-content: center;
     display: flex;
     position: relative;
@@ -16,7 +16,7 @@
 
     .explain1 > div{
     margin: 2vh;
-    width: 15vh;
+    width: 20vh;
     
     
     }
@@ -27,9 +27,25 @@
     
     
     .explain1 > div >img{
-    margin-left: 4vh;
+    margin-left: 50%;
+    transform: translateX(-50%);
     
     
+    }
+
+    .link_to_attribution{
+    justify-content: center;
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-wrap: wrap;
+    box-shadow: 1vh 1vh 2vh rgba(0,0,0,0.5);
+    overflow: hidden;
+    border-top: 1px solid rgba(255,255,255,0.5);
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 2vh;
+    margin-top: 3vh;
+    margin:3vh;
     }
     
     .teamcontainer{
@@ -136,7 +152,7 @@
     padding: 1vh;
     }
     
-    .teamcontainer .card .content > a{
+    #fgfuture_content .teamcontainer .card .content > a{
     position: relative;
     display: inline-block;
     padding: 0.5vh 0.8vh;
