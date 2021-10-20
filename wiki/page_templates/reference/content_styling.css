@@ -193,3 +193,7 @@ div.image.middle{
     position:relative;
     height: 50vh;
 }
+
+#pagecontent.blurred_image_overlay,#pagecontent.blurred_navigation_bar_open{
+    filter:blur(15px);
+}
