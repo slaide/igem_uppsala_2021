@@ -1,4 +1,4 @@
-<div id="section1>">
+<div id="sectionA>">
     <h1>Introduction</h1>
 
     
@@ -30,7 +30,7 @@ background-color: #dddddd;
 
 </div>
 
-<div id="section2>">
+<div id="sectionB>">
     <h1>Structure selection</h1>
     <p>
         Our project initially started with research using UniProt and the Protein Data Bank (PDB) to find sequences and crystal structures of the bovine growth factor FGF2, and its receptor bovine FGFR2.There was no crystal structure for bovine FGF2 available, only for human FGF2. To see if the bovine protein may have a similar 3D structure, we performed a sequence alignment using Clustal Omega to assess the homology of the two proteins. As the sequences were found to have very high sequence identity - they only differed by two residues. The crystal structure of human FGF2 bound to human FGFR2 was chosen as the target structure. The crystal structure for human FGF2 was visually examined in PyMOL to search for plausible mutation sites. Furthermore, homology modeling of bovine FGF2 with human FGF2 as template on Swiss-Prot showed that the 3D structure of bovine FGF2 was very likely to be nearly identical to the 3D structure of human FGF2 which gave further support for the choice of the human FGF2 crystal structure as a target to identify mutations. The human FGF2 protein and receptor structure can be seen in Figure 1. 
@@ -43,7 +43,7 @@ background-color: #dddddd;
         
 </div>
 
-<div id="section3">
+<div id="sectionC">
     <h1>Initial mutation pool</h1>
 <p>
 The search for mutations was conducted in the GUI in pyMOL. We explored the binding site of FGF2 with its receptor and analysed the existing interactions to see if we could find holes in the structure which we could fill by inserting larger residues. By comparing the amino acid sequence of FGF2 to that of other FGFs, differences in the binding site were identified and the possible effect these alternative residues could have in FGF2 were investigated. We also looked for natural or synthetic mutations that had been found in analogous structures to FGF2 in existing literature. We wanted to improve the existing interactions and to mutate residues to create new interactions. Some sites were excluded directly because of high side chain clash scores in PyMOL. The resulting first mutation pool, consisting of positions that seemed likely to be apt for improving mutations, is presented here:
@@ -52,7 +52,7 @@ The search for mutations was conducted in the GUI in pyMOL. We explored the bind
   
 </div>
 
-<div id="section5">
+<div id="sectionD">
     <h1>Filtering of mutations</h1>
 <p>
 Optimally, all sites within the mutation pool would be evaluated using molecular dynamics simulations. However, as free energy perturbation is computationally demanding and our computing power resources were limited, other means of evaluating the mutations were used in order to reduce the size of the mutation pool. These included: <a href="http://foldxsuite.crg.eu/">FoldX</a> through the GUI In <a href="http://www.yasara.org/index.html">Yasara</a>, the residue scanning tool within the Maestro suite, docking on cluspro and evaluation in Dynamut. In Yasara, the PDB-file of human FGF2 in complex with FGFR2 was loaded and prepared using a repair module within the FoldX suite. Then, a residue scanning tool within the FoldX suite was used to evaluate the effect of mutating the remaining nineteen natural amino acids. In maestro, the structure was loaded and repaired similarly, but the residue scanning tool within the Maestro suite gave information on the effect of both affinity and stability. For ClusPro, the structure of FGFR2 and differently mutated versions of FGF2 were submitted for docking. The calculated delta gibbs free energy of the suggested binding mode was chosen and compared to the wild type. All combined, this resulted in a reduction of the mutation pool from 36 to a size of 8 mutations that were to be evaluated computationally using molecular dynamics through the molecular dynamics software <a>package Q</a> developed at Uppsala University.
@@ -343,16 +343,16 @@ FoldX[4] estimates the vital interactions contributing to the stability of prote
 
 </div>
 
-<div id="section6">
+<div id="sectionE">
  
 
 </div>
 
-<div id="section7">
+<div id="sectionF">
 
 </div>
 
-<div id="section8">
+<div id="sectionG">
 <h1> References</h1>
 
 </div>
