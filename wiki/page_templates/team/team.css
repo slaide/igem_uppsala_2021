@@ -21,10 +21,6 @@
     
     }
 
-    .explain1 > div > h3{
-        
-    }
-    
     
     .explain1 > div >img{
     margin-left: 50%;
@@ -33,7 +29,7 @@
     
     }
 
-    .link_to_attribution{
+    #fgfuture_content > div > div.link_to_attribution{
     justify-content: center;
     display: flex;
     position: relative;
@@ -46,6 +42,7 @@
     border-radius: 2vh;
     margin-top: 3vh;
     margin:3vh;
+    margin-bottom: 10vh;
     }
     
     .teamcontainer{
@@ -170,4 +167,19 @@
     background-repeat: no-repeat;
     width:10vh;
     height:2.2vh;
+    }
+
+    #fgfuture_content .teamcontainer .card .content .diogo_email > a{
+        background-image: url("https://2021.igem.org/wiki/images/1/1e/T--Uppsala--mail.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 4vh;
+        height:4vh;
+        background-size: 80%;
+        padding: 2vh 2vh;
+        position: relative;
+        display: inline-block;
+        border-radius: 1000000000000000px;
+        
+
     }
