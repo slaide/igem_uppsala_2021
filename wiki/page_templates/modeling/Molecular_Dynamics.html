@@ -1,15 +1,20 @@
-<div id="section1>">
+<div id="sectionintroduction">
     <h1>Introduction</h1>
         <p>
-            Molecular dynamics is the computational process of simulating the movements and interactions of atoms in molecular systems in order to understand and predict the properties of molecules [8]. In our project we used molecular dynamics in order to predict the effect of single point mutations on protein-protein interaction. The result that we obtained by using molecular dynamics in silico was used to determine what mutations that we were to induce to FGF2 in vivo in the wet lab.     
+            Molecular dynamics is the computational process of simulating the movements and interactions of atoms in molecular systems in order to understand and predict the properties of molecules [1]. In our project we used molecular dynamics to predict the effect of single point mutations on protein-protein interaction. See figure 1 for an example representation of molecular dynamics. The result that we obtained by using molecular dynamics in silico was used to determine what mutations that we were to induce to FGF2 in vivo in the wet lab.          
         </p>
+        <p></p>
         <div>
-            <video width="400" controls>
+            <video width="100%" controls >
                 <source src="https://2021.igem.org/wiki/images/1/18/T--Uppsala--Interaction.mp4" type="video/mp4">
             </video>
+            <p style="padding:1vh; font-size:var(--image-caption-inline);">
+                Figure 1: Zoomed in representation of a part of a molecular dynamics simulation required for the Q54K mutation. The green protein is a part of FGF2. The red protein is a part of the receptor FGFR2. The two amino acids that have liquorice representation are suspected to be interacting. Note that the distance between them seems to be closing.
+            </p>
         </div>
+        <p></p>
         <p>
-            We did not have enough time to evaluate all mutations using molecular dynamics. Instead, once the mutation pool had been filtered and reduced according to the process described in mutation selection, we went on to evaluate the remaining 8 mutations through the molecular dynamics software package Q. We generously received guidance from Hugo Guitérrez de Téran and his colleagues throughout the process. In addition, they prepared input structure files with correct formatting for use of additional scripts in Q and helped us to apply the same technique for our other mutations. We further automated the process of setting up files for the simulations. Read more about our own pipeline on the software tool page. We were able to perform the simulations for these 8 mutations thanks to resources provided to us by the Swedish National Infrastructure for Computing (SNIC) at UPPMAX, partially funded by the Swedish Research Council through grant agreement no. 2018-05973.
+            We did not have enough time to evaluate all mutations using molecular dynamics. Instead, once the mutation pool had been filtered and reduced according to the process described in the mutation selection page, we went on to evaluate the remaining 8 mutations using the molecular dynamics software package Q. We generously received guidance from Hugo Guitérrez de Téran and his colleagues throughout the process. In addition, they prepared input structure files with correct formatting for use of additional scripts in Q for one mutation, and assisted us in applying the same technique for our other mutations. In addition to using Q, we also further automated the process of setting up files for the simulations. Read more about our own pipeline on the software tool page. We were able to perform the simulations for these 8 mutations thanks to resources provided to us by the Swedish National Infrastructure for Computing (SNIC) at UPPMAX, partially funded by the Swedish Research Council through grant agreement no. 2018-05973.
         </p>
 
 
@@ -43,25 +48,36 @@
         In addition to the estimated energy values, the simulations produce trajectory files, containing information on the position and energy of all atoms during the simulation. These trajectories can be used to visualize and analyze the whole simulation. See video below. 
         </p>
         
-        <p>
-        (rotation of the complex with sphere upon it) -> next to (Video of sphere and annihilation)   
-        </p>
-        
+        <p></p>
+        <div style="padding-left: 5vh;">
+            <video width="40%" controls >
+                <source src="https://2021.igem.org/wiki/images/0/0e/T--Uppsala--Rotation.mp4" type="video/mp4">
+            </video>
+            <img src="https://2021.igem.org/wiki/images/d/d9/T--Uppsala--arrow_for_wiki.png" style="width: 5vh; padding-bottom: 5vh; padding-left: 2vh; padding-right: 2vh;">
+            <video width="40%" controls >
+                <source src="https://2021.igem.org/wiki/images/2/2c/T--Uppsala--Annihilation.mp4" type="video/mp4">
+            </video>
+        </div>
+        <p></p>
+       
 
+</div>
+<div id=sectionmethod>
 
-
-    <h2>Method</h2>
+    <h1>Method</h1>
 
         <p>
             As previously stated, Q can predict the change in free energy during the annihilation of an amino acid to alanine, and this can be used to evaluate the effect of single-point mutations. Q has mainly been used to evaluate the effect of single point mutations on protein-small ligand interactions but for our project, we needed to estimate the effect on protein-protein interactions. This was done by combining the scheme of the thermodynamic cycles associated with the bound complex formation of the protein-protein interaction with the unbound state, see figure X.  
         </p>
 
-        <img src=”name.png”>
+        <div class="image left half">
+            <img class="expandable_image" width="4679" height="2282" src="https://2021.igem.org/wiki/images/a/a4/T--Uppsala--thermodynamicscycle1.png">
 
-        <imgtext>
-        Figure X: Example of a combined thermodynamic cycle for mutation Q54K. In the middle is the shared alanine leg for Q54A and K54A. The FEP arrows represent ΔG values that we can obtain by the use of FEP in Q. Once the FEP arrow values are obtained they can be used in equation X to calculate the final  ΔΔG value for the mutation.
-        </imgtext>
-
+            <p>
+                Figure X: Example of a combined thermodynamic cycle for mutation Q54K. In the middle is the shared alanine leg for Q54A and K54A. The FEP arrows represent ΔG values that we can obtain by the use of FEP in Q. Once the FEP arrow values are obtained they can be used in equation X to calculate the final  ΔΔG value for the mutation.
+            </p>
+        </div>
+            
 
         <p>
             Equation X: G =(Gholowt-Gapowt)-(Gholomut-Gapomut)
@@ -76,27 +92,33 @@
     
     <h2>Calculation example Q54K:</h2>
         <p>
-    Here is an example of how to use the ΔG:s obtained from Q simulations in order to calculate the final ΔΔG for the mutation. 
-    (Add full interaction video next to calculation example)
+            Here is an example of how to use the ΔG:s obtained from Q simulations in order to calculate the final ΔΔG for the mutation. 
+            (Add full interaction video next to calculation example)
         </p>
         <p>
-            Gholowt=40.99 ± 0.25
-            Gapowt=40.94 ± 0.33 
-            Gholomut= -21.91 ± 1.88
-            Gapomut= -22.86 ± 0.32
-            G =(Gholowt-Gapowt)-(Gholomut-Gapomut)
-            G =(40.99-40.94)-(-21.91-(-22.86))=(0.05)-(0.95)= -0.9
+            <table>
+                <tr><td>Gholowt=40.99 ± 0.25</td></tr>
+                <tr><td>Gapowt=40.94 ± 0.33</td></tr>
+                <tr><td>Gholomut= -21.91 ± 1.88</td></tr>
+                <tr><td>Gapomut= -22.86 ± 0.32</td></tr>
+                <tr><td>G =(Gholowt-Gapowt)-(Gholomut-Gapomut)</td></tr>
+                <tr><td>G =(40.99-40.94)-(-21.91-(-22.86))=(0.05)-(0.95)= -0.9</td></tr>
+            </table>
         </p>
-        <p>
-            <img src=”name.png”>
 
-            <imgtext>
-                Figure X: Free energy difference over time for the four simulations required to close the thermodynamic cycle for Q54K mutation. Cumulative lambda is on the x-axis and ΔG in kcal/mol is on the y-axis. Light blue lines represent individual replicate simulations and the dark blue line is the average of ten individual replicate simulations. Graph A is K54A apo simulation, graph B is Q54A apo simulation,  graph C is K54A holo simulation and graph D is Q54A holo simulation.
-            </imgtext>
-        </p>
+        <div class="image mid">
+            <img class="expandable_image" width="789" height="599" src="https://2021.igem.org/wiki/images/4/45/T--Uppsala--Energy_Graphs.png">
+
+            <p>
+                Figure 44: Free energy difference over time for the simulations required to close the thermodynamic cycle for the Q54K mutation in FGF2. ΔG (y-axis) over a cumulative lambda time window (x-axis). Light blue lines represent individual replicate simulations and the dark blue line is the average of ten individual replicate simulations. (A) FGF2 K54A apo simulation, (B) FGF2 Q54A apo simulation,  (C) FGF2 K54A holo simulation (D) FGF2 Q54A holo simulation.
+            </p>
+        </div>
+
+    
+        
 </div>
 
-<div id="section2">
+<div id="sectionresult">
     <h1>Results</h1>
 
     <p>
@@ -106,10 +128,10 @@
         Table X: Mean ΔΔG values and standard error of the mean obtained using molecular dynamics through Q for all mutations in the final mutation pool. 
     </p>
     <!--ADD THE TABLE-->
-</div>
 
-<div id="section3">
-    <h1>Assumptions</h1> 
+
+
+    <h2>Assumptions</h2> 
 
         <p>
     Molecular mechanics' goal is to represent the interaction between molecules in a similar way as classical physics. Even though this field has greatly developed in the last years, there are still several assumptions the technique is based on.
