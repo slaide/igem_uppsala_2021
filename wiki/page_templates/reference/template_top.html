@@ -36,6 +36,12 @@
         <!-- undo_igem_bs.js -->
         <script src="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/js/undo_igem_bs.js&action=raw&ctype=text/javascript"></script>
 
+        <!-- slideshow.css -->
+        <link rel="stylesheet" type="text/css" href="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/css/slideshow.css&action=raw&ctype=text/css">
+
+        <!-- slideshow.js -->
+        <script src="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/js/slideshow.js&action=raw&ctype=text/javascript"></script>
+
         <script purpose="on_load_code">
             /*
             clean up the existing stuff that is nothing but in the way of our page design (top bar with igem logo and navigation panel hidden behind a burger menu, and quite thick padding on the left and top of the screen)
@@ -83,6 +89,8 @@
                     let height=image_element.getAttribute("height")
                     //image_element.style.setProperty("padding-bottom",(width/height*100)+"%")
                 }
+
+                init_slideshows()
             }
         </script>
     </head>
