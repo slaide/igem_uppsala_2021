@@ -1,15 +1,17 @@
 
 #page_switcher{
     display:flex;
-    height:5vh;
-    grid-row-gap: 1vh;
+    height:9vh;
     font-size:3vh;
     cursor: pointer;
+    align-items:center;
 }
 
 #page_switcher .section_header{
     flex: 1 0;
-    height:calc( 5vh - 2px);
+    height:auto;
+    overflow:visible;
+    height:calc( 9vh - 2px);
 }
 .section_header{
     font-size:2.5vh;
@@ -33,15 +35,14 @@
     cursor:pointer;
 }
 
-/* not quite sure if the currently active, or the NOT active section should have a grey header */
-.section_header.active_tab > div{
-    color:grey;
-}
-/* make header text vertically centered */
 .section_header > div{
     position:relative;
     top:50%;
     transform:translateY(-50%);
+}
+/* not quite sure if the currently active, or the NOT active section should have a grey header */
+.section_header.active_tab > div{
+    color:grey;
 }
 
 
