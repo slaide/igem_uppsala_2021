@@ -63,12 +63,12 @@ Optimally, all sites within the mutation pool would be evaluated using molecular
 
 <h2> SAAFE-SEQ </h2>:
 <p> 
-SAAFE-SEQ[1] uses a machine learning algorithm to predict the change in stability of a protein upon single mutation. For each mutation, it combines the sequence information and  amino acid properties to determine the change in free energy to predict the stability. The delta Gibbs free energy provides us with the information on whether the mutations are stabilizing or destabilizing the protein structure.It takes our wild type protein fasta sequence and mutation position, wild type and mutant amino acid as input. 
+SAAFE-SEQ[1] uses a machine learning algorithm to predict the change in stability of a protein upon single mutation. For each mutation, it combines the sequence information and  amino acid properties to determine the change in free energy to predict the stability. The delta Gibbs free energy provides us with the information on whether the mutations are stabilizing or destabilizing the protein structure. It takes our wild type protein fasta sequence and mutation position, wild type and mutant amino acid as input. 
 </p>
 
 <h2>Dynamut</h2>
 <p>
-Most of the software tools use static structure based approaches for assessing the impact of mutations on protein structure because of high computational costs. As proteins are highly mobile molecules we used Dynamut[2] which visualizes and analyzes protein dynamics.It estimates the impact of mutations on protein dynamics and stability resulting from vibrational entropy changes.
+Most of the software tools use static structure based approaches for assessing the impact of mutations on protein structure because of high computational costs. As proteins are highly mobile molecules we used Dynamut[2] which visualizes and analyzes protein dynamics. It estimates the impact of mutations on protein dynamics and stability resulting from vibrational entropy changes.
 </p>
 
 <h2>Cluspro</h2>:
@@ -78,10 +78,10 @@ Cluspro[3] uses the PDB codes as input for protein-protein docking, and returns 
 
 <h2>FoldX</h2>: 
 <p>
-FoldX[4] estimates the vital interactions contributing to the stability of proteins as well as complexes. It distinguishes itself from other software by using full atomic descriptions. It takes various energy terms into account, including differences in solvation energy for apolar and polar groups, free energy of inter- and intramolecular hydrogen bonds, and electrostatic contributions of charged groups.By installing the FoldX plugin for YASARA, the FoldX tools can be accessed  in the 3D graphical YASARA interface. We used the position scanning module within FoldX in order to get the results in Table 1.</p>
+FoldX[4] estimates the vital interactions contributing to the stability of proteins as well as complexes. It distinguishes itself from other software by using full atomic descriptions. It takes various energy terms into account, including differences in solvation energy for apolar and polar groups, free energy of inter- and intramolecular hydrogen bonds, and electrostatic contributions of charged groups. By installing the FoldX plugin for YASARA, the FoldX tools can be accessed  in the 3D graphical YASARA interface. We used the position scanning module within FoldX in order to get the results in Table 1.</p>
 
 <table>
-    <p>Table 1. Delta Delta gibbs free energy from FoldX.</p>
+    <p style="padding-bottom:0;">Table 1. Delta Delta gibbs free energy from FoldX.</p>
     <tr>
       <th>Position</th>
       <th>Lowest (kcal/mol)</th>
@@ -167,7 +167,7 @@ FoldX[4] estimates the vital interactions contributing to the stability of prote
     </p>
 
     <table>
-        <p>Table 2. Delta affinity and stability values from residue scanning. Green ones are negative, indicating increased affinity or stability, and thus potential mutations for further evaluation.</p>
+        <p style="padding-bottom:0;">Table 2. Delta affinity and stability values from residue scanning. Green ones are negative, indicating increased affinity or stability, and thus potential mutations for further evaluation.</p>
         <tr>
           <th>Mutations</th>
           <th>Delta affinity (kcal/mol)</th>
@@ -360,7 +360,7 @@ FoldX[4] estimates the vital interactions contributing to the stability of prote
   <h1>3D printing</h1>
 
 <p>    
-Having U-Print, a dedicated facility for 3D printing, at Uppsala university, inspired the idea of 3D printing the structure of FGF2. For such prototyping we needed to create a file that described the surface geometry of a three dimensional object.To generate such a file, in the STL format, we used Chimera [6], a software used for interactive visualization and analysis of molecular structure. 
+Having U-Print, a dedicated facility for 3D printing, at Uppsala university, inspired the idea of 3D printing the structure of FGF2. For such prototyping we needed to create a file that described the surface geometry of a three dimensional object. To generate such a file, in the STL format, we used Chimera [6], a software used for interactive visualization and analysis of molecular structure. 
 </p>
 <div>
 
