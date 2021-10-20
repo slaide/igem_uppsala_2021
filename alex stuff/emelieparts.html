@@ -1,0 +1,1856 @@
+
+{{IGEM_TopBar}}
+
+<html lang="en">
+<head>
+<style real-href="remove_presets.css">
+.top_bar{
+    display:none;
+    height:0px;
+}
+.igem_column_wrapper{
+    width:auto;
+    max-width:none;
+}
+#globalWrapper{
+    padding-bottom:0;
+}
+.igem_content_wrapper .igem_column_wrapper a,.igem_content_wrapper .igem_column_wrapper a:hover{
+    font-weight: initial;
+    text-decoration-color: initial;
+    transition: initial;
+    -webkit-transition: initial;
+    -moz-transition: initial;
+    -ms-transition: initial;
+    -o-transition: initial;
+}
+h1,h2,h3,h4,h5,h6{
+    padding:0;
+    border:0;
+}
+#content{
+    line-height:normal;
+}
+
+</style>
+
+<style purpose="global">
+
+#globalWrapper {padding-bottom:0px;}
+
+@font-face {
+    font-family: UL;
+    src: url("https://2021.igem.org/wiki/images/5/56/T--Uppsala--Ubuntu-Light.ttf");
+}
+
+@font-face {
+    font-family: UM;
+    src: url("https://2021.igem.org/wiki/images/d/db/T--Uppsala--Ubuntu-Medium.ttf");
+}
+
+*{
+    margin:0;
+    border:0;
+    padding:0;
+    font-family: sans-serif;
+}
+
+a,a:visited{
+    text-decoration: none;
+    color: #6d1d23;
+}
+a:hover{
+    text-decoration: underline;
+    color: #426968;
+}
+
+body, html{
+    height: 100%;
+    width: 100%;
+    scroll-behavior: smooth;
+}
+
+hr{
+    height: 1px;
+    background-color: #6d1d23;
+    display: block;
+    width: auto;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+.blurred_image_overlay,.blurred_navigation_bar_open{
+    filter:blur(15px);
+}
+
+</style>
+
+<style purpose="header section and content container">
+#pagecontent{
+    display: grid;
+
+    grid-template-rows:calc(5vh + 50vh + 16px) auto;
+    grid-template-columns: 1fr 1fr 4fr 2fr;
+    background-color: #dce1de;
+}
+
+table {
+font-family: arial, sans-serif;
+border-collapse: collapse;
+width: 100%;
+}
+
+td, th {
+border: 1px solid #dddddd;
+text-align: left;
+padding: 8px;
+}
+
+tr:nth-child(even) {
+background-color: #dddddd;
+}
+
+
+#parallaxtop {
+    height: calc(50vh + 5vh + 16px);
+    background-image: url(https://2021.igem.org/wiki/images/4/4f/T--Uppsala--partsbanner2.jpg);
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    
+    overflow: hidden;
+    
+    grid-row: 1 / 2;
+    grid-column: 1 / 5;
+}
+/* some page header images may fit better if stretched to the correct size */
+#parallaxtop.stretch_background{
+    background-position: center calc( 5vh + 16px);
+    background-size: 100% 50vh;
+}
+/* some page header images may fit better if clipped instead of stretched */
+#parallaxtop:not(.stretch_background){
+    background-position: center;
+    background-size: cover;
+}
+
+#page_header{
+    display:inline-block;
+    position:relative;
+    width:auto;
+    height:auto;
+    left:50%;
+    top:calc( 50vh /2 + 5vh);
+    transform:translate(-50%,-50%);
+
+    text-align: center;
+    font-size: 6em;
+    color: #6d1d23;
+    font-family: UM, sans-serif;
+}
+
+</style>
+<style purpose="sidebar">
+#sidebar {
+    display:block;
+    position:relative;
+
+    width: 100%;
+
+    margin-top:5vh;
+    margin-left:1vh;
+    margin-right:1vh;
+
+    font-size: 2vh;
+    font-weight:600;
+
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+}
+#sticky_sidebar{
+    top:calc( 16px + 5vh);
+    position:sticky;
+}
+#sidebar_header{
+    padding-top:2vh;
+    font-size:3.5vh;
+    font-family: UM;
+}
+#sidebar a{
+    color:#6d1d23;
+    font-weight:bold;
+}
+#sidebar :hover{
+    color:#426968; 
+}
+#sidebar_list_container{
+    margin:0;
+    padding:0;
+    margin-left:1vw;
+    width:calc(100% - 1vw);
+    line-height: 1;
+}
+.sidebar_list_section{
+    display:block;
+    width:calc(100% - 2vh);
+    
+    color:#6d1d23;
+
+    margin-bottom: 2.2vh;
+
+    transition: all 0.2s;
+
+    font-family: UL;
+}
+.sidebar_list_section a{
+    font-size: 2vh;
+}
+.sidebar_list_section.current_section{
+    /* #6d1d23 */
+    border-left:1vh solid rgba(109,29,35,0.9);
+    padding-left:1vh;
+}
+.sidebar_list_section span:hover{
+    color:#426968;
+}
+.listsidebar{
+    margin-top: 0px;
+    padding:0;
+    width: 100%;
+    background-color: #dce1de;
+    height: 100%;
+}
+
+</style>
+
+<style purpose="text/main section and pre-defined styles for user-writable code">
+/* Actual content */
+#fgfuture_content{
+    background-color: #dce1de;
+
+    margin-top: 3.6vh;
+    padding-bottom: 5vh;
+
+    font-family: UL; 
+
+    grid-row: 2 / 3;
+    grid-column: 3 / 4;
+}
+
+#fgfuture_content h1,#fgfuture_content h2,#fgfuture_content h3{
+    color:#6d1d23;
+    font-family: UM, sans-serif;
+    margin-left: 0.5vh;
+    display:block;
+}
+
+#fgfuture_content h1{
+    font-size: 3vh;
+    margin-top: 1.5vh;
+    margin-bottom: 1.5vh;
+}
+#fgfuture_content h2{
+    font-size: 2.4vh;
+    margin-top:1.2vh;
+    margin-bottom: 1.2vh;
+}
+#fgfuture_content h3{
+    font-size: 1.8vh;
+    margin-top: 0.9vh;
+    margin-bottom: 0.9vh;
+}
+
+/* styling applies to all text within the content area that is not a header */
+#fgfuture_content p,#fgfuture_content ul,#fgfuture_content ol,#fgfuture_content div.content_section>div,#fgfuture_content span{
+    margin-bottom: 0.5vh;
+    margin-top: 0.5vh;
+    
+    padding-bottom: 2vh;
+    
+    line-height: 1.5;
+}
+#fgfuture_content p,#fgfuture_content ul,#fgfuture_content ol,#fgfuture_content div.content_section>div{
+    font-family: sans-serif;
+    font-size: 1.5vh;
+}
+/* all elements listed in main content sections (the usual text you see on template pages) */
+#fgfuture_content p,#fgfuture_content div.content_section>div,#fgfuture_content div.content_section>ul,#fgfuture_content div.content_section>ol{
+    margin-left:2.5vh;
+}
+/* text paragraphs that are contained within a 'list of h3s' (used a lot on hp page) */
+#fgfuture_content ol > div > p{
+    margin-left:2.5vh;
+}
+
+/* add padding on left of lists to make sure the li-element markers are contained within list area, not outside! */
+#fgfuture_content ul{
+    list-style-type: disc;
+    padding-left: 2vh;
+}
+#fgfuture_content ol{
+    list-style-type: decimal;
+    padding-left: 3vh;
+}
+
+#fgfuture_content div{
+    overflow:hidden;
+}
+#fgfuture_content div.image{
+    /* make space for text around the image */
+    display:inline-block;
+    padding-bottom: 1vh;
+}
+#fgfuture_content div.image>p,#fgfuture_content div.image>p{
+    font-size: 1.2vh;
+    padding: 1vh;
+    text-align: justify;
+    margin:0;
+}
+/* make image float so that text can wrap around it */
+div.image.left{
+    float:left;
+    padding-right:2vh;
+}
+div.image.right{
+    float:right;
+    padding-left:2vh;
+}
+div.image.middle{
+    position:relative;
+    left:50%;
+    transform:translateX(-50%);
+}
+#fgfuture_content div.w10{
+    width:10%;
+}
+#fgfuture_content div.w15{
+    width:15%;
+}
+#fgfuture_content div.w20{
+    width:20%;
+}
+#fgfuture_content div.quarter{
+    width:25%;
+}
+#fgfuture_content div.half{
+    width:50%;
+}
+
+/* make sure images have expected size (the actual size specifications apply to their container, not themself) */
+#fgfuture_content div.image > img{
+    width:100%;
+    height:auto;
+}
+
+/* NORMAL PARAGRAPH*/
+.midcontenttext > p{
+    font-weight:normal;
+    font-size:1em;
+    color:black;
+    line-height:1.8;
+    letter-spacing:0.05em;
+    margin-top: 3vh;
+}
+
+/* For tables */
+#fgfuture_content table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#fgfuture_content td, #fgfuture_content th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+#fgfuture_content tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+#fgfuture_content span.quote.text::before{
+    content:'"';
+}
+#fgfuture_content span.quote.text::after{
+    content:'"';
+}
+#fgfuture_content span.quote.source::before{
+    content:' - ';
+}
+
+#fgfuture_content a.button{
+    display:inline-block;
+    background-color: lightgrey;
+    padding:1.2vh;
+    border-radius:0.6vh;
+    border:1px solid black;
+}
+#fgfuture_content a.button.wide{
+    margin-top: 0.5vh;
+    padding:0.7vh;
+    margin-right: 3vh;
+    width:calc( 100% - 2 * 0.7vh - 2 * 1px - 3vh );
+    text-align: center;
+}
+
+/* for use embedded into regular text */
+#fgfuture_content div.content_section > div > object.pdf_file{
+    width:90%;
+    left:5%;
+    position:relative;
+    height: 50vh;
+}
+
+#fgfuture_content .link_target{
+    position:relative;
+    float:left;
+    /* fallback for browsers where min() is not supported */
+    top: -100px;
+    top: min( -100px, -15vh );
+}
+
+</style>
+
+<style purpose="sponsors">
+.flexbox-container-socialmedia{
+    width: auto;
+    height: 25vh;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    background-color: #426968;
+    justify-content: center;
+}
+
+
+.flexbox-container-socialmedia > div > a > img:not(img.upplogo){
+    margin-left: 3vw;
+    margin-right: 3vw;
+    filter: grayscale(50%);
+    margin-top: 7vh;
+    width: 5vw;
+}
+
+.flexbox-container-socialmedia > div > a > img:not(img.upplogo):hover{
+    filter:grayscale(0);
+    filter: brightness(130%);
+    filter: contrast(150%);
+
+}
+
+img.upplogo{
+    width: 10vw;
+    margin-top: 3vh;
+    margin-left: 3vw;
+    margin-right: 3vw;
+}
+
+
+.grid-container-sponsors{
+    height: 30vh;
+    display: grid;
+    padding-left:5%;
+    padding-right:5%;
+    padding-bottom:5vh;
+    width: 90%;
+    row-gap: 20%;
+    column-gap: 5%;
+    grid-template-columns:repeat(6,1fr);
+    grid-template-rows:repeat(2,1fr);
+    overflow: hidden;
+    background-color: #426968;
+}
+
+.grid-container-sponsors > div{
+    width:auto;
+    height:auto;
+}
+.grid-container-sponsors > div > a > img{
+    width:80%;
+    height:auto;
+    filter: grayscale(50%);
+    position:relative;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+}
+
+.grid-container-sponsors > div > a > img:hover{
+    filter:grayscale(0);
+    filter: brightness(130%);
+    filter: contrast(150%);
+}
+
+
+</style>
+
+<script purpose="general purpose functions">
+function and(a,b){if(a){ if(b){return true;} } return false;}
+function min(a,b){return (a<b)?a:b}
+function max(a,b){return (a>b)?a:b}
+</script>
+
+<!-- cross-page navigation bar -->
+<style real-href="navigation_bar">
+/*navigation bar*/
+#navigation_bar{
+    top:16px;
+    height:5vh;
+
+    position:fixed;
+    width:100%;
+
+    z-index:9;
+
+    display:grid;
+    /* left grid element has height 100% (5vh), and to contain the logo, the width needs to be calculated from the image's aspect ratio, with a width of 87px and height of 65px, the rest is math */
+    --logo-width: calc(5vh * 87.1333 / 65.35 );
+    grid-template-columns: var(--logo-width) calc(100% - var(--logo-width));
+    grid-template-rows: 100%;
+    
+    color:#6d1d23;
+    
+    background-color: transparent;
+}
+
+/* a elements when not hovering*/
+div.dropbtn,.navigation_dropdown_entry,.igem_content_wrapper .igem_column_wrapper a{
+    font-family: sans-serif;
+    transition: 0.1s;
+    font-weight: normal;
+    text-decoration: none;
+}
+.dropdown_content{
+    line-height:1.2;
+}
+div.dropbtn{
+    cursor:default;
+    font-size: 2.5vh;
+}
+li.hovering_over > div.dropbtn{
+    font-weight: bold;
+}
+/* override default link highlighting */
+#navigation_bar a:not(:hover),#navigation_bar div:not(:hover){
+    text-decoration: none;
+}
+/* a elements when hovering (override color and underline) */
+#navigation_bar a:hover,#navigation_bar div.dropbtn:hover{
+    /* reset igem bs */
+    font-weight: bold;
+}
+#navigation_bar a:hover{
+    text-decoration: underline;
+}
+
+/* navigation bar logo on left */
+/* img container */
+#navigation_bar_logo_container{
+    height:calc(5vh - 1px);
+
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+}
+/* set own background color to still have background when rest of navigation bar vanishes while scrolling */
+#navigation_bar_logo_container,.logotype{
+    background-color: #dce1de;
+}
+/* actual logo inside container */
+#navigation_bar_logo_container > img{
+    height:100%;
+}
+
+/* container for dropdown menus on right side of navigation bar */
+#dropdown-container{
+    display:grid;
+    height:calc( 5vh - 1px);
+
+    grid-template-columns: repeat(6,1fr);
+    grid-template-rows: 100%;
+    
+    /* invisible by default. making it invisible happens gradually */
+    transition: opacity 0.3s;
+    opacity: 0;
+    
+    /* reset igem bs */
+    padding:0;
+    margin:0;
+    
+    /* then set my own padding */
+    padding-left: 10%;
+    padding-right: 10%;
+    
+    overflow:hidden;
+    border-bottom: 1px solid black;
+    
+    background-color:#dce1de;
+}
+/* while either scrolling, or hovering mouse over the navigation menu area, show the menu overview instantly */
+#dropdown-container.scrolled_down,#dropdown-container.panel_opened{
+    transition: opacity 0s;
+    opacity: 1;
+}
+/* only while the panel is open (via mouse hover) show the extended menus, which include the links to other pages */
+#dropdown-container.panel_opened{
+    overflow:visible;
+}
+
+/* when not hovering over the navigation area, make all links see-through, that are not headlines (i.e. only the menu entries) */
+#dropdown-container:not(.panel_opened) a:not(.dropbtn){
+    opacity:0;
+}
+
+/* dropdown menus (containers) */
+.dropdown{
+    display:block;
+    height:40vh;
+    background-color: #dce1de;
+    border-bottom:1px solid black;
+    overflow:visible;
+}
+/* add border on left and right side of navigation SUB-menus (not all around menu, which would include borders crossing through the navigation bar itself) */
+.dropdown:first-child .dropdown_content{
+    border-left:1px solid black;
+}
+.dropdown:last-child .dropdown_content{
+    border-right:1px solid black;
+}
+/* to disable mouse-hover javascript events on see-through links below navigation bar, effectively remove them (except not really) */
+#dropdown-container:not(.panel_opened) .dropdown_content{
+    display:none;
+}
+/* header of dropdown menus (containing name of each category) */
+.dropbtn{
+    display:block;
+    position:absolute;
+
+    text-decoration: none;
+
+    top:calc( 2.5vh);
+    transform:translateY(-50%);
+}
+/* override text color of all links inside dropdown menu when hovering over the menu */
+.dropdown.hovering_over a{
+    font-weight: bold;
+}
+/* container for links inside dropdown menu */
+.dropdown_content{
+    position:absolute;
+    /* .dropdown's 40vh height - 5vh offset from top*/
+    height:35vh;
+
+    font-size: 2vh;
+
+    top:5vh;
+
+    --logo-width: calc(5vh * 87.1333 / 65.35 );
+    width:calc( (100% - var(--logo-width) ) * 0.8 / 6);
+}
+/* individual link inside dropdown menu */
+.dropdown_content > a{
+    display:block;
+    padding-left:10%;
+    padding-bottom:1vh;
+    padding-top:1vh;
+}
+/* individual link inside dropdown menu on hover (underline) */
+.dropdown_content > a:hover{
+    text-decoration:underline;
+}
+
+/* highlighting of current topic in dropdown */
+.current_topic{
+    font-style: italic;
+    font-weight: bolder;
+    font-size: 2.2vh;
+}
+
+</style>
+<script purpose="internal_open_close_navbar">
+function open_navbar(){
+    document.getElementById("navigation_bar").classList.add("fully_open")
+    document.getElementById("pagecontent").classList.add("blurred_navigation_bar_open")
+    //this is broken. blurring the main element makes the scrolly things lose their position setting
+    for(element of document.getElementsByClassName("scroll_thing")){
+        element.style.setProperty("filter","blur(15px)")
+    }
+}
+function close_navbar(){
+    document.getElementById("navigation_bar").classList.remove("fully_open")
+    document.getElementById("pagecontent").classList.remove("blurred_navigation_bar_open")
+    //this is broken. blurring the main element makes the scrolly things lose their position setting
+    for(element of document.getElementsByClassName("scroll_thing")){
+        element.style.setProperty("filter","initial")
+    }
+}
+
+/* open/close navigation bar while scrolling */
+window.addEventListener("wheel",(ev)=>{
+    let scroll_height=document.body.scrollTop||document.documentElement.scrollTop||window.pageYOffset
+    if(and(ev.deltaY>0,scroll_height>(window.innerHeight*0.5 + 16 /* scroll height has passed parallax top and login bar (which offsets parallax image) */))){
+        document.getElementById("dropdown-container").classList.remove("scrolled_down")
+    }else{
+        document.getElementById("dropdown-container").classList.add("scrolled_down")
+    }
+})
+
+</script>
+
+<!-- cross-page loading styling and code -->
+<style purpose="loading screen">
+            #loading_overlay{
+                position:fixed;
+                height:calc( 100vh - 16px);
+                width:100%;
+                background-color: #d9dfda;
+                top:16px;
+                z-index:11;
+            }
+            #loading_icon{
+                height:50%;
+                width:auto;
+                position:absolute;
+                left:50%;
+                top:50%;
+                transform:translate(-50%,-50%);
+            }
+            #loading_icon > img{
+                height:100%;
+                width:auto;
+            }
+        </style>
+
+<script purpose="undo_igem_bs.js">
+function undo_igem_bs(){
+    let element=document.getElementsByClassName("top_bar")[0]
+    if(element){
+        element.classList.remove("top_bar")
+        element.style="display:none;"
+    }
+    for(class_name of "clear extra_space".split(" ")){
+        for(element of document.getElementsByClassName(class_name)){
+            element.classList.remove(class_name)
+        }
+    }
+
+    let navigation_bar_list=document.getElementById("navigation_bar_list")
+    if(navigation_bar_list){
+        if(navigation_bar_list.style.getPropertyValue("display")=="none"){
+            navigation_bar_list.style=undefined
+        }
+        for(child of navigation_bar_list.children){
+            child.classList.remove("current_hub")
+            child.classList.remove("current_page")
+            child.style=undefined
+        }
+    }
+    for(dropdown of document.getElementsByClassName("dropdown")){
+        dropdown.style=""
+    }
+    //disable the 'p' at the end of the column wrapper content which is just blank white space at the bottom of the page for some reason
+    let igem_column_wrappers=document.getElementsByClassName("igem_column_wrapper")
+    for(igem_column_wrapper of igem_column_wrappers){
+        igem_column_wrapper.lastElementChild.style.display="none"
+    }
+    //disable a whole bunch of css styles applied to subelements of #content (which does NOT include the holy login bar)
+    let content_element=document.getElementById("content")
+    if(content_element){
+        content_element.id=""
+    }
+    for(classname of ["igem_content_wrapper","igem_column_wrapper"]){
+        let elements_in_class=document.getElementsByClassName(classname)
+        for(element of elements_in_class){
+            element.classList.remove(classname)
+        }
+    }
+}
+
+</script>
+<script purpose="on_load_code">
+/*
+clean up the existing stuff that is nothing but in the way of our page design (top bar with igem logo and navigation panel hidden behind a burger menu, and quite thick padding on the left and top of the screen)
+*/
+
+function on_load(){
+undo_igem_bs()
+
+//after the page has loaded, provide some additional time for all of the javascript to run, then actually remove the loading screen overlay
+setTimeout(()=>{
+undo_igem_bs()
+setTimeout(()=>{
+document.getElementById("loading_overlay").style="display:none;"
+},200)
+},1000)
+
+/* get_section_offsets-specific reset */
+base=null;
+get_section_offsets()
+highlight_current_section_in_sidebar()
+window.addEventListener("scroll",highlight_current_section_in_sidebar)
+}
+</script>
+</head>
+<body onload="on_load()" onresize="on_load()">
+<!-- cross-page loading screen -->
+<div id="loading_overlay">
+<div id="loading_icon">
+<img src="https://2021.igem.org/wiki/images/7/76/T--Uppsala--logo_animated.gif">
+<div style="font-size:3vh;text-align:center;padding-top:4vh;font-family: sans-serif;">LOADING</div>
+</div>
+</div>
+<div id="image_overlay" class="invisible">
+<div style="height:100px;width:100px;background-color:red;float:right;" onclick="collapse_image()"></div>
+</div>
+<!-- cross-page Navigation Menu with drop down -->
+<div id="navigation_bar" onmouseenter="open_navbar()" onmouseleave="close_navbar()">
+    <a id="navigation_bar_logo_container" href='https://2021.igem.org/Team:Uppsala'>
+        <img class="logotype" src="https://2021.igem.org/wiki/images/thumb/1/13/T--Uppsala--logotransparent.png/320px-T--Uppsala--logotransparent.png">
+    </a>
+    <ul id="dropdown-container" class="scrolled_down">
+        <li class="dropdown">
+            <div class="dropbtn">Project</div>
+            <div class="dropdown_content">
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Description">Description</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Proof_Of_Concept">Proof of Concept</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Engineering">Engineering<br>Success</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Contribution">Contribution</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Software">Software tool</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <div class="dropbtn">Experiments</div>
+            <div class="dropdown_content">
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Results">Results</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Model">Modelling</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Experiments">Protocols</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Notebook">Notebook</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Parts">Parts</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Safety">Safety</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <div class="dropbtn">Human Practice</div>
+            <div class="dropdown_content">
+                <a href="https://2021.igem.org/Team:Uppsala/Human_Practices">Overview</a>
+                <a href="https://2021.igem.org/Team:Uppsala/Human_Practices">Integrated<br>Human Practice</a>
+                <a href="https://2021.igem.org/Team:Uppsala/Implementation">Proposed<br>Implementation</a>
+                <a href="https://2021.igem.org/Team:Uppsala/Education">Education</a>
+                <a href="https://2021.igem.org/Team:Uppsala/Inclusivity">Inclusivity</a>
+                <a href="https://2021.igem.org/Team:Uppsala/Sustainable">Sustainable<br>Development</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <div class="dropbtn">People</div>
+            <div class="dropdown_content">
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Team">Team</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Collaborations">Collaboration</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Attributions">Attribution</a>
+                <a class="navigation_dropdown_entry" href="https://2021.igem.org/Team:Uppsala/Attributions">Sponsors</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <div class="dropbtn">Videos</div>
+            <div class="dropdown_content">
+                <a href="https://2021.igem.org/Team:Uppsala/Description">Final<br>Presentation</a>
+                <a href="https://www.youtube.com/watch?v=r-pyffud3MM">Promotional<br>Video</a>
+                <a href="https://2021.igem.org/Team:Uppsala/Model">Molecular<br>Dynamics</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <div class="dropbtn">Judging</div>
+            <div class="dropdown_content">
+                <a class="navigation_dropdown_entry" href="#">Judging Form</a>
+                <a class="navigation_dropdown_entry" href="#">Awards</a>
+            </div>
+        </li>
+    </ul>
+    <script purpose="dropdown_open_close">
+        for(dropdown of document.getElementsByClassName("dropdown")){
+            dropdown.addEventListener("mouseenter",function(ev){
+                function remove_hovering_highlighting(ev){
+                    ev.target.removeEventListener("mouseleave",remove_hovering_highlighting)
+                    ev.target.classList.remove("hovering_over")
+                }
+                ev.target.classList.add("hovering_over")
+                ev.target.addEventListener("mouseleave",remove_hovering_highlighting)
+            })
+        }
+        document.getElementById("navigation_bar").addEventListener("mouseenter",(ev)=>{
+            ev.target.children[1].classList.add("panel_opened")
+            ev.target.children[1].classList.add("scrolled_down")
+        })
+        document.getElementById("navigation_bar").addEventListener("mouseleave",(ev)=>{
+            ev.target.children[1].classList.remove("panel_opened")
+        })
+    </script>
+    <script purpose="highlight_current_topic_in_navbar">
+        function highlight_current_topic_in_navbar(){
+            const match_path_text=window.location.pathName || ""
+            const match_path_length=match_path_text.length
+            for(element of document.getElementsByClassName("dropdown_content")){
+                for(child of element.children){
+                    //const match_path_text="/Team:Uppsala/Model"
+                    if(child.getAttribute("href").substr(-match_path_length)==match_path_text){
+                        child.classList.add("current_topic")
+                    }
+                }
+            }
+        }
+    </script>
+</div>
+
+
+<div id="pagecontent">
+<!-- page title-->
+
+
+
+<!-- page title-->
+<div id=parallaxtop>
+
+</div>
+
+<!--Sidebar-->
+<div id="sidebar">
+<div id="sticky_sidebar">
+<div id="sidebar_header">
+<a href="#pagecontent">
+Parts
+</a>
+</div>
+<hr>
+<ul id="sidebar_list_container">
+<!-- template for a single entry in this list. the real entries will be added at runtime
+<li class="sidebar_list_section">
+<span id="span1">
+<a href="#section1_link">
+Lab Safety
+</a>
+</span>
+</li>
+-->
+</ul>
+</div>
+</div>
+
+<!--Actual content-->
+<div id="fgfuture_content">
+
+<!--
+table {
+font-family: arial, sans-serif;
+border-collapse: collapse;
+width: 100%;
+}
+
+td, th {
+border: 1px solid #dddddd;
+text-align: left;
+padding: 8px;
+}
+
+tr:nth-child(even) {
+background-color: #dddddd;
+}
+
+-->
+
+<!-- INSERT GOOGLE DOC CONTENT BELOW THIS LINE -->
+
+
+<div id="section1>">
+
+<h1>Parts</h1>
+
+
+
+<p>Below follows two tables of iGEM Uppsala 21’s basic and composite parts. Our favourite parts which we nominate to the best parts awards are marked with a ❤. Our parts were created by first designing the FGF2 fusion protein using SnapGene and Integrated DNA Technologies (IDT) followed by BioBrick assembly using PCR amplification and ligation of our FGF2 gene with a pET backbone [1][2]. Some of the parts were finalized using PCR mutagenesis.</p>
+</div>
+
+<div id="section2>">
+
+<h1>Basic Parts</h1>
+
+<table>
+<tr>
+<th>Favourite</th>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Designer</th>
+<th>Length</th>
+</tr>
+<tr>
+<td>❤</td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934005" target="_blank"><b>BBa_K3934005</b></a>
+</td>
+<td>Coding</td>
+<td>Bovine growth factor FGF2 designed to increase affinity to the FGFR2 receptor, making it induce cell proliferation with higher efficiency.</td>
+<td>Emelie Oscarsson</td>
+<td>468 bp</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934000" target="_blank"><b>BBa_K3934000</b></a></td>
+<td>Coding</td>
+<td>Bovine growth factor FGF2wt which induces cell proliferation.</td>
+<td>Diogo Filipe</td>
+<td>468 bp</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934001" target="_blank"><b>BBa_K3934001</b></a>
+</td>
+<td>Coding</td>
+<td>Thermostably enhanced bovine growth factor which induces cell proliferation.</td>
+<td>Diogo Filipe</td>
+<td>468 bp</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<a href="http://parts.igem.org/Part:BBa_K3934002" target="_blank"><b>BBa_K3934002</b></a>
+</td>
+
+<td>Coding</td>
+<td>Chimera of bovine growth factors FGF2 and FGF1 with increased stability, decreased heparin dependency and decreased trypsin degradation compared to FGF2 wt.</td>
+<td>Daniel Lake</td>
+<td>467 bp</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934003" target="_blank"><b>BBa_K3934003</b></a></td>
+<td>Coding</td>
+<td>Bovine growth factor FGF2 designed to increase affinity to the FGFR2 receptor, making it induce cell proliferation with higher efficiency.</td>
+<td>Emelie Oscarsson</td>
+<td>468 bp</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934004" target="_blank"><b>BBa_K3934004</b></a></td>
+<td>Coding</td>
+<td>Bovine growth factor FGF2 designed to increase affinity to the FGFR2 receptor, making it induce cell proliferation with higher efficiency.</td>
+<td>Emelie Oscarsson</td>
+<td>468 bp</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934006" target="_blank"><b>BBa_K3934006</b></a></td>
+<td>Coding</td>
+<td>Bovine growth factor FGF2 designed to increase affinity to the FGFR2 receptor, making it induce cell proliferation with higher efficiency.</td>
+<td>Emelie Oscarsson</td>
+<td>468 bp</td>
+</tr>
+
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934008" target="_blank"><b>BBa_K3934008</b></a></td>
+<td>Coding</td>
+<td>Thioredoxin used as a fusion protein to increase solubility..</td>
+<td>iGEM Uppsala 21</td>
+<td>327 bp</td>
+</tr>
+
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934015" target="_blank"><b>BBa_K3934015</b></a></td>
+<td>Tag</td>
+<td>6xHis-tag for protein purification.</td>
+<td>iGEM Uppsala 21</td>
+<td></td>
+</tr>
+
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934016" target="_blank"><b>BBa_K3934016</b></a></td>
+<td>Kinase site</td>
+<td>Enterokinase site used to cleave fusion proteins.</td>
+<td>iGEM Uppsala 21</td>
+<td></td>
+</tr>
+
+</table>
+
+<h2>Favourite Basic Part</h2>
+
+<p>For the best basic part we nominate a mutant version of the bovine FGF2 protein (<a href="http://parts.igem.org/Part:BBa_K3934005" target="_blank"><b>BBa_K3934005</b></a>).  FGF2 is a mammalian growth factor which amongst other things signals cell proliferation [3]. It is one of the most important, and most expensive, components of serum free growth medium used in cellular agriculture to cultivate meat [4]. To decrease the costs of cultivated meat production in order to make it available on the food market, the growth medium needs to be optimized. This would enable a more environmentally friendly alternative to meat consumption. This part has 2 point mutations in the site where the protein binds to its receptor FGFR2 to induce cell growth. These point mutations were designed in PyMOL [5] using rational design and free energy perturbation (FEP) was performed using the molecular dynamics software package Q [6] to evaluate the effects of these single point mutations in silico. The mutations were shown to increase the binding affinity to its receptor and we hypothesize that this will lead to increased mitotic signalling so that less FGF2 will be needed in the serum free growth medium for cultivating meat, decreasing the cost of it. The part has been successfully expressed.</p>
+</div>
+<div id='section3'>
+<h1>Composite Parts</h1>
+
+<table>
+<tr>
+<th>Favourite</th>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Designer</th>
+<th>Length</th>
+</tr>
+<tr>
+<td>❤</td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934007" target="_blank"><b>BBa_K3934007</b></a>
+</td>
+<td>Composite</td>
+<td>Bovine growth factor FGF2wt which induces cell proliferation.</td>
+<td>Diogo Filipe</td>
+<td>943 bp</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934013" target="_blank"><b>BBa_K3934013</b></a></td>
+<td>Composite</td>
+<td>Bovine growth factor FGF2 designed to increase affinity to the FGFR2 receptor, making it induce cell proliferation with higher efficiency.</td>
+<td>Emelie Oscarsson</td>
+<td>943 bp</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934009" target="_blank"><b>BBa_K3934009</b></a>
+</td>
+<td>Composite</td>
+<td>Chimera of bovine growth factors FGF2 and FGF1 with increased stability, decreased heparin dependency and decreased trypsin degradation compared to FGF2 wt.</td>
+<td>Daniel Lake</td>
+<td>942 bp</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<a href="http://parts.igem.org/Part:BBa_K3934010" target="_blank"><b>BBa_K3934010</b></a>
+</td>
+
+<td>Composite</td>
+<td>Bovine growth factor FGF2 designed to increase affinity to the FGFR2 receptor, making it induce cell proliferation with higher efficiency.</td>
+<td>Emelie Oscarsson</td>
+<td>943 bp</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934011" target="_blank"><b>BBa_K3934011</b></a></td>
+<td>Composite</td>
+<td>Bovine growth factor FGF2 designed to increase affinity to the FGFR2 receptor, making it induce cell proliferation with higher efficiency.</td>
+<td>Emelie Oscarsson</td>
+<td>943 bp</td>
+</tr>
+
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934012" target="_blank"><b>BBa_K3934012</b></a></td>
+<td>Composite</td>
+<td>Thermostably enhanced bovine growth factor which induces cell proliferation.</td>
+<td>Diogo Filipe</td>
+<td>943 bp</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934014" target="_blank"><b>BBa_K3934014</b></a></td>
+<td>Composite</td>
+<td>Bovine growth factor FGF2 designed to increase affinity to the FGFR2 receptor, making it induce cell proliferation with higher efficiency.</td>
+<td>Emelie Oscarsson</td>
+<td>943 bp</td>
+</tr>
+
+</table>
+
+
+<h2>Favourite Composite Part</h2>
+<p>For the best composite part we nominate the bovine FGF2wt gene (<a href="http://parts.igem.org/Part:BBa_K3934007" target="_blank"><b>BBa_K3934007</b></a>). This part encodes for a biobrick part of the bovine FGF2wt protein used in growth medium for cultivated meat in the field and industry of cellular agriculture. Our FGF2 biobrick enables researchers and companies to more economically favourably access FGF2 for research and protein engineering towards an optimized FGF2. The part has been successfully expressed and purified on both a small scale and a large scale. By making FGF2 more accessible further research can be more easily conducted to one day reach the goal of a global lifestyle where what we eat does not harm our planet the way it does today.</p>
+
+
+</div>
+<div id='sec4'>
+<h1>Parts Collection</h1>
+<p>Our part collection consists of different FGF2 versions. Except for the wt FGF2, they are all designed to in different ways optimize this growth factor to the means of a more economically favourable cultivated meat production. This includes increased thermostability, decreased heparin dependency, decreased trypsin degradation and increased receptor binding affinity. By exploring different ways to improve FGF2 we hoped to identify a range of improvements that in the future could potentially be combined to obtain a significantly more effective FGF2.</p>
+
+
+<table>
+<tr>
+<th>Favourite</th>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Designer</th>
+<th>Length</th>
+</tr>
+<tr>
+<td>❤</td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934005" target="_blank"><b>BBa_K3934005</b></a>
+</td>
+<td>Coding</td>
+<td>Bovine growth factor FGF2 designed to increase affinity to the FGFR2 receptor, making it induce cell proliferation with higher efficiency.</td>
+<td>Emelie Oscarsson</td>
+<td>468 bp</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934000" target="_blank"><b>BBa_K3934000</b></a></td>
+<td>Coding</td>
+<td>Bovine growth factor FGF2wt which induces cell proliferation.</td>
+<td>Diogo Filipe</td>
+<td>468 bp</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934001" target="_blank"><b>BBa_K3934001</b></a>
+</td>
+<td>Coding</td>
+<td>Thermostably enhanced bovine growth factor which induces cell proliferation.</td>
+<td>Diogo Filipe</td>
+<td>468 bp</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<a href="http://parts.igem.org/PartBBa_K3934002" target="_blank"><b>BBa_K3934002</b></a>
+</td>
+
+<td>Coding</td>
+<td>Chimera of bovine growth factors FGF2 and FGF1 with increased stability, decreased heparin dependency and decreased trypsin degradation compared to FGF2 wt.</td>
+<td>Daniel Lake</td>
+<td>467 bp</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934003" target="_blank"><b>BBa_K3934003</b></a></td>
+<td>Coding</td>
+<td>Bovine growth factor FGF2 designed to increase affinity to the FGFR2 receptor, making it induce cell proliferation with higher efficiency.</td>
+<td>Emelie Oscarsson</td>
+<td>468 bp</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934004" target="_blank"><b>BBa_K3934004</b></a></td>
+<td>Coding</td>
+<td>Bovine growth factor FGF2 designed to increase affinity to the FGFR2 receptor, making it induce cell proliferation with higher efficiency.</td>
+<td>Emelie Oscarsson</td>
+<td>468 bp</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934006" target="_blank"><b>BBa_K3934006</b></a></td>
+<td>Coding</td>
+<td>Bovine growth factor FGF2 designed to increase affinity to the FGFR2 receptor, making it induce cell proliferation with higher efficiency.</td>
+<td>Emelie Oscarsson</td>
+<td>468 bp</td>
+</tr>
+
+<tr>
+<td>❤</td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934007" target="_blank"><b>BBa_K3934007</b></a>
+</td>
+<td>Composite</td>
+<td>Bovine growth factor FGF2wt which induces cell proliferation.</td>
+<td>Diogo Filipe</td>
+<td>943 bp</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934013" target="_blank"><b>BBa_K3934013</b></a></td>
+<td>Composite</td>
+<td>Bovine growth factor FGF2 designed to increase affinity to the FGFR2 receptor, making it induce cell proliferation with higher efficiency.</td>
+<td>Emelie Oscarsson</td>
+<td>943 bp</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934009" target="_blank"><b>BBa_K3934009</b></a>
+</td>
+<td>Composite</td>
+<td>Chimera of bovine growth factors FGF2 and FGF1 with increased stability, decreased heparin dependency and decreased trypsin degradation compared to FGF2 wt.</td>
+<td>Daniel Lake</td>
+<td>942 bp</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<a href="http://parts.igem.org/Part:BBa_K3934010" target="_blank"><b>BBa_K3934010</b></a>
+</td>
+
+<td>Composite</td>
+<td>Bovine growth factor FGF2 designed to increase affinity to the FGFR2 receptor, making it induce cell proliferation with higher efficiency.</td>
+<td>Emelie Oscarsson</td>
+<td>943 bp</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934011" target="_blank"><b>BBa_K3934011</b></a></td>
+<td>Composite</td>
+<td>Bovine growth factor FGF2 designed to increase affinity to the FGFR2 receptor, making it induce cell proliferation with higher efficiency.</td>
+<td>Emelie Oscarsson</td>
+<td>943 bp</td>
+</tr>
+
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934012" target="_blank"><b>BBa_K3934012</b></a></td>
+<td>Composite</td>
+<td>Thermostably enhanced bovine growth factor which induces cell proliferation.</td>
+<td>Diogo Filipe</td>
+<td>943 bp</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="http://parts.igem.org/Part:BBa_K3934014" target="_blank"><b>BBa_K3934014</b></a></td>
+<td>Composite</td>
+<td>Bovine growth factor FGF2 designed to increase affinity to the FGFR2 receptor, making it induce cell proliferation with higher efficiency.</td>
+<td>Emelie Oscarsson</td>
+<td>943 bp</td>
+</tr>
+
+</table>
+
+
+</div>
+
+<div id='sec5'>
+<h1>References</h1>
+
+<p>[1] L. Du, R. Gao, and A. C. Forster, “Engineering multigene expression in vitro and in vivo with small terminators for T7 RNA polymerase,” Biotechnol. Bioeng., vol. 104, no. 6, pp. 1189–1196, 2009, doi: 10.1002/bit.22491.
+</p>
+
+<p>[2] L. Du, S. Villarreal, and A. C. Forster, “Multigene expression in vivo: Supremacy of large versus small terminators for T7 RNA polymerase,” Biotechnol. Bioeng., vol. 109, no. 4, pp. 1043–1050, 2012, doi: 10.1002/bit.24379.</p>
+
+<p>[3] A. N. Plotnikov, S. R. Hubbard, J. Schlessinger, and M. Mohammadi, ‘Crystal Structures of Two FGF-FGFR Complexes Reveal the Determinants of Ligand-Receptor Specificity’, Cell, vol. 101, no. 4, pp. 413–424, May 2000, doi: 10.1016/S0092-8674(00)80851-X.</p>
+
+<p>[4] E. Swartz. “Meeting the Needs of the Cell-Based Meat Industry,” American Institute of
+Chemical Engineers (AIChE), Okt. 2019. Accessed on: Okt. 04, 2021. [Online].
+Available:
+<a href="https://gfi.org/wp-content/uploads/2021/01/Cell-Based_Meat_CEP_Oct2019.pdf">https://gfi.org/wp-content/uploads/2021/01/Cell-Based_Meat_CEP_Oct2019.pdf</a></p>
+
+
+<p>[5] The PyMOL Molecular Graphics System, Version 2.0 Schrödinger, LLC.</p>
+
+
+<p>[6] QresFEP: An Automated Protocol for Free Energy Calculations of Protein Mutations in Q
+Willem Jespers, Geir V. Isaksen, Tor A.H. Andberg, Silvana Vasile, Amber van Veen,
+Johan Åqvist, Bjørn Olav Brandsdal, and Hugo Gutiérrez-de-Terán
+Journal of Chemical Theory and Computation 2019 15 (10), 5461-5473
+DOI: 10.1021/acs.jctc.9b00538</p>
+
+</div>
+<!-- INSERT GOOGLE DOC CONTENT ABOVE THIS LINE -->
+<!-- INSERT GOOGLE DOC CONTENT ABOVE THIS LINE -->
+
+</div>
+
+
+</div>
+
+<script purpose="derive sidebar entries from user-generated content">
+            //for each child of the 'INSERT CONTENT HERE' section
+            let fgfuture_content=document.getElementById("fgfuture_content")
+            for(let child_num=0;child_num<fgfuture_content.children.length;child_num++){
+                let element=fgfuture_content.children[child_num]
+                //check if first element is header element
+                if(element.tagName=="SCRIPT" || element.tagName=="STYLE"){
+                    continue;
+                }
+                
+                let header=element.children[0]
+                if(header.tagName!="H1" || header.innerText.length==0){
+                    window.alert("section "+element.id+" must have an <h1>Headline</h1> as first line!")
+                }
+                //get header text of this section
+                header=header.innerText
+
+                //insert horizontal line between header and text for that section
+                let horizontal_seperator=document.createElement("hr")
+                if(element.children.length>1){
+                    element.insertBefore(horizontal_seperator,element.children[1])
+                }else{
+                    element.appendChild(horizontal_seperator)
+                }
+
+                //get the sidebar dom element
+                let sidebar_list_container=document.getElementById("sidebar_list_container")
+
+                //create the invisible span element at the beginning of the section that serves as 'sroll-to' anchor for the section
+                let link_span=document.createElement("span")
+                link_span.setAttribute("id","section"+child_num+"_link")
+                link_span.classList.add("link_target")
+                element.insertBefore(link_span,element.children[0])
+
+                //create sidebar entry for the current section/its header
+                let new_element=document.createElement("li")
+                let new_span=document.createElement("span")
+                let new_a=document.createElement("a")
+                new_a.setAttribute("href","#section"+child_num+"_link")
+                new_a.innerText=header
+                new_span.setAttribute("id","span"+child_num)
+                new_span.appendChild(new_a)
+                new_element.classList.add("sidebar_list_section")
+                new_element.appendChild(new_span)
+
+                //add created sidebar entry to the sidebar
+                sidebar_list_container.appendChild(new_element)
+            }
+        </script>
+
+
+<script purpose="hightlight currently viewed section">
+            let offsets={}
+            let base=null;
+            /* this code is executed on load */
+            function get_section_offsets(){
+                for(element of document.getElementById("fgfuture_content").children){
+                    if(!base){
+                        let offset=0;
+                        
+                        let current_element=element;
+                        while(current_element){
+                            offset+=current_element.offsetTop;
+                            current_element=current_element.offsetParent;
+                        }
+                        base=offset;
+                    }
+                    offsets[element.id]=base
+                    base+=element.clientHeight
+                }
+            }
+
+            function highlight_current_section_in_sidebar(){
+                let current_scroll=document.body.scrollTop||document.documentElement.scrollTop||window.pageYOffset
+
+                let found=false
+                let index=0
+                for(element in offsets){
+                    const subtracted_negative_screen_fraction=0.67
+                    const added_positive_screen_fraction=0.15
+
+                    let above_lower=(offsets[element]+document.getElementById(element).clientHeight-window.innerHeight*subtracted_negative_screen_fraction)>=current_scroll
+                    let below_upper=offsets[element]>=(current_scroll+window.innerHeight*added_positive_screen_fraction)
+                    let above_lowest=(offsets[element]+document.getElementById(element).clientHeight)<=current_scroll
+                    let is_last_element_in_list=(index==(Object.keys(offsets).length-1))
+
+                    if(and(above_lower, !found)||and(below_upper, above_lowest)||and(is_last_element_in_list, !found)){
+                        if(found){
+                            document.getElementById("sidebar_list_container").children[index-1].classList.remove("current_section")
+                        }
+                        found=element
+                        document.getElementById("sidebar_list_container").children[index].classList.add("current_section")
+                    }else{
+                        document.getElementById("sidebar_list_container").children[index].classList.remove("current_section")
+                    }
+                    index+=1
+                }
+            }
+        </script>
+
+
+<style purpose="popup">
+
+#fgfuture_content .popup > span:not(.popup_content){
+    cursor:pointer;
+}
+#fgfuture_content .popup{
+    cursor:default;
+    display:inline-block;
+    color:black;
+    position:fixed;
+    padding:2vh;
+
+    transform:translateX(-50%);
+
+    text-align: justify;
+    z-index:10;
+    background-color:white;
+    border:0.2vh solid black;
+    border-radius:2vh;
+}
+#fgfuture_content .popup:not(.w25):not(.w50){
+    width:15vw;
+}
+#fgfuture_content .popup.w25{
+    width:25vw;
+}
+#fgfuture_content .popup.w50{
+    width:50vw;
+}
+
+#fgfuture_content .popup object{
+    height:40vh;
+}
+
+#fgfuture_content .popup_content_header{
+    text-decoration: underline;
+    font-size: 2.2vh;
+    margin-bottom:2vh;
+}
+#fgfuture_content .popup_content{
+    font-size: 1.5vh;
+    display:block;
+    /* subtract padding, twice */
+    width:100%;
+}
+#fgfuture_content .popup_content>div,#fgfuture_content .popup_content>p{
+    display:block;
+    width:100%;
+}
+
+#fgfuture_content span.popup_target{
+    color:#6d1d23;
+    font-weight: bold;
+    margin:0;
+    padding:0;
+    display:inline-block;
+}
+
+#fgfuture_content .popup object.w100p{
+    width:100%;
+}
+#fgfuture_content .popup video{
+    width:100%;
+}
+
+</style>
+<script purpose="popup initiaiziation">
+
+function open_popup(ev){
+    let element=ev.target
+
+    let target_id=element.getAttribute("popup")
+    let popup_element=document.getElementById(target_id)
+    popup_element.style.setProperty("display","initial")
+
+    if(popup_element.getAttribute("vanish_timer")){
+        clearTimeout(popup_element.getAttribute("vanish_timer"))
+    }
+
+    let element_bb=element.getBoundingClientRect()
+    let left_offset=element_bb.x+(element_bb.width/2) // centering of popup happens in css
+    popup_element.style.setProperty("left",left_offset+"px")
+
+    let top_offset=element_bb.top+element_bb.height
+    top_offset=min(window.innerHeight-popup_element.getBoundingClientRect().height,top_offset)
+    popup_element.style.setProperty("top",top_offset+"px")
+
+    for(popup_content_child of popup_element.children[1].children){
+        if(popup_content_child.tagName=="VIDEO"){
+            if(!popup_content_child.getAttribute("has_started_loading")){
+                popup_content_child.load();
+                popup_content_child.setAttribute("has_started_loading","true")
+            }
+                    
+            popup_content_child.play().then(
+                (_result)=>{
+                    popup_element.children[1].children[0].style.setProperty("display","none");
+                }
+            ).catch(err=>{})
+        }
+    }
+}
+function close_popup(ev){
+    let element=ev.target
+
+    let target_id=element.getAttribute("popup")
+    let popup_element=document.getElementById(target_id)
+
+    //small gap between link and popup content is not valid popup surface, to moving the mouse from the link to the popup content leaves the container area, which closes the popup
+    //this timeout means that the popup window is closed if the mouse is not positioned within the container area within 250ms after it left the area, ergo the popup remains visible while the mouse moves over the gap between the link and the popup
+    //and 250ms looks short enough to make it seem like the popup would still automatically vanish when the user leaves the popup area with the mouse actively, to move it somewhere else
+    popup_element.setAttribute("vanish_timer",setTimeout(
+        ()=>{
+            popup_element.setAttribute("popped_up",false)
+            popup_element.style.setProperty("display","none")
+
+            //pause playback when the popup closes to not confuse the user
+            for(popup_content_child of popup_element.children[1].children){
+                if(popup_content_child.tagName=="VIDEO"){
+                    popup_content_child.pause()
+                }
+            }
+        },250
+    ))
+}
+function keep_open_popup(ev){
+    let popup_element=ev.target
+
+    if(popup_element.getAttribute("vanish_timer")){
+        clearTimeout(popup_element.getAttribute("vanish_timer"))
+    }
+}
+function close_popup_self(ev){
+    let popup_element=ev.target
+
+    popup_element.setAttribute("vanish_timer",setTimeout(
+        ()=>{
+            popup_element.setAttribute("popped_up",false)
+            popup_element.style.setProperty("display","none")
+
+            //pause playback when the popup closes to not confuse the user
+            for(popup_content_child of popup_element.children[1].children){
+                if(popup_content_child.tagName=="VIDEO"){
+                    popup_content_child.pause()
+                }
+            }
+        },250
+    ))
+}
+
+for(element of document.getElementsByClassName("popup")){
+    let target_attribute=element.getAttribute("target")
+
+    target_element=document.getElementById(target_attribute)
+    if(!element.id){
+        window.alert("popup does not have an id! check console for more info.")
+        console.log("popup does not have an id!",element)
+    }
+    target_element.setAttribute("popup",element.id)
+
+    element.addEventListener("mouseenter",keep_open_popup)
+    element.addEventListener("mouseleave",close_popup_self)
+
+    element.style.setProperty("display","none")
+
+    target_element.addEventListener("mouseenter",open_popup)
+    target_element.addEventListener("mouseleave",close_popup)
+}
+
+</script>
+
+<script purpose="expand images">
+            let style_document=document.styleSheets[0].rules || document.styleSheets[0].cssRules
+            let image_shrink_duration=0
+            for (rule of style_document){
+                if(rule.selectorText=="content_slice"){
+                    width=window.innerWidth*rule.style.width.slice(0,-2)/100
+                }
+                if(rule.selectorText=="actualcontent"){
+                    max_height=window.innerHeight*rule.style.height.slice(0,-1)/100
+                }
+                if(rule.selectorText==".image_shrink"){
+                    image_shrink_duration=rule.style.getPropertyValue("animation-duration").slice(0,-1)*1000
+                }
+            }
+
+            for(element of document.getElementsByClassName("expandable_image")){
+                element.addEventListener("click",expand_image)
+            }
+
+            function expand_image(ev){
+                let image_element=ev.target
+                let image_overlay=document.getElementById("image_overlay")
+                image_overlay.classList.remove("invisible")
+
+                if(image_overlay.children.length==2){
+                    image_overlay.removeChild(image_overlay.lastChild)
+                }
+
+                let big_image=document.createElement("img")
+                big_image.setAttribute("src",image_element.src)
+                big_image.classList.add("overlay_image")
+
+                image_overlay.appendChild(big_image)
+
+                big_image.style.setProperty("--width",image_element.getBoundingClientRect().width+"px")
+                big_image.style.setProperty("--height",image_element.getBoundingClientRect().height+"px")
+                big_image.style.setProperty("--left",image_element.getBoundingClientRect().left+image_element.width/2+"px")
+                big_image.style.setProperty("--top",image_element.getBoundingClientRect().top+image_element.height/2+"px")
+
+                let final_width=image_element.getAttribute("width")*0.5
+                let final_height=image_element.getAttribute("height")*0.5
+
+                big_image.style.setProperty("--left-end",window.innerWidth/2+"px")
+                big_image.style.setProperty("--top-end",window.innerHeight/2+"px")
+
+                big_image.style.setProperty("--overlay-width",final_width+"px")
+                big_image.style.setProperty("--overlay-height",final_height+"px")
+
+                big_image.classList.add("image_transition")
+
+                image_element.classList.toggle("pseudo-invisible")
+
+                image_overlay.image_element=image_element
+                
+                document.getElementById("pagecontent").classList.add("blurred_image_overlay")
+            }
+            function collapse_image(ev){
+                let image_overlay=document.getElementById("image_overlay")
+
+                image_overlay.children[1].classList.remove("image_transition")
+                image_overlay.children[1].classList.add("image_shrink")
+
+                document.getElementById("pagecontent").classList.remove("blurred_image_overlay")
+
+                setTimeout(()=>{
+                    document.getElementById("image_overlay").classList.add("invisible")
+                    image_overlay.image_element.classList.toggle("pseudo-invisible")
+                },image_shrink_duration)
+            }
+        </script>
+
+<style purpose="expand images">
+            .expandable_image{
+                cursor:zoom-in;
+                z-index:1;
+            }
+            /*the actual overlay panel*/
+            #image_overlay{
+                position:fixed;
+
+                left:0;
+                /* top offset (which is subtracted from height) is height of igem bar and navigation bar*/
+                top:calc(16px + 5vh);
+                height:calc(100% - 16px - 5vh);
+                width:100%;
+
+                float:left;
+
+                background-color: rgba(255,255,255,0.0);
+                z-index: 11;
+            }
+            #image_overlay:not(.invisible){
+                display:block; 
+            }
+            /*the image displayed within the overlay panel*/
+            .overlay_image{
+                position:relative;
+                transform:translateX(-50%) translateY(-50%);
+                width:var(--overlay-width);
+                height:var(--overlay-height);
+                left:var(--left-end);
+                top:var(--top-end);
+            }
+            .image_transition{
+                animation-name:into_center;
+                animation-duration:0.4s;
+            }
+            .image_shrink{
+                animation-name:from_center;
+                animation-duration:0.4s;
+            }
+            .invisible{
+                display:none;
+            }
+            .pseudo-invisible{
+                opacity:0.0;
+            }
+            @keyframes into_center{
+                from{
+                    width:var(--width);
+                    height:var(--height);
+                    left:var(--left);
+                    top:var(--top);
+                }
+                to{
+                    width:var(--overlay-width);
+                    height:var(--overlay-height);
+                    left:var(--left-end);
+                    top:var(--top-end);
+                }
+            }
+            @keyframes from_center{
+                from{
+                    width:var(--overlay-width);
+                    height:var(--overlay-height);
+                    left:var(--left-end);
+                    top:var(--top-end);
+                }
+                to{
+                    width:var(--width);
+                    height:var(--height);
+                    left:var(--left);
+                    top:var(--top);
+                }
+            }
+            .one_vertical_image_padding{
+                height:1em;
+                width:100%;
+            }
+        </style>
+
+
+<!-- sponsor and social media footer -->
+<div class="flexbox-container-socialmedia">
+    <div>
+        <a href="https://www.facebook.com/iGEMUppsala">
+            <img src="https://2021.igem.org/wiki/images/e/eb/T--Uppsala--facebook.png" loading="lazy">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.instagram.com/igem.uppsala/">
+            <img src="https://2021.igem.org/wiki/images/b/ba/T--Uppsala--instagram.png" loading="lazy">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.uu.se/">
+            <img class="upplogo" src="https://shop.uu.se/shop/ws45/82845/files/UU_logo_vit.png" loading="lazy">
+        </a>
+    </div>
+    <div>
+        <a href="mailto:info@igemuppsala.se">
+            <img src="https://2021.igem.org/wiki/images/1/1e/T--Uppsala--mail.png" loading="lazy">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.linkedin.com/company/igem-uppsala/mycompany/">
+            <img src="https://2021.igem.org/wiki/images/b/bc/T--Uppsala--linkedin.png" loading="lazy">
+        </a>
+    </div>
+</div>
+
+<div class="grid-container-sponsors">
+    <div>
+        <a href="https://www.utn.se/">
+            <img src="https://2021.igem.org/wiki/images/8/8b/T--Uppsala--utnlogo.png" loading="lazy">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.genscript.com/">
+            <img src="http://2014.igem.org/wiki/images/5/5a/York_Genscript_logo-1-.png" loading="lazy">
+        </a>
+    </div>
+    <div>
+        <a href="https://worldwide.promega.com/">
+            <img src="https://2020.igem.org/wiki/images/0/05/T--UofUppsala--pro.png" loading="lazy">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.bio-rad.com/">
+            <img src="https://2021.igem.org/wiki/images/f/fc/T--Uppsala--bioradlogo.png" loading="lazy">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.bionordika.se/">
+            <img src="https://2021.igem.org/wiki/images/2/29/T--Uppsala--bionordikalogo.png" loading="lazy">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.merck.com/">
+            <img src="https://2021.igem.org/wiki/images/9/9a/T--Uppsala--mercklogo.png" loading="lazy">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.scbt.com/home">
+            <img src="https://2021.igem.org/wiki/images/f/fa/T--Uppsala--scbtlogo.png" loading="lazy">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.snapgene.com/">
+            <img src="https://2020.igem.org/wiki/images/8/8c/T--UofUppsala--snap.png" loading="lazy">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.eurofins.se/">
+            <img src="https://2020.igem.org/wiki/images/a/a4/T--UofUppsala--euro.png" loading="lazy">
+        </a>
+    </div>
+    <div>
+        <a href="https://new-harvest.org/">
+            <img src="https://2021.igem.org/wiki/images/e/ec/T--Uppsala--newharvestreal.png" loading="lazy">
+        </a>
+    </div>
+    <div>
+        <a href="https://testacenter.com/">
+            <img src="https://2021.igem.org/wiki/images/d/d6/T--Uppsala--testacenterreal.png" loading="lazy">
+        </a>
+    </div>
+    <div>
+        <a href="https://www.cytivalifesciences.com/en/at">
+            <img src="https://2021.igem.org/wiki/images/d/d4/T--Uppsala--cytiva.jpeg" loading="lazy">
+        </a>
+    </div>
+</div>
+
+</body>
+</html>
