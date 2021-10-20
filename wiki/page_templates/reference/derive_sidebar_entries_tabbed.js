@@ -14,7 +14,10 @@ function find_tabbed_section_containing_id(id){
 function activate_tabbed_section_from_target_id(target_id){
     let target_tab_id=find_tabbed_section_containing_id(target_id)
     if(!target_tab_id){
-        window.alert("something went wrong (2)")
+        console.log("invalid id target: "+target_id)
+        window.location.hash="#"
+        return
+        //window.alert("something went wrong (2)")
     }
 
     let target_tab;
@@ -24,6 +27,7 @@ function activate_tabbed_section_from_target_id(target_id){
         }
     }
     if(!target_tab){
+        console.log(target_tab_id)
         window.alert("something went wrong (3)")
     }
 
