@@ -2,6 +2,8 @@
 #panel3_headline{
     font-size: 5.5vw;
     text-align: center;
+    color:#6d1d23;
+    font-weight:bold;
 }
 .steak_pipeline{
     position:relative;
@@ -136,9 +138,11 @@
     font-family: sans-serif;
     padding-top:5vh;
     padding-bottom:10vh;
+    color:#1c4543;
 }
 .intermediate_text.informative{
     text-align: center;
     font-size:2.5em;
     font-family: sans-serif;
+    color:#6d1d23;
 }
