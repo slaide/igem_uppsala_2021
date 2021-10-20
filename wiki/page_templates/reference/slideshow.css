@@ -1,38 +1,62 @@
 
 /* Slideshow container */
-#pagecontent .slideshow-container {
+#pagecontent #fgfuture_content .slideshow-container {
     position: relative;
     background: #426968;
-    height: 25vh;
     border-radius: 3vh;
-    width: 40vw;
-    margin-left: 0;
-    transform: translateX(-50%);
+    padding-bottom:0;
+    margin-bottom:2vh;
+
+    margin-left:20%;
+    margin-right:20%;
+
+    width:60%;
+
+    height:25vh;
 }
 
 /* Slides */
 #pagecontent .mySlide {
     display: none;
-    padding: 8vh;
-    font-size: 1.3em;
+    font-size: calc( var(--text-size-regular) * 1.2 );
     text-align: center;
     color: white;
+
+    position:relative;
+    height:auto;
+    top:50%;
+    transform:translateY(-50%);
+    
+    width:70%;
+    left:15%;
 }
 
 /* Next & previous buttons */
-#pagecontent .prev, #pagecontent s.next {
+#pagecontent .prev, #pagecontent .next {
     cursor: pointer;
     position: absolute;
     top: 50%;
-    width: auto;
-    margin-top: -30px;
-    padding: 16px;
+    transform:translateY(-50%);
+
+    width: 4vh;
+    padding: 0.2vh;
+    height:5vh;
+
     color: white;
+
+    text-align: center;
     text-decoration: none;
     font-weight: bold;
-    font-size: 2em;
-    border-radius: 0 3px 3px 0;
+    font-size: 2.5vh;
+    border-radius: 0 1vh 1vh 0;
     user-select: none;
+}
+#pagecontent .prev span, #pagecontent .next span{
+    display:inline-block;
+    position:relative;
+    top:50%;
+    transform:translateY(-50%);
+    padding-bottom:1.5vh;
 }
 
 
@@ -40,7 +64,7 @@
 #pagecontent .next {
     position: absolute;
     right: 0;
-    border-radius: 3px 0 0 3px;
+    border-radius: 1vh 0 0 1vh;
 }
 
 /* On hover, add a black background color with a little bit see-through */

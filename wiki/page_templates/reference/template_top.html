@@ -49,7 +49,20 @@
 
             var layout_is_tabbed=false
 
+            var has_loaded=false
+
+            function on_resize(){
+                if(has_loaded){
+                    /* get_section_offsets-specific reset */
+                    base=null;
+                    get_section_offsets()
+                    highlight_current_section_in_sidebar()
+                }
+            }
+
             function on_load(){
+                has_loaded=true
+
                 undo_igem_bs()
 
                 //after the page has loaded, provide some additional time for all of the javascript to run, then actually remove the loading screen overlay
@@ -60,10 +73,8 @@
                     },200)
                 },1000)
 
-                /* get_section_offsets-specific reset */
-                base=null;
-                get_section_offsets()
-                highlight_current_section_in_sidebar()
+                on_resize()
+
                 window.addEventListener("scroll",highlight_current_section_in_sidebar)
 
                 highlight_current_topic_in_navbar()
@@ -94,7 +105,7 @@
             }
         </script>
     </head>
-    <body onload="on_load()" onresize="on_load()">
+    <body onload="on_load()" onresize="on_resize()">
         <!-- cross-page loading screen -->
         <div id="loading_overlay">
             <div id="loading_icon">

@@ -52,6 +52,16 @@
     border-left: 1px solid black;
     border-right: 1px solid black;
 }
+
+/* add padding to the page area that is surrounded by borders to make the inner content the same size as all other pages */
+.tab_section{
+    /* regular templates have 1+1+4+2 fr size. here it has 1+0.5+4+1.5 fr size, which means 1/8th of the width can be padding on the whole width. split in 2 equal parts for the left/right side */
+    padding-left:calc( 1 / 8 / 2 * 100% );
+    padding-right:calc( 1 / 8 / 2 * 100% );
+    /* padding-bottom should be the same value as above, but this would only be possible using javascript. using vw as approximation of width% (the difference being the scrollbar at the side of the page) should be close enough though. */
+    padding-bottom: 3vh;
+}
+
 .tab_section:not(.active_section){
     display:none;
 }
