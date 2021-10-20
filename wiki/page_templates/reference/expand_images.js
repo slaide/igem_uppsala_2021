@@ -18,7 +18,31 @@ for(element of document.getElementsByClassName("expandable_image")){
 }
 
 function expand_image(ev){
+    if(ev.target.tagName!="IMG"){
+        console.log("image expanding did not hit img tag")
+        console.log(ev.target)
+        return
+    }
+
     let image_element=ev.target
+
+    let image_aspect_ratio=image_element.getAttribute("width")/image_element.getAttribute("height");
+    image_aspect_ratio=image_element.getBoundingClientRect().width/image_element.getBoundingClientRect().height;
+
+    const base_factor=0.8
+    let final_height=window.innerHeight*base_factor;
+    let final_width=final_height*image_aspect_ratio;
+
+    for(let factor=base_factor;final_width>window.innerWidth*base_factor;factor-=0.05){
+        final_height=window.innerHeight*factor;
+        final_width=final_height*image_aspect_ratio;
+
+        if(factor<0.2){
+            console.log("image cannot be expanded")
+            return;
+        }
+    }
+
     let image_overlay=document.getElementById("image_overlay")
     image_overlay.classList.remove("invisible")
 
@@ -37,11 +61,8 @@ function expand_image(ev){
     big_image.style.setProperty("--left",image_element.getBoundingClientRect().left+image_element.width/2+"px")
     big_image.style.setProperty("--top",image_element.getBoundingClientRect().top+image_element.height/2+"px")
 
-    let final_width=image_element.getAttribute("width")*0.5
-    let final_height=image_element.getAttribute("height")*0.5
-
     big_image.style.setProperty("--left-end",window.innerWidth/2+"px")
-    big_image.style.setProperty("--top-end",window.innerHeight/2+"px")
+    big_image.style.setProperty("--top-end",((window.innerHeight*0.95 - 16)/2) + "px")
 
     big_image.style.setProperty("--overlay-width",final_width+"px")
     big_image.style.setProperty("--overlay-height",final_height+"px")

@@ -23,7 +23,7 @@
 }
 /*the image displayed within the overlay panel*/
 .overlay_image{
-    position:relative;
+    position:absolute;
     transform:translateX(-50%) translateY(-50%);
     width:var(--overlay-width);
     height:var(--overlay-height);

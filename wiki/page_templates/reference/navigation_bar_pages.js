@@ -108,7 +108,7 @@ const pages=[
         entries:[
             {
                 name:"* Final<br>Presentation",
-                link:"https://2021.igem.org/Team:Uppsala/Description"
+                link:"https://2021.igem.org/Team:Uppsala/Empty"
             },
             {
                 name:"Promotional<br>Video",
@@ -133,7 +133,7 @@ const pages=[
             },
             {
                 name:"* Awards",
-                link:"https://2021.igem.org/Team:Uppsala"
+                link:"https://2021.igem.org/Team:Uppsala/Empty"
             },
         ]
     },
