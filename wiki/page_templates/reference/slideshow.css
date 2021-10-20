@@ -1,0 +1,49 @@
+
+/* Slideshow container */
+#pagecontent .slideshow-container {
+    position: relative;
+    background: #426968;
+    height: 25vh;
+    border-radius: 3vh;
+    width: 40vw;
+    margin-left: 0;
+    transform: translateX(-50%);
+}
+
+/* Slides */
+#pagecontent .mySlide {
+    display: none;
+    padding: 8vh;
+    font-size: 1.3em;
+    text-align: center;
+    color: white;
+}
+
+/* Next & previous buttons */
+#pagecontent .prev, #pagecontent s.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -30px;
+    padding: 16px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 2em;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+
+/* Position the "next button" to the right */
+#pagecontent .next {
+    position: absolute;
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+#pagecontent .prev:hover, #pagecontent  .next:hover {
+    background-color: #6d1d23;
+}

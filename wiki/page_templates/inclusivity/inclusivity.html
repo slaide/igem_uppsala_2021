@@ -33,107 +33,6 @@
                 <!-- INSERT GOOGLE DOC CONTENT BELOW THIS LINE -->
 
 
-<!--
-
-    /* Slideshow container */
-.slideshow-container {
-  position: relative;
-  background: #426968;
-  height: 25vh;
-  border-radius: 3vh;
-  width: 40vw;
-  margin-left: 50%;
-  transform: translateX(-50%);
-}
-
-/* Slides */
-.mySlides {
-  display: none;
-  padding: 8vh;
-  font-size: 1.3em;
-  text-align: center;
-  color: white;
-}
-
-/* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  margin-top: -30px;
-  padding: 16px;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 2em;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next {
-  position: absolute;
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: #6d1d23;
-}
-/* DUPLICATE SLIDESHOW */
-
-/* Slideshow container */
-.slideshow-container1 {
-  position: relative;
-  background: #426968;
-  height: 25vh;
-  border-radius: 3vh;
-  width: 40vw;
-  margin-left: 50%;
-  transform: translateX(-50%);
-}
-
-/* Slides */
-.mySlides1 {
-  display: none;
-  padding: 8vh;
-  font-size: 1.3em;
-  text-align: center;
-  color: white;
-}
-
-/* Next & previous buttons */
-.prev1, .next1 {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  margin-top: -30px;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  text-decoration: none;
-  font-size: 2em;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next1 {
-  position: absolute;
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev1:hover, .next1:hover {
-  background-color: #6d1d23;
-}
-
--->
-
 <div id='sec1'>
     <h1> Importance of Inclusivity </h1>
     <p>
@@ -222,55 +121,25 @@
       As a follow up question, we asked “what are the ways that their farms can expand in the future?” and few of them replied as:
     </p>
     
-    <div class="slideshow-container1">
+    <div class="slideshow-container" id="A-container">
     
-        <div class="mySlides1">
+        <div class="mySlide">
           <q>We will always seek to improve our sustainability</q>
     
         </div>
         
-        <div class="mySlides1">
+        <div class="mySlide">
           <q>Higher efficiency is sustainable production, less input is needed for the same output. There is less loss and therefore also more sustainable. These 2 things cannot be seen in isolation and it is never a question of whether this or that..</q>
     
         </div>
         
-        <div class="mySlides1">
+        <div class="mySlide">
           <q>Yes, it was to apply new technologies</q>
         </div>
-        
-        <a class="prev1" onclick="plusSlides1(-1)">❮</a>
-        <a class="next1" onclick="plusSlides1(1)">❯</a>
+
         
         </div>
     
-        <script>
-            var slideIndex1 = 1;
-            showSlides1(slideIndex1);
-            
-            function plusSlides1(n) {
-              showSlides1(slideIndex1 += n);
-            }
-            
-            function currentSlide1(n) {
-              showSlides1(slideIndex1 = n);
-            }
-            
-            function showSlides1(n) {
-              var i;
-              var slides = document.getElementsByClassName("mySlides1");
-              var dots = document.getElementsByClassName("dot");
-              if (n > slides.length) {slideIndex1 = 1}    
-              if (n < 1) {slideIndex1 = slides.length}
-              for (i = 0; i < slides.length; i++) {
-                  slides[i].style.display = "none";  
-              }
-              for (i = 0; i < dots.length; i++) {
-                  dots[i].className = dots[i].className.replace(" active", "");
-              }
-              slides[slideIndex1-1].style.display = "block";  
-              dots[slideIndex1-1].className += " active";
-            }
-            </script>
     
     
     
@@ -357,59 +226,29 @@
     </p>
     
     
-    <div class="slideshow-container">
+    <div class="slideshow-container" id="B-container">
     
-        <div class="mySlides">
+        <div class="mySlide">
           <q>‘I think both projects are worth pursuing, if only to be a launchpad for new, good ideas.’</q>
     
         </div>
         
-        <div class="mySlides">
+        <div class="mySlide">
           <q>Possibly as an integral part. But they require traditional agriculture. Nor do they see how these solutions contribute to biodiversity, healthy soil or happy animals.</q>
     
         </div>
         
-        <div class="mySlides">
+        <div class="mySlide">
           <q>Raw materials are still required to produce plant-based meat and agriculture will continue to require manure (from animals and others) if food is to be sufficient for a growing population on earth.</q>
         </div>
     
-        <div class="mySlides">
+        <div class="mySlide">
             <q>Companies that produce cultured meat will be large factory companies that have nothing to do with their environment.</q>
           </div>
         
-        <a class="prev" onclick="plusSlides(-1)">❮</a>
-        <a class="next" onclick="plusSlides(1)">❯</a>
         
         </div>
 
-        <script>
-            var slideIndex = 1;
-            showSlides(slideIndex);
-            
-            function plusSlides(n) {
-              showSlides(slideIndex += n);
-            }
-            
-            function currentSlide(n) {
-              showSlides(slideIndex = n);
-            }
-            
-            function showSlides(n) {
-              var i;
-              var slides = document.getElementsByClassName("mySlides");
-              var dots = document.getElementsByClassName("dot");
-              if (n > slides.length) {slideIndex = 1}    
-              if (n < 1) {slideIndex = slides.length}
-              for (i = 0; i < slides.length; i++) {
-                  slides[i].style.display = "none";  
-              }
-              for (i = 0; i < dots.length; i++) {
-                  dots[i].className = dots[i].className.replace(" active", "");
-              }
-              slides[slideIndex-1].style.display = "block";  
-              dots[slideIndex-1].className += " active";
-            }
-            </script>
     
     <p>
       To conclude, the responses from farmers survey helped us to get a collective opinion of adapting cellular agriculture and cultivated meat from a farmer’s perspective. We would like to thank our respondents for participating in our survey and for commenting on their valuable suggestions. In short, we can see that farmers are willing to move in the path of sustainability and are open to implement technologies which can increase their efficiency and productivity. It is clear that the market growth of cultivated meat and meat alternatives in recent years have very little impact on their trading and employability by looking at their responses.

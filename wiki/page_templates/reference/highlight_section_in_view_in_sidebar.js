@@ -15,6 +15,8 @@ function get_section_offsets(){
         }
         offsets[element.id]=base
         base+=element.clientHeight
+
+        element.classList.add("content_section")
     }
 }
 
