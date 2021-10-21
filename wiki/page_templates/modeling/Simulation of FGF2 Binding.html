@@ -1,7 +1,7 @@
 <div id="sectionintroduction">
     <h1>Molecular dynamics simulations of FGF binding</h1>
         <p>
-            Molecular dynamics is the computational process of simulating the movements and interactions of atoms in molecular systems in order to understand and predict the properties of molecules [1]. In our project we used molecular dynamics with the molecular dynamics engine Q to predict the effect of single point mutations on protein-protein interaction. See figure 1 for an example representation of molecular dynamics. The result that we obtained by using molecular dynamics <i>in silico</i> was used to determine what mutations that we were to induce to FGF2 <i>in vivo</i> in the wet lab.               
+            Molecular dynamics is the computational process of simulating the movements and interactions of atoms in molecular systems in order to understand and predict the properties of molecules [1]. In our project we used molecular dynamics with the molecular dynamics engine Q to predict the effect of single point mutations on protein-protein interaction [4, 5, 6]. See figure 1 for an example representation of molecular dynamics. The result that we obtained by using molecular dynamics <i>in silico</i> was used to determine what mutations that we were to induce to FGF2 <i>in vivo</i> in the wet lab.               
         </p>
         <p></p>
         <div>
@@ -14,14 +14,14 @@
         </div>
         <p></p>
         <p>
-            We did not have enough time to evaluate all mutations using molecular dynamics. Instead, once the mutation pool had been filtered and reduced according to the process described in the mutation selection page, we went on to evaluate the remaining 8 mutations using the molecular dynamics software package Q. We generously received guidance from Hugo Guitérrez de Téran and his colleagues throughout the process. In addition, they prepared input structure files with correct formatting for use of additional scripts in Q for one mutation, and assisted us in applying the same technique for our other mutations. In addition to using Q, we also further automated the process of setting up files for the simulations. Read more about our own pipeline on the software tool page. We were able to perform the simulations for these 8 mutations thanks to resources provided to us by the Swedish National Infrastructure for Computing (SNIC) at UPPMAX, partially funded by the Swedish Research Council through grant agreement no. 2018-05973.
+            We did not have enough time to evaluate all mutations using molecular dynamics. Instead, once the mutation pool had been filtered and reduced according to the process described in the mutation selection page, we went on to evaluate the remaining 8 mutations using the molecular dynamics software package Q. We generously received guidance from Hugo Guitérrez de Téran and his colleagues, Florian van der Ent and Lucien Koenekoop, throughout the process. In addition, they prepared input structure files with correct formatting for use of additional scripts in Q for one mutation, and assisted us in applying the same technique for our other mutations. In addition to using Q, we also further automated the process of setting up files for the simulations. Read more about our own pipeline on the software tool page. We were able to perform the simulations for these 8 mutations thanks to resources provided to us by the Swedish National Infrastructure for Computing (SNIC) at UPPMAX, partially funded by the Swedish Research Council through grant agreement no. 2018-05973.
         </p>
 
-
-
-    <h2>Theory</h2>
+</div>
+<div id="sectiontheory">
+    <h1>Theory</h1>
         <p>
-            The molecular dynamics software package Q can be used to simulate and calculate the change in free energy during the annihilation of any of the natural amino acids, except for proline, into an alanine residue. A process called free energy perturbation or “FEP”. Each amino acid is annihilated to alanine in a given number of steps. During the annihilation steps, the amino acid gradually loses its chemical and physical properties until it by the end of the annihilation has “become” an alanine residue. For all amino acids, these annihilation steps are further divided into smaller time steps, so-called lambda windows, during which the molecular dynamics sampling occurs in the form of short simulations. During the simulations, new coordinates for each atom are calculated as well as the free energy at that point in time. The difference in free energy between two simulations is determined with Zwanzig’s exponential formula:  
+            The molecular dynamics software package Q can be used to simulate and calculate the change in free energy during the annihilation of any of the natural amino acids, except for proline, into an alanine residue [4]. A process called free energy perturbation or “FEP”. Each amino acid is annihilated to alanine in a given number of steps [4]. During the annihilation steps, the amino acid gradually loses its chemical and physical properties until it by the end of the annihilation has “become” an alanine residue [4]. For all amino acids, these annihilation steps are further divided into smaller time steps, so-called lambda windows, during which the molecular dynamics sampling occurs in the form of short simulations [4]. During the simulations, new coordinates for each atom are calculated as well as the free energy at that point in time. The difference in free energy between two simulations is determined with Zwanzig’s exponential formula:   
         </p>
         <p>
             \[
@@ -38,11 +38,11 @@
         
         
         <p>
-            The molecular simulation software Q requires information of the molecules in the form of topology files in order to perform the simulations. The setup of the required input files has been automated by its developers and users in the form of a script package called QresFEP. In that way, the setup and running of Q have become very user-friendly.  
+            The molecular simulation software Q requires information of the molecules in the form of topology files in order to perform the simulations. The setup of the required input files has been automated by its developers and users in the form of a script package called QresFEP [4]. In that way, the setup and running of Q have become very user-friendly.  
         </p>
         
         <p>
-            In addition to the estimated energy values, the simulations produce trajectory files, containing information on the position and energy of all atoms at each time step of the simulation. These trajectories can be used to visualize and analyze the whole simulation. See figure 2.
+            In addition to the estimated energy values, figure 4, the simulations produce trajectory files, containing information on the position and energy of all atoms at each time step of the simulation. These trajectories can be used to visualize and analyze the whole simulation. See figure 2.
         </p>
         
         <p></p>
@@ -63,8 +63,8 @@
         </p>
         <p></p>
        
-
 </div>
+
 <div id=sectionmethod>
 
     <h1>Method</h1>
