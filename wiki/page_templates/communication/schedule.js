@@ -83,6 +83,7 @@ schedule_day1=[
         popup_content:[
             "Sophya Platform",
             `
+                <span>(Loading of the video may take a short time.)</span>
                 <video controls muted preload="none">
                     <source src="https://2021.igem.org/wiki/images/a/a1/T--Uppsala--sophya_demo_recording.mp4" type="video/mp4">
                 </video>
