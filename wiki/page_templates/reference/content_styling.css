@@ -118,6 +118,15 @@
 #fgfuture_content div.half{
     width:50%;
 }
+#fgfuture_content div.w75{
+    width:75%;
+}
+#fgfuture_content div.w80{
+    width:80%;
+}
+#fgfuture_content div.w90{
+    width:90%;
+}
 #fgfuture_content div.full{
     width:100%;
 }

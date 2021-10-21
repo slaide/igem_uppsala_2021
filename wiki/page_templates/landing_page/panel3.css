@@ -26,6 +26,25 @@
     height:var(--height);
     width:calc( var(--height) * var(--real-width) / var(--real-height));
 }
+
+.tissue_animation_text,.fgf2_animation_text{
+    position:absolute;
+
+    transform-origin:center center;
+
+    font-size: 3vh;
+
+    color:#426968;
+}
+.tissue_animation_text{
+    bottom:10%;
+    left:5%;
+}
+.fgf2_animation_text{
+    bottom:35%;
+    right:5%;
+}
+
 .whole_cow{
     --height:20vh;
 

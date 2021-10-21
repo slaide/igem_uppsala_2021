@@ -83,6 +83,9 @@ schedule_day1=[
         popup_content:[
             "Sophya Platform",
             `
+                <video controls muted preload="none">
+                    <source src="https://2021.igem.org/wiki/images/a/a1/T--Uppsala--sophya_demo_recording.mp4" type="video/mp4">
+                </video>
                 <ul>
                     <li>We had a great time engaging with other webinar participants in Sophya, we even heard there were people that brought up the idea of starting their own Alternative Protein initiative at their university<br><br></li>
                     <li>Articles about some of the presentations and promotional videos from each iGEM team that presented their project were hidden around the room</li>
@@ -148,6 +151,9 @@ schedule_day2=[
         __popup_content:[
             "Sophya Platform",
             `
+                <video controls muted preload="none">
+                    <source src="https://2021.igem.org/wiki/images/a/a1/T--Uppsala--sophya_demo_recording.mp4" type="video/mp4">
+                </video>
                 <ul>
                     <li>We had a great time engaging with other webinar participants in Sophya, we even heard there were people that brought up the idea of starting their own Alternative Protein initiative at their university<br><br></li>
                     <li>Articles about some of the presentations and promotional videos from each iGEM team that presented their project were hidden around the room</li>

@@ -24,7 +24,7 @@
 /* Slides */
 #pagecontent .mySlide {
     display: none;
-    font-size: calc( var(--text-size-regular) * 1.2 );
+    font-size: var(--text-size-regular);
     text-align: center;
     color: white;
 
