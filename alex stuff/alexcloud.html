@@ -1,809 +1,632 @@
-<!DOCTYPE html>
+
+{{IGEM_TopBar}}
+
+
 <html lang="en">
 <head>
-     <title>
-        Alex cloud pagelolol
-    </title>
-    <style>
-        *{
-            margin:0;
-            border:0;
-            padding:0;
-        }
-        body, html{
-            height: 100%;        
-        }
-        hr {
-            border: 0;
-            clear:both;
-            display:block;
-            width: 100%;               
-            background-color:#070707;
-            height: 1px;
-        }
-
-
-
-        .igem-head-bar{
-            height: 16px;
-            width:100%;
-            background-color: black;
-            position: fixed;
-            text-align: center;
-            color: white;
-            z-index: 1000;
-        }
-        #menu{
-            margin-top: 16px;
-            position: fixed;
-            width: 100%;
-            background-color: #426968;
-            transition: all 0.5s;
-            overflow: hidden;
-            height: 5%;
-            height: 8.5%;
-            z-index: 10;
-
-        }
-        #menu:hover{
-            overflow: visible;
-        }
-
-        .logotype{
-            float:left;
-            width:12%;
-            height:65px;
-            padding-right:0px;
-            width: 5%;
-            
-        }
-
-        ul {
-            list-style-type: none;
-
-        }
-        
-        li {
-            float: left;
-        }
-
-        li a, .dropbtn {
-            display: inline-block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-        
-        li a:hover, .dropdown-1:hover .dropbtn {
-            color: #6d1d23;
-        }
-        
-        li.dropdown-1 {
-            display: inline-block;
-        }
-        
-        .dropdown-content-1{
-            display: none;
-            position: absolute;
-            background-color: #426968;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-        
-        .dropdown-content-1 a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-        }
-        
-        .dropdown-content-1 a:hover {color: #6d1d23;}
-        
-        .dropdown-1:hover .dropdown-content-1 {
-            display: block;
-        }
-
-        li a:hover, .dropdown-2:hover .dropbtn {
-            color: #6d1d23;
-        }
-        
-        li.dropdown-2 {
-            display: inline-block;
-        }
-        
-        .dropdown-content-2{
-            display: none;
-            position: absolute;
-            background-color: #426968;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-        
-        .dropdown-content-2 a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-        }
-        
-        .dropdown-content-2 a:hover {
-            color:#6d1d23;
-            }
-        
-        .dropdown-2:hover .dropdown-content-2 {
-            display: block;
-        }
-        #clickbox{
-            float:left;
-            width:12%;
-            height:65px;
-            padding-right:0px;
-            width: 5%;
-            background-color: blueviolet;
-            position: fixed;
-            z-index: 2;
-        }
-
-        .parallaxtop {
-            background-image: url(coow-grass-cloud.png);
-            height: 100%;
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            overflow: hidden;
-            padding-top: 5%;
-        }
-
-        #header{
-            margin: auto;
-            width: 60%;
-            margin-top: 15%;
-            animation-name: fadein;
-            animation-duration: 2s;
-            text-align: center;
-            font-size: 6em;
-            color: #6d1d23;
-            font-style: italic;
-        }
-        @keyframes fadein{
-            from {opacity: 0;}
-            to{opacity: 1;}
-        }
-
-
-
-
-
-
-        .grid-container{
-            display: grid;
-            height: 100%;
-            grid-template-columns:repeat(50,1fr);
-            grid-template-rows:repeat(50,1fr);
-            overflow: hidden;
-            background-color: #426968;
-            /*column-gap: 10px;
-            row-gap: 10px;*/
-            border-bottom: 5px solid black;
-            border-top: 5px solid black;
-        }
-
-
-        .box1 {
-            height: 100%;
-            width: 100%;
-            background-image: url(https://www.vippng.com/png/detail/72-725880_clip-black-and-white-stock-beef-drawing-raw.png);
-            grid-column: 10 /span 30;
-            grid-row: 5 /span 30;
-            text-align: center;
-            border: 4px solid black;
-            overflow: hidden;
-            transition: all 0.5s;
-            margin: auto;
-            border-radius: 7%;
-        }
-
-        .box2 {
-            height: 100%;
-            width: 100%;
-            grid-column:7/span 8;
-            grid-row: 27/span 16;
-            text-align: center;
-            border: 4px solid black;
-            overflow: hidden;
-            background-image: url(https://cdn4.vectorstock.com/i/thumb-large/54/73/syringe-drawing-isolated-design-vector-31955473.jpg);
-            margin: auto;
-            transition: all 0.5s;
-            border-radius: 50%;
-            z-index: 1;
-        }
-
-        .box2text{
-            opacity:0;
-            margin-top: 30%;
-            text-align: center;
-            font-size: 1.5em;
-            transition: all 0.5s;
-        }
-        .box2:hover{
-            border:4px solid chocolate;
-        }
-
-        .box2:hover .box2text{
-            opacity: 1;
-        }
-
-        .box3 {
-            height: 100%;
-            width: 100%;
-            background-image: url(https://ak.picdn.net/shutterstock/videos/1067259439/thumb/1.jpg?ip=x480);
-            background-repeat: repeat;
-            grid-column:35/span 8;
-            grid-row: 27/span 16;
-            text-align: center;
-            border: 4px solid black;
-            overflow: hidden;
-            margin: auto;
-            transition: all 0.5s;
-            border-radius: 50%;
-            z-index: 1;
-        }
-
-
-        .box3text{
-            opacity:0;
-            margin-top: 30%;
-            text-align: center;
-            font-size: 1.5em;
-            transition: all 0.5s;
-        }
-        .box3:hover{
-            border:4px solid chocolate;
-        }
-
-        .box3:hover .box3text{
-            opacity: 1;
-        }
-
-        .box4 {
-            height: 100%;
-            width: 100%;
-            grid-column: 35 /span 8;
-            grid-row: 2 /span 16;
-            text-align: center;
-            border: 4px solid black;
-            overflow: hidden;
-            background-image: url(grass.jpg);
-            margin: auto;
-            transition: all 0.5s;
-            border-radius: 50%;
-        }
-
-        .box4:hover{
-            border:4px solid chocolate;
-        }
-
-        .box4:hover ~ .box5{
-            opacity: 1;
-        }
-
-        .box5 {
-            height: 100%;
-            width: 100%;
-            grid-column: 45 /span 5;
-            grid-row: 2 /span 16;
-            text-align: center;
-            border: 4px solid black;
-            overflow: hidden;
-            background-color: #dce1de;
-            font-size: 1.5em;
-            margin: auto;
-            opacity: 0;
-            transition: all 0.5s;   
-        }
-
-        .box6 {
-            height: 100%;
-            width: 100%;
-            grid-column: 7 /span 8;
-            grid-row: 2 /span 16;
-            text-align: center;
-            border: 4px solid black;
-            overflow: hidden;
-            background-image: url(https://image.shutterstock.com/image-vector/cute-cow-cartoon-character-vector-260nw-1291370593.jpg);
-            margin: auto;
-            transition: all 0.5s;
-            border-radius: 50%;
-        }
-
-        .box6:hover{
-            border:4px solid chocolate;
-        }
-
-        .box6:hover ~ .box7{
-            opacity: 1;
-        }
-
-        .box7 {
-            height: 100%;
-            width: 100%;
-            grid-column: 2 /span 4;
-            grid-row: 2 /span 16;
-            text-align: center;
-            border: 4px solid black;
-            overflow: hidden;
-            /*background-color: #dce1de;*/
-            background-image: url(https://image.shutterstock.com/image-vector/illustration-cute-cow-260nw-347317901.jpg);
-            font-size: 1.5em;
-            margin: auto;
-            opacity: 0;
-            transition: all 0.5s;
-            color:green;
-        }
-
-        .textcirclesection{
-            background-color: #6d1d23;
-            text-align: center;
-            border-bottom: 4px solid black;
-        }
-
-
-
-
-        .estrellas {
-        position: relative;
-        width: 520px;
-        height:300px;
-        margin: 0 auto;
-        font-size: 70px;
-        }
-        .estrellas span {
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        width: 70px;
-        height: 300px;
-        margin-left: -35px;
-        line-height: 530px; /* height*2 - font-size */
-        text-align: center;
-        transform-origin: top center;
-
-        }
-        .estrellas span:nth-of-type(1)  {
-        transform: rotate(75deg);
-        }
-        .estrellas span:nth-of-type(2)  {
-        transform: rotate(65deg);
-        }
-        .estrellas span:nth-of-type(3)  {
-        transform: rotate(54deg);
-        }
-        .estrellas span:nth-of-type(4)  {
-        transform: rotate(39deg);
-        }
-        .estrellas span:nth-of-type(5)  {
-        transform: rotate(29deg);
-        }
-        .estrellas span:nth-of-type(6)  {
-        transform: rotate(19deg);
-        }
-        .estrellas span:nth-of-type(7)  {
-        transform: rotate(7deg);}
-
-        .estrellas span:nth-of-type(8)  {
-        transform: rotate(-4deg);
-        }
-        .estrellas span:nth-of-type(9)  {
-        transform: rotate(-14deg);
-        }
-        .estrellas span:nth-of-type(10)  {
-        transform: rotate(-24deg);
-        }
-        .estrellas span:nth-of-type(11)  {
-        transform: rotate(-34deg);
-        }
-        .estrellas span:nth-of-type(12)  {
-        transform: rotate(-44deg);
-        }
-        .estrellas span:nth-of-type(13)  {
-        transform: rotate(-54deg);
-        }
-        .estrellas span:nth-of-type(14)  {
-        transform: rotate(-64deg);}
-
-        .estrellas span:nth-of-type(15)  {
-        transform: rotate(-75deg);
-        }
-        /* Reverse mode */
-        .inverso {
-        font-weight: bold;
-        }
-        .inverso span {
-        line-height: 70px;
-        transform-origin: bottom center;
-        /*border: 1px solid red;  Only for seeing trick */
-        }
-
-        .textcirclesectionimg{
-            margin:auto;
-            border-radius: 50%;
-            margin-top: -250px;
-
-        }
-
-
-        .bigbox{
-            height: 100%;
-            width: 100%;
-            background-color: #426968;
-            display: flex;
-            flex-direction: row;
-        }
-        #flexboxleft{
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            width: 33%;
-        }
-
-        #flexlefttop{
-            height: 33%;
-            justify-content: center;
-            display: flex;
-        }
-
-        #flexleftmid{
-            height: 34%;
-            justify-content: center;
-            display: flex;
-        }
-
-        #flexleftbot{
-            height: 33%;
-            justify-content: center;
-            display: flex;
-        }
-
-        #flexboxmiddle{
-            height: 100%;
-            width: 34%;
-        }
-        #flexboxright{
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            width: 33%;
-        }
-
-        #flexrighttop{
-            height: 33%;
-            justify-content: center;
-            display: flex;
-        }
-
-        #flexrightmid{
-            height: 34%;
-            justify-content: center;
-            display: flex;
-        }
-
-        #flexrightbot{
-            height: 33%;
-            justify-content: center;
-            display: flex;
-        }
-
-        .paddingtopinteractive{
-                padding-top:var(--pt);
-                z-index: 1;
-        }
-
-        #steakdiv{
-            height: 50%;
-            width: 50%;
-            margin: auto;
-            margin-top: -60%;
-            position: relative;
-            z-index: 1;
-        }
-
-        #imgs{
-            z-index: 1;
-            position: relative;
-            border-radius: 50%;
-        }
-
-
-        #reactordiv{
-            height: 100%;
-            width: 100%;
-            margin: auto;
-            z-index: 2;
-            position: relative;
-        }
-
-        #imgr{
-            z-index: 2;
-            position: relative;
-            border-radius: 10%;
-        }
-
-        .imgholder{
-            height: 50%;
-            width: 100%;
-            margin: auto;
-            position: relative;
-        }
-
-
-
-
-        .grid-container-sponsors{
-            display: grid;
-            height: 30%;
-            grid-template-columns:repeat(4,1fr);
-            grid-template-rows:repeat(3,1fr);
-            overflow: hidden;
-            background-color: #6d1d23;
-            border: 4px solid black;
-        }
-
-        .sponsorheading{
-            text-align: center;
-            margin:auto;
-            font-size: 3em;
-            grid-column: 2 /span 2;
-            grid-row: 1 /span 1;
-        }
-
-        .sponsor1{
-            text-align: center;
-            margin:auto;
-            grid-column: 1 /span 1;
-            grid-row: 2 /span 1;
-        }
-
-        .sponsor2{
-            text-align: center;
-            margin:auto;
-            font-size: 3em;
-            grid-column: 2 /span 1;
-            grid-row: 2 /span 1;
-        }
-
-        .sponsor3{
-            text-align: center;
-            margin:auto;
-            font-size: 3em;
-            grid-column: 3 /span 1;
-            grid-row: 2 /span 1;
-        }
-
-        .sponsor4{
-            text-align: center;
-            margin:auto;
-            font-size: 3em;
-            grid-column: 4 /span 2;
-            grid-row: 2 /span 1;
-        }
-    </style>
-    <script>
-        window.onscroll = function() {myFunction()};
-
-        function myFunction() {
-          if (document.body.scrollTop > 400|| document.documentElement.scrollTop > 400) {
-            document.getElementById("menu").style.width = "0px";
-            document.getElementById("menu").style.opacity = "0";
-          } else {
-            document.getElementById("menu").style.width = "100%";
-            document.getElementById("menu").style.opacity = "1";
-          }
-        }
-        
-        function clickfunction(){
-            document.getElementById("menu").style.width = "100%";
-            document.getElementById("menu").style.opacity = "1";
-            document.getElementById("menu").style.overflow  = "hidden";
-            setTimeout(function(){ document.getElementById("menu").style.overflow='visible'; }, 1000);
-        }
-
-        function min(a,b){return (a<b?a:b)}
-        function max(a,b){return (a>b?a:b)}
-            var observeViewEnter=new IntersectionObserver(function(entries){9
-                if(entries[0].isIntersecting===true){
-                    //window.alert("entered view")
-                    entries[0].target.classList.add("paddingtopinteractive")
-                    window.addEventListener("scroll",function(){
-                        var target=document.getElementById("steakdiv")
-                        var top=target.getBoundingClientRect().top
-                        var max_scroll=document.documentElement.scrollHeight-window.innerHeight;
-                        var height=window.innerHeight
-                        var scroll_height=(height-top)/height;
-                        console.log(scroll_height)
-                        scroll_height=min(max(scroll_height,0),1.0)
-                        console.log(scroll_height)
-                        target.style.setProperty("--pt",(scroll_height)*50+"vh")
-                    })
-                }
-            },{threshold:[1.0]});
-            var observeViewLeave=new IntersectionObserver(function(entries){
-                if(entries[0].isIntersecting!==true){
-                    entries[0].target.classList.remove("paddingtopinteractive")
-                    //window.alert("left view")
-                }
-            },{threshold:[0.0]});
-            function onload_function(){
-                observeViewEnter.observe(document.getElementById("steakdiv"))
-                observeViewLeave.observe(document.getElementById("steakdiv"))
-            }
-
-            
-    </script>
+<!-- mathjax -->
+<script src="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/js/mathjax_v3.js&action=raw&ctype=text/javascript"></script>
+
+<!-- remove_igem_presets.css -->
+<link rel="stylesheet" type="text/css" href="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/css/remove_igem_presets.css&action=raw&ctype=text/css">
+
+<!-- global_basic.css -->
+<link rel="stylesheet" type="text/css" href="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/css/global_basic.css&action=raw&ctype=text/css">
+
+<!-- page_header.css -->
+<link rel="stylesheet" type="text/css" href="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/css/page_header.css&action=raw&ctype=text/css">
+
+<!-- sidebar.css -->
+<link rel="stylesheet" type="text/css" href="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/css/sidebar.css&action=raw&ctype=text/css">
+
+<!-- content_styling.css -->
+<link rel="stylesheet" type="text/css" href="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/css/content_styling.css&action=raw&ctype=text/css">
+
+<!-- sponsors.css -->
+<link rel="stylesheet" type="text/css" href="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/css/sponsors.css&action=raw&ctype=text/css">
+
+<!-- general purpose js -->
+<script src="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/js/general_purpose.js&action=raw&ctype=text/javascript"></script>
+
+<!-- navigation_bar.css -->
+<link rel="stylesheet" type="text/css" href="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/css/navigation_bar.css&action=raw&ctype=text/css">
+<!-- navigation_bar.js -->
+<script src="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/js/navigation_bar.js&action=raw&ctype=text/javascript"></script>
+
+<!-- loading_screen.css -->
+<link rel="stylesheet" type="text/css" href="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/css/loading_screen.css&action=raw&ctype=text/css">
+
+<!-- undo_igem_bs.js -->
+<script src="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/js/undo_igem_bs.js&action=raw&ctype=text/javascript"></script>
+
+<!-- slideshow.css -->
+<link rel="stylesheet" type="text/css" href="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/css/slideshow.css&action=raw&ctype=text/css">
+
+<!-- slideshow.js -->
+<script src="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/js/slideshow.js&action=raw&ctype=text/javascript"></script>
+
+<script purpose="on_load_code">
+/*
+clean up the existing stuff that is nothing but in the way of our page design (top bar with igem logo and navigation panel hidden behind a burger menu, and quite thick padding on the left and top of the screen)
+*/
+
+var layout_is_tabbed=false
+
+var has_loaded=false
+
+function on_resize(){
+if(has_loaded){
+/* get_section_offsets-specific reset */
+base=null;
+get_section_offsets()
+highlight_current_section_in_sidebar()
+}
+}
+
+function on_load(){
+has_loaded=true
+
+undo_igem_bs()
+
+//after the page has loaded, provide some additional time for all of the javascript to run, then actually remove the loading screen overlay
+setTimeout(()=>{
+undo_igem_bs()
+setTimeout(()=>{
+document.getElementById("loading_overlay").style="display:none;"
+},200)
+},1000)
+
+on_resize()
+
+window.addEventListener("scroll",highlight_current_section_in_sidebar)
+
+highlight_current_topic_in_navbar()
+
+if(layout_is_tabbed){
+let target_hash=window.location.hash
+if(and(target_hash,target_hash.length>1)){
+link_postfix_start=target_hash.indexOf("_link")
+if(link_postfix_start>-1){
+target_hash=target_hash.substr(1,link_postfix_start-1)
+}else{
+target_hash=target_hash.substr(1)
+}
+activate_tabbed_section_from_target_id(target_hash)
+}
+}
+
+//this can be a potential fix for content reflow for lazy-loaded images
+//but because most images have been massively reduced in file-size, this might not actually be an issue
+for(image_element of document.getElementsByTagName("img")){
+//console.log(image_element)
+let width=image_element.getAttribute("width")
+let height=image_element.getAttribute("height")
+//image_element.style.setProperty("padding-bottom",(width/height*100)+"%")
+}
+
+init_slideshows()
+}
+</script>
 </head>
-<body onload="onload_function()">
-    <div class="igem-head-bar">
-        IGEM BAR
-    </div>
-    <div id="menu">
-        <a href='https:\\www.google.com'>
-            <img class="logotype" src="fgfuturereal.png">
-            <!-- cow_logo.png-->
-        </a>
-        <ul>
-            <li><a href="#home">Project</a></li>
-            <li><a href="#news">Parts</a></li>
-            <li class="dropdown-1">
-                <a href="javascript:void(0)" class="dropbtn">Lab</a>
-                <div class="dropdown-content-1">
-                    <a href="#">FGF2</a>
-                    <a href="#">Schrödinger</a>
-                    <a href="#">QresFEP</a>
-                    <a href="#">Wet lab</a>
-                </div>
+<body onload="on_load()" onresize="on_resize()">
+<!-- cross-page loading screen -->
+<div id="loading_overlay">
+<div id="loading_icon">
+<img src="https://2021.igem.org/wiki/images/7/76/T--Uppsala--logo_animated.gif">
+<div style="font-size:3vh;text-align:center;padding-top:4vh;font-family: sans-serif;">LOADING</div>
+</div>
+</div>
+<div id="image_overlay" class="invisible">
+<div style="height:9vh;width:9vh;float:right;padding-top:2vh;padding-right:2vh;cursor:pointer;" onclick="collapse_image()">
+<img src="https://2021.igem.org/wiki/images/3/3e/T--Uppsala--close_buton_cross.png" style="width:100%;height:100%;">
+</div>
+</div>
+<!-- cross-page Navigation Menu with drop down -->
+<div id="navigation_bar" onmouseenter="open_navbar()" onmouseleave="close_navbar()">
+<a id="navigation_bar_logo_container" href='https://2021.igem.org/Team:Uppsala'>
+<img class="logotype" src="https://2021.igem.org/wiki/images/thumb/1/13/T--Uppsala--logotransparent.png/320px-T--Uppsala--logotransparent.png">
+</a>
+<ul id="dropdown-container" class="scrolled_down">
+<!-- navigation bar entries will be generated here -->
+</ul>
+<!-- navigation_bar_pages.js -->
+<script src="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/js/navigation_bar_pages.js&action=raw&ctype=text/javascript"></script>
 
-            </li>   
+<!-- navigation_bar_generate_entries.js -->
+<script src="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/js/navigation_bar_generate_entries.js&action=raw&ctype=text/javascript"></script>
+</div>
 
-            <li class="dropdown-2">
-                <a href="javascript:void(0)" class="dropbtn">Team</a>
-                <div class="dropdown-content-2">
-                    <a href="#">PM</a>
-                    <a href="#">Modeling</a>
-                    <a href="#">Wiki</a>
-                    <a href="#">Sponsor</a>
-                    <a href="#">GD</a>
-                    <a href="#">Social media</a>
-                </div>
-            </li>
-            <li><a href="#home">Future</a></li>
-            <li><a href="#news">Human practice</a></li>
-            <li><a href="#news">Awards</a></li>
-        </ul>
-    </div>
-    <div id="clickbox" onclick="clickfunction()">
-    </div>
-    <div class=parallaxtop>
-        <div id="header">
-                FGFGUTURE   
-        </div>
-    </div>
-    <!--End intro, start steak with facts-->
-    <div class="grid-container">        
-        <div class="box1">
-        </div>
-        <div class="box2">
-            <div class ="box2text">
-               <b>Antibiotics are bad,<br> by growing meat in the lab we can minimize the use.</b>
-            </div>
-        </div>
-        <div class="box3">
-            <div class ="box3text">
-                <b>Carbon dioxide are bad, lab grown<br> meat minimizes the emission.</b>
-             </div>
-        </div>
-        <div class="box4">
-        </div>
-        <div class="box5">
-            <div class="box5text">
-            The land use will minimize with 99% if we switch from traditional agriculture to cellular agriculture.
-            </div>
-        </div>
+<!-- navigation_bar_immediate.js -->
+<script src="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/js/navigation_bar_immediate.js&action=raw&ctype=text/javascript"></script>
 
-        <div class="box6">
-        </div>
-        <div class="box7">
-            <div class="box7text">
-            <b>You would not kill and eat a dog! Why would you kill and eat a cute cow then! Cellular agriculture saves lifes!</b>
-            </div>
-        </div>
-    </div>
-    <!--End steak with facts, start circle text-->
-    <div class="textcirclesection">
-        <h3><i>There is a better way.....</i></h3>
-        <div class="estrellas inverso">
-            <span>T</span>
-            <span>A</span>
-            <span>E</span>
-            <span>M</span>
-            <span></span>
-            <span>D</span>
-            <span>E</span>
-            <span>T</span>
-            <span>A</span>
-            <span>V</span>
-            <span>I</span>
-            <span>T</span>
-            <span>L</span>
-            <span>U</span>
-            <span>C</span>
-        </div>
-        <div class="textcirclesectionimg">
-            <img src="https://shotluckan.se/wp-content/uploads/2020/09/shotluckan-logo-tansparent.png" width="30%" height="20%">
-        </div>
-    </div>
+<div id="pagecontent">
+<!-- page title-->
 
-    <!--Endcircle text, start reactor-->
-    <div class="bigbox">
-        <div id="flexboxleft">
-            <div id="flexlefttop">
-                <img src="https://image.shutterstock.com/image-vector/illustration-cute-cow-260nw-347317901.jpg" width="50%" height="100%">
-            </div>
-            <div id="flexleftmid">
-                <img src="https://www.pikpng.com/pngl/m/567-5671147_cursor-arrow-comments-arrow-pointing-up-right-clipart.png" width="50%" height="100%">
-            </div>
-            <div id="flexleftbot">
-                <img src="https://cdn.w600.comps.canstockphoto.com/fibroblast-is-a-dermis-cell-structure-image_csp90223274.jpg" width="50%" height="100%">
-            </div>
-        </div>
-        <div id="flexboxmiddle">
-            <div class="imgholder">
-                <div id="reactordiv">
-                    <img id="imgr" src="https://neutronbytes.files.wordpress.com/2020/07/wec-lfr.png?w=640" width="100%" height="100%">
-                </div>
-                <div id="steakdiv">
-                    <img id="imgs" src="https://media.istockphoto.com/vectors/steak-mascot-showing-muscle-arms-vector-id464797200?k=6&m=464797200&s=612x612&w=0&h=3zAfGrHFyPNGqSwZDYpjoHiJr5JgCBlwbxZrBC52FoE=" width="100%" height="100%">    
-                </div>
-            </div>
-        </div>
-        <div id="flexboxright">
-            <div id="flexrighttop">
-                <img src="https://i.pinimg.com/originals/46/03/80/460380404916e43edc5a4fc7a5f97bf7.jpg" width="50%" height="100%">
-            </div>
-            <div id="flexrightmid">
-                <img src="https://www.nicepng.com/png/detail/273-2739649_arrow-pointing-up-left-vector-arrow-pointing-up.png" width="50%" height="100%">
-            </div>
-            <div id="flexrightbot">
-                <img src="https://biospot.eu/wp-content/uploads/2018/03/hyperstable-fibroblast-growth-factor-2-%E2%80%93-fgf2-stab.jpg" width="50%" height="100%">
-            </div>
-        </div>
-    </div>
-    <!--Start sponsor-->
-    <div class="grid-container-sponsors">
-        <div class="sponsorheading">
-            <h3><u>Our sponsors</u></h3>
-        </div>
-        <div class="sponsor1">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png" width="30%" height="100%">
-        </div>
 
-        <div class="sponsor2">
-            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c4/Snapchat_logo.svg/1024px-Snapchat_logo.svg.png" width="30%" height="100%">
-        </div>
 
-        <div class="sponsor3">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/1024px-Instagram_logo_2016.svg.png" width="30%" height="100%">
-        </div>
+<!-- page title-->
+<div id=parallaxtop class="stretch_background" style="background-image: url('https://2021.igem.org/wiki/images/6/61/T--Uppsala--inc-banner.png');">
+</div>
 
-        <div class="sponsor4">
-            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a9/TikTok_logo.svg/1920px-TikTok_logo.svg.png" width="60%" height="100%">
-        </div>
+<!--Sidebar-->
+<div id="sidebar">
+<div id="sticky_sidebar">
+<div id="sidebar_header">
+<a href="#pagecontent">
+Inclusivity
+</a>
+</div>
+<hr>
+<ul id="sidebar_list_container">
+<!-- template for a single entry in this list. the real entries will be added at runtime
+<li class="sidebar_list_section">
+<span id="span1">
+<a href="#section1_link">
+Lab Safety
+</a>
+</span>
+</li>
+-->
+</ul>
+</div>
+</div>
 
-    </div>
+<!--Actual content-->
+<div id="fgfuture_content">
+
+<!-- INSERT GOOGLE DOC CONTENT BELOW THIS LINE -->
+
+
+<div id='sec1'>
+<h1> Importance of Inclusivity </h1>
+<p>
+Diversity and inclusion are crucial for all sectors of society especially in the field of research and science. Our team itself is diverse with members from eight different countries all over the world. In human practice, we wanted to explore and represent the world beyond the synthetic biology community, for that, we conducted surveys focused on the general public, farmers and interviewed experts from different fields apart from that we engaged with the public through our social media posts.
+</p>
+
+
+
+
+</div>
+<div id='secA'>
+<h1>Surveys</h1>
+<p>
+We believed that to invite stakeholder’s input and to gain an overview of societal considerations, surveys are the best option. The anonymity of surveys allows respondents to give their honest opinions and it is easier to gather targeted results from a large population.
+</p>
+
+<h2> Cultivated meat general survey</h2>
+<p>
+
+In order to raise awareness of the development of cultivated meat and to assess people’s willingness to accept cultivated meat in their everyday life, our team created and distributed an online survey to the general public. We received 220 responses and more than fifty comments on our project idea and cultivated meat. More information on cultivated meat can be found on the <a href="https://2021.igem.org/Team:Uppsala/Human_Practices">Human Practice Page</a>. Few of the comments as displayed below motivated us to include farmers' voices in our journey for the transition from industrial livestock farming to cellular agriculture.
+
+</p>
+
+<p>Farmers would need to be educated towards producing the cultivated meat to allow for a smooth transition and having public's support. Cultivated meat will undoubtedly disrupt conventional livestock farming. Provided we can reduce operating costs and educate farmers, to diversify into more sustainable practises, it presents an exciting opportunity to develop sustainable meat production. Farmers in the traditional business should have a smooth transition into the cultivated meat process.</p>
+
+
+<h2>Farmers Survey</h2>
+
+<p>
+Farmers are the foundation of any society, providing us with a continuous supply of food. Now, with the increasing global population, new technologies and farming methods will be essential to meet the demand for this inevitable situation we are facing. We therefore wanted to reach out to as many farmers worldwide, to get their opinion on future technologies in farming and the changes they have seen during their time in the trade. In addition, the queries and concerns from our public survey on farmers' opinions, we also received guidance on inclusivity of farmers in one of our expert interviews with Irfan Tahir and our discussion with Abi Aspen Glencross. As a result, we collaborated with iGEM Maastricht, their project is about genetically modifying cattle feed to reduce methane emission from cows. Since both of our projects can impact the farmers, we conducted a survey focusing on farmers.</p>
+
+<div class="image middle full">
+<img class="expandable_image" width="1497" height="868" src="https://2021.igem.org/wiki/images/f/fd/T--Uppsala--maascht-cropped.png">
+<p>Figure 1.  From one of our team meetings with iGEM Maastricht.</p>
+</div>
+
+
+
+<p>
+Before framing the survey, we contacted Fanny Blom, Project manager at STUNS Life Science, an organization which helps to develop cooperation between universities and society based on research, development and education conducted at Uppsala University and Swedish University of Agricultural Sciences (SLU). Fanny Blom helped us to get potential connections from SLU to reach farmers and raised a few questions which guided us in framing questions for the survey. The aim of the survey was to gain their perspective on our projects using a brief description in the survey itself. To reach as many as possible, we translated the survey in seven different languages and sent it to farmers as well as farmers association to gain perspective of both large scale and small scale farmers. Almost all of the questions in the survey had an optional open answer feature for allowing farmers to write their opinions. Considering ethical and responsible research, we provided our participants with consent information at the beginning of the survey as displayed below and anonymized their responses.
+</p>
+
+<div class="image middle full">
+<img class="expandable_image" width="1760" height="744" src="https://2021.igem.org/wiki/images/thumb/9/92/T--Uppsala--inc-s1.png/800px-T--Uppsala--inc-s1.png">
+<p> Figure 2. Consent Information in the front page of survey.</p>
+</div>
+
+<h2>Background information of the respondents</h2>
+
+<p>
+Even though we sent out the surveys to many farmers associations and small scale farmers, it was hard to receive responses when compared to our general survey. We received  ten replies from three continents with countries including Sweden, the Netherlands, India, Germany, the United States and the United Kingdom.
+</p>
+
+<div class="image middle full">
+<img class="expandable_image" width="2254" height="1480" src="https://2021.igem.org/wiki/images/5/5d/T--Uppsala--inc-in1.png">
+<p> Figure 3. World map showing the location of our survey respondents.</p>
+</div>
+
+<p>
+Respondents include 52% of small scale farmers with their main production as crops, poultry, cattle and dairy.
+</p>
+<div>
+<div class="image left half" style="width: 22vw;">
+<img class="expandable_image" width="1302" height="858" src="https://2021.igem.org/wiki/images/6/65/T--Uppsala--incNF1.png">
+<p>Figure 4. The size distribution of the farms. </p>
+
+</div>
+
+<div class="image left half" style="width: 22vw;">
+<img class="expandable_image" width="1302" height="858" src="https://2021.igem.org/wiki/images/1/16/T--Uppsala--incNF2.png">
+<p>Figure 5. The main production of the farms.</p>
+
+</div>
+</div>
+<p>
+Most of the farmers responded positively about their views on sustainable food supply which represents their interest and openness to implement sustainable farming. Furthermore 40% of them are open to adapting new technologies in their farm for efficiency or for more sustainable production in the near future as shown in figure 7.
+</p>
+
+<h2>Sustainability and the changes</h2>
+
+<div>
+<div class="image left half" style="width: 22vw;">
+<img class="expandable_image" width="1461" height="942" src="https://2021.igem.org/wiki/images/7/70/T--Uppsala--incNF3.png">
+<p>Figure 6.  Respondents' view on sustainable food supply.</p>
+</div>
+
+
+
+<div class="image left half" style="width: 22vw;">
+<img class="expandable_image" width="1200" height="742" src="https://2021.igem.org/wiki/images/c/c9/T--Uppsala--incNF4.png">
+<p>
+Figure 7. Possibility of expanding the farm in future.
+</p>
+</div>
+
+</div>
+<p>
+As a follow up question, we asked themWhat are the ways that their farms can expand in the future. Few of them replied as:
+</p>
+
+<div class="slideshow-container" id="A-container">
+
+<div class="mySlide">
+<q>We will always seek to improve our sustainability</q>
+
+</div>
+
+<div class="mySlide">
+<q>Higher efficiency is sustainable production, less input is needed for the same output. There is less loss and therefore also more sustainable. These 2 things cannot be seen in isolation and it is never a question of whether this or that..</q>
+
+</div>
+
+<div class="mySlide">
+<q>Yes, it was to apply new technologies</q>
+</div>
+
+
+</div>
+
+
+
+
+<p>
+These comments helped us get an overview of their willingness to adapt new technologies for efficiency and sustainability. We inquired whether they have witnessed any major change in the history of their farm. All the respondents mentioned “yes” which reflects that they have seen some changes due to the advent of new technologies and a transition towards more sustainable techniques in the future will not be troublesome or novel. To gain more information about those major changes we asked them to comment on the changes that happened. The comments reflect their increased awareness about biodiversity and sustainability which may help in paving the way for new adaptations and transition from industrial farming to cellular agriculture.</p>
+
+
+<p>We inquired about whether they are expecting any change in their way of farming in future, for that, 70% of the respondents commented positively. Few people commented on the changes that they are expecting as in Figure 9.</p>
+<div>
+<div class="image left half stacked">
+<img class="expandable_image" width="1221" height="753" src="https://2021.igem.org/wiki/images/3/32/T--Uppsala--incNF5.png">
+<p>
+Figure 8. Respondents perspective on possibility of changes in the way of farming.
+</p>
+</div>
+
+<div class = "image right half stacked">
+<p style="background-color: #426968; font-style: italic; color: white; font-size: 1.2em; text-align: center; border-radius: 3vh; margin-bottom: 3vh; padding-top: 2vh;">
+More efficient and sustainable <br>
+<br>
+Growing products as organically as possible and more sustainable<br><br>
+Less people will support livestock farming of any kind.<br><br>
+</p>
+<p> Figure 9. Changes that the respondents are expecting in their way of farming.</p>
+</div>
+
+</div>
+
+<p>
+Following the questions about changes that they are expecting and have experienced, we asked about their personal motivation to adapt new technologies in their farm. Respondents of 56% replied positively and 33% showed hesitation as they were unsure as the stated technologies are not well explained. We also gave them some options to choose to get an overview of the reasons that could motivate them towards applying new technologies in their farms. Many of them chose sustainability and climate policies as displayed in figure 11  which represents their responsibility towards societal considerations.
+</p>
+
+
+<div>
+<div class="image left half" style="width: 22vw;">
+<img class="expandable_image" width="1004" height="554" src="https://2021.igem.org/wiki/images/c/c8/T--Uppsala--nf6.png">
+<p>
+Figure 10. Personal motivation on adapting new technologies.
+</p>
+
+</div>
+
+<div class="image left half" style="width: 22vw;">
+<img class="expandable_image" width="1416" height="858" src="https://2021.igem.org/wiki/images/b/b4/T--Uppsala--incNF7.png">
+<p>
+Figure 11. Reasons of why they would choose to adapt to new technologies.
+</p>
+</div>
+
+</div>
+
+<h2>Explaining the project and exploring its’ impact</h2>
+<p>
+After these general questions, we gave a brief description of our project below to provide them with an idea of our work:
+</p>
+<p style="text-align: center;">
+<i>
+“Scientists are working on a new method of producing meat by using animal cells instead of living animals. Cells are grown in a tank to form and produce muscle tissue, which is the main component of the traditional meat we know today. Harvesting meat in such a way is called "cultivated meat". This will likely be widely available within the next decade. Note that it is real animal meat and should not be confused with current plant-based meat substitutes on the market.Cultivated meat would be free from:<br>
+•Overuse of antibiotics in meat production<br>
+•The risk of zoonotic diseases<br>
+•The cruelty of slaughtering animals<br>
+•Severe environmental impacts of current industrial agriculture system<br>
+Several products that we know today have been enabled with the help of biotechnology through various organisms in culture tanks, this includes many fermentation products like cheese, yogurt, beer, wine and bread. Cultivated meat would be yet another innovative food product on the market added to the list.”</i></p>
+
+
+<p>
+Following our project description, we inquired about the impact of current meat alternatives like Beyond meat, Impossible meat and Quorn on their livestock farming and trading. We received mixed opinions as displayed in figure 12.  Almost half of the farmers disagreed which reflects that the current meat alternatives have not impacted their trading negatively.
+</p>
+
+<div class="image middle half" style="width: 24vw;">
+<img class="expandable_image" width="1302" height="858" src="https://2021.igem.org/wiki/images/b/b1/T--Uppsala--incNF9.png">
+<p>
+Figure 12. Opinions on whether current meat alternatives are negatively impacting the farmers’ trade.
+</p>
+</div>
+<p>
+Following this, we were curious to know whether they will be willing to collaborate with the synthetic biology community to produce cultivated meat. For that, we described the production of cultivated meat with a graphic illustration as below. Only 7% of them responded positively which shows their hesitation towards collaborating in the production of cultivated meat and that is understandable as there is a general skepticism around things which are synthetic or unnatural. However, we believe that with continuous education and spread of information about this subject, their beliefs will gradually change.
+
+</p>
+<div class="image middle half" style="width: 22vw;">
+<img class="expandable_image" width="1802" height="1632" src="https://2021.igem.org/wiki/images/1/11/T--Uppsala--inc-f10.png">
+<p>Figure 13. Description of cultivated meat production. </p>
+</div>
+<p>
+In our final question, we wanted to gain their perspective on the market growth for cultivated meat as we received comments on our general survey considering employability of farmers. For that, we mentioned a statement : <i> Based on predictions, it is estimated that cultivated meat has the possibility of making up to 40% of future meat intake </i> and asked their opinion on the statement related to their employability.
+</p>
+
+<div>
+<div class="image left half" style="width: 22vw;">
+<img class="expandable_image" width="1302" height="858" src="https://2021.igem.org/wiki/images/4/47/T--Uppsala--incNF12.png">
+<p>
+Figure 14. Prediction of cultivated meat’s negative impact on farmer employment.
+</p>
+</div>
+
+<div class="image right half" style="width: 22vw;">
+<img class="expandable_image" width="1287" height="858" src="https://2021.igem.org/wiki/images/7/79/T--Uppsala--incNF11.png">
+<p>
+Figure 15. Respondents willingness to collaborate for cultivated meat production.
+</p>
+</div>
+
+</div>
+<h2>Farmers opinions on our project</h2>
+<p>
+We framed an optional question at the end of the survey, to collect comments on their opinions about our project and received mixed comments which showed both their openness and hesitation towards implementing new technologies.
+</p>
+
+
+<div class="slideshow-container" id="B-container">
+
+<div class="mySlide">
+<q>‘I think both projects are worth pursuing, if only to be a launchpad for new, good ideas.’</q>
+
+</div>
+
+<div class="mySlide">
+<q>Possibly as an integral part. But they require traditional agriculture. Nor do they see how these solutions contribute to biodiversity, healthy soil or happy animals.</q>
+
+</div>
+
+<div class="mySlide">
+<q>Raw materials are still required to produce plant-based meat and agriculture will continue to require manure (from animals and others) if food is to be sufficient for a growing population on earth.</q>
+</div>
+
+<div class="mySlide">
+<q>Companies that produce cultured meat will be large factory companies that have nothing to do with their environment.</q>
+</div>
+
+
+</div>
+
+
+<p>
+To conclude, the responses from farmers survey helped us to get a collective opinion of adapting cellular agriculture and cultivated meat from a farmer’s perspective. We would like to thank our respondents for participating in our survey and for commenting on their valuable suggestions. In short, we can see that farmers are willing to move in the path of sustainability and are open to implement technologies which can increase their efficiency and productivity. It is clear that the market growth of cultivated meat and meat alternatives in recent years have very little impact on their trading and employability by looking at their responses.
+</p>
+
+
+</div>
+<div id="secB">
+<h1>Farmers’ Friday</h1>
+<div>
+
+<div class="image left half" style="width: 24vw;">
+<img class="expandable_image" width="1300" height="1300" src="https://2021.igem.org/wiki/images/6/68/T--Uppsala--farmers_friday_ig.gif">
+<p>
+Figure 16. Farmers’ friday post on our instagram
+</p>
+</div>
+
+<p>
+We constructed a weekly segment on social media called Farmer’s Friday, where we went through different topics regarding traditional farming and how it could be integrated into the conversation surrounding cellular agriculture. Over the course of seven weeks, we hoped to both highlight the opinions of farmers on the topic and to imagine a world in which the two sectors would overlap in one way or another.  We wanted to highlight different ways in which farmers could be affected by changes in their trade in the future. We recognised that one of these changes could become cellular agriculture, so we researched the possible positive and negative effects to share both sides. We also showcased how collaborations between farmers and cellular agriculture companies have the potential to favor both parties. With this, we wanted to imagine how a future might look for cattle farmers and alternative agriculture.
+</p>
+</div>  <!--Makes gif fit better-->
+<p>
+We also went over the controversial  debate topic, namely product integrity and if plant based meat should be allowed to be called meat. In 2020, the EU parliament voted for a bill that let vegetarian and vegan products contain meat based terms in their names. We also discussed the importance of distinguishing plant-based meat products from regular meat which can be related to distinguishing cultivated meat from regular meat. Our Instagram page was the ideal platform as our followers could take in the information the most immediately. One of the highlights was when we were able to conduct an interview with a local farmer in Sweden to get his perspective on Cellular Agriculture.
+</p>
+
+</div>
+<div id='secC'>
+<h1>Expert interviews and Inclusivity of CellAg companies in our project</h1>
+<p>
+We reached out to experts from different fields who guided us through different aspects of our project apart from scientific and technical guidance. Some of them include:ethics,importance of communicating science to the public, patenting , regulations around cultivated meat and inclusivity of farmers. Other than expert interviews, we reached out to Protein Report, a platform dedicated to advancing public understanding of protein—the business, science, and culture of how protein is produced, distributed, and consumed. We shared our project idea with Naropa Love and he helped us for outreach of our project by publishing our events on their social platforms. Protein report platform was one of our potential outreach as their readers include food industry professionals, investors, researchers, policy makers, consumers, and  stakeholders with an interest in protein, food, agriculture, and science.More information on our feature in protein report platform can be found in visibility of our project in education page.
+We were able to receive potential guidance from Cellular agriculture companies including Cellular agriculture Australia, New Harvest and Good Food Institute.
+</p>
+<!--insert logos-->
+<div>
+
+
+<div class="image left third stacked">
+<img class="expandable_image" width="1000" height="1000" src="https://2021.igem.org/wiki/images/4/4d/T--Uppsala--cellAgAus.png">
+</div>
+
+<div class="image left third stacked">
+<img class="expandable_image" style="margin-top: 50%; transform: translateY(-50%);" width="799" height="282" src="https://2021.igem.org/wiki/images/thumb/e/ec/T--Uppsala--newharvestreal.png/320px-T--Uppsala--newharvestreal.png">
+
+</div>
+
+<div class="image right third stacked">
+<img class="expandable_image" width="1000" height="1000" src="https://2021.igem.org/wiki/images/d/df/T--Uppsala--GFI.png">
+
+</div>
+
+</div>
+
+<div style="display: flex; justify-content: space-around;">
+    
+        <p style="margin-left: -2vw;">
+            Figure 17. Cellular agriculture Australia.
+        </p>
+
+        <p style="margin-left: -2vw;">
+            Figure 18. New Harvest.
+            </p>
+        
+        <p style="margin-left: -2vw;">
+        Figure 19. Good Food Institute.
+        </p>
+
+</div>
+</div>
+<div id='secD'>
+<h1>Promo video multiple languages</h1>
+
+<p>
+We are aware of the importance of language to reach out to people. The spoken words in one’s native language can carry out the significance and send the meaning across differently than when you hear it in your second language or reading subtitles. We want science to be reachable to all and spread the word to everyone about cellular agriculture. Since we wanted to reach out to as many as we could, we used our resources within the team to record the promotional video in four different languages.  The iGEM Uppsala team consists of people from many different backgrounds  all over the world. Although we would like to have included every language, we hope that by having the promotional video in <a href="https://youtu.be/ctXzq0RYJs8">Hindi</a>, <a href="https://youtu.be/_lU8VlvEZa8">Swedish</a>, <a href="
+https://youtu.be/qpMdo670d5w">German</a> and <a href="https://youtu.be/r-pyffud3MM">English</a> we are able to reach out to many and spread awareness about the importance of cellular agriculture.
+</p>
+
+<!--
+<video width="320" height="240" controls>
+<source src="https://2021.igem.org/wiki/images/d/d7/T--Uppsala--promovideo_english.mp4" type="video/mp4">
+</video>
+-->
+</div>
+
+<!--INSERT ABOVE-->
+
+</div>
+
+
+
+</div>
+
+<!-- derive_sidebar_entries.js -->
+<script src="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/js/derive_sidebar_entries.js&action=raw&ctype=text/javascript"></script>
+
+<!-- highlight_section_in_view_in_sidebar.js -->
+<script src="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/js/highlight_section_in_view_in_sidebar.js&action=raw&ctype=text/javascript"></script>
+
+<!-- popups.js -->
+<script src="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/js/popups.js&action=raw&ctype=text/javascript"></script>
+<!-- popups.css -->
+<link rel="stylesheet" type="text/css" href="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/css/popups.css&action=raw&ctype=text/css">
+
+<!-- expand_images.js -->
+<script src="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/js/expand_images.js&action=raw&ctype=text/javascript"></script>
+<!-- expand_images.css -->
+<link rel="stylesheet" type="text/css" href="https://2021.igem.org/wiki/index.php?title=Template:Uppsala/css/expand_images.css&action=raw&ctype=text/css">
+
+<!-- sponsor and social media footer -->
+<div class="flexbox-container-socialmedia">
+<div>
+<a href="https://www.facebook.com/iGEMUppsala">
+<img src="https://2021.igem.org/wiki/images/e/eb/T--Uppsala--facebook.png" loading="lazy">
+</a>
+</div>
+<div>
+<a href="https://www.instagram.com/igem.uppsala/">
+<img src="https://2021.igem.org/wiki/images/b/ba/T--Uppsala--instagram.png" loading="lazy">
+</a>
+</div>
+<div>
+<a href="https://www.uu.se/">
+<img class="upplogo" src="https://shop.uu.se/shop/ws45/82845/files/UU_logo_vit.png" loading="lazy">
+</a>
+</div>
+<div>
+<a href="mailto:info@igemuppsala.se">
+<img src="https://2021.igem.org/wiki/images/1/1e/T--Uppsala--mail.png" loading="lazy">
+</a>
+</div>
+<div>
+<a href="https://www.linkedin.com/company/igem-uppsala/mycompany/">
+<img src="https://2021.igem.org/wiki/images/b/bc/T--Uppsala--linkedin.png" loading="lazy">
+</a>
+</div>
+</div>
+
+<div class="grid-container-sponsors">
+<div>
+<a href="https://www.utn.se/">
+<img src="https://2021.igem.org/wiki/images/8/8b/T--Uppsala--utnlogo.png" loading="lazy">
+</a>
+</div>
+<div>
+<a href="https://www.genscript.com/">
+<img src="http://2014.igem.org/wiki/images/5/5a/York_Genscript_logo-1-.png" loading="lazy">
+</a>
+</div>
+<div>
+<a href="https://worldwide.promega.com/">
+<img src="https://2020.igem.org/wiki/images/0/05/T--UofUppsala--pro.png" loading="lazy">
+</a>
+</div>
+<div>
+<a href="https://www.bio-rad.com/">
+<img src="https://2021.igem.org/wiki/images/f/fc/T--Uppsala--bioradlogo.png" loading="lazy">
+</a>
+</div>
+<div>
+<a href="https://www.bionordika.se/">
+<img src="https://2021.igem.org/wiki/images/2/29/T--Uppsala--bionordikalogo.png" loading="lazy">
+</a>
+</div>
+<div>
+<a href="https://www.merck.com/">
+<img src="https://2021.igem.org/wiki/images/9/9a/T--Uppsala--mercklogo.png" loading="lazy">
+</a>
+</div>
+<div>
+<a href="https://www.scbt.com/home">
+<img src="https://2021.igem.org/wiki/images/f/fa/T--Uppsala--scbtlogo.png" loading="lazy">
+</a>
+</div>
+<div>
+<a href="https://www.snapgene.com/">
+<img src="https://2020.igem.org/wiki/images/8/8c/T--UofUppsala--snap.png" loading="lazy">
+</a>
+</div>
+<div>
+<a href="https://www.eurofins.se/">
+<img src="https://2020.igem.org/wiki/images/a/a4/T--UofUppsala--euro.png" loading="lazy">
+</a>
+</div>
+<div>
+<a href="https://new-harvest.org/">
+<img src="https://2021.igem.org/wiki/images/e/ec/T--Uppsala--newharvestreal.png" loading="lazy">
+</a>
+</div>
+<div>
+<a href="https://testacenter.com/">
+<img src="https://2021.igem.org/wiki/images/d/d6/T--Uppsala--testacenterreal.png" loading="lazy">
+</a>
+</div>
+<div>
+<a href="https://www.cytivalifesciences.com/en/at">
+<img src="https://2021.igem.org/wiki/images/d/d4/T--Uppsala--cytiva.jpeg" loading="lazy">
+</a>
+</div>
+</div>
 
 </body>
 </html>

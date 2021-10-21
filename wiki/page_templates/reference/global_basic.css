@@ -14,7 +14,6 @@
     margin:0;
     border:0;
     padding:0;
-    font-family: sans-serif;
 }
 
 * {
@@ -32,7 +31,9 @@
     --image-caption-inline:1.7vh;
 }
 
-
+#fgfuture_content *{
+    font-family: UL, sans-serif;
+}
 
 #pagecontent a, #pagecontent a:visited, #navigation_bar a, #navigation_bar a:visited{
     text-decoration: none;

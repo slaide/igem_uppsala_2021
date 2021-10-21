@@ -1,25 +1,8 @@
-<div id="sectionA>">
+<div id="sectionA">
     <h1>Introduction</h1>
 
     
-                <!--
-table {
-font-family: arial, sans-serif;
-border-collapse: collapse;
-width: 100%;
-}
 
-td, th {
-border: 1px solid #dddddd;
-text-align: left;
-padding: 8px;
-}
-
-tr:nth-child(even) {
-background-color: #dddddd;
-}
-
-                -->
 
     <p>
         As the project idea was formed, that is, reducing the cost of cultivated meat by optimizing the growth factor FGF2, it became clear that the dry lab would become an important part of the process. It was believed that our approach to improve the binding affinity between FGF2 and its receptor FGFR2 by site directed mutagenesis, would be greatly benefited from in silico modeling. The idea being that if we could evaluate the effect of mutations computationally, we would be able to pinpoint mutations that are more likely to work. This is useful due to the fact that there are 20 possible natural amino acids for each position within a given protein chain. To produce mutant proteins in the lab for every possible amino acid in each position is an unreasonable amount of work, and without any guarantee of success.
@@ -52,36 +35,40 @@ The search for mutations was conducted in the GUI in pyMOL. We explored the bind
 </div>
 <div id="sectionD">
     <h1>Filtering of mutations</h1>
-<p>
-Optimally, all sites within the mutation pool would be evaluated using molecular dynamics simulations. However, as free energy perturbation is computationally demanding and our computing power resources were limited, other means of evaluating the mutations were used in order to reduce the size of the mutation pool. These included: <a href="http://foldxsuite.crg.eu/">FoldX</a> through the GUI In <a href="http://www.yasara.org/index.html">Yasara</a>, the residue scanning tool within the Maestro suite, docking on cluspro and evaluation in Dynamut. In Yasara, the PDB-file of human FGF2 in complex with FGFR2 was loaded and prepared using a repair module within the FoldX suite. Then, a residue scanning tool within the FoldX suite was used to evaluate the effect of mutating the remaining nineteen natural amino acids. In maestro, the structure was loaded and repaired similarly, but the residue scanning tool within the Maestro suite gave information on the effect of both affinity and stability. For ClusPro, the structure of FGFR2 and differently mutated versions of FGF2 were submitted for docking. The calculated delta gibbs free energy of the suggested binding mode was chosen and compared to the wild type. All combined, this resulted in a reduction of the mutation pool from 36 to a size of 8 mutations that were to be evaluated computationally using molecular dynamics through the molecular dynamics software <a>package Q</a> developed at Uppsala University.
-</p>
+    <div>
 
-<div class="image middle half">
-    <img class="expandable_image" width="1122" height="1086" src="https://2021.igem.org/wiki/images/3/39/T--Uppsala--mut-sel-2.png">
-<p> Figure 2. Different tools used to evaluate and filter mutations </p>    
+    <div class="image left half">
+      <img class="expandable_image" width="286" height="536" src="https://2021.igem.org/wiki/images/2/27/T--Uppsala--filter-crop.png">
+  <p> Figure 2. Different tools used to evaluate and filter mutations </p>    
+  </div>
+<p>
+Optimally, all sites within the mutation pool would be evaluated using molecular dynamics simulations. However, as free energy perturbation is computationally demanding and our computing power resources were limited, other means of evaluating the mutations were used in order to reduce the size of the mutation pool (Figure 2). These included: <a href="http://foldxsuite.crg.eu/">FoldX</a> through the GUI In <a href="http://www.yasara.org/index.html">Yasara</a>, the residue scanning tool within the Maestro suite, docking on cluspro and evaluation in Dynamut. In Yasara, the PDB-file of human FGF2 in complex with FGFR2 was loaded and prepared using a repair module within the FoldX suite. Then, a residue scanning tool within the FoldX suite was used to evaluate the effect of mutating the remaining nineteen natural amino acids. In maestro, the structure was loaded and repaired similarly, but the residue scanning tool within the Maestro suite gave information on the effect of both affinity and stability. For ClusPro, the structure of FGFR2 and differently mutated versions of FGF2 were submitted for docking. For ClusPro, the structure of FGFR2 and differently mutated versions of FGF2 were submitted for docking. The calculated change in Gibbs free energy (ΔG) of the suggested binding mode was chosen and compared to the wild type. All combined, this resulted in a reduction of the mutation pool from 36 to a size of 8 mutations that were to be evaluated computationally using molecular dynamics through the molecular dynamics software <a href="https://github.com/qusers/qligfep">package Q</a> developed at Uppsala University.
+</p>
 </div>
 
-<h2> SAAFE-SEQ </h2>:
+
+<h2> SAAFE-SEQ </h2>
 <p> 
-SAAFE-SEQ[1] uses a machine learning algorithm to predict the change in stability of a protein upon single mutation. For each mutation, it combines the sequence information and  amino acid properties to determine the change in free energy to predict the stability. The delta Gibbs free energy provides us with the information on whether the mutations are stabilizing or destabilizing the protein structure. It takes our wild type protein fasta sequence and mutation position, wild type and mutant amino acid as input. 
+  SAAFE-SEQ [1] uses a machine learning algorithm to predict the change in stability of a protein upon single mutation. For each mutation, it combines the sequence information and  amino acid properties to determine the change in free energy to predict the stability. The change in  Gibbs free energy provides us with the information on whether the mutations are stabilizing or destabilizing the protein structure. It takes our wild type protein fasta sequence and mutation position, wild type and mutant amino acid as input. 
 </p>
 
 <h2>Dynamut</h2>
 <p>
-Most of the software tools use static structure based approaches for assessing the impact of mutations on protein structure because of high computational costs. As proteins are highly mobile molecules we used Dynamut[2] which visualizes and analyzes protein dynamics. It estimates the impact of mutations on protein dynamics and stability resulting from vibrational entropy changes.
+  Most of the software tools use static structure based approaches for assessing the impact of mutations on protein structure because of high computational costs. As proteins are highly mobile molecules we used Dynamut [2] which visualizes and analyzes protein dynamics.It estimates the impact of mutations on protein dynamics and stability resulting from vibrational entropy changes.
 </p>
 
-<h2>Cluspro</h2>:
+<h2>Cluspro</h2>
 <p>
-Cluspro[3] uses the PDB codes as input for protein-protein docking, and returns a ranked list of complexes, ordered by clustering properties. We worked with PDB files of FGF2 and the receptor FGFR, then used ClusPro to dock them which resulted in a change in free energy values. After that, we mutated the FGF2 and docked that with FGFR to get the change in free energy values of the mutated complex. Finally we compared the stability of the formed mutant complex with wild type docking pose by analyzing the values returned by docking the wild type and the mutant. 
+  Cluspro [3] uses the PDB codes as input for protein-protein docking, and returns a ranked list of complexes, ordered by clustering properties. We worked with PDB files of FGF2 and the receptor FGFR, then used ClusPro to dock them which resulted in a change in free energy values. After that, we mutated the FGF2 and docked that with FGFR to get the change in free energy values of the mutated complex. Finally we compared the stability of the formed mutant complex with wild type docking pose by analyzing the values returned by docking the wild type and the mutant. 
 </p>
 
-<h2>FoldX</h2>: 
+<h2>FoldX</h2>
 <p>
-FoldX[4] estimates the vital interactions contributing to the stability of proteins as well as complexes. It distinguishes itself from other software by using full atomic descriptions. It takes various energy terms into account, including differences in solvation energy for apolar and polar groups, free energy of inter- and intramolecular hydrogen bonds, and electrostatic contributions of charged groups. By installing the FoldX plugin for YASARA, the FoldX tools can be accessed  in the 3D graphical YASARA interface. We used the position scanning module within FoldX in order to get the results in Table 1.</p>
+  FoldX [4] estimates the vital interactions contributing to the stability of proteins as well as complexes. It distinguishes itself from other software by using full atomic descriptions. It takes various energy terms into account, including differences in solvation energy for apolar and polar groups, free energy of inter- and intramolecular hydrogen bonds,as well as electrostatic contributions of charged groups. By installing the FoldX plugin for YASARA, the FoldX tools can be accessed  in the 3D graphical YASARA interface. We used the position scanning module within FoldX in order to get the results in Table 1.
+</p>
 
 <table>
-    <p style="padding-bottom:0;">Table 1. Delta Delta gibbs free energy from FoldX.</p>
+    <p style="padding-bottom:0;">Table 1. ΔΔGibbs free energy from FoldX.</p>
     <tr>
       <th>Position</th>
       <th>Lowest (kcal/mol)</th>
@@ -163,15 +150,15 @@ FoldX[4] estimates the vital interactions contributing to the stability of prote
   <h2>Residue Scanning</h2>
 
   <p>
-    We used the residue scanning panel in Maestro from Schrödinger[5] .The panel helped us to scan our proteins for residues that are suitable for mutations based on solvent accessible surface area and distances with other residues and also allows manual selection.To produce mutated structures,we used the mutations based on the findings from PyMOL. As a result, it returned the relative change in thermal stability of a single protein as well as its binding affinity compared to the original protein as mentioned in Table 2, which helped us to move further in the process of evaluating the mutations.
+    We used the residue scanning panel in Maestro from Schrödinger [5] .The panel helped us to scan our proteins for residues that are suitable for mutations based on solvent accessible surface area and distances with other residues and also allows manual selection.To produce mutated structures,we used the mutations based on the findings from PyMOL. As a result, it returned the relative change in thermal stability of a single protein as well as its binding affinity compared to the original protein as mentioned in Table 2, which helped us to move further in the process of evaluating the mutations.
     </p>
 
     <table>
-        <p style="padding-bottom:0;">Table 2. Delta affinity and stability values from residue scanning. Green ones are negative, indicating increased affinity or stability, and thus potential mutations for further evaluation.</p>
+        <p style="padding-bottom:0;">Table 2. Δ affinity and stability values from residue scanning. Negative values are marked in green, indicating increased affinity or stability, and thus potential mutations for further evaluation.</p>
         <tr>
-          <th>Mutations</th>
-          <th>Delta affinity (kcal/mol)</th>
-          <th>Delta stability (kcal/mol)</th>
+          <th>MUTATIONS</th>
+          <th>Δ AFFINITY (kcal/mol)</th>
+          <th>Δ STABILITY (kcal/mol)</th>
         </tr>
         <tr>
           <td>M142I</td>
@@ -360,21 +347,18 @@ FoldX[4] estimates the vital interactions contributing to the stability of prote
   <h1>3D printing</h1>
 
 <p>    
-Having U-Print, a dedicated facility for 3D printing, at Uppsala university, inspired the idea of 3D printing the structure of FGF2. For such prototyping we needed to create a file that described the surface geometry of a three dimensional object. To generate such a file, in the STL format, we used Chimera [6], a software used for interactive visualization and analysis of molecular structure. 
+  Having the opportunity to use U-Print, a dedicated facility for 3D printing, at Uppsala university, inspired the idea of 3D printing the structure of FGF2. For such prototyping we needed to create a file that described the surface geometry of a three dimensional object.To generate such a file (Figure 3), in the STL format, we used Chimera [6], a software used for interactive visualization and analysis of molecular structure. 
 </p>
-<div>
 
-<div class="image left half stacked">
-  <img class="expandable_image" width="1004" height="1024" src="https://2021.igem.org/wiki/images/3/32/T--Uppsala--3D-1.png">
-<p> Figure 3 and Figure 4. Solid Surface file of FGF2. </p>    
+
+<div class="image middle half">
+  <img class="expandable_image" width="800" height="369" src="https://2021.igem.org/wiki/images/thumb/1/1c/T--Uppsala--merged-mut-sel-f3.png/320px-T--Uppsala--merged-mut-sel-f3.png">
+<p>Figure 3. Solid Surface file of FGF2</p>    
 </div>
 
-<div class="image right half stacked">
-  <img class="expandable_image" width="1024" height="892" src="https://2021.igem.org/wiki/images/1/1e/T--Uppsala--3D-2.png">   
-</div>
-</div>
+
 <p>
-  The stereolithography technique was used to 3D print both the protein and the receptor. Research Engineer Olle Erksson from U-Print printed our model and helped us to get to know the process behind the technology. He also gave us a small guided tour of their facility, which had 3D printed anatomical models for surgery, tools for bacterial culture, tools for live imaging, protein structures and many more.
+  The stereolithography technique was used to 3D print both the protein and the receptor. Research Engineer Olle Erksson from U-Print printed our model and helped us to get to know the process behind the technology. He also gave us a small guided tour of their facility, which included 3D printed anatomical models for surgery, tools for bacterial culture, tools for live imaging, protein structures, etc.
   </p>
 
 
@@ -382,7 +366,7 @@ Having U-Print, a dedicated facility for 3D printing, at Uppsala university, ins
 
     <div class="image left half stacked">
       <img class="expandable_image" width="1024" height="682" src="https://2021.igem.org/wiki/images/4/4f/T--Uppsala--fgf.jpg">
-    <p> Figure 5. Structure of Fibroblast Growth Factor 2. 
+    <p> Figure 4. Structure of Fibroblast Growth Factor 2. 
       <i>3D printing was performed at U-PRINT: Uppsala University’s 3D-printing facility at the Disciplinary Domain of Medicine and Pharmacy.</i>
        </p>    
     </div>
@@ -390,7 +374,7 @@ Having U-Print, a dedicated facility for 3D printing, at Uppsala university, ins
     <div class="image right half stacked">
       <img class="expandable_image" width="1024" height="892" src="https://2021.igem.org/wiki/images/thumb/a/a9/T--Uppsala--recept.jpg/600px-T--Uppsala--recept.jpg.png">   
     
-      <p> Figure 6. Structure of Fibroblast Growth Factor receptor. 
+      <p> Figure 5. Structure of Fibroblast Growth Factor receptor. 
         <i>3D printing was performed at U-PRINT: Uppsala University’s 3D-printing facility at the Disciplinary Domain of Medicine and Pharmacy.</i>
          </p>  
     </div>
@@ -399,7 +383,8 @@ Having U-Print, a dedicated facility for 3D printing, at Uppsala university, ins
 
 
     <p>
-      We wanted to explore and educate ourselves with different technologies and tried to integrate them into our project. Visual representation of FGF2 is one of the important benefits for creating a 3D model of our protein. In addition to the protein structure, U-Print helped us to print the receptor structure. 
+      We wanted to explore and educate ourselves with different technologies and tried to integrate them into our project. Visual representation of FGF2 is one of the important benefits for creating a 3D model of our protein. In addition to the protein structure, U-Print helped us to print the receptor structure (Figure 4, Figure 5). 
+
       </p>
 
 <h2> References</h2>
@@ -408,7 +393,7 @@ Having U-Print, a dedicated facility for 3D printing, at Uppsala university, ins
 </p>
 
 <p>
-  [2] DynaMut: predicting the impact of mutations on protein conformation, flexibility and stability. PMID: 29718330 PMCID: PMC6031064 DOI: 10.1093/nar/gky300
+  [2] DynaMut: Predicting the impact of mutations on protein conformation, flexibility and stability. PMID: 29718330 PMCID: PMC6031064 DOI: 10.1093/nar/gky300
 </p>
 <p>
   [3] Desta IT, Porter KA, Xia B, Kozakov D, Vajda S. Performance and Its Limits in Rigid Body Protein-Protein Docking. Structure. 2020 Sep; 28 (9):1071-1081.  doi
