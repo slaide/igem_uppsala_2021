@@ -85,18 +85,19 @@
 }
 
 /* make image float so that text can wrap around it */
-div.image.left{
+#fgfuture_content div.image.left{
     float:left;
     padding-right:2vh;
 }
-div.image.right{
+#fgfuture_content div.image.right{
     float:right;
     padding-left:2vh;
 }
-div.image.middle{
+#fgfuture_content div.image.middle{
     position:relative;
     left:50%;
     transform:translateX(-50%);
+    margin-left:0;
 }
 
 #fgfuture_content div.w10{
