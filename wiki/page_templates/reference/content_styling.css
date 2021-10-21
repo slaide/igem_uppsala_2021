@@ -47,7 +47,7 @@
     line-height: 1.5;
 }
 #fgfuture_content p,#fgfuture_content ul,#fgfuture_content ol,#fgfuture_content div.content_section>div{
-    font-family: sans-serif;
+    font-family: UL, sans-serif;
     font-size: var(--text-size-regular);
 }
 /* all elements listed in main content sections (the usual text you see on template pages) */
