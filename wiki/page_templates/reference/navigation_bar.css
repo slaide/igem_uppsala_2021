@@ -28,7 +28,7 @@
 
 /* a elements when not hovering*/
 div.dropbtn,.navigation_dropdown_entry,.igem_content_wrapper .igem_column_wrapper a{
-    font-family: sans-serif;
+    font-family: UM, sans-serif;
     transition: 0.1s;
     font-weight: normal;
     text-decoration: none;
