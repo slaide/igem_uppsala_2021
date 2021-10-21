@@ -112,11 +112,11 @@ const pages=[
             },
             {
                 name:"Promotional<br>Video",
-                link:"https://www.youtube.com/watch?v=avKlAK5-1ks"
+                link:"https://video.igem.org/w/tD7V4CC2XeFUe7djaeauCs"
             },
             {
                 name:"Molecular<br>Dynamics",
-                link:"https://2021.igem.org/Team:Uppsala/Model"
+                link:"https://2021.igem.org/Team:Uppsala/Model#sectiontheory_link"
             },
         ]
     },

@@ -134,6 +134,15 @@ div.image.middle{
     width:calc( 33.3333% - 1vh);
 }
 
+#fgfuture_content div.stacked_container{
+    height:auto;
+    display:flex;
+    align-items:flex-end;
+}
+#fgfuture_content div.stacked_container > div.stacked{
+    flex:1;
+}
+
 #fgfuture_content div.content_section > div.image.full{
     margin-left:0;
 }
