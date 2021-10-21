@@ -45,7 +45,7 @@ const pages=[
             },
             {
                 name:"Parts",
-                link:"https://2021.igem.org/Team:Uppsala/Parts"
+                link:"https://2021.igem.org/Team:Uppsala/Part_Collection"
             },
             {
                 name:"Safety",
