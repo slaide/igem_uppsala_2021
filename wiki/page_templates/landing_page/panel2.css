@@ -35,6 +35,32 @@
     bottom:5vh;
     right:5vh;
 }
+.text_top_left > div, .text_top_right > div, .text_bottom_left > div, .text_bottom_right > div{
+    display:flex;
+    --align-items:center;
+}
+.text_top_left > div > span, .text_top_right > div > span, .text_bottom_left > div > span, .text_bottom_right > div > span{
+    flex: 15 0;
+}
+.text_top_left > div > .expansion_icon, .text_top_right > div > .expansion_icon, .text_bottom_left > div > .expansion_icon, .text_bottom_right > div > .expansion_icon{
+    flex: 3 0;
+    background-image:url('https://2021.igem.org/wiki/images/3/39/T--Uppsala--triangle.svg');
+    background-size: 2vh 2vh;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.text_top_left > div.expanded > .expansion_icon, .text_top_right > div.expanded > .expansion_icon, .text_bottom_left > div.expanded > .expansion_icon, .text_bottom_right > div.expanded > .expansion_icon{
+    transform:rotate( 90deg );
+    animation:rotate_expanding_indicator 0.5s;
+}
+@keyframes rotate_expanding_indicator{
+    from{
+        transform:rotate( 0deg );
+    }
+    to{
+        transform:rotate( 90deg );
+    }
+}
 
 #co2_text,#antibiotic_text,#factory_text,#deforestation_text{
     max-width:18vw;
