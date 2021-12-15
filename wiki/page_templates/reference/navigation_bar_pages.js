@@ -107,8 +107,8 @@ const pages=[
         name:"Videos",
         entries:[
             {
-                name:"* Final<br>Presentation",
-                link:"https://2021.igem.org/Team:Uppsala/Empty"
+                name:"Final<br>Presentation",
+                link:"https://video.igem.org/w/aaa8a584-9bbf-457d-ae79-a55a3c23613b"
             },
             {
                 name:"Promotional<br>Video",
@@ -132,8 +132,8 @@ const pages=[
                 link:"https://2021.igem.org/Team:Uppsala/Education"
             },
             {
-                name:"* Awards",
-                link:"https://2021.igem.org/Team:Uppsala/Empty"
+                name:"Awards",
+                link:"https://2021.igem.org/Team:Uppsala/Awards"
             },
         ]
     },
